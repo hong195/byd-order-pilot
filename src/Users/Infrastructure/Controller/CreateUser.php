@@ -14,18 +14,18 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/users', name: 'create_user', methods: ['POST'])]
 readonly class CreateUser
 {
-    public function __construct(private AdminUseCaseInteractor $adminUseCaseInteractor)
-    {
-    }
+	public function __construct(private CommandBusInterface $commandBus)
+	{
+	}
 
     public function __invoke(Request $request): JsonResponse
     {
         $command = new CreateUserCommand($request->get('email'), $request->get('password'));
 
-        $this->adminUseCaseInteractor->createUser($command);
+        $userId  = $this->commandBus->execute($command);
 
         return new JsonResponse([
-            // 'id' => $res->id,
+            'id' => $userId,
         ]);
     }
 }
