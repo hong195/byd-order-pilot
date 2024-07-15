@@ -14,7 +14,7 @@ use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[AsController]
-#[Route('/users/{id}', name: 'update_user', requirements: ['id' => '[0-9]+'], methods: ['PUT'])]
+#[Route('/api/users/{id}', name: 'update_user', requirements: ['id' => '^\d+$'], methods: ['PUT'])]
 class UpdateUser implements CommandInterface
 {
     public function __construct(private CommandBusInterface $commandBus)
@@ -24,16 +24,16 @@ class UpdateUser implements CommandInterface
     public function __invoke(int $id, Request $request): JsonResponse
     {
         $updateCommand = new UpdateUserCommand(
-			userId: $id,
-			email: $request->get('email'),
-			name: $request->get('name'),
-			password: $request->get('password')
-		);
+            userId: $id,
+            email: $request->get('email'),
+            name: $request->get('name'),
+            password: $request->get('password')
+        );
 
         $this->commandBus->execute($updateCommand);
 
         return new JsonResponse([
-			'message' => 'User updated successfully.'
-		], Response::HTTP_OK);
+            'message' => 'User updated successfully.',
+        ], Response::HTTP_OK);
     }
 }

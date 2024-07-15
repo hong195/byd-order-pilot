@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Users\Infrastructure\Controller;
@@ -12,18 +13,19 @@ use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[AsController]
-#[Route('/users/{id}', name: 'delete_user', requirements: ['id' => '[0-9]+'], methods: ['DELETE'])]
-readonly class DeleteUser {
-	public function __construct(private CommandBusInterface $commandBus)
-	{
-	}
+#[Route('/api/users/{id}', name: 'delete_user', requirements: ['id' => '^\d+$'], methods: ['DELETE'])]
+readonly class DeleteUser
+{
+    public function __construct(private CommandBusInterface $commandBus)
+    {
+    }
 
-	public function __invoke(int $id, Request $request): JsonResponse
-	{
-		$deleteCommand = new DeleteUserCommand((int) $request->get('id'));
+    public function __invoke(int $id, Request $request): JsonResponse
+    {
+        $deleteCommand = new DeleteUserCommand((int) $request->get('id'));
 
-		$this->commandBus->execute($deleteCommand);
+        $this->commandBus->execute($deleteCommand);
 
-		return new JsonResponse(null, Response::HTTP_NO_CONTENT);
-	}
+        return new JsonResponse(null, Response::HTTP_NO_CONTENT);
+    }
 }

@@ -12,5 +12,5 @@ interface UserFetcherInterface
 
     public function nullableUser(): ?AuthUserInterface;
 
-    public function nullableUserId(): ?string;
+    public function nullableUserId(): ?int;
 }

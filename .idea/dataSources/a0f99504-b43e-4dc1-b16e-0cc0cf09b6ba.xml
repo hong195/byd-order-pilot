@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.52">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>758</IntrospectionStateNumber>
+      <IntrospectionStateNumber>771</IntrospectionStateNumber>
       <ServerVersion>16.3</ServerVersion>
       <StartupTime>1720775593</StartupTime>
       <TimeZones>true ACDT
@@ -806,7 +806,7 @@ true posixrules
 13255||10|C|G
 13255||-9223372036854775808|U|G
 13255||10|U|G</Grants>
-      <IntrospectionStateNumber>758</IntrospectionStateNumber>
+      <IntrospectionStateNumber>771</IntrospectionStateNumber>
       <ObjectId>16384</ObjectId>
       <OwnerName>symfony</OwnerName>
     </database>
@@ -4225,8 +4225,8 @@ true posixrules
     <schema id="264" parent="3" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>758</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2024-07-15.10:13:48</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>771</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2024-07-15.14:07:56</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>524</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -4261,7 +4261,7 @@ true posixrules
     </table>
     <table id="269" parent="264" name="users">
       <ObjectId>16403</ObjectId>
-      <StateNumber>746</StateNumber>
+      <StateNumber>762</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>symfony</OwnerName>
     </table>
@@ -4387,7 +4387,14 @@ true posixrules
       <StateNumber>746</StateNumber>
       <TypeId>114</TypeId>
     </column>
-    <index id="286" parent="269" name="users_pkey">
+    <column id="286" parent="269" name="name">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StateNumber>762</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="287" parent="269" name="users_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16410</ObjectId>
@@ -4396,7 +4403,7 @@ true posixrules
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="287" parent="269" name="uniq_1483a5e9e7927c74">
+    <index id="288" parent="269" name="uniq_1483a5e9e7927c74">
       <ColNames>email</ColNames>
       <ObjectId>16412</ObjectId>
       <StateNumber>746</StateNumber>
@@ -4406,7 +4413,7 @@ true posixrules
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="288" parent="269" name="users_pkey">
+    <key id="289" parent="269" name="users_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16411</ObjectId>
       <Primary>1</Primary>

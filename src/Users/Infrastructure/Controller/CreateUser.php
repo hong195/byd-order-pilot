@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Users\Infrastructure\Controller;
@@ -11,22 +12,22 @@ use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[AsController]
-#[Route('/users', name: 'create_user', methods: ['POST'])]
+#[Route(path: '/api/users', name: 'create_user', methods: ['POST'])]
 readonly class CreateUser
 {
-	public function __construct(private CommandBusInterface $commandBus)
-	{
-	}
+    public function __construct(private CommandBusInterface $commandBus)
+    {
+    }
 
     public function __invoke(Request $request): JsonResponse
     {
         $command = new CreateUserCommand(
-			$request->get('name'),
-			$request->get('email'),
-			$request->get('password')
-		);
+            name: $request->get('name'),
+            email: $request->get('email'),
+            password: $request->get('password')
+        );
 
-        $userId  = $this->commandBus->execute($command);
+        $userId = $this->commandBus->execute($command);
 
         return new JsonResponse([
             'id' => $userId,
