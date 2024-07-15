@@ -1,5 +1,19 @@
 controllers:
-    resource:
-        path: ../src/Controller/
-        namespace: App\Controller
+    resource: ../src/Shared/Infrastructure/Controller/
+    type: attribute
+
+kernel:
+    resource: ../src/Shared/Infrastructure/Kernel.php
+    type: attribute
+
+api_refresh_token:
+    path: /api/auth/v1/refresh-token
+    methods: POST
+
+api_login_check:
+    path: /api/auth/v1/token
+    methods: POST
+
+users:
+    resource: ../src/Users/Infrastructure/Controller/
     type: attribute
