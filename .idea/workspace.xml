@@ -4,83 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added orm/pack.">
-      <change afterPath="$PROJECT_DIR$/config/packages/lexik_jwt_authentication.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/messenger.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Application/Command/Command.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Application/Command/CommandBusInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Application/Command/CommandHandlerInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Application/Command/CommandInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Application/Event/EventBusInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Application/Event/EventHandlerInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Application/Query/Query.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Application/Query/QueryBusInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Application/Query/QueryHandlerInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Application/Query/QueryInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Application/Security/AuthChecker.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Domain/Aggregate/Aggregate.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Domain/Event/EventInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Domain/Repository/Pager.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Domain/Repository/PaginationResult.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Domain/Security/AuthUserInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Domain/Security/Role.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Domain/Security/UserFetcherInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Domain/Service/AssertService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Domain/Specification/SpecificationInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Domain/ValueObject/GlobalUserId.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Bus/CommandBus.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Bus/EventBus.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Bus/QueryBus.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Controller/HealthCheckAction.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/EventListener/Doctrine/InitSpecificationOnPostLoadListener.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/EventListener/Doctrine/PublishDomainEventsOnFlushListener.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/EventListener/Exception/ExceptionListener.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Security/UserFetcher.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Users/Application/DTO/UserDTO.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Users/Application/UseCase/AdminUseCaseInteractor.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Users/Application/UseCase/Command/CreateUser/CreateUserCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Users/Application/UseCase/Command/CreateUser/CreateUserCommandHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Users/Application/UseCase/PrivateUseCaseInteractor.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Users/Application/UseCase/PublicUseCaseInteractor.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Users/Application/UseCase/Query/FindUser/FindUserQuery.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Users/Application/UseCase/Query/FindUser/FindUserQueryHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Users/Application/UseCase/Query/FindUser/FindUserQueryResult.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Users/Application/UseCase/Query/FindUserByEmail/FindUserByEmailQuery.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Users/Application/UseCase/Query/FindUserByEmail/FindUserByEmailQueryHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Users/Application/UseCase/Query/GetMe/GetMeQuery.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Users/Application/UseCase/Query/GetMe/GetMeQueryHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Users/Application/UseCase/Query/GetMe/GetMeQueryResult.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Users/Domain/Entity/RefreshToken.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Users/Domain/Entity/User.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Users/Domain/Factory/UserFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Users/Domain/Repository/UserRepositoryInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Users/Domain/Service/UserPasswordHasherInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Users/Infrastructure/Console/CreateUserConsoleCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Users/Infrastructure/Controller/GetMeAction.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Users/Infrastructure/Database/ORM/RefreshToken.orm.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Users/Infrastructure/Database/ORM/User.orm.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Users/Infrastructure/Repository/UserRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Users/Infrastructure/UserPasswordHasher.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/phpspec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpspec.xml" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added doctrine/messenger/shared context">
+      <change afterPath="$PROJECT_DIR$/src/Users/Infrastructure/Controller/CreateUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/console" beforeDir="false" afterPath="$PROJECT_DIR$/bin/console" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/doctrine.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/doctrine_migrations.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/doctrine_migrations.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Controller/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Bus/CommandBus.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Bus/CommandBus.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/Application/UseCase/Command/CreateUser/CreateUserCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Application/UseCase/Command/CreateUser/CreateUserCommandHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/Infrastructure/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Infrastructure/Repository/UserRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -289,7 +221,7 @@
       <workItem from="1720786502177" duration="8149000" />
       <workItem from="1720982694717" duration="599000" />
       <workItem from="1721028595886" duration="2957000" />
-      <workItem from="1721032782221" duration="2049000" />
+      <workItem from="1721032782221" duration="4784000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit.">
       <option name="closed" value="true" />
@@ -371,7 +303,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720795589998</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added doctrine/messenger/shared context">
+      <option name="closed" value="true" />
+      <created>1721035073241</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1721035073242</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -385,7 +325,19 @@
     <MESSAGE value="Added cs-fixer." />
     <MESSAGE value="Added phpstan." />
     <MESSAGE value="Added orm/pack." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added orm/pack." />
+    <MESSAGE value="Added doctrine/messenger/shared context" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added doctrine/messenger/shared context" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/vendor/doctrine/orm/src/EntityManagerInterface.php</url>
+          <line>19</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

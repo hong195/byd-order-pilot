@@ -11,7 +11,6 @@ use Doctrine\Persistence\ManagerRegistry;
 
 /**
  * @extends ServiceEntityRepository<User>
- * @property \Doctrine\ORM\EntityManagerInterface $_em
  */
 class UserRepository extends ServiceEntityRepository implements UserRepositoryInterface
 {
@@ -22,8 +21,8 @@ class UserRepository extends ServiceEntityRepository implements UserRepositoryIn
 
     public function add(User $user): void
     {
-        $this->_em->persist($user);
-        $this->_em->flush();
+        $this->getEntityManager()->persist($user);
+        $this->getEntityManager()->flush();
     }
 
     public function findById(int $id): ?User
