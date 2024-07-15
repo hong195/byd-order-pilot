@@ -5,6 +5,7 @@ namespace App\Users\Infrastructure\Console;
 use App\Shared\Domain\Security\Role;
 use App\Users\Application\UseCase\AdminUseCaseInteractor;
 use App\Users\Application\UseCase\Command\CreateUser\CreateUserCommand;
+use App\Users\Application\UseCase\Command\CreateUser\DeleteUserCommand;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -27,6 +28,15 @@ final class CreateUserConsoleCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
+
+		$name = $io->askHidden(
+			'name',
+			function (?string $input) {
+				Assert::notEmpty($input, 'Name cannot be empty');
+
+				return $input;
+			}
+		);
 
         $email = $io->ask(
             'email',
@@ -57,7 +67,7 @@ final class CreateUserConsoleCommand extends Command
             }
         );
 
-        $command = new CreateUserCommand($email, $password);
+        $command = new CreateUserCommand($name, $email, $password);
         $this->adminCommandInteractor->createUser($command);
 
         return Command::SUCCESS;

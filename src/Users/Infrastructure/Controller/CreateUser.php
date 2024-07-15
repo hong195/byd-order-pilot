@@ -1,9 +1,9 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Users\Infrastructure\Controller;
 
 use App\Shared\Application\Command\CommandBusInterface;
-use App\Users\Application\UseCase\AdminUseCaseInteractor;
 use App\Users\Application\UseCase\Command\CreateUser\CreateUserCommand;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,7 +20,11 @@ readonly class CreateUser
 
     public function __invoke(Request $request): JsonResponse
     {
-        $command = new CreateUserCommand($request->get('email'), $request->get('password'));
+        $command = new CreateUserCommand(
+			$request->get('name'),
+			$request->get('email'),
+			$request->get('password')
+		);
 
         $userId  = $this->commandBus->execute($command);
 

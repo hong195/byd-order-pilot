@@ -21,10 +21,6 @@ class QueryBus implements QueryBusInterface
 
     public function execute(QueryInterface $query): mixed
     {
-        try {
-            return $this->handle($query);
-        } catch (HandlerFailedException $exception) {
-            throw $exception->getNestedExceptions()[0];
-        }
+		return $this->handle($query);
     }
 }
