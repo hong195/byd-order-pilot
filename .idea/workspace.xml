@@ -4,17 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added update user command.">
-      <change afterPath="$PROJECT_DIR$/config/packages/gesdinet_jwt_refresh_token.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/lexik_jwt_authentication.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/lexik_jwt_authentication.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Domain/Security/UserFetcherInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Domain/Security/UserFetcherInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Security/UserFetcher.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Security/UserFetcher.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/Infrastructure/Controller/CreateUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Infrastructure/Controller/CreateUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/Infrastructure/Controller/DeleteUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Infrastructure/Controller/DeleteUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/Infrastructure/Controller/UpdateUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Infrastructure/Controller/UpdateUser.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Removed version from auth routes.">
+      <change beforePath="$PROJECT_DIR$/src/Users/Infrastructure/Controller/GetMeAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Infrastructure/Controller/GetMeAction.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +216,7 @@
       <workItem from="1720786502177" duration="8149000" />
       <workItem from="1720982694717" duration="599000" />
       <workItem from="1721028595886" duration="2957000" />
-      <workItem from="1721032782221" duration="14665000" />
+      <workItem from="1721032782221" duration="15255000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit.">
       <option name="closed" value="true" />
@@ -355,7 +346,23 @@
       <option name="project" value="LOCAL" />
       <updated>1721047805064</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Added jwt based auth/login">
+      <option name="closed" value="true" />
+      <created>1721052606214</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1721052606214</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Removed version from auth routes.">
+      <option name="closed" value="true" />
+      <created>1721052726403</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1721052726403</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -373,7 +380,9 @@
     <MESSAGE value="Fixed user repository." />
     <MESSAGE value="Added route for creating user." />
     <MESSAGE value="Added update user command." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added update user command." />
+    <MESSAGE value="Added jwt based auth/login" />
+    <MESSAGE value="Removed version from auth routes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed version from auth routes." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

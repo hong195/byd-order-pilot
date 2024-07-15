@@ -7,11 +7,11 @@ kernel:
     type: attribute
 
 api_refresh_token:
-    path: /api/auth/v1/refresh-token
+    path: /api/auth/refresh-token
     methods: POST
 
 api_login_check:
-    path: /api/auth/v1/token
+    path: /api/auth/token
     methods: POST
 
 users:

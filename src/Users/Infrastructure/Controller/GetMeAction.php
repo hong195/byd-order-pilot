@@ -24,6 +24,8 @@ readonly class GetMeAction
         return new JsonResponse([
             'id' => $user->getId(),
             'email' => $user->getEmail(),
+			'name' => $user->getName(),
+			'roles' => $user->getRoles(),
         ]);
     }
 }
