@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Rolls\Domain\Aggregate\Roll;
 
 use App\Shared\Domain\Aggregate\Aggregate;
+use Webmozart\Assert\Assert;
 
 final class Roll extends Aggregate
 {
@@ -23,12 +24,26 @@ final class Roll extends Aggregate
     private RollType $rollType;
     private int $priority = 0;
 
-    public function __construct(string $name, Quality $quality, RollType $rollType)
-    {
+    public function __construct(
+        string $name,
+        Quality $quality,
+        RollType $rollType,
+        int $length = 0,
+        ?string $qualityNotes = null,
+        int $priority = 0
+    ) {
         $this->name = $name;
         $this->quality = $quality;
         $this->dateAdded = new \DateTimeImmutable();
         $this->rollType = $rollType;
+
+        if ($length < 0) {
+            throw new \InvalidArgumentException('Length must be greater than 0');
+        }
+
+        $this->length = $length;
+        $this->priority = $priority;
+        $this->qualityNotes = $qualityNotes;
     }
 
     public function getId(): int
@@ -39,6 +54,12 @@ final class Roll extends Aggregate
     public function getName(): string
     {
         return $this->name;
+    }
+
+    public function changeName(string $name): void
+    {
+        Assert::notEmpty($name, 'Name cannot be empty');
+        $this->name = $name;
     }
 
     public function getDateAdded(): \DateTimeInterface
@@ -64,6 +85,13 @@ final class Roll extends Aggregate
     public function getPriority(): int
     {
         return $this->priority;
+    }
+
+    public function updateLength(int $length): void
+    {
+        Assert::notEq(0, 'Length must be greater than 0');
+
+        $this->length = $length;
     }
 
     public function getRollType(): string

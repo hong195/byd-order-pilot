@@ -4,11 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added roll model.">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added roll repo.">
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Application/DTO/RollData.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/CreateRoll/CreateRollCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/CreateRoll/CreateRollCommandHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/DeleteRoll/DeleteRollCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/DeleteRoll/DeleteRollCommandHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/UpdateRoll/UpdateRollCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/UpdateRoll/UpdateRollCommandHandler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rolls/Domain/Repository/RollRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Domain/Repository/RollRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rolls/Infrastructure/Repository/RollRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Repository/RollRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/Roll/Roll.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/Roll/Roll.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rolls/Domain/Factory/RollFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Domain/Factory/RollFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/Infrastructure/Console/CreateUserConsoleCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Infrastructure/Console/CreateUserConsoleCommand.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,36 +159,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;PHPUnit.Main.executor&quot;: &quot;Coverage&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm&quot;: &quot;Docker Compose&quot;,
-    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm&quot;: &quot;Docker Compose&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/aleksejem/Sites/order-pilot/src/Rolls/Infrastructure&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.php.quality.tools.phpstan&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "PHPUnit.Main.executor": "Coverage",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm": "Docker Compose",
+    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm": "Docker Compose",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/src/Rolls/Application/UseCase/Command/DeleteRoll",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "php.override.implement.member.chooser.php.doc": "NONE",
+    "settings.editor.selected.configurable": "settings.php.quality.tools.phpstan",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/DeleteRoll" />
+      <recent name="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/UpdateRoll" />
+      <recent name="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/CreateRoll" />
       <recent name="$PROJECT_DIR$/src/Rolls/Infrastructure" />
       <recent name="$PROJECT_DIR$/config/packages" />
-      <recent name="$PROJECT_DIR$/src/Users/Application/UseCase/Command" />
-      <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/src/Users" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/Roll" />
@@ -224,6 +231,8 @@
       <workItem from="1721028595886" duration="2957000" />
       <workItem from="1721032782221" duration="25977000" />
       <workItem from="1721136393792" duration="4369000" />
+      <workItem from="1721140808967" duration="1336000" />
+      <workItem from="1721142650970" duration="3678000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit.">
       <option name="closed" value="true" />
@@ -385,7 +394,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721140579351</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Added roll repo.">
+      <option name="closed" value="true" />
+      <created>1721140926595</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1721140926595</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -407,7 +424,8 @@
     <MESSAGE value="Added" />
     <MESSAGE value="Removed version from auth routes." />
     <MESSAGE value="Added roll model." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added roll model." />
+    <MESSAGE value="Added roll repo." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added roll repo." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
