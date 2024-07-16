@@ -3,9 +3,9 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.52">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>783</IntrospectionStateNumber>
+      <IntrospectionStateNumber>843</IntrospectionStateNumber>
       <ServerVersion>16.3</ServerVersion>
-      <StartupTime>1720775593</StartupTime>
+      <StartupTime>1721136469</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -806,7 +806,7 @@ true posixrules
 13255||10|C|G
 13255||-9223372036854775808|U|G
 13255||10|U|G</Grants>
-      <IntrospectionStateNumber>783</IntrospectionStateNumber>
+      <IntrospectionStateNumber>843</IntrospectionStateNumber>
       <ObjectId>16384</ObjectId>
       <OwnerName>symfony</OwnerName>
     </database>
@@ -4225,43 +4225,43 @@ true posixrules
     <schema id="264" parent="3" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>783</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2024-07-15.14:17:48</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>843</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2024-07-16.14:35:39</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>524</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
     </schema>
     <sequence id="265" parent="264" name="refresh_token_id_seq">
       <DasType>bigint|0s</DasType>
-      <ObjectId>16395</ObjectId>
+      <ObjectId>16498</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>746</StateNumber>
+      <StateNumber>840</StateNumber>
       <OwnerName>symfony</OwnerName>
     </sequence>
     <sequence id="266" parent="264" name="users_id_seq">
       <DasType>bigint|0s</DasType>
-      <ObjectId>16396</ObjectId>
+      <ObjectId>16499</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>746</StateNumber>
+      <StateNumber>840</StateNumber>
       <OwnerName>symfony</OwnerName>
     </sequence>
     <table id="267" parent="264" name="doctrine_migration_versions">
-      <ObjectId>16389</ObjectId>
-      <StateNumber>745</StateNumber>
+      <ObjectId>16492</ObjectId>
+      <StateNumber>839</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>symfony</OwnerName>
     </table>
     <table id="268" parent="264" name="refresh_token">
-      <ObjectId>16397</ObjectId>
-      <StateNumber>746</StateNumber>
+      <ObjectId>16500</ObjectId>
+      <StateNumber>840</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>symfony</OwnerName>
     </table>
     <table id="269" parent="264" name="users">
-      <ObjectId>16403</ObjectId>
-      <StateNumber>762</StateNumber>
+      <ObjectId>16506</ObjectId>
+      <StateNumber>842</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>symfony</OwnerName>
     </table>
@@ -4269,28 +4269,28 @@ true posixrules
       <DasType>varchar(191)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>745</StateNumber>
+      <StateNumber>839</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="271" parent="267" name="executed_at">
       <DasType>timestamp(0)|0s</DasType>
       <DefaultExpression>NULL::timestamp without time zone</DefaultExpression>
       <Position>2</Position>
-      <StateNumber>745</StateNumber>
+      <StateNumber>839</StateNumber>
       <TypeId>1114</TypeId>
     </column>
     <column id="272" parent="267" name="execution_time">
       <DasType>integer|0s</DasType>
       <Position>3</Position>
-      <StateNumber>745</StateNumber>
+      <StateNumber>839</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <index id="273" parent="267" name="doctrine_migration_versions_pkey">
       <ColNames>version</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16393</ObjectId>
+      <ObjectId>16496</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>745</StateNumber>
+      <StateNumber>839</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
@@ -4299,52 +4299,52 @@ true posixrules
     </index>
     <key id="274" parent="267" name="doctrine_migration_versions_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16394</ObjectId>
+      <ObjectId>16497</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>745</StateNumber>
-      <UnderlyingIndexId>16393</UnderlyingIndexId>
+      <StateNumber>839</StateNumber>
+      <UnderlyingIndexId>16496</UnderlyingIndexId>
     </key>
     <column id="275" parent="268" name="id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>746</StateNumber>
+      <StateNumber>840</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="276" parent="268" name="refresh_token">
       <DasType>varchar(128)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>746</StateNumber>
+      <StateNumber>840</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="277" parent="268" name="username">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>746</StateNumber>
+      <StateNumber>840</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="278" parent="268" name="valid">
       <DasType>timestamp(0)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>746</StateNumber>
+      <StateNumber>840</StateNumber>
       <TypeId>1114</TypeId>
     </column>
     <index id="279" parent="268" name="refresh_token_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16400</ObjectId>
+      <ObjectId>16503</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>746</StateNumber>
+      <StateNumber>840</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <index id="280" parent="268" name="uniq_c74f2195c74f2195">
       <ColNames>refresh_token</ColNames>
-      <ObjectId>16402</ObjectId>
-      <StateNumber>746</StateNumber>
+      <ObjectId>16505</ObjectId>
+      <StateNumber>840</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
@@ -4353,30 +4353,30 @@ true posixrules
     </index>
     <key id="281" parent="268" name="refresh_token_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16401</ObjectId>
+      <ObjectId>16504</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>746</StateNumber>
-      <UnderlyingIndexId>16400</UnderlyingIndexId>
+      <StateNumber>840</StateNumber>
+      <UnderlyingIndexId>16503</UnderlyingIndexId>
     </key>
     <column id="282" parent="269" name="id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>746</StateNumber>
+      <StateNumber>840</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="283" parent="269" name="email">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>746</StateNumber>
+      <StateNumber>840</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="284" parent="269" name="password">
       <DasType>varchar(255)|0s</DasType>
       <DefaultExpression>NULL::character varying</DefaultExpression>
       <Position>3</Position>
-      <StateNumber>746</StateNumber>
+      <StateNumber>840</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="285" parent="269" name="roles">
@@ -4384,29 +4384,29 @@ true posixrules
       <DefaultExpression>&apos;[]&apos;::json</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>746</StateNumber>
+      <StateNumber>840</StateNumber>
       <TypeId>114</TypeId>
     </column>
     <column id="286" parent="269" name="name">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
-      <StateNumber>762</StateNumber>
+      <StateNumber>842</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <index id="287" parent="269" name="users_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16410</ObjectId>
+      <ObjectId>16513</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>746</StateNumber>
+      <StateNumber>840</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <index id="288" parent="269" name="uniq_1483a5e9e7927c74">
       <ColNames>email</ColNames>
-      <ObjectId>16412</ObjectId>
-      <StateNumber>746</StateNumber>
+      <ObjectId>16515</ObjectId>
+      <StateNumber>840</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
@@ -4415,10 +4415,10 @@ true posixrules
     </index>
     <key id="289" parent="269" name="users_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16411</ObjectId>
+      <ObjectId>16514</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>746</StateNumber>
-      <UnderlyingIndexId>16410</UnderlyingIndexId>
+      <StateNumber>840</StateNumber>
+      <UnderlyingIndexId>16513</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>

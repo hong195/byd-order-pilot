@@ -5,7 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Removed version from auth routes.">
-      <change beforePath="$PROJECT_DIR$/src/Users/Infrastructure/Controller/GetMeAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Infrastructure/Controller/GetMeAction.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/Roll/Quality.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/Roll/Roll.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/Roll/RollType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Domain/Factory/RollFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Domain/Repository/RollRepositoryInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Database/ORM/Roll.Roll.orm.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Repository/RollRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/doctrine.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Domain/Aggregate/Aggregate.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Domain/Aggregate/Aggregate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/Infrastructure/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Infrastructure/Repository/UserRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +35,9 @@
     <servers>
       <server host="127.0.0.1" id="7d2728ca-5a64-4d37-9fe8-0e9275687d69" name="Docker" port="8081" use_path_mappings="true" />
     </servers>
+  </component>
+  <component name="PhpStanProjectConfiguration">
+    <option name="selectedConfigurationId" value="0e51ee86-8f63-4aee-be9d-49db9cab99f6" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="php-fpm">
     <include_path>
@@ -151,18 +166,19 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "PHPUnit.Main.executor": "Coverage",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm": "Docker Compose",
     "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm": "Docker Compose",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/config/packages",
+    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/src/Rolls/Infrastructure",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "php.override.implement.member.chooser.php.doc": "NONE",
-    "settings.editor.selected.configurable": "settings.php.quality.tools.phpstan",
+    "settings.editor.selected.configurable": "watcher.settings",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -173,16 +189,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Rolls/Infrastructure" />
       <recent name="$PROJECT_DIR$/config/packages" />
       <recent name="$PROJECT_DIR$/src/Users/Application/UseCase/Command" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/Users" />
-      <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/Roll" />
+      <recent name="$PROJECT_DIR$/src/Rolls/Domain" />
+      <recent name="$PROJECT_DIR$/src/Rolls" />
       <recent name="$PROJECT_DIR$/src/Shared" />
       <recent name="$PROJECT_DIR$/src/Shared/Infrasctructure/Database" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunManager">
@@ -216,7 +234,8 @@
       <workItem from="1720786502177" duration="8149000" />
       <workItem from="1720982694717" duration="599000" />
       <workItem from="1721028595886" duration="2957000" />
-      <workItem from="1721032782221" duration="15255000" />
+      <workItem from="1721032782221" duration="25977000" />
+      <workItem from="1721136393792" duration="4103000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit.">
       <option name="closed" value="true" />
@@ -362,7 +381,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721052726403</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Removed version from auth routes.">
+      <option name="closed" value="true" />
+      <created>1721053151379</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1721053151379</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -381,6 +408,7 @@
     <MESSAGE value="Added route for creating user." />
     <MESSAGE value="Added update user command." />
     <MESSAGE value="Added jwt based auth/login" />
+    <MESSAGE value="Added" />
     <MESSAGE value="Removed version from auth routes." />
     <option name="LAST_COMMIT_MESSAGE" value="Removed version from auth routes." />
   </component>
@@ -398,5 +426,8 @@
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/order_pilot@Main.xml" NAME="Main Coverage Results" MODIFIED="1721128924476" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
