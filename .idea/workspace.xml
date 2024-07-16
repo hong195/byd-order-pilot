@@ -4,20 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Removed version from auth routes.">
-      <change afterPath="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/Roll/Quality.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/Roll/Roll.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/Roll/RollType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Rolls/Domain/Factory/RollFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Rolls/Domain/Repository/RollRepositoryInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Database/ORM/Roll.Roll.orm.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Repository/RollRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added roll model.">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/doctrine.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Domain/Aggregate/Aggregate.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Domain/Aggregate/Aggregate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/Infrastructure/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Infrastructure/Repository/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rolls/Domain/Repository/RollRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Domain/Repository/RollRepositoryInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rolls/Infrastructure/Repository/RollRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Repository/RollRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,9 +26,6 @@
     <servers>
       <server host="127.0.0.1" id="7d2728ca-5a64-4d37-9fe8-0e9275687d69" name="Docker" port="8081" use_path_mappings="true" />
     </servers>
-  </component>
-  <component name="PhpStanProjectConfiguration">
-    <option name="selectedConfigurationId" value="0e51ee86-8f63-4aee-be9d-49db9cab99f6" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="php-fpm">
     <include_path>
@@ -164,29 +152,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "PHPUnit.Main.executor": "Coverage",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm": "Docker Compose",
-    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm": "Docker Compose",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/src/Rolls/Infrastructure",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "php.override.implement.member.chooser.php.doc": "NONE",
-    "settings.editor.selected.configurable": "watcher.settings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;PHPUnit.Main.executor&quot;: &quot;Coverage&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm&quot;: &quot;Docker Compose&quot;,
+    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm&quot;: &quot;Docker Compose&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/aleksejem/Sites/order-pilot/src/Rolls/Infrastructure&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.php.quality.tools.phpstan&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/Rolls/Infrastructure" />
@@ -235,7 +223,7 @@
       <workItem from="1720982694717" duration="599000" />
       <workItem from="1721028595886" duration="2957000" />
       <workItem from="1721032782221" duration="25977000" />
-      <workItem from="1721136393792" duration="4103000" />
+      <workItem from="1721136393792" duration="4369000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit.">
       <option name="closed" value="true" />
@@ -389,7 +377,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721053151379</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Added roll model.">
+      <option name="closed" value="true" />
+      <created>1721140579351</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1721140579351</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -410,7 +406,8 @@
     <MESSAGE value="Added jwt based auth/login" />
     <MESSAGE value="Added" />
     <MESSAGE value="Removed version from auth routes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed version from auth routes." />
+    <MESSAGE value="Added roll model." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added roll model." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

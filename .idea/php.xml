@@ -212,7 +212,7 @@
     </PhpStan_settings>
   </component>
   <component name="PhpStanOptionsConfiguration">
-    <option name="config" value="$PROJECT_DIR$/phpstan.dist.neon" />
+    <option name="config" value="$PROJECT_DIR$/phpstan.neon" />
     <option name="fullProject" value="true" />
     <option name="level" value="6" />
     <option name="transferred" value="true" />
