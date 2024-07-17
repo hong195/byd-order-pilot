@@ -115,7 +115,7 @@ final class Roll extends Aggregate
      *
      * @param int $priority the new priority of the item
      */
-    public function changePrioritAy(int $priority): void
+    public function changePriority(int $priority): void
     {
         $this->priority = $priority;
     }

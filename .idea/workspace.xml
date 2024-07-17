@@ -4,9 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added lamination model.">
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added some docs.">
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Application/AccessControll/AccessControlService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/AddLamination/AddLaminationCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/AddLamination/AddLaminationCommandHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/DeleteLamination/DeleteLaminationCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/DeleteLamination/DeleteLaminationCommandHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/UpdateLamination/UpdateLaminationCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/UpdateLamination/UpdateLaminationCommandHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Application/UseCase/PrivateCommandInteractor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/Lamination/LaminationType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/Lamination/LaminationType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/AddRoll/AddRollCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/AddRoll/AddRollCommandHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/UpdateRoll/UpdateRollCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/UpdateRoll/UpdateRollCommandHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/Roll/Roll.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/Roll/Roll.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rolls/Domain/Service/LaminationService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Domain/Service/LaminationService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Application/Security/AuthChecker.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Application/Security/AuthChecker.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,36 +165,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;PHPUnit.Main.executor&quot;: &quot;Coverage&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm&quot;: &quot;Docker Compose&quot;,
-    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm&quot;: &quot;Docker Compose&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/aleksejem/Sites/order-pilot/src/Rolls/Infrastructure/Database/ORM&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "PHPUnit.Main.executor": "Coverage",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm": "Docker Compose",
+    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm": "Docker Compose",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/src/Rolls/Application/UseCase/Command",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "php.override.implement.member.chooser.php.doc": "NONE",
+    "settings.editor.selected.configurable": "watcher.settings",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command" />
+      <recent name="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/UpdateLamination" />
       <recent name="$PROJECT_DIR$/src/Rolls/Infrastructure/Database/ORM" />
       <recent name="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/DeleteRoll" />
       <recent name="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/UpdateRoll" />
-      <recent name="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/CreateRoll" />
-      <recent name="$PROJECT_DIR$/src/Rolls/Infrastructure" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/Roll" />
@@ -226,6 +239,8 @@
       <workItem from="1721136393792" duration="4369000" />
       <workItem from="1721140808967" duration="1336000" />
       <workItem from="1721142650970" duration="3678000" />
+      <workItem from="1721216657027" duration="2458000" />
+      <workItem from="1721222639974" duration="1672000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit.">
       <option name="closed" value="true" />
@@ -419,7 +434,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721216259484</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Added some docs.">
+      <option name="closed" value="true" />
+      <created>1721216925212</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1721216925212</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -461,7 +484,8 @@
     <MESSAGE value="Added roll repo." />
     <MESSAGE value="Added code sniffer" />
     <MESSAGE value="Added lamination model." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added lamination model." />
+    <MESSAGE value="Added some docs." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added some docs." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
