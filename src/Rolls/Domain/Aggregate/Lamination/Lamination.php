@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Rolls\Domain\Aggregate\Roll;
+namespace App\Rolls\Domain\Aggregate\Lamination;
 
 use App\Rolls\Domain\Aggregate\Quality;
 use App\Shared\Domain\Aggregate\Aggregate;
-use Webmozart\Assert\Assert;
+use App\Shared\Domain\Service\AssertService;
 
-final class Roll extends Aggregate
+final class Lamination extends Aggregate
 {
     private ?int $id = null;
 
@@ -21,14 +21,14 @@ final class Roll extends Aggregate
     private Quality $quality;
 
     private ?string $qualityNotes = null;
+    private LaminationType $laminationType;
 
-    private RollType $rollType;
     private int $priority = 0;
 
     public function __construct(
         string $name,
         Quality $quality,
-        RollType $rollType,
+        LaminationType $laminationType,
         int $length = 0,
         ?string $qualityNotes = null,
         int $priority = 0
@@ -36,7 +36,7 @@ final class Roll extends Aggregate
         $this->name = $name;
         $this->quality = $quality;
         $this->dateAdded = new \DateTimeImmutable();
-        $this->rollType = $rollType;
+        $this->laminationType = $laminationType;
 
         if ($length < 0) {
             throw new \InvalidArgumentException('Length must be greater than 0');
@@ -59,7 +59,7 @@ final class Roll extends Aggregate
 
     public function changeName(string $name): void
     {
-        Assert::notEmpty($name, 'Name cannot be empty');
+        AssertService::notEmpty($name, 'Name cannot be empty');
         $this->name = $name;
     }
 
@@ -90,19 +90,19 @@ final class Roll extends Aggregate
 
     public function updateLength(int $length): void
     {
-        Assert::notEq(0, 'Length must be greater than 0');
+        AssertService::notEq(0, 'Length must be greater than 0');
 
         $this->length = $length;
     }
 
-    public function getRollType(): string
+    public function getLaminationType(): string
     {
-        return $this->rollType->value;
+        return $this->laminationType->value;
     }
 
-    public function changeRollType(RollType $rollType): void
+    public function changeLaminationType(LaminationType $laminationType): void
     {
-        $this->rollType = $rollType;
+        $this->laminationType = $laminationType;
     }
 
     public function changePriority(int $priority): void
@@ -113,5 +113,10 @@ final class Roll extends Aggregate
     public function changeQuality(Quality $quality): void
     {
         $this->quality = $quality;
+    }
+
+    public function changeQualityNotes(string $qualityNotes): void
+    {
+        $this->qualityNotes = $qualityNotes;
     }
 }

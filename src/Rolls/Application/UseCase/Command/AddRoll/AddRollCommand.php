@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Rolls\Application\UseCase\Command\CreateRoll;
+namespace App\Rolls\Application\UseCase\Command\AddRoll;
 
 use App\Shared\Application\Command\CommandInterface;
 
-readonly class CreateRollCommand implements CommandInterface
+readonly class AddRollCommand implements CommandInterface
 {
     public function __construct(
         public string $name,
