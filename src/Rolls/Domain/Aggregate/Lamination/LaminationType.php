@@ -2,6 +2,11 @@
 
 namespace App\Rolls\Domain\Aggregate\Lamination;
 
+/**
+ * Enum-like class representing the different types of lamination.
+ *
+ * @package App\Enum
+ */
 enum LaminationType: string
 {
     case GOLD_FLAKES = 'gold_flakes';

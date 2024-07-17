@@ -8,6 +8,11 @@ use App\Rolls\Domain\Aggregate\Quality;
 use App\Shared\Domain\Aggregate\Aggregate;
 use Webmozart\Assert\Assert;
 
+/**
+ * Class Roll.
+ *
+ * Represents a roll in the application.
+ */
 final class Roll extends Aggregate
 {
     private ?int $id = null;
@@ -105,11 +110,21 @@ final class Roll extends Aggregate
         $this->rollType = $rollType;
     }
 
-    public function changePriority(int $priority): void
+    /**
+     * Changes the priority of a lamination.
+     *
+     * @param int $priority the new priority of the item
+     */
+    public function changePrioritAy(int $priority): void
     {
         $this->priority = $priority;
     }
 
+    /**
+     * Changes the quality of a lamination.
+     *
+     * @param Quality $quality the new quality of the item
+     */
     public function changeQuality(Quality $quality): void
     {
         $this->quality = $quality;
