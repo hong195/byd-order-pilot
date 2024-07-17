@@ -40,7 +40,7 @@ final readonly class LaminationService
     public function updateLamination(
         int $id, string $name, string $quality,
         string $laminationType, int $length,
-		int $priority = 0,
+        int $priority = 0,
         ?string $qualityNotes = null
     ): void {
         $lamination = $this->getLamination($id);
@@ -58,9 +58,9 @@ final readonly class LaminationService
             $lamination->changeQuality(Quality::from($quality));
         }
 
-		if ($priority !== $lamination->getPriority()) {
-			$lamination->changePriority($priority);
-		}
+        if ($priority !== $lamination->getPriority()) {
+            $lamination->changePriority($priority);
+        }
 
         if ($laminationType !== $lamination->getLaminationType()) {
             $lamination->changeLaminationType(LaminationType::from($laminationType));

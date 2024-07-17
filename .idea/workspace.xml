@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated docs.">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added rolls command routes.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/PrivateInteractor.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Rolls/Application/UseCase/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Application/UseCase/PrivateCommandInteractor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rolls/Infrastructure/Controller/DeleteLamination.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Controller/DeleteLamination.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rolls/Infrastructure/Controller/UpdateLamination.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Controller/UpdateLamination.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rolls/Infrastructure/Controller/UpdateRoll.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Controller/UpdateRoll.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +169,7 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;watcher.settings&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;fileTemplates&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -230,7 +231,8 @@
       <workItem from="1721142650970" duration="3678000" />
       <workItem from="1721216657027" duration="2458000" />
       <workItem from="1721222639974" duration="2315000" />
-      <workItem from="1721225016901" duration="245000" />
+      <workItem from="1721225016901" duration="8441000" />
+      <workItem from="1721294379794" duration="1489000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit.">
       <option name="closed" value="true" />
@@ -440,7 +442,39 @@
       <option name="project" value="LOCAL" />
       <updated>1721224593121</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Added private command interactor.">
+      <option name="closed" value="true" />
+      <created>1721225338754</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1721225338754</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Added rolls command routes.">
+      <option name="closed" value="true" />
+      <created>1721228518440</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1721228518440</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Added rolls command routes.">
+      <option name="closed" value="true" />
+      <created>1721228794194</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1721228794194</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Added rolls command routes.">
+      <option name="closed" value="true" />
+      <created>1721287880800</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1721287880800</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -484,7 +518,9 @@
     <MESSAGE value="Added lamination model." />
     <MESSAGE value="Added some docs." />
     <MESSAGE value="Updated docs." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated docs." />
+    <MESSAGE value="Added private command interactor." />
+    <MESSAGE value="Added rolls command routes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added rolls command routes." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

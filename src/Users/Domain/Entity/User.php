@@ -16,7 +16,7 @@ class User implements AuthUserInterface
      */
     private ?int $id;
 
-	private string $name;
+    private string $name;
     private string $email;
     private ?string $password = null;
 
@@ -28,7 +28,7 @@ class User implements AuthUserInterface
     public function __construct(string $name, string $email, string $role)
     {
         $this->email = $email;
-		$this->name = $name;
+        $this->name = $name;
         $this->addRole($role);
 
         if (Role::ROLE_USER !== $role) {
@@ -67,20 +67,20 @@ class User implements AuthUserInterface
         $this->password = $passwordHasher->hash($this, $password);
     }
 
-	public function setName(string $name) : void
-	{
-		$this->name = $name;
-	}
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
 
-	public function setEmail(string $email) : void
-	{
-		$this->email = $email;
-	}
+    public function setEmail(string $email): void
+    {
+        $this->email = $email;
+    }
 
-	public function getName(): string
-	{
-		return $this->name;
-	}
+    public function getName(): string
+    {
+        return $this->name;
+    }
 
     /**
      * @return string[]

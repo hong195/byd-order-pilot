@@ -49,7 +49,8 @@ readonly class PrivateCommandInteractor
      * @param int         $priority       The priority of the lamination. Default is 0.
      * @param string|null $qualityNotes   Additional notes about the quality. Default is null.
      */
-    public function updateLamination(int $id,
+    public function updateLamination(
+        int $id,
         string $name,
         string $quality,
         string $laminationType,
@@ -68,10 +69,11 @@ readonly class PrivateCommandInteractor
      * @param string $quality  the quality of the roll
      * @param string $rollType the type of the roll
      */
-    public function addRoll(string $name, string $quality, string $rollType): void
+    public function addRoll(string $name, string $quality, string $rollType): int
     {
         $command = new AddRollCommand($name, $quality, $rollType);
-        $this->commandBus->execute($command);
+
+        return $this->commandBus->execute($command);
     }
 
     /**

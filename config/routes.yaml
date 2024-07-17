@@ -17,3 +17,7 @@ api_login_check:
 users:
     resource: ../src/Users/Infrastructure/Controller/
     type: attribute
+
+rolls:
+    resource: ../src/Rolls/Infrastructure/Controller/
+    type: attribute
