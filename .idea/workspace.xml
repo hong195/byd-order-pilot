@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added rolls command routes.">
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added single Roll query.">
+      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Controller/BaseController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Services/Normalizers/DateNormalizer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rolls/Application/UseCase/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Application/UseCase/PrivateCommandInteractor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rolls/Infrastructure/Controller/DeleteLamination.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Controller/DeleteLamination.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rolls/Infrastructure/Controller/UpdateLamination.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Controller/UpdateLamination.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rolls/Infrastructure/Controller/UpdateRoll.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Controller/UpdateRoll.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rolls/Application/DTO/RollData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Application/DTO/RollData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rolls/Infrastructure/Controller/FindARoll.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Controller/FindARoll.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,6 +149,7 @@
       <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
       <path value="$PROJECT_DIR$/vendor/masterminds/html5" />
       <path value="$PROJECT_DIR$/vendor/escapestudios/symfony2-coding-standard" />
+      <path value="$PROJECT_DIR$/vendor/symfony/serializer" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -162,7 +167,7 @@
     &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm&quot;: &quot;Docker Compose&quot;,
     &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm&quot;: &quot;Docker Compose&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/aleksejem/Sites/order-pilot/src/Rolls/Application/UseCase/Command&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/aleksejem/Sites/order-pilot/src/Rolls/Application/UseCase/Query&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -180,18 +185,18 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Rolls/Application/UseCase/Query" />
       <recent name="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command" />
       <recent name="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/UpdateLamination" />
       <recent name="$PROJECT_DIR$/src/Rolls/Infrastructure/Database/ORM" />
       <recent name="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/DeleteRoll" />
-      <recent name="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/UpdateRoll" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Rolls/Application/UseCase/Query/FindAQuery" />
       <recent name="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/Roll" />
       <recent name="$PROJECT_DIR$/src/Rolls/Domain" />
       <recent name="$PROJECT_DIR$/src/Rolls" />
       <recent name="$PROJECT_DIR$/src/Shared" />
-      <recent name="$PROJECT_DIR$/src/Shared/Infrasctructure/Database" />
     </key>
   </component>
   <component name="RunManager">
@@ -232,7 +237,8 @@
       <workItem from="1721216657027" duration="2458000" />
       <workItem from="1721222639974" duration="2315000" />
       <workItem from="1721225016901" duration="8441000" />
-      <workItem from="1721294379794" duration="1489000" />
+      <workItem from="1721294379794" duration="15835000" />
+      <workItem from="1721382280729" duration="3563000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit.">
       <option name="closed" value="true" />
@@ -474,7 +480,23 @@
       <option name="project" value="LOCAL" />
       <updated>1721287880800</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Added rolls command routes.">
+      <option name="closed" value="true" />
+      <created>1721295929683</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1721295929683</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Added single Roll query.">
+      <option name="closed" value="true" />
+      <created>1721309148170</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1721309148170</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -520,7 +542,8 @@
     <MESSAGE value="Updated docs." />
     <MESSAGE value="Added private command interactor." />
     <MESSAGE value="Added rolls command routes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added rolls command routes." />
+    <MESSAGE value="Added single Roll query." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added single Roll query." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

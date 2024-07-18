@@ -11,7 +11,7 @@ use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[AsController]
-#[Route('/api/rolls/{id}', name: 'delete_roll', requirements: ['id' => '\d+$'], methods: ['DELETE'])]
+#[Route('/api/rolls/{id}', name: 'delete_roll', requirements: ['id' => '^\d+$'], methods: ['DELETE'])]
 final readonly class DeleteRoll
 {
     public function __construct(private PrivateCommandInteractor $commandInteractor)

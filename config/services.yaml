@@ -37,3 +37,16 @@ services:
         public: true
         resource: '../src/*/Domain/Factory'
         exclude: '../src/Shared/*'
+
+    Symfony\Component\Serializer\Normalizer\ObjectNormalizer: ~
+    Symfony\Component\Serializer\Normalizer\ArrayDenormalizer: ~
+    Symfony\Component\Serializer\Encoder\JsonEncoder: ~
+
+    Symfony\Component\Serializer\Serializer:
+        arguments:
+            $normalizers:
+                - '@Symfony\Component\Serializer\Normalizer\ObjectNormalizer'
+                - '@Symfony\Component\Serializer\Normalizer\ArrayDenormalizer'
+                - '@App\Shared\Infrastructure\Services\Normalizers\DateNormalizer'
+            $encoders:
+                - '@Symfony\Component\Serializer\Encoder\JsonEncoder'

@@ -3,6 +3,7 @@
 namespace App\Rolls\Domain\Repository;
 
 use App\Rolls\Domain\Aggregate\Roll\Roll;
+use App\Shared\Domain\Repository\PaginationResult;
 
 interface RollRepositoryInterface
 {
@@ -13,4 +14,6 @@ interface RollRepositoryInterface
     public function save(Roll $roll): void;
 
     public function remove(Roll $roll): void;
+
+    public function findPagedItems(int $page): PaginationResult;
 }
