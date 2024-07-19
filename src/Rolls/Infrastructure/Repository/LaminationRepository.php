@@ -4,7 +4,9 @@ namespace App\Rolls\Infrastructure\Repository;
 
 use App\Rolls\Domain\Aggregate\Lamination\Lamination;
 use App\Rolls\Domain\Repository\LaminationRepositoryInterface;
+use App\Shared\Domain\Repository\PaginationResult;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -38,5 +40,23 @@ class LaminationRepository extends ServiceEntityRepository implements Lamination
     {
         $this->getEntityManager()->remove($lamination);
         $this->getEntityManager()->flush();
+    }
+
+	/**
+	 * Find paged items
+	 *
+	 * @param int $page The current page number
+	 * @return PaginationResult The pagination result object
+	 */
+	public function findPagedItems(int $page = 1): PaginationResult
+    {
+        $qb = $this->createQueryBuilder('l');
+
+        $query = $qb->getQuery();
+
+        $query->setMaxResults(10);
+        $paginator = new Paginator($query);
+
+        return new PaginationResult($query->getResult(), $paginator->count());
     }
 }

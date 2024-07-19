@@ -19,33 +19,31 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
  * @Route("/api/rolls/{id}", requirements={"id"="\d+"}, methods={"GET"})
  */
 #[AsController]
-#[Route('/api/rolls/{id}', name: 'find_a_single_roll', requirements: ['id' => '^\d+$'], methods: ['GET'])]
-final class FindARoll extends BaseController
+#[Route('/api/laminations', name: 'laminations_list', methods: ['GET'])]
+final class FindLaminations extends BaseController
 {
     /**
      * Class constructor.
      *
      * @param PrivateQueryInteractor $privateQueryInteractor The private query interactor object
      */
-    public function __construct(private PrivateQueryInteractor $privateQueryInteractor, private NormalizerInterface $normalizer)
-    {
+    public function __construct(
+        private PrivateQueryInteractor $privateQueryInteractor,
+        private NormalizerInterface $normalizer
+    ) {
     }
 
     /**
      * Calls the findARoll method of the privateQueryInteractor to retrieve RollData by id.
      *
-     * @param int $id the id of the RollData to find
-     *
      * @throws ExceptionInterface
-     *
-     * @return JsonResponse
      */
-    public function __invoke(int $id): JsonResponse
+    public function __invoke(): JsonResponse
     {
-        $result = $this->privateQueryInteractor->findARoll($id);
+        $result = $this->privateQueryInteractor->findLaminations();
 
         $result = $this->normalizer->normalize($result);
 
-        return $this->json($result['rollData'], Response::HTTP_OK, []);
+        return $this->json($result, Response::HTTP_OK);
     }
 }

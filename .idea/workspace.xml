@@ -5,15 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added single Roll query.">
-      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Controller/BaseController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Services/Normalizers/DateNormalizer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Application/DTO/LaminationDataTransformer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Query/FindALamination/FindALaminationHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Query/FindALamination/FindALaminationQuery.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Query/FindALamination/FindALaminationResult.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Query/FindLaminations/FindLaminationsHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Query/FindLaminations/FindLaminationsQuery.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Query/FindLaminations/FindLaminationsResult.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Controller/FindALamination.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Controller/FindLaminations.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Controller/FindRolls.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rolls/Application/DTO/RollData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Application/DTO/RollData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/lexik_jwt_authentication.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/lexik_jwt_authentication.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rolls/Application/UseCase/PrivateQueryInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Application/UseCase/PrivateQueryInteractor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Query/FindRolls/FindRollsResult.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Query/FindRolls/FindRollsResult.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Rolls/Infrastructure/Controller/FindARoll.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Controller/FindARoll.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rolls/Infrastructure/Repository/LaminationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Repository/LaminationRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,11 +199,11 @@
       <recent name="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/DeleteRoll" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Shared/Infrastructure/Services/Normalizers" />
       <recent name="$PROJECT_DIR$/src/Rolls/Application/UseCase/Query/FindAQuery" />
       <recent name="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/Roll" />
       <recent name="$PROJECT_DIR$/src/Rolls/Domain" />
       <recent name="$PROJECT_DIR$/src/Rolls" />
-      <recent name="$PROJECT_DIR$/src/Shared" />
     </key>
   </component>
   <component name="RunManager">
@@ -238,7 +245,7 @@
       <workItem from="1721222639974" duration="2315000" />
       <workItem from="1721225016901" duration="8441000" />
       <workItem from="1721294379794" duration="15835000" />
-      <workItem from="1721382280729" duration="3563000" />
+      <workItem from="1721382280729" duration="10068000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit.">
       <option name="closed" value="true" />
@@ -496,7 +503,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721309148170</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Added single Roll query.">
+      <option name="closed" value="true" />
+      <created>1721385851469</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1721385851469</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
