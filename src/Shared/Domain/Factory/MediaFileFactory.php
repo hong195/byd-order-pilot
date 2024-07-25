@@ -12,25 +12,19 @@ use App\Shared\Domain\Entity\MediaFile;
 final readonly class MediaFileFactory
 {
     /**
-     * Creates a new instance of the MediaFile class.
+     * Creates a new instance of MediaFile with the specified parameters.
      *
-     * @param string $filename  the filename of the media file
-     * @param string $source    the source of the media file
-     * @param string $path      the path of the media file
-     * @param string $type      the type of the media file
-     * @param int    $ownerId   the ID of the owner of the media file
-     * @param string $ownerType the type of the owner of the media file
+     * @param string      $filename  the filename of the media file
+     * @param string      $source    the source of the media file
+     * @param string      $path      the path of the media file
+     * @param string|null $type      the type of the media file (optional)
+     * @param int|null    $ownerId   the owner ID of the media file (optional)
+     * @param string|null $ownerType the owner type of the media file (optional)
      *
-     * @return MediaFile a new instance of the MediaFile class
+     * @return MediaFile a new instance of MediaFile
      */
-    public function make(
-        string $filename,
-        string $source,
-        string $path,
-        string $type,
-        int $ownerId,
-        string $ownerType
-    ): MediaFile {
+    public function make(string $filename, string $source, string $path, ?string $type = null, ?int $ownerId = null, ?string $ownerType = null): MediaFile
+    {
         return new MediaFile(
             filename: $filename,
             source: $source,

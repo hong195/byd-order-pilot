@@ -14,6 +14,9 @@ use App\Shared\Domain\Entity\MediaFile;
  */
 final class Order extends Aggregate
 {
+    public const CUT_FILE = 'cut_file';
+
+    public const PRINT_FILE = 'print_file';
     /**
      * @phpstan-ignore-next-line
      */
@@ -24,26 +27,20 @@ final class Order extends Aggregate
     private readonly \DateTimeInterface $dateAdded;
 
     private ?MediaFile $cutFile = null;
-
     private ?MediaFile $printFile = null;
-
-    private ?\DateTimeImmutable $updatedAt = null;
-
-    private ?RollType $rollType = null;
-
-    private ?LaminationType $laminationType = null;
 
     /**
      * Constructs a new instance of the class.
      *
      * @param Priority    $priority    the priority of the product
      * @param ProductType $productType the type of the product
-     * @param int|null    $orderNumber the order number (optional)
      */
     public function __construct(
         private Priority $priority,
         private readonly ProductType $productType,
-        private readonly ?int $orderNumber = null
+        private ?RollType $rollType = null,
+        private ?LaminationType $laminationType = null,
+        private ?int $orderNumber = null,
     ) {
         $this->dateAdded = new \DateTimeImmutable();
     }
@@ -123,7 +120,7 @@ final class Order extends Aggregate
      *
      * @param MediaFile $printFile The print file to be uploaded
      */
-    public function uploadPrintFile(MediaFile $printFile): void
+    public function setPrintFile(MediaFile $printFile): void
     {
         $this->printFile = $printFile;
     }
@@ -133,7 +130,7 @@ final class Order extends Aggregate
      *
      * @param MediaFile $cutFile The cut file to be uploaded
      */
-    public function uploadCutFile(MediaFile $cutFile): void
+    public function setCutFile(MediaFile $cutFile): void
     {
         $this->cutFile = $cutFile;
     }
@@ -156,16 +153,6 @@ final class Order extends Aggregate
     public function getCutFile(): ?MediaFile
     {
         return $this->cutFile;
-    }
-
-    /**
-     * Returns the updated date and time.
-     *
-     * @return \DateTimeImmutable the updated date and time
-     */
-    public function getUpdatedAt(): \DateTimeImmutable
-    {
-        return $this->updatedAt;
     }
 
     /**
@@ -216,5 +203,15 @@ final class Order extends Aggregate
     public function setLaminationType(LaminationType $laminationType): void
     {
         $this->laminationType = $laminationType;
+    }
+
+    /**
+     * Changes the order number.
+     *
+     * @param int $orderNumber the new order number
+     */
+    public function changeOrderNumber(int $orderNumber): void
+    {
+        $this->orderNumber = $orderNumber;
     }
 }

@@ -22,18 +22,6 @@ class MediaFileRepository extends ServiceEntityRepository implements MediaFileRe
     }
 
     /**
-     * Finds a MediaFile by its ID.
-     *
-     * @param int $id the ID of the MediaFile to find
-     *
-     * @return MediaFile|null the MediaFile object if found, null otherwise
-     */
-    public function findById(int $id): ?MediaFile
-    {
-        return $this->find($id);
-    }
-
-    /**
      * Saves a media file to the database.
      *
      * @param MediaFile $mediaFile the media file to be saved
@@ -52,5 +40,17 @@ class MediaFileRepository extends ServiceEntityRepository implements MediaFileRe
     public function remove(MediaFile $mediaFile): void
     {
         $this->getEntityManager()->remove($mediaFile);
+    }
+
+    /**
+     * Find a media file by its ID.
+     *
+     * @param int $id the ID of the media file to find
+     *
+     * @return ?MediaFile the media file with the given ID, or null if not found
+     */
+    public function findById(int $id): ?MediaFile
+    {
+        return $this->find($id);
     }
 }

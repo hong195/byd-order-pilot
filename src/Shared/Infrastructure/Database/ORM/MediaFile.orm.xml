@@ -10,8 +10,8 @@
         <field name="filename" type="string" length="255"/>
         <field name="source" type="string" length="255"/>
         <field name="path" type="string" length="255"/>
-        <field name="type" type="string" length="50"/>
-        <field name="ownerId" type="integer"/>
-        <field name="ownerType" type="string" length="50"/>
+        <field name="type" type="string" length="50" nullable="true"/>
+        <field name="ownerId" type="integer" nullable="true"/>
+        <field name="ownerType" type="string" length="50" nullable="true"/>
     </entity>
 </doctrine-mapping>

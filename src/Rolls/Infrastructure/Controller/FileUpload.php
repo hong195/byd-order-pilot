@@ -2,13 +2,11 @@
 
 declare(strict_types=1);
 
-
 namespace App\Rolls\Infrastructure\Controller;
 
-use App\Rolls\Domain\Aggregate\Order\Order;
-use App\Rolls\Domain\Aggregate\Order\Priority;
-use App\Rolls\Domain\Aggregate\Order\ProductType;
-use App\Rolls\Infrastructure\Repository\OrderRepository;
+use App\Rolls\Application\UseCase\Command\ManuallyAddOrder\ManuallyAddOrderCommand;
+use App\Shared\Domain\Service\UploadFileService;
+use App\Shared\Infrastructure\Bus\CommandBus;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\AsController;
@@ -16,24 +14,50 @@ use Symfony\Component\Routing\Attribute\Route;
 
 #[AsController]
 #[Route('api/file-upload', 'file-upload', methods: ['POST'])]
-final  class FileUpload
+final readonly class FileUpload
 {
-	public function __construct(private readonly OrderRepository $orderRepository)
-	{
-	}
-	public function __invoke(Request $request): Response
-	{
-		$order = new Order(
-			Priority::HIGH,
-			ProductType::PRODUCT,
-			123123123123
-		);
+    /**
+     * Class constructor.
+     *
+     * @param CommandBus        $commandBus        the command bus instance
+     * @param UploadFileService $uploadFileService the upload file service instance
+     */
+    public function __construct(private CommandBus $commandBus, private UploadFileService $uploadFileService)
+    {
+    }
 
-		$order->setImageFile($request->files->get('printFile'));
+    /**
+     * Handles a request to upload files and add an order.
+     *
+     * @param Request $request the HTTP request object
+     *
+     * @return Response the HTTP response object
+     */
+    public function __invoke(Request $request): Response
+    {
+        $cutFileId = null;
+        $printFileId = null;
 
-		$this->orderRepository->save($order);
+        if ($request->files->has('cutFile')) {
+            $cutFileId = $this->uploadFileService->upload($request->files->get('cutFile'));
+        }
 
-		dd($order);
-		return new Response('File uploaded');
-	}
+        if ($request->files->has('printFile')) {
+            $printFileId = $this->uploadFileService->upload($request->files->get('printFile'));
+        }
+
+        $manuallyAddCommand = new ManuallyAddOrderCommand(
+            priority: $request->get('priority'),
+            productType: $request->get('productType'),
+            laminationType: $request->get('laminationType'),
+            rollType: $request->get('rollType'),
+            orderNumber: $request->get('orderNumber'),
+            cutFileId: $cutFileId,
+            printFileId: $printFileId
+        );
+
+        $this->commandBus->execute($manuallyAddCommand);
+
+        return new Response('File uploaded');
+    }
 }
