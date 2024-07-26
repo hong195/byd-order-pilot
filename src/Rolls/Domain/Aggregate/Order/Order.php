@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Rolls\Domain\Aggregate\Order;
 
 use App\Rolls\Domain\Aggregate\Lamination\LaminationType;
+use App\Rolls\Domain\Aggregate\Order\ValueObject\Status;
 use App\Rolls\Domain\Aggregate\Roll\RollType;
 use App\Shared\Domain\Aggregate\Aggregate;
 use App\Shared\Domain\Entity\MediaFile;
@@ -30,10 +31,13 @@ final class Order extends Aggregate
     private ?MediaFile $printFile = null;
 
     /**
-     * Constructs a new instance of the class.
+     * Constructs a new object.
      *
-     * @param Priority    $priority    the priority of the product
-     * @param ProductType $productType the type of the product
+     * @param Priority            $priority       the priority of the product
+     * @param ProductType         $productType    the type of the product
+     * @param RollType|null       $rollType       the type of the roll (nullable)
+     * @param LaminationType|null $laminationType the type of the lamination (nullable)
+     * @param ?int                $orderNumber    the order number (nullable)
      */
     public function __construct(
         private Priority $priority,

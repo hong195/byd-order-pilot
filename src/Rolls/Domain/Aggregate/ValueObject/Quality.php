@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Rolls\Domain\Aggregate;
+namespace App\Rolls\Domain\Aggregate\ValueObject;
 
 enum Quality: string
 {

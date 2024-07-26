@@ -12,6 +12,13 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 final readonly class ManualOrderService
 {
+    /**
+     * Constructs a new instance of the class.
+     *
+     * @param OrderFactory        $orderFactory        the order factory instance
+     * @param OrderRepository     $orderRepository     the order repository instance
+     * @param MediaFileRepository $mediaFileRepository the media file repository instance
+     */
     public function __construct(
         private OrderFactory $orderFactory,
         private OrderRepository $orderRepository,
@@ -74,15 +81,15 @@ final readonly class ManualOrderService
         $this->orderRepository->save($order);
     }
 
-	/**
-	 * Converts a snake_case string to camelCase.
-	 *
-	 * @param string $string the snake_case string to convert
-	 *
-	 * @return string|null the camelCase string, or null if the input string is empty
-	 */
-	private function snakeToCamel($string): ?string
-	{
+    /**
+     * Converts a snake_case string to camelCase.
+     *
+     * @param string $string the snake_case string to convert
+     *
+     * @return string the camelCase string
+     */
+    private function snakeToCamel(string $string): string
+    {
         $parts = explode('_', $string);
 
         $camelCaseString = array_shift($parts);

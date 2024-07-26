@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Rolls\Domain\Aggregate\Order;
+namespace App\Rolls\Domain\Aggregate\Order\ValueObject;
 
 enum Status: string
 {

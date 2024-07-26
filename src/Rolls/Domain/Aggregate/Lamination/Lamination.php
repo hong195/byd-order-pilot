@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Rolls\Domain\Aggregate\Lamination;
 
-use App\Rolls\Domain\Aggregate\Quality;
+use App\Rolls\Domain\Aggregate\ValueObject\Quality;
 use App\Shared\Domain\Aggregate\Aggregate;
 use App\Shared\Domain\Service\AssertService;
 

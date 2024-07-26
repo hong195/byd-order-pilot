@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Rolls\Domain\Aggregate\Roll;
 
-use App\Rolls\Domain\Aggregate\Quality;
+use App\Rolls\Domain\Aggregate\ValueObject\Quality;
 use App\Shared\Domain\Aggregate\Aggregate;
 use Webmozart\Assert\Assert;
 
