@@ -5,13 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Move quality to ValueObject folder.">
-      <change afterPath="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/OrderStack/OrderStack.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Database/ORM/OrderStack.OrderStack.orm.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Application/DTO/OrderData.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Application/Service/AssetUrlServiceInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Query/FindOrder/FindOrderHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Query/FindOrder/FindOrderQuery.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Query/FindOrder/FindOrderResult.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Domain/Repository/OrderRepositoryInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Service/SiteAssetUrlService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/Order/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/Order/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/Order/Status.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/ValueObject/Status.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/OrderStack/OrderStack.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/OrderStack/OrderStack.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Rolls/Domain/Service/ManualOrderService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Domain/Service/ManualOrderService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rolls/Infrastructure/Controller/FileUpload.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Controller/FileUpload.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rolls/Infrastructure/Database/ORM/Lamination.Lamination.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Database/ORM/Lamination.Lamination.orm.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Rolls/Infrastructure/Database/ORM/Order.Order.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Database/ORM/Order.Order.orm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rolls/Infrastructure/Database/ORM/OrderStack.OrderStack.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Database/ORM/OrderStack.OrderStack.orm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rolls/Infrastructure/Database/ORM/Roll.Roll.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Database/ORM/Roll.Roll.orm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rolls/Infrastructure/Repository/OrderRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Repository/OrderRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +174,7 @@
     &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm&quot;: &quot;Docker Compose&quot;,
     &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm&quot;: &quot;Docker Compose&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/aleksejem/Sites/order-pilot/src/Rolls/Infrastructure/Database/ORM&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/aleksejem/Sites/order-pilot/src/Rolls/Application/UseCase/Query&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -184,18 +193,18 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Rolls/Application/UseCase/Query" />
       <recent name="$PROJECT_DIR$/src/Rolls/Infrastructure/Database/ORM" />
       <recent name="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command" />
       <recent name="$PROJECT_DIR$/config/packages/vich_uploader" />
       <recent name="$PROJECT_DIR$/src/Shared/Infrastructure/Database/ORM" />
-      <recent name="$PROJECT_DIR$/src/Rolls/Application/UseCase/Query" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Rolls/Application" />
       <recent name="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/ValueObject" />
       <recent name="$PROJECT_DIR$/src/Rolls/Domain/Service" />
       <recent name="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/Order" />
       <recent name="$PROJECT_DIR$/src/Shared/Infrastructure/Services/Normalizers" />
-      <recent name="$PROJECT_DIR$/src/Rolls/Application/UseCase/Query/FindAQuery" />
     </key>
   </component>
   <component name="RunManager">
@@ -243,6 +252,8 @@
       <workItem from="1721740266957" duration="24074000" />
       <workItem from="1721899988809" duration="6655000" />
       <workItem from="1721987295660" duration="11992000" />
+      <workItem from="1722241296438" duration="2030000" />
+      <workItem from="1722243371012" duration="1652000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit.">
       <option name="closed" value="true" />
@@ -604,7 +615,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721987127056</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Move quality to ValueObject folder.">
+      <option name="closed" value="true" />
+      <created>1722241523534</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1722241523534</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

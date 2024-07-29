@@ -10,8 +10,6 @@
             <generator strategy="AUTO"/>
         </id>
 
-        <field name="name" type="string" length="255"/>
-
         <field name="status"
                enum-type="App\Rolls\Domain\Aggregate\Order\ValueObject\Status"
                type="string"
@@ -51,10 +49,6 @@
         />
 
         <field name="dateAdded" type="datetime" column="date_added"/>
-
-        <field name="dateAdded" type="datetime" column="updated_at"/>
-
-
 
     </entity>
 </doctrine-mapping>
