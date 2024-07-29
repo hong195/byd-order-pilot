@@ -192,9 +192,9 @@ final class Order extends Aggregate
     /**
      * Returns the lamination type.
      *
-     * @return LaminationType the lamination type
+     * @return ?LaminationType the lamination type
      */
-    public function getLaminationType(): LaminationType
+    public function getLaminationType(): ?LaminationType
     {
         return $this->laminationType;
     }

@@ -7,7 +7,7 @@ namespace App\Shared\Domain\Entity;
 /**
  * Represents a media file.
  */
-final class MediaFile
+class MediaFile
 {
     /**
      * @phpstan-ignore-next-line

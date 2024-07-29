@@ -48,7 +48,16 @@
                length="255"
         />
 
+        <field name="orderNumber" type="bigint" column="order_number"  nullable="true"/>
+
         <field name="dateAdded" type="datetime" column="date_added"/>
+
+        <one-to-one field="cutFile" target-entity="App\Shared\Domain\Entity\MediaFile" cascade="persist, remove">
+            <join-column name="cut_file_id" referenced-column-name="id" nullable="true"/>
+        </one-to-one>
+        <one-to-one field="printFile" target-entity="App\Shared\Domain\Entity\MediaFile" cascade="persist, remove">
+            <join-column name="print_file_id" referenced-column-name="id" nullable="true"/>
+        </one-to-one>
 
     </entity>
 </doctrine-mapping>

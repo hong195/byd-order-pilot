@@ -10,6 +10,8 @@ use App\Rolls\Application\UseCase\Query\FindARoll\FindARollQuery;
 use App\Rolls\Application\UseCase\Query\FindARoll\FindARollResult;
 use App\Rolls\Application\UseCase\Query\FindLaminations\FindLaminationsQuery;
 use App\Rolls\Application\UseCase\Query\FindLaminations\FindLaminationsResult;
+use App\Rolls\Application\UseCase\Query\FindOrder\FindOrderQuery;
+use App\Rolls\Application\UseCase\Query\FindOrder\FindOrderResult;
 use App\Rolls\Application\UseCase\Query\FindRolls\FindRollsQuery;
 use App\Rolls\Application\UseCase\Query\FindRolls\FindRollsResult;
 use App\Shared\Application\Query\QueryBusInterface;
@@ -71,4 +73,11 @@ readonly class PrivateQueryInteractor
 
         return $this->queryBus->execute($query);
     }
+
+	public function findOrder(int $id): FindOrderResult
+	{
+		$query = new FindOrderQuery($id);
+
+		return $this->queryBus->execute($query);
+	}
 }

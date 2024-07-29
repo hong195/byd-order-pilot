@@ -21,7 +21,7 @@ final class OrderStack
      */
     private ?int $id;
     private Status $status = Status::NEW;
-    private \DateTimeImmutable $addedAt;
+    private \DateTimeImmutable $dateAdded;
 
     private \DateTimeImmutable $updatedAt;
 
@@ -76,7 +76,7 @@ final class OrderStack
      */
     public function getAddedAt(): \DateTimeImmutable
     {
-        return $this->addedAt;
+        return $this->dateAdded;
     }
 
     /**

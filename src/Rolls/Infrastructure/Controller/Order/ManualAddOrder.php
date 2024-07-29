@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Rolls\Infrastructure\Controller;
+namespace App\Rolls\Infrastructure\Controller\Order;
 
 use App\Rolls\Application\UseCase\Command\ManuallyAddOrder\ManuallyAddOrderCommand;
 use App\Shared\Domain\Service\UploadFileService;
@@ -13,8 +13,8 @@ use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[AsController]
-#[Route('api/file-upload', 'file-upload', methods: ['POST'])]
-final readonly class FileUpload
+#[Route('api/manually-add-order', 'manually-add-order', methods: ['POST'])]
+final readonly class ManualAddOrder
 {
     /**
      * Class constructor.
