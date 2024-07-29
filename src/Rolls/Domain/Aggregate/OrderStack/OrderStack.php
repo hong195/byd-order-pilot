@@ -8,13 +8,14 @@ use App\Rolls\Domain\Aggregate\Lamination\LaminationType;
 use App\Rolls\Domain\Aggregate\Order\Order;
 use App\Rolls\Domain\Aggregate\Order\ValueObject\Status;
 use App\Rolls\Domain\Aggregate\Roll\RollType;
+use App\Shared\Domain\Aggregate\Aggregate;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
 /**
  * Represents an order stack.
  */
-final class OrderStack
+final class OrderStack extends Aggregate
 {
     /**
      * @phpstan-ignore-next-line
@@ -47,7 +48,7 @@ final class OrderStack
         private ?LaminationType $laminationType = null,
     ) {
         $this->orders = new ArrayCollection();
-        $this->addedAt = new \DateTimeImmutable();
+        $this->dateAdded = new \DateTimeImmutable();
         $this->updatedAt = new \DateTimeImmutable();
     }
 

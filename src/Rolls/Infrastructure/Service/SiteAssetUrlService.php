@@ -13,12 +13,12 @@ use App\Rolls\Application\Service\AssetUrlServiceInterface;
  */
 final readonly class SiteAssetUrlService implements AssetUrlServiceInterface
 {
-	/**
-	 * Class constructor.
-	 *
-	 * @param string $siteUrl The URL of the site.
-	 */
-	public function __construct(private string $siteUrl)
+    /**
+     * Class constructor.
+     *
+     * @param string $siteUrl the URL of the site
+     */
+    public function __construct(private string $siteUrl)
     {
     }
 

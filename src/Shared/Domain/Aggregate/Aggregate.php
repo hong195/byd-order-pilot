@@ -13,7 +13,7 @@ abstract class Aggregate
      */
     private array $events = [];
 
-    abstract public function getId(): int;
+    abstract public function getId(): ?int;
 
     /**
      * @return EventInterface[]

@@ -12,6 +12,17 @@
 
         <field name="name" type="string" length="255"/>
 
+        <many-to-many field="orders" target-entity="App\Rolls\Domain\Aggregate\Order\Order">
+            <join-table name="order_stacks_orders">
+                <join-columns>
+                    <join-column name="order_id" referenced-column-name="id" />
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="order_stack_id" referenced-column-name="id" />
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
+
         <field name="status"
                enum-type="App\Rolls\Domain\Aggregate\Order\ValueObject\Status"
                type="string"

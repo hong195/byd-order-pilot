@@ -237,31 +237,7 @@
       <workItem from="1721987295660" duration="11992000" />
       <workItem from="1722241296438" duration="2030000" />
       <workItem from="1722243371012" duration="6239000" />
-      <workItem from="1722250990432" duration="2410000" />
-    </task>
-    <task id="LOCAL-00009" summary="Added phpstan.">
-      <option name="closed" value="true" />
-      <created>1720786560106</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1720786560106</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Added orm/pack.">
-      <option name="closed" value="true" />
-      <created>1720795589997</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1720795589998</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Added doctrine/messenger/shared context">
-      <option name="closed" value="true" />
-      <created>1721035073241</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1721035073242</updated>
+      <workItem from="1722250990432" duration="3300000" />
     </task>
     <task id="LOCAL-00012" summary="Fixed user repository.">
       <option name="closed" value="true" />
@@ -631,7 +607,31 @@
       <option name="project" value="LOCAL" />
       <updated>1722253573770</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Added find orders query.">
+      <option name="closed" value="true" />
+      <created>1722253644758</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1722253644758</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Added find orders query.">
+      <option name="closed" value="true" />
+      <created>1722253722590</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1722253722590</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Added find orders query.">
+      <option name="closed" value="true" />
+      <created>1722253744933</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1722253744933</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -694,15 +694,6 @@
           <url>file://$PROJECT_DIR$/src/Shared/Domain/Service/AssertService.php</url>
           <line>9</line>
           <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php-line-method">
-          <url>file://$PROJECT_DIR$/src/Rolls/Infrastructure/Service/SiteAssetUrlService.php</url>
-          <line>27</line>
-          <properties>
-            <option name="className" value="\App\Rolls\Infrastructure\Service\SiteAssetUrlService" />
-            <option name="methodName" value="getLink" />
-          </properties>
-          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
