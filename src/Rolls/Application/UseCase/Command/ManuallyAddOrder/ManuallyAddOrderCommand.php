@@ -11,20 +11,24 @@ use App\Shared\Application\Command\CommandInterface;
  */
 readonly class ManuallyAddOrderCommand implements CommandInterface
 {
-    /**
-     * Constructor for the class.
-     *
-     * @param string      $priority       the priority of the product
-     * @param string      $productType    the type of the product
-     * @param string|null $laminationType the type of lamination for the product, optional
-     * @param string|null $rollType       the type of roll for the product, optional
-     * @param string|null $orderNumber    the order number of the product, optional
-     * @param int|null    $cutFileId      the ID of the cut file, optional
-     * @param int|null    $printFileId    the ID of the print file, optional
-     */
+	/**
+	 * Constructor for the class.
+	 *
+	 * @param string $priority The priority of the product.
+	 * @param string $productType The type of the product.
+	 * @param int $length The length of the product.
+	 * @param string|null $laminationType The lamination type of the product (optional).
+	 * @param string|null $rollType The roll type of the product (optional).
+	 * @param string|null $orderNumber The order number of the product (optional).
+	 * @param int|null $cutFileId The cut file ID of the product (optional).
+	 * @param int|null $printFileId The print file ID of the product (optional).
+	 *
+	 * @return void
+	 */
     public function __construct(
         public string $priority,
         public string $productType,
+        public int $length,
         public ?string $laminationType = null,
         public ?string $rollType = null,
         public ?string $orderNumber = null,

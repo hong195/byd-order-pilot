@@ -7,6 +7,7 @@ namespace App\Rolls\Infrastructure\Controller\Order;
 use App\Rolls\Application\UseCase\Command\ManuallyAddOrder\ManuallyAddOrderCommand;
 use App\Shared\Domain\Service\UploadFileService;
 use App\Shared\Infrastructure\Bus\CommandBus;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\AsController;
@@ -31,9 +32,9 @@ final readonly class ManualAddOrder
      *
      * @param Request $request the HTTP request object
      *
-     * @return Response the HTTP response object
+     * @return JsonResponse the HTTP response object
      */
-    public function __invoke(Request $request): Response
+    public function __invoke(Request $request): JsonResponse
     {
         $cutFileId = null;
         $printFileId = null;
@@ -48,16 +49,17 @@ final readonly class ManualAddOrder
 
         $manuallyAddCommand = new ManuallyAddOrderCommand(
             priority: $request->get('priority'),
-            productType: $request->get('productType'),
-            laminationType: $request->get('laminationType'),
-            rollType: $request->get('rollType'),
-            orderNumber: $request->get('orderNumber'),
-            cutFileId: $cutFileId,
-            printFileId: $printFileId
+			productType: $request->get('productType'),
+			length: (int) $request->get('length'),
+			laminationType: $request->get('laminationType'),
+			rollType: $request->get('rollType'),
+			orderNumber: $request->get('orderNumber'),
+			cutFileId: $cutFileId,
+			printFileId: $printFileId
         );
 
-        $this->commandBus->execute($manuallyAddCommand);
+        $orderId = $this->commandBus->execute($manuallyAddCommand);
 
-        return new Response('File uploaded');
+        return new JsonResponse(['id' => $orderId],  Response::HTTP_CREATED);
     }
 }

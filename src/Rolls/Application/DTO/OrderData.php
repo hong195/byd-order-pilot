@@ -27,6 +27,7 @@ final readonly class OrderData
         public int $id,
         public string $status,
         public string $priority,
+        public int $length,
         public string $productType,
         public string $rollType,
         public \DateTimeInterface $addedAt,

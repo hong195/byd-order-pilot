@@ -50,15 +50,16 @@ final readonly class OrderDataTransformer
     {
         return new OrderData(
             id: $order->getId(),
-            status: $order->getStatus()->value,
-            priority: $order->getPriority()->value,
-            productType: $order->getProductType()->value,
-            rollType: $order->getRollType()->value,
-            addedAt: $order->getDateAdded(),
-            laminationType: $order->getLaminationType()?->value,
-            orderNumber: $order->getOrderNumber(),
-            cutFile: $order->getCutFile() ? $this->assetUrlService->getLink($order->getCutFile()->getPath()) : null,
-            printFile: $order->getPrintFile() ? $this->assetUrlService->getLink($order->getPrintFile()->getPath()) : null,
+			status: $order->getStatus()->value,
+			priority: $order->getPriority()->value,
+			length: $order->getLength(),
+			productType: $order->getProductType()->value,
+			rollType: $order->getRollType()->value,
+			addedAt: $order->getDateAdded(),
+			laminationType: $order->getLaminationType()?->value,
+			orderNumber: $order->getOrderNumber(),
+			cutFile: $order->getCutFile() ? $this->assetUrlService->getLink($order->getCutFile()->getPath()) : null,
+			printFile: $order->getPrintFile() ? $this->assetUrlService->getLink($order->getPrintFile()->getPath()) : null,
         );
     }
 }

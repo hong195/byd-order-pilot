@@ -37,11 +37,12 @@ final readonly class ManuallyAddOrderCommandHandler implements CommandHandlerInt
         AssertService::true($this->accessControlService->isGranted(), 'Not allowed to handle resource.');
 
         $order = $this->manuallyAddOrderService->add(
-            $command->priority,
-            $command->productType,
-            $command->laminationType,
-            $command->rollType,
-            $command->orderNumber
+            priority: $command->priority,
+			productType: $command->productType,
+			length: $command->length,
+			laminationType: $command->laminationType,
+			rollType: $command->rollType,
+			orderNumber: $command->orderNumber
         );
 
         if ($command->cutFileId) {

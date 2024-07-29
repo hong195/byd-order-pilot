@@ -30,19 +30,23 @@ final class Order extends Aggregate
     private ?MediaFile $cutFile = null;
     private ?MediaFile $printFile = null;
 
-    /**
-     * Constructs a new object.
-     *
-     * @param Priority            $priority       the priority of the product
-     * @param ProductType         $productType    the type of the product
-     * @param RollType|null       $rollType       the type of the roll (nullable)
-     * @param LaminationType|null $laminationType the type of the lamination (nullable)
-     * @param ?int                $orderNumber    the order number (nullable)
-     */
+	/**
+	 * Class constructor.
+	 *
+	 * @param Priority $priority the priority of the product
+	 * @param int $length the length of the product
+	 * @param ProductType $productType the type of the product
+	 * @param RollType $rollType the roll type of the product
+	 * @param ?LaminationType $laminationType the lamination type of the product (optional, default is null)
+	 * @param ?int $orderNumber the order number of the product (optional, default is null)
+	 *
+	 * @return void
+	 */
     public function __construct(
         private Priority $priority,
+		private readonly int $length,
         private readonly ProductType $productType,
-        private ?RollType $rollType = null,
+        private RollType $rollType,
         private ?LaminationType $laminationType = null,
         private ?int $orderNumber = null,
     ) {
@@ -218,4 +222,9 @@ final class Order extends Aggregate
     {
         $this->orderNumber = $orderNumber;
     }
+
+	public function getLength(): int
+	{
+		return $this->length;
+	}
 }

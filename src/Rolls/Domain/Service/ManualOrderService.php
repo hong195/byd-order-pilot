@@ -40,16 +40,18 @@ final readonly class ManualOrderService
     public function add(
         string $priority,
         string $productType,
+        int $length,
         ?string $laminationType = null,
         ?string $rollType = null,
         ?string $orderNumber = null): Order
     {
         $order = $this->orderFactory->make(
-            $priority,
-            $productType,
-            $laminationType,
-            $rollType,
-            $orderNumber
+            priority: $priority,
+			length: $length,
+            productType: $productType,
+            laminationType: $laminationType,
+            rollType: $rollType,
+            orderNumber: $orderNumber
         );
 
         $this->orderRepository->save($order);
