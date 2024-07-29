@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Rolls\Application\UseCase\Query\FindOrder;
+namespace App\Rolls\Application\UseCase\Query\FindAnOrder;
 
 use App\Shared\Application\Query\Query;
 
@@ -11,7 +11,7 @@ use App\Shared\Application\Query\Query;
  *
  * This class represents a query to find a roll by its ID.
  */
-final readonly class FindOrderQuery extends Query
+final readonly class FindAnOrderQuery extends Query
 {
     /**
      * Class constructor.

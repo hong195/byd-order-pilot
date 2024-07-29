@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace App\Rolls\Application\UseCase;
 
 use App\Rolls\Application\UseCase\Query\FindALamination\FindALaminationQuery;
+use App\Rolls\Application\UseCase\Query\FindAnOrder\FindAnOrderQuery;
+use App\Rolls\Application\UseCase\Query\FindAnOrder\FindAnOrderResult;
 use App\Rolls\Application\UseCase\Query\FindARoll\FindALaminationResult;
 use App\Rolls\Application\UseCase\Query\FindARoll\FindARollQuery;
 use App\Rolls\Application\UseCase\Query\FindARoll\FindARollResult;
 use App\Rolls\Application\UseCase\Query\FindLaminations\FindLaminationsQuery;
 use App\Rolls\Application\UseCase\Query\FindLaminations\FindLaminationsResult;
-use App\Rolls\Application\UseCase\Query\FindOrder\FindOrderQuery;
-use App\Rolls\Application\UseCase\Query\FindOrder\FindOrderResult;
 use App\Rolls\Application\UseCase\Query\FindRolls\FindRollsQuery;
 use App\Rolls\Application\UseCase\Query\FindRolls\FindRollsResult;
 use App\Shared\Application\Query\QueryBusInterface;
@@ -74,10 +74,15 @@ readonly class PrivateQueryInteractor
         return $this->queryBus->execute($query);
     }
 
-	public function findOrder(int $id): FindOrderResult
-	{
-		$query = new FindOrderQuery($id);
+	/**
+	 * Class ExampleClass.
+	 *
+	 * @property QueryBusInterface $queryBus An instance of QueryBusInterface.
+	 */
+	public function findOrder(int $id): FindAnOrderResult
+    {
+        $query = new FindAnOrderQuery($id);
 
-		return $this->queryBus->execute($query);
-	}
+        return $this->queryBus->execute($query);
+    }
 }
