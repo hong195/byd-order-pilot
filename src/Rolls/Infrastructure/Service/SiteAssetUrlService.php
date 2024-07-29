@@ -13,6 +13,15 @@ use App\Rolls\Application\Service\AssetUrlServiceInterface;
  */
 final readonly class SiteAssetUrlService implements AssetUrlServiceInterface
 {
+	/**
+	 * Class constructor.
+	 *
+	 * @param string $siteUrl The URL of the site.
+	 */
+	public function __construct(private string $siteUrl)
+    {
+    }
+
     /**
      * Retrieves the link for a given file.
      *
@@ -20,8 +29,12 @@ final readonly class SiteAssetUrlService implements AssetUrlServiceInterface
      *
      * @return string the link for the specified file
      */
-    public function getLink(string $fileName): string
+    public function getLink(string $fileName, ?string $source = null): string
     {
+        if (!$source || 'local' === $source) {
+            return $this->siteUrl.'/'.$fileName;
+        }
+
         return $fileName;
     }
 }

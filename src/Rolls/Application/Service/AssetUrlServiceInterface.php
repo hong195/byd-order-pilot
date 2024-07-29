@@ -16,5 +16,5 @@ interface AssetUrlServiceInterface
      *
      * @return string the link of the file
      */
-    public function getLink(string $fileName): string;
+    public function getLink(string $fileName, string $source = null): string;
 }
