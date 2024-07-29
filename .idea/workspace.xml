@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added find orders query." />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added migration for order stack model.">
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Domain/Repository/OrderStackRepositoryInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Domain/Service/ArrangeServiceInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Domain/Service/MaxMinArrangeService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Repository/OrderStackRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rolls/Domain/Repository/OrderRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Domain/Repository/OrderRepositoryInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rolls/Infrastructure/Repository/OrderRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Repository/OrderRepository.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -237,15 +246,8 @@
       <workItem from="1721987295660" duration="11992000" />
       <workItem from="1722241296438" duration="2030000" />
       <workItem from="1722243371012" duration="6239000" />
-      <workItem from="1722250990432" duration="3300000" />
-    </task>
-    <task id="LOCAL-00012" summary="Fixed user repository.">
-      <option name="closed" value="true" />
-      <created>1721037769782</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1721037769782</updated>
+      <workItem from="1722250990432" duration="6363000" />
+      <workItem from="1722260045979" duration="554000" />
     </task>
     <task id="LOCAL-00013" summary="Added route for creating user.">
       <option name="closed" value="true" />
@@ -631,7 +633,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722253744933</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="Added migration for order stack model.">
+      <option name="closed" value="true" />
+      <created>1722257067162</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1722257067162</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -655,7 +665,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added orm/pack." />
     <MESSAGE value="Added doctrine/messenger/shared context" />
     <MESSAGE value="Fixed user repository." />
     <MESSAGE value="Added route for creating user." />
@@ -680,7 +689,8 @@
     <MESSAGE value="Updated migrations." />
     <MESSAGE value="Added single order route." />
     <MESSAGE value="Added find orders query." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added find orders query." />
+    <MESSAGE value="Added migration for order stack model." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added migration for order stack model." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
