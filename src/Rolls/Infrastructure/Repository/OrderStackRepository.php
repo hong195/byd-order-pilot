@@ -5,10 +5,16 @@ declare(strict_types=1);
 namespace App\Rolls\Infrastructure\Repository;
 
 use App\Rolls\Domain\Aggregate\OrderStack\OrderStack;
+use App\Rolls\Domain\Repository\OrderStackFilter;
 use App\Rolls\Domain\Repository\OrderStackRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
+/**
+ * Constructs a new instance of the class.
+ *
+ * @param ManagerRegistry $registry the manager registry
+ */
 class OrderStackRepository extends ServiceEntityRepository implements OrderStackRepositoryInterface
 {
     /**
@@ -49,9 +55,19 @@ class OrderStackRepository extends ServiceEntityRepository implements OrderStack
      *
      * @return OrderStack[] The array of OrderStacks
      */
-    public function findAll(): array
+    public function findQueried(OrderStackFilter $orderStackFilter): array
     {
         $qb = $this->createQueryBuilder('or');
+
+		if ($orderStackFilter->rollType) {
+			$qb->where($qb->expr()->like('or.rollType', ':rollType'))
+				->setParameter('rollType', $orderStackFilter->rollType);
+		}
+
+		if ($orderStackFilter->laminationType) {
+			$qb->where($qb->expr()->like('or.laminationType', ':laminationType'))
+				->setParameter('laminationType', $orderStackFilter->laminationType);
+		}
 
         $query = $qb->getQuery();
 

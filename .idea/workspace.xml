@@ -4,24 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added order stack repo implementation.">
-      <change afterPath="$PROJECT_DIR$/src/Rolls/Domain/Repository/OrderFilter.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added order length field.">
       <change afterPath="$PROJECT_DIR$/src/Rolls/Domain/Repository/OrderStackFilter.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/Rolls/Domain/Service/MaxMinReArrangeOrderService.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/Rolls/Domain/Service/ReArrangeOrderServiceInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240729141117.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rolls/Application/DTO/OrderData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Application/DTO/OrderData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rolls/Application/DTO/OrderDataTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Application/DTO/OrderDataTransformer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/ManuallyAddOrder/ManuallyAddOrderCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/ManuallyAddOrder/ManuallyAddOrderCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/ManuallyAddOrder/ManuallyAddOrderCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/ManuallyAddOrder/ManuallyAddOrderCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/Order/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/Order/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rolls/Domain/Factory/OrderFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Domain/Factory/OrderFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rolls/Domain/Service/ManualOrderService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Domain/Service/ManualOrderService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rolls/Infrastructure/Controller/Order/ManualAddOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Controller/Order/ManualAddOrder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rolls/Domain/Repository/OrderStackRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Domain/Repository/OrderStackRepositoryInterface.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Rolls/Infrastructure/Database/ORM/Order.Order.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Database/ORM/Order.Order.orm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rolls/Infrastructure/Repository/OrderStackRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Repository/OrderStackRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -256,15 +246,7 @@
       <workItem from="1722241296438" duration="2030000" />
       <workItem from="1722243371012" duration="6239000" />
       <workItem from="1722250990432" duration="6363000" />
-      <workItem from="1722260045979" duration="3225000" />
-    </task>
-    <task id="LOCAL-00014" summary="Added update user command.">
-      <option name="closed" value="true" />
-      <created>1721047683574</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1721047683574</updated>
+      <workItem from="1722260045979" duration="3685000" />
     </task>
     <task id="LOCAL-00015" summary="Added update user command.">
       <option name="closed" value="true" />
@@ -650,7 +632,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722260625444</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="Added order length field.">
+      <option name="closed" value="true" />
+      <created>1722264753476</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1722264753476</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -674,7 +664,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed user repository." />
     <MESSAGE value="Added route for creating user." />
     <MESSAGE value="Added update user command." />
     <MESSAGE value="Added jwt based auth/login" />
@@ -699,7 +688,8 @@
     <MESSAGE value="Added find orders query." />
     <MESSAGE value="Added migration for order stack model." />
     <MESSAGE value="Added order stack repo implementation." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added order stack repo implementation." />
+    <MESSAGE value="Added order length field." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added order length field." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

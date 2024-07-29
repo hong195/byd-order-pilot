@@ -29,5 +29,5 @@ interface OrderStackRepositoryInterface
      *
      * @return OrderStack[] an array containing all database records
      */
-    public function findAll(): array;
+    public function findQueried(OrderStackFilter $orderStackFilter): array;
 }
