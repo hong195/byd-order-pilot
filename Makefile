@@ -2,7 +2,7 @@
 # Variables
 ##################
 
-DOCKER_COMPOSE = docker-compose -f ./docker/docker-compose.yml
+DOCKER_COMPOSE = docker compose -f ./docker/docker-compose.yml
 DOCKER_COMPOSE_PHP_FPM_EXEC = ${DOCKER_COMPOSE} exec -u www-data php-fpm
 
 ##################
@@ -51,8 +51,8 @@ php: app_bash
 test:
 	${DOCKER_COMPOSE} exec -u www-data php-fpm bin/phpunit
 cache:
-	docker-compose -f ./docker/docker-compose.yml exec -u www-data php-fpm bin/console cache:clear
-	docker-compose -f ./docker/docker-compose.yml exec -u www-data php-fpm bin/console cache:clear --env=test
+	docker compose -f ./docker/docker-compose.yml exec -u www-data php-fpm bin/console cache:clear
+	docker compose -f ./docker/docker-compose.yml exec -u www-data php-fpm bin/console cache:clear --env=test
 
 ##################
 # Database
@@ -73,7 +73,7 @@ db_migration_down:
 	${DOCKER_COMPOSE} exec -u www-data php-fpm bin/console doctrine:migrations:execute "App\Shared\Infrastructure\Database\Migrations\Version********" --down --dry-run
 
 db_drop:
-	docker-compose -f ./docker/docker-compose.yml exec -u www-data php-fpm bin/console doctrine:schema:drop --force
+	docker compose -f ./docker/docker-compose.yml exec -u www-data php-fpm bin/console doctrine:schema:drop --force
 
 
 ##################
