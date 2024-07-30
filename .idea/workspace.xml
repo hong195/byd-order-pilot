@@ -4,21 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated order stack repository.">
-      <change afterPath="$PROJECT_DIR$/src/Rolls/Application/DTO/OrderStackData.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Rolls/Domain/Factory/OrderStackFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Rolls/Domain/Repository/OrderStackFilter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Rolls/Domain/Service/MaxMinOrderCheckInService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Rolls/Domain/Service/OrderCheckInInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Rolls/Domain/Service/SortOrdersService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Rolls/Domain/Service/SortOrdersServiceInterface.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added order check in service.">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rolls/Application/UseCase/PrivateQueryInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Application/UseCase/PrivateQueryInteractor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/Order/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/Order/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/Order/Priority.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/Order/Priority.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/ManuallyAddOrder/ManuallyAddOrderCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/ManuallyAddOrder/ManuallyAddOrderCommandHandler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/OrderStack/OrderStack.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/OrderStack/OrderStack.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rolls/Domain/Factory/OrderStackFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Domain/Factory/OrderStackFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rolls/Infrastructure/Database/ORM/Lamination.Lamination.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Database/ORM/Lamination.Lamination.orm.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Rolls/Infrastructure/Database/ORM/Order.Order.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Database/ORM/Order.Order.orm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rolls/Infrastructure/Database/ORM/OrderStack.OrderStack.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Database/ORM/OrderStack.OrderStack.orm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rolls/Infrastructure/Database/ORM/Roll.Roll.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Database/ORM/Roll.Roll.orm.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Rolls/Infrastructure/Repository/OrderStackRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Repository/OrderStackRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240724114657.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240725101226.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240729092335.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240729094439.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240729095201.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240729124242.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240729141117.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +39,11 @@
   </component>
   <component name="PhpServers">
     <servers>
-      <server host="127.0.0.1" id="7d2728ca-5a64-4d37-9fe8-0e9275687d69" name="Docker" port="8081" use_path_mappings="true" />
+      <server host="127.0.0.1" id="7d2728ca-5a64-4d37-9fe8-0e9275687d69" name="Docker" port="8081" use_path_mappings="true">
+        <path_mappings>
+          <mapping local-root="$PROJECT_DIR$" remote-root="/var/www" />
+        </path_mappings>
+      </server>
     </servers>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="php-fpm">
@@ -165,30 +174,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;PHPUnit.Main.executor&quot;: &quot;Coverage&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm&quot;: &quot;Docker Compose&quot;,
-    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm&quot;: &quot;Docker Compose&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/aleksejem/Sites/order-pilot/src/Rolls/Application/UseCase/Query&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;php.add.doc.comment.for.fields.panel.add.php.doc.for.all.properties&quot;: &quot;true&quot;,
-    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;fileTemplates&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "PHPUnit.Main.executor": "Coverage",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm": "Docker Compose",
+    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm": "Docker Compose",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/src/Rolls/Application/UseCase/Query",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "php.add.doc.comment.for.fields.panel.add.php.doc.for.all.properties": "true",
+    "php.override.implement.member.chooser.php.doc": "NONE",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.General",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/Rolls/Application/UseCase/Query" />
@@ -255,15 +264,7 @@
       <workItem from="1722250990432" duration="6363000" />
       <workItem from="1722260045979" duration="4026000" />
       <workItem from="1722265765874" duration="9540000" />
-      <workItem from="1722334548628" duration="5128000" />
-    </task>
-    <task id="LOCAL-00016" summary="Added update user command.">
-      <option name="closed" value="true" />
-      <created>1721047805064</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1721047805064</updated>
+      <workItem from="1722334548628" duration="7093000" />
     </task>
     <task id="LOCAL-00017" summary="Added jwt based auth/login">
       <option name="closed" value="true" />
@@ -649,7 +650,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722265422694</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="Added order check in service.">
+      <option name="closed" value="true" />
+      <created>1722340567622</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1722340567622</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -673,7 +682,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added update user command." />
     <MESSAGE value="Added jwt based auth/login" />
     <MESSAGE value="Added" />
     <MESSAGE value="Removed version from auth routes." />
@@ -698,20 +706,16 @@
     <MESSAGE value="Added order stack repo implementation." />
     <MESSAGE value="Added order length field." />
     <MESSAGE value="Updated order stack repository." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated order stack repository." />
+    <MESSAGE value="Added order check in service." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added order check in service." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/vendor/doctrine/orm/src/EntityManagerInterface.php</url>
-          <line>19</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/Shared/Domain/Service/AssertService.php</url>
-          <line>9</line>
-          <option name="timeStamp" value="9" />
+          <url>file://$PROJECT_DIR$/src/Rolls/Domain/Service/MaxMinOrderCheckInService.php</url>
+          <line>46</line>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -721,6 +725,6 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/order_pilot@Main.xml" NAME="Main Coverage Results" MODIFIED="1721128924476" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/order_pilot@Main.xml" NAME="Main Coverage Results" MODIFIED="1722340863994" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

@@ -9,7 +9,7 @@
             <generator strategy="AUTO"/>
         </id>
         <field name="name" type="string" column="name" length="255"/>
-        <field name="dateAdded" type="datetime" column="date_added"/>
+        <field name="dateAdded" type="datetime_immutable" column="date_added"/>
         <field name="length" type="integer" column="length" default="0"/>
         <field name="quality"
                enum-type="App\Rolls\Domain\Aggregate\ValueObject\Quality"

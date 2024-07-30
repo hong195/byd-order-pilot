@@ -48,7 +48,7 @@
 
         <field name="priority" type="integer" column="priority"/>
 
-        <field name="dateAdded" type="datetime" column="date_added"/>
+        <field name="dateAdded" type="datetime_immutable" column="date_added"/>
 
         <field name="updatedAt" type="datetime" column="updated_at"/>
 
