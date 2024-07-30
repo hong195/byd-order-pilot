@@ -12,6 +12,8 @@
 
         <field name="name" type="string" length="255"/>
 
+        <field name="length" type="bigint" nullable="true"/>
+
         <many-to-many field="orders" target-entity="App\Rolls\Domain\Aggregate\Order\Order">
             <join-table name="order_stacks_orders">
                 <join-columns>

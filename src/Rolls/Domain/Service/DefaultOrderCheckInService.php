@@ -10,12 +10,11 @@ use App\Rolls\Domain\Repository\OrderStackFilter;
 use App\Rolls\Domain\Repository\OrderStackRepositoryInterface;
 use App\Shared\Domain\Service\AssertService;
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 
 /**
  * Class MaxMinReArrangeOrderService.
  */
-final readonly class MaxMinOrderCheckInService implements OrderCheckInInterface
+final readonly class DefaultOrderCheckInService implements OrderCheckInInterface
 {
     /**
      * Initializes a new instance of the class.
@@ -55,44 +54,48 @@ final readonly class MaxMinOrderCheckInService implements OrderCheckInInterface
             return;
         }
 
-        $orders = $this->getSortedOrdersFromOrderStacks($orderStacks);
+        $orders = new ArrayCollection([$addedOrder]);
+
+        foreach ($orderStacks as $orderStack) {
+            foreach ($orderStack->getOrders() as $order) {
+                $orders->add($order);
+            }
+        }
+
+        $orders = $this->sortOrdersService->getSorted($orders)->toArray();
 
         $this->removeOrdersFromOrderStacks($orderStacks);
 
         $formedOrderStacks = [];
 
-        foreach ($orders as $order) {
-            if (empty($formedOrderStacks) || !$formedOrderStacks[count($formedOrderStacks) - 1]->canAddOrder($order)) {
-                $orderStack = $this->makeOrderStack($order);
-                $formedOrderStacks[] = $orderStack;
+        while (!empty($orderStacks) || !empty($orders)) {
+            if (empty($orderStacks)) {
+                // Если больше нет стэков, создаем новый
+                $orderStack = $this->makeOrderStack($orders[0]);
+                $orderStacks[] = $orderStack;
             }
 
-            $formedOrderStacks[count($formedOrderStacks) - 1]->addOrder($order);
+            $currentOrderStack = array_shift($orderStacks);
+
+            while (!empty($orders)) {
+                $currentOrder = array_shift($orders);
+
+                if ($currentOrderStack->canAddOrder($currentOrder)) {
+                    $currentOrderStack->addOrder($currentOrder);
+                } else {
+                    // Возвращаем заказ в очередь заказов, если не может быть добавлен в текущий стэк
+                    array_unshift($orders, $currentOrder);
+                    break;
+                }
+            }
+
+            $formedOrderStacks[] = $currentOrderStack;
         }
 
-        // saving new formed orders stack into database
+        // saving new formed orders stack
         foreach ($formedOrderStacks as $orderStack) {
             $this->orderStackRepository->save($orderStack);
         }
-    }
-
-    /**
-     * Sorts the given order stacks.
-     *
-     * @param OrderStack[] $orderStacks the order stacks to be sorted
-     *
-     * @return Collection the sorted order stacks
-     */
-    private function getSortedOrdersFromOrderStacks(array $orderStacks): Collection
-    {
-        $orders = [];
-        foreach ($orderStacks as $orderStack) {
-            foreach ($orderStack->getOrders() as $order) {
-                $orders[] = $order;
-            }
-        }
-
-        return $this->sortOrdersService->getSorted(new ArrayCollection($orders));
     }
 
     /**

@@ -57,15 +57,15 @@ class OrderStackRepository extends ServiceEntityRepository implements OrderStack
      */
     public function findQueried(OrderStackFilter $orderStackFilter): array
     {
-        $qb = $this->createQueryBuilder('or');
+        $qb = $this->createQueryBuilder('ors');
 
         if ($orderStackFilter->rollType) {
-            $qb->where($qb->expr()->like('or.rollType', ':rollType'))
+            $qb->where($qb->expr()->eq('ors.rollType', ':rollType'))
                 ->setParameter('rollType', $orderStackFilter->rollType);
         }
 
         if ($orderStackFilter->laminationType) {
-            $qb->where($qb->expr()->like('or.laminationType', ':laminationType'))
+            $qb->andWhere($qb->expr()->eq('ors.laminationType', ':laminationType'))
                 ->setParameter('laminationType', $orderStackFilter->laminationType);
         }
 

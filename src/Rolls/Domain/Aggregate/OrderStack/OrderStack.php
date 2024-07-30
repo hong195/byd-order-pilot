@@ -25,7 +25,7 @@ final class OrderStack extends Aggregate
     private Status $status = Status::NEW;
     private \DateTimeImmutable $dateAdded;
 
-    private \DateTimeImmutable $updatedAt;
+    private \DateTime $updatedAt;
 
     /**
      * @var ArrayCollection<Order>
@@ -52,7 +52,7 @@ final class OrderStack extends Aggregate
     ) {
         $this->orders = new ArrayCollection();
         $this->dateAdded = new \DateTimeImmutable();
-        $this->updatedAt = new \DateTimeImmutable();
+        $this->updatedAt = new \DateTime();
     }
 
     /**
@@ -86,9 +86,9 @@ final class OrderStack extends Aggregate
     /**
      * Get the date and time when the entity was last updated.
      *
-     * @return \DateTimeImmutable the value of updatedAt property
+     * @return \DateTime the value of updatedAt property
      */
-    public function getUpdatedAt(): \DateTimeImmutable
+    public function getUpdatedAt(): \DateTime
     {
         return $this->updatedAt;
     }

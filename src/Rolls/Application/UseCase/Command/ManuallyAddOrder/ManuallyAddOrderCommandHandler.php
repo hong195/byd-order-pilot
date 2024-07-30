@@ -7,6 +7,7 @@ namespace App\Rolls\Application\UseCase\Command\ManuallyAddOrder;
 use App\Rolls\Application\AccessControll\AccessControlService;
 use App\Rolls\Domain\Aggregate\Order\Order;
 use App\Rolls\Domain\Service\ManualOrderService;
+use App\Rolls\Domain\Service\OrderCheckInInterface;
 use App\Shared\Application\Command\CommandHandlerInterface;
 use App\Shared\Domain\Service\AssertService;
 
@@ -21,7 +22,7 @@ final readonly class ManuallyAddOrderCommandHandler implements CommandHandlerInt
      * @param AccessControlService $accessControlService    the access control service
      * @param ManualOrderService   $manuallyAddOrderService the manual order service
      */
-    public function __construct(private AccessControlService $accessControlService, private ManualOrderService $manuallyAddOrderService)
+    public function __construct(private AccessControlService $accessControlService, private ManualOrderService $manuallyAddOrderService, private OrderCheckInInterface $orderCheckInService)
     {
     }
 
@@ -38,12 +39,14 @@ final readonly class ManuallyAddOrderCommandHandler implements CommandHandlerInt
 
         $order = $this->manuallyAddOrderService->add(
             priority: $command->priority,
-			productType: $command->productType,
-			length: $command->length,
-			laminationType: $command->laminationType,
-			rollType: $command->rollType,
-			orderNumber: $command->orderNumber
+            productType: $command->productType,
+            length: $command->length,
+            laminationType: $command->laminationType,
+            rollType: $command->rollType,
+            orderNumber: $command->orderNumber
         );
+
+        $this->orderCheckInService->checkIn($order->getId());
 
         if ($command->cutFileId) {
             $this->manuallyAddOrderService->attachFile($order, $command->cutFileId, Order::CUT_FILE);

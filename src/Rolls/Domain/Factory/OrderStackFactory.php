@@ -49,7 +49,7 @@ final readonly class OrderStackFactory
             priority: $priority,
             rollType: RollType::from($rollType),
             sortOrdersService: $this->sortOrdersService,
-            laminationType: LaminationType::from($laminationType),
+            laminationType: $laminationType ? LaminationType::from($laminationType) : null,
         );
     }
 }
