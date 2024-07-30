@@ -4,26 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added order check in service.">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated project migrations.">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/ManuallyAddOrder/ManuallyAddOrderCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command/ManuallyAddOrder/ManuallyAddOrderCommandHandler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/OrderStack/OrderStack.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/OrderStack/OrderStack.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Rolls/Domain/Factory/OrderStackFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Domain/Factory/OrderStackFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rolls/Infrastructure/Database/ORM/Lamination.Lamination.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Database/ORM/Lamination.Lamination.orm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rolls/Infrastructure/Database/ORM/Order.Order.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Database/ORM/Order.Order.orm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rolls/Infrastructure/Database/ORM/OrderStack.OrderStack.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Database/ORM/OrderStack.OrderStack.orm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rolls/Infrastructure/Database/ORM/Roll.Roll.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Database/ORM/Roll.Roll.orm.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Rolls/Infrastructure/Repository/OrderStackRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/Repository/OrderStackRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240724114657.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240725101226.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240729092335.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240729094439.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240729095201.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240729124242.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240729141117.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/EventListener/Doctrine/InitSpecificationOnPostLoadListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Infrastructure/EventListener/Doctrine/InitSortingServiceOnPostLoad.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,10 +167,15 @@
   "keyToString": {
     "PHPUnit.Main.executor": "Coverage",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
+    "WebServerToolWindowPanel.toolwindow.show.date": "false",
+    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
+    "WebServerToolWindowPanel.toolwindow.show.size": "false",
     "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm": "Docker Compose",
     "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm": "Docker Compose",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/src/Rolls/Application/UseCase/Query",
+    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/src/Rolls/Infrastructure",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -200,11 +194,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Rolls/Infrastructure" />
       <recent name="$PROJECT_DIR$/src/Rolls/Application/UseCase/Query" />
       <recent name="$PROJECT_DIR$/src/Rolls/Infrastructure/Database/ORM" />
       <recent name="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command" />
       <recent name="$PROJECT_DIR$/config/packages/vich_uploader" />
-      <recent name="$PROJECT_DIR$/src/Shared/Infrastructure/Database/ORM" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/Rolls/Infrastructure/Controller/Order" />
@@ -264,39 +258,7 @@
       <workItem from="1722250990432" duration="6363000" />
       <workItem from="1722260045979" duration="4026000" />
       <workItem from="1722265765874" duration="9540000" />
-      <workItem from="1722334548628" duration="7093000" />
-    </task>
-    <task id="LOCAL-00017" summary="Added jwt based auth/login">
-      <option name="closed" value="true" />
-      <created>1721052606214</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1721052606214</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Removed version from auth routes.">
-      <option name="closed" value="true" />
-      <created>1721052726403</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1721052726403</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Removed version from auth routes.">
-      <option name="closed" value="true" />
-      <created>1721053151379</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1721053151379</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Added roll model.">
-      <option name="closed" value="true" />
-      <created>1721140579351</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1721140579351</updated>
+      <workItem from="1722334548628" duration="9405000" />
     </task>
     <task id="LOCAL-00021" summary="Added roll repo.">
       <option name="closed" value="true" />
@@ -658,7 +620,39 @@
       <option name="project" value="LOCAL" />
       <updated>1722340567622</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="Updated make file.">
+      <option name="closed" value="true" />
+      <created>1722342597845</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1722342597845</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Updated make file.">
+      <option name="closed" value="true" />
+      <created>1722342636525</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1722342636525</updated>
+    </task>
+    <task id="LOCAL-00068" summary="Updated project migrations.">
+      <option name="closed" value="true" />
+      <created>1722342817858</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1722342817858</updated>
+    </task>
+    <task id="LOCAL-00069" summary="Updated project migrations.">
+      <option name="closed" value="true" />
+      <created>1722342827931</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1722342827931</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -682,8 +676,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added jwt based auth/login" />
-    <MESSAGE value="Added" />
     <MESSAGE value="Removed version from auth routes." />
     <MESSAGE value="Added roll model." />
     <MESSAGE value="Added roll repo." />
@@ -707,7 +699,9 @@
     <MESSAGE value="Added order length field." />
     <MESSAGE value="Updated order stack repository." />
     <MESSAGE value="Added order check in service." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added order check in service." />
+    <MESSAGE value="Updated make file." />
+    <MESSAGE value="Updated project migrations." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated project migrations." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
