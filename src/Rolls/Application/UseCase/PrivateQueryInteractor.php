@@ -76,26 +76,25 @@ readonly class PrivateQueryInteractor
         return $this->queryBus->execute($query);
     }
 
-	/**
-	 * Class ExampleClass.
-	 *
-	 * @property QueryBusInterface $queryBus An instance of QueryBusInterface.
-	 */
-	public function findAnOrder(int $id): FindAnOrderResult
+    /**
+     * Class ExampleClass.
+     *
+     * @property QueryBusInterface $queryBus An instance of QueryBusInterface.
+     */
+    public function findAnOrder(int $id): FindAnOrderResult
     {
         $query = new FindAnOrderQuery($id);
 
         return $this->queryBus->execute($query);
     }
 
-	/**
-	 *
-	 * @method FindOrdersResult findOrders()
-	 */
-	public function findOrders(): FindOrdersResult
-	{
-		$query = new FindOrdersQuery();
+    /**
+     * @method FindOrdersResult findOrders()
+     */
+    public function findOrders(): FindOrdersResult
+    {
+        $query = new FindOrdersQuery();
 
-		return $this->queryBus->execute($query);
-	}
+        return $this->queryBus->execute($query);
+    }
 }

@@ -8,6 +8,7 @@ use App\Rolls\Domain\Aggregate\Lamination\LaminationType;
 use App\Rolls\Domain\Aggregate\Order\Order;
 use App\Rolls\Domain\Aggregate\Order\ValueObject\Status;
 use App\Rolls\Domain\Aggregate\Roll\RollType;
+use App\Rolls\Domain\Service\SortOrdersServiceInterface;
 use App\Shared\Domain\Aggregate\Aggregate;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -34,18 +35,20 @@ final class OrderStack extends Aggregate
     /**
      * Class constructor.
      *
-     * @param string          $name           the name of the object
-     * @param int             $length         the length of the object
-     * @param int             $priority       the priority of the object
-     * @param RollType        $rollType       the RollType object of the object
-     * @param ?LaminationType $laminationType the LaminationType object of the object
+     * @param string                     $name              The name of the object
+     * @param int                        $length            The length of the object
+     * @param int                        $priority          The priority of the object
+     * @param RollType                   $rollType          The roll type object associated with the object
+     * @param SortOrdersServiceInterface $sortOrdersService The sort orders service interface object associated with the object
+     * @param LaminationType|null        $laminationType    The lamination type object associated with the object (optional)
      */
     public function __construct(
         private string $name,
         private int $length,
         private int $priority,
-        private RollType $rollType,
-        private ?LaminationType $laminationType = null,
+        private readonly RollType $rollType,
+        private readonly SortOrdersServiceInterface $sortOrdersService,
+        private readonly ?LaminationType $laminationType = null,
     ) {
         $this->orders = new ArrayCollection();
         $this->dateAdded = new \DateTimeImmutable();
@@ -111,13 +114,13 @@ final class OrderStack extends Aggregate
     }
 
     /**
-     * Get the orders of the application.
+     * Get the orders of the order stack sorted by priority.
      *
      * @return Collection<Order> the orders of the OrderStack
      */
     public function getOrders(): Collection
     {
-        return $this->orders;
+        return $this->sortOrdersService->getSorted($this->orders);
     }
 
     /**
@@ -176,5 +179,43 @@ final class OrderStack extends Aggregate
     public function getPriority(): int
     {
         return $this->priority;
+    }
+
+    /**
+     * Get the total length of all orders associated with the current object.
+     *
+     * @return int the total length of all orders
+     */
+    public function getOrdersLength(): int
+    {
+        $orders = $this->getOrders();
+
+        $length = 0;
+
+        foreach ($orders as $order) {
+            $length += $order->getLength();
+        }
+
+        return $length;
+    }
+
+    /**
+     * Determines if an order can be added based on the current orders' length and the order's length.
+     *
+     * @param Order $order the order to be added
+     *
+     * @return bool returns true if the order can be added, otherwise returns false
+     */
+    public function canAddOrder(Order $order): bool
+    {
+        return $this->getOrdersLength() + $order->getLength() <= $this->length;
+    }
+
+    /**
+     * Remove all orders from the current object.
+     */
+    public function removeOrders(): void
+    {
+        $this->orders = new ArrayCollection();
     }
 }

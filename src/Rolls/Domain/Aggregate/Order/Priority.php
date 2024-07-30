@@ -11,7 +11,17 @@ namespace App\Rolls\Domain\Aggregate\Order;
  */
 enum Priority: string
 {
-    case STANDARD = 'standard';
     case HIGH = 'high';
+    case STANDARD = 'standard';
     case LOW = 'low';
+
+    /**
+     * Get the priority sort.
+     *
+     * @return array<string, int> the array containing the priority sort
+     */
+    public function getPrioritySort(): array
+    {
+        return [Priority::HIGH->value => 1, Priority::STANDARD->value => 2, Priority::LOW->value => 3];
+    }
 }

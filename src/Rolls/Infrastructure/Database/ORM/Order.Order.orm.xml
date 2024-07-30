@@ -17,6 +17,8 @@
                length="255"
         />
 
+        <field name="length" type="bigint" column="length"  nullable="true"/>
+
         <field name="laminationType"
                enum-type="App\Rolls\Domain\Aggregate\Lamination\LaminationType"
                type="string"

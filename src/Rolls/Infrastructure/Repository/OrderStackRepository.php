@@ -59,15 +59,15 @@ class OrderStackRepository extends ServiceEntityRepository implements OrderStack
     {
         $qb = $this->createQueryBuilder('or');
 
-		if ($orderStackFilter->rollType) {
-			$qb->where($qb->expr()->like('or.rollType', ':rollType'))
-				->setParameter('rollType', $orderStackFilter->rollType);
-		}
+        if ($orderStackFilter->rollType) {
+            $qb->where($qb->expr()->like('or.rollType', ':rollType'))
+                ->setParameter('rollType', $orderStackFilter->rollType);
+        }
 
-		if ($orderStackFilter->laminationType) {
-			$qb->where($qb->expr()->like('or.laminationType', ':laminationType'))
-				->setParameter('laminationType', $orderStackFilter->laminationType);
-		}
+        if ($orderStackFilter->laminationType) {
+            $qb->where($qb->expr()->like('or.laminationType', ':laminationType'))
+                ->setParameter('laminationType', $orderStackFilter->laminationType);
+        }
 
         $query = $qb->getQuery();
 
