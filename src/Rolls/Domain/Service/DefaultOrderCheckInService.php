@@ -70,7 +70,6 @@ final readonly class DefaultOrderCheckInService implements OrderCheckInInterface
 
         while (!empty($orderStacks) || !empty($orders)) {
             if (empty($orderStacks)) {
-                // Если больше нет стэков, создаем новый
                 $orderStack = $this->makeOrderStack($orders[0]);
                 $orderStacks[] = $orderStack;
             }
@@ -83,7 +82,6 @@ final readonly class DefaultOrderCheckInService implements OrderCheckInInterface
                 if ($currentOrderStack->canAddOrder($currentOrder)) {
                     $currentOrderStack->addOrder($currentOrder);
                 } else {
-                    // Возвращаем заказ в очередь заказов, если не может быть добавлен в текущий стэк
                     array_unshift($orders, $currentOrder);
                     break;
                 }
