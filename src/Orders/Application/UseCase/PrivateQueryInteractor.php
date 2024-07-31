@@ -7,6 +7,8 @@ namespace App\Orders\Application\UseCase;
 use App\Orders\Application\UseCase\Query\FindALamination\FindALaminationQuery;
 use App\Orders\Application\UseCase\Query\FindAnOrder\FindAnOrderQuery;
 use App\Orders\Application\UseCase\Query\FindAnOrder\FindAnOrderResult;
+use App\Orders\Application\UseCase\Query\FindAnOrderStack\FindAnOrderStackQuery;
+use App\Orders\Application\UseCase\Query\FindAnOrderStack\FindAnOrderStackResult;
 use App\Orders\Application\UseCase\Query\FindARoll\FindALaminationResult;
 use App\Orders\Application\UseCase\Query\FindARoll\FindARollQuery;
 use App\Orders\Application\UseCase\Query\FindARoll\FindARollResult;
@@ -103,6 +105,12 @@ readonly class PrivateQueryInteractor
 	public function findOrderStacks(): FindOrderStacksResult
 	{
 		$query = new FindOrderStacksQuery();
+		return $this->queryBus->execute($query);
+	}
+
+	public function findAnOrderStack(int $id): FindAnOrderStackResult
+	{
+		$query = new FindAnOrderStackQuery($id);
 		return $this->queryBus->execute($query);
 	}
 }

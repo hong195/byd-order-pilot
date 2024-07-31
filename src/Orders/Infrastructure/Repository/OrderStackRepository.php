@@ -41,11 +41,11 @@ class OrderStackRepository extends ServiceEntityRepository implements OrderStack
     /**
      * Finds an OrderStack by its ID.
      *
-     * @param string $id The ID of the OrderStack to find
+     * @param int $id The ID of the OrderStack to find
      *
      * @return OrderStack|null The found OrderStack, or null if not found
      */
-    public function findById(string $id): ?OrderStack
+    public function findById(int $id): ?OrderStack
     {
         return $this->find($id);
     }
