@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added default order check in service.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rolls/Domain/Service/DefaultOrderCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rolls/Domain/Service/DefaultOrderCheckInService.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Changed domain name to Order">
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,23 +251,7 @@
       <workItem from="1722250990432" duration="6363000" />
       <workItem from="1722260045979" duration="4026000" />
       <workItem from="1722265765874" duration="9540000" />
-      <workItem from="1722334548628" duration="17714000" />
-    </task>
-    <task id="LOCAL-00024" summary="Added lamination model.">
-      <option name="closed" value="true" />
-      <created>1721216259484</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1721216259484</updated>
-    </task>
-    <task id="LOCAL-00025" summary="Added some docs.">
-      <option name="closed" value="true" />
-      <created>1721216925212</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1721216925212</updated>
+      <workItem from="1722334548628" duration="18386000" />
     </task>
     <task id="LOCAL-00026" summary="Updated docs.">
       <option name="closed" value="true" />
@@ -646,7 +629,23 @@
       <option name="project" value="LOCAL" />
       <updated>1722359342052</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="Added default order check in service.">
+      <option name="closed" value="true" />
+      <created>1722418380706</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1722418380706</updated>
+    </task>
+    <task id="LOCAL-00074" summary="Changed domain name to Order">
+      <option name="closed" value="true" />
+      <created>1722418772610</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1722418772610</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -670,7 +669,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added roll repo." />
     <MESSAGE value="Added code sniffer" />
     <MESSAGE value="Added lamination model." />
     <MESSAGE value="Added some docs." />
@@ -695,13 +693,14 @@
     <MESSAGE value="Updated project migrations." />
     <MESSAGE value="Added injection of sorting service for order stack entity." />
     <MESSAGE value="Added default order check in service." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added default order check in service." />
+    <MESSAGE value="Changed domain name to Order" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed domain name to Order" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/Rolls/Domain/Aggregate/OrderStack/OrderStack.php</url>
+          <url>file://$PROJECT_DIR$/src/Order/Domain/Aggregate/OrderStack/OrderStack.php</url>
           <line>210</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>

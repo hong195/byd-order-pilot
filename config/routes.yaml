@@ -19,5 +19,5 @@ users:
     type: attribute
 
 rolls:
-    resource: ../src/Rolls/Infrastructure/Controller/
+    resource: ../src/Orders/Infrastructure/Controller/
     type: attribute

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+        https://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="App\Orders\Domain\Aggregate\Lamination\Lamination" table="laminations">
+        <id name="id" type="integer">
+            <generator strategy="AUTO"/>
+        </id>
+        <field name="name" type="string" column="name" length="255"/>
+        <field name="dateAdded" type="datetime_immutable" column="date_added"/>
+        <field name="length" type="integer" column="length" default="0"/>
+        <field name="quality"
+               enum-type="App\Orders\Domain\Aggregate\ValueObject\Quality"
+               type="string"
+               column="quality"
+               length="255"/>
+
+        <field name="qualityNotes" type="string" column="quality_notes" nullable="true"/>
+
+        <field name="laminationType"
+               enum-type="App\Orders\Domain\Aggregate\Lamination\LaminationType"
+               type="string"
+               column="lamination_type"
+               length="255"
+        />
+        <field name="priority" type="integer" column="priority" default="0"/>
+    </entity>
+</doctrine-mapping>
