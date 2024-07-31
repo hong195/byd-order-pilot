@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Changed domain name to Order">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Factory/RollFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Factory/RollFactory.php" afterDir="false" />
-    </list>
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added find orderstacks api endpoint." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +16,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="PhpServers">
     <servers>
@@ -169,7 +167,7 @@
     &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm&quot;: &quot;Docker Compose&quot;,
     &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm&quot;: &quot;Docker Compose&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/aleksejem/Sites/order-pilot/src/Rolls/Infrastructure&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/aleksejem/Sites/order-pilot/src/Orders/Application/UseCase/Query&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -188,18 +186,18 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Query" />
       <recent name="$PROJECT_DIR$/src/Rolls/Infrastructure" />
       <recent name="$PROJECT_DIR$/src/Rolls/Application/UseCase/Query" />
       <recent name="$PROJECT_DIR$/src/Rolls/Infrastructure/Database/ORM" />
       <recent name="$PROJECT_DIR$/src/Rolls/Application/UseCase/Command" />
-      <recent name="$PROJECT_DIR$/config/packages/vich_uploader" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders" />
+      <recent name="$PROJECT_DIR$/src/Orders/Infrastructure/Controller" />
+      <recent name="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/Orders" />
       <recent name="$PROJECT_DIR$/src/Rolls/Infrastructure/Controller/Order" />
       <recent name="$PROJECT_DIR$/src/Rolls/Application" />
-      <recent name="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/ValueObject" />
-      <recent name="$PROJECT_DIR$/src/Rolls/Domain/Service" />
-      <recent name="$PROJECT_DIR$/src/Rolls/Domain/Aggregate/Order" />
     </key>
   </component>
   <component name="RunManager">
@@ -253,39 +251,7 @@
       <workItem from="1722260045979" duration="4026000" />
       <workItem from="1722265765874" duration="9540000" />
       <workItem from="1722334548628" duration="18386000" />
-      <workItem from="1722419366106" duration="300000" />
-    </task>
-    <task id="LOCAL-00026" summary="Updated docs.">
-      <option name="closed" value="true" />
-      <created>1721224593121</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1721224593121</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Added private command interactor.">
-      <option name="closed" value="true" />
-      <created>1721225338754</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1721225338754</updated>
-    </task>
-    <task id="LOCAL-00028" summary="Added rolls command routes.">
-      <option name="closed" value="true" />
-      <created>1721228518440</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1721228518440</updated>
-    </task>
-    <task id="LOCAL-00029" summary="Added rolls command routes.">
-      <option name="closed" value="true" />
-      <created>1721228794194</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1721228794194</updated>
+      <workItem from="1722419366106" duration="4075000" />
     </task>
     <task id="LOCAL-00030" summary="Added rolls command routes.">
       <option name="closed" value="true" />
@@ -647,7 +613,39 @@
       <option name="project" value="LOCAL" />
       <updated>1722418772610</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="Fixed missing quality property.">
+      <option name="closed" value="true" />
+      <created>1722419723273</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1722419723273</updated>
+    </task>
+    <task id="LOCAL-00076" summary="Added find orderstacks api endpoint.">
+      <option name="closed" value="true" />
+      <created>1722423619918</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1722423619918</updated>
+    </task>
+    <task id="LOCAL-00077" summary="Added find orderstacks api endpoint.">
+      <option name="closed" value="true" />
+      <created>1722423715123</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1722423715123</updated>
+    </task>
+    <task id="LOCAL-00078" summary="Added find orderstacks api endpoint.">
+      <option name="closed" value="true" />
+      <created>1722423738590</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1722423738590</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -671,8 +669,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added code sniffer" />
-    <MESSAGE value="Added lamination model." />
     <MESSAGE value="Added some docs." />
     <MESSAGE value="Updated docs." />
     <MESSAGE value="Added private command interactor." />
@@ -696,7 +692,9 @@
     <MESSAGE value="Added injection of sorting service for order stack entity." />
     <MESSAGE value="Added default order check in service." />
     <MESSAGE value="Changed domain name to Order" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed domain name to Order" />
+    <MESSAGE value="Fixed missing quality property." />
+    <MESSAGE value="Added find orderstacks api endpoint." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added find orderstacks api endpoint." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

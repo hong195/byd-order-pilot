@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Infrastructure\Controller\Order;
+namespace App\Orders\Infrastructure\Controller\Orders;
 
 use App\Orders\Application\UseCase\PrivateQueryInteractor;
 use Symfony\Component\HttpFoundation\JsonResponse;

@@ -33,7 +33,7 @@ final readonly class OrderStackData
         public int $id,
         public string $name,
         public int $length,
-        public string $priority,
+        public int $priority,
         public string $rollType,
         public \DateTimeInterface $dateAdded,
         public \DateTimeInterface $updatedAt,

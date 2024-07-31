@@ -78,7 +78,7 @@ final class OrderStack extends Aggregate
      *
      * @return \DateTimeImmutable the datetime when the object was added
      */
-    public function getAddedAt(): \DateTimeImmutable
+    public function getDateAdded(): \DateTimeImmutable
     {
         return $this->dateAdded;
     }

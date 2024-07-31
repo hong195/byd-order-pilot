@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Orders\Application\UseCase\Query\FindLaminations;
 
 use App\Orders\Application\DTO\LaminationData;
-use App\Orders\Application\DTO\RollData;
+use App\Orders\Application\DTO\OrderStackData;
 
 /**
  * Represents the result of finding a roll.

@@ -14,6 +14,8 @@ use App\Orders\Application\UseCase\Query\FindLaminations\FindLaminationsQuery;
 use App\Orders\Application\UseCase\Query\FindLaminations\FindLaminationsResult;
 use App\Orders\Application\UseCase\Query\FindOrders\FindOrdersQuery;
 use App\Orders\Application\UseCase\Query\FindOrders\FindOrdersResult;
+use App\Orders\Application\UseCase\Query\FindOrderStacks\FindOrderStacksQuery;
+use App\Orders\Application\UseCase\Query\FindOrderStacks\FindOrderStacksResult;
 use App\Orders\Application\UseCase\Query\FindRolls\FindRollsQuery;
 use App\Orders\Application\UseCase\Query\FindRolls\FindRollsResult;
 use App\Shared\Application\Query\QueryBusInterface;
@@ -97,4 +99,10 @@ readonly class PrivateQueryInteractor
 
         return $this->queryBus->execute($query);
     }
+
+	public function findOrderStacks(): FindOrderStacksResult
+	{
+		$query = new FindOrderStacksQuery();
+		return $this->queryBus->execute($query);
+	}
 }

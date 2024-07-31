@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Infrastructure\Controller\Order;
+namespace App\Orders\Infrastructure\Controller\Orders;
 
 use App\Orders\Application\UseCase\Command\ManuallyAddOrder\ManuallyAddOrderCommand;
 use App\Shared\Domain\Service\UploadFileService;
