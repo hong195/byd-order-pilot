@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Bug fix.">
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/RollRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/RollRepository.php" afterDir="false" />
-    </list>
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated sort orders service sort by priority and length." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -254,55 +252,7 @@
       <workItem from="1722265765874" duration="9540000" />
       <workItem from="1722334548628" duration="18386000" />
       <workItem from="1722419366106" duration="4922000" />
-      <workItem from="1722424859725" duration="9959000" />
-    </task>
-    <task id="LOCAL-00033" summary="Added single Roll query.">
-      <option name="closed" value="true" />
-      <created>1721385851469</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1721385851469</updated>
-    </task>
-    <task id="LOCAL-00034" summary="Added lamination queries.">
-      <option name="closed" value="true" />
-      <created>1721395151739</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1721395151739</updated>
-    </task>
-    <task id="LOCAL-00035" summary="Added order entity.">
-      <option name="closed" value="true" />
-      <created>1721658839942</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1721658839942</updated>
-    </task>
-    <task id="LOCAL-00036" summary="Added order entity.">
-      <option name="closed" value="true" />
-      <created>1721658843726</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1721658843726</updated>
-    </task>
-    <task id="LOCAL-00037" summary="Added order entity.">
-      <option name="closed" value="true" />
-      <created>1721805667698</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1721805667698</updated>
-    </task>
-    <task id="LOCAL-00038" summary="Added order entity.">
-      <option name="closed" value="true" />
-      <created>1721805733359</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1721805733359</updated>
+      <workItem from="1722424859725" duration="11158000" />
     </task>
     <task id="LOCAL-00039" summary="Added order entity.">
       <option name="closed" value="true" />
@@ -648,7 +598,55 @@
       <option name="project" value="LOCAL" />
       <updated>1722504941201</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="Added rolls sorting by priority, length.">
+      <option name="closed" value="true" />
+      <created>1722506123225</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1722506123225</updated>
+    </task>
+    <task id="LOCAL-00083" summary="Added rolls sorting by priority, length.">
+      <option name="closed" value="true" />
+      <created>1722506247057</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1722506247057</updated>
+    </task>
+    <task id="LOCAL-00084" summary="Updated sort orders service sort by priority and length.">
+      <option name="closed" value="true" />
+      <created>1722506992999</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1722506992999</updated>
+    </task>
+    <task id="LOCAL-00085" summary="Updated sort orders service sort by priority and length.">
+      <option name="closed" value="true" />
+      <created>1722506997135</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1722506997135</updated>
+    </task>
+    <task id="LOCAL-00086" summary="Updated sort orders service sort by priority and length.">
+      <option name="closed" value="true" />
+      <created>1722507035781</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1722507035781</updated>
+    </task>
+    <task id="LOCAL-00087" summary="Updated sort orders service sort by priority and length.">
+      <option name="closed" value="true" />
+      <created>1722507114074</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1722507114074</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -672,8 +670,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added private command interactor." />
-    <MESSAGE value="Added rolls command routes." />
     <MESSAGE value="Added single Roll query." />
     <MESSAGE value="Added lamination queries." />
     <MESSAGE value="Added order entity." />
@@ -697,7 +693,9 @@
     <MESSAGE value="Added find orderstacks api endpoint." />
     <MESSAGE value="Added route for a single order stack." />
     <MESSAGE value="Bug fix." />
-    <option name="LAST_COMMIT_MESSAGE" value="Bug fix." />
+    <MESSAGE value="Added rolls sorting by priority, length." />
+    <MESSAGE value="Updated sort orders service sort by priority and length." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated sort orders service sort by priority and length." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

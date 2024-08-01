@@ -10,13 +10,13 @@ use Doctrine\Common\Collections\Collection;
 
 final readonly class SortOrdersService implements SortOrdersServiceInterface
 {
-    /**
-     * Sorts a collection of orders based on their priority.
-     *
-     * @param Collection $orders the collection of orders to be sorted
-     *
-     * @return Collection the sorted collection of orders
-     */
+	/**
+	 * Sorts the given collection of orders based on priority and length.
+	 *
+	 * @param Collection $orders The collection of orders to be sorted.
+	 *
+	 * @return Collection The sorted collection of orders.
+	 */
     public function getSorted(Collection $orders): Collection
     {
         $orders = $orders->toArray();
@@ -26,11 +26,19 @@ final readonly class SortOrdersService implements SortOrdersServiceInterface
             $priorityA = $priorities[$a->getPriority()->value];
             $priorityB = $priorities[$b->getPriority()->value];
 
-            if ($priorityA === $priorityB) {
-                return 0;
+            if ($priorityA > $priorityB) {
+                return 1;
+            } elseif ($priorityA < $priorityB) {
+                return -1;
             }
 
-            return $priorityA < $priorityB ? -1 : 1;
+            if ($a->getLength() > $b->getLength()) {
+                return -1;
+            } elseif  ($a->getLength() < $b->getLength()) {
+                return 1;
+            }
+
+			return 0;
         });
 
         return new ArrayCollection($orders);
