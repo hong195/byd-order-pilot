@@ -45,7 +45,6 @@ final readonly class OrderStackTransformer
             id: $orderStack->getId(),
             name: $orderStack->getName(),
             length: $orderStack->getLength(),
-            priority: $orderStack->getPriority(),
             rollType: $orderStack->getRollType()->value,
             dateAdded: $orderStack->getDateAdded(),
             updatedAt: $orderStack->getUpdatedAt(),

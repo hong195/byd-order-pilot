@@ -69,9 +69,11 @@ readonly class PrivateCommandInteractor
      * @param string $quality  the quality of the roll
      * @param string $rollType the type of the roll
      */
-    public function addRoll(string $name, string $quality, string $rollType): int
+    public function addRoll(string $name, int $length, string $quality, string $rollType, ?int $priority = null, ?string $qualityNotes = null): int
     {
-        $command = new AddRollCommand($name, $quality, $rollType);
+        $command = new AddRollCommand(
+            name: $name, length: $length, quality: $quality, rollType: $rollType, qualityNotes: $qualityNotes, priority: $priority
+        );
 
         return $this->commandBus->execute($command);
     }

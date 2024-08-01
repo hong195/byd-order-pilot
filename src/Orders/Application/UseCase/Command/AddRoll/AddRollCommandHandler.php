@@ -14,7 +14,8 @@ readonly class AddRollCommandHandler implements CommandHandlerInterface
 {
     public function __construct(
         private RollRepository $rollRepository,
-        private AccessControlService $accessControlService
+        private AccessControlService $accessControlService,
+        private RollFactory $factory
     ) {
     }
 
@@ -28,10 +29,13 @@ readonly class AddRollCommandHandler implements CommandHandlerInterface
     public function __invoke(AddRollCommand $addRollCommand): int
     {
         AssertService::true($this->accessControlService->isGranted(), 'Not allowed to handle resource.');
-        $roll = (new RollFactory())->create(
+        $roll = $this->factory->create(
             name: $addRollCommand->name,
+            length: $addRollCommand->length,
             quality: $addRollCommand->quality,
             rollType: $addRollCommand->rollType,
+            priority: (int) $addRollCommand->priority,
+            qualityNotes: $addRollCommand->qualityNotes
         );
 
         $this->rollRepository->add($roll);

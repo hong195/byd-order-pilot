@@ -34,11 +34,17 @@ final readonly class AddRoll
         $name = $request->get('name');
         $quality = $request->get('quality');
         $rollType = $request->get('rollType');
-        $length = $request->get('length');
+        $length = (int) $request->get('length');
         $priority = $request->get('priority');
         $qualityNotes = $request->get('qualityNotes');
 
-        $id = $this->privateCommandInteractor->addRoll($name, $quality, $rollType, $length, $priority, $qualityNotes);
+        $id = $this->privateCommandInteractor->addRoll(
+            name: $name,
+            length: $length,
+            quality: $quality,
+            rollType: $rollType,
+            priority: $priority,
+            qualityNotes: $qualityNotes);
 
         return new JsonResponse([
             'id' => $id,

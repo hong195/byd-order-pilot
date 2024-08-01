@@ -22,13 +22,9 @@ final readonly class SortOrdersService implements SortOrdersServiceInterface
         $orders = $orders->toArray();
 
         usort($orders, function (Order $a, Order $b) {
-            $priorities = $a->getPriority()->getPrioritySort();
-            $priorityA = $priorities[$a->getPriority()->value];
-            $priorityB = $priorities[$b->getPriority()->value];
-
-            if ($priorityA > $priorityB) {
+            if ((int) $a->hasPriority() > (int) $b->hasPriority()) {
                 return 1;
-            } elseif ($priorityA < $priorityB) {
+            } elseif ((int) $a->hasPriority() < (int) $b->hasPriority()) {
                 return -1;
             }
 

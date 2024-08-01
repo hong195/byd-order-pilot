@@ -34,7 +34,7 @@ final class Roll extends Aggregate
         string $name,
         Quality $quality,
         RollType $rollType,
-        int $length = 0,
+        int $length,
         ?string $qualityNotes = null,
         int $priority = 0
     ) {
