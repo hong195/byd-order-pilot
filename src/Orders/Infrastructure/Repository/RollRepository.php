@@ -81,9 +81,14 @@ class RollRepository extends ServiceEntityRepository implements RollRepositoryIn
     {
         $qb = $this->createQueryBuilder('r');
 
-        $query = $qb->getQuery();
+		$qb->orderBy('r.priority', 'ASC');
+		$qb->addOrderBy('r.length', 'ASC');
+
+		$query = $qb->getQuery();
 
         $query->setMaxResults(10);
+
+
         $paginator = new Paginator($query);
 
         return new PaginationResult($query->getResult(), $paginator->count());
