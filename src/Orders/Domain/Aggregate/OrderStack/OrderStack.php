@@ -8,7 +8,6 @@ use App\Orders\Domain\Aggregate\Lamination\LaminationType;
 use App\Orders\Domain\Aggregate\Order\Order;
 use App\Orders\Domain\Aggregate\Order\ValueObject\Status;
 use App\Orders\Domain\Aggregate\Roll\RollType;
-use App\Orders\Domain\Service\SortOrdersServiceInterface;
 use App\Shared\Domain\Aggregate\Aggregate;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -35,19 +34,17 @@ final class OrderStack extends Aggregate
     /**
      * Class constructor.
      *
-     * @param string                     $name              The name of the object
-     * @param int                        $length            The length of the object
-     * @param int                        $priority          The priority of the object
-     * @param RollType                   $rollType          The roll type object associated with the object
-     * @param SortOrdersServiceInterface $sortOrdersService The sort orders service interface object associated with the object
-     * @param LaminationType|null        $laminationType    The lamination type object associated with the object (optional)
+     * @param string              $name           The name of the object
+     * @param int                 $length         The length of the object
+     * @param int                 $priority       The priority of the object
+     * @param RollType            $rollType       The roll type object associated with the object
+     * @param LaminationType|null $laminationType The lamination type object associated with the object (optional)
      */
     public function __construct(
         private string $name,
         private int $length,
         private int $priority,
         private readonly RollType $rollType,
-        private readonly SortOrdersServiceInterface $sortOrdersService,
         private readonly ?LaminationType $laminationType = null,
     ) {
         $this->orders = new ArrayCollection();
@@ -120,7 +117,7 @@ final class OrderStack extends Aggregate
      */
     public function getOrders(): Collection
     {
-        return $this->sortOrdersService->getSorted($this->orders);
+        return $this->orders;
     }
 
     /**

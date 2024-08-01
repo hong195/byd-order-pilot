@@ -47,6 +47,13 @@ readonly class PrivateQueryInteractor
         return $this->queryBus->execute($query);
     }
 
+    /**
+     * Find a roll by ID.
+     *
+     * @param int $id the roll ID to find
+     *
+     * @return FindARollResult the result of the query
+     */
     public function findARoll(int $id): FindARollResult
     {
         $query = new FindARollQuery($id);
@@ -102,15 +109,27 @@ readonly class PrivateQueryInteractor
         return $this->queryBus->execute($query);
     }
 
-	public function findOrderStacks(): FindOrderStacksResult
-	{
-		$query = new FindOrderStacksQuery();
-		return $this->queryBus->execute($query);
-	}
+    /**
+     * Finds order stacks.
+     *
+     * @return FindOrderStacksResult the result of finding order stacks
+     */
+    public function findOrderStacks(): FindOrderStacksResult
+    {
+        $query = new FindOrderStacksQuery();
 
-	public function findAnOrderStack(int $id): FindAnOrderStackResult
-	{
-		$query = new FindAnOrderStackQuery($id);
-		return $this->queryBus->execute($query);
-	}
+        return $this->queryBus->execute($query);
+    }
+
+    /**
+     * Class ExampleClass.
+     *
+     * @return FindAnOrderStackResult the result of finding an order stack
+     */
+    public function findAnOrderStack(int $id): FindAnOrderStackResult
+    {
+        $query = new FindAnOrderStackQuery($id);
+
+        return $this->queryBus->execute($query);
+    }
 }

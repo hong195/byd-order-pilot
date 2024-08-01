@@ -108,6 +108,10 @@ final readonly class DefaultOrderCheckInService implements OrderCheckInInterface
         }, $orderStacks);
     }
 
+	private function createInfinityOrderStack()
+	{
+		
+	}
     /**
      * Creates an order stack for the given order.
      *
