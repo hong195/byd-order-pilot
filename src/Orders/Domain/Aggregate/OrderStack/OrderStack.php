@@ -35,15 +35,11 @@ final class OrderStack extends Aggregate
      * Class constructor.
      *
      * @param string              $name           The name of the object
-     * @param int                 $length         The length of the object
-     * @param int                 $priority       The priority of the object
      * @param RollType            $rollType       The roll type object associated with the object
      * @param LaminationType|null $laminationType The lamination type object associated with the object (optional)
      */
     public function __construct(
         private string $name,
-        private int $length,
-        private int $priority,
         private readonly RollType $rollType,
         private readonly ?LaminationType $laminationType = null,
     ) {
@@ -101,16 +97,6 @@ final class OrderStack extends Aggregate
     }
 
     /**
-     * Get the length of the object.
-     *
-     * @return int the length of the object
-     */
-    public function getLength(): int
-    {
-        return $this->length;
-    }
-
-    /**
      * Get the orders of the order stack sorted by priority.
      *
      * @return Collection<Order> the orders of the OrderStack
@@ -159,23 +145,23 @@ final class OrderStack extends Aggregate
     }
 
     /**
-     * Change the priority of the current object.
+     * Retrieves the number of priority orders.
      *
-     * @param int $priority the new priority value
+     * @return Order[] the number of priority orders
      */
-    public function changePriority(int $priority): void
+    public function getPriorityOrders(): array
     {
-        $this->priority = $priority;
+        return array_filter($this->orders->toArray(), fn (Order $order) => $order->hasPriority());
     }
 
     /**
-     * Get the priority value of the current object.
+     * Returns the count of priority orders.
      *
-     * @return int The priority value
+     * @return int|null the count of priority orders, or null if there are no priority orders
      */
-    public function getPriority(): int
+    public function getPriorityOrdersCount(): ?int
     {
-        return $this->priority;
+        return count($this->getPriorityOrders());
     }
 
     /**
@@ -183,7 +169,7 @@ final class OrderStack extends Aggregate
      *
      * @return int the total length of all orders
      */
-    public function getOrdersLength(): int
+    public function getLength(): int
     {
         $orders = $this->getOrders();
 

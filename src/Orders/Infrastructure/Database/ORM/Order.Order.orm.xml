@@ -35,11 +35,11 @@
                nullable="true"
         />
 
-        <field name="priority"
-               enum-type="App\Orders\Domain\Aggregate\Order\Priority"
-               type="string"
-               column="priority"
+        <field name="hasPriority"
+               type="boolean"
+               column="hasPriority"
                length="255"
+               default="false"
                nullable="true"
         />
 

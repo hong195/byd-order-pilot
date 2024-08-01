@@ -31,20 +31,22 @@ final class Order extends Aggregate
     private ?MediaFile $printFile = null;
 
     /**
-     * Constructs a new instance of the class.
+     * Class constructor.
      *
-     * @param Priority            $priority       The priority of the product
-     * @param int                 $length         The length of the product (read-only)
-     * @param ProductType         $productType    The type of the product (read-only)
-     * @param RollType            $rollType       The roll type of the product
-     * @param LaminationType|null $laminationType The lamination type of the product (default: null)
-     * @param int|null            $orderNumber    The order number of the product (default: null)
+     * @param int                 $length         The length of the product
+     * @param ProductType         $productType    The type of product
+     * @param RollType            $rollType       The roll type
+     * @param bool                $hasPriority    Whether the product has priority
+     * @param LaminationType|null $laminationType The lamination type (optional)
+     * @param int|null            $orderNumber    The order number (optional)
+     *
+     * @return void
      */
     public function __construct(
-        private Priority $priority,
         private readonly int $length,
         private readonly ProductType $productType,
         private RollType $rollType,
+        private bool $hasPriority = false,
         private ?LaminationType $laminationType = null,
         private ?int $orderNumber = null,
     ) {
@@ -92,13 +94,23 @@ final class Order extends Aggregate
     }
 
     /**
+     * Updates the priority status.
+     *
+     * @param bool $hasPriority the priority status
+     */
+    public function updateHasPriority(bool $hasPriority): void
+    {
+        $this->hasPriority = $hasPriority;
+    }
+
+    /**
      * Returns the priority.
      *
-     * @return Priority the priority
+     * @return bool the priority
      */
-    public function getPriority(): Priority
+    public function hasPriority(): bool
     {
-        return $this->priority;
+        return $this->hasPriority;
     }
 
     /**

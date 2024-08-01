@@ -12,8 +12,6 @@
 
         <field name="name" type="string" length="255"/>
 
-        <field name="length" type="bigint" nullable="true"/>
-
         <many-to-many field="orders" target-entity="App\Orders\Domain\Aggregate\Order\Order">
             <join-table name="order_stacks_orders">
                 <join-columns>
@@ -47,8 +45,6 @@
                length="255"
                nullable="true"
         />
-
-        <field name="priority" type="integer" column="priority"/>
 
         <field name="dateAdded" type="datetime_immutable" column="date_added"/>
 
