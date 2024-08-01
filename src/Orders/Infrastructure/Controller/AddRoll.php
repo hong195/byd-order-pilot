@@ -41,8 +41,8 @@ final readonly class AddRoll
         $id = $this->privateCommandInteractor->addRoll($name, $quality, $rollType, $length, $priority, $qualityNotes);
 
         return new JsonResponse([
-			'id' => $id,
-			'message' => 'Roll added successfully',
-		], Response::HTTP_CREATED);
+            'id' => $id,
+            'message' => 'Roll added successfully',
+        ], Response::HTTP_CREATED);
     }
 }

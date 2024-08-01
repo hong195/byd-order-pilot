@@ -7,14 +7,13 @@ namespace App\Orders\Application\UseCase\Query\FindOrders;
 use App\Shared\Application\Query\Query;
 
 /**
- * Class FindOrdersQuery
+ * Class FindOrdersQuery.
  *
- * @final
  * @readonly
  */
 final readonly class FindOrdersQuery extends Query
 {
-    public function __construct(string $status = null)
+    public function __construct(?string $status = null)
     {
     }
 }

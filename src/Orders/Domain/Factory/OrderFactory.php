@@ -12,14 +12,11 @@ use App\Orders\Domain\Aggregate\Roll\RollType;
 
 final readonly class OrderFactory
 {
-	/**
-	 *
-	 */
     public function make(string $priority, int $length, string $productType, ?string $laminationType = null, ?string $rollType = null, int|string|null $orderNumber = null): Order
     {
         return new Order(
             priority: Priority::from($priority),
-			length: $length,
+            length: $length,
             productType: ProductType::from($productType),
             rollType: $rollType ? RollType::from($rollType) : null,
             laminationType: $laminationType ? LaminationType::from($laminationType) : null,

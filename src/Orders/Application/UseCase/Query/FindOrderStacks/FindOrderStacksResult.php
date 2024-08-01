@@ -11,11 +11,11 @@ use App\Orders\Application\DTO\OrderStackData;
  */
 final readonly class FindOrderStacksResult
 {
-	/**
-	 * Constructor method for the class.
-	 *
-	 * @param OrderStackData[] $items An array of order stacks.
-	 */
+    /**
+     * Constructor method for the class.
+     *
+     * @param OrderStackData[] $items an array of order stacks
+     */
     public function __construct(public array $items)
     {
     }

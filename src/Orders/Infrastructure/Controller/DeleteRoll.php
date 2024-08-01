@@ -23,7 +23,7 @@ final readonly class DeleteRoll
         $this->commandInteractor->deleteRoll($id);
 
         return new JsonResponse([
-			'message' => 'Roll deleted successfully'
-		], Response::HTTP_OK);
+            'message' => 'Roll deleted successfully',
+        ], Response::HTTP_OK);
     }
 }

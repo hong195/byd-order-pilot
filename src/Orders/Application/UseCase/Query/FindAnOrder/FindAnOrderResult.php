@@ -11,7 +11,6 @@ use App\Orders\Application\DTO\OrderData;
  */
 final readonly class FindAnOrderResult
 {
-
     public function __construct(public OrderData $orderData)
     {
     }

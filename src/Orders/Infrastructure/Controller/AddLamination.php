@@ -33,7 +33,6 @@ final readonly class AddLamination
      *
      * @throws \Exception Throws an exception if there is an error while adding the lamination
      */
-
     public function __invoke(Request $request): JsonResponse
     {
         $name = $request->get('name');

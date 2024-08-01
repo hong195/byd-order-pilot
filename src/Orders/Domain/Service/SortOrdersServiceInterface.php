@@ -6,7 +6,6 @@ use Doctrine\Common\Collections\Collection;
 
 /**
  * SortOrdersServiceInterface is an interface that defines a method for sorting a collection of orders by priority.
- *
  */
 interface SortOrdersServiceInterface
 {

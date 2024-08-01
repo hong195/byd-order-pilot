@@ -37,8 +37,6 @@ final class FindARoll extends BaseController
      * @param int $id the id of the RollData to find
      *
      * @throws ExceptionInterface
-     *
-     * @return JsonResponse
      */
     public function __invoke(int $id): JsonResponse
     {

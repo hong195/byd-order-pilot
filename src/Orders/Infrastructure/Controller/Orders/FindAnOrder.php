@@ -28,14 +28,15 @@ final readonly class FindAnOrder
     {
     }
 
-	/**
-	 * Invokes the method when the object is called.
-	 *
-	 * @param int $id The ID of the order
-	 *
-	 * @return JsonResponse The response object
-	 * @throws ExceptionInterface
-	 */
+    /**
+     * Invokes the method when the object is called.
+     *
+     * @param int $id The ID of the order
+     *
+     * @return JsonResponse The response object
+     *
+     * @throws ExceptionInterface
+     */
     public function __invoke(int $id): JsonResponse
     {
         $result = $this->privateQueryInteractor->findAnOrder($id);

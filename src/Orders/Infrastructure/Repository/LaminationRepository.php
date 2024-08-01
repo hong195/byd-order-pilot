@@ -42,13 +42,14 @@ class LaminationRepository extends ServiceEntityRepository implements Lamination
         $this->getEntityManager()->flush();
     }
 
-	/**
-	 * Find paged items
-	 *
-	 * @param int $page The current page number
-	 * @return PaginationResult The pagination result object
-	 */
-	public function findPagedItems(int $page = 1): PaginationResult
+    /**
+     * Find paged items.
+     *
+     * @param int $page The current page number
+     *
+     * @return PaginationResult The pagination result object
+     */
+    public function findPagedItems(int $page = 1): PaginationResult
     {
         $qb = $this->createQueryBuilder('l');
 

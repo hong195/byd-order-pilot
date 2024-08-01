@@ -11,11 +11,10 @@ use App\Shared\Application\Query\Query;
  */
 final readonly class FindOrderStacksQuery extends Query
 {
-
-	/**
-	 * Class constructor.
-	 */
-	public function __construct()
+    /**
+     * Class constructor.
+     */
+    public function __construct()
     {
     }
 }

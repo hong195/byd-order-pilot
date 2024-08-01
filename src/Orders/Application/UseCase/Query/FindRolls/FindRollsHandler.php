@@ -8,9 +8,6 @@ use App\Orders\Application\DTO\RollDataTransformer;
 use App\Orders\Domain\Repository\RollRepositoryInterface;
 use App\Shared\Application\Query\QueryHandlerInterface;
 
-/**
- *
- */
 final readonly class FindRollsHandler implements QueryHandlerInterface
 {
     public function __construct(

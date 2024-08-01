@@ -11,11 +11,11 @@ use App\Orders\Application\DTO\OrderStackData;
  */
 final readonly class FindAnOrderStackResult
 {
-	/**
-	 * Constructor.
-	 *
-	 * @param OrderStackData $orderStackData The OrderStackData object.
-	 */
+    /**
+     * Constructor.
+     *
+     * @param OrderStackData $orderStackData the OrderStackData object
+     */
     public function __construct(public OrderStackData $orderStackData)
     {
     }

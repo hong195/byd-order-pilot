@@ -2,9 +2,6 @@
 
 namespace App\Orders\Application\DTO;
 
-/**
- *
- */
 final readonly class RollData
 {
     /**

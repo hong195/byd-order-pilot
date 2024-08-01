@@ -35,8 +35,6 @@ final class FindRolls extends BaseController
      * Calls the findARoll method of the privateQueryInteractor to retrieve RollData by id.
      *
      * @throws ExceptionInterface
-     *
-     * @return JsonResponse
      */
     public function __invoke(): JsonResponse
     {
