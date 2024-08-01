@@ -51,7 +51,7 @@ final readonly class OrderDataTransformer
         return new OrderData(
             id: $order->getId(),
             status: $order->getStatus()->value,
-            priority: $order->getPriority()->value,
+            hasPriority: $order->hasPriority(),
             length: $order->getLength(),
             productType: $order->getProductType()->value,
             rollType: $order->getRollType()->value,

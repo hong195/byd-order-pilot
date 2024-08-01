@@ -100,9 +100,9 @@ final class Roll extends Aggregate
         $this->length = $length;
     }
 
-    public function getRollType(): string
+    public function getRollType(): RollType
     {
-        return $this->rollType->value;
+        return $this->rollType;
     }
 
     public function changeRollType(RollType $rollType): void

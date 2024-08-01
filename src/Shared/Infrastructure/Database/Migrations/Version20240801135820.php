@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20240730123048 extends AbstractMigration
+final class Version20240801135820 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -31,12 +31,12 @@ final class Version20240730123048 extends AbstractMigration
         $this->addSql('CREATE TABLE laminations (id INT NOT NULL, name VARCHAR(255) NOT NULL, date_added TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, length INT NOT NULL, quality VARCHAR(255) NOT NULL, quality_notes VARCHAR(255) DEFAULT NULL, lamination_type VARCHAR(255) NOT NULL, priority INT NOT NULL, PRIMARY KEY(id))');
         $this->addSql('COMMENT ON COLUMN laminations.date_added IS \'(DC2Type:datetime_immutable)\'');
         $this->addSql('CREATE TABLE media_files (id INT NOT NULL, filename VARCHAR(255) NOT NULL, source VARCHAR(255) NOT NULL, path VARCHAR(255) NOT NULL, type VARCHAR(50) DEFAULT NULL, owner_id INT DEFAULT NULL, owner_type VARCHAR(50) DEFAULT NULL, PRIMARY KEY(id))');
-        $this->addSql('CREATE TABLE order_stacks (id INT NOT NULL, name VARCHAR(255) NOT NULL, status VARCHAR(255) NOT NULL, lamination_type VARCHAR(255) DEFAULT NULL, roll_type VARCHAR(255) DEFAULT NULL, priority INT NOT NULL, date_added TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, updated_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE TABLE order_stacks (id INT NOT NULL, name VARCHAR(255) NOT NULL, status VARCHAR(255) NOT NULL, length BIGINT NOT NULL, lamination_type VARCHAR(255) DEFAULT NULL, roll_type VARCHAR(255) DEFAULT NULL, date_added TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, updated_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, PRIMARY KEY(id))');
         $this->addSql('COMMENT ON COLUMN order_stacks.date_added IS \'(DC2Type:datetime_immutable)\'');
         $this->addSql('CREATE TABLE order_stacks_orders (order_id INT NOT NULL, order_stack_id INT NOT NULL, PRIMARY KEY(order_id, order_stack_id))');
         $this->addSql('CREATE INDEX IDX_54761E038D9F6D38 ON order_stacks_orders (order_id)');
         $this->addSql('CREATE INDEX IDX_54761E03D63FE2D1 ON order_stacks_orders (order_stack_id)');
-        $this->addSql('CREATE TABLE orders (id INT NOT NULL, cut_file_id INT DEFAULT NULL, print_file_id INT DEFAULT NULL, status VARCHAR(255) NOT NULL, length BIGINT DEFAULT NULL, lamination_type VARCHAR(255) DEFAULT NULL, roll_type VARCHAR(255) DEFAULT NULL, priority VARCHAR(255) DEFAULT NULL, product_type VARCHAR(255) NOT NULL, order_number BIGINT DEFAULT NULL, date_added TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE TABLE orders (id INT NOT NULL, cut_file_id INT DEFAULT NULL, print_file_id INT DEFAULT NULL, status VARCHAR(255) NOT NULL, length BIGINT DEFAULT NULL, lamination_type VARCHAR(255) DEFAULT NULL, roll_type VARCHAR(255) DEFAULT NULL, has_priority BOOLEAN DEFAULT NULL, product_type VARCHAR(255) NOT NULL, order_number BIGINT DEFAULT NULL, date_added TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE UNIQUE INDEX UNIQ_E52FFDEE9D3FDAA8 ON orders (cut_file_id)');
         $this->addSql('CREATE UNIQUE INDEX UNIQ_E52FFDEEB6A86CB2 ON orders (print_file_id)');
         $this->addSql('COMMENT ON COLUMN orders.date_added IS \'(DC2Type:datetime_immutable)\'');

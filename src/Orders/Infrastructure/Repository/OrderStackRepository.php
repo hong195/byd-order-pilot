@@ -51,6 +51,17 @@ class OrderStackRepository extends ServiceEntityRepository implements OrderStack
     }
 
     /**
+     * Removes an OrderStack from the database.
+     *
+     * @param OrderStack $orderStack The OrderStack to remove
+     */
+    public function remove(OrderStack $orderStack): void
+    {
+        $this->getEntityManager()->remove($orderStack);
+        $this->getEntityManager()->flush();
+    }
+
+    /**
      * Finds all OrderStacks.
      *
      * @return OrderStack[] The array of OrderStacks

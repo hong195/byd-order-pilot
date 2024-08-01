@@ -22,7 +22,6 @@ final readonly class OrderStackData
      *
      * @param int                $id             the ID of the object
      * @param string             $name           the name of the object
-     * @param int                $priority       the priority of the object
      * @param int                $length         the length of the object
      * @param string             $rollType       the roll type of the object
      * @param \DateTimeInterface $dateAdded      the date when the object was added
@@ -33,7 +32,6 @@ final readonly class OrderStackData
         public int $id,
         public string $name,
         public int $length,
-        public int $priority,
         public string $rollType,
         public \DateTimeInterface $dateAdded,
         public \DateTimeInterface $updatedAt,

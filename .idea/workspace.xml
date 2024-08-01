@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated sort orders service sort by priority and length." />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated project migrations.">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/DefaultOrderCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/DefaultOrderCheckInService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/OrderStack.OrderStack.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/OrderStack.OrderStack.orm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240801133750.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240801135820.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -252,103 +258,7 @@
       <workItem from="1722265765874" duration="9540000" />
       <workItem from="1722334548628" duration="18386000" />
       <workItem from="1722419366106" duration="4922000" />
-      <workItem from="1722424859725" duration="11158000" />
-    </task>
-    <task id="LOCAL-00039" summary="Added order entity.">
-      <option name="closed" value="true" />
-      <created>1721813223562</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1721813223562</updated>
-    </task>
-    <task id="LOCAL-00040" summary="Added order entity.">
-      <option name="closed" value="true" />
-      <created>1721813284913</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1721813284913</updated>
-    </task>
-    <task id="LOCAL-00041" summary="Added order entity.">
-      <option name="closed" value="true" />
-      <created>1721821692056</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1721821692056</updated>
-    </task>
-    <task id="LOCAL-00042" summary="Added media file repository.">
-      <option name="closed" value="true" />
-      <created>1721823067264</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1721823067264</updated>
-    </task>
-    <task id="LOCAL-00043" summary="Added manual order adding.">
-      <option name="closed" value="true" />
-      <created>1721902823910</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1721902823910</updated>
-    </task>
-    <task id="LOCAL-00044" summary="Added manual order adding.">
-      <option name="closed" value="true" />
-      <created>1721903168869</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1721903168869</updated>
-    </task>
-    <task id="LOCAL-00045" summary="Move quality to ValueObject folder.">
-      <option name="closed" value="true" />
-      <created>1721987127056</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1721987127056</updated>
-    </task>
-    <task id="LOCAL-00046" summary="Move quality to ValueObject folder.">
-      <option name="closed" value="true" />
-      <created>1722241523534</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1722241523534</updated>
-    </task>
-    <task id="LOCAL-00047" summary="Updated migrations.">
-      <option name="closed" value="true" />
-      <created>1722245073420</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1722245073420</updated>
-    </task>
-    <task id="LOCAL-00048" summary="Updated migrations.">
-      <option name="closed" value="true" />
-      <created>1722245077880</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1722245077880</updated>
-    </task>
-    <task id="LOCAL-00049" summary="Added single order route.">
-      <option name="closed" value="true" />
-      <created>1722246845676</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1722246845676</updated>
-    </task>
-    <task id="LOCAL-00050" summary="Added single order route.">
-      <option name="closed" value="true" />
-      <created>1722246906764</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1722246906765</updated>
+      <workItem from="1722424859725" duration="20476000" />
     </task>
     <task id="LOCAL-00051" summary="Added single order route.">
       <option name="closed" value="true" />
@@ -646,7 +556,103 @@
       <option name="project" value="LOCAL" />
       <updated>1722507114074</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="Updated sort orders service sort by priority and length.">
+      <option name="closed" value="true" />
+      <created>1722507522914</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1722507522914</updated>
+    </task>
+    <task id="LOCAL-00089" summary="CS fix.">
+      <option name="closed" value="true" />
+      <created>1722507557390</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1722507557390</updated>
+    </task>
+    <task id="LOCAL-00090" summary="Remove unused entity properties.">
+      <option name="closed" value="true" />
+      <created>1722514126865</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1722514126866</updated>
+    </task>
+    <task id="LOCAL-00091" summary="Updated project migrations.">
+      <option name="closed" value="true" />
+      <created>1722515135911</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1722515135911</updated>
+    </task>
+    <task id="LOCAL-00092" summary="Updated project migrations.">
+      <option name="closed" value="true" />
+      <created>1722515145260</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1722515145260</updated>
+    </task>
+    <task id="LOCAL-00093" summary="Updated project migrations.">
+      <option name="closed" value="true" />
+      <created>1722515229050</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1722515229050</updated>
+    </task>
+    <task id="LOCAL-00094" summary="Updated project migrations.">
+      <option name="closed" value="true" />
+      <created>1722519853858</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1722519853858</updated>
+    </task>
+    <task id="LOCAL-00095" summary="Updated project migrations.">
+      <option name="closed" value="true" />
+      <created>1722519985111</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1722519985111</updated>
+    </task>
+    <task id="LOCAL-00096" summary="Updated project migrations.">
+      <option name="closed" value="true" />
+      <created>1722520046080</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1722520046080</updated>
+    </task>
+    <task id="LOCAL-00097" summary="Updated project migrations.">
+      <option name="closed" value="true" />
+      <created>1722520177977</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1722520177977</updated>
+    </task>
+    <task id="LOCAL-00098" summary="Updated project migrations.">
+      <option name="closed" value="true" />
+      <created>1722520239428</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1722520239428</updated>
+    </task>
+    <task id="LOCAL-00099" summary="Updated project migrations.">
+      <option name="closed" value="true" />
+      <created>1722520356964</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1722520356964</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -670,8 +676,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added single Roll query." />
-    <MESSAGE value="Added lamination queries." />
     <MESSAGE value="Added order entity." />
     <MESSAGE value="Added media file repository." />
     <MESSAGE value="Added manual order adding." />
@@ -685,7 +689,6 @@
     <MESSAGE value="Updated order stack repository." />
     <MESSAGE value="Added order check in service." />
     <MESSAGE value="Updated make file." />
-    <MESSAGE value="Updated project migrations." />
     <MESSAGE value="Added injection of sorting service for order stack entity." />
     <MESSAGE value="Added default order check in service." />
     <MESSAGE value="Changed domain name to Order" />
@@ -695,7 +698,10 @@
     <MESSAGE value="Bug fix." />
     <MESSAGE value="Added rolls sorting by priority, length." />
     <MESSAGE value="Updated sort orders service sort by priority and length." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated sort orders service sort by priority and length." />
+    <MESSAGE value="CS fix." />
+    <MESSAGE value="Remove unused entity properties." />
+    <MESSAGE value="Updated project migrations." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated project migrations." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -10,23 +10,24 @@ namespace App\Orders\Application\DTO;
 final readonly class OrderData
 {
     /**
-     * Constructor for the class.
+     * Class constructor.
      *
-     * @param int                $id             the ID of the object
+     * @param int                $id             the unique identifier for the object
      * @param string             $status         the status of the object
-     * @param string             $priority       the priority of the object
-     * @param string             $productType    the product type of the object
-     * @param string             $rollType       the roll type of the object
-     * @param \DateTimeImmutable $addedAt        the added date of the object
-     * @param string|null        $laminationType the lamination type of the object (optional)
-     * @param int|null           $orderNumber    the order number of the object (optional)
-     * @param string|null        $cutFile        the cut file of the object (optional)
-     * @param string|null        $printFile      the print file of the object (optional)
+     * @param bool               $hasPriority    indicates if the object has priority
+     * @param int                $length         the length of the object
+     * @param string             $productType    the type of the product
+     * @param string             $rollType       the type of the roll
+     * @param \DateTimeInterface $addedAt        the date and time when the object was added
+     * @param string|null        $laminationType the type of lamination (optional)
+     * @param int|null           $orderNumber    the order number associated with the object (optional)
+     * @param string|null        $cutFile        the file for cutting (optional)
+     * @param string|null        $printFile      the file for printing (optional)
      */
     public function __construct(
         public int $id,
         public string $status,
-        public string $priority,
+        public bool $hasPriority,
         public int $length,
         public string $productType,
         public string $rollType,

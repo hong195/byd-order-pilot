@@ -30,6 +30,11 @@
                length="255"
         />
 
+        <field name="length"
+               type="bigint"
+               column="length"
+        />
+
         <field name="laminationType"
                enum-type="App\Orders\Domain\Aggregate\Lamination\LaminationType"
                type="string"

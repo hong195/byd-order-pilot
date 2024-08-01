@@ -7,7 +7,6 @@ namespace App\Orders\Domain\Factory;
 use App\Orders\Domain\Aggregate\Lamination\LaminationType;
 use App\Orders\Domain\Aggregate\OrderStack\OrderStack;
 use App\Orders\Domain\Aggregate\Roll\RollType;
-use App\Orders\Domain\Service\SortOrdersServiceInterface;
 
 /**
  * Factory class for creating OrderStack objects.
@@ -15,40 +14,21 @@ use App\Orders\Domain\Service\SortOrdersServiceInterface;
 final readonly class OrderStackFactory
 {
     /**
-     * Construct SortOrdersController class.
+     * Creates a new OrderStack instance.
      *
-     * @param SortOrdersServiceInterface $sortOrdersService the SortOrdersServiceInterface object
+     * @param string      $name           the name of the order stack
+     * @param int         $length         the length of the order stack
+     * @param string      $rollType       the type of roll for the order stack
+     * @param string|null $laminationType the type of lamination for the order stack (optional)
      *
-     * @return void
+     * @return OrderStack the created OrderStack instance
      */
-    public function __construct(private SortOrdersServiceInterface $sortOrdersService)
+    public function make(string $name, int $length, string $rollType, ?string $laminationType): OrderStack
     {
-    }
-
-    /**
-     * Create a new OrderStack object.
-     *
-     * @param string      $name           the name of the order
-     * @param string      $rollType       the roll type of the order
-     * @param int         $length         the length of the order
-     * @param int         $priority       the priority of the order
-     * @param string|null $laminationType the lamination type of the order
-     *
-     * @return OrderStack the created OrderStack object
-     */
-    public function make(
-        string $name,
-        string $rollType,
-        int $length,
-        int $priority,
-        ?string $laminationType,
-    ): OrderStack {
         return new OrderStack(
             name: $name,
             length: $length,
-            priority: $priority,
             rollType: RollType::from($rollType),
-            sortOrdersService: $this->sortOrdersService,
             laminationType: $laminationType ? LaminationType::from($laminationType) : null,
         );
     }

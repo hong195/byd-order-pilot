@@ -3,10 +3,9 @@
 namespace App\Orders\Infrastructure\Repository;
 
 use App\Orders\Domain\Aggregate\Roll\Roll;
+use App\Orders\Domain\Repository\RollFilter;
 use App\Orders\Domain\Repository\RollRepositoryInterface;
-use App\Shared\Domain\Repository\PaginationResult;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\ORM\Tools\Pagination\Paginator;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -71,25 +70,32 @@ class RollRepository extends ServiceEntityRepository implements RollRepositoryIn
     }
 
     /**
-     * Find paged items.
+     * Finds rolls based on the given filter.
      *
-     * @param int $page The page number, default is 1
+     * @param RollFilter $rollFilter the filter for rolls
      *
-     * @return PaginationResult The pagination result object
+     * @return Roll[] the array of rolls found
      */
-    public function findPagedItems(int $page = 1): PaginationResult
+    public function findQueried(RollFilter $rollFilter): array
     {
         $qb = $this->createQueryBuilder('r');
 
-        $qb->orderBy('r.priority', 'ASC');
-        $qb->addOrderBy('r.length', 'ASC');
+        $qb->orderBy('r.length', 'ASC');
+
+        if ($rollFilter->rollType) {
+            $qb->andWhere('r.rollType = :rollType');
+            $qb->setParameter('rollType', $rollFilter->rollType);
+        }
+
+        if ($rollFilter->laminationType) {
+            $qb->andWhere('r.laminationType = :laminationType');
+            $qb->setParameter('laminationType', $rollFilter->laminationType);
+        }
 
         $query = $qb->getQuery();
 
         $query->setMaxResults(10);
 
-        $paginator = new Paginator($query);
-
-        return new PaginationResult($query->getResult(), $paginator->count());
+        return $query->getResult();
     }
 }

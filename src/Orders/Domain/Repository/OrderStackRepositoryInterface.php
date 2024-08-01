@@ -6,6 +6,9 @@ namespace App\Orders\Domain\Repository;
 
 use App\Orders\Domain\Aggregate\OrderStack\OrderStack;
 
+/**
+ * Interface OrderStackRepositoryInterface.
+ */
 interface OrderStackRepositoryInterface
 {
     /**
@@ -30,4 +33,11 @@ interface OrderStackRepositoryInterface
      * @return OrderStack[] an array containing all database records
      */
     public function findQueried(OrderStackFilter $orderStackFilter): array;
+
+    /**
+     * Removes an OrderStack from the database.
+     *
+     * @param OrderStack $orderStack the OrderStack to remove
+     */
+    public function remove(OrderStack $orderStack): void;
 }

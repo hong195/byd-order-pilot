@@ -14,9 +14,12 @@ use App\Shared\Application\Query\Query;
 final readonly class FindRollsQuery extends Query
 {
     /**
-     * @param int $page The page number to be set. Defaults to 1.
+     * Class Constructor.
+     *
+     * @param string      $rollType       The type of roll
+     * @param string|null $laminationType The type of lamination (optional)
      */
-    public function __construct(public int $page = 1)
+    public function __construct(public string $rollType, public ?string $laminationType = null)
     {
     }
 }

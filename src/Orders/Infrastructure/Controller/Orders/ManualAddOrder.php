@@ -48,11 +48,11 @@ final readonly class ManualAddOrder
         }
 
         $manuallyAddCommand = new ManuallyAddOrderCommand(
-            priority: $request->get('priority'),
             productType: $request->get('productType'),
             length: (int) $request->get('length'),
-            laminationType: $request->get('laminationType'),
             rollType: $request->get('rollType'),
+            hasPriority: (bool) $request->get('hasPriority'),
+            laminationType: $request->get('laminationType'),
             orderNumber: $request->get('orderNumber'),
             cutFileId: $cutFileId,
             printFileId: $printFileId

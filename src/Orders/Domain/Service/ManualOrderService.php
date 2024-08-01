@@ -27,30 +27,31 @@ final readonly class ManualOrderService
     }
 
     /**
-     * Adds a new order.
+     * Creates and saves a new order.
      *
-     * @param string      $priority       the priority of the order
-     * @param string      $productType    the product type of the order
-     * @param string|null $laminationType the lamination type of the order (optional)
-     * @param string|null $rollType       the roll type of the order (optional)
-     * @param string|null $orderNumber    the order number of the order (optional)
+     * @param string      $productType    the type of the product for the order
+     * @param int         $length         the length of the order
+     * @param string      $rollType       the type of the roll, if applicable, otherwise null
+     * @param bool        $hasPriority    indicates whether the order has priority
+     * @param string|null $laminationType the type of lamination, if applicable, otherwise null
+     * @param string|null $orderNumber    the order number, if provided, otherwise null
      *
-     * @return Order the newly created order
+     * @return Order the created order
      */
     public function add(
-        string $priority,
         string $productType,
         int $length,
+        string $rollType,
+        bool $hasPriority,
         ?string $laminationType = null,
-        ?string $rollType = null,
         ?string $orderNumber = null): Order
     {
         $order = $this->orderFactory->make(
-            priority: $priority,
             length: $length,
             productType: $productType,
             laminationType: $laminationType,
             rollType: $rollType,
+            hasPriority: $hasPriority,
             orderNumber: $orderNumber
         );
 

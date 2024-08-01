@@ -32,17 +32,15 @@ final class OrderStack extends Aggregate
     private Collection $orders;
 
     /**
-     * Class constructor.
+     * Class Constructor.
      *
-     * @param string              $name           The name of the object
-     * @param RollType            $rollType       The roll type object associated with the object
-     * @param LaminationType|null $laminationType The lamination type object associated with the object (optional)
+     * @param string              $name           the name of the application
+     * @param int                 $length         the length of the application
+     * @param RollType            $rollType       the roll type of the application
+     * @param LaminationType|null $laminationType the lamination type of the application
      */
-    public function __construct(
-        private string $name,
-        private readonly RollType $rollType,
-        private readonly ?LaminationType $laminationType = null,
-    ) {
+    public function __construct(public readonly string $name, public readonly int $length, private readonly RollType $rollType, private readonly ?LaminationType $laminationType = null)
+    {
         $this->orders = new ArrayCollection();
         $this->dateAdded = new \DateTimeImmutable();
         $this->updatedAt = new \DateTime();
@@ -183,6 +181,18 @@ final class OrderStack extends Aggregate
     }
 
     /**
+     * Calculates the total length of all orders.
+     *
+     * @return int returns the total length of all orders
+     */
+    public function getOrdersLength(): int
+    {
+        return array_reduce($this->orders->toArray(), function ($carry, Order $order): int {
+            return $carry + $order->getLength();
+        }, 0);
+    }
+
+    /**
      * Determines if an order can be added based on the current orders' length and the order's length.
      *
      * @param Order $order the order to be added
@@ -192,13 +202,5 @@ final class OrderStack extends Aggregate
     public function canAddOrder(Order $order): bool
     {
         return $this->getOrdersLength() + $order->getLength() <= $this->length;
-    }
-
-    /**
-     * Remove all orders from the current object.
-     */
-    public function removeOrders(): void
-    {
-        $this->orders = new ArrayCollection();
     }
 }
