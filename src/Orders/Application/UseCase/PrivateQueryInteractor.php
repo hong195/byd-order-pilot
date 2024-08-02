@@ -40,9 +40,9 @@ readonly class PrivateQueryInteractor
      *
      * @return FindRollsResult the result of finding the rolls
      */
-    public function findRolls(): FindRollsResult
+    public function findRolls(?string $rollType = null, ?string $laminationType = null): FindRollsResult
     {
-        $query = new FindRollsQuery();
+        $query = new FindRollsQuery($rollType, $laminationType);
 
         return $this->queryBus->execute($query);
     }

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orders\Application\UseCase\Query\FindARoll;
 
-use App\Orders\Application\DTO\OrderStackData;
+use App\Orders\Application\DTO\RollData;
 
 /**
  * Represents the result of finding a roll.
@@ -12,11 +12,11 @@ use App\Orders\Application\DTO\OrderStackData;
 final readonly class FindARollResult
 {
     /**
-     * @param OrderStackData $rollData the roll data object
+     * @param RollData $rollData the roll data object
      *
      * @return void
      */
-    public function __construct(public OrderStackData $rollData)
+    public function __construct(public RollData $rollData)
     {
     }
 }

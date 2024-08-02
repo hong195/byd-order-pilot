@@ -42,7 +42,7 @@ final readonly class RollDataTransformer
             name: $roll->getName(),
             length: $roll->getLength(),
             quality: $roll->getQuality(),
-            rollType: $roll->getRollType(),
+            rollType: $roll->getRollType()?->value,
             dateAdded: $roll->getDateAdded(),
             qualityNotes: $roll->getQualityNotes()
         );

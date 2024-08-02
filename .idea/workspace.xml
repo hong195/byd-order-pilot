@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fixed rolls adding.">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added cors bundle.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/DefaultOrderCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/DefaultOrderCheckInService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/OrderStackRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/OrderStackRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -260,15 +255,7 @@
       <workItem from="1722265765874" duration="9540000" />
       <workItem from="1722334548628" duration="18386000" />
       <workItem from="1722419366106" duration="4922000" />
-      <workItem from="1722424859725" duration="26918000" />
-    </task>
-    <task id="LOCAL-00055" summary="Added single order route.">
-      <option name="closed" value="true" />
-      <created>1722251221611</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1722251221611</updated>
+      <workItem from="1722424859725" duration="28486000" />
     </task>
     <task id="LOCAL-00056" summary="Added single order route.">
       <option name="closed" value="true" />
@@ -654,7 +641,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722526539164</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="Added cors bundle.">
+      <option name="closed" value="true" />
+      <created>1722593796823</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1722593796823</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -678,7 +673,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added media file repository." />
     <MESSAGE value="Added manual order adding." />
     <MESSAGE value="Move quality to ValueObject folder." />
     <MESSAGE value="Updated migrations." />
@@ -703,7 +697,8 @@
     <MESSAGE value="Remove unused entity properties." />
     <MESSAGE value="Updated project migrations." />
     <MESSAGE value="Fixed rolls adding." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed rolls adding." />
+    <MESSAGE value="Added cors bundle." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added cors bundle." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -712,20 +707,6 @@
           <url>file://$PROJECT_DIR$/src/Order/Domain/Aggregate/OrderStack/OrderStack.php</url>
           <line>210</line>
           <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/Orders/Domain/Factory/RollFactory.php</url>
-          <line>29</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php-line-method">
-          <url>file://$PROJECT_DIR$/src/Orders/Domain/Factory/RollFactory.php</url>
-          <line>27</line>
-          <properties>
-            <option name="className" value="\App\Orders\Domain\Factory\RollFactory" />
-            <option name="methodName" value="create" />
-          </properties>
-          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
