@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.52">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>1948</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1964</IntrospectionStateNumber>
       <ServerVersion>16.3</ServerVersion>
       <StartupTime>1722357072</StartupTime>
       <TimeZones>true ACDT
@@ -806,7 +806,7 @@ true posixrules
 13255||10|C|G
 13255||-9223372036854775808|U|G
 13255||10|U|G</Grants>
-      <IntrospectionStateNumber>1948</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1964</IntrospectionStateNumber>
       <ObjectId>16384</ObjectId>
       <OwnerName>symfony</OwnerName>
     </database>
@@ -4225,8 +4225,8 @@ true posixrules
     <schema id="264" parent="3" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>1948</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2024-08-01.15:45:24</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>1964</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2024-08-05.07:43:25</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>524</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -4899,11 +4899,11 @@ order_stack_id</ColNames>
       <TypeId>1043</TypeId>
     </column>
     <column id="358" parent="281" name="quality_notes">
-      <DasType>varchar(255)|0s</DasType>
+      <DasType>text|0s</DasType>
       <DefaultExpression>NULL::character varying</DefaultExpression>
       <Position>6</Position>
-      <StateNumber>1810</StateNumber>
-      <TypeId>1043</TypeId>
+      <StateNumber>1963</StateNumber>
+      <TypeId>25</TypeId>
     </column>
     <column id="359" parent="281" name="roll_type">
       <DasType>varchar(255)|0s</DasType>

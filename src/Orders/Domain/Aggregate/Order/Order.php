@@ -174,16 +174,6 @@ final class Order extends Aggregate
     }
 
     /**
-     * Changes the priority of the object.
-     *
-     * @param Priority $priority the new priority
-     */
-    public function changePriority(Priority $priority): void
-    {
-        $this->priority = $priority;
-    }
-
-    /**
      * Returns the roll type.
      *
      * @return RollType the roll type

@@ -17,7 +17,7 @@
                column="quality"
                length="255"/>
 
-        <field name="qualityNotes" type="string" column="quality_notes" nullable="true"/>
+        <field name="qualityNotes" type="text" column="quality_notes" nullable="true"/>
 
         <field name="rollType"
                enum-type="App\Orders\Domain\Aggregate\Roll\RollType"
