@@ -42,13 +42,7 @@ final readonly class ManualOrderService
      *
      * @return Order the created order
      */
-    public function add(
-        string $productType,
-        int $length,
-        string $rollType,
-        bool $hasPriority,
-        ?string $laminationType = null,
-        ?string $orderNumber = null): Order
+    public function add(string $productType, int $length, string $rollType, bool $hasPriority, ?string $laminationType = null, ?string $orderNumber = null): Order
     {
         $order = $this->orderFactory->make(
             length: $length,
