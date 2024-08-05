@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+        https://doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
+>
+
+    <entity name="App\Orders\Domain\Aggregate\Printer" table="orders_printers">
+        <id name="id" type="integer">
+            <generator />
+        </id>
+
+        <field name="name" column="name" length="255"/>
+
+        <field name="color" column="color" nullable="true"/>
+
+        <field name="isAvailable" column="is_available" type="boolean"/>
+
+        <field name="rollTypes" type="json" enum-type="App\Orders\Domain\Aggregate\Roll\RollType">
+            <options>
+                <option name="default">[]</option>
+            </options>
+        </field>
+
+        <field name="laminationTypes" type="json" enum-type="App\Orders\Domain\Aggregate\ValueObject\LaminationType">
+            <options>
+                <option name="default">[]</option>
+            </options>
+        </field>
+
+    </entity>
+</doctrine-mapping>

@@ -4,16 +4,12 @@ declare(strict_types=1);
 
 namespace App\Orders\Application\UseCase;
 
-use App\Orders\Application\UseCase\Query\FindALamination\FindALaminationQuery;
 use App\Orders\Application\UseCase\Query\FindAnOrder\FindAnOrderQuery;
 use App\Orders\Application\UseCase\Query\FindAnOrder\FindAnOrderResult;
 use App\Orders\Application\UseCase\Query\FindAnOrderStack\FindAnOrderStackQuery;
 use App\Orders\Application\UseCase\Query\FindAnOrderStack\FindAnOrderStackResult;
-use App\Orders\Application\UseCase\Query\FindARoll\FindALaminationResult;
 use App\Orders\Application\UseCase\Query\FindARoll\FindARollQuery;
 use App\Orders\Application\UseCase\Query\FindARoll\FindARollResult;
-use App\Orders\Application\UseCase\Query\FindLaminations\FindLaminationsQuery;
-use App\Orders\Application\UseCase\Query\FindLaminations\FindLaminationsResult;
 use App\Orders\Application\UseCase\Query\FindOrders\FindOrdersQuery;
 use App\Orders\Application\UseCase\Query\FindOrders\FindOrdersResult;
 use App\Orders\Application\UseCase\Query\FindOrderStacks\FindOrderStacksQuery;
@@ -57,32 +53,6 @@ readonly class PrivateQueryInteractor
     public function findARoll(int $id): FindARollResult
     {
         $query = new FindARollQuery($id);
-
-        return $this->queryBus->execute($query);
-    }
-
-    /**
-     * Find a Lamination by ID.
-     *
-     * @param int $id the ID of the Lamination
-     *
-     * @return FindALaminationResult the result of the FindALaminationQuery execution
-     */
-    public function findALamination(int $id): FindALaminationResult
-    {
-        $query = new FindALaminationQuery($id);
-
-        return $this->queryBus->execute($query);
-    }
-
-    /**
-     * Find Laminations.
-     *
-     * @return FindLaminationsResult the result of the FindLaminationsQuery execution
-     */
-    public function findLaminations(): FindLaminationsResult
-    {
-        $query = new FindLaminationsQuery();
 
         return $this->queryBus->execute($query);
     }

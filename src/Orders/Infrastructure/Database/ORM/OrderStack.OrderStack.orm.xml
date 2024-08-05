@@ -24,7 +24,7 @@
         </many-to-many>
 
         <field name="status"
-               enum-type="App\Orders\Domain\Aggregate\ValueObject\LaminationType"
+               enum-type="App\Orders\Domain\Aggregate\ValueObject\Status"
                type="string"
                column="status"
                length="255"
@@ -36,7 +36,7 @@
         />
 
         <field name="laminationType"
-               enum-type="App\Orders\Domain\Aggregate\Lamination\LaminationType"
+               enum-type="App\Orders\Domain\Aggregate\ValueObject\LaminationType"
                type="string"
                column="lamination_type"
                length="255"
