@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added cors bundle.">
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated cors config.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UpdateRoll/UpdateRollCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UpdateRoll/UpdateRollCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UpdateRoll/UpdateRollCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UpdateRoll/UpdateRollCommandHandler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/DefaultOrderCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/DefaultOrderCheckInService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -255,39 +257,7 @@
       <workItem from="1722265765874" duration="9540000" />
       <workItem from="1722334548628" duration="18386000" />
       <workItem from="1722419366106" duration="4922000" />
-      <workItem from="1722424859725" duration="28486000" />
-    </task>
-    <task id="LOCAL-00056" summary="Added single order route.">
-      <option name="closed" value="true" />
-      <created>1722251286943</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1722251286943</updated>
-    </task>
-    <task id="LOCAL-00057" summary="Added find orders query.">
-      <option name="closed" value="true" />
-      <created>1722253573769</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1722253573770</updated>
-    </task>
-    <task id="LOCAL-00058" summary="Added find orders query.">
-      <option name="closed" value="true" />
-      <created>1722253644758</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1722253644758</updated>
-    </task>
-    <task id="LOCAL-00059" summary="Added find orders query.">
-      <option name="closed" value="true" />
-      <created>1722253722590</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1722253722590</updated>
+      <workItem from="1722424859725" duration="35203000" />
     </task>
     <task id="LOCAL-00060" summary="Added find orders query.">
       <option name="closed" value="true" />
@@ -649,7 +619,39 @@
       <option name="project" value="LOCAL" />
       <updated>1722593796823</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <task id="LOCAL-00105" summary="Roll api bug fix.">
+      <option name="closed" value="true" />
+      <created>1722597117659</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1722597117659</updated>
+    </task>
+    <task id="LOCAL-00106" summary="Roll api bug fix.">
+      <option name="closed" value="true" />
+      <created>1722597122266</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1722597122266</updated>
+    </task>
+    <task id="LOCAL-00107" summary="Updated cors config.">
+      <option name="closed" value="true" />
+      <created>1722598056545</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1722598056545</updated>
+    </task>
+    <task id="LOCAL-00108" summary="Updated cors config.">
+      <option name="closed" value="true" />
+      <created>1722598061240</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1722598061241</updated>
+    </task>
+    <option name="localTasksCounter" value="109" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -673,8 +675,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added manual order adding." />
-    <MESSAGE value="Move quality to ValueObject folder." />
     <MESSAGE value="Updated migrations." />
     <MESSAGE value="Added single order route." />
     <MESSAGE value="Added find orders query." />
@@ -698,7 +698,9 @@
     <MESSAGE value="Updated project migrations." />
     <MESSAGE value="Fixed rolls adding." />
     <MESSAGE value="Added cors bundle." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added cors bundle." />
+    <MESSAGE value="Roll api bug fix." />
+    <MESSAGE value="Updated cors config." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated cors config." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

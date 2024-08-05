@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Orders\Application\UseCase\Command\UpdateRoll;
 
 use App\Orders\Application\AccessControll\AccessControlService;
-use App\Orders\Domain\Aggregate\Quality;
 use App\Orders\Domain\Aggregate\Roll\RollType;
+use App\Orders\Domain\Aggregate\ValueObject\Quality;
 use App\Orders\Infrastructure\Repository\RollRepository;
 use App\Shared\Application\Command\CommandHandlerInterface;
 use App\Shared\Domain\Service\AssertService;
@@ -17,10 +17,14 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
  */
 readonly class UpdateRollCommandHandler implements CommandHandlerInterface
 {
-    public function __construct(
-        private RollRepository $rollRepository,
-        private AccessControlService $accessControlService
-    ) {
+    /**
+     * Class constructor.
+     *
+     * @param RollRepository       $rollRepository       the roll repository instance
+     * @param AccessControlService $accessControlService the access control service instance
+     */
+    public function __construct(private RollRepository $rollRepository, private AccessControlService $accessControlService)
+    {
     }
 
     /**
