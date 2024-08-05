@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fixed roll adding.">
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Repository/OrderStackFilter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Repository/OrderStackFilter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Repository/RollFilter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Repository/RollFilter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/DefaultOrderCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/OrderCheckInService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/RollRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/RollRepository.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fixed order check in service.">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,23 +254,7 @@
       <workItem from="1722265765874" duration="9540000" />
       <workItem from="1722334548628" duration="18386000" />
       <workItem from="1722419366106" duration="4922000" />
-      <workItem from="1722424859725" duration="39451000" />
-    </task>
-    <task id="LOCAL-00063" summary="Added order length field.">
-      <option name="closed" value="true" />
-      <created>1722264753476</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1722264753476</updated>
-    </task>
-    <task id="LOCAL-00064" summary="Updated order stack repository.">
-      <option name="closed" value="true" />
-      <created>1722265422694</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1722265422694</updated>
+      <workItem from="1722424859725" duration="40138000" />
     </task>
     <task id="LOCAL-00065" summary="Added order check in service.">
       <option name="closed" value="true" />
@@ -651,7 +632,23 @@
       <option name="project" value="LOCAL" />
       <updated>1722844081442</updated>
     </task>
-    <option name="localTasksCounter" value="112" />
+    <task id="LOCAL-00112" summary="Fixed order check in service.">
+      <option name="closed" value="true" />
+      <created>1722850004710</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1722850004710</updated>
+    </task>
+    <task id="LOCAL-00113" summary="Fixed order check in service.">
+      <option name="closed" value="true" />
+      <created>1722850008897</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1722850008897</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -675,7 +672,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added find orders query." />
     <MESSAGE value="Added migration for order stack model." />
     <MESSAGE value="Added order stack repo implementation." />
     <MESSAGE value="Added order length field." />
@@ -700,7 +696,8 @@
     <MESSAGE value="Updated cors config." />
     <MESSAGE value="Fix update command." />
     <MESSAGE value="Fixed roll adding." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed roll adding." />
+    <MESSAGE value="Fixed order check in service." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed order check in service." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
