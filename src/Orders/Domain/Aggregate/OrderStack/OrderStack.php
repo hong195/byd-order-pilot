@@ -6,8 +6,8 @@ namespace App\Orders\Domain\Aggregate\OrderStack;
 
 use App\Orders\Domain\Aggregate\Lamination\LaminationType;
 use App\Orders\Domain\Aggregate\Order\Order;
-use App\Orders\Domain\Aggregate\Order\ValueObject\Status;
 use App\Orders\Domain\Aggregate\Roll\RollType;
+use App\Orders\Domain\Aggregate\ValueObject\Status;
 use App\Shared\Domain\Aggregate\Aggregate;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -21,7 +21,7 @@ final class OrderStack extends Aggregate
      * @phpstan-ignore-next-line
      */
     private ?int $id;
-    private Status $status = Status::NEW;
+    private Status $status = Status::ORDER_CHECK_IN;
     private \DateTimeImmutable $dateAdded;
 
     private \DateTime $updatedAt;

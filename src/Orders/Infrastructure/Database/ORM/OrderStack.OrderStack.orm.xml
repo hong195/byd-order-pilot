@@ -24,7 +24,7 @@
         </many-to-many>
 
         <field name="status"
-               enum-type="App\Orders\Domain\Aggregate\Order\ValueObject\Status"
+               enum-type="App\Orders\Domain\Aggregate\ValueObject\Status"
                type="string"
                column="status"
                length="255"

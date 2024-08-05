@@ -8,6 +8,7 @@ use App\Orders\Domain\Aggregate\Lamination\LaminationType;
 use App\Orders\Domain\Aggregate\Order\Order;
 use App\Orders\Domain\Aggregate\Order\ProductType;
 use App\Orders\Domain\Aggregate\Roll\RollType;
+use App\Orders\Domain\Aggregate\ValueObject\Status;
 
 /**
  * Class OrderFactory.
@@ -28,12 +29,13 @@ final readonly class OrderFactory
      *
      * @return Order the newly created order
      */
-    public function make(int $length, string $productType, ?string $laminationType = null, ?string $rollType = null, $hasPriority = false, int|string|null $orderNumber = null): Order
+    public function make(int $length, string $productType, ?string $laminationType = null, ?string $rollType = null, ?string $status = null, $hasPriority = false, int|string|null $orderNumber = null): Order
     {
         return new Order(
             length: $length,
             productType: ProductType::from($productType),
             rollType: $rollType ? RollType::from($rollType) : null,
+            status: $status ? Status::from($status) : null,
             hasPriority: $hasPriority,
             laminationType: $laminationType ? LaminationType::from($laminationType) : null,
             orderNumber: $orderNumber,

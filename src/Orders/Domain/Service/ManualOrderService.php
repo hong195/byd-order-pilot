@@ -10,6 +10,13 @@ use App\Orders\Infrastructure\Repository\OrderRepository;
 use App\Shared\Infrastructure\Repository\MediaFileRepository;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Constructs a new instance of the class.
+ *
+ * @param OrderFactory        $orderFactory        the order factory instance
+ * @param OrderRepository     $orderRepository     the order repository instance
+ * @param MediaFileRepository $mediaFileRepository the media file repository instance
+ */
 final readonly class ManualOrderService
 {
     /**
@@ -19,11 +26,8 @@ final readonly class ManualOrderService
      * @param OrderRepository     $orderRepository     the order repository instance
      * @param MediaFileRepository $mediaFileRepository the media file repository instance
      */
-    public function __construct(
-        private OrderFactory $orderFactory,
-        private OrderRepository $orderRepository,
-        private MediaFileRepository $mediaFileRepository
-    ) {
+    public function __construct(private OrderFactory $orderFactory, private OrderRepository $orderRepository, private MediaFileRepository $mediaFileRepository)
+    {
     }
 
     /**

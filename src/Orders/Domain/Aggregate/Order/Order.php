@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Orders\Domain\Aggregate\Order;
 
 use App\Orders\Domain\Aggregate\Lamination\LaminationType;
-use App\Orders\Domain\Aggregate\Order\ValueObject\Status;
 use App\Orders\Domain\Aggregate\Roll\RollType;
+use App\Orders\Domain\Aggregate\ValueObject\Status;
 use App\Shared\Domain\Aggregate\Aggregate;
 use App\Shared\Domain\Entity\MediaFile;
 
@@ -22,8 +22,6 @@ final class Order extends Aggregate
      * @phpstan-ignore-next-line
      */
     private ?int $id;
-
-    private Status $status = Status::NEW;
 
     private readonly \DateTimeInterface $dateAdded;
 
@@ -46,6 +44,7 @@ final class Order extends Aggregate
         private readonly int $length,
         private readonly ProductType $productType,
         private RollType $rollType,
+        private Status $status = Status::UNASSIGNED,
         private bool $hasPriority = false,
         private ?LaminationType $laminationType = null,
         private ?int $orderNumber = null,
