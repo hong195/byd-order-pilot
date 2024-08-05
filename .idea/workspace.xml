@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fix update command.">
-      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240805074301.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AddRoll/AddRollCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AddRoll/AddRollCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ManuallyAddOrder/ManuallyAddOrderCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ManuallyAddOrder/ManuallyAddOrderCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/DefaultOrderCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/DefaultOrderCheckInService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Roll.Roll.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Roll.Roll.orm.xml" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fixed roll adding.">
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Repository/OrderStackFilter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Repository/OrderStackFilter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Repository/RollFilter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Repository/RollFilter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/DefaultOrderCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/OrderCheckInService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/RollRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/RollRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -261,23 +257,7 @@
       <workItem from="1722265765874" duration="9540000" />
       <workItem from="1722334548628" duration="18386000" />
       <workItem from="1722419366106" duration="4922000" />
-      <workItem from="1722424859725" duration="36065000" />
-    </task>
-    <task id="LOCAL-00061" summary="Added migration for order stack model.">
-      <option name="closed" value="true" />
-      <created>1722257067162</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1722257067162</updated>
-    </task>
-    <task id="LOCAL-00062" summary="Added order stack repo implementation.">
-      <option name="closed" value="true" />
-      <created>1722260625444</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1722260625444</updated>
+      <workItem from="1722424859725" duration="39451000" />
     </task>
     <task id="LOCAL-00063" summary="Added order length field.">
       <option name="closed" value="true" />
@@ -655,7 +635,23 @@
       <option name="project" value="LOCAL" />
       <updated>1722843207668</updated>
     </task>
-    <option name="localTasksCounter" value="110" />
+    <task id="LOCAL-00110" summary="Fixed roll adding.">
+      <option name="closed" value="true" />
+      <created>1722844076573</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1722844076573</updated>
+    </task>
+    <task id="LOCAL-00111" summary="Fixed roll adding.">
+      <option name="closed" value="true" />
+      <created>1722844081442</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1722844081442</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -679,7 +675,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added single order route." />
     <MESSAGE value="Added find orders query." />
     <MESSAGE value="Added migration for order stack model." />
     <MESSAGE value="Added order stack repo implementation." />
@@ -704,7 +699,8 @@
     <MESSAGE value="Roll api bug fix." />
     <MESSAGE value="Updated cors config." />
     <MESSAGE value="Fix update command." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix update command." />
+    <MESSAGE value="Fixed roll adding." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed roll adding." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

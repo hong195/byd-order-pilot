@@ -87,11 +87,6 @@ class RollRepository extends ServiceEntityRepository implements RollRepositoryIn
             $qb->setParameter('rollType', $rollFilter->rollType);
         }
 
-        if ($rollFilter->laminationType) {
-            $qb->andWhere('r.laminationType = :laminationType');
-            $qb->setParameter('laminationType', $rollFilter->laminationType);
-        }
-
         $query = $qb->getQuery();
 
         $query->setMaxResults(10);
