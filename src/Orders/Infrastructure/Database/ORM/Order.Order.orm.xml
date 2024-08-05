@@ -20,7 +20,7 @@
         <field name="length" type="bigint" column="length"  nullable="true"/>
 
         <field name="laminationType"
-               enum-type="App\Orders\Domain\Aggregate\Lamination\LaminationType"
+               enum-type="App\Orders\Domain\Aggregate\ValueObject\LaminationType"
                type="string"
                column="lamination_type"
                length="255"

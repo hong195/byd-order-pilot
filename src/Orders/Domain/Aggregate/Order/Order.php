@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Orders\Domain\Aggregate\Order;
 
-use App\Orders\Domain\Aggregate\Lamination\LaminationType;
 use App\Orders\Domain\Aggregate\Roll\RollType;
+use App\Orders\Domain\Aggregate\ValueObject\LaminationType;
 use App\Orders\Domain\Aggregate\ValueObject\Status;
 use App\Shared\Domain\Aggregate\Aggregate;
 use App\Shared\Domain\Entity\MediaFile;

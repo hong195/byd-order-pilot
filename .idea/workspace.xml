@@ -4,7 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Bug fix." />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fixed order repository find queried.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/LaminationData.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/LaminationDataTransformer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AddLamination/AddLaminationCommand.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AddLamination/AddLaminationCommandHandler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/DeleteLamination/DeleteLaminationCommand.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/DeleteLamination/DeleteLaminationCommandHandler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UpdateLamination/UpdateLaminationCommand.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UpdateLamination/UpdateLaminationCommandHandler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindALamination/FindALaminationHandler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindALamination/FindALaminationQuery.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindALamination/FindALaminationResult.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindLaminations/FindLaminationsHandler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindLaminations/FindLaminationsQuery.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindLaminations/FindLaminationsResult.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Lamination/Lamination.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Lamination/LaminationType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/ValueObject/LaminationType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Factory/LaminationFactory.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Factory/RollFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Factory/RollFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/LaminationService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/LaminationRepository.php" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -252,15 +274,7 @@
       <workItem from="1722265765874" duration="9540000" />
       <workItem from="1722334548628" duration="18386000" />
       <workItem from="1722419366106" duration="4922000" />
-      <workItem from="1722424859725" duration="43487000" />
-    </task>
-    <task id="LOCAL-00069" summary="Updated project migrations.">
-      <option name="closed" value="true" />
-      <created>1722342827931</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1722342827931</updated>
+      <workItem from="1722424859725" duration="45356000" />
     </task>
     <task id="LOCAL-00070" summary="Added injection of sorting service for order stack entity.">
       <option name="closed" value="true" />
@@ -646,7 +660,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722854206110</updated>
     </task>
-    <option name="localTasksCounter" value="118" />
+    <task id="LOCAL-00118" summary="Fixed order repository find queried.">
+      <option name="closed" value="true" />
+      <created>1722854476842</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1722854476842</updated>
+    </task>
+    <option name="localTasksCounter" value="119" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -670,7 +692,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added order length field." />
     <MESSAGE value="Updated order stack repository." />
     <MESSAGE value="Added order check in service." />
     <MESSAGE value="Updated make file." />
@@ -695,7 +716,8 @@
     <MESSAGE value="Added README file." />
     <MESSAGE value="Fixed order and order stack statuses." />
     <MESSAGE value="Bug fix." />
-    <option name="LAST_COMMIT_MESSAGE" value="Bug fix." />
+    <MESSAGE value="Fixed order repository find queried." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed order repository find queried." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

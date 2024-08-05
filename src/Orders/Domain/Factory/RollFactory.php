@@ -14,14 +14,14 @@ use App\Orders\Domain\Aggregate\ValueObject\Quality;
 class RollFactory
 {
     /**
-     * Create a new Roll object.
+     * Creates a new Roll object.
      *
      * @param string      $name         the name of the roll
+     * @param int         $length       the length of the roll
      * @param string      $quality      the quality of the roll
      * @param string      $rollType     the type of the roll
-     * @param int|null    $priority     the priority of the roll (optional)
-     * @param int         $length       the length of the roll (optional)
-     * @param string|null $qualityNotes any additional notes on the quality (optional)
+     * @param int|null    $priority     The priority of the roll. Defaults to 0 if not provided.
+     * @param string|null $qualityNotes Additional notes about the quality. Defaults to null if not provided.
      *
      * @return Roll the created Roll object
      */
