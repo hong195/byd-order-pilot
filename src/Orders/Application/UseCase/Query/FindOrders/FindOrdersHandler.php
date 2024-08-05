@@ -38,7 +38,7 @@ final readonly class FindOrdersHandler implements QueryHandlerInterface
     {
         AssertService::true($this->accessControlService->isGranted(), 'Access denied');
 
-        $result = $this->orderRepository->findPaginated();
+        $result = $this->orderRepository->findQueried();
 
         $orderData = $this->orderDataTransformer->fromOrdersEntityList($result->items);
 
