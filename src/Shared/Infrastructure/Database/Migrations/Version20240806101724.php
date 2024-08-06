@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20240805151446 extends AbstractMigration
+final class Version20240806101724 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -30,6 +30,9 @@ final class Version20240805151446 extends AbstractMigration
         $this->addSql('CREATE TABLE media_files (id INT NOT NULL, filename VARCHAR(255) NOT NULL, source VARCHAR(255) NOT NULL, path VARCHAR(255) NOT NULL, type VARCHAR(50) DEFAULT NULL, owner_id INT DEFAULT NULL, owner_type VARCHAR(50) DEFAULT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE TABLE order_stacks (id INT NOT NULL, name VARCHAR(255) NOT NULL, status VARCHAR(255) NOT NULL, length BIGINT NOT NULL, lamination_type VARCHAR(255) DEFAULT NULL, roll_type VARCHAR(255) DEFAULT NULL, date_added TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, updated_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, PRIMARY KEY(id))');
         $this->addSql('COMMENT ON COLUMN order_stacks.date_added IS \'(DC2Type:datetime_immutable)\'');
+        $this->addSql('CREATE TABLE orders_orderstack_printers (printer_id INT NOT NULL, order_stack_id INT NOT NULL, PRIMARY KEY(printer_id, order_stack_id))');
+        $this->addSql('CREATE INDEX IDX_387C5DA46EC494A ON orders_orderstack_printers (printer_id)');
+        $this->addSql('CREATE INDEX IDX_387C5DAD63FE2D1 ON orders_orderstack_printers (order_stack_id)');
         $this->addSql('CREATE TABLE order_stacks_orders (order_id INT NOT NULL, order_stack_id INT NOT NULL, PRIMARY KEY(order_id, order_stack_id))');
         $this->addSql('CREATE INDEX IDX_54761E038D9F6D38 ON order_stacks_orders (order_id)');
         $this->addSql('CREATE INDEX IDX_54761E03D63FE2D1 ON order_stacks_orders (order_stack_id)');
@@ -44,6 +47,8 @@ final class Version20240805151446 extends AbstractMigration
         $this->addSql('COMMENT ON COLUMN rolls.date_added IS \'(DC2Type:datetime_immutable)\'');
         $this->addSql('CREATE TABLE users (id INT NOT NULL, name VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, password VARCHAR(255) DEFAULT NULL, roles JSON DEFAULT \'[]\' NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE UNIQUE INDEX UNIQ_1483A5E9E7927C74 ON users (email)');
+        $this->addSql('ALTER TABLE orders_orderstack_printers ADD CONSTRAINT FK_387C5DA46EC494A FOREIGN KEY (printer_id) REFERENCES order_stacks (id) NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE orders_orderstack_printers ADD CONSTRAINT FK_387C5DAD63FE2D1 FOREIGN KEY (order_stack_id) REFERENCES orders_printers (id) NOT DEFERRABLE INITIALLY IMMEDIATE');
         $this->addSql('ALTER TABLE order_stacks_orders ADD CONSTRAINT FK_54761E038D9F6D38 FOREIGN KEY (order_id) REFERENCES order_stacks (id) NOT DEFERRABLE INITIALLY IMMEDIATE');
         $this->addSql('ALTER TABLE order_stacks_orders ADD CONSTRAINT FK_54761E03D63FE2D1 FOREIGN KEY (order_stack_id) REFERENCES orders (id) NOT DEFERRABLE INITIALLY IMMEDIATE');
         $this->addSql('ALTER TABLE orders ADD CONSTRAINT FK_E52FFDEE9D3FDAA8 FOREIGN KEY (cut_file_id) REFERENCES media_files (id) NOT DEFERRABLE INITIALLY IMMEDIATE');
@@ -61,12 +66,15 @@ final class Version20240805151446 extends AbstractMigration
         $this->addSql('DROP SEQUENCE refresh_token_id_seq CASCADE');
         $this->addSql('DROP SEQUENCE rolls_id_seq CASCADE');
         $this->addSql('DROP SEQUENCE users_id_seq CASCADE');
+        $this->addSql('ALTER TABLE orders_orderstack_printers DROP CONSTRAINT FK_387C5DA46EC494A');
+        $this->addSql('ALTER TABLE orders_orderstack_printers DROP CONSTRAINT FK_387C5DAD63FE2D1');
         $this->addSql('ALTER TABLE order_stacks_orders DROP CONSTRAINT FK_54761E038D9F6D38');
         $this->addSql('ALTER TABLE order_stacks_orders DROP CONSTRAINT FK_54761E03D63FE2D1');
         $this->addSql('ALTER TABLE orders DROP CONSTRAINT FK_E52FFDEE9D3FDAA8');
         $this->addSql('ALTER TABLE orders DROP CONSTRAINT FK_E52FFDEEB6A86CB2');
         $this->addSql('DROP TABLE media_files');
         $this->addSql('DROP TABLE order_stacks');
+        $this->addSql('DROP TABLE orders_orderstack_printers');
         $this->addSql('DROP TABLE order_stacks_orders');
         $this->addSql('DROP TABLE orders');
         $this->addSql('DROP TABLE orders_printers');
