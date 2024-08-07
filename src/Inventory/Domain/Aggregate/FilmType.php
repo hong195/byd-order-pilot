@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Invetory\Domain\Aggregate;
+namespace App\Inventory\Domain\Aggregate;
 
 /**
- * @enum RollType: string
+ * @enum FilmType: string
  * {
  *     case ROLL = 'roll';
  *     case LAMINATION = 'lamination';
  * }
  */
-enum RollType: string
+enum FilmType: string
 {
     case ROLL = 'roll';
 

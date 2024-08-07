@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Invetory\Domain\Aggregate;
+namespace App\Inventory\Domain\Aggregate;
 
 /**
- * Class Roll.
+ * Class AbstractFilm.
  *
  * This class represents a roll.
  */
-final class Roll
+abstract class AbstractFilm
 {
     /**
      * @phpstan-ignore-next-line
@@ -23,11 +23,11 @@ final class Roll
      *
      * @param string   $name     the name of the object
      * @param int      $length   the length of the object
-     * @param RollType $rollType the type of the object
+     * @param FilmType $filmType the type of the object
      *
      * @return void
      */
-    public function __construct(private string $name, private int $length, public readonly RollType $rollType)
+    public function __construct(protected string $name, protected int $length, public readonly FilmType $filmType, protected string $type)
     {
         $this->dateAdded = new \DateTimeImmutable();
     }
@@ -80,6 +80,16 @@ final class Roll
     public function updateLength(int $length): void
     {
         $this->length = $length;
+    }
+
+    /**
+     * Get the type of the object.
+     *
+     * @return string the type of the object
+     */
+    public function getType(): string
+    {
+        return $this->type;
     }
 
     /**

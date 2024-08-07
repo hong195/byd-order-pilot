@@ -16,9 +16,8 @@ final readonly class OrderCheckInService implements OrderCheckInInterface
     public function __construct(
         private OrderRepositoryInterface $orderRepository,
         private SortOrdersServiceInterface $sortOrdersService,
-        private RollRepository $rollRepository,
-        private AssignPrinterService $assignPrinterService
-    ) {
+        private RollRepository $rollRepository
+	) {
     }
 
     /**

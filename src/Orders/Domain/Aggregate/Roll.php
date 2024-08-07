@@ -10,11 +10,19 @@ use Doctrine\Common\Collections\Collection;
 use Webmozart\Assert\Assert;
 
 /**
- * Represents a Roll object.
+ * Class Roll.
+ *
+ * Represents a roll in the application.
  */
 final class Roll
 {
     private ?int $id = null;
+
+    /*
+     * Coil id reference to the inventory roll (with available types defined in RollType)
+     */
+    private int $rollMaterialId;
+
     private \DateTimeInterface $dateAdded;
     private Status $status = Status::ORDER_CHECK_IN;
 
@@ -156,5 +164,25 @@ final class Roll
     public function addOrder(Order $order): void
     {
         $this->orders->add($order);
+    }
+
+    /**
+     * Retrieves the coil ID associated with this object.
+     *
+     * @return int the coil ID associated with this object
+     */
+    public function getRollMaterialId(): int
+    {
+        return $this->rollMaterialId;
+    }
+
+    /**
+     * Assigns the given coil ID to this object.
+     *
+     * @param int $coilId the ID of the coil to be assigned
+     */
+    public function assignCoil(int $coilId): void
+    {
+        $this->rollMaterialId = $coilId;
     }
 }

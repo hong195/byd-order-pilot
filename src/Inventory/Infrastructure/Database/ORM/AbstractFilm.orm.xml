@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+        https://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+
+    <entity name="App\Inventory\Domain\Aggregate\AbstractFilm" table="inventory_film"
+            inheritance-type="SINGLE_TABLE" discriminator-column="filmType">
+        <id name="id" type="integer">
+            <generator/>
+        </id>
+
+        <field name="name" column="name" length="255"/>
+
+        <field name="length" column="length" type="bigint"/>
+
+        <field name="type" column="type" length="255"/>
+
+        <discriminator-map>
+            <discriminator-mapping value="roll" class="App\Inventory\Domain\Aggregate\RollFilm"/>
+            <discriminator-mapping value="lamination" class="App\Inventory\Domain\Aggregate\LaminationFilm"/>
+        </discriminator-map>
+
+        <field name="dateAdded" column="date_added" type="datetime_immutable"/>
+    </entity>
+</doctrine-mapping>
