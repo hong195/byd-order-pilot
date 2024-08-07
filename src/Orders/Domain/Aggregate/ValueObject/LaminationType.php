@@ -11,5 +11,4 @@ enum LaminationType: string
     case HOLO_FLAKES = 'holo_flakes';
     case MATT = 'matt';
     case GLOSSY = 'glossy';
-    case UV = 'uv';
 }

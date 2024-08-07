@@ -41,18 +41,18 @@ readonly class CreatePrintersCommandHandler implements CommandHandlerInterface
         $printers = [
             [
                 'name' => PrinterType::ROLAND_UV_PRINTER,
-                'rollTypes' => [RollType::SHADOW],
-                'laminationTypes' => [LaminationType::MATT, LaminationType::HOLO_FLAKES, LaminationType::GLOSSY, LaminationType::HOLO_FLAKES],
+                'rollTypes' => [RollType::WHITE],
+                'laminationTypes' => LaminationType::cases(),
             ],
             [
                 'name' => PrinterType::MIMAKI_UV_PRINTER,
-                'rollTypes' => [RollType::CHROME, RollType::NEON],
-                'laminationTypes' => [],
+                'rollTypes' => [RollType::CHROME, RollType::NEON, RollType::CLEAR],
+                'laminationTypes' => LaminationType::cases(),
             ],
             [
                 'name' => PrinterType::ROLAND_NORMAL_PRINTER,
-                'rollTypes' => [RollType::SHADOW],
-                'laminationTypes' => [LaminationType::UV],
+                'rollTypes' => [RollType::ECO],
+                'laminationTypes' => [],
             ],
         ];
 
