@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Orders\Domain\Factory;
 
-use App\Orders\Domain\Aggregate\Lamination\LaminationType;
 use App\Orders\Domain\Aggregate\Order\Order;
 use App\Orders\Domain\Aggregate\Order\ProductType;
 use App\Orders\Domain\Aggregate\Roll\RollType;
+use App\Orders\Domain\Aggregate\ValueObject\LaminationType;
 use App\Orders\Domain\Aggregate\ValueObject\Status;
 
 /**
@@ -35,7 +35,7 @@ final readonly class OrderFactory
             length: $length,
             productType: ProductType::from($productType),
             rollType: $rollType ? RollType::from($rollType) : null,
-            status: $status ? Status::from($status) : null,
+            status: $status ? Status::from($status) : Status::ORDER_CHECK_IN,
             hasPriority: $hasPriority,
             laminationType: $laminationType ? LaminationType::from($laminationType) : null,
             orderNumber: $orderNumber,

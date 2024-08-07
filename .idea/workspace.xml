@@ -4,27 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added inventory context.">
-      <change afterPath="$PROJECT_DIR$/src/Invetory/Infrastructure/Services/Normalizers/DateNormalizer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Repository/PrinterFilter.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Removed unused packages.">
       <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/AssignPrinterService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/phpspec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpspec.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/CreatePrinters/CreatePrintersCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/CreatePrinters/CreatePrintersCommandHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order/Order.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/OrderStack/OrderStack.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/OrderStack/OrderStack.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Roll/RollType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Roll/RollType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/ValueObject/LaminationType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/ValueObject/LaminationType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Roll/Roll.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Roll/Roll.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Factory/OrderFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Factory/OrderFactory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Factory/OrderStackFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Factory/OrderStackFactory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/OrderCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/OrderCheckInService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/OrderStack.OrderStack.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/OrderStack.OrderStack.orm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/PrinterRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/PrinterRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240806101724.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -282,23 +270,7 @@
       <workItem from="1722419366106" duration="4922000" />
       <workItem from="1722424859725" duration="48202000" />
       <workItem from="1722861301714" duration="26311000" />
-      <workItem from="1723025220942" duration="2669000" />
-    </task>
-    <task id="LOCAL-00078" summary="Added find orderstacks api endpoint.">
-      <option name="closed" value="true" />
-      <created>1722423738590</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1722423738590</updated>
-    </task>
-    <task id="LOCAL-00079" summary="Added find orderstacks api endpoint.">
-      <option name="closed" value="true" />
-      <created>1722424230452</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1722424230452</updated>
+      <workItem from="1723025220942" duration="3775000" />
     </task>
     <task id="LOCAL-00080" summary="Added route for a single order stack.">
       <option name="closed" value="true" />
@@ -676,7 +648,23 @@
       <option name="project" value="LOCAL" />
       <updated>1723027172442</updated>
     </task>
-    <option name="localTasksCounter" value="127" />
+    <task id="LOCAL-00127" summary="Added printers.">
+      <option name="closed" value="true" />
+      <created>1723028016323</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1723028016324</updated>
+    </task>
+    <task id="LOCAL-00128" summary="Removed unused packages.">
+      <option name="closed" value="true" />
+      <created>1723028064723</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1723028064723</updated>
+    </task>
+    <option name="localTasksCounter" value="129" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -700,8 +688,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added default order check in service." />
-    <MESSAGE value="Changed domain name to Order" />
     <MESSAGE value="Fixed missing quality property." />
     <MESSAGE value="Added find orderstacks api endpoint." />
     <MESSAGE value="Added route for a single order stack." />
@@ -725,7 +711,9 @@
     <MESSAGE value="Added printer entity model." />
     <MESSAGE value="Updated migrations." />
     <MESSAGE value="Added inventory context." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added inventory context." />
+    <MESSAGE value="Added printers." />
+    <MESSAGE value="Removed unused packages." />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed unused packages." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

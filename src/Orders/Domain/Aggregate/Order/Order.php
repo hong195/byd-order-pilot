@@ -31,20 +31,19 @@ final class Order extends Aggregate
     /**
      * Class constructor.
      *
-     * @param int                 $length         The length of the product
-     * @param ProductType         $productType    The type of product
-     * @param RollType            $rollType       The roll type
-     * @param bool                $hasPriority    Whether the product has priority
-     * @param LaminationType|null $laminationType The lamination type (optional)
-     * @param int|null            $orderNumber    The order number (optional)
-     *
-     * @return void
+     * @param int             $length         The length of the product
+     * @param ProductType     $productType    The type of the product
+     * @param RollType        $rollType       The roll type of the product
+     * @param Status          $status         The status of the product (optional, default: Status::UNASSIGNED)
+     * @param bool            $hasPriority    Whether the product has priority (optional, default: false)
+     * @param ?LaminationType $laminationType The lamination type of the product (optional, default: null)
+     * @param int|null        $orderNumber    The order number of the product (optional, default: null)
      */
     public function __construct(
         private readonly int $length,
         private readonly ProductType $productType,
         private RollType $rollType,
-        private Status $status = Status::UNASSIGNED,
+        private Status $status = Status::ORDER_CHECK_IN,
         private bool $hasPriority = false,
         private ?LaminationType $laminationType = null,
         private ?int $orderNumber = null,
@@ -222,6 +221,11 @@ final class Order extends Aggregate
         $this->orderNumber = $orderNumber;
     }
 
+    /**
+     * Returns the length.
+     *
+     * @return int the length
+     */
     public function getLength(): int
     {
         return $this->length;

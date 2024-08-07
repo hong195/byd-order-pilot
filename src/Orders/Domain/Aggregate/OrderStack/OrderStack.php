@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Orders\Domain\Aggregate\OrderStack;
 
 use App\Orders\Domain\Aggregate\Order\Order;
+use App\Orders\Domain\Aggregate\Printer;
 use App\Orders\Domain\Aggregate\Roll\RollType;
 use App\Orders\Domain\Aggregate\ValueObject\LaminationType;
 use App\Orders\Domain\Aggregate\ValueObject\Status;
@@ -13,7 +14,9 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
 /**
- * Represents an order stack.
+ * Class OrderStack.
+ *
+ * Represents a stack of orders in a Symfony application.
  */
 final class OrderStack extends Aggregate
 {
@@ -30,6 +33,11 @@ final class OrderStack extends Aggregate
      * @var ArrayCollection<Order>
      */
     private Collection $orders;
+
+    /**
+     * @var ArrayCollection<Printer>
+     */
+    private Collection $printers;
 
     /**
      * Class Constructor.
@@ -202,5 +210,15 @@ final class OrderStack extends Aggregate
     public function canAddOrder(Order $order): bool
     {
         return $this->getOrdersLength() + $order->getLength() <= $this->length;
+    }
+
+    /**
+     * Gets the collection of printers.
+     *
+     * @return Collection returns a collection of printers
+     */
+    public function getPrinters(): Collection
+    {
+        return $this->printers;
     }
 }
