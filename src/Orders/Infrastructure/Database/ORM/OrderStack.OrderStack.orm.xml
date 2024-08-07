@@ -7,48 +7,51 @@
 
     <entity name="App\Orders\Domain\Aggregate\OrderStack\OrderStack" table="order_stacks">
         <id name="id" type="integer">
-            <generator strategy="AUTO"/>
+            <generator/>
         </id>
 
-        <field name="name" type="string" length="255"/>
+        <field name="name" length="255"/>
 
-        <many-to-many field="orders" target-entity="App\Orders\Domain\Aggregate\Order\Order">
-            <join-table name="order_stacks_orders">
+        <many-to-many field="printers" target-entity="App\Orders\Domain\Aggregate\Printer">
+            <cascade>
+                <cascade-all/>
+            </cascade>
+            <join-table name="orders_orderstack_printers">
                 <join-columns>
-                    <join-column name="order_id" referenced-column-name="id" />
+                    <join-column name="printer_id"/>
                 </join-columns>
                 <inverse-join-columns>
-                    <join-column name="order_stack_id" referenced-column-name="id" />
+                    <join-column name="order_stack_id"/>
                 </inverse-join-columns>
             </join-table>
         </many-to-many>
 
-        <field name="status"
-               enum-type="App\Orders\Domain\Aggregate\ValueObject\Status"
-               type="string"
-               column="status"
-               length="255"
-        />
+        <many-to-many field="orders" target-entity="App\Orders\Domain\Aggregate\Order\Order">
+            <cascade>
+                <cascade-all/>
+            </cascade>
+            <join-table name="order_stacks_orders">
+                <join-columns>
+                    <join-column name="order_id"/>
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="order_stack_id"/>
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
 
-        <field name="length"
-               type="bigint"
-               column="length"
-        />
+        <field name="status" enum-type="App\Orders\Domain\Aggregate\ValueObject\Status" column="status" length="255"/>
+
+        <field name="length" type="bigint" column="length"/>
 
         <field name="laminationType"
                enum-type="App\Orders\Domain\Aggregate\ValueObject\LaminationType"
-               type="string"
                column="lamination_type"
                length="255"
                nullable="true"
         />
 
-        <field name="rollType"
-               enum-type="App\Orders\Domain\Aggregate\Roll\RollType"
-               type="string"
-               column="roll_type"
-               length="255"
-               nullable="true"
+        <field name="rollType" enum-type="App\Orders\Domain\Aggregate\Roll\RollType" column="roll_type" length="255" nullable="true"
         />
 
         <field name="dateAdded" type="datetime_immutable" column="date_added"/>
