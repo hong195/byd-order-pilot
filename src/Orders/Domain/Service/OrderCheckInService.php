@@ -17,7 +17,7 @@ final readonly class OrderCheckInService implements OrderCheckInInterface
         private OrderRepositoryInterface $orderRepository,
         private SortOrdersServiceInterface $sortOrdersService,
         private RollRepository $rollRepository
-	) {
+    ) {
     }
 
     /**

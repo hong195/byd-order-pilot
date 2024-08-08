@@ -21,13 +21,12 @@ abstract class AbstractFilm
     /**
      * Class Constructor.
      *
-     * @param string   $name     the name of the object
-     * @param int      $length   the length of the object
-     * @param FilmType $filmType the type of the object
+     * @param string $name   the name of the object
+     * @param int    $length the length of the object
      *
      * @return void
      */
-    public function __construct(protected string $name, protected int $length, public readonly FilmType $filmType, protected string $type)
+    public function __construct(protected string $name, protected int $length, protected string $type)
     {
         $this->dateAdded = new \DateTimeImmutable();
     }

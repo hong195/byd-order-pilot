@@ -21,3 +21,7 @@ users:
 rolls:
     resource: ../src/Orders/Infrastructure/Controller/
     type: attribute
+
+inventory:
+    resource: ../src/Inventory/Infrastructure/Controller/
+    type: attribute
