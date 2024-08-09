@@ -67,6 +67,9 @@ readonly class PrivateCommandInteractor
         $this->commandBus->execute($command);
     }
 
+    /**
+     * Create printers in the database.
+     */
     public function createPrinters(): void
     {
         $command = new CreatePrintersCommand();

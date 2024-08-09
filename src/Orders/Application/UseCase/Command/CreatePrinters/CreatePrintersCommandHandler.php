@@ -4,13 +4,16 @@ declare(strict_types=1);
 
 namespace App\Orders\Application\UseCase\Command\CreatePrinters;
 
-use App\Orders\Domain\Aggregate\Roll\RollType;
-use App\Orders\Domain\Aggregate\ValueObject\LaminationType;
-use App\Orders\Domain\Aggregate\ValueObject\PrinterType;
 use App\Orders\Domain\Factory\PrinterFactory;
 use App\Orders\Domain\Repository\PrinterRepositoryInterface;
+use App\Orders\Domain\ValueObject\LaminationType;
+use App\Orders\Domain\ValueObject\PrinterType;
+use App\Orders\Domain\ValueObject\RollType;
 use App\Shared\Application\Command\CommandHandlerInterface;
 
+/**
+ * Class CreatePrintersCommandHandler.
+ */
 readonly class CreatePrintersCommandHandler implements CommandHandlerInterface
 {
     /**
