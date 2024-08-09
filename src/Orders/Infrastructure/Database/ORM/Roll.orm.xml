@@ -14,21 +14,9 @@
 
         <field name="laminationTypes" type="json" enum-type="App\Orders\Domain\ValueObject\LaminationType" column="lamination_types"/>
 
-        <many-to-many field="printer" target-entity="App\Orders\Domain\Aggregate\Printer" fetch="EXTRA_LAZY">
-            <cascade>
-                <cascade-all/>
-            </cascade>
-            <join-table name="orders_roll_printer">
-                <join-columns>
-                    <join-column name="printer_id"/>
-                </join-columns>
-                <inverse-join-columns>
-                    <join-column name="order_roll_id"/>
-                </inverse-join-columns>
-            </join-table>
-        </many-to-many>
+        <many-to-one field="printer" target-entity="App\Orders\Domain\Aggregate\Printer" fetch="EXTRA_LAZY" />
 
-        <one-to-many field="orders" target-entity="App\Orders\Domain\Aggregate\Order" mapped-by="roll"/>
+        <one-to-many field="orders" target-entity="App\Orders\Domain\Aggregate\Order" mapped-by="roll" fetch="EXTRA_LAZY"/>
 
         <field name="dateAdded" type="datetime_immutable" column="date_added"/>
     </entity>
