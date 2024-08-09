@@ -22,6 +22,12 @@ final readonly class SortOrdersService implements SortOrdersServiceInterface
         $orders = $orders->toArray();
 
         usort($orders, function (Order $a, Order $b) {
+            if ($a->getLaminationType()?->value > $b->getLaminationType()?->value) {
+                return 1;
+            } elseif ($a->getLaminationType()?->value < $b->getLaminationType()?->value) {
+                return -1;
+            }
+
             if ((int) $a->hasPriority() > (int) $b->hasPriority()) {
                 return 1;
             } elseif ((int) $a->hasPriority() < (int) $b->hasPriority()) {

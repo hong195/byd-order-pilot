@@ -13,11 +13,15 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 final readonly class OrderCheckInService implements OrderCheckInInterface
 {
-    public function __construct(
-        private OrderRepositoryInterface $orderRepository,
-        private SortOrdersServiceInterface $sortOrdersService,
-        private RollRepository $rollRepository
-    ) {
+    /**
+     * Constructor for the class.
+     *
+     * @param OrderRepositoryInterface   $orderRepository   the order repository service
+     * @param SortOrdersServiceInterface $sortOrdersService the sort orders service
+     * @param RollRepository             $rollRepository    the roll repository
+     */
+    public function __construct(private OrderRepositoryInterface $orderRepository, private SortOrdersServiceInterface $sortOrdersService, private RollRepository $rollRepository)
+    {
     }
 
     /**
