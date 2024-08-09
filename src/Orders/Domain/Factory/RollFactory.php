@@ -2,9 +2,8 @@
 
 namespace App\Orders\Domain\Factory;
 
-use App\Orders\Domain\Aggregate\Roll\Roll;
-use App\Orders\Domain\Aggregate\Roll\RollType;
-use App\Orders\Domain\Aggregate\ValueObject\Quality;
+use App\Orders\Domain\Aggregate\Roll;
+use App\Orders\Domain\ValueObject\Quality;
 
 /**
  * Class RollFactory.
@@ -29,11 +28,6 @@ class RollFactory
     {
         return new Roll(
             name: $name,
-            quality: Quality::from($quality),
-            rollType: RollType::from($rollType),
-            length: $length,
-            qualityNotes: $qualityNotes,
-            priority: $priority
         );
     }
 }

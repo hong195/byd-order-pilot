@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Orders\Domain\Aggregate;
 
-use App\Orders\Domain\Aggregate\Roll\RollType;
-use App\Orders\Domain\Aggregate\ValueObject\LaminationType;
-use App\Orders\Domain\Aggregate\ValueObject\PrinterType;
+use App\Orders\Domain\ValueObject\LaminationType;
+use App\Orders\Domain\ValueObject\PrinterType;
+use App\Orders\Domain\ValueObject\RollType;
 
 /**
  * Class Printer.

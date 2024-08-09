@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orders\Domain\Service;
 
-use App\Orders\Domain\Aggregate\Order\Order;
+use App\Orders\Domain\Aggregate\Order;
 use App\Orders\Domain\Factory\OrderFactory;
 use App\Orders\Infrastructure\Repository\OrderRepository;
 use App\Shared\Infrastructure\Repository\MediaFileRepository;

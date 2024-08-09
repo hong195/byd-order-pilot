@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Domain\Aggregate\ValueObject;
+namespace App\Orders\Domain\ValueObject;
 
 /**
  * Enum Status represents the possible statuses of an order and order stack.

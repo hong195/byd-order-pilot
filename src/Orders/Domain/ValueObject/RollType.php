@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Orders\Domain\Aggregate\Roll;
+namespace App\Orders\Domain\ValueObject;
 
 /**
  * @enum RollType

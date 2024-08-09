@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Orders\Domain\Factory;
 
-use App\Orders\Domain\Aggregate\Order\Order;
-use App\Orders\Domain\Aggregate\Order\ProductType;
-use App\Orders\Domain\Aggregate\Roll\RollType;
-use App\Orders\Domain\Aggregate\ValueObject\LaminationType;
-use App\Orders\Domain\Aggregate\ValueObject\Status;
+use App\Orders\Domain\Aggregate\Order;
+use App\Orders\Domain\ValueObject\LaminationType;
+use App\Orders\Domain\ValueObject\ProductType;
+use App\Orders\Domain\ValueObject\RollType;
+use App\Orders\Domain\ValueObject\Status;
 
 /**
  * Class OrderFactory.

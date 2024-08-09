@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Orders\Domain\Aggregate\ValueObject;
+namespace App\Orders\Domain\ValueObject;
 
 /**
  * Enum-like class representing the different types of lamination.

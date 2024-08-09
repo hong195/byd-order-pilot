@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace App\Orders\Domain\Factory;
 
 use App\Orders\Domain\Aggregate\Printer;
-use App\Orders\Domain\Aggregate\Roll\RollType;
-use App\Orders\Domain\Aggregate\ValueObject\LaminationType;
-use App\Orders\Domain\Aggregate\ValueObject\PrinterType;
+use App\Orders\Domain\ValueObject\LaminationType;
+use App\Orders\Domain\ValueObject\PrinterType;
+use App\Orders\Domain\ValueObject\RollType;
 
 final readonly class PrinterFactory
 {

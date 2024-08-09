@@ -2,11 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Domain\Aggregate\Order;
+namespace App\Orders\Domain\Aggregate;
 
-use App\Orders\Domain\Aggregate\Roll\RollType;
-use App\Orders\Domain\Aggregate\ValueObject\LaminationType;
-use App\Orders\Domain\Aggregate\ValueObject\Status;
+use App\Orders\Domain\ValueObject\LaminationType;
+use App\Orders\Domain\ValueObject\ProductType;
+use App\Orders\Domain\ValueObject\RollType;
+use App\Orders\Domain\ValueObject\Status;
 use App\Shared\Domain\Aggregate\Aggregate;
 use App\Shared\Domain\Entity\MediaFile;
 

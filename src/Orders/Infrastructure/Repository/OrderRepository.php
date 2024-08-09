@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orders\Infrastructure\Repository;
 
-use App\Orders\Domain\Aggregate\Order\Order;
+use App\Orders\Domain\Aggregate\Order;
 use App\Orders\Domain\Repository\OrderRepositoryInterface;
 use App\Shared\Domain\Repository\PaginationResult;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;

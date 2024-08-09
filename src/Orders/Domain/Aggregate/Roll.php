@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orders\Domain\Aggregate;
 
-use App\Orders\Domain\Aggregate\Order\Order;
-use App\Orders\Domain\Aggregate\ValueObject\Status;
+use App\Orders\Domain\ValueObject\Status;
 use Doctrine\Common\Collections\Collection;
 use Webmozart\Assert\Assert;
 
@@ -35,10 +34,9 @@ final class Roll
     /**
      * Class constructor.
      *
-     * @param string      $name         the name of the object
-     * @param string|null $qualityNotes additional notes regarding the quality (default: null)
+     * @param string $name the name of the object
      */
-    public function __construct(private string $name, private ?string $qualityNotes = null)
+    public function __construct(private string $name)
     {
         $this->dateAdded = new \DateTimeImmutable();
     }
@@ -104,26 +102,6 @@ final class Roll
     public function getDateAdded(): \DateTimeInterface
     {
         return $this->dateAdded;
-    }
-
-    /**
-     * Gets the notes for the quality of a lamination.
-     *
-     * @return string|null the notes for the quality of the item, or null if no notes are available
-     */
-    public function getQualityNotes(): ?string
-    {
-        return $this->qualityNotes;
-    }
-
-    /**
-     * Changes the quality notes of the entity.
-     *
-     * @param string|null $qualityNotes the new quality notes for the entity
-     */
-    public function changeQualityNotes(?string $qualityNotes): void
-    {
-        $this->qualityNotes = $qualityNotes;
     }
 
     /**

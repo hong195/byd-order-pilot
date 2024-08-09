@@ -5,7 +5,7 @@
         https://doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
 >
 
-    <entity name="App\Orders\Domain\Aggregate\Printer" table="orders_printers">
+    <entity name="App\Orders\Domain\Aggregate\Printer" table="orders_printer">
         <id name="id" type="integer">
             <generator />
         </id>
@@ -16,13 +16,13 @@
 
         <field name="isAvailable" column="is_available" type="boolean"/>
 
-        <field name="rollTypes" type="json" enum-type="App\Orders\Domain\Aggregate\Roll\RollType">
+        <field name="rollTypes" type="json" enum-type="App\Orders\Domain\ValueObject\RollType">
             <options>
                 <option name="default">[]</option>
             </options>
         </field>
 
-        <field name="laminationTypes" type="json" enum-type="App\Orders\Domain\Aggregate\ValueObject\LaminationType">
+        <field name="laminationTypes" type="json" enum-type="App\Orders\Domain\ValueObject\LaminationType">
             <options>
                 <option name="default">[]</option>
             </options>

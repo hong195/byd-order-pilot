@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Orders\Application\DTO;
 
 use App\Orders\Application\Service\AssetUrlServiceInterface;
-use App\Orders\Domain\Aggregate\Order\Order;
+use App\Orders\Domain\Aggregate\Order;
 
 /**
  * OrderData class represents order data.

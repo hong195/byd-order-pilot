@@ -2,7 +2,7 @@
 
 namespace App\Orders\Domain\Repository;
 
-use App\Orders\Domain\Aggregate\Order\Order;
+use App\Orders\Domain\Aggregate\Order;
 use App\Shared\Domain\Repository\PaginationResult;
 
 interface OrderRepositoryInterface

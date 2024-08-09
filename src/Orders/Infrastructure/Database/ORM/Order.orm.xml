@@ -5,14 +5,13 @@
         https://doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
 >
 
-    <entity name="App\Orders\Domain\Aggregate\Order\Order" table="orders">
+    <entity name="App\Orders\Domain\Aggregate\Order" table="orders_order">
         <id name="id" type="integer">
-            <generator strategy="AUTO"/>
+            <generator/>
         </id>
 
         <field name="status"
-               enum-type="App\Orders\Domain\Aggregate\ValueObject\Status"
-               type="string"
+               enum-type="App\Orders\Domain\ValueObject\Status"
                column="status"
                length="255"
         />
@@ -20,16 +19,14 @@
         <field name="length" type="bigint" column="length"  nullable="true"/>
 
         <field name="laminationType"
-               enum-type="App\Orders\Domain\Aggregate\ValueObject\LaminationType"
-               type="string"
+               enum-type="App\Orders\Domain\ValueObject\LaminationType"
                column="lamination_type"
                length="255"
                nullable="true"
         />
 
         <field name="rollType"
-               enum-type="App\Orders\Domain\Aggregate\Roll\RollType"
-               type="string"
+               enum-type="App\Orders\Domain\ValueObject\RollType"
                column="roll_type"
                length="255"
                nullable="true"
@@ -44,8 +41,7 @@
         />
 
         <field name="productType"
-               enum-type="App\Orders\Domain\Aggregate\Order\ProductType"
-               type="string"
+               enum-type="App\Orders\Domain\ValueObject\ProductType"
                column="product_type"
                length="255"
         />
@@ -55,10 +51,10 @@
         <field name="dateAdded" type="datetime_immutable" column="date_added"/>
 
         <one-to-one field="cutFile" target-entity="App\Shared\Domain\Entity\MediaFile" cascade="persist, remove">
-            <join-column name="cut_file_id" referenced-column-name="id" nullable="true"/>
+            <join-column name="cut_file_id"/>
         </one-to-one>
         <one-to-one field="printFile" target-entity="App\Shared\Domain\Entity\MediaFile" cascade="persist, remove">
-            <join-column name="print_file_id" referenced-column-name="id" nullable="true"/>
+            <join-column name="print_file_id"/>
         </one-to-one>
 
     </entity>
