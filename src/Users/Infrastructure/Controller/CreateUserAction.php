@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 #[AsController]
 #[Route(path: '/api/users', name: 'create_user', methods: ['POST'])]
-readonly class CreateUser
+readonly class CreateUserAction
 {
     public function __construct(private CommandBusInterface $commandBus)
     {

@@ -12,10 +12,16 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Attribute\Route;
 
+/**
+ * Deletes a user.
+ */
 #[AsController]
 #[Route('/api/users/{id}', name: 'delete_user', requirements: ['id' => '^\d+$'], methods: ['DELETE'])]
-readonly class DeleteUser
+readonly class DeleteUserAction
 {
+    /**
+     * Class ExampleClass.
+     **/
     public function __construct(private CommandBusInterface $commandBus)
     {
     }

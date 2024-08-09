@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added find users command.">
-      <change afterPath="$PROJECT_DIR$/src/Users/Infrastructure/Controller/FinAUserAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/Application/UseCase/PrivateUseCaseInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Application/UseCase/PrivateUseCaseInteractor.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added find single user action.">
+      <change beforePath="$PROJECT_DIR$/src/Users/Application/UseCase/Query/FindUser/FindUserQueryHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Application/UseCase/Query/FindUser/FindUserQueryHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/Application/UseCase/Query/FindUserByEmail/FindUserByEmailQuery.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/Application/UseCase/Query/FindUserByEmail/FindUserByEmailQueryHandler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/Application/UseCase/Query/FindUsers/FindUsersQueryHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Application/UseCase/Query/FindUsers/FindUsersQueryHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/Infrastructure/Controller/CreateUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Infrastructure/Controller/CreateUserAction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/Infrastructure/Controller/DeleteUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Infrastructure/Controller/DeleteUserAction.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -269,22 +270,6 @@
       <workItem from="1722861301714" duration="26311000" />
       <workItem from="1723025220942" duration="6037000" />
       <workItem from="1723126559039" duration="16852000" />
-    </task>
-    <task id="LOCAL-00091" summary="Updated project migrations.">
-      <option name="closed" value="true" />
-      <created>1722515135911</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1722515135911</updated>
-    </task>
-    <task id="LOCAL-00092" summary="Updated project migrations.">
-      <option name="closed" value="true" />
-      <created>1722515145260</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1722515145260</updated>
     </task>
     <task id="LOCAL-00093" summary="Updated project migrations.">
       <option name="closed" value="true" />
@@ -662,7 +647,23 @@
       <option name="project" value="LOCAL" />
       <updated>1723190314666</updated>
     </task>
-    <option name="localTasksCounter" value="140" />
+    <task id="LOCAL-00140" summary="Added find single user action.">
+      <option name="closed" value="true" />
+      <created>1723190922378</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1723190922378</updated>
+    </task>
+    <task id="LOCAL-00141" summary="Added find single user action.">
+      <option name="closed" value="true" />
+      <created>1723190925402</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1723190925402</updated>
+    </task>
+    <option name="localTasksCounter" value="142" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -686,7 +687,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Remove unused entity properties." />
     <MESSAGE value="Updated project migrations." />
     <MESSAGE value="Fixed rolls adding." />
     <MESSAGE value="Added cors bundle." />
@@ -711,7 +711,8 @@
     <MESSAGE value="Added inventory query/commands." />
     <MESSAGE value="Updated orders domain&#10;&#10;- migrations &#10;- value objects namespaces&#10;- entity namespaces" />
     <MESSAGE value="Added find users command." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added find users command." />
+    <MESSAGE value="Added find single user action." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added find single user action." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
