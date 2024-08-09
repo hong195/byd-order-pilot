@@ -12,15 +12,29 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Webmozart\Assert\Assert;
 
+/**
+ * Creates a new user using the Symfony console command.
+ *
+ * @AsCommand(
+ *     name="app:users:create-user",
+ *     description="create user"
+ * )
+ */
 #[AsCommand(
     name: 'app:users:create-user',
     description: 'create user',
 )]
 final class CreateUserConsoleCommand extends Command
 {
-    public function __construct(
-        private readonly AdminUseCaseInteractor $adminCommandInteractor,
-    ) {
+    /**
+     * Class Description: This class is a constructor for initializing the AdminUseCaseInteractor object.
+     *
+     * @param AdminUseCaseInteractor $adminCommandInteractor the instance of AdminUseCaseInteractor class
+     *
+     * @return void
+     */
+    public function __construct(private readonly AdminUseCaseInteractor $adminCommandInteractor)
+    {
         parent::__construct();
     }
 
