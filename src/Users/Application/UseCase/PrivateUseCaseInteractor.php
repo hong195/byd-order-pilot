@@ -6,6 +6,8 @@ namespace App\Users\Application\UseCase;
 
 use App\Shared\Application\Query\QueryBusInterface;
 use App\Shared\Domain\Repository\Pager;
+use App\Users\Application\UseCase\Query\FindUser\FindUserQuery;
+use App\Users\Application\UseCase\Query\FindUser\FindUserQueryResult;
 use App\Users\Application\UseCase\Query\FindUsers\FindUsersQuery;
 use App\Users\Application\UseCase\Query\FindUsers\FindUsersQueryResult;
 use App\Users\Application\UseCase\Query\GetMe\GetMeQuery;
@@ -36,6 +38,20 @@ readonly class PrivateUseCaseInteractor
         $pager = new Pager(page: $page, perPage: 10);
 
         $command = new FindUsersQuery($pager, $email, $name);
+
+        return $this->queryBus->execute($command);
+    }
+
+    /**
+     * Find a user by user ID.
+     *
+     * @param int $userId the ID of the user to find
+     *
+     * @return FindUsersQueryResult the result of the query to find the user
+     */
+    public function findAUser(int $userId): FindUserQueryResult
+    {
+        $command = new FindUserQuery($userId);
 
         return $this->queryBus->execute($command);
     }
