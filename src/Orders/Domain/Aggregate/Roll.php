@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace App\Orders\Domain\Aggregate;
 
+use App\Orders\Domain\ValueObject\LaminationType;
+use App\Orders\Domain\ValueObject\RollType;
 use App\Orders\Domain\ValueObject\Status;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Webmozart\Assert\Assert;
 
@@ -20,7 +23,7 @@ final class Roll
     /*
      * Coil id reference to the inventory roll (with available types defined in RollType)
      */
-    private int $rollMaterialId;
+    private int $rollFilmId;
 
     private \DateTimeInterface $dateAdded;
     private Status $status = Status::ORDER_CHECK_IN;
@@ -32,12 +35,17 @@ final class Roll
     private ?Printer $printer = null;
 
     /**
-     * Class constructor.
+     * Constructs a new object with the given name, roll type, and lamination types.
      *
-     * @param string $name the name of the object
+     * @param string           $name            the name of the object
+     * @param RollType         $rollType        the roll type of the object
+     * @param LaminationType[] $laminationTypes the lamination types of the object
+     *
+     * @return void
      */
-    public function __construct(private string $name)
+    public function __construct(private string $name, public readonly RollType $rollType, private array $laminationTypes = [])
     {
+        $this->orders = new ArrayCollection();
         $this->dateAdded = new \DateTimeImmutable();
     }
 
@@ -144,14 +152,19 @@ final class Roll
         $this->orders->add($order);
     }
 
+    public function getPriorityOrders(): int
+    {
+        return $this->orders->filter(fn (Order $order) => $order->hasPriority())->count();
+    }
+
     /**
      * Retrieves the coil ID associated with this object.
      *
      * @return int the coil ID associated with this object
      */
-    public function getRollMaterialId(): int
+    public function getRollFilmId(): int
     {
-        return $this->rollMaterialId;
+        return $this->rollFilmId;
     }
 
     /**
@@ -159,8 +172,28 @@ final class Roll
      *
      * @param int $coilId the ID of the coil to be assigned
      */
-    public function assignCoil(int $coilId): void
+    public function setRollFilmId(int $coilId): void
     {
-        $this->rollMaterialId = $coilId;
+        $this->rollFilmId = $coilId;
+    }
+
+    /**
+     * Assigns an array of lamination types to the object.
+     *
+     * @param LaminationType[] $laminationTypes an array of lamination types
+     */
+    public function assignLaminationTypes(array $laminationTypes): void
+    {
+        $this->laminationTypes = $laminationTypes;
+    }
+
+    /**
+     * Retrieves an array of lamination types from the object.
+     *
+     * @return LaminationType[] the array of lamination types
+     */
+    public function getLaminationTypes(): array
+    {
+        return $this->laminationTypes;
     }
 }

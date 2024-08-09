@@ -10,6 +10,10 @@
             <generator/>
         </id>
 
+        <many-to-one field="roll" target-entity="App\Orders\Domain\Aggregate\Roll">
+            <join-column name="roll_id" />
+        </many-to-one>
+
         <field name="status"
                enum-type="App\Orders\Domain\ValueObject\Status"
                column="status"
