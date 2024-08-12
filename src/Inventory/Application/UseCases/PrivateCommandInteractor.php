@@ -37,9 +37,15 @@ readonly class PrivateCommandInteractor
         return $this->commandBus->execute($command);
     }
 
-    public function updateFilm(int $id, string $name, int $length): void
+    public function updateFilm(int $id, string $name, int $length, ?string $type = null): void
     {
-        $command = new UpdateFilmCommand($id, $name, $length);
+        $command = new UpdateFilmCommand(id: $id, filmType: FilmType::ROLL->value, name: $name, length: $length, type: $type);
+        $this->commandBus->execute($command);
+    }
+
+    public function updateLamination(int $id, string $name, int $length, ?string $type = null): void
+    {
+        $command = new UpdateFilmCommand(id: $id, filmType: FilmType::LAMINATION->value, name: $name, length: $length, type: $type);
         $this->commandBus->execute($command);
     }
 

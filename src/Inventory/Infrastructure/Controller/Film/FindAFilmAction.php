@@ -14,8 +14,8 @@ use Symfony\Component\Serializer\Exception\ExceptionInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 #[AsController]
-#[Route('/api/films', name: 'find_single_film', methods: ['GET'])]
-final readonly class FindFilms
+#[Route('/api/films/{id}', name: 'find_a_film', requirements: ['id' => '^\d+$'], methods: ['GET'])]
+final readonly class FindAFilmAction
 {
     public function __construct(private PrivateQueryInteractor $queryInteractor, private NormalizerInterface $normalizer)
     {
@@ -33,11 +33,11 @@ final readonly class FindFilms
      */
     public function __invoke(Request $request): JsonResponse
     {
-        $result = $this->queryInteractor->findFilms(
-            filmType: $request->get('filmType'),
+        $result = $this->queryInteractor->findAFilm(
+            id: (int) $request->attributes->get('id')
         );
 
-        $result = $this->normalizer->normalize($result->items);
+        $result = $this->normalizer->normalize($result->FilmData);
 
         return new JsonResponse($result, Response::HTTP_CREATED);
     }

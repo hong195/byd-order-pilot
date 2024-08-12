@@ -92,6 +92,16 @@ abstract class AbstractFilm
     }
 
     /**
+     * Set the type of the object.
+     *
+     * @param string $type the type of the object
+     */
+    public function setType(string $type): void
+    {
+        $this->type = $type;
+    }
+
+    /**
      * Get the date that the object was added.
      *
      * @return \DateTimeImmutable the date that the object was added

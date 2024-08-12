@@ -12,8 +12,8 @@ use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[AsController]
-#[Route('/api/films/rolls', name: 'add_roll_film', methods: ['POST'])]
-final readonly class AddRollFilm
+#[Route('/api/films/laminations', name: 'add_lamination_film', methods: ['POST'])]
+final readonly class AddLaminationFilmAction
 {
     public function __construct(private PrivateCommandInteractor $commandInteractor)
     {
@@ -30,7 +30,7 @@ final readonly class AddRollFilm
      */
     public function __invoke(Request $request): JsonResponse
     {
-        $id = $this->commandInteractor->addARollFilm(
+        $id = $this->commandInteractor->addALaminationFilm(
             name: $request->request->get('name'),
             length: (int) $request->request->get('length'),
             type: $request->request->get('type')

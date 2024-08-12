@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Inventory\Application\UseCases\Command\UpdateFilm;
 
+use App\Inventory\Domain\Aggregate\FilmType;
 use App\Inventory\Domain\Service\FilmUpdater;
+use App\Inventory\Domain\Service\LaminationUpdater;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Command\CommandHandlerInterface;
 use App\Shared\Domain\Service\AssertService;
@@ -20,7 +22,7 @@ readonly class UpdateFilmCommandHandler implements CommandHandlerInterface
      *
      * @param AccessControlService $accessControlService an instance of the AccessControlService class used for controlling access to the application
      */
-    public function __construct(private AccessControlService $accessControlService, private FilmUpdater $filmUpdater)
+    public function __construct(private AccessControlService $accessControlService, private FilmUpdater $filmUpdater, private LaminationUpdater $laminationUpdater)
     {
     }
 
@@ -35,6 +37,10 @@ readonly class UpdateFilmCommandHandler implements CommandHandlerInterface
     {
         AssertService::true($this->accessControlService->isGranted(), 'Not allowed to add lamination.');
 
-        $this->filmUpdater->update($updateFilmCommand->id, $updateFilmCommand->name, $updateFilmCommand->length);
+        match ($updateFilmCommand->filmType) {
+            FilmType::LAMINATION->value => $this->laminationUpdater->update(id: $updateFilmCommand->id, name: $updateFilmCommand->name, length: $updateFilmCommand->length, type: $updateFilmCommand->type),
+            FilmType::ROLL->value => $this->filmUpdater->update(id: $updateFilmCommand->id, name: $updateFilmCommand->name, length: $updateFilmCommand->length, type: $updateFilmCommand->type),
+            default => throw new \InvalidArgumentException('Invalid film type'),
+        };
     }
 }

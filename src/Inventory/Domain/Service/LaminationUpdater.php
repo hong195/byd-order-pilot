@@ -10,7 +10,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 /**
  * Represents a FilmUpdater class responsible for updating film data.
  */
-final readonly class FilmUpdater
+final readonly class LaminationUpdater
 {
     /**
      * Initializes a new instance of the class.
@@ -46,12 +46,8 @@ final readonly class FilmUpdater
             $film->updateLength($length);
         }
 
-        if ($type === $film->getType()) {
-            $film->setType($type);
-        }
-
         if ($type) {
-            if (!in_array($type, ['chrome', 'neon', 'white', 'clear', 'eco'])) {
+            if (!in_array($type, ['holo_flakes', 'matt', 'glossy', 'gold_flakes'])) {
                 throw new \InvalidArgumentException('Invalid film type');
             }
             $film->setType($type);
