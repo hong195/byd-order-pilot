@@ -51,9 +51,18 @@ final readonly class RollMaker
         return $roll;
     }
 
-    public function findOrMake(string $name, int $filmId, ?RollType $rollType = null)
+    /**
+     * Find an existing Roll or create a new one.
+     *
+     * @param string        $name     The name of the roll
+     * @param int           $filmId   The ID of the film associated with the roll
+     * @param RollType|null $rollType The type of the roll (optional)
+     *
+     * @return Roll The Roll entity that was found or created
+     */
+    public function findOrMake(string $name, int $filmId, ?RollType $rollType = null): Roll
     {
-        $roll = $this->rollRepository->finByFilmId($filmId);
+        $roll = $this->rollRepository->findByFilmId($filmId);
 
         if ($roll) {
             return $roll;

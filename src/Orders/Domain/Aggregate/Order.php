@@ -29,8 +29,6 @@ final class Order extends Aggregate
     private ?MediaFile $cutFile = null;
     private ?MediaFile $printFile = null;
 
-    private ?Roll $roll = null;
-
     /**
      * Class constructor.
      *
@@ -232,15 +230,5 @@ final class Order extends Aggregate
     public function getLength(): int
     {
         return $this->length;
-    }
-
-    /**
-     * Returns the Roll object associated with this instance.
-     *
-     * @return Roll the Roll object associated with this instance
-     */
-    public function getRoll(): Roll
-    {
-        return $this->roll;
     }
 }

@@ -34,7 +34,7 @@ final readonly class OrdersCheckInService implements OrderCheckInInterface
     {
         /** @var Collection<Order> $orders */
         $allOrders = $this->sortOrdersService->getSorted(new ArrayCollection($this->orderRepository->findByStatus(Status::ORDER_CHECK_IN)));
-        $availableFilms = new ArrayCollection();
+        $availableFilms = $this->availableFilmService->getAvailableFilms();
         $groupedFilms = $this->groupFilmsByType($availableFilms);
         $groupedOrders = $this->groupOrdersByFilm($allOrders);
 
@@ -42,7 +42,7 @@ final readonly class OrdersCheckInService implements OrderCheckInInterface
 
         foreach ($groupedOrders as $rollType => $orders) {
             if (!isset($groupedFilms[$rollType])) {
-                // Если пленки этого типа нет, создаем пустой рулон для всех заказов этого типа
+                // If there is no film of this type, create an empty roll for all orders of this type
                 foreach ($orders as $order) {
                     $roll = $this->rollMaker->make("Empty Roll {$order->getRollType()->value}", null, $order->getRollType());
                     $roll->addOrder($order);
@@ -57,17 +57,18 @@ final readonly class OrdersCheckInService implements OrderCheckInInterface
             foreach ($orders as $order) {
                 $orderPlaced = false;
 
-                // Попытка разместить заказ на существующих рулонах с пленкой
+                // Attempting to place an order on existing film rolls
                 foreach ($currentFilm as $key => $film) {
-                    if ($film->length >= $order->getLength()) {
+                    $filmLength = $film->length;
+                    if ($filmLength >= $order->getLength()) {
                         $roll = $this->rollMaker->findOrMake("Roll {$film->rollType}", $film->id, $order->getRollType());
                         $roll->addOrder($order);
-                        $film->length -= $order->getLength(); // Уменьшаем доступную длину пленки
+                        $filmLength -= $order->getLength(); // Decrease the film length by the order length
                         $assignedRolls[] = $roll;
                         $orderPlaced = true;
 
-                        if (0 === $film->length) {
-                            unset($currentFilm[$key]); // Удаляем пленку, если она закончилась
+                        if (0 === $filmLength) {
+                            unset($currentFilm[$key]); // Remove the film from the available films
                         }
 
                         break;
@@ -76,12 +77,14 @@ final readonly class OrdersCheckInService implements OrderCheckInInterface
 
                 // Если заказ не был размещен, создаем пустой рулон
                 if (!$orderPlaced) {
-                    $roll = createEmptyRoll();
+                    $roll = $this->rollMaker->make("Empty Roll {$order->getRollType()->value}", null, $order->getRollType());
                     $roll->addOrder($order);
                     $assignedRolls[] = $roll;
                 }
             }
         }
+
+        $this->rollRepository->saveRolls($assignedRolls);
     }
 
     /**
