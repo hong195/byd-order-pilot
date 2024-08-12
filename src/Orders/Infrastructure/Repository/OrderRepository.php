@@ -6,6 +6,7 @@ namespace App\Orders\Infrastructure\Repository;
 
 use App\Orders\Domain\Aggregate\Order;
 use App\Orders\Domain\Repository\OrderRepositoryInterface;
+use App\Orders\Domain\ValueObject\Status;
 use App\Shared\Domain\Repository\PaginationResult;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\Tools\Pagination\Paginator;
@@ -49,6 +50,24 @@ final class OrderRepository extends ServiceEntityRepository implements OrderRepo
     public function findById(int $id): ?Order
     {
         return $this->find($id);
+    }
+
+    /**
+     * Finds Orders entities by their status.
+     *
+     * @param Status $status the status of the Orders entities
+     *
+     * @return Order[] the array of Orders entities matching the given status
+     */
+    public function findByStatus(Status $status): array
+    {
+        $qb = $this->createQueryBuilder('o');
+
+        $qb->where('o.status = :status')
+            ->setParameter('status', $status->value);
+        $query = $qb->getQuery();
+
+        return $query->getResult();
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Orders\Domain\Repository;
 
 use App\Orders\Domain\Aggregate\Roll;
+use App\Orders\Domain\ValueObject\Status;
 
 /**
  * This interface represents a Roll repository.
@@ -40,11 +41,34 @@ interface RollRepositoryInterface
     public function remove(Roll $roll): void;
 
     /**
+     * Finds records by roll type.
+     *
+     * @return Roll[] an array of records matching the roll type
+     */
+    public function findByStatus(Status $status): array;
+
+    /**
      * Finds records based on the given RollFilter.
      *
      * @param RollFilter $rollFilter the filter to query records
      *
      * @return Roll[] an array of matching records
      */
-    public function findQueried(RollFilter $rollFilter): array;
+    public function findByFilter(RollFilter $rollFilter): array;
+
+    /**
+     * Finds a record by film id.
+     *
+     * @param int $filmId the film id of the record to find
+     *
+     * @return Roll|null the found record or null if not found
+     */
+    public function findByFilmId(int $filmId): ?Roll;
+
+    /**
+     * Saves a collection of rolls to the database.
+     *
+     * @param iterable<Roll> $rolls the collection of rolls to save
+     */
+    public function saveRolls(iterable $rolls): void;
 }

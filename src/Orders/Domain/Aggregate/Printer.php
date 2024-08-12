@@ -13,7 +13,7 @@ use App\Orders\Domain\ValueObject\RollType;
  *
  * Represents a printer.
  */
-final class Printer
+class Printer
 {
     /**
      * @phpstan-ignore-next-line

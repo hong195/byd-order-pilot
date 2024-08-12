@@ -10,9 +10,13 @@
         </id>
         <field name="name" column="name" length="255"/>
 
-        <field name="rollType" enum-type="App\Orders\Domain\ValueObject\RollType" column="roll_type" length="255"/>
+        <field name="filmId" type="integer" column="film_id" />
 
-        <field name="laminationTypes" type="json" enum-type="App\Orders\Domain\ValueObject\LaminationType" column="lamination_types"/>
+        <field name="status" enum-type="App\Orders\Domain\ValueObject\Status" column="status" length="255" nullable="true"/>
+
+<!--        <field name="rollType" enum-type="App\Orders\Domain\ValueObject\RollType" column="roll_type" length="255"/>-->
+
+<!--        <field name="laminationTypes" type="json" enum-type="App\Orders\Domain\ValueObject\LaminationType" column="lamination_types"/>-->
 
         <many-to-one field="printer" target-entity="App\Orders\Domain\Aggregate\Printer" fetch="EXTRA_LAZY" />
 

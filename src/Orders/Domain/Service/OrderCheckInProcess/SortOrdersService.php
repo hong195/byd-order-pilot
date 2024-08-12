@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Domain\Service;
+namespace App\Orders\Domain\Service\OrderCheckInProcess;
 
 use App\Orders\Domain\Aggregate\Order;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -22,9 +22,9 @@ final readonly class SortOrdersService implements SortOrdersServiceInterface
         $orders = $orders->toArray();
 
         usort($orders, function (Order $a, Order $b) {
-            if ($a->getLaminationType()?->value > $b->getLaminationType()?->value) {
+            if ($a->getRollType()->value > $b->getRollType()->value) {
                 return 1;
-            } elseif ($a->getLaminationType()?->value < $b->getLaminationType()?->value) {
+            } elseif ($a->getRollType()->value < $b->getRollType()->value) {
                 return -1;
             }
 

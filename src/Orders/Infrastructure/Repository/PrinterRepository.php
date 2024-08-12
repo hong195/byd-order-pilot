@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Orders\Infrastructure\Repository;
 
 use App\Orders\Domain\Aggregate\Printer;
-use App\Orders\Domain\Repository\PrinterFilter;
 use App\Orders\Domain\Repository\PrinterRepositoryInterface;
+use App\Orders\Domain\ValueObject\RollType;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -41,26 +41,23 @@ final class PrinterRepository extends ServiceEntityRepository implements Printer
     }
 
     /**
-     * Find queried printers based on given filter.
+     * Finds a Printer entity by RollType.
      *
-     * @param PrinterFilter $printerFilter The filter to apply on printers
+     * @param RollType $rollType the RollType entity to search for in Printer entities
      *
-     * @return Printer[] An array of queried printers
+     * @return Printer|null the found Printer entity or null if not found
      */
-    public function findQueried(PrinterFilter $printerFilter): array
+    public function findByRollType(RollType $rollType): ?Printer
     {
         $queryBuilder = $this->createQueryBuilder('p');
+        $result = $queryBuilder->getQuery()->getResult();
 
-        if ($printerFilter->rollTypes) {
-            $queryBuilder->where('JSONB_CONTAINS(p.rollTypes, :rollType) = 1')
-                ->setParameter('rollType', json_encode($printerFilter->rollTypes));
+        foreach ($result as $printer) {
+            if (in_array($rollType, $printer->getRollTypes())) {
+                return $printer;
+            }
         }
 
-        if ($printerFilter->laminationTypes) {
-            $queryBuilder->andWhere('JSONB_CONTAINS(p.laminationTypes, :laminationType) = 1')
-                ->setParameter('laminationType', json_encode($printerFilter->laminationTypes));
-        }
-
-        return $queryBuilder->getQuery()->getResult();
+        return null;
     }
 }

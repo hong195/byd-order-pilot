@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Orders\Domain\Service;
+namespace App\Orders\Domain\Service\OrderCheckInProcess;
 
 use Doctrine\Common\Collections\Collection;
 

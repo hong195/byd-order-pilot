@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Shared\Infrastructure\Services\Normalizers;
 
+use DateTimeInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 /**
