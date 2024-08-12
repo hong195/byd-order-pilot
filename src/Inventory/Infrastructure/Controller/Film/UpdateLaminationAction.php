@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Inventory\Infrastructure\Controller\Film;
 
 use App\Inventory\Application\UseCases\PrivateCommandInteractor;
-use App\Inventory\Domain\Aggregate\FilmType;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
