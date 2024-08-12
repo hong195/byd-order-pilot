@@ -14,7 +14,7 @@ use Symfony\Component\Serializer\Exception\ExceptionInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 #[AsController]
-#[Route('/api/films/{id}', name: 'find_single_film', requirements: ['id' => '^\d+$'], methods: ['GET'])]
+#[Route('/api/films/{id}', name: 'find_a_film', requirements: ['id' => '^\d+$'], methods: ['GET'])]
 final readonly class FindAFilm
 {
     public function __construct(private PrivateQueryInteractor $queryInteractor, private NormalizerInterface $normalizer)
