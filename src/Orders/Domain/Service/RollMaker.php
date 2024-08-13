@@ -7,7 +7,6 @@ namespace App\Orders\Domain\Service;
 use App\Orders\Domain\Aggregate\Roll;
 use App\Orders\Domain\Factory\RollFactory;
 use App\Orders\Domain\Repository\PrinterRepositoryInterface;
-use App\Orders\Domain\Repository\RollFilter;
 use App\Orders\Domain\ValueObject\RollType;
 use App\Orders\Infrastructure\Repository\RollRepository;
 
@@ -50,27 +49,5 @@ final readonly class RollMaker
         $this->rollRepository->save($roll);
 
         return $roll;
-    }
-
-    /**
-     * Find an existing Roll or create a new one.
-     *
-     * @param string        $name     The name of the roll
-     * @param int           $filmId   The ID of the film associated with the roll
-     * @param RollType|null $rollType The type of the roll (optional)
-     *
-     * @return Roll The Roll entity that was found or created
-     */
-    public function findOrMake(string $name, ?int $filmId = null, ?RollType $rollType = null): Roll
-    {
-        $rollFilter = new RollFilter(filmIds: $filmId ? [$filmId] : [], rollType: $rollType->value);
-
-        $roll = $this->rollRepository->findByFilter($rollFilter)[0] ?? null;
-
-        if ($roll) {
-            return $roll;
-        }
-
-        return $this->make($name, $filmId, $rollType);
     }
 }
