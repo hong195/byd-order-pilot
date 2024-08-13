@@ -80,7 +80,7 @@ final class OrdersCheckInService implements OrderCheckInInterface
 
                     $roll = $this->findOrMakeRoll(name: "Roll {$film->rollType}", filmId: $film->id, rollType: $order->getRollType());
 
-                    if ($roll->getOrderLength() + $order->getLength() <= $filmLength) {
+                    if ($roll->getOrdersLength() + $order->getLength() <= $filmLength) {
                         $roll->addOrder($order);
 
                         $this->syncAssignRolls($roll);
@@ -143,7 +143,6 @@ final class OrdersCheckInService implements OrderCheckInInterface
     {
         // if roll was added previosly to assignedRolls, remove it and add it again
         if ($this->assignedRolls->contains($roll)) {
-            echo "{$roll->getId()} \n";
             $this->assignedRolls->removeElement($roll);
         }
 

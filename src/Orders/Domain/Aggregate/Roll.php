@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orders\Domain\Aggregate;
 
+use App\Orders\Domain\ValueObject\RollType;
 use App\Orders\Domain\ValueObject\Status;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -114,7 +115,7 @@ final class Roll
      *
      * @return int the total length of the orders associated with this object
      */
-    public function getOrderLength(): int
+    public function getOrdersLength(): int
     {
         return $this->orders->reduce(fn (int $carry, Order $order) => $carry + $order->getLength(), 0);
     }
@@ -187,5 +188,25 @@ final class Roll
     public function setFilmId(int $coilId): void
     {
         $this->filmId = $coilId;
+    }
+
+    /**
+     * Retrieves an array of roll types associated with the orders in this object.
+     *
+     * @return string[] an array of roll types associated with the orders in this object
+     */
+    public function getFilmTypes(): array
+    {
+        return array_unique($this->orders->map(fn (Order $order) => $order->getRollType()->value)->toArray());
+    }
+
+    /**
+     * Retrieves the lamination types associated with this object.
+     *
+     * @return string[] an array of lamination types
+     */
+    public function getLaminations(): array
+    {
+        return array_unique($this->orders->map(fn (Order $order) => $order->getLaminationType()->value)->toArray());
     }
 }

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orders\Application\DTO;
 
-use App\Orders\Domain\Aggregate\Roll\Roll;
+use App\Orders\Domain\Aggregate\Roll;
 
 /**
  * RollDataTransformer class is responsible for converting an array of Roll entities into an array of RollData instances.
@@ -40,11 +40,10 @@ final readonly class RollDataTransformer
         return new RollData(
             id: $roll->getId(),
             name: $roll->getName(),
-            length: $roll->getLength(),
-            quality: $roll->getQuality(),
-            rollType: $roll->getRollType()?->value,
-            dateAdded: $roll->getDateAdded(),
-            qualityNotes: $roll->getQualityNotes()
+            length: $roll->getOrdersLength(),
+            films: $roll->getFilmTypes(),
+            laminations: $roll->getLaminations(),
+            dateAdded: $roll->getDateAdded()
         );
     }
 }

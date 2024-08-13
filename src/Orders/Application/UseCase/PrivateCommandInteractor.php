@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Orders\Application\UseCase;
 
-use App\Orders\Application\UseCase\Command\AddRoll\AddRollCommand;
 use App\Orders\Application\UseCase\Command\CreatePrinters\CreatePrintersCommand;
 use App\Orders\Application\UseCase\Command\DeleteRoll\DeleteRollCommand;
+use App\Orders\Application\UseCase\Command\FindRolls\FindRollCommand;
 use App\Orders\Application\UseCase\Command\UpdateRoll\UpdateRollCommand;
 use App\Shared\Application\Command\CommandBusInterface;
 
@@ -32,7 +32,7 @@ readonly class PrivateCommandInteractor
      */
     public function addRoll(string $name, int $length, string $quality, string $rollType, ?int $priority = null, ?string $qualityNotes = null): int
     {
-        $command = new AddRollCommand(
+        $command = new FindRollCommand(
             name: $name, length: $length, quality: $quality, rollType: $rollType, qualityNotes: $qualityNotes, priority: $priority
         );
 

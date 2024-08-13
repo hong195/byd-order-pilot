@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Infrastructure\Controller;
+namespace App\Orders\Infrastructure\Controller\Rolls;
 
 use App\Orders\Application\UseCase\PrivateQueryInteractor;
 use App\Shared\Infrastructure\Controller\BaseController;
@@ -19,8 +19,8 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
  * @Route("/api/rolls/{id}", requirements={"id"="\d+"}, methods={"GET"})
  */
 #[AsController]
-#[Route('/api/rolls/{id}', name: 'find_a_single_roll', requirements: ['id' => '^\d+$'], methods: ['GET'])]
-final class FindARoll extends BaseController
+#[Route('/api/rolls', name: 'find_rolls_list', methods: ['GET'])]
+final class FindRollsAction extends BaseController
 {
     /**
      * Class constructor.
@@ -34,16 +34,14 @@ final class FindARoll extends BaseController
     /**
      * Calls the findARoll method of the privateQueryInteractor to retrieve RollData by id.
      *
-     * @param int $id the id of the RollData to find
-     *
      * @throws ExceptionInterface
      */
-    public function __invoke(int $id): JsonResponse
+    public function __invoke(): JsonResponse
     {
-        $result = $this->privateQueryInteractor->findARoll($id);
+        $result = $this->privateQueryInteractor->findRolls();
 
         $result = $this->normalizer->normalize($result);
 
-        return $this->json($result['rollData'], Response::HTTP_OK, []);
+        return $this->json($result, Response::HTTP_OK, []);
     }
 }
