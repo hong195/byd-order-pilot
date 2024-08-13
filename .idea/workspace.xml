@@ -4,21 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated logic for check in service.">
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated roll api endpoints.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/RollData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/RollData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/RollDataTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/RollDataTransformer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateQueryInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateQueryInteractor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindARoll/FindARollHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindARoll/FindARollHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindRolls/FindRollsHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindRolls/FindRollsHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Roll.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Roll.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/OrderCheckInProcess/OrdersCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/OrderCheckInProcess/OrdersCheckInService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/AddRoll.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Rolls/AddRoll.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/DeleteRoll.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Rolls/DeleteRoll.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/FindARoll.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Rolls/FindARollAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/FindRolls.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Rolls/FindRollsAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/UpdateRoll.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Rolls/UpdateRoll.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindOrders/FindOrdersHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindOrders/FindOrdersHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindOrders/FindOrdersQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindOrders/FindOrdersQuery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Repository/OrderRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Repository/OrderRepositoryInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/FindOrders.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/FindOrders.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/OrderRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/OrderRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -279,22 +273,6 @@
       <workItem from="1723025220942" duration="6037000" />
       <workItem from="1723126559039" duration="16852000" />
       <workItem from="1723390311692" duration="26395000" />
-    </task>
-    <task id="LOCAL-00110" summary="Fixed roll adding.">
-      <option name="closed" value="true" />
-      <created>1722844076573</created>
-      <option name="number" value="00110" />
-      <option name="presentableId" value="LOCAL-00110" />
-      <option name="project" value="LOCAL" />
-      <updated>1722844076573</updated>
-    </task>
-    <task id="LOCAL-00111" summary="Fixed roll adding.">
-      <option name="closed" value="true" />
-      <created>1722844081442</created>
-      <option name="number" value="00111" />
-      <option name="presentableId" value="LOCAL-00111" />
-      <option name="project" value="LOCAL" />
-      <updated>1722844081442</updated>
     </task>
     <task id="LOCAL-00112" summary="Fixed order check in service.">
       <option name="closed" value="true" />
@@ -672,7 +650,23 @@
       <option name="project" value="LOCAL" />
       <updated>1723535633846</updated>
     </task>
-    <option name="localTasksCounter" value="159" />
+    <task id="LOCAL-00159" summary="Updated roll api endpoints.">
+      <option name="closed" value="true" />
+      <created>1723540428503</created>
+      <option name="number" value="00159" />
+      <option name="presentableId" value="LOCAL-00159" />
+      <option name="project" value="LOCAL" />
+      <updated>1723540428503</updated>
+    </task>
+    <task id="LOCAL-00160" summary="Updated roll api endpoints.">
+      <option name="closed" value="true" />
+      <created>1723540432192</created>
+      <option name="number" value="00160" />
+      <option name="presentableId" value="LOCAL-00160" />
+      <option name="project" value="LOCAL" />
+      <updated>1723540432192</updated>
+    </task>
+    <option name="localTasksCounter" value="161" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -708,7 +702,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed order check in service." />
     <MESSAGE value="Added README file." />
     <MESSAGE value="Fixed order and order stack statuses." />
     <MESSAGE value="Bug fix." />
@@ -733,7 +726,8 @@
     <MESSAGE value="Changed relation for printer entity." />
     <MESSAGE value="Added order check in process." />
     <MESSAGE value="Updated logic for check in service." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated logic for check in service." />
+    <MESSAGE value="Updated roll api endpoints." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated roll api endpoints." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

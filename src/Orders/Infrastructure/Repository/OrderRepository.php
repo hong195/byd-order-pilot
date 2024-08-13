@@ -71,17 +71,32 @@ final class OrderRepository extends ServiceEntityRepository implements OrderRepo
     }
 
     /**
+     * Finds Orders entities by Roll ID.
+     *
+     * @param int $rollId the ID of the Roll
+     *
+     * @return Order[] an array of Orders entities matching the given Roll ID
+     */
+    public function findByRollId(int $rollId): array
+    {
+        $qb = $this->getEntityManager()->createQuery("SELECT o FROM App\Orders\Domain\Aggregate\Order o JOIN App\Orders\Domain\Aggregate\Roll r WITH o MEMBER OF r.orders WHERE r.id = :rollId");
+
+        $qb->setParameter('rollId', $rollId);
+
+        return $qb->getResult();
+    }
+
+    /**
      * Finds paginated results.
      *
      * @return PaginationResult the paginated results
      */
-    public function findQueried(): PaginationResult
+    public function findByFilter(): PaginationResult
     {
         $qb = $this->createQueryBuilder('o');
 
         $query = $qb->getQuery();
 
-        $query->setMaxResults(100);
         $paginator = new Paginator($query);
 
         return new PaginationResult($query->getResult(), $paginator->count());

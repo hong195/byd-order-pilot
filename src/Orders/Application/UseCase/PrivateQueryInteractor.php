@@ -67,9 +67,9 @@ readonly class PrivateQueryInteractor
     /**
      * @method FindOrdersResult findOrders()
      */
-    public function findOrders(): FindOrdersResult
+    public function findOrders(?int $rollId = null): FindOrdersResult
     {
-        $query = new FindOrdersQuery();
+        $query = new FindOrdersQuery(rollId: $rollId);
 
         return $this->queryBus->execute($query);
     }

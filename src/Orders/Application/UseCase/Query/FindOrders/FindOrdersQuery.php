@@ -13,7 +13,7 @@ use App\Shared\Application\Query\Query;
  */
 final readonly class FindOrdersQuery extends Query
 {
-    public function __construct(?string $status = null)
+    public function __construct(public ?int $rollId = null, public ?string $status = null)
     {
     }
 }
