@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Orders\Domain\Aggregate;
 
+use App\Orders\Domain\ValueObject\RollType;
 use App\Orders\Domain\ValueObject\Status;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Webmozart\Assert\Assert;
 
@@ -20,7 +22,7 @@ final class Roll
     /*
      * Coil id reference to the inventory roll (with available types defined in RollType)
      */
-    private int $rollMaterialId;
+    private ?int $filmId = null;
 
     private \DateTimeInterface $dateAdded;
     private Status $status = Status::ORDER_CHECK_IN;
@@ -32,12 +34,16 @@ final class Roll
     private ?Printer $printer = null;
 
     /**
-     * Class constructor.
+     * Constructs a new object with the given name, roll type, and lamination types.
      *
      * @param string $name the name of the object
+     *
+     * @return void
      */
-    public function __construct(private string $name)
+    public function __construct(private string $name, ?int $filmId = null)
     {
+        $this->filmId = $filmId;
+        $this->orders = new ArrayCollection();
         $this->dateAdded = new \DateTimeImmutable();
     }
 
@@ -109,7 +115,7 @@ final class Roll
      *
      * @return int the total length of the orders associated with this object
      */
-    public function getOrderLength(): int
+    public function getOrdersLength(): int
     {
         return $this->orders->reduce(fn (int $carry, Order $order) => $carry + $order->getLength(), 0);
     }
@@ -145,13 +151,33 @@ final class Roll
     }
 
     /**
+     * Removes all orders from the object.
+     */
+    public function removeOrders(): void
+    {
+        foreach ($this->orders as $order) {
+            $this->orders->removeElement($order);
+        }
+    }
+
+    /**
+     * Returns the count of priority orders.
+     *
+     * @return int the count of priority orders
+     */
+    public function getPriorityOrders(): int
+    {
+        return $this->orders->filter(fn (Order $order) => $order->hasPriority())->count();
+    }
+
+    /**
      * Retrieves the coil ID associated with this object.
      *
-     * @return int the coil ID associated with this object
+     * @return ?int the coil ID associated with this object
      */
-    public function getRollMaterialId(): int
+    public function getFilmId(): ?int
     {
-        return $this->rollMaterialId;
+        return $this->filmId;
     }
 
     /**
@@ -159,8 +185,28 @@ final class Roll
      *
      * @param int $coilId the ID of the coil to be assigned
      */
-    public function assignCoil(int $coilId): void
+    public function setFilmId(int $coilId): void
     {
-        $this->rollMaterialId = $coilId;
+        $this->filmId = $coilId;
+    }
+
+    /**
+     * Retrieves an array of roll types associated with the orders in this object.
+     *
+     * @return string[] an array of roll types associated with the orders in this object
+     */
+    public function getFilmTypes(): array
+    {
+        return array_unique($this->orders->map(fn (Order $order) => $order->getRollType()->value)->toArray());
+    }
+
+    /**
+     * Retrieves the lamination types associated with this object.
+     *
+     * @return string[] an array of lamination types
+     */
+    public function getLaminations(): array
+    {
+        return array_unique($this->orders->map(fn (Order $order) => $order->getLaminationType()->value)->toArray());
     }
 }

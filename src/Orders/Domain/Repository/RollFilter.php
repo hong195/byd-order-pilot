@@ -4,17 +4,20 @@ declare(strict_types=1);
 
 namespace App\Orders\Domain\Repository;
 
+use App\Orders\Domain\ValueObject\Status;
+
 /**
  * RollFilter class is used to filter rolls based on roll type and lamination type.
  */
 readonly class RollFilter
 {
     /**
-     * Class Constructor.
+     * Class constructor.
      *
-     * @param string|null $rollType The roll type. Default: null.
+     * @param Status|null      $status  The roll type (optional)
+     * @param array<int, null> $filmIds The film IDs
      */
-    public function __construct(public ?string $rollType = null)
+    public function __construct(public ?Status $status = null, public array $filmIds = [], public ?string $rollType = null)
     {
     }
 }

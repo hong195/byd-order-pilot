@@ -16,13 +16,13 @@
 
         <field name="isAvailable" column="is_available" type="boolean"/>
 
-        <field name="rollTypes" type="json" enum-type="App\Orders\Domain\ValueObject\RollType">
-            <options>
+        <field name="rollTypes" type="jsonb" enum-type="App\Orders\Domain\ValueObject\RollType">
+            <options >
                 <option name="default">[]</option>
             </options>
         </field>
 
-        <field name="laminationTypes" type="json" enum-type="App\Orders\Domain\ValueObject\LaminationType">
+        <field name="laminationTypes" type="jsonb" enum-type="App\Orders\Domain\ValueObject\LaminationType">
             <options>
                 <option name="default">[]</option>
             </options>

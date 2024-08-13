@@ -36,7 +36,6 @@
                type="boolean"
                column="has_priority"
                length="255"
-               default="false"
                nullable="true"
         />
 
@@ -50,10 +49,16 @@
 
         <field name="dateAdded" type="datetime_immutable" column="date_added"/>
 
-        <one-to-one field="cutFile" target-entity="App\Shared\Domain\Entity\MediaFile" cascade="persist, remove">
+        <one-to-one field="cutFile" target-entity="App\Shared\Domain\Entity\MediaFile">
+            <cascade>
+                <cascade-all/>
+            </cascade>
             <join-column name="cut_file_id"/>
         </one-to-one>
-        <one-to-one field="printFile" target-entity="App\Shared\Domain\Entity\MediaFile" cascade="persist, remove">
+        <one-to-one field="printFile" target-entity="App\Shared\Domain\Entity\MediaFile">
+            <cascade>
+                <cascade-all/>
+            </cascade>
             <join-column name="print_file_id"/>
         </one-to-one>
 

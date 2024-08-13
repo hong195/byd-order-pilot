@@ -5,6 +5,7 @@ namespace App\Orders\Infrastructure\Repository;
 use App\Orders\Domain\Aggregate\Roll;
 use App\Orders\Domain\Repository\RollFilter;
 use App\Orders\Domain\Repository\RollRepositoryInterface;
+use App\Orders\Domain\ValueObject\Status;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -70,27 +71,83 @@ class RollRepository extends ServiceEntityRepository implements RollRepositoryIn
     }
 
     /**
-     * Finds rolls based on the given filter.
+     * Finds rolls by roll type.
      *
-     * @param RollFilter $rollFilter the filter for rolls
-     *
-     * @return Roll[] the array of rolls found
+     * @return Roll[] an array of rolls matching the roll type
      */
-    public function findQueried(RollFilter $rollFilter): array
+    public function findByStatus(Status $status): array
     {
         $qb = $this->createQueryBuilder('r');
 
-        $qb->orderBy('r.length', 'ASC');
-
-        if ($rollFilter->rollType) {
-            $qb->andWhere('r.rollType = :rollType');
-            $qb->setParameter('rollType', $rollFilter->rollType);
-        }
+        $qb->where('r.status = :status');
+        $qb->setParameter('status', $status->value);
 
         $query = $qb->getQuery();
 
         $query->setMaxResults(10);
 
         return $query->getResult();
+    }
+
+    /**
+     * Finds rolls based on the given filter.
+     *
+     * @param RollFilter $rollFilter the filter for rolls
+     *
+     * @return Roll[] the array of rolls found
+     */
+    public function findByFilter(RollFilter $rollFilter): array
+    {
+        $qb = $this->createQueryBuilder('r');
+
+        if (!empty($rollFilter->filmIds)) {
+            $qb->where('r.filmId IN (:filmIds)');
+            $qb->setParameter('filmIds', $rollFilter->filmIds);
+        }
+
+        if ($rollFilter->rollType) {
+            $qb->join('r.printer', 'p')
+                ->andWhere('JSONB_CONTAINS(p.rollTypes, :rollType) = true')
+                ->setParameter('rollType', json_encode($rollFilter->rollType))
+            ;
+        }
+
+        if ($rollFilter->status) {
+            $qb->andWhere('r.status = :status');
+            $qb->setParameter('status', $rollFilter->status->value);
+        }
+
+        $query = $qb->getQuery();
+
+        return $query->getResult();
+    }
+
+    /**
+     * Finds a roll by its film ID.
+     *
+     * If a film ID is provided, it will return the first roll that matches the film ID.
+     * If the film ID is not provided or the roll is not found, it will return null.
+     *
+     * @param int|null $filmId the ID of the film to search for
+     *
+     * @return Roll|null the found roll, or null if no roll was found
+     */
+    public function findByFilmId(?int $filmId = null): ?Roll
+    {
+        return $this->findBy(['filmId' => $filmId])[0] ?? null;
+    }
+
+    /**
+     * Saves multiple rolls.
+     *
+     * @param iterable<Roll> $rolls the rolls to save
+     */
+    public function saveRolls(iterable $rolls): void
+    {
+        foreach ($rolls as $roll) {
+            $this->getEntityManager()->persist($roll);
+        }
+
+        $this->getEntityManager()->flush();
     }
 }

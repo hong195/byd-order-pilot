@@ -65,10 +65,11 @@ final class FilmRepository extends ServiceEntityRepository implements FilmReposi
      */
     public function findQueried(FilmFilter $filmFilter): array
     {
-        $dql = 'SELECT f FROM App\Inventory\Domain\Aggregate\AbstractFilm f WHERE f INSTANCE OF :filmType';
+        $dql = 'SELECT f FROM App\Inventory\Domain\Aggregate\AbstractFilm f WHERE f INSTANCE OF :filmType ORDER BY f.length ASC';
 
-        return $this->getEntityManager()->createQuery($dql)
-            ->setParameter('filmType', $filmFilter->filmType)
-            ->getResult();
+        $query = $this->getEntityManager()->createQuery($dql)
+            ->setParameter('filmType', $filmFilter->filmType);
+
+        return $query->getResult();
     }
 }

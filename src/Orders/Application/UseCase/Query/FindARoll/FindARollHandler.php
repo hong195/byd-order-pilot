@@ -14,10 +14,14 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
  */
 final readonly class FindARollHandler implements QueryHandlerInterface
 {
-    public function __construct(
-        private RollRepositoryInterface $rollRepository,
-        private RollDataTransformer $dataTransformer
-    ) {
+    /**
+     * Constructor for the class.
+     *
+     * @param RollRepositoryInterface $rollRepository  The roll repository interface
+     * @param RollDataTransformer     $dataTransformer The roll data transformer
+     */
+    public function __construct(private RollRepositoryInterface $rollRepository, private RollDataTransformer $dataTransformer)
+    {
     }
 
     /**

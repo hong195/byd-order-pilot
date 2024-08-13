@@ -30,8 +30,8 @@ final readonly class FindRollsHandler implements QueryHandlerInterface
      */
     public function __invoke(FindRollsQuery $rollQuery): FindRollsResult
     {
-        $rollFilterQuery = new RollFilter($rollQuery->rollType, $rollQuery->laminationType);
-        $rolls = $this->rollRepository->findQueried($rollFilterQuery);
+        $rollFilterQuery = new RollFilter();
+        $rolls = $this->rollRepository->findByFilter($rollFilterQuery);
 
         $rollsData = $this->rollDataTransformer->fromRollsEntityList($rolls);
 
