@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Orders\Domain\Service\OrderCheckInProcess;
+namespace App\Orders\Domain\Service\Order;
 
+use App\Orders\Domain\Aggregate\Order;
 use Doctrine\Common\Collections\Collection;
 
 /**
@@ -12,7 +13,7 @@ interface SortOrdersServiceInterface
     /**
      * Sorts a collection of orders by a priority.
      *
-     * @param Collection $orders the collection of orders to be sorted
+     * @param Collection<Order> $orders the collection of orders to be sorted
      *
      * @return Collection the sorted collection of orders
      */

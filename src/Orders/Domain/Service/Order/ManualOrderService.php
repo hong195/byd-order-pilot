@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Domain\Service;
+namespace App\Orders\Domain\Service\Order;
 
 use App\Orders\Domain\Aggregate\Order;
 use App\Orders\Domain\Factory\OrderFactory;

@@ -6,8 +6,8 @@ namespace App\Orders\Application\UseCase\Command\ManuallyAddOrder;
 
 use App\Orders\Application\AccessControll\AccessControlService;
 use App\Orders\Domain\Aggregate\Order;
-use App\Orders\Domain\Service\ManualOrderService;
-use App\Orders\Domain\Service\OrderCheckInProcess\OrdersCheckInService;
+use App\Orders\Domain\Service\CheckInProcess\OrdersCheckInService;
+use App\Orders\Domain\Service\Order\ManualOrderService;
 use App\Shared\Application\Command\CommandHandlerInterface;
 use App\Shared\Domain\Service\AssertService;
 
@@ -32,6 +32,8 @@ final readonly class ManuallyAddOrderCommandHandler implements CommandHandlerInt
      * @param ManuallyAddOrderCommand $command The command object containing the order details
      *
      * @return int The ID of the created order
+     *
+     * @throws \Exception
      */
     public function __invoke(ManuallyAddOrderCommand $command): int
     {
@@ -46,9 +48,7 @@ final readonly class ManuallyAddOrderCommandHandler implements CommandHandlerInt
             orderNumber: $command->orderNumber
         );
 
-        $this->checkInService->checkIn($order->getId());
-
-        return $order->getId();
+        $this->checkInService->checkIn();
 
         if ($command->cutFileId) {
             $this->manuallyAddOrderService->attachFile($order, $command->cutFileId, Order::CUT_FILE);

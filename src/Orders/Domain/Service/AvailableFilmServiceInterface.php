@@ -5,6 +5,9 @@ namespace App\Orders\Domain\Service;
 use App\Orders\Domain\DTO\FilmData;
 use Doctrine\Common\Collections\Collection;
 
+/**
+ * Interface AvailableFilmServiceInterface.
+ */
 interface AvailableFilmServiceInterface
 {
     /**

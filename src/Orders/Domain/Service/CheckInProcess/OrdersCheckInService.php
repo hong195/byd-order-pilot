@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Domain\Service\OrderCheckInProcess;
+namespace App\Orders\Domain\Service\CheckInProcess;
 
 use App\Orders\Domain\Aggregate\Order;
 use App\Orders\Domain\Aggregate\Roll;
@@ -10,6 +10,7 @@ use App\Orders\Domain\DTO\FilmData;
 use App\Orders\Domain\Repository\OrderRepositoryInterface;
 use App\Orders\Domain\Repository\RollFilter;
 use App\Orders\Domain\Service\AvailableFilmServiceInterface;
+use App\Orders\Domain\Service\Order\SortOrdersServiceInterface;
 use App\Orders\Domain\Service\RollMaker;
 use App\Orders\Domain\ValueObject\RollType;
 use App\Orders\Domain\ValueObject\Status;
@@ -20,7 +21,7 @@ use Doctrine\Common\Collections\Collection;
 /**
  * Class MaxMinReArrangeOrderService.
  */
-final class OrdersCheckInService implements OrderCheckInInterface
+final class OrdersCheckInService implements CheckInInterface
 {
     private Collection $assignedRolls;
 
@@ -142,7 +143,7 @@ final class OrdersCheckInService implements OrderCheckInInterface
      */
     private function syncAssignRolls(Roll $roll): void
     {
-        // if roll was added previosly to assignedRolls, remove it and add it again
+        // if roll was added previously to assignedRolls, remove it and add it again
         if ($this->assignedRolls->contains($roll)) {
             $this->assignedRolls->removeElement($roll);
         }

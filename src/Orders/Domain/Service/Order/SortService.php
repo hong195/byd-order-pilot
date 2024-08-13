@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Domain\Service\OrderCheckInProcess;
+namespace App\Orders\Domain\Service\Order;
 
 use App\Orders\Domain\Aggregate\Order;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
-final readonly class SortOrdersService implements SortOrdersServiceInterface
+final readonly class SortService implements SortOrdersServiceInterface
 {
     /**
      * Sorts the given collection of orders based on priority and length.

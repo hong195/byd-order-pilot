@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Orders\Domain\Service\OrderCheckInProcess;
+namespace App\Orders\Domain\Service\CheckInProcess;
 
 /**
  * Interface ArrangeServiceInterface.
  */
-interface OrderCheckInInterface
+interface CheckInInterface
 {
     /**
      * Arranges the orders rolls.

@@ -4,19 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated roll api.">
-      <change afterPath="$PROJECT_DIR$/src/Inventory/Api/InventoryApi.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/DTO/FilmDataTransformer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Adapter/InventoryAdapter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Adapter/InventoryApiInterface.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added inventory implementation.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/PrivateQueryInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Application/UseCases/PrivateQueryInteractor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/FindFilms/FindFilmsHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/FindFilms/FindFilmsHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Repository/FilmRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Domain/Repository/FilmRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Repository/FilmRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Repository/FilmRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/AvailableFilmService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/InMemoryAvailableFilmService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/OrderCheckInProcess/OrdersCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/OrderCheckInProcess/OrdersCheckInService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ManuallyAddOrder/ManuallyAddOrderCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ManuallyAddOrder/ManuallyAddOrderCommandHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/AvailableFilmServiceInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/AvailableFilmServiceInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/ManualOrderService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/ManualOrderService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/OrderCheckInProcess/OrderCheckInInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/CheckInProcess/CheckInInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/OrderCheckInProcess/OrdersCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/CheckInProcess/OrdersCheckInService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/OrderCheckInProcess/SortOrdersService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/CheckInProcess/SortOrdersService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/OrderCheckInProcess/SortOrdersServiceInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/CheckInProcess/SortOrdersServiceInterface.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,11 +209,11 @@
       <recent name="$PROJECT_DIR$/src/Inventory/Infrastructure/Database/ORM" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Orders/Domain/Service/Order" />
       <recent name="$PROJECT_DIR$/src/Orders/Domain/DTO" />
       <recent name="$PROJECT_DIR$/src/Orders/Infrastructure/Adapter" />
       <recent name="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Rolls" />
       <recent name="$PROJECT_DIR$/src/Orders/Domain/Service/CheckInProcess" />
-      <recent name="$PROJECT_DIR$/src/Orders/Domain" />
     </key>
   </component>
   <component name="RunManager">
@@ -277,22 +273,6 @@
       <workItem from="1723025220942" duration="6037000" />
       <workItem from="1723126559039" duration="16852000" />
       <workItem from="1723390311692" duration="26395000" />
-    </task>
-    <task id="LOCAL-00115" summary="Fixed order and order stack statuses.">
-      <option name="closed" value="true" />
-      <created>1722854155395</created>
-      <option name="number" value="00115" />
-      <option name="presentableId" value="LOCAL-00115" />
-      <option name="project" value="LOCAL" />
-      <updated>1722854155395</updated>
-    </task>
-    <task id="LOCAL-00116" summary="Fixed order and order stack statuses.">
-      <option name="closed" value="true" />
-      <created>1722854158549</created>
-      <option name="number" value="00116" />
-      <option name="presentableId" value="LOCAL-00116" />
-      <option name="project" value="LOCAL" />
-      <updated>1722854158549</updated>
     </task>
     <task id="LOCAL-00117" summary="Bug fix.">
       <option name="closed" value="true" />
@@ -670,7 +650,23 @@
       <option name="project" value="LOCAL" />
       <updated>1723545261072</updated>
     </task>
-    <option name="localTasksCounter" value="164" />
+    <task id="LOCAL-00164" summary="Added inventory implementation.">
+      <option name="closed" value="true" />
+      <created>1723561927691</created>
+      <option name="number" value="00164" />
+      <option name="presentableId" value="LOCAL-00164" />
+      <option name="project" value="LOCAL" />
+      <updated>1723561927691</updated>
+    </task>
+    <task id="LOCAL-00165" summary="Added inventory implementation.">
+      <option name="closed" value="true" />
+      <created>1723561931887</created>
+      <option name="number" value="00165" />
+      <option name="presentableId" value="LOCAL-00165" />
+      <option name="project" value="LOCAL" />
+      <updated>1723561931887</updated>
+    </task>
+    <option name="localTasksCounter" value="166" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -706,7 +702,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed order repository find queried." />
     <MESSAGE value="Remove lamination entity from project." />
     <MESSAGE value="Added printer entity model." />
     <MESSAGE value="Updated migrations." />
@@ -731,7 +726,8 @@
     <MESSAGE value="Updated docker env file." />
     <MESSAGE value="Updated docker env file #2." />
     <MESSAGE value="Updated roll api." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated roll api." />
+    <MESSAGE value="Added inventory implementation." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added inventory implementation." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -744,7 +740,7 @@
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/Orders/Domain/Service/OrderCheckInProcess/OrdersCheckInService.php" line="75">
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/Orders/Domain/Service/CheckInProcess/OrdersCheckInService.php" line="74">
         <watch expression="$order" language="PHP" />
       </inline-watch>
     </watches-manager>
