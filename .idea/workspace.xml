@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated roll api endpoints.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateQueryInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateQueryInteractor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindOrders/FindOrdersHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindOrders/FindOrdersHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindOrders/FindOrdersQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindOrders/FindOrdersQuery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Repository/OrderRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Repository/OrderRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/FindOrders.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/FindOrders.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/OrderRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/OrderRepository.php" afterDir="false" />
-    </list>
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated roll api endpoints." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
