@@ -141,6 +141,16 @@ final class Roll
     }
 
     /**
+     * Retrieves the number of orders associated with this object.
+     *
+     * @return int the number of orders associated with this object
+     */
+    public function getOrdersCount(): int
+    {
+        return $this->orders->count();
+    }
+
+    /**
      * Adds an Order to the collection.
      *
      * @param Order $order The order to be added

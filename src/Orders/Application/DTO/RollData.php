@@ -10,16 +10,17 @@ namespace App\Orders\Application\DTO;
 final readonly class RollData
 {
     /**
-     * Class constructor.
+     * Constructor method for initializing an object.
      *
      * @param int                     $id          the ID of the object
      * @param string                  $name        the name of the object
      * @param int                     $length      the length of the object
-     * @param array                   $films       an array of films associated with the object
-     * @param array                   $laminations An array of laminations associated with the object. (optional)
-     * @param \DateTimeInterface|null $dateAdded   The date the object was added. (optional)
+     * @param int                     $count       the count of the object
+     * @param string[]                $films       the films associated with the object
+     * @param string[]                $laminations The laminations associated with the object. Defaults to an empty array.
+     * @param \DateTimeInterface|null $dateAdded   The date the object was added. Defaults to null.
      */
-    public function __construct(public int $id, public string $name, public int $length, public array $films, public array $laminations = [], public ?\DateTimeInterface $dateAdded = null)
+    public function __construct(public int $id, public string $name, public int $length, public int $count, public array $films, public array $laminations = [], public ?\DateTimeInterface $dateAdded = null)
     {
     }
 }

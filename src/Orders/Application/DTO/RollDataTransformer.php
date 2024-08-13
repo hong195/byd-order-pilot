@@ -40,6 +40,7 @@ final readonly class RollDataTransformer
         return new RollData(
             id: $roll->getId(),
             name: $roll->getName(),
+            count: $roll->getOrdersCount(),
             length: $roll->getOrdersLength(),
             films: $roll->getFilmTypes(),
             laminations: $roll->getLaminations(),
