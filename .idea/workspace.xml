@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Changed relation for printer entity.">
-      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240812154307.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated logic for check in service.">
       <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/OrderCheckInProcess/OrdersCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/OrderCheckInProcess/OrdersCheckInService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/RollMaker.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/RollMaker.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Order.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Order.orm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Roll.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Roll.orm.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -274,38 +266,6 @@
       <workItem from="1723025220942" duration="6037000" />
       <workItem from="1723126559039" duration="16852000" />
       <workItem from="1723390311692" duration="26395000" />
-    </task>
-    <task id="LOCAL-00104" summary="Added cors bundle.">
-      <option name="closed" value="true" />
-      <created>1722593796823</created>
-      <option name="number" value="00104" />
-      <option name="presentableId" value="LOCAL-00104" />
-      <option name="project" value="LOCAL" />
-      <updated>1722593796823</updated>
-    </task>
-    <task id="LOCAL-00105" summary="Roll api bug fix.">
-      <option name="closed" value="true" />
-      <created>1722597117659</created>
-      <option name="number" value="00105" />
-      <option name="presentableId" value="LOCAL-00105" />
-      <option name="project" value="LOCAL" />
-      <updated>1722597117659</updated>
-    </task>
-    <task id="LOCAL-00106" summary="Roll api bug fix.">
-      <option name="closed" value="true" />
-      <created>1722597122266</created>
-      <option name="number" value="00106" />
-      <option name="presentableId" value="LOCAL-00106" />
-      <option name="project" value="LOCAL" />
-      <updated>1722597122266</updated>
-    </task>
-    <task id="LOCAL-00107" summary="Updated cors config.">
-      <option name="closed" value="true" />
-      <created>1722598056545</created>
-      <option name="number" value="00107" />
-      <option name="presentableId" value="LOCAL-00107" />
-      <option name="project" value="LOCAL" />
-      <updated>1722598056545</updated>
     </task>
     <task id="LOCAL-00108" summary="Updated cors config.">
       <option name="closed" value="true" />
@@ -667,7 +627,39 @@
       <option name="project" value="LOCAL" />
       <updated>1723208391185</updated>
     </task>
-    <option name="localTasksCounter" value="153" />
+    <task id="LOCAL-00153" summary="Added order check in process.">
+      <option name="closed" value="true" />
+      <created>1723479176590</created>
+      <option name="number" value="00153" />
+      <option name="presentableId" value="LOCAL-00153" />
+      <option name="project" value="LOCAL" />
+      <updated>1723479176590</updated>
+    </task>
+    <task id="LOCAL-00154" summary="Added order check in process.">
+      <option name="closed" value="true" />
+      <created>1723479179728</created>
+      <option name="number" value="00154" />
+      <option name="presentableId" value="LOCAL-00154" />
+      <option name="project" value="LOCAL" />
+      <updated>1723479179728</updated>
+    </task>
+    <task id="LOCAL-00155" summary="Updated logic for check in service.">
+      <option name="closed" value="true" />
+      <created>1723535548459</created>
+      <option name="number" value="00155" />
+      <option name="presentableId" value="LOCAL-00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1723535548459</updated>
+    </task>
+    <task id="LOCAL-00156" summary="Updated logic for check in service.">
+      <option name="closed" value="true" />
+      <created>1723535552648</created>
+      <option name="number" value="00156" />
+      <option name="presentableId" value="LOCAL-00156" />
+      <option name="project" value="LOCAL" />
+      <updated>1723535552648</updated>
+    </task>
+    <option name="localTasksCounter" value="157" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -703,8 +695,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix update command." />
-    <MESSAGE value="Fixed roll adding." />
     <MESSAGE value="Fixed order check in service." />
     <MESSAGE value="Added README file." />
     <MESSAGE value="Fixed order and order stack statuses." />
@@ -728,7 +718,9 @@
     <MESSAGE value="Added order sort by a lamination type." />
     <MESSAGE value="Updated added sort by length for film repo." />
     <MESSAGE value="Changed relation for printer entity." />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed relation for printer entity." />
+    <MESSAGE value="Added order check in process." />
+    <MESSAGE value="Updated logic for check in service." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated logic for check in service." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -740,6 +732,11 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/Orders/Domain/Service/OrderCheckInProcess/OrdersCheckInService.php" line="80">
+        <watch expression="$order" language="PHP" />
+      </inline-watch>
+    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

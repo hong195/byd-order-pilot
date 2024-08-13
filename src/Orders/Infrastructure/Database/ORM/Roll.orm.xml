@@ -10,13 +10,18 @@
         </id>
         <field name="name" column="name" length="255"/>
 
-        <field name="filmId" type="integer" column="film_id" />
+        <field name="filmId" type="integer" column="film_id" nullable="true"/>
 
         <field name="status" enum-type="App\Orders\Domain\ValueObject\Status" column="status" length="255" nullable="true"/>
 
         <many-to-one field="printer" target-entity="App\Orders\Domain\Aggregate\Printer" fetch="EXTRA_LAZY" />
 
         <many-to-many field="orders" target-entity="App\Orders\Domain\Aggregate\Order" fetch="EXTRA_LAZY">
+            <cascade>
+                <cascade-persist/>
+                <cascade-detach/>
+                <cascade-remove/>
+            </cascade>
             <join-table name="orders_roll_order">
                 <join-columns>
                     <join-column name="roll_id" referenced-column-name="id" />

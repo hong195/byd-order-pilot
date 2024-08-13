@@ -154,7 +154,9 @@ final class Roll
      */
     public function removeOrders(): void
     {
-        $this->orders->clear();
+        foreach ($this->orders as $order) {
+            $this->orders->removeElement($order);
+        }
     }
 
     /**
@@ -170,9 +172,9 @@ final class Roll
     /**
      * Retrieves the coil ID associated with this object.
      *
-     * @return int the coil ID associated with this object
+     * @return ?int the coil ID associated with this object
      */
-    public function getFilmId(): int
+    public function getFilmId(): ?int
     {
         return $this->filmId;
     }

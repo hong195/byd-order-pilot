@@ -14,10 +14,10 @@ readonly class RollFilter
     /**
      * Class constructor.
      *
-     * @param Status|null $status  The roll type (optional)
-     * @param array<int>  $filmIds The film IDs
+     * @param Status|null      $status  The roll type (optional)
+     * @param array<int, null> $filmIds The film IDs
      */
-    public function __construct(public ?Status $status = null, public array $filmIds = [])
+    public function __construct(public ?Status $status = null, public array $filmIds = [], public ?string $rollType = null)
     {
     }
 }

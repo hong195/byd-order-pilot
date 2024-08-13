@@ -50,14 +50,10 @@ final class PrinterRepository extends ServiceEntityRepository implements Printer
     public function findByRollType(RollType $rollType): ?Printer
     {
         $queryBuilder = $this->createQueryBuilder('p');
-        $result = $queryBuilder->getQuery()->getResult();
 
-        foreach ($result as $printer) {
-            if (in_array($rollType, $printer->getRollTypes())) {
-                return $printer;
-            }
-        }
+        $queryBuilder->where('JSONB_CONTAINS(p.rollTypes, :rollType) = true')
+            ->setParameter('rollType', json_encode($rollType->value));
 
-        return null;
+        return $queryBuilder->getQuery()->getOneOrNullResult();
     }
 }

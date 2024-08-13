@@ -29,7 +29,6 @@ final readonly class AvailableFilmService implements AvailableFilmServiceInterfa
             new FilmData(3, 'Test Roll Film3', 20, RollType::CHROME->value),
             new FilmData(4, 'Test Roll Film4', 20, RollType::CHROME->value),
             new FilmData(1, 'Test Roll Film', 15, RollType::NEON->value),
-            new FilmData(2, 'Test Roll Film2', 20, RollType::NEON->value),
             new FilmData(5, 'Test Roll Film5', 20, RollType::CLEAR->value),
         ]);
     }
