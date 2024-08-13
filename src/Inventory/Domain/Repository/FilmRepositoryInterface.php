@@ -28,6 +28,13 @@ interface FilmRepositoryInterface
     public function remove(AbstractFilm $film): void;
 
     /**
+     * Find all available films.
+     *
+     * @return AbstractFilm[] an array of available film entities
+     */
+    public function findAvailable(): array;
+
+    /**
      * Finds a film by its id.
      *
      * @param int $id the id of the film to find
@@ -41,5 +48,5 @@ interface FilmRepositoryInterface
      *
      * @return AbstractFilm[] an array of AbstractFilm objects representing all films in the database
      */
-    public function findQueried(FilmFilter $filmFilter): array;
+    public function findByFilter(FilmFilter $filmFilter): array;
 }

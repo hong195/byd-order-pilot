@@ -39,6 +39,10 @@ services:
         resource: '../src/*/Domain/Factory'
         exclude: '../src/Shared/*'
 
+    App\Orders\Domain\Service\AvailableFilmServiceInterface:
+        class: App\Orders\Infrastructure\Adapter\InventoryAdapter
+        public: true
+
     Symfony\Component\Serializer\Normalizer\ObjectNormalizer: ~
     Symfony\Component\Serializer\Normalizer\ArrayDenormalizer: ~
     Symfony\Component\Serializer\Encoder\JsonEncoder: ~

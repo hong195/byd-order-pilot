@@ -59,11 +59,21 @@ final class FilmRepository extends ServiceEntityRepository implements FilmReposi
     }
 
     /**
+     * Find all available films.
+     *
+     * @return AbstractFilm[] an array of available film entities
+     */
+    public function findAvailable(): array
+    {
+        return $this->findAll();
+    }
+
+    /**
      * Find all films.
      *
      * @return AbstractFilm[] an array of all film entities
      */
-    public function findQueried(FilmFilter $filmFilter): array
+    public function findByFilter(FilmFilter $filmFilter): array
     {
         $dql = 'SELECT f FROM App\Inventory\Domain\Aggregate\AbstractFilm f WHERE f INSTANCE OF :filmType ORDER BY f.length ASC';
 

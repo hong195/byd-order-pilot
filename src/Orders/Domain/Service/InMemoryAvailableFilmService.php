@@ -16,7 +16,7 @@ use Doctrine\Common\Collections\Collection;
  *
  * @return Collection An array collection of FilmData objects representing the available films
  */
-final readonly class AvailableFilmService implements AvailableFilmServiceInterface
+final readonly class InMemoryAvailableFilmService implements AvailableFilmServiceInterface
 {
     /**
      * Retrieves the available films for a given roll type.

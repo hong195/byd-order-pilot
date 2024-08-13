@@ -53,6 +53,7 @@ final class OrdersCheckInService implements OrderCheckInInterface
     {
         /** @var Collection<Order> $orders */
         $allOrders = $this->sortOrdersService->getSorted(new ArrayCollection($this->orderRepository->findByStatus(Status::ORDER_CHECK_IN)));
+
         $availableFilms = $this->availableFilmService->getAvailableFilms();
         $groupedFilms = $this->groupFilmsByType($availableFilms);
         $groupedOrders = $this->groupOrdersByFilm($allOrders);
