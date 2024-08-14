@@ -12,6 +12,7 @@ use App\Orders\Domain\Repository\RollFilter;
 use App\Orders\Domain\Service\AvailableFilmServiceInterface;
 use App\Orders\Domain\Service\Order\SortOrdersServiceInterface;
 use App\Orders\Domain\Service\RollMaker;
+use App\Orders\Domain\ValueObject\Process;
 use App\Orders\Domain\ValueObject\RollType;
 use App\Orders\Domain\ValueObject\Status;
 use App\Orders\Infrastructure\Repository\RollRepository;
@@ -38,7 +39,7 @@ final class OrdersCheckInService implements CheckInInterface
     ) {
         $this->assignedRolls = new ArrayCollection([]);
 
-        $this->rolls = new ArrayCollection($this->rollRepository->findByFilter(new RollFilter(status: Status::ORDER_CHECK_IN)));
+        $this->rolls = new ArrayCollection($this->rollRepository->findByFilter(new RollFilter(process: Process::ORDER_CHECK_IN)));
 
         foreach ($this->rolls as $roll) {
             $roll->removeOrders();
@@ -52,8 +53,7 @@ final class OrdersCheckInService implements CheckInInterface
      */
     public function checkIn(): void
     {
-        /** @var Collection<Order> $orders */
-        $allOrders = $this->sortOrdersService->getSorted(new ArrayCollection($this->orderRepository->findByStatus(Status::ORDER_CHECK_IN)));
+        $allOrders = $this->sortOrdersService->getSorted(new ArrayCollection($this->orderRepository->findByStatus(Status::ASSIGNED)));
 
         $availableFilms = $this->availableFilmService->getAvailableFilms();
         $groupedFilms = $this->groupFilmsByType($availableFilms);
@@ -64,6 +64,7 @@ final class OrdersCheckInService implements CheckInInterface
                 // If there is no film of this type, create an empty roll for all orders of this type
                 foreach ($orders as $order) {
                     $roll = $this->findOrMakeRoll(name: "Empty Roll {$order->getRollType()->value}", filmId: null, rollType: $order->getRollType());
+                    $this->changeStatusToAssign($order);
                     $roll->addOrder($order);
                     $this->syncAssignRolls($roll);
                 }
@@ -83,6 +84,7 @@ final class OrdersCheckInService implements CheckInInterface
                     $roll = $this->findOrMakeRoll(name: "Roll {$film->rollType}", filmId: $film->id, rollType: $order->getRollType());
 
                     if ($roll->getOrdersLength() + $order->getLength() <= $filmLength) {
+                        $this->changeStatusToAssign($order);
                         $roll->addOrder($order);
 
                         $this->syncAssignRolls($roll);
@@ -100,6 +102,7 @@ final class OrdersCheckInService implements CheckInInterface
                 if (!$orderPlaced) {
                     $roll = $this->findOrMakeRoll("Empty Roll {$order->getRollType()->value}", null, $order->getRollType());
                     $roll->getOrders()->count();
+                    $this->changeStatusToAssign($order);
                     $roll->addOrder($order);
 
                     $this->syncAssignRolls($roll);
@@ -108,6 +111,12 @@ final class OrdersCheckInService implements CheckInInterface
         }
 
         $this->rollRepository->saveRolls($this->assignedRolls);
+    }
+
+    private function changeStatusToAssign(Order $order): void
+    {
+        $order->changeStatus(Status::ASSIGNED);
+        $this->orderRepository->save($order);
     }
 
     /**

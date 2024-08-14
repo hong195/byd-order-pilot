@@ -35,7 +35,7 @@ final readonly class OrderFactory
             length: $length,
             productType: ProductType::from($productType),
             rollType: $rollType ? RollType::from($rollType) : null,
-            status: $status ? Status::from($status) : Status::ORDER_CHECK_IN,
+            status: $status ? Status::from($status) : Status::NEW,
             hasPriority: $hasPriority,
             laminationType: $laminationType ? LaminationType::from($laminationType) : null,
             orderNumber: $orderNumber,

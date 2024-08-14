@@ -7,6 +7,7 @@ namespace App\Orders\Domain\Service;
 use App\Orders\Domain\Aggregate\Roll;
 use App\Orders\Domain\Factory\RollFactory;
 use App\Orders\Domain\Repository\PrinterRepositoryInterface;
+use App\Orders\Domain\ValueObject\Process;
 use App\Orders\Domain\ValueObject\RollType;
 use App\Orders\Infrastructure\Repository\RollRepository;
 
@@ -37,9 +38,9 @@ final readonly class RollMaker
      *
      * @return Roll The name of the person
      */
-    public function make(string $name, ?int $filmId = null, ?RollType $rollType = null): Roll
+    public function make(string $name, ?int $filmId = null, ?RollType $rollType = null, ?Process $process = null): Roll
     {
-        $roll = $this->rollFactory->create($name, $filmId);
+        $roll = $this->rollFactory->create($name, $filmId, $process);
         $printer = $this->printerRepository->findByRollType($rollType);
 
         if ($printer) {

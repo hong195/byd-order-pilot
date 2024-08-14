@@ -44,7 +44,7 @@ final class Order extends Aggregate
         private readonly int $length,
         private readonly ProductType $productType,
         private RollType $rollType,
-        private Status $status = Status::ORDER_CHECK_IN,
+        private Status $status = Status::NEW,
         private bool $hasPriority = false,
         private ?LaminationType $laminationType = null,
         private ?int $orderNumber = null,

@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orders\Domain\Aggregate;
 
-use App\Orders\Domain\ValueObject\RollType;
-use App\Orders\Domain\ValueObject\Status;
+use App\Orders\Domain\ValueObject\Process;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Webmozart\Assert\Assert;
@@ -20,13 +19,11 @@ final class Roll
     private ?int $id = null;
 
     /*
-     * Coil id reference to the inventory roll (with available types defined in RollType)
+     * Reference to the inventory film
      */
     private ?int $filmId = null;
 
     private \DateTimeInterface $dateAdded;
-    private Status $status = Status::ORDER_CHECK_IN;
-
     /**
      * @var Collection<Order>
      */
@@ -40,7 +37,7 @@ final class Roll
      *
      * @return void
      */
-    public function __construct(private string $name, ?int $filmId = null)
+    public function __construct(private string $name, ?int $filmId = null, private ?Process $process = Process::ORDER_CHECK_IN)
     {
         $this->filmId = $filmId;
         $this->orders = new ArrayCollection();
@@ -123,11 +120,21 @@ final class Roll
     /**
      * Retrieves the status associated with this object.
      *
-     * @return Status the status associated with this object
+     * @return Process the status associated with this object
      */
-    public function getStatus(): Status
+    public function getProcess(): Process
     {
-        return $this->status;
+        return $this->process;
+    }
+
+    /**
+     * Updates the process associated with this object.
+     *
+     * @param Process $process The new process to be associated with this object
+     */
+    public function updateProcess(Process $process): void
+    {
+        $this->process = $process;
     }
 
     /**

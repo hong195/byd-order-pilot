@@ -3,6 +3,7 @@
 namespace App\Orders\Domain\Factory;
 
 use App\Orders\Domain\Aggregate\Roll;
+use App\Orders\Domain\ValueObject\Process;
 
 /**
  * Class RollFactory.
@@ -19,8 +20,8 @@ class RollFactory
      *
      * @return Roll the created Roll object
      */
-    public function create(string $name, ?int $filmId = null): Roll
+    public function create(string $name, ?int $filmId = null, ?Process $process = null): Roll
     {
-        return new Roll(name: $name, filmId: $filmId);
+        return new Roll(name: $name, filmId: $filmId, process: $process);
     }
 }

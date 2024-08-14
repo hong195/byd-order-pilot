@@ -112,9 +112,9 @@ class RollRepository extends ServiceEntityRepository implements RollRepositoryIn
             ;
         }
 
-        if ($rollFilter->status) {
-            $qb->andWhere('r.status = :status');
-            $qb->setParameter('status', $rollFilter->status->value);
+        if ($rollFilter->process) {
+            $qb->andWhere('r.process = :process');
+            $qb->setParameter('process', $rollFilter->process->value);
         }
 
         $query = $qb->getQuery();
