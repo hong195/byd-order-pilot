@@ -15,14 +15,4 @@ enum Status: string
     case ASSIGNED = 'assigned';
 
     case CONFLICT = 'conflict';
-
-    /**
-     * Check if the current instance is unassignable.
-     *
-     * @return bool returns true if the instance is unassignable, otherwise false
-     */
-    public function unassignable(): bool
-    {
-        return in_array($this, [$this]);
-    }
 }

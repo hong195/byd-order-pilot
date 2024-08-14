@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orders\Application\UseCase;
 
+use App\Orders\Application\UseCase\Command\AssignOrder\AssignOrderCommand;
 use App\Orders\Application\UseCase\Command\ChangeOrderPriority\ChangeOrderPriorityCommand;
 use App\Orders\Application\UseCase\Command\CreatePrinters\CreatePrintersCommand;
 use App\Orders\Application\UseCase\Command\UnassignOrder\UnassignOrderCommand;
@@ -48,5 +49,15 @@ readonly class PrivateCommandInteractor
     public function unassignOrder(int $id): void
     {
         $this->commandBus->execute(new UnassignOrderCommand($id));
+    }
+
+    /**
+     * Assigns an order. Triggers the check-in process.
+     *
+     * @param int $id The id of the order to assign
+     */
+    public function assignOrder(int $id): void
+    {
+        $this->commandBus->execute(new AssignOrderCommand($id));
     }
 }

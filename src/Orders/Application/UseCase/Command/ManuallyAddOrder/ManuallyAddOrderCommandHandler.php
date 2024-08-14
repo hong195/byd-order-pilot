@@ -6,7 +6,6 @@ namespace App\Orders\Application\UseCase\Command\ManuallyAddOrder;
 
 use App\Orders\Application\AccessControll\AccessControlService;
 use App\Orders\Domain\Aggregate\Order;
-use App\Orders\Domain\Service\CheckInProcess\OrdersCheckInService;
 use App\Orders\Domain\Service\Order\ManualOrderService;
 use App\Shared\Application\Command\CommandHandlerInterface;
 use App\Shared\Domain\Service\AssertService;
@@ -22,7 +21,7 @@ final readonly class ManuallyAddOrderCommandHandler implements CommandHandlerInt
      * @param AccessControlService $accessControlService    the access control service
      * @param ManualOrderService   $manuallyAddOrderService the manual order service
      */
-    public function __construct(private AccessControlService $accessControlService, private ManualOrderService $manuallyAddOrderService, private OrdersCheckInService $checkInService)
+    public function __construct(private AccessControlService $accessControlService, private ManualOrderService $manuallyAddOrderService)
     {
     }
 
@@ -47,8 +46,6 @@ final readonly class ManuallyAddOrderCommandHandler implements CommandHandlerInt
             laminationType: $command->laminationType,
             orderNumber: $command->orderNumber
         );
-
-        $this->checkInService->checkIn();
 
         if ($command->cutFileId) {
             $this->manuallyAddOrderService->attachFile($order, $command->cutFileId, Order::CUT_FILE);

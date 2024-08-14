@@ -5,11 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated rolls have process orders status.">
+      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AssignOrder/AssignOrderCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AssignOrder/AssignOrderCommandHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/AssignOrderAction.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Factory/OrderFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Factory/OrderFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ManuallyAddOrder/ManuallyAddOrderCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ManuallyAddOrder/ManuallyAddOrderCommandHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UnassignOrder/UnassignOrderCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UnassignOrder/UnassignOrderCommandHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/CheckInProcess/OrdersCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/CheckInProcess/OrdersCheckInService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/UnassignOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/ChangeStatusOrder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/ValueObject/Status.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/ValueObject/Status.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -270,22 +277,6 @@
       <workItem from="1723025220942" duration="6037000" />
       <workItem from="1723126559039" duration="16852000" />
       <workItem from="1723390311692" duration="26395000" />
-    </task>
-    <task id="LOCAL-00125" summary="Updated migrations.">
-      <option name="closed" value="true" />
-      <created>1722939454607</created>
-      <option name="number" value="00125" />
-      <option name="presentableId" value="LOCAL-00125" />
-      <option name="project" value="LOCAL" />
-      <updated>1722939454607</updated>
-    </task>
-    <task id="LOCAL-00126" summary="Added inventory context.">
-      <option name="closed" value="true" />
-      <created>1723027172442</created>
-      <option name="number" value="00126" />
-      <option name="presentableId" value="LOCAL-00126" />
-      <option name="project" value="LOCAL" />
-      <updated>1723027172442</updated>
     </task>
     <task id="LOCAL-00127" summary="Added printers.">
       <option name="closed" value="true" />
@@ -663,7 +654,23 @@
       <option name="project" value="LOCAL" />
       <updated>1723629897326</updated>
     </task>
-    <option name="localTasksCounter" value="174" />
+    <task id="LOCAL-00174" summary="Updated rolls have process orders status.">
+      <option name="closed" value="true" />
+      <created>1723630515270</created>
+      <option name="number" value="00174" />
+      <option name="presentableId" value="LOCAL-00174" />
+      <option name="project" value="LOCAL" />
+      <updated>1723630515270</updated>
+    </task>
+    <task id="LOCAL-00175" summary="Updated rolls have process orders status.">
+      <option name="closed" value="true" />
+      <created>1723630518270</created>
+      <option name="number" value="00175" />
+      <option name="presentableId" value="LOCAL-00175" />
+      <option name="project" value="LOCAL" />
+      <updated>1723630518270</updated>
+    </task>
+    <option name="localTasksCounter" value="176" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
