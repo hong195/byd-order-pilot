@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Clean up commit.">
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ChangeOrderPriority/ChangeOrderPriorityCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ChangeOrderPriority/ChangeOrderPriorityCommandHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/ChangeOrderPriorityAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" afterDir="false" />
-    </list>
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added change priority api." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -270,14 +264,6 @@
       <workItem from="1723025220942" duration="6037000" />
       <workItem from="1723126559039" duration="16852000" />
       <workItem from="1723390311692" duration="26395000" />
-    </task>
-    <task id="LOCAL-00120" summary="Remove lamination entity from project.">
-      <option name="closed" value="true" />
-      <created>1722857414810</created>
-      <option name="number" value="00120" />
-      <option name="presentableId" value="LOCAL-00120" />
-      <option name="project" value="LOCAL" />
-      <updated>1722857414810</updated>
     </task>
     <task id="LOCAL-00121" summary="Remove lamination entity from project.">
       <option name="closed" value="true" />
@@ -663,7 +649,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723563997235</updated>
     </task>
-    <option name="localTasksCounter" value="169" />
+    <task id="LOCAL-00169" summary="Added change priority api.">
+      <option name="closed" value="true" />
+      <created>1723619496435</created>
+      <option name="number" value="00169" />
+      <option name="presentableId" value="LOCAL-00169" />
+      <option name="project" value="LOCAL" />
+      <updated>1723619496435</updated>
+    </task>
+    <option name="localTasksCounter" value="170" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -699,7 +693,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added printer entity model." />
     <MESSAGE value="Updated migrations." />
     <MESSAGE value="Added inventory context." />
     <MESSAGE value="Added printers." />
@@ -724,7 +717,8 @@
     <MESSAGE value="Updated roll api." />
     <MESSAGE value="Added inventory implementation." />
     <MESSAGE value="Clean up commit." />
-    <option name="LAST_COMMIT_MESSAGE" value="Clean up commit." />
+    <MESSAGE value="Added change priority api." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added change priority api." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
