@@ -15,39 +15,28 @@ COPY ./docker/php-fpm/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
 # Postgres
 RUN apk add --no-cache libpq-dev && docker-php-ext-install pdo_pgsql
-RUN apk add --update sudo
 
 # Configure non-root user.
 ARG PUID=1000
 ARG PGID=1000
-ARG USER=www-data
 
 RUN set -x \
-    && addgroup -g ${PGID} $USER || true \
-    && adduser -D -u ${PUID} -G $USER $USER || true \
-    && echo '$USER ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers.d/$USER \
-    && chmod 0440 /etc/sudoers.d/$USER
-
+    && addgroup -g ${PGID} www-data || true \
+    && adduser -D -u ${PUID} -G www-data www-data || true
 
 # Nginx
 RUN apk add --update --no-cache nginx
 COPY ./docker/php-fpm/nginx.conf /etc/nginx/
-RUN chown -R $USER:$USER /var/lib/nginx
-RUN chown -R $USER:$USER /var/log/nginx
-RUN chown -R $USER:$USER /usr/lib/nginx/modules
-RUN chown -R $USER:$USER /run/nginx
-RUN touch /run/nginx.pid
-RUN chown $USER:$USER /run/nginx.pid
+RUN chown -Rf www-data:www-data /var/lib/nginx
 
 # Supervisor
 RUN apk add --no-cache supervisor
 COPY ./docker/php-fpm/supervisord.conf /etc/supervisord.conf
 
 # Source code
-COPY --chown=$USER:$USER ./ /var/www
-RUN chown -R $USER:$USER /var/www
-
-USER $USER
+COPY --chown=www-data:www-data ./ /var/www
+RUN mkdir /var/www/var
+RUN chown -R www-data:www-data /var/www/var
 WORKDIR /var/www
 
 # Composer
@@ -59,10 +48,9 @@ RUN if [ "${BUILD_MODE}" = "dev" ]; then \
     else \
       composer install --no-dev --no-interaction --no-progress --no-scripts --optimize-autoloader; \
     fi
+
 RUN chown -R www-data:www-data /var/www/vendor/
 
 EXPOSE 8080
-
+ 
 CMD ["/bin/sh", "./docker/php-fpm/run.sh"]
-
-

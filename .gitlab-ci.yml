@@ -1,0 +1,38 @@
+stages:
+  - deploy
+
+
+deploy_to_server:
+  image: docker:latest
+  stage: deploy
+  services:
+    - docker:dind
+
+  before_script:
+    - mkdir -p ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - eval "$(ssh-agent -s)"
+    - ssh-add ~/.ssh/id_rsa
+    - ssh-keyscan -H $DEPLOYMENT_SERVER_IP >> ~/.ssh/known_hosts
+
+  script:
+    - |
+      if [[ "$CI_COMMIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]]; then
+        tag=":latest"
+        echo "Running on default branch '$CI_DEFAULT_BRANCH': tag = $tag"
+      else
+        tag=":dev"
+        echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag"
+      fi
+
+    - ssh web@$DEPLOYMENT_SERVER_IP "cd ~/byd-order-pilot &&
+          git reset --hard origin/$CI_COMMIT_BRANCH &&
+          git pull origin $CI_COMMIT_BRANCH &&
+          cp ./docker/.env.dist ./docker/.env &&
+          make rebuild"
+
+
+  only:
+    - dev
+    - ci-cd
