@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Orders\Application\UseCase\Query\FindOrders;
 
-use App\Orders\Application\AccessControll\AccessControlService;
 use App\Orders\Application\DTO\OrderDataTransformer;
 use App\Orders\Domain\Repository\OrderFilter;
 use App\Orders\Domain\ValueObject\Status;
 use App\Orders\Infrastructure\Repository\OrderRepository;
+use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Query\QueryHandlerInterface;
 use App\Shared\Domain\Service\AssertService;
 

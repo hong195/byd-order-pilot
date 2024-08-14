@@ -6,7 +6,9 @@ namespace App\Orders\Application\UseCase\Query\FindARoll;
 
 use App\Orders\Application\DTO\RollDataTransformer;
 use App\Orders\Domain\Repository\RollRepositoryInterface;
+use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Query\QueryHandlerInterface;
+use App\Shared\Domain\Service\AssertService;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -15,12 +17,13 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 final readonly class FindARollHandler implements QueryHandlerInterface
 {
     /**
-     * Constructor for the class.
+     * Class constructor.
      *
-     * @param RollRepositoryInterface $rollRepository  The roll repository interface
-     * @param RollDataTransformer     $dataTransformer The roll data transformer
+     * @param AccessControlService    $accessControlService the access control service
+     * @param RollRepositoryInterface $rollRepository       the roll repository
+     * @param RollDataTransformer     $dataTransformer      the roll data transformer
      */
-    public function __construct(private RollRepositoryInterface $rollRepository, private RollDataTransformer $dataTransformer)
+    public function __construct(private AccessControlService $accessControlService, private RollRepositoryInterface $rollRepository, private RollDataTransformer $dataTransformer)
     {
     }
 
@@ -33,6 +36,8 @@ final readonly class FindARollHandler implements QueryHandlerInterface
      */
     public function __invoke(FindARollQuery $rollQuery): FindARollResult
     {
+        AssertService::true($this->accessControlService->isGranted(), 'Access denied');
+
         $roll = $this->rollRepository->findById($rollQuery->rollId);
 
         if (is_null($roll)) {
