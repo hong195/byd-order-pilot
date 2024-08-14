@@ -40,9 +40,9 @@ final readonly class FindOrdersHandler implements QueryHandlerInterface
     {
         AssertService::true($this->accessControlService->isGranted(), 'Access denied');
 
-		$filter = new OrderFilter(rollId: $orderQuery->rollId, status: Status::from($orderQuery->status));
+        $filter = new OrderFilter(rollId: $orderQuery->rollId, status: Status::from($orderQuery->status));
 
-		$result = $this->orderRepository->findByFilter($filter);
+        $result = $this->orderRepository->findByFilter($filter);
 
         $orderData = $this->orderDataTransformer->fromOrdersEntityList($result->items);
 

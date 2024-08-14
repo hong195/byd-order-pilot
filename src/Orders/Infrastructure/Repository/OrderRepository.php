@@ -94,20 +94,20 @@ final class OrderRepository extends ServiceEntityRepository implements OrderRepo
      */
     public function findByFilter(OrderFilter $filter): PaginationResult
     {
-		$qb = $this->createQueryBuilder('o');
+        $qb = $this->createQueryBuilder('o');
 
-		if ($filter->rollId) {
-			$qb->join('App\Orders\Domain\Aggregate\Roll', 'r', \Doctrine\ORM\Query\Expr\Join::WITH, 'o MEMBER OF r.orders')
-				->andWhere('r.id = :rollId')
-				->setParameter('rollId', $filter->rollId);
-		}
+        if ($filter->rollId) {
+            $qb->join('App\Orders\Domain\Aggregate\Roll', 'r', \Doctrine\ORM\Query\Expr\Join::WITH, 'o MEMBER OF r.orders')
+                ->andWhere('r.id = :rollId')
+                ->setParameter('rollId', $filter->rollId);
+        }
 
-		if ($filter->status) {
-			$qb->andWhere('o.status = :status')
-				->setParameter('status', $filter->status->value);
-		}
+        if ($filter->status) {
+            $qb->andWhere('o.status = :status')
+                ->setParameter('status', $filter->status->value);
+        }
 
-		$query = $qb->getQuery();
+        $query = $qb->getQuery();
         $paginator = new Paginator($query);
 
         return new PaginationResult($query->getResult(), $paginator->count());

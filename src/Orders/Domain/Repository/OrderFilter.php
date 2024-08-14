@@ -8,7 +8,7 @@ use App\Orders\Domain\ValueObject\Status;
 
 final readonly class OrderFilter
 {
-	public function __construct(public ?int $rollId = null, public ?Status $status = null)
-	{
-	}
+    public function __construct(public ?int $rollId = null, public ?Status $status = null)
+    {
+    }
 }
