@@ -30,6 +30,10 @@
     ```bash
     make db_migrate
     ```
+6. Set key pair for JWT
+    ```bash
+    make php
+    php bin/console lexik:jwt:generate-keypair
 
 ## Available commands
 - `make build` - Build the docker containers
