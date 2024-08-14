@@ -30,7 +30,10 @@ final readonly class FindOrders
      */
     public function __invoke(Request $request): JsonResponse
     {
-        $orders = $this->privateQueryInteractor->findOrders((int) $request->get('rollId'));
+        $orders = $this->privateQueryInteractor->findOrders(
+            rollId: (int) $request->get('rollId'),
+            status: $request->get('status')
+        );
 
         $res = $this->normalizer->normalize($orders);
 

@@ -12,6 +12,7 @@ use App\Orders\Application\UseCase\Query\FindOrders\FindOrdersQuery;
 use App\Orders\Application\UseCase\Query\FindOrders\FindOrdersResult;
 use App\Orders\Application\UseCase\Query\FindRolls\FindRollsQuery;
 use App\Orders\Application\UseCase\Query\FindRolls\FindRollsResult;
+use App\Orders\Domain\Repository\OrderFilter;
 use App\Shared\Application\Query\QueryBusInterface;
 
 /**
@@ -67,10 +68,9 @@ readonly class PrivateQueryInteractor
     /**
      * @method FindOrdersResult findOrders()
      */
-    public function findOrders(?int $rollId = null): FindOrdersResult
+    public function findOrders(?int $rollId = null, ?string $status = null): FindOrdersResult
     {
-        $query = new FindOrdersQuery(rollId: $rollId);
-
+		$query = new FindOrdersQuery(rollId: $rollId, status: $status);
         return $this->queryBus->execute($query);
     }
 }

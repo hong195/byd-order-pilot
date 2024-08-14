@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Orders\Infrastructure\Repository;
 
 use App\Orders\Domain\Aggregate\Order;
+use App\Orders\Domain\Repository\OrderFilter;
 use App\Orders\Domain\Repository\OrderRepositoryInterface;
 use App\Orders\Domain\ValueObject\Status;
 use App\Shared\Domain\Repository\PaginationResult;
@@ -91,12 +92,22 @@ final class OrderRepository extends ServiceEntityRepository implements OrderRepo
      *
      * @return PaginationResult the paginated results
      */
-    public function findByFilter(): PaginationResult
+    public function findByFilter(OrderFilter $filter): PaginationResult
     {
-        $qb = $this->createQueryBuilder('o');
+		$qb = $this->createQueryBuilder('o');
 
-        $query = $qb->getQuery();
+		if ($filter->rollId) {
+			$qb->join('App\Orders\Domain\Aggregate\Roll', 'r', \Doctrine\ORM\Query\Expr\Join::WITH, 'o MEMBER OF r.orders')
+				->andWhere('r.id = :rollId')
+				->setParameter('rollId', $filter->rollId);
+		}
 
+		if ($filter->status) {
+			$qb->andWhere('o.status = :status')
+				->setParameter('status', $filter->status->value);
+		}
+
+		$query = $qb->getQuery();
         $paginator = new Paginator($query);
 
         return new PaginationResult($query->getResult(), $paginator->count());

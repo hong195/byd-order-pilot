@@ -47,5 +47,5 @@ interface OrderRepositoryInterface
      *
      * @return PaginationResult the result of the queried records
      */
-    public function findByFilter(): PaginationResult;
+    public function findByFilter(OrderFilter $filter): PaginationResult;
 }

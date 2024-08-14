@@ -6,6 +6,8 @@ namespace App\Orders\Application\UseCase\Query\FindOrders;
 
 use App\Orders\Application\AccessControll\AccessControlService;
 use App\Orders\Application\DTO\OrderDataTransformer;
+use App\Orders\Domain\Repository\OrderFilter;
+use App\Orders\Domain\ValueObject\Status;
 use App\Orders\Infrastructure\Repository\OrderRepository;
 use App\Shared\Application\Query\QueryHandlerInterface;
 use App\Shared\Domain\Service\AssertService;
@@ -38,13 +40,11 @@ final readonly class FindOrdersHandler implements QueryHandlerInterface
     {
         AssertService::true($this->accessControlService->isGranted(), 'Access denied');
 
-        if ($orderQuery->rollId) {
-            $result = $this->orderRepository->findByRollId($orderQuery->rollId);
-        } else {
-            $result = $this->orderRepository->findAll();
-        }
+		$filter = new OrderFilter(rollId: $orderQuery->rollId, status: Status::from($orderQuery->status));
 
-        $orderData = $this->orderDataTransformer->fromOrdersEntityList($result);
+		$result = $this->orderRepository->findByFilter($filter);
+
+        $orderData = $this->orderDataTransformer->fromOrdersEntityList($result->items);
 
         return new FindOrdersResult($orderData);
     }
