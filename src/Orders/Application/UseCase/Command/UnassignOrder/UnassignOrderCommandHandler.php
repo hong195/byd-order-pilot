@@ -2,10 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Application\UseCase\Command\ChangeOrderPriority;
+namespace App\Orders\Application\UseCase\Command\UnassignOrder;
 
 use App\Orders\Application\AccessControll\AccessControlService;
-use App\Orders\Domain\Repository\OrderRepositoryInterface;
+use App\Orders\Domain\Exceptions\OrderCantBeUnassignedException;
+use App\Orders\Domain\Service\Order\UnassignOrder;
 use App\Shared\Application\Command\CommandHandlerInterface;
 use App\Shared\Domain\Service\AssertService;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -16,12 +17,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 readonly class UnassignOrderCommandHandler implements CommandHandlerInterface
 {
     /**
-     * Class constructor.
-     *
-     * @param OrderRepositoryInterface $orderRepository      the order repository
-     * @param AccessControlService     $accessControlService the access control service
+     * Class MyClass.
      */
-    public function __construct(private OrderRepositoryInterface $orderRepository, private AccessControlService $accessControlService)
+    public function __construct(private UnassignOrder $unassignOrder, private AccessControlService $accessControlService)
     {
     }
 
@@ -30,18 +28,13 @@ readonly class UnassignOrderCommandHandler implements CommandHandlerInterface
      *
      * @param UnassignOrderCommand $command the change order priority command instance
      *
-     * @throws NotFoundHttpException if the roll is not found
+     * @throws NotFoundHttpException          if the roll is not found
+     * @throws OrderCantBeUnassignedException
      */
     public function __invoke(UnassignOrderCommand $command): void
     {
         AssertService::true($this->accessControlService->isGranted(), 'Not change priority.');
-        $order = $this->orderRepository->findById($command->id);
 
-        if (!$order) {
-            throw new NotFoundHttpException('Order not found');
-        }
-
-        $order->updateHasPriority($command->priority);
-        $this->orderRepository->save($order);
+        $this->unassignOrder->handle($command->id);
     }
 }

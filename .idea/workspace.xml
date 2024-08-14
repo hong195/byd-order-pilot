@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added change priority api." />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Clean up commit.">
+      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Exceptions/OrderCantBeUnassignedException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/UnassignOrder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/UnassignOrderAction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UnassignOrder/UnassignOrderCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UnassignOrder/UnassignOrderCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UnassignOrder/UnassignOrderCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UnassignOrder/UnassignOrderCommandHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/ValueObject/Status.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/ValueObject/Status.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -264,14 +273,6 @@
       <workItem from="1723025220942" duration="6037000" />
       <workItem from="1723126559039" duration="16852000" />
       <workItem from="1723390311692" duration="26395000" />
-    </task>
-    <task id="LOCAL-00121" summary="Remove lamination entity from project.">
-      <option name="closed" value="true" />
-      <created>1722857446247</created>
-      <option name="number" value="00121" />
-      <option name="presentableId" value="LOCAL-00121" />
-      <option name="project" value="LOCAL" />
-      <updated>1722857446247</updated>
     </task>
     <task id="LOCAL-00122" summary="Added printer entity model.">
       <option name="closed" value="true" />
@@ -657,7 +658,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723619496435</updated>
     </task>
-    <option name="localTasksCounter" value="170" />
+    <task id="LOCAL-00170" summary="Clean up commit.">
+      <option name="closed" value="true" />
+      <created>1723619818197</created>
+      <option name="number" value="00170" />
+      <option name="presentableId" value="LOCAL-00170" />
+      <option name="project" value="LOCAL" />
+      <updated>1723619818197</updated>
+    </task>
+    <option name="localTasksCounter" value="171" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -716,9 +725,9 @@
     <MESSAGE value="Updated docker env file #2." />
     <MESSAGE value="Updated roll api." />
     <MESSAGE value="Added inventory implementation." />
-    <MESSAGE value="Clean up commit." />
     <MESSAGE value="Added change priority api." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added change priority api." />
+    <MESSAGE value="Clean up commit." />
+    <option name="LAST_COMMIT_MESSAGE" value="Clean up commit." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

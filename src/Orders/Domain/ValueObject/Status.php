@@ -22,4 +22,19 @@ enum Status: string
     case CUT_CHECK_IN = 'cut_check_in';
 
     case COLLECT_PREPARATION_FOR_SHIPPING = 'collect_preparation_for_shipping';
+
+    /**
+     * Check if the current instance is unassignable.
+     *
+     * @return bool returns true if the instance is unassignable, otherwise false
+     */
+    public function unassignable(): bool
+    {
+        return in_array($this, [
+            self::PRINT_CHECK_IN,
+            self::LAMINATION_CHECK_IN,
+            self::CUT_CHECK_IN,
+            self::COLLECT_PREPARATION_FOR_SHIPPING,
+        ]);
+    }
 }

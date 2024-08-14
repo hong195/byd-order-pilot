@@ -6,6 +6,7 @@ namespace App\Orders\Application\UseCase;
 
 use App\Orders\Application\UseCase\Command\ChangeOrderPriority\ChangeOrderPriorityCommand;
 use App\Orders\Application\UseCase\Command\CreatePrinters\CreatePrintersCommand;
+use App\Orders\Application\UseCase\Command\UnassignOrder\UnassignOrderCommand;
 use App\Shared\Application\Command\CommandBusInterface;
 
 /**
@@ -37,5 +38,15 @@ readonly class PrivateCommandInteractor
     public function changeOrderPriority(int $id, bool $status): void
     {
         $this->commandBus->execute(new ChangeOrderPriorityCommand($id, $status));
+    }
+
+    /**
+     * Unassigns an order.
+     *
+     * @param int $id The id of the order to unassign
+     */
+    public function unassignOrder(int $id): void
+    {
+        $this->commandBus->execute(new UnassignOrderCommand($id));
     }
 }
