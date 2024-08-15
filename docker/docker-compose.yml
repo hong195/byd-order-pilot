@@ -16,7 +16,7 @@ services:
       - /var/www/vendor/
       - ./../:/var/www/
     ports:
-      - ${DOCKER_APP_PORT}:8080
+      - 8080
     networks: 
       traefik-web:
     labels:
