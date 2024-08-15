@@ -57,7 +57,6 @@ RUN if [ "${BUILD_MODE}" = "dev" ]; then \
     else \
       composer install --no-dev --no-interaction --no-progress --no-scripts --optimize-autoloader; \
     fi
-RUN chown -R www-data:www-data /var/www/vendor/
 RUN chown -R $USER:$USER /var/www
 
 EXPOSE 8080
