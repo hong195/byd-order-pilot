@@ -45,6 +45,7 @@ COPY ./docker/php-fpm/supervisord.conf /etc/supervisord.conf
 
 # Source code
 COPY ./ /var/www
+RUN chown -R $USER:$USER /var/www
 
 USER $USER
 WORKDIR /var/www
@@ -57,7 +58,6 @@ RUN if [ "${BUILD_MODE}" = "dev" ]; then \
     else \
       composer install --no-dev --no-interaction --no-progress --no-scripts --optimize-autoloader; \
     fi
-RUN chown -R $USER:$USER /var/www
 
 EXPOSE 8080
 
