@@ -44,8 +44,7 @@ RUN apk add --no-cache supervisor
 COPY ./docker/php-fpm/supervisord.conf /etc/supervisord.conf
 
 # Source code
-COPY --chown=$USER:$USER ./ /var/www
-RUN chown -R $USER:$USER /var/www
+COPY ./ /var/www
 
 USER $USER
 WORKDIR /var/www
@@ -53,13 +52,13 @@ WORKDIR /var/www
 # Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 ARG BUILD_MODE=dev
-ENV COMPOSER_ALLOW_SUPERUSER=1
 RUN if [ "${BUILD_MODE}" = "dev" ]; then \
       composer install --no-interaction; \
     else \
       composer install --no-dev --no-interaction --no-progress --no-scripts --optimize-autoloader; \
     fi
 RUN chown -R www-data:www-data /var/www/vendor/
+RUN chown -R $USER:$USER /var/www
 
 EXPOSE 8080
 
