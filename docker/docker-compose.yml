@@ -19,6 +19,14 @@ services:
       - ${DOCKER_APP_PORT}:8080
     networks: 
       traefik-web:
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.time.entrypoints=web-secured,web
+      - traefik.http.routers.time.rule=Host(`dev.orderpilot.codality.co`)
+      - traefik.http.routers.time.tls=true
+      - traefik.http.routers.time.tls.certresolver=mytlschallenge
+      - traefik.http.services.time.loadbalancer.server.port=8080
+      - traefik.http.routers.time.middlewares=redirect-www-to-non-www@file
 
   postgres:
     container_name: postgres
