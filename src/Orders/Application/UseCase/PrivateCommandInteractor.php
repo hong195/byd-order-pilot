@@ -8,6 +8,7 @@ use App\Orders\Application\DTO\SortOrderData;
 use App\Orders\Application\UseCase\Command\AssignOrder\AssignOrderCommand;
 use App\Orders\Application\UseCase\Command\ChangeOrderPriority\ChangeOrderPriorityCommand;
 use App\Orders\Application\UseCase\Command\ChangeOrderSort\ChangeOrderSortCommand;
+use App\Orders\Application\UseCase\Command\ChangePrinterAvailability\ChangePrinterAvailabilityCommand;
 use App\Orders\Application\UseCase\Command\CreatePrinters\CreatePrintersCommand;
 use App\Orders\Application\UseCase\Command\UnassignOrder\UnassignOrderCommand;
 use App\Shared\Application\Command\CommandBusInterface;
@@ -71,6 +72,12 @@ readonly class PrivateCommandInteractor
     public function changeSortOrder(SortOrderData $orderData): void
     {
         $command = new ChangeOrderSortCommand(rollId: $orderData->rollId, group: $orderData->group, sortOrders: $orderData->sortOrders);
+        $this->commandBus->execute($command);
+    }
+
+    public function makePrinterAvailable(int $printerId): void
+    {
+        $command = new ChangePrinterAvailabilityCommand(printerId: $printerId, isAvailable: true);
         $this->commandBus->execute($command);
     }
 }

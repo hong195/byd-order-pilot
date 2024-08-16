@@ -29,6 +29,18 @@ final class PrinterRepository extends ServiceEntityRepository implements Printer
     }
 
     /**
+     * Finds a printer by its ID.
+     *
+     * @param int $printerId the ID of the printer to find
+     *
+     * @return Printer|null the found printer object, or null if no printer was found
+     */
+    public function findById(int $printerId): ?Printer
+    {
+        return $this->find($printerId);
+    }
+
+    /**
      * Returns an array of entities based on the given names.
      *
      * @param string[] $names the names to search for

@@ -4,19 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated sort can be changed only if its belong to the group.">
-      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Events/RollWasSentToPrintingEvent.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Exceptions/NotEnoughFilmLengthToPrintTheRollException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Exceptions/PrinterIsNotAvailableException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Exceptions/RollCantBeSentPrintedException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/SendToPrintProcessService.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added send roll to print process action.">
+      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ChangePrinterAvailability/ChangePrinterAvailabilityCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ChangePrinterAvailability/ChangePrinterAvailabilityCommandHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/EventHandler/RollWasSentToPrintingEventHandler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Roll.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Roll.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/AvailableFilmServiceInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Inventory/AvailableFilmServiceInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/CheckInProcess/OrdersCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/CheckInProcess/OrdersCheckInService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/InMemoryAvailableFilmService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Inventory/InMemoryAvailableFilmService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/ValueObject/Process.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/ValueObject/Process.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/RollData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/RollData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/RollDataTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/RollDataTransformer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Repository/PrinterRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Repository/PrinterRepositoryInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/SendToPrintProcessService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/SendToPrintProcessService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/PrinterRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/PrinterRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -280,30 +278,6 @@
       <workItem from="1723025220942" duration="6037000" />
       <workItem from="1723126559039" duration="16852000" />
       <workItem from="1723390311692" duration="26395000" />
-    </task>
-    <task id="LOCAL-00134" summary="Added inventory query/commands.">
-      <option name="closed" value="true" />
-      <created>1723139565217</created>
-      <option name="number" value="00134" />
-      <option name="presentableId" value="LOCAL-00134" />
-      <option name="project" value="LOCAL" />
-      <updated>1723139565217</updated>
-    </task>
-    <task id="LOCAL-00135" summary="Added inventory query/commands.">
-      <option name="closed" value="true" />
-      <created>1723139626320</created>
-      <option name="number" value="00135" />
-      <option name="presentableId" value="LOCAL-00135" />
-      <option name="project" value="LOCAL" />
-      <updated>1723139626321</updated>
-    </task>
-    <task id="LOCAL-00136" summary="Added inventory query/commands.">
-      <option name="closed" value="true" />
-      <created>1723185249208</created>
-      <option name="number" value="00136" />
-      <option name="presentableId" value="LOCAL-00136" />
-      <option name="project" value="LOCAL" />
-      <updated>1723185249208</updated>
     </task>
     <task id="LOCAL-00137" summary="Updated orders domain&#10;&#10;- migrations &#10;- value objects namespaces&#10;- entity namespaces">
       <option name="closed" value="true" />
@@ -673,7 +647,31 @@
       <option name="project" value="LOCAL" />
       <updated>1723808861328</updated>
     </task>
-    <option name="localTasksCounter" value="183" />
+    <task id="LOCAL-00183" summary="Added send roll to print process action.">
+      <option name="closed" value="true" />
+      <created>1723816022187</created>
+      <option name="number" value="00183" />
+      <option name="presentableId" value="LOCAL-00183" />
+      <option name="project" value="LOCAL" />
+      <updated>1723816022187</updated>
+    </task>
+    <task id="LOCAL-00184" summary="Added send roll to print process action.">
+      <option name="closed" value="true" />
+      <created>1723816027283</created>
+      <option name="number" value="00184" />
+      <option name="presentableId" value="LOCAL-00184" />
+      <option name="project" value="LOCAL" />
+      <updated>1723816027283</updated>
+    </task>
+    <task id="LOCAL-00185" summary="Added send roll to print process action.">
+      <option name="closed" value="true" />
+      <created>1723816060503</created>
+      <option name="number" value="00185" />
+      <option name="presentableId" value="LOCAL-00185" />
+      <option name="project" value="LOCAL" />
+      <updated>1723816060503</updated>
+    </task>
+    <option name="localTasksCounter" value="186" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -709,7 +707,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated roll film model." />
     <MESSAGE value="Added inventory query/commands." />
     <MESSAGE value="Updated orders domain&#10;&#10;- migrations &#10;- value objects namespaces&#10;- entity namespaces" />
     <MESSAGE value="Added find users command." />
@@ -734,7 +731,8 @@
     <MESSAGE value="Updated read me file." />
     <MESSAGE value="Added change sort orders on specific roll." />
     <MESSAGE value="Updated sort can be changed only if its belong to the group." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated sort can be changed only if its belong to the group." />
+    <MESSAGE value="Added send roll to print process action." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added send roll to print process action." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

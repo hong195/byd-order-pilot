@@ -60,9 +60,9 @@ final readonly class SendToPrintProcessService
 
         $roll->updateProcess(Process::PRINTING);
 
-        $this->eventDispatcher->dispatch(new RollWasSentToPrintingEvent($roll->getId()));
-
         $this->rollRepository->save($roll);
+
+        $this->eventDispatcher->dispatch(new RollWasSentToPrintingEvent($roll->getId()));
     }
 
     private function getByFilmType(?int $filmId = null): ?FilmData
