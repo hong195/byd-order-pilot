@@ -9,7 +9,7 @@ use App\Orders\Domain\Aggregate\Roll;
 use App\Orders\Domain\DTO\FilmData;
 use App\Orders\Domain\Repository\OrderRepositoryInterface;
 use App\Orders\Domain\Repository\RollFilter;
-use App\Orders\Domain\Service\AvailableFilmServiceInterface;
+use App\Orders\Domain\Service\Inventory\AvailableFilmServiceInterface;
 use App\Orders\Domain\Service\Order\SortOrdersServiceInterface;
 use App\Orders\Domain\Service\RollMaker;
 use App\Orders\Domain\ValueObject\Process;

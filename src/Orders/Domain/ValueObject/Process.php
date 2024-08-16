@@ -9,9 +9,21 @@ enum Process: string
 {
     case ORDER_CHECK_IN = 'order_check_in';
 
-    case PRINT_CHECK_IN = 'print_check_in';
+    case PRINTING = 'printing';
 
-    case LAMINATION_CHECK_IN = 'lamination_check_in';
+    case LAMINATION = 'lamination';
 
-    case CUT_CHECK_IN = 'cut_check_in';
+    case CUTTING = 'cutting';
+
+    /**
+     * Checks if the current process is equal to the given process.
+     *
+     * @param self $process the process to compare
+     *
+     * @return bool true if the processes are equal, false otherwise
+     */
+    public function equals(self $process): bool
+    {
+        return $this === $process;
+    }
 }

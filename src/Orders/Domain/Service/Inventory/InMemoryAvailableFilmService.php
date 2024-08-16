@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Domain\Service;
+namespace App\Orders\Domain\Service\Inventory;
 
 use App\Orders\Domain\DTO\FilmData;
 use App\Orders\Domain\ValueObject\RollType;

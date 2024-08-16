@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Orders\Domain\Aggregate;
 
 use App\Orders\Domain\ValueObject\Process;
+use App\Shared\Domain\Aggregate\Aggregate;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Webmozart\Assert\Assert;
@@ -14,7 +15,7 @@ use Webmozart\Assert\Assert;
  *
  * Represents a roll in the application.
  */
-final class Roll
+final class Roll extends Aggregate
 {
     private ?int $id = null;
 

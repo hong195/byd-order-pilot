@@ -39,7 +39,7 @@ services:
         resource: '../src/*/Domain/Factory'
         exclude: '../src/Shared/*'
 
-    App\Orders\Domain\Service\AvailableFilmServiceInterface:
+    App\Orders\Domain\Service\Inventory\AvailableFilmServiceInterface:
         class: App\Orders\Infrastructure\Adapter\InventoryAdapter
         public: true
 

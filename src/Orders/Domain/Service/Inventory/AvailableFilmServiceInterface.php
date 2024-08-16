@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Orders\Domain\Service;
+namespace App\Orders\Domain\Service\Inventory;
 
 use App\Orders\Domain\DTO\FilmData;
 use Doctrine\Common\Collections\Collection;
