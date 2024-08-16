@@ -30,7 +30,7 @@ final readonly class ChangeSortOrder
      * Handle the roll update.
      *
      * @param int   $rollId     The ID of the roll
-     * @param int   $group      The group to group the orders by lamination
+     * @param int   $group      The group number the orders by lamination
      * @param int[] $sortOrders The sort order to apply to the orders
      *
      * @throws NotFoundHttpException If the roll with the specified ID is not found
@@ -49,13 +49,17 @@ final readonly class ChangeSortOrder
             throw new NotFoundHttpException('Group not found');
         }
 
-        /** @var Order $order */
-        foreach ($ordersGropedByLamination[$group] as $order) {
-            if (!isset($sortOrders[$order->getId()])) {
-                throw new NotFoundHttpException('Order is not in the group');
+        $groupOrders = $ordersGropedByLamination[$group];
+
+        foreach ($sortOrders as $orderId => $sortOrder) {
+            /** @var Order|false $order */
+            $order = $groupOrders->filter(fn (Order $order) => $order->getId() === $orderId)->first();
+
+            if (!$order) {
+                throw new NotFoundHttpException('Order not found');
             }
 
-            $order->changeSortOrder($sortOrders[$order->getId()]);
+            $order->changeSortOrder($orderId);
             $this->orderRepository->save($order);
         }
     }
