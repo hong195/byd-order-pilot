@@ -22,25 +22,27 @@ final readonly class SortService implements SortOrdersServiceInterface
         $orders = $orders->toArray();
 
         usort($orders, function (Order $a, Order $b) {
-            if ($a->getRollType()->value > $b->getRollType()->value) {
-                return 1;
-            } elseif ($a->getRollType()->value < $b->getRollType()->value) {
-                return -1;
+            // Compare sort number
+            $rollComparison = $b->getRollType()->value <=> $a->getRollType()->value;
+
+            if (0 !== $rollComparison) {
+                return $rollComparison;
             }
 
-            if ((int) $a->hasPriority() > (int) $b->hasPriority()) {
-                return 1;
-            } elseif ((int) $a->hasPriority() < (int) $b->hasPriority()) {
-                return -1;
+            // Compare sort number
+            $sortNumberComparison = $b->getSortOrder() <=> $a->getSortOrder();
+
+            if (0 !== $sortNumberComparison) {
+                return $sortNumberComparison;
             }
 
-            if ($a->getLength() > $b->getLength()) {
-                return -1;
-            } elseif ($a->getLength() < $b->getLength()) {
-                return 1;
+            // Compare priority (convert boolean to int for comparison)
+            $priorityComparison = (int) $b->hasPriority() <=> (int) $a->hasPriority();
+            if (0 !== $priorityComparison) {
+                return $priorityComparison;
             }
 
-            return 0;
+            return $b->getLength() <=> $a->getLength();
         });
 
         return new ArrayCollection($orders);

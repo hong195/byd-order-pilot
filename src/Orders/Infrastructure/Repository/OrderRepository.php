@@ -102,10 +102,10 @@ final class OrderRepository extends ServiceEntityRepository implements OrderRepo
                 ->setParameter('rollId', $filter->rollId);
         }
 
-        if ($filter->status) {
-            $qb->andWhere('o.status = :status')
-                ->setParameter('status', $filter->status->value);
-        }
+        //        if ($filter->status) {
+        //            $qb->andWhere('o.status = :status')
+        //                ->setParameter('status', $filter->status->value);
+        //        }
 
         $query = $qb->getQuery();
         $paginator = new Paginator($query);

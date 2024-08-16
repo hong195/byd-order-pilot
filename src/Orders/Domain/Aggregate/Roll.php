@@ -224,6 +224,6 @@ final class Roll
      */
     public function getLaminations(): array
     {
-        return array_unique($this->orders->map(fn (Order $order) => $order->getLaminationType()->value)->toArray());
+        return array_unique($this->orders->map(fn (Order $order) => $order->getLaminationType()?->value)->toArray());
     }
 }

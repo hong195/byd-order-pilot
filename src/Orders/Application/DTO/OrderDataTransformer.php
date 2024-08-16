@@ -6,6 +6,7 @@ namespace App\Orders\Application\DTO;
 
 use App\Orders\Application\Service\AssetUrlServiceInterface;
 use App\Orders\Domain\Aggregate\Order;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * OrderData class represents order data.
@@ -37,6 +38,24 @@ final readonly class OrderDataTransformer
         }
 
         return $orderData;
+    }
+
+    /**
+     * Converts groups of lamination to an array format.
+     *
+     * @param array<int, Collection<Order>> $groups The groups of lamination
+     *
+     * @return array<int, Order[]> The converted array format of lamination groups
+     */
+    public function fromLaminationGroup(array $groups): array
+    {
+        $result = [];
+
+        foreach ($groups as $group => $items) {
+            $result[$group] = $this->fromOrdersEntityList($items->toArray());
+        }
+
+        return $result;
     }
 
     /**

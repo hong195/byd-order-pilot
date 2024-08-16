@@ -1,0 +1,62 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Orders\Domain\Service\Order;
+
+use App\Orders\Domain\Aggregate\Order;
+use App\Orders\Domain\Repository\OrderRepositoryInterface;
+use App\Orders\Domain\Repository\RollRepositoryInterface;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
+/**
+ * Class ChangeSortOrder.
+ *
+ * Handles the sorting of orders for a specific roll.
+ */
+final readonly class ChangeSortOrder
+{
+    /**
+     * Example class constructor.
+     *
+     * @param RollRepositoryInterface  $rollRepository  The roll repository interface
+     * @param OrderRepositoryInterface $orderRepository The order repository interface
+     */
+    public function __construct(private RollRepositoryInterface $rollRepository, private OrderRepositoryInterface $orderRepository, private GroupService $groupService)
+    {
+    }
+
+    /**
+     * Handle the roll update.
+     *
+     * @param int   $rollId     The ID of the roll
+     * @param int   $group      The group to group the orders by lamination
+     * @param int[] $sortOrders The sort order to apply to the orders
+     *
+     * @throws NotFoundHttpException If the roll with the specified ID is not found
+     */
+    public function handle(int $rollId, int $group, array $sortOrders): void
+    {
+        $roll = $this->rollRepository->findById($rollId);
+
+        if (!$roll) {
+            throw new NotFoundHttpException('Roll not found');
+        }
+
+        $ordersGropedByLamination = $this->groupService->handle($roll->getOrders());
+
+        if (!isset($ordersGropedByLamination[$group])) {
+            throw new NotFoundHttpException('Group not found');
+        }
+
+        /** @var Order $order */
+        foreach ($ordersGropedByLamination[$group] as $order) {
+            if (!isset($sortOrders[$order->getId()])) {
+                throw new NotFoundHttpException('Order is not in the group');
+            }
+
+            $order->changeSortOrder($sortOrders[$order->getId()]);
+            $this->orderRepository->save($order);
+        }
+    }
+}

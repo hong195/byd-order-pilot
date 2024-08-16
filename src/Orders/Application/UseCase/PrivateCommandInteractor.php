@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace App\Orders\Application\UseCase;
 
+use App\Orders\Application\DTO\SortOrderData;
 use App\Orders\Application\UseCase\Command\AssignOrder\AssignOrderCommand;
 use App\Orders\Application\UseCase\Command\ChangeOrderPriority\ChangeOrderPriorityCommand;
+use App\Orders\Application\UseCase\Command\ChangeOrderSort\ChangeOrderSortCommand;
 use App\Orders\Application\UseCase\Command\CreatePrinters\CreatePrintersCommand;
 use App\Orders\Application\UseCase\Command\UnassignOrder\UnassignOrderCommand;
 use App\Shared\Application\Command\CommandBusInterface;
@@ -59,5 +61,16 @@ readonly class PrivateCommandInteractor
     public function assignOrder(int $id): void
     {
         $this->commandBus->execute(new AssignOrderCommand($id));
+    }
+
+    /**
+     * Changes the sort order of an order.
+     *
+     * @param SortOrderData $orderData The data containing the roll ID, order ID, and sort order
+     */
+    public function changeSortOrder(SortOrderData $orderData): void
+    {
+        $command = new ChangeOrderSortCommand(rollId: $orderData->rollId, group: $orderData->group, sortOrders: $orderData->sortOrders);
+        $this->commandBus->execute($command);
     }
 }

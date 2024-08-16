@@ -47,6 +47,12 @@
 
         <field name="orderNumber" type="bigint" column="order_number"  nullable="true"/>
 
+        <field name="sortOrder" type="integer" column="sort_order">
+            <options>
+                <option name="default">0</option>
+            </options>
+        </field>
+
         <field name="dateAdded" type="datetime_immutable" column="date_added"/>
 
         <one-to-one field="cutFile" target-entity="App\Shared\Domain\Entity\MediaFile">

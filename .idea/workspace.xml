@@ -4,17 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added assign order api.">
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated read me file.">
+      <change afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/SortOrderData.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ChangeOrderSort/ChangeOrderSortCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ChangeOrderSort/ChangeOrderSortCommandHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/ChangeSortOrder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/GroupService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/ChangeSortOrderAction.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240816092840.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/AccessControll/AccessControlService.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AssignOrder/AssignOrderCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AssignOrder/AssignOrderCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ChangeOrderPriority/ChangeOrderPriorityCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ChangeOrderPriority/ChangeOrderPriorityCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ManuallyAddOrder/ManuallyAddOrderCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ManuallyAddOrder/ManuallyAddOrderCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UnassignOrder/UnassignOrderCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UnassignOrder/UnassignOrderCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindARoll/FindARollHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindARoll/FindARollHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindAnOrder/FindAnOrderHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindAnOrder/FindAnOrderHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/OrderDataTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/OrderDataTransformer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/RollDataTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/RollDataTransformer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindOrders/FindOrdersHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindOrders/FindOrdersHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindRolls/FindRollsHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindRolls/FindRollsHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindOrders/FindOrdersResult.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindOrders/FindOrdersResult.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Roll.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Roll.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/SortService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/SortService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Order.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Order.orm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/OrderRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/OrderRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,42 +184,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;PHPUnit.Main.executor&quot;: &quot;Coverage&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
-    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm&quot;: &quot;Docker Compose&quot;,
-    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm&quot;: &quot;Docker Compose&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/aleksejem/Sites/order-pilot/src/Orders/Application/UseCase/Command&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;php.add.doc.comment.for.fields.panel.add.php.doc.for.all.properties&quot;: &quot;true&quot;,
-    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.General&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "PHPUnit.Main.executor": "Coverage",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
+    "WebServerToolWindowPanel.toolwindow.show.date": "false",
+    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
+    "WebServerToolWindowPanel.toolwindow.show.size": "false",
+    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm": "Docker Compose",
+    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm": "Docker Compose",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/src/Orders/Application/UseCase/Command",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "php.add.doc.comment.for.fields.panel.add.php.doc.for.all.properties": "true",
+    "php.override.implement.member.chooser.php.doc": "NONE",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.General",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Command" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query" />
       <recent name="$PROJECT_DIR$/src/Users/Application/UseCase/Query" />
       <recent name="$PROJECT_DIR$/src/Shared/Application" />
-      <recent name="$PROJECT_DIR$/src/Inventory/Application" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/Orders/Domain/Service/Order" />
@@ -275,22 +286,6 @@
       <workItem from="1723025220942" duration="6037000" />
       <workItem from="1723126559039" duration="16852000" />
       <workItem from="1723390311692" duration="26395000" />
-    </task>
-    <task id="LOCAL-00129" summary="Removed order stack.">
-      <option name="closed" value="true" />
-      <created>1723029860657</created>
-      <option name="number" value="00129" />
-      <option name="presentableId" value="LOCAL-00129" />
-      <option name="project" value="LOCAL" />
-      <updated>1723029860657</updated>
-    </task>
-    <task id="LOCAL-00130" summary="Removed order stack.">
-      <option name="closed" value="true" />
-      <created>1723029902956</created>
-      <option name="number" value="00130" />
-      <option name="presentableId" value="LOCAL-00130" />
-      <option name="project" value="LOCAL" />
-      <updated>1723029902956</updated>
     </task>
     <task id="LOCAL-00131" summary="Removed order stack.">
       <option name="closed" value="true" />
@@ -668,7 +663,23 @@
       <option name="project" value="LOCAL" />
       <updated>1723632026380</updated>
     </task>
-    <option name="localTasksCounter" value="178" />
+    <task id="LOCAL-00178" summary="Clean up commit.">
+      <option name="closed" value="true" />
+      <created>1723635623419</created>
+      <option name="number" value="00178" />
+      <option name="presentableId" value="LOCAL-00178" />
+      <option name="project" value="LOCAL" />
+      <updated>1723635623420</updated>
+    </task>
+    <task id="LOCAL-00179" summary="Updated read me file.">
+      <option name="closed" value="true" />
+      <created>1723646370349</created>
+      <option name="number" value="00179" />
+      <option name="presentableId" value="LOCAL-00179" />
+      <option name="project" value="LOCAL" />
+      <updated>1723646370349</updated>
+    </task>
+    <option name="localTasksCounter" value="180" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -704,7 +715,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Removed unused packages." />
     <MESSAGE value="Removed order stack." />
     <MESSAGE value="Updated roll model." />
     <MESSAGE value="Updated roll film model." />
@@ -725,11 +735,12 @@
     <MESSAGE value="Updated roll api." />
     <MESSAGE value="Added inventory implementation." />
     <MESSAGE value="Added change priority api." />
-    <MESSAGE value="Clean up commit." />
     <MESSAGE value="Added unassign order api." />
     <MESSAGE value="Updated rolls have process orders status." />
     <MESSAGE value="Added assign order api." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added assign order api." />
+    <MESSAGE value="Clean up commit." />
+    <MESSAGE value="Updated read me file." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated read me file." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -738,6 +749,11 @@
           <url>file://$PROJECT_DIR$/src/Order/Domain/Aggregate/OrderStack/OrderStack.php</url>
           <line>210</line>
           <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/Orders/Domain/Service/Order/SortOrdersServiceInterface.php</url>
+          <line>19</line>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

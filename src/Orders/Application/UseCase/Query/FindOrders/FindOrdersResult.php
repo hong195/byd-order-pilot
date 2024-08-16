@@ -16,7 +16,7 @@ final readonly class FindOrdersResult
      *
      * This class represents a MyClass object.
      *
-     * @param OrderData[] $items the items to include in the result
+     * @param array<int, OrderData[]> $items the items to include in the result
      */
     public function __construct(public array $items = [])
     {

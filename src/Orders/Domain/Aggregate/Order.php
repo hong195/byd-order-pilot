@@ -29,6 +29,8 @@ final class Order extends Aggregate
     private ?MediaFile $cutFile = null;
     private ?MediaFile $printFile = null;
 
+    private int $sortOrder = 0;
+
     /**
      * Class constructor.
      *
@@ -230,5 +232,25 @@ final class Order extends Aggregate
     public function getLength(): int
     {
         return $this->length;
+    }
+
+    /**
+     * Returns the order number.
+     *
+     * @return int the order sort order
+     */
+    public function getSortOrder(): int
+    {
+        return $this->sortOrder;
+    }
+
+    /**
+     * Changes the sort order.
+     *
+     * @param int $sortOrder the new sort order
+     */
+    public function changeSortOrder(int $sortOrder): void
+    {
+        $this->sortOrder = $sortOrder;
     }
 }
