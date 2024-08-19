@@ -65,7 +65,9 @@ final readonly class SendRollToGlowCheckInService
 
             $roll->assignPrinter($roll->getPrinter());
 
-            $hasLamination = $orders->exists(fn (Order $order) => null !== $order->getLaminationType());
+            /** @var Order $firstOrder */
+            $firstOrder = $orders->first();
+            $hasLamination = null !== $firstOrder->getLaminationType();
             // if roll does not have lamination it goes directly to cut check in, otherwise to glow check in
             $process = $hasLamination ? Process::GLOW_CHECK_IN : Process::CUTTING_CHECK_IN;
 
