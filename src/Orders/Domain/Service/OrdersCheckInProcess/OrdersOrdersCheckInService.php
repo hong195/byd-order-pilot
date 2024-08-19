@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Domain\Service\CheckInProcess;
+namespace App\Orders\Domain\Service\OrdersCheckInProcess;
 
 use App\Orders\Domain\Aggregate\Order;
 use App\Orders\Domain\Aggregate\Roll;
@@ -22,21 +22,23 @@ use Doctrine\Common\Collections\Collection;
 /**
  * Class MaxMinReArrangeOrderService.
  */
-final class OrdersCheckInService implements CheckInInterface
+final class OrdersOrdersCheckInService implements OrdersCheckInInterface
 {
     private Collection $assignedRolls;
 
     private Collection $rolls;
 
     /**
-     * Constructor for the class.
+     * Class constructor.
      *
-     * @param OrderRepositoryInterface $orderRepository the order repository service
-     * @param RollRepository           $rollRepository  the roll repository
+     * @param OrderRepositoryInterface      $orderRepository      The order repository
+     * @param SortOrdersServiceInterface    $sortOrdersService    The sort orders service
+     * @param RollRepository                $rollRepository       The roll repository
+     * @param AvailableFilmServiceInterface $availableFilmService The available film service
+     * @param RollMaker                     $rollMaker            The roll maker
      */
-    public function __construct(private readonly OrderRepositoryInterface $orderRepository, private readonly SortOrdersServiceInterface $sortOrdersService,
-        private readonly RollRepository $rollRepository, private readonly AvailableFilmServiceInterface $availableFilmService, private readonly RollMaker $rollMaker
-    ) {
+    public function __construct(private readonly OrderRepositoryInterface $orderRepository, private readonly SortOrdersServiceInterface $sortOrdersService, private readonly RollRepository $rollRepository, private readonly AvailableFilmServiceInterface $availableFilmService, private readonly RollMaker $rollMaker)
+    {
         $this->assignedRolls = new ArrayCollection([]);
 
         $this->rolls = new ArrayCollection($this->rollRepository->findByFilter(new RollFilter(process: Process::ORDER_CHECK_IN)));

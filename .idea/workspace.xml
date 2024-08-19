@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fixed InventoryAdapter missing service.">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Event/RollWasSentToPrintingEventHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Event/RollWasSentToPrintingEventHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/SendToPrintProcessService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/SendToPrintProcessService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/ValueObject/Process.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/ValueObject/Process.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Rename process.">
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AssignOrder/AssignOrderCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AssignOrder/AssignOrderCommandHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/CheckInProcess/CheckInInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/OrdersCheckInProcess/OrdersCheckInInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/CheckInProcess/OrdersCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/OrdersCheckInProcess/OrdersOrdersCheckInService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/SendToPrintProcessService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/SendToPrintCheckInService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -273,15 +272,7 @@
       <workItem from="1723025220942" duration="6037000" />
       <workItem from="1723126559039" duration="16852000" />
       <workItem from="1723390311692" duration="26395000" />
-      <workItem from="1724051941853" duration="2084000" />
-    </task>
-    <task id="LOCAL-00143" summary="Removed unused find by email command.">
-      <option name="closed" value="true" />
-      <created>1723191316964</created>
-      <option name="number" value="00143" />
-      <option name="presentableId" value="LOCAL-00143" />
-      <option name="project" value="LOCAL" />
-      <updated>1723191316964</updated>
+      <workItem from="1724051941853" duration="3952000" />
     </task>
     <task id="LOCAL-00144" summary="Updated entity Roll &amp; Order&#10;&#10;- migrations&#10;- getters and setters">
       <option name="closed" value="true" />
@@ -667,7 +658,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724052105549</updated>
     </task>
-    <option name="localTasksCounter" value="192" />
+    <task id="LOCAL-00192" summary="Rename process.">
+      <option name="closed" value="true" />
+      <created>1724054036964</created>
+      <option name="number" value="00192" />
+      <option name="presentableId" value="LOCAL-00192" />
+      <option name="project" value="LOCAL" />
+      <updated>1724054036964</updated>
+    </task>
+    <option name="localTasksCounter" value="193" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -703,7 +702,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added find single user action." />
     <MESSAGE value="Removed unused find by email command." />
     <MESSAGE value="Updated entity Roll &amp; Order&#10;&#10;- migrations&#10;- getters and setters" />
     <MESSAGE value="Added order sort by a lamination type." />
@@ -728,7 +726,8 @@
     <MESSAGE value="Added changing printer availability." />
     <MESSAGE value="Updated inventory interface." />
     <MESSAGE value="Fixed InventoryAdapter missing service." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed InventoryAdapter missing service." />
+    <MESSAGE value="Rename process." />
+    <option name="LAST_COMMIT_MESSAGE" value="Rename process." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -746,7 +745,7 @@
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/Orders/Domain/Service/CheckInProcess/OrdersCheckInService.php" line="74">
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/Orders/Domain/Service/OrdersCheckInProcess/OrdersOrdersCheckInService.php" line="74">
         <watch expression="$order" language="PHP" />
       </inline-watch>
     </watches-manager>

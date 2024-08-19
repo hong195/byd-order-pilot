@@ -18,8 +18,15 @@ use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 /**
  * This class is responsible for handling the printing process.
  */
-final readonly class SendToPrintProcessService
+final readonly class SendToPrintCheckInService
 {
+    /**
+     * Construct the class.
+     *
+     * @param RollRepositoryInterface       $rollRepository       the roll repository
+     * @param AvailableFilmServiceInterface $availableFilmService the available film service
+     * @param EventDispatcherInterface      $eventDispatcher      the event dispatcher
+     */
     public function __construct(private RollRepositoryInterface $rollRepository, private AvailableFilmServiceInterface $availableFilmService, private EventDispatcherInterface $eventDispatcher)
     {
     }
@@ -42,6 +49,10 @@ final readonly class SendToPrintProcessService
             throw new NotFoundHttpException('Roll not found');
         }
 
+        if (!$roll->getProcess()->equals(Process::ORDER_CHECK_IN)) {
+            throw new RollCantBeSentPrintedException('Roll cannot be printed! It is not in the correct process.');
+        }
+
         $printer = $roll->getPrinter();
 
         if (!$printer->isAvailable()) {
@@ -52,10 +63,6 @@ final readonly class SendToPrintProcessService
 
         if (!$availableFilm || $availableFilm->length < $roll->getOrdersLength()) {
             throw new NotEnoughFilmLengthToPrintTheRollException('Not enough film to print');
-        }
-
-        if (!$roll->getProcess()->equals(Process::ORDER_CHECK_IN)) {
-            throw new RollCantBeSentPrintedException('Roll cannot be printed! It is not in the correct process.');
         }
 
         $roll->updateProcess(Process::PRINTING_CHECK_IN);

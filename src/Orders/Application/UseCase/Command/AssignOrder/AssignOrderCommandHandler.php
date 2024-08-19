@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Orders\Application\UseCase\Command\AssignOrder;
 
-use App\Orders\Domain\Service\CheckInProcess\CheckInInterface;
 use App\Orders\Domain\Service\Order\ChangeStatusOrder;
+use App\Orders\Domain\Service\OrdersCheckInProcess\OrdersCheckInInterface;
 use App\Orders\Domain\ValueObject\Status;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Command\CommandHandlerInterface;
@@ -20,7 +20,7 @@ readonly class AssignOrderCommandHandler implements CommandHandlerInterface
     /**
      * Class MyClass.
      */
-    public function __construct(private ChangeStatusOrder $changeStatusOrder, private AccessControlService $accessControlService, private CheckInInterface $checkInService)
+    public function __construct(private ChangeStatusOrder $changeStatusOrder, private AccessControlService $accessControlService, private OrdersCheckInInterface $checkInService)
     {
     }
 
