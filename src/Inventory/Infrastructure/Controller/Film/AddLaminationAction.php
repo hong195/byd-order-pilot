@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 #[AsController]
 #[Route('/api/films/laminations', name: 'add_lamination_film', methods: ['POST'])]
-final readonly class AddLaminationFilmAction
+final readonly class AddLaminationAction
 {
     public function __construct(private PrivateCommandInteractor $commandInteractor)
     {

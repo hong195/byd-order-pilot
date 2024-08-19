@@ -12,8 +12,8 @@ use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[AsController]
-#[Route('/api/films/rolls', name: 'add_roll_film', methods: ['POST'])]
-final readonly class AddRollFilmAction
+#[Route('/api/films', name: 'add_film', methods: ['POST'])]
+final readonly class AddFilmAction
 {
     public function __construct(private PrivateCommandInteractor $commandInteractor)
     {
