@@ -6,7 +6,7 @@ namespace App\Orders\Application\UseCase\Command\SendToPrintCheckIn;
 
 use App\Orders\Domain\Exceptions\NotEnoughFilmLengthToPrintTheRollException;
 use App\Orders\Domain\Exceptions\PrinterIsNotAvailableException;
-use App\Orders\Domain\Exceptions\RollCantBeSentPrintedException;
+use App\Orders\Domain\Exceptions\RollCantBeSentToPrintException;
 use App\Orders\Domain\Service\SendRollToPrintCheckInService;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Command\CommandHandlerInterface;
@@ -30,7 +30,7 @@ readonly class SendRollToPrintCheckInCommandHandler implements CommandHandlerInt
     }
 
     /**
-     * @throws RollCantBeSentPrintedException
+     * @throws RollCantBeSentToPrintException
      * @throws NotEnoughFilmLengthToPrintTheRollException
      * @throws PrinterIsNotAvailableException
      */

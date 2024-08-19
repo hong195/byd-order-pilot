@@ -11,7 +11,7 @@ enum Process: string
 
     case PRINTING_CHECK_IN = 'printing_check_in';
 
-    case LAMINATION_CHECK_IN = 'lamination_check_in';
+    case GLOW_CHECK_IN = 'glow_check_in';
 
     case CUTTING_CHECK_IN = 'cutting_check_in';
 

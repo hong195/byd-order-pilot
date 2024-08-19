@@ -8,7 +8,7 @@ use App\Orders\Domain\DTO\FilmData;
 use App\Orders\Domain\Events\RollWasSentToPrintingEvent;
 use App\Orders\Domain\Exceptions\NotEnoughFilmLengthToPrintTheRollException;
 use App\Orders\Domain\Exceptions\PrinterIsNotAvailableException;
-use App\Orders\Domain\Exceptions\RollCantBeSentPrintedException;
+use App\Orders\Domain\Exceptions\RollCantBeSentToPrintException;
 use App\Orders\Domain\Repository\RollRepositoryInterface;
 use App\Orders\Domain\Service\Inventory\AvailableFilmServiceInterface;
 use App\Orders\Domain\ValueObject\Process;
@@ -38,7 +38,7 @@ final readonly class SendRollToPrintCheckInService
      *
      * @throws NotFoundHttpException                      If the roll is not found
      * @throws PrinterIsNotAvailableException             If the printer is not available
-     * @throws RollCantBeSentPrintedException             If the roll is not in the correct process
+     * @throws RollCantBeSentToPrintException             If the roll is not in the correct process
      * @throws NotEnoughFilmLengthToPrintTheRollException
      */
     public function handle(int $rollId): void
@@ -50,11 +50,11 @@ final readonly class SendRollToPrintCheckInService
         }
 
         if (!$roll->getProcess()->equals(Process::ORDER_CHECK_IN)) {
-            throw new RollCantBeSentPrintedException('Roll cannot be printed! It is not in the correct process.');
+            throw new RollCantBeSentToPrintException('Roll cannot be printed! It is not in the correct process.');
         }
 
         if ($roll->getOrders()->isEmpty()) {
-            throw new RollCantBeSentPrintedException('Roll cannot be printed! It has no orders.');
+            throw new RollCantBeSentToPrintException('Roll cannot be printed! It has no orders.');
         }
 
         $printer = $roll->getPrinter();
