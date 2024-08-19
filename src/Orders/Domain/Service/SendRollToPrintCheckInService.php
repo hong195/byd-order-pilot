@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Orders\Domain\Service;
 
 use App\Orders\Domain\DTO\FilmData;
-use App\Orders\Domain\Events\RollWasSentToPrintingEvent;
+use App\Orders\Domain\Events\RollWasSentToPrintCheckInEvent;
 use App\Orders\Domain\Exceptions\NotEnoughFilmLengthToPrintTheRollException;
 use App\Orders\Domain\Exceptions\PrinterIsNotAvailableException;
 use App\Orders\Domain\Exceptions\RollCantBeSentToPrintException;
@@ -73,7 +73,7 @@ final readonly class SendRollToPrintCheckInService
 
         $this->rollRepository->save($roll);
 
-        $this->eventDispatcher->dispatch(new RollWasSentToPrintingEvent($roll->getId()));
+        $this->eventDispatcher->dispatch(new RollWasSentToPrintCheckInEvent($roll->getId()));
     }
 
     /**

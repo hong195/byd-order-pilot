@@ -7,11 +7,11 @@ namespace App\Orders\Domain\Events;
 use App\Shared\Domain\Event\EventInterface;
 
 /**
- * RollWasSentToPrintingEvent class represents an event that is triggered when a roll is sent to printing.
+ * RollWasSentToPrintCheckInEvent class represents an event that is triggered when a roll is sent to printing.
  *
  * @readonly
  */
-final readonly class RollWasSentToPrintingEvent implements EventInterface
+final readonly class RollWasSentToPrintCheckInEvent implements EventInterface
 {
     /**
      * Class constructor.

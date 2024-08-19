@@ -4,14 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added send to print check in api.">
-      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Exceptions/RollCantBeSentToGlowException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/SendRollToGlowService.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added base check for roll when send to glow.">
+      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Events/RollsWasSentToGlowCheckInEvent.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/SendRollToGlowCheckInService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/EventHandler/RollWasSentToGlowCheckInEventHandler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/SendToPrintCheckIn/SendRollToPrintCheckInCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/SendToPrintCheckIn/SendRollToPrintCheckInCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Exceptions/RollCantBeSentPrintedException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Exceptions/RollCantBeSentToPrintException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/EventHandler/RollWasSentToPrintingEventHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/EventHandler/RollWasSentToPrintingEventHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Events/RollWasSentToPrintingEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Events/RollWasSentToPrintCheckInEvent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Factory/RollFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Factory/RollFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/SendRollToGlowService.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/SendRollToPrintCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/SendRollToPrintCheckInService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/ValueObject/Process.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/ValueObject/Process.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/EventHandler/RollWasSentToPrintingEventHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/EventHandler/RollWasSentToPrintCheckInEventHandler.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -276,38 +279,7 @@
       <workItem from="1723126559039" duration="16852000" />
       <workItem from="1723390311692" duration="26395000" />
       <workItem from="1724051941853" duration="6737000" />
-    </task>
-    <task id="LOCAL-00148" summary="Added order sort by a lamination type.">
-      <option name="closed" value="true" />
-      <created>1723203267869</created>
-      <option name="number" value="00148" />
-      <option name="presentableId" value="LOCAL-00148" />
-      <option name="project" value="LOCAL" />
-      <updated>1723203267870</updated>
-    </task>
-    <task id="LOCAL-00149" summary="Updated added sort by length for film repo.">
-      <option name="closed" value="true" />
-      <created>1723207475236</created>
-      <option name="number" value="00149" />
-      <option name="presentableId" value="LOCAL-00149" />
-      <option name="project" value="LOCAL" />
-      <updated>1723207475236</updated>
-    </task>
-    <task id="LOCAL-00150" summary="Updated added sort by length for film repo.">
-      <option name="closed" value="true" />
-      <created>1723207478931</created>
-      <option name="number" value="00150" />
-      <option name="presentableId" value="LOCAL-00150" />
-      <option name="project" value="LOCAL" />
-      <updated>1723207478931</updated>
-    </task>
-    <task id="LOCAL-00151" summary="Changed relation for printer entity.">
-      <option name="closed" value="true" />
-      <created>1723208361405</created>
-      <option name="number" value="00151" />
-      <option name="presentableId" value="LOCAL-00151" />
-      <option name="project" value="LOCAL" />
-      <updated>1723208361405</updated>
+      <workItem from="1724061816641" duration="5003000" />
     </task>
     <task id="LOCAL-00152" summary="Changed relation for printer entity.">
       <option name="closed" value="true" />
@@ -669,7 +641,39 @@
       <option name="project" value="LOCAL" />
       <updated>1724059426847</updated>
     </task>
-    <option name="localTasksCounter" value="197" />
+    <task id="LOCAL-00197" summary="Added base check for roll when send to glow.">
+      <option name="closed" value="true" />
+      <created>1724060525406</created>
+      <option name="number" value="00197" />
+      <option name="presentableId" value="LOCAL-00197" />
+      <option name="project" value="LOCAL" />
+      <updated>1724060525406</updated>
+    </task>
+    <task id="LOCAL-00198" summary="Added base check for roll when send to glow.">
+      <option name="closed" value="true" />
+      <created>1724060529221</created>
+      <option name="number" value="00198" />
+      <option name="presentableId" value="LOCAL-00198" />
+      <option name="project" value="LOCAL" />
+      <updated>1724060529221</updated>
+    </task>
+    <task id="LOCAL-00199" summary="Added base check for roll when send to glow.">
+      <option name="closed" value="true" />
+      <created>1724060559663</created>
+      <option name="number" value="00199" />
+      <option name="presentableId" value="LOCAL-00199" />
+      <option name="project" value="LOCAL" />
+      <updated>1724060559663</updated>
+    </task>
+    <task id="LOCAL-00200" summary="Added base check for roll when send to glow.">
+      <option name="closed" value="true" />
+      <created>1724060562919</created>
+      <option name="number" value="00200" />
+      <option name="presentableId" value="LOCAL-00200" />
+      <option name="project" value="LOCAL" />
+      <updated>1724060562919</updated>
+    </task>
+    <option name="localTasksCounter" value="201" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -705,7 +709,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added order sort by a lamination type." />
     <MESSAGE value="Updated added sort by length for film repo." />
     <MESSAGE value="Changed relation for printer entity." />
     <MESSAGE value="Added order check in process." />
@@ -730,7 +733,8 @@
     <MESSAGE value="Rename process." />
     <MESSAGE value="Rename processes." />
     <MESSAGE value="Added send to print check in api." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added send to print check in api." />
+    <MESSAGE value="Added base check for roll when send to glow." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added base check for roll when send to glow." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

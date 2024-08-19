@@ -15,10 +15,11 @@ class RollFactory
     /**
      * Creates a new Roll object.
      *
-     * @param string   $name   the name of the Roll
-     * @param int|null $filmId The ID of the associated Roll Film. Optional, defaults to null.
+     * @param string   $name    the name of the roll
+     * @param ?int     $filmId  The ID of the film associated with the roll. Can be null.
+     * @param ?Process $process The process associated with the roll. Can be null.
      *
-     * @return Roll the created Roll object
+     * @return Roll the newly created Roll object
      */
     public function create(string $name, ?int $filmId = null, ?Process $process = null): Roll
     {
