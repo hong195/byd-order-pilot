@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added base check for roll when send to glow.">
-      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Events/RollsWasSentToGlowCheckInEvent.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/SendRollToGlowCheckInService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/EventHandler/RollWasSentToGlowCheckInEventHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/EventHandler/RollWasSentToPrintingEventHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/EventHandler/RollWasSentToPrintingEventHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Events/RollWasSentToPrintingEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Events/RollWasSentToPrintCheckInEvent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Factory/RollFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Factory/RollFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/SendRollToGlowService.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/SendRollToPrintCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/SendRollToPrintCheckInService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/EventHandler/RollWasSentToPrintingEventHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/EventHandler/RollWasSentToPrintCheckInEventHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/SendRollToGlowCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/SendRollToGlowCheckInService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +19,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="cut-check-in" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />

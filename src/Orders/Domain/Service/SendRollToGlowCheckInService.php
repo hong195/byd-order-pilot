@@ -50,6 +50,7 @@ final readonly class SendRollToGlowCheckInService
             throw new RollCantBeSentToGlowException('Roll cannot be glowed! It is not in the correct process.');
         }
 
+        // Group orders by the lamination
         $ordersGroups = $this->groupService->handle($roll->getOrders());
 
         if ($roll->getOrders()->isEmpty()) {
@@ -59,9 +60,15 @@ final readonly class SendRollToGlowCheckInService
         $sendToGlowingRolls = [];
 
         foreach ($ordersGroups as $group => $orders) {
-            $roll = $this->rollMaker->make(name: $roll->getName(), filmId: $roll->getFilmId(), process: Process::GLOW_CHECK_IN);
+            $roll = $this->rollMaker->make(name: $roll->getName(), filmId: $roll->getFilmId());
 
             $roll->assignPrinter($roll->getPrinter());
+
+            $hasLamination = $orders->exists(fn ($order) => null !== $order->getLamination());
+            // if roll does not have lamination it goes directly to cut check in, otherwise to glow check in
+            $process = $hasLamination ? Process::GLOW_CHECK_IN : Process::CUTTING_CHECK_IN;
+
+            $roll->updateProcess($process);
 
             foreach ($orders as $order) {
                 $roll->addOrder($order);
