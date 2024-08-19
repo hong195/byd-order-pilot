@@ -6,11 +6,11 @@ namespace App\Orders\Infrastructure\EventHandler;
 
 use App\Orders\Application\UseCase\PrivateCommandInteractor;
 use App\Orders\Application\UseCase\PrivateQueryInteractor;
-use App\Orders\Domain\Events\RollsWasSentToGlowCheckInEvent;
+use App\Orders\Domain\Events\RollsWereSentToGlowCheckInEvent;
 use App\Shared\Application\Event\EventHandlerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 
-#[AsEventListener(event: RollsWasSentToGlowCheckInEvent::class, method: '__invoke')]
+#[AsEventListener(event: RollsWereSentToGlowCheckInEvent::class, method: '__invoke')]
 /**
  * RollWasSentToPrintCheckInEventHandler handles the RollWasSentToPrintCheckInEvent.
  */
@@ -29,9 +29,9 @@ final readonly class RollWasSentToGlowCheckInEventHandler implements EventHandle
     /**
      * Invokes the RollWasSentToPrintCheckInEvent event.
      *
-     * @param RollsWasSentToGlowCheckInEvent $event the event object
+     * @param RollsWereSentToGlowCheckInEvent $event the event object
      */
-    public function __invoke(RollsWasSentToGlowCheckInEvent $event): void
+    public function __invoke(RollsWereSentToGlowCheckInEvent $event): void
     {
         $rollsIds = $event->rollIds;
         // rolls sent to glow check in are using the same printer

@@ -11,7 +11,7 @@ use App\Shared\Domain\Event\EventInterface;
  *
  * @readonly
  */
-final readonly class RollsWasSentToGlowCheckInEvent implements EventInterface
+final readonly class RollsWereSentToGlowCheckInEvent implements EventInterface
 {
     /**
      * Class constructor.

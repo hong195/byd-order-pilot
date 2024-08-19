@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Orders\Domain\Service;
 
 use App\Orders\Domain\Aggregate\Roll;
-use App\Orders\Domain\Events\RollsWasSentToGlowCheckInEvent;
+use App\Orders\Domain\Events\RollsWereSentToGlowCheckInEvent;
 use App\Orders\Domain\Exceptions\RollCantBeSentToGlowException;
 use App\Orders\Domain\Repository\RollRepositoryInterface;
 use App\Orders\Domain\Service\Order\GroupService;
@@ -73,6 +73,6 @@ final readonly class SendRollToGlowCheckInService
         $this->rollRepository->remove($roll);
         $this->rollRepository->saveRolls($sendToGlowingRolls);
 
-        $this->eventDispatcher->dispatch(new RollsWasSentToGlowCheckInEvent(array_map(fn (Roll $roll) => $roll->getId(), $sendToGlowingRolls)));
+        $this->eventDispatcher->dispatch(new RollsWereSentToGlowCheckInEvent(array_map(fn (Roll $roll) => $roll->getId(), $sendToGlowingRolls)));
     }
 }
