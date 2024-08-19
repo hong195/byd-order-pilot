@@ -4,20 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Error fix #2.">
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/SendRollToGlowCheckIn/SendRollToGlowCheckInCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/SendRollToGlowCheckIn/SendRollToGlowCheckInCommandHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Rolls/SendRollToGlowCheckInAction.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Rename roll type to film type.">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/SendToPrintCheckIn/SendRollToPrintCheckInCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/SendRollToPrintCheckIn/SendRollToPrintCheckInCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/SendToPrintCheckIn/SendRollToPrintCheckIntCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/SendRollToPrintCheckIn/SendRollToPrintCheckIntCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/RollMaker.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/RollMaker.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/SendRollToGlowCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/SendRollToGlowCheckInService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Rolls/SendRollToPrintCheckInAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Rolls/SendRollToPrintCheckInAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/RollRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/RollRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Order.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Order.orm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Printer.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Printer.orm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240813055802.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240819154254.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240814100330.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240816092840.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -283,71 +277,7 @@
       <workItem from="1723390311692" duration="26395000" />
       <workItem from="1724051941853" duration="6737000" />
       <workItem from="1724061816641" duration="5003000" />
-      <workItem from="1724068553916" duration="3509000" />
-    </task>
-    <task id="LOCAL-00156" summary="Updated logic for check in service.">
-      <option name="closed" value="true" />
-      <created>1723535552648</created>
-      <option name="number" value="00156" />
-      <option name="presentableId" value="LOCAL-00156" />
-      <option name="project" value="LOCAL" />
-      <updated>1723535552648</updated>
-    </task>
-    <task id="LOCAL-00157" summary="Updated logic for check in service.">
-      <option name="closed" value="true" />
-      <created>1723535630527</created>
-      <option name="number" value="00157" />
-      <option name="presentableId" value="LOCAL-00157" />
-      <option name="project" value="LOCAL" />
-      <updated>1723535630527</updated>
-    </task>
-    <task id="LOCAL-00158" summary="Updated logic for check in service.">
-      <option name="closed" value="true" />
-      <created>1723535633846</created>
-      <option name="number" value="00158" />
-      <option name="presentableId" value="LOCAL-00158" />
-      <option name="project" value="LOCAL" />
-      <updated>1723535633846</updated>
-    </task>
-    <task id="LOCAL-00159" summary="Updated roll api endpoints.">
-      <option name="closed" value="true" />
-      <created>1723540428503</created>
-      <option name="number" value="00159" />
-      <option name="presentableId" value="LOCAL-00159" />
-      <option name="project" value="LOCAL" />
-      <updated>1723540428503</updated>
-    </task>
-    <task id="LOCAL-00160" summary="Updated roll api endpoints.">
-      <option name="closed" value="true" />
-      <created>1723540432192</created>
-      <option name="number" value="00160" />
-      <option name="presentableId" value="LOCAL-00160" />
-      <option name="project" value="LOCAL" />
-      <updated>1723540432192</updated>
-    </task>
-    <task id="LOCAL-00161" summary="Updated docker env file.">
-      <option name="closed" value="true" />
-      <created>1723543837376</created>
-      <option name="number" value="00161" />
-      <option name="presentableId" value="LOCAL-00161" />
-      <option name="project" value="LOCAL" />
-      <updated>1723543837376</updated>
-    </task>
-    <task id="LOCAL-00162" summary="Updated docker env file #2.">
-      <option name="closed" value="true" />
-      <created>1723543969947</created>
-      <option name="number" value="00162" />
-      <option name="presentableId" value="LOCAL-00162" />
-      <option name="project" value="LOCAL" />
-      <updated>1723543969947</updated>
-    </task>
-    <task id="LOCAL-00163" summary="Updated roll api.">
-      <option name="closed" value="true" />
-      <created>1723545261072</created>
-      <option name="number" value="00163" />
-      <option name="presentableId" value="LOCAL-00163" />
-      <option name="project" value="LOCAL" />
-      <updated>1723545261072</updated>
+      <workItem from="1724068553916" duration="5779000" />
     </task>
     <task id="LOCAL-00164" summary="Added inventory implementation.">
       <option name="closed" value="true" />
@@ -677,7 +607,71 @@
       <option name="project" value="LOCAL" />
       <updated>1724068697279</updated>
     </task>
-    <option name="localTasksCounter" value="205" />
+    <task id="LOCAL-00205" summary="Updated removes orders from roll when deleting roll.">
+      <option name="closed" value="true" />
+      <created>1724074542763</created>
+      <option name="number" value="00205" />
+      <option name="presentableId" value="LOCAL-00205" />
+      <option name="project" value="LOCAL" />
+      <updated>1724074542763</updated>
+    </task>
+    <task id="LOCAL-00206" summary="Updated removes orders from roll when deleting roll.">
+      <option name="closed" value="true" />
+      <created>1724074604747</created>
+      <option name="number" value="00206" />
+      <option name="presentableId" value="LOCAL-00206" />
+      <option name="project" value="LOCAL" />
+      <updated>1724074604747</updated>
+    </task>
+    <task id="LOCAL-00207" summary="Rename roll type to film type.">
+      <option name="closed" value="true" />
+      <created>1724081073431</created>
+      <option name="number" value="00207" />
+      <option name="presentableId" value="LOCAL-00207" />
+      <option name="project" value="LOCAL" />
+      <updated>1724081073431</updated>
+    </task>
+    <task id="LOCAL-00208" summary="Rename roll type to film type.">
+      <option name="closed" value="true" />
+      <created>1724081134669</created>
+      <option name="number" value="00208" />
+      <option name="presentableId" value="LOCAL-00208" />
+      <option name="project" value="LOCAL" />
+      <updated>1724081134669</updated>
+    </task>
+    <task id="LOCAL-00209" summary="Rename roll type to film type.">
+      <option name="closed" value="true" />
+      <created>1724081459418</created>
+      <option name="number" value="00209" />
+      <option name="presentableId" value="LOCAL-00209" />
+      <option name="project" value="LOCAL" />
+      <updated>1724081459418</updated>
+    </task>
+    <task id="LOCAL-00210" summary="Rename roll type to film type.">
+      <option name="closed" value="true" />
+      <created>1724081570579</created>
+      <option name="number" value="00210" />
+      <option name="presentableId" value="LOCAL-00210" />
+      <option name="project" value="LOCAL" />
+      <updated>1724081570579</updated>
+    </task>
+    <task id="LOCAL-00211" summary="Rename roll type to film type.">
+      <option name="closed" value="true" />
+      <created>1724081636214</created>
+      <option name="number" value="00211" />
+      <option name="presentableId" value="LOCAL-00211" />
+      <option name="project" value="LOCAL" />
+      <updated>1724081636214</updated>
+    </task>
+    <task id="LOCAL-00212" summary="Rename roll type to film type.">
+      <option name="closed" value="true" />
+      <created>1724081754714</created>
+      <option name="number" value="00212" />
+      <option name="presentableId" value="LOCAL-00212" />
+      <option name="project" value="LOCAL" />
+      <updated>1724081754714</updated>
+    </task>
+    <option name="localTasksCounter" value="213" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -713,8 +707,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated logic for check in service." />
-    <MESSAGE value="Updated roll api endpoints." />
     <MESSAGE value="Updated docker env file." />
     <MESSAGE value="Updated docker env file #2." />
     <MESSAGE value="Updated roll api." />
@@ -738,7 +730,9 @@
     <MESSAGE value="Updated if roll does not have lamination it goes directly to cut check in." />
     <MESSAGE value="Error fix." />
     <MESSAGE value="Error fix #2." />
-    <option name="LAST_COMMIT_MESSAGE" value="Error fix #2." />
+    <MESSAGE value="Updated removes orders from roll when deleting roll." />
+    <MESSAGE value="Rename roll type to film type." />
+    <option name="LAST_COMMIT_MESSAGE" value="Rename roll type to film type." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
