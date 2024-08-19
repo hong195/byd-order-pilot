@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orders\Domain\Service;
 
+use App\Orders\Domain\Aggregate\Order;
 use App\Orders\Domain\Aggregate\Roll;
 use App\Orders\Domain\Events\RollsWereSentToGlowCheckInEvent;
 use App\Orders\Domain\Exceptions\RollCantBeSentToGlowException;
@@ -64,7 +65,7 @@ final readonly class SendRollToGlowCheckInService
 
             $roll->assignPrinter($roll->getPrinter());
 
-            $hasLamination = $orders->exists(fn ($order) => null !== $order->getLamination());
+            $hasLamination = $orders->exists(fn (Order $order) => null !== $order->getLaminationType());
             // if roll does not have lamination it goes directly to cut check in, otherwise to glow check in
             $process = $hasLamination ? Process::GLOW_CHECK_IN : Process::CUTTING_CHECK_IN;
 
