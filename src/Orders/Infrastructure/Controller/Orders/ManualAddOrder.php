@@ -50,7 +50,7 @@ final readonly class ManualAddOrder
         $manuallyAddCommand = new ManuallyAddOrderCommand(
             productType: $request->get('productType'),
             length: (int) $request->get('length'),
-            rollType: $request->get('rollType'),
+            filmType: $request->get('filmType'),
             hasPriority: (bool) $request->get('hasPriority'),
             laminationType: $request->get('laminationType'),
             orderNumber: $request->get('orderNumber'),

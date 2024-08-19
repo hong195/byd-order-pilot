@@ -16,9 +16,9 @@ readonly class RollFilter
      *
      * @param Process|null $process  The process object. If null, it means no process is set.
      * @param array        $filmIds  An array of film ids. It is an optional parameter and defaults to an empty array.
-     * @param string|null  $rollType The roll type. If null, it means no roll type is set.
+     * @param string|null  $filmType The roll type. If null, it means no roll type is set.
      */
-    public function __construct(public ?Process $process = null, public array $filmIds = [], public ?string $rollType = null)
+    public function __construct(public ?Process $process = null, public array $filmIds = [], public ?string $filmType = null)
     {
     }
 }

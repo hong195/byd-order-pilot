@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Orders\Domain\Aggregate;
 
+use App\Orders\Domain\ValueObject\FilmType;
 use App\Orders\Domain\ValueObject\LaminationType;
 use App\Orders\Domain\ValueObject\PrinterType;
-use App\Orders\Domain\ValueObject\RollType;
 
 /**
  * Class Printer.
@@ -30,10 +30,10 @@ class Printer
      * Printer constructor.
      *
      * @param PrinterType      $name            the name of the printer
-     * @param RollType[]       $rollTypes       an array of roll types
+     * @param FilmType[]       $filmTypes       an array of roll types
      * @param LaminationType[] $laminationTypes an array of lamination types
      */
-    public function __construct(private readonly PrinterType $name, private array $rollTypes = [], private array $laminationTypes = [])
+    public function __construct(private readonly PrinterType $name, private array $filmTypes = [], private array $laminationTypes = [])
     {
         $this->dateAdded = new \DateTimeImmutable();
     }
@@ -91,11 +91,11 @@ class Printer
     /**
      * Returns the available roll types.
      *
-     * @return RollType[] the array of roll types
+     * @return FilmType[] the array of roll types
      */
-    public function getRollTypes(): array
+    public function getfilmTypes(): array
     {
-        return $this->rollTypes;
+        return $this->filmTypes;
     }
 
     /**

@@ -6,7 +6,7 @@ namespace App\Orders\Infrastructure\Repository;
 
 use App\Orders\Domain\Aggregate\Printer;
 use App\Orders\Domain\Repository\PrinterRepositoryInterface;
-use App\Orders\Domain\ValueObject\RollType;
+use App\Orders\Domain\ValueObject\FilmType;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -53,18 +53,18 @@ final class PrinterRepository extends ServiceEntityRepository implements Printer
     }
 
     /**
-     * Finds a Printer entity by RollType.
+     * Finds a Printer entity by filmType.
      *
-     * @param RollType $rollType the RollType entity to search for in Printer entities
+     * @param FilmType $filmType the filmType entity to search for in Printer entities
      *
      * @return Printer|null the found Printer entity or null if not found
      */
-    public function findByRollType(RollType $rollType): ?Printer
+    public function findByfilmType(FilmType $filmType): ?Printer
     {
         $queryBuilder = $this->createQueryBuilder('p');
 
-        $queryBuilder->where('JSONB_CONTAINS(p.rollTypes, :rollType) = true')
-            ->setParameter('rollType', json_encode($rollType->value));
+        $queryBuilder->where('JSONB_CONTAINS(p.filmTypes, :filmType) = true')
+            ->setParameter('filmType', json_encode($filmType->value));
 
         return $queryBuilder->getQuery()->getOneOrNullResult();
     }

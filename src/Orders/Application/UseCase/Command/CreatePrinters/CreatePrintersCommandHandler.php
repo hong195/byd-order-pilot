@@ -6,9 +6,9 @@ namespace App\Orders\Application\UseCase\Command\CreatePrinters;
 
 use App\Orders\Domain\Factory\PrinterFactory;
 use App\Orders\Domain\Repository\PrinterRepositoryInterface;
+use App\Orders\Domain\ValueObject\FilmType;
 use App\Orders\Domain\ValueObject\LaminationType;
 use App\Orders\Domain\ValueObject\PrinterType;
-use App\Orders\Domain\ValueObject\RollType;
 use App\Shared\Application\Command\CommandHandlerInterface;
 
 /**
@@ -44,23 +44,23 @@ readonly class CreatePrintersCommandHandler implements CommandHandlerInterface
         $printers = [
             [
                 'name' => PrinterType::ROLAND_UV_PRINTER,
-                'rollTypes' => [RollType::WHITE],
+                'filmTypes' => [FilmType::WHITE],
                 'laminationTypes' => LaminationType::cases(),
             ],
             [
                 'name' => PrinterType::MIMAKI_UV_PRINTER,
-                'rollTypes' => [RollType::CHROME, RollType::NEON, RollType::CLEAR],
+                'filmTypes' => [FilmType::CHROME, FilmType::NEON, FilmType::CLEAR],
                 'laminationTypes' => LaminationType::cases(),
             ],
             [
                 'name' => PrinterType::ROLAND_NORMAL_PRINTER,
-                'rollTypes' => [RollType::ECO],
+                'filmTypes' => [FilmType::ECO],
                 'laminationTypes' => [],
             ],
         ];
 
         foreach ($printers as $printerData) {
-            $printer = $this->printerFactory->make($printerData['name'], $printerData['rollTypes'], $printerData['laminationTypes']);
+            $printer = $this->printerFactory->make($printerData['name'], $printerData['filmTypes'], $printerData['laminationTypes']);
             $this->printerRepository->save($printer);
         }
 

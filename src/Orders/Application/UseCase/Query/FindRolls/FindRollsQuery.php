@@ -16,10 +16,10 @@ final readonly class FindRollsQuery extends Query
     /**
      * Class Constructor.
      *
-     * @param string|null $rollType       The type of roll
+     * @param string|null $filmType       The type of roll
      * @param string|null $laminationType The type of lamination (optional)
      */
-    public function __construct(public ?string $rollType = null, public ?string $laminationType = null)
+    public function __construct(public ?string $filmType = null, public ?string $laminationType = null)
     {
     }
 }

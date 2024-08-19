@@ -15,9 +15,9 @@ final readonly class FilmData
      * @param int    $id       the unique identifier of the entry
      * @param string $name     the name of the entry
      * @param int    $length   the length of the entry
-     * @param string $rollType the roll type of the entry
+     * @param string $filmType the roll type of the entry
      */
-    public function __construct(public int $id, public string $name, public int $length, public string $rollType)
+    public function __construct(public int $id, public string $name, public int $length, public string $filmType)
     {
     }
 }

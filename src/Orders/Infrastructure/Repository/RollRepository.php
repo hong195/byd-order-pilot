@@ -106,10 +106,10 @@ class RollRepository extends ServiceEntityRepository implements RollRepositoryIn
             $qb->setParameter('filmIds', $rollFilter->filmIds);
         }
 
-        if ($rollFilter->rollType) {
+        if ($rollFilter->filmType) {
             $qb->join('r.printer', 'p')
-                ->andWhere('JSONB_CONTAINS(p.rollTypes, :rollType) = true')
-                ->setParameter('rollType', json_encode($rollFilter->rollType))
+                ->andWhere('JSONB_CONTAINS(p.filmTypes, :filmType) = true')
+                ->setParameter('filmType', json_encode($rollFilter->filmType))
             ;
         }
 

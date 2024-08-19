@@ -25,8 +25,8 @@
                nullable="true"
         />
 
-        <field name="rollType"
-               enum-type="App\Orders\Domain\ValueObject\RollType"
+        <field name="filmType"
+               enum-type="App\Orders\Domain\ValueObject\filmType"
                column="roll_type"
                length="255"
                nullable="true"

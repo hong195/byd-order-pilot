@@ -17,7 +17,7 @@ final readonly class OrderData
      * @param bool               $hasPriority    indicates if the object has priority
      * @param int                $length         the length of the object
      * @param string             $productType    the type of the product
-     * @param string             $rollType       the type of the roll
+     * @param string             $filmType       the type of the roll
      * @param \DateTimeInterface $addedAt        the date and time when the object was added
      * @param string|null        $laminationType the type of lamination (optional)
      * @param int|null           $orderNumber    the order number associated with the object (optional)
@@ -30,7 +30,7 @@ final readonly class OrderData
         public bool $hasPriority,
         public int $length,
         public string $productType,
-        public string $rollType,
+        public string $filmType,
         public \DateTimeInterface $addedAt,
         public ?string $laminationType = null,
         public ?int $orderNumber = null,

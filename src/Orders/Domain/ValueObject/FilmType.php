@@ -3,10 +3,10 @@
 namespace App\Orders\Domain\ValueObject;
 
 /**
- * Enum RollType represents the different types of rolls.
+ * Enum filmType represents the different types of rolls.
  *
  * */
-enum RollType: string
+enum FilmType: string
 {
     case CHROME = 'chrome';
     case NEON = 'neon';

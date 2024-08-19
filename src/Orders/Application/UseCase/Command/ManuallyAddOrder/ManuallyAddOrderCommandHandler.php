@@ -41,7 +41,7 @@ final readonly class ManuallyAddOrderCommandHandler implements CommandHandlerInt
         $order = $this->manuallyAddOrderService->add(
             productType: $command->productType,
             length: $command->length,
-            rollType: $command->rollType,
+            filmType: $command->filmType,
             hasPriority: $command->hasPriority,
             laminationType: $command->laminationType,
             orderNumber: $command->orderNumber

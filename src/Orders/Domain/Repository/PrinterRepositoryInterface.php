@@ -3,7 +3,7 @@
 namespace App\Orders\Domain\Repository;
 
 use App\Orders\Domain\Aggregate\Printer;
-use App\Orders\Domain\ValueObject\RollType;
+use App\Orders\Domain\ValueObject\FilmType;
 
 /**
  * Interface for interacting with the Printer repository.
@@ -36,11 +36,11 @@ interface PrinterRepositoryInterface
     public function findByNames(array $names): array;
 
     /**
-     * Finds Printer objects by the given RollType.
+     * Finds Printer objects by the given filmType.
      *
-     * @param RollType $rollType the RollType object to search by
+     * @param FilmType $filmType the filmType object to search by
      *
-     * @return ?Printer an array of Printer objects matching the given RollType
+     * @return ?Printer an array of Printer objects matching the given filmType
      */
-    public function findByRollType(RollType $rollType): ?Printer;
+    public function findByfilmType(FilmType $filmType): ?Printer;
 }

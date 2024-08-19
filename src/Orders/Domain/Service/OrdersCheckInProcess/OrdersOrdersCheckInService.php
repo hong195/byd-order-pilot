@@ -12,8 +12,8 @@ use App\Orders\Domain\Repository\RollFilter;
 use App\Orders\Domain\Service\Inventory\AvailableFilmServiceInterface;
 use App\Orders\Domain\Service\Order\SortOrdersServiceInterface;
 use App\Orders\Domain\Service\RollMaker;
+use App\Orders\Domain\ValueObject\FilmType;
 use App\Orders\Domain\ValueObject\Process;
-use App\Orders\Domain\ValueObject\RollType;
 use App\Orders\Domain\ValueObject\Status;
 use App\Orders\Infrastructure\Repository\RollRepository;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -61,11 +61,11 @@ final class OrdersOrdersCheckInService implements OrdersCheckInInterface
         $groupedFilms = $this->groupFilmsByType($availableFilms);
         $groupedOrders = $this->groupOrdersByFilm($assignedOrders);
 
-        foreach ($groupedOrders as $rollType => $orders) {
-            if (!isset($groupedFilms[$rollType])) {
+        foreach ($groupedOrders as $filmType => $orders) {
+            if (!isset($groupedFilms[$filmType])) {
                 // If there is no film of this type, create an empty roll for all orders of this type
                 foreach ($orders as $order) {
-                    $roll = $this->findOrMakeRoll(name: "Empty Roll {$order->getRollType()->value}", filmId: null, rollType: $order->getRollType());
+                    $roll = $this->findOrMakeRoll(name: "Empty Roll {$order->getFilmType()->value}", filmId: null, filmType: $order->getFilmType());
                     $roll->addOrder($order);
                     $this->syncAssignRolls($roll);
                 }
@@ -73,7 +73,7 @@ final class OrdersOrdersCheckInService implements OrdersCheckInInterface
             }
 
             // Инициализируем доступные пленки для данного типа
-            $currentFilm = $groupedFilms[$rollType];
+            $currentFilm = $groupedFilms[$filmType];
 
             foreach ($orders as $order) {
                 $orderPlaced = false;
@@ -82,7 +82,7 @@ final class OrdersOrdersCheckInService implements OrdersCheckInInterface
                 foreach ($currentFilm as $key => $film) {
                     $filmLength = $film->length;
 
-                    $roll = $this->findOrMakeRoll(name: "Roll {$film->rollType}", filmId: $film->id, rollType: $order->getRollType());
+                    $roll = $this->findOrMakeRoll(name: "Roll {$film->filmType}", filmId: $film->id, filmType: $order->getFilmType());
 
                     if ($roll->getOrdersLength() + $order->getLength() <= $filmLength) {
                         $roll->addOrder($order);
@@ -100,7 +100,7 @@ final class OrdersOrdersCheckInService implements OrdersCheckInInterface
 
                 // Если заказ не был размещен, создаем пустой рулон
                 if (!$orderPlaced) {
-                    $roll = $this->findOrMakeRoll("Empty Roll {$order->getRollType()->value}", null, $order->getRollType());
+                    $roll = $this->findOrMakeRoll("Empty Roll {$order->getFilmType()->value}", null, $order->getFilmType());
                     $roll->getOrders()->count();
                     $roll->addOrder($order);
 
@@ -117,21 +117,21 @@ final class OrdersOrdersCheckInService implements OrdersCheckInInterface
      *
      * @param string        $name     The name of the roll
      * @param int|null      $filmId   The ID of the film associated with the roll (optional)
-     * @param RollType|null $rollType The roll type associated with the roll (optional)
+     * @param FilmType|null $filmType The roll type associated with the roll (optional)
      *
      * @return Roll The found or newly created roll
      */
-    private function findOrMakeRoll(string $name, ?int $filmId = null, ?RollType $rollType = null): Roll
+    private function findOrMakeRoll(string $name, ?int $filmId = null, ?FilmType $filmType = null): Roll
     {
-        $roll = $this->rolls->filter(function (Roll $roll) use ($filmId, $rollType) {
-            return $roll->getFilmId() === $filmId && in_array($rollType, $roll->getPrinter()->getRollTypes());
+        $roll = $this->rolls->filter(function (Roll $roll) use ($filmId, $filmType) {
+            return $roll->getFilmId() === $filmId && in_array($filmType, $roll->getPrinter()->getfilmTypes());
         })->first();
 
         if ($roll) {
             return $roll;
         }
 
-        $roll = $this->rollMaker->make($name, $filmId, $rollType, Process::ORDER_CHECK_IN);
+        $roll = $this->rollMaker->make($name, $filmId, $filmType, Process::ORDER_CHECK_IN);
 
         $this->rolls->add($roll);
 
@@ -165,7 +165,7 @@ final class OrdersOrdersCheckInService implements OrdersCheckInInterface
         $groupedOrders = [];
 
         foreach ($orders as $order) {
-            $groupedOrders[$order->getRollType()->value][] = $order;
+            $groupedOrders[$order->getFilmType()->value][] = $order;
         }
 
         return $groupedOrders;
@@ -183,7 +183,7 @@ final class OrdersOrdersCheckInService implements OrdersCheckInInterface
         $groupedFilms = [];
 
         foreach ($films as $film) {
-            $groupedFilms[$film->rollType][] = $film;
+            $groupedFilms[$film->filmType][] = $film;
         }
 
         return $groupedFilms;

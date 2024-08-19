@@ -73,7 +73,7 @@ final readonly class OrderDataTransformer
             hasPriority: $order->hasPriority(),
             length: $order->getLength(),
             productType: $order->getProductType()->value,
-            rollType: $order->getRollType()->value,
+            filmType: $order->getFilmType()->value,
             addedAt: $order->getDateAdded(),
             laminationType: $order->getLaminationType()?->value,
             orderNumber: $order->getOrderNumber(),

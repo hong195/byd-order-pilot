@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Orders\Domain\Aggregate;
 
+use App\Orders\Domain\ValueObject\FilmType;
 use App\Orders\Domain\ValueObject\LaminationType;
 use App\Orders\Domain\ValueObject\ProductType;
-use App\Orders\Domain\ValueObject\RollType;
 use App\Orders\Domain\ValueObject\Status;
 use App\Shared\Domain\Aggregate\Aggregate;
 use App\Shared\Domain\Entity\MediaFile;
@@ -36,7 +36,7 @@ final class Order extends Aggregate
      *
      * @param int             $length         The length of the product
      * @param ProductType     $productType    The type of the product
-     * @param RollType        $rollType       The roll type of the product
+     * @param FilmType        $filmType       The roll type of the product
      * @param Status          $status         The status of the product (optional, default: Status::UNASSIGNED)
      * @param bool            $hasPriority    Whether the product has priority (optional, default: false)
      * @param ?LaminationType $laminationType The lamination type of the product (optional, default: null)
@@ -45,7 +45,7 @@ final class Order extends Aggregate
     public function __construct(
         private readonly int $length,
         private readonly ProductType $productType,
-        private RollType $rollType,
+        private FilmType $filmType,
         private Status $status = Status::NEW,
         private bool $hasPriority = false,
         private ?LaminationType $laminationType = null,
@@ -177,21 +177,21 @@ final class Order extends Aggregate
     /**
      * Returns the roll type.
      *
-     * @return RollType the roll type
+     * @return FilmType the roll type
      */
-    public function getRollType(): RollType
+    public function getFilmType(): FilmType
     {
-        return $this->rollType;
+        return $this->filmType;
     }
 
     /**
      * Sets the roll type.
      *
-     * @param RollType $rollType the roll type to set
+     * @param FilmType $filmType the roll type to set
      */
-    public function setRollType(RollType $rollType): void
+    public function setFilmType(FilmType $filmType): void
     {
-        $this->rollType = $rollType;
+        $this->filmType = $filmType;
     }
 
     /**

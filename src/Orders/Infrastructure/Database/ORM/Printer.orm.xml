@@ -16,7 +16,7 @@
 
         <field name="isAvailable" column="is_available" type="boolean"/>
 
-        <field name="rollTypes" type="jsonb" enum-type="App\Orders\Domain\ValueObject\RollType">
+        <field name="filmTypes" type="jsonb" enum-type="App\Orders\Domain\ValueObject\filmType">
             <options >
                 <option name="default">[]</option>
             </options>

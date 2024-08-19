@@ -14,10 +14,10 @@ final class PrinterFilter
     /**
      * Class Constructor.
      *
-     * @param string[] $rollTypes
+     * @param string[] $filmTypes
      * @param string[] $laminationTypes
      */
-    public function __construct(public readonly array $rollTypes = [], public array $laminationTypes = [])
+    public function __construct(public readonly array $filmTypes = [], public array $laminationTypes = [])
     {
     }
 

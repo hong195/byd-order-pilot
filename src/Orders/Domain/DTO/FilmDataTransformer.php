@@ -12,7 +12,7 @@ final readonly class FilmDataTransformer
             id: $id,
             name: $name,
             length: $length,
-            rollType: $type
+            filmType: $type
         );
     }
 

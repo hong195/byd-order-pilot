@@ -35,20 +35,20 @@ final readonly class ManualOrderService
      *
      * @param string      $productType    the type of the product for the order
      * @param int         $length         the length of the order
-     * @param string      $rollType       the type of the roll, if applicable, otherwise null
+     * @param string      $filmType       the type of the roll, if applicable, otherwise null
      * @param bool        $hasPriority    indicates whether the order has priority
      * @param string|null $laminationType the type of lamination, if applicable, otherwise null
      * @param string|null $orderNumber    the order number, if provided, otherwise null
      *
      * @return Order the created order
      */
-    public function add(string $productType, int $length, string $rollType, bool $hasPriority, ?string $laminationType = null, ?string $orderNumber = null): Order
+    public function add(string $productType, int $length, string $filmType, bool $hasPriority, ?string $laminationType = null, ?string $orderNumber = null): Order
     {
         $order = $this->orderFactory->make(
             length: $length,
             productType: $productType,
             laminationType: $laminationType,
-            rollType: $rollType,
+            filmType: $filmType,
             hasPriority: $hasPriority,
             orderNumber: $orderNumber
         );
