@@ -187,16 +187,16 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "3.8.7",
+            "version": "3.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "2093d670ca17f634f3c095ec10a20687eccebd99"
+                "reference": "d8f68ea6cc00912e5313237130b8c8decf4d28c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/2093d670ca17f634f3c095ec10a20687eccebd99",
-                "reference": "2093d670ca17f634f3c095ec10a20687eccebd99",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/d8f68ea6cc00912e5313237130b8c8decf4d28c6",
+                "reference": "d8f68ea6cc00912e5313237130b8c8decf4d28c6",
                 "shasum": ""
             },
             "require": {
@@ -280,7 +280,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/dbal/issues",
-                "source": "https://github.com/doctrine/dbal/tree/3.8.7"
+                "source": "https://github.com/doctrine/dbal/tree/3.9.0"
             },
             "funding": [
                 {
@@ -296,7 +296,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-08-07T11:57:25+00:00"
+            "time": "2024-08-15T07:34:42+00:00"
         },
         {
             "name": "doctrine/deprecations",
@@ -1562,16 +1562,16 @@
         },
         {
             "name": "martin-georgiev/postgresql-for-doctrine",
-            "version": "v2.5.0",
+            "version": "v2.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/martin-georgiev/postgresql-for-doctrine.git",
-                "reference": "b41602ac9a9b72dd780318338d8c3f768af4bb62"
+                "reference": "c3e1766528434984497b0e7fa970afe3592389b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/martin-georgiev/postgresql-for-doctrine/zipball/b41602ac9a9b72dd780318338d8c3f768af4bb62",
-                "reference": "b41602ac9a9b72dd780318338d8c3f768af4bb62",
+                "url": "https://api.github.com/repos/martin-georgiev/postgresql-for-doctrine/zipball/c3e1766528434984497b0e7fa970afe3592389b2",
+                "reference": "c3e1766528434984497b0e7fa970afe3592389b2",
                 "shasum": ""
             },
             "require": {
@@ -1584,13 +1584,13 @@
             "require-dev": {
                 "doctrine/orm": "~2.14||~3.0",
                 "ekino/phpstan-banned-code": "^1.0",
-                "friendsofphp/php-cs-fixer": "^3.54.0",
+                "friendsofphp/php-cs-fixer": "^3.62.0",
                 "php-coveralls/php-coveralls": "^2.7.0",
-                "phpstan/phpstan": "^1.10.67",
-                "phpstan/phpstan-phpunit": "^1.3.16",
-                "phpunit/phpunit": "^10.5.19",
+                "phpstan/phpstan": "^1.11.10",
+                "phpstan/phpstan-phpunit": "^1.4.0",
+                "phpunit/phpunit": "^10.5.30",
                 "qossmic/deptrac": "^2.0.0-alpha",
-                "rector/rector": "^1.0.4",
+                "rector/rector": "^1.2.3",
                 "symfony/cache": "^6.4||^7.0"
             },
             "suggest": {
@@ -1629,7 +1629,7 @@
             ],
             "support": {
                 "issues": "https://github.com/martin-georgiev/postgresql-for-doctrine/issues",
-                "source": "https://github.com/martin-georgiev/postgresql-for-doctrine/tree/v2.5.0"
+                "source": "https://github.com/martin-georgiev/postgresql-for-doctrine/tree/v2.6.0"
             },
             "funding": [
                 {
@@ -1637,7 +1637,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-04-17T19:43:04+00:00"
+            "time": "2024-08-17T20:27:52+00:00"
         },
         {
             "name": "nelmio/cors-bundle",
@@ -6302,16 +6302,16 @@
         },
         {
             "name": "phpstan/phpstan-symfony",
-            "version": "1.4.6",
+            "version": "1.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan-symfony.git",
-                "reference": "e909a075d69e0d4db262ac3407350ae2c6b6ab5f"
+                "reference": "14eec8c011b856eee4d744a2a3f709db1e1858bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan-symfony/zipball/e909a075d69e0d4db262ac3407350ae2c6b6ab5f",
-                "reference": "e909a075d69e0d4db262ac3407350ae2c6b6ab5f",
+                "url": "https://api.github.com/repos/phpstan/phpstan-symfony/zipball/14eec8c011b856eee4d744a2a3f709db1e1858bd",
+                "reference": "14eec8c011b856eee4d744a2a3f709db1e1858bd",
                 "shasum": ""
             },
             "require": {
@@ -6368,9 +6368,9 @@
             "description": "Symfony Framework extensions and rules for PHPStan",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan-symfony/issues",
-                "source": "https://github.com/phpstan/phpstan-symfony/tree/1.4.6"
+                "source": "https://github.com/phpstan/phpstan-symfony/tree/1.4.8"
             },
-            "time": "2024-07-16T11:48:54+00:00"
+            "time": "2024-08-13T19:43:40+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",

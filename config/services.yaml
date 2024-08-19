@@ -40,7 +40,7 @@ services:
         exclude: '../src/Shared/*'
 
     App\Orders\Domain\Service\Inventory\AvailableFilmServiceInterface:
-        class: App\Orders\Infrastructure\Adapter\InventoryAdapter
+        class: App\Orders\Infrastructure\Adapter\InventoryApiAdapter
         public: true
 
     Symfony\Component\Serializer\Normalizer\ObjectNormalizer: ~

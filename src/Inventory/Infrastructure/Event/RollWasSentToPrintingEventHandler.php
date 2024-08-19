@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Infrastructure\EventHandler;
+namespace App\Inventory\Infrastructure\Event;
 
-use App\Orders\Application\UseCase\PrivateCommandInteractor;
-use App\Orders\Application\UseCase\PrivateQueryInteractor;
+use App\Inventory\Infrastructure\Adapter\Rolls\RollsApiAdapter;
 use App\Orders\Domain\Events\RollWasSentToPrintingEvent;
 use App\Shared\Application\Event\EventHandlerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
@@ -17,12 +16,11 @@ use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 final readonly class RollWasSentToPrintingEventHandler implements EventHandlerInterface
 {
     /**
-     * Constructor for the class.
+     * Class constructor.
      *
-     * @param PrivateCommandInteractor $privateCommandInteractor Instance of PrivateCommandInteractor
-     * @param PrivateQueryInteractor   $privateQueryInteractor   Instance of PrivateQueryInteractor
+     * @param RollsApiAdapter $rollsApiAdapter The RollsApiAdapter instance used for communication with the Rolls API
      */
-    public function __construct(private PrivateCommandInteractor $privateCommandInteractor, private PrivateQueryInteractor $privateQueryInteractor)
+    public function __construct(private RollsApiAdapter $rollsApiAdapter)
     {
     }
 
@@ -33,8 +31,8 @@ final readonly class RollWasSentToPrintingEventHandler implements EventHandlerIn
      */
     public function __invoke(RollWasSentToPrintingEvent $event): void
     {
-        $roll = $this->privateQueryInteractor->findARoll($event->rollId);
+        $roll = $this->rollsApiAdapter->getRollById($event->rollId);
 
-        $this->privateCommandInteractor->makePrinterAvailable($roll->rollData->printerId);
+        // update inventory film length
     }
 }

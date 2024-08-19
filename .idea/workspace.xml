@@ -4,17 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added send roll to print process action.">
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ChangePrinterAvailability/ChangePrinterAvailabilityCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ChangePrinterAvailability/ChangePrinterAvailabilityCommandHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/EventHandler/RollWasSentToPrintingEventHandler.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated inventory interface.">
+      <change afterPath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/DTO/RollData.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Adapter/Rolls/RollsApiAdapter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Adapter/Rolls/RollsApiInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Event/RollWasSentToPrintingEventHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Api/RollApi.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/RollData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/RollData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/RollDataTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/RollDataTransformer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Repository/PrinterRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Repository/PrinterRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/SendToPrintProcessService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/SendToPrintProcessService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/PrinterRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/PrinterRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/EventHandler/RollWasSentToPrintingEventHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/EventHandler/RollWasSentToPrintingEventHandler.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +34,7 @@
     <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitRewordedCommitMessages">
-    <option name="onto" value="cffc255401df8ecfc9352df0c07cf883cd2da347" />
+    <option name="onto" value="e41a5877cef6ab9db1892139cf57e608dea8b9f3" />
   </component>
   <component name="PhpServers">
     <servers>
@@ -176,49 +175,49 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "PHPUnit.Main.executor": "Coverage",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
-    "WebServerToolWindowPanel.toolwindow.show.date": "false",
-    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
-    "WebServerToolWindowPanel.toolwindow.show.size": "false",
-    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm": "Docker Compose",
-    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm": "Docker Compose",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/src/Orders/Application/UseCase/Command",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "php.add.doc.comment.for.fields.panel.add.php.doc.for.all.properties": "true",
-    "php.override.implement.member.chooser.php.doc": "NONE",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.General",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;PHPUnit.Main.executor&quot;: &quot;Coverage&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
+    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm&quot;: &quot;Docker Compose&quot;,
+    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm&quot;: &quot;Docker Compose&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/aleksejem/Sites/order-pilot/src/Inventory/Infrastructure/Adapter/Rolls&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;php.add.doc.comment.for.fields.panel.add.php.doc.for.all.properties&quot;: &quot;true&quot;,
+    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.General&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Inventory/Infrastructure/Adapter/Rolls" />
+      <recent name="$PROJECT_DIR$/src/Inventory/Infrastructure/Api" />
       <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Command" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query" />
-      <recent name="$PROJECT_DIR$/src/Users/Application/UseCase/Query" />
-      <recent name="$PROJECT_DIR$/src/Shared/Application" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Inventory/Infrastructure/Adapter" />
+      <recent name="$PROJECT_DIR$/src/Inventory/Infrastructure" />
+      <recent name="$PROJECT_DIR$/src/Inventory/Infrastructure/Api" />
       <recent name="$PROJECT_DIR$/src/Orders/Domain/Service/Inventory" />
       <recent name="$PROJECT_DIR$/src/Orders/Domain/Service/Order" />
-      <recent name="$PROJECT_DIR$/src/Orders/Domain/DTO" />
-      <recent name="$PROJECT_DIR$/src/Orders/Infrastructure/Adapter" />
-      <recent name="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Rolls" />
     </key>
   </component>
   <component name="RunManager">
@@ -278,46 +277,6 @@
       <workItem from="1723025220942" duration="6037000" />
       <workItem from="1723126559039" duration="16852000" />
       <workItem from="1723390311692" duration="26395000" />
-    </task>
-    <task id="LOCAL-00137" summary="Updated orders domain&#10;&#10;- migrations &#10;- value objects namespaces&#10;- entity namespaces">
-      <option name="closed" value="true" />
-      <created>1723186498769</created>
-      <option name="number" value="00137" />
-      <option name="presentableId" value="LOCAL-00137" />
-      <option name="project" value="LOCAL" />
-      <updated>1723186498769</updated>
-    </task>
-    <task id="LOCAL-00138" summary="Updated orders domain&#10;&#10;- migrations &#10;- value objects namespaces&#10;- entity namespaces">
-      <option name="closed" value="true" />
-      <created>1723186560241</created>
-      <option name="number" value="00138" />
-      <option name="presentableId" value="LOCAL-00138" />
-      <option name="project" value="LOCAL" />
-      <updated>1723186560241</updated>
-    </task>
-    <task id="LOCAL-00139" summary="Added find users command.">
-      <option name="closed" value="true" />
-      <created>1723190314666</created>
-      <option name="number" value="00139" />
-      <option name="presentableId" value="LOCAL-00139" />
-      <option name="project" value="LOCAL" />
-      <updated>1723190314666</updated>
-    </task>
-    <task id="LOCAL-00140" summary="Added find single user action.">
-      <option name="closed" value="true" />
-      <created>1723190922378</created>
-      <option name="number" value="00140" />
-      <option name="presentableId" value="LOCAL-00140" />
-      <option name="project" value="LOCAL" />
-      <updated>1723190922378</updated>
-    </task>
-    <task id="LOCAL-00141" summary="Added find single user action.">
-      <option name="closed" value="true" />
-      <created>1723190925402</created>
-      <option name="number" value="00141" />
-      <option name="presentableId" value="LOCAL-00141" />
-      <option name="project" value="LOCAL" />
-      <updated>1723190925402</updated>
     </task>
     <task id="LOCAL-00142" summary="Removed unused find by email command.">
       <option name="closed" value="true" />
@@ -671,7 +630,47 @@
       <option name="project" value="LOCAL" />
       <updated>1723816060503</updated>
     </task>
-    <option name="localTasksCounter" value="186" />
+    <task id="LOCAL-00186" summary="Added changing printer availability.">
+      <option name="closed" value="true" />
+      <created>1723821163830</created>
+      <option name="number" value="00186" />
+      <option name="presentableId" value="LOCAL-00186" />
+      <option name="project" value="LOCAL" />
+      <updated>1723821163830</updated>
+    </task>
+    <task id="LOCAL-00187" summary="Added changing printer availability.">
+      <option name="closed" value="true" />
+      <created>1723821167068</created>
+      <option name="number" value="00187" />
+      <option name="presentableId" value="LOCAL-00187" />
+      <option name="project" value="LOCAL" />
+      <updated>1723821167068</updated>
+    </task>
+    <task id="LOCAL-00188" summary="Added changing printer availability.">
+      <option name="closed" value="true" />
+      <created>1723821290359</created>
+      <option name="number" value="00188" />
+      <option name="presentableId" value="LOCAL-00188" />
+      <option name="project" value="LOCAL" />
+      <updated>1723821290359</updated>
+    </task>
+    <task id="LOCAL-00189" summary="Added changing printer availability.">
+      <option name="closed" value="true" />
+      <created>1723821294917</created>
+      <option name="number" value="00189" />
+      <option name="presentableId" value="LOCAL-00189" />
+      <option name="project" value="LOCAL" />
+      <updated>1723821294917</updated>
+    </task>
+    <task id="LOCAL-00190" summary="Updated inventory interface.">
+      <option name="closed" value="true" />
+      <created>1724050295114</created>
+      <option name="number" value="00190" />
+      <option name="presentableId" value="LOCAL-00190" />
+      <option name="project" value="LOCAL" />
+      <updated>1724050295114</updated>
+    </task>
+    <option name="localTasksCounter" value="191" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -707,8 +706,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added inventory query/commands." />
-    <MESSAGE value="Updated orders domain&#10;&#10;- migrations &#10;- value objects namespaces&#10;- entity namespaces" />
     <MESSAGE value="Added find users command." />
     <MESSAGE value="Added find single user action." />
     <MESSAGE value="Removed unused find by email command." />
@@ -732,7 +729,9 @@
     <MESSAGE value="Added change sort orders on specific roll." />
     <MESSAGE value="Updated sort can be changed only if its belong to the group." />
     <MESSAGE value="Added send roll to print process action." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added send roll to print process action." />
+    <MESSAGE value="Added changing printer availability." />
+    <MESSAGE value="Updated inventory interface." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated inventory interface." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
