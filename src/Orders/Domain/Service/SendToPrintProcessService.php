@@ -58,13 +58,24 @@ final readonly class SendToPrintProcessService
             throw new RollCantBeSentPrintedException('Roll cannot be printed! It is not in the correct process.');
         }
 
-        $roll->updateProcess(Process::PRINTING);
+        $roll->updateProcess(Process::PRINTING_CHECK_IN);
 
         $this->rollRepository->save($roll);
 
         $this->eventDispatcher->dispatch(new RollWasSentToPrintingEvent($roll->getId()));
     }
 
+    /**
+     * Retrieves a film by its type.
+     *
+     * If a specific film ID is provided, it filters the available film list
+     * and returns the first film matching the ID. If no film ID is provided,
+     * it returns null.
+     *
+     * @param int|null $filmId The ID of the film to retrieve. (optional)
+     *
+     * @return FilmData|null the film object matching the provided ID, or null if not found
+     */
     private function getByFilmType(?int $filmId = null): ?FilmData
     {
         return $this->availableFilmService->getAvailableFilms()->filter(function (FilmData $filmData) use ($filmId) {

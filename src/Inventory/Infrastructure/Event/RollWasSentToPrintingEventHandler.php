@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Inventory\Infrastructure\Event;
 
+use App\Inventory\Application\UseCases\PrivateCommandInteractor;
+use App\Inventory\Application\UseCases\PrivateQueryInteractor;
 use App\Inventory\Infrastructure\Adapter\Rolls\RollsApiAdapter;
 use App\Orders\Domain\Events\RollWasSentToPrintingEvent;
 use App\Shared\Application\Event\EventHandlerInterface;
@@ -20,7 +22,7 @@ final readonly class RollWasSentToPrintingEventHandler implements EventHandlerIn
      *
      * @param RollsApiAdapter $rollsApiAdapter The RollsApiAdapter instance used for communication with the Rolls API
      */
-    public function __construct(private RollsApiAdapter $rollsApiAdapter)
+    public function __construct(private RollsApiAdapter $rollsApiAdapter, private PrivateCommandInteractor $privateCommandInteractor, private PrivateQueryInteractor $privateQueryInteractor)
     {
     }
 
@@ -33,6 +35,8 @@ final readonly class RollWasSentToPrintingEventHandler implements EventHandlerIn
     {
         $roll = $this->rollsApiAdapter->getRollById($event->rollId);
 
-        // update inventory film length
+        $film = $this->privateQueryInteractor->findAFilm($roll->filmId)->FilmData;
+
+        $this->privateCommandInteractor->updateFilm(id: $film->id, name: $film->name, length: $roll->length);
     }
 }

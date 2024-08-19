@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated inventory interface.">
-      <change afterPath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/DTO/RollData.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Adapter/Rolls/RollsApiAdapter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Adapter/Rolls/RollsApiInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Event/RollWasSentToPrintingEventHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Api/RollApi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/RollData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/RollData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/EventHandler/RollWasSentToPrintingEventHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/EventHandler/RollWasSentToPrintingEventHandler.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fixed InventoryAdapter missing service.">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Event/RollWasSentToPrintingEventHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Event/RollWasSentToPrintingEventHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/SendToPrintProcessService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/SendToPrintProcessService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/ValueObject/Process.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/ValueObject/Process.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -277,14 +273,7 @@
       <workItem from="1723025220942" duration="6037000" />
       <workItem from="1723126559039" duration="16852000" />
       <workItem from="1723390311692" duration="26395000" />
-    </task>
-    <task id="LOCAL-00142" summary="Removed unused find by email command.">
-      <option name="closed" value="true" />
-      <created>1723191314230</created>
-      <option name="number" value="00142" />
-      <option name="presentableId" value="LOCAL-00142" />
-      <option name="project" value="LOCAL" />
-      <updated>1723191314230</updated>
+      <workItem from="1724051941853" duration="2084000" />
     </task>
     <task id="LOCAL-00143" summary="Removed unused find by email command.">
       <option name="closed" value="true" />
@@ -670,7 +659,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724050295114</updated>
     </task>
-    <option name="localTasksCounter" value="191" />
+    <task id="LOCAL-00191" summary="Fixed InventoryAdapter missing service.">
+      <option name="closed" value="true" />
+      <created>1724052105549</created>
+      <option name="number" value="00191" />
+      <option name="presentableId" value="LOCAL-00191" />
+      <option name="project" value="LOCAL" />
+      <updated>1724052105549</updated>
+    </task>
+    <option name="localTasksCounter" value="192" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -706,7 +703,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added find users command." />
     <MESSAGE value="Added find single user action." />
     <MESSAGE value="Removed unused find by email command." />
     <MESSAGE value="Updated entity Roll &amp; Order&#10;&#10;- migrations&#10;- getters and setters" />
@@ -731,7 +727,8 @@
     <MESSAGE value="Added send roll to print process action." />
     <MESSAGE value="Added changing printer availability." />
     <MESSAGE value="Updated inventory interface." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated inventory interface." />
+    <MESSAGE value="Fixed InventoryAdapter missing service." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed InventoryAdapter missing service." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
