@@ -41,10 +41,13 @@ final readonly class RollMaker
     public function make(string $name, ?int $filmId = null, ?RollType $rollType = null, ?Process $process = null): Roll
     {
         $roll = $this->rollFactory->create($name, $filmId, $process);
-        $printer = $this->printerRepository->findByRollType($rollType);
 
-        if ($printer) {
-            $roll->assignPrinter($printer);
+        if ($rollType) {
+            $printer = $this->printerRepository->findByRollType($rollType);
+
+            if ($printer) {
+                $roll->assignPrinter($printer);
+            }
         }
 
         $this->rollRepository->save($roll);

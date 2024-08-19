@@ -10,7 +10,8 @@ use App\Orders\Application\UseCase\Command\ChangeOrderPriority\ChangeOrderPriori
 use App\Orders\Application\UseCase\Command\ChangeOrderSort\ChangeOrderSortCommand;
 use App\Orders\Application\UseCase\Command\ChangePrinterAvailability\ChangePrinterAvailabilityCommand;
 use App\Orders\Application\UseCase\Command\CreatePrinters\CreatePrintersCommand;
-use App\Orders\Application\UseCase\Command\SendToPrintCheckIn\SendRollToPrintCheckIntCommand;
+use App\Orders\Application\UseCase\Command\SendRollToGlowCheckIn\SendRollToGlowCheckInCommand;
+use App\Orders\Application\UseCase\Command\SendRollToPrintCheckIn\SendRollToPrintCheckIntCommand;
 use App\Orders\Application\UseCase\Command\UnassignOrder\UnassignOrderCommand;
 use App\Shared\Application\Command\CommandBusInterface;
 
@@ -103,8 +104,18 @@ readonly class PrivateCommandInteractor
      *
      * @param int $rollId The ID of the roll to send to print check-in
      */
-    public function sendToPrintCheckIn(int $rollId): void
+    public function sendRollToPrintCheckIn(int $rollId): void
     {
         $this->commandBus->execute(new SendRollToPrintCheckIntCommand($rollId));
+    }
+
+    /**
+     * Sends a roll to the glow check-in process.
+     *
+     * @param int $rollId the ID of the roll to be sent
+     */
+    public function sendRollToGlowCheckIn(int $rollId): void
+    {
+        $this->commandBus->execute(new SendRollToGlowCheckInCommand($rollId));
     }
 }

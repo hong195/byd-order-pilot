@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Application\UseCase\Command\SendToPrintCheckIn;
+namespace App\Orders\Application\UseCase\Command\SendRollToGlowCheckIn;
 
 use App\Shared\Application\Command\CommandInterface;
 
 /**
  * Represents a command to change the priority of an order.
  */
-readonly class SendRollToPrintCheckIntCommand implements CommandInterface
+readonly class SendRollToGlowCheckInCommand implements CommandInterface
 {
     /**
      * Constructor.

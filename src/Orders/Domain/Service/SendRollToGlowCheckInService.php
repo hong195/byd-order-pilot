@@ -41,29 +41,29 @@ final readonly class SendRollToGlowCheckInService
      */
     public function handle(int $rollId): void
     {
-        $roll = $this->rollRepository->findById($rollId);
+        $foundRoll = $this->rollRepository->findById($rollId);
 
-        if (!$roll) {
+        if (!$foundRoll) {
             throw new NotFoundHttpException('Roll not found');
         }
 
-        if (!$roll->getProcess()->equals(Process::PRINTING_CHECK_IN)) {
+        if (!$foundRoll->getProcess()->equals(Process::PRINTING_CHECK_IN)) {
             throw new RollCantBeSentToGlowException('Roll cannot be glowed! It is not in the correct process.');
         }
 
         // Group orders by the lamination
-        $ordersGroups = $this->groupService->handle($roll->getOrders());
+        $ordersGroups = $this->groupService->handle($foundRoll->getOrders());
 
-        if ($roll->getOrders()->isEmpty()) {
+        if ($foundRoll->getOrders()->isEmpty()) {
             throw new RollCantBeSentToGlowException('Roll cannot be glowed! It has no orders.');
         }
 
         $sendToGlowingRolls = [];
 
         foreach ($ordersGroups as $group => $orders) {
-            $roll = $this->rollMaker->make(name: $roll->getName(), filmId: $roll->getFilmId());
+            $roll = $this->rollMaker->make(name: $foundRoll->getName(), filmId: $foundRoll->getFilmId());
 
-            $roll->assignPrinter($roll->getPrinter());
+            $roll->assignPrinter($foundRoll->getPrinter());
 
             /** @var Order $firstOrder */
             $firstOrder = $orders->first();
@@ -80,7 +80,7 @@ final readonly class SendRollToGlowCheckInService
             $sendToGlowingRolls[] = $roll;
         }
 
-        $this->rollRepository->remove($roll);
+        $this->rollRepository->remove($foundRoll);
         $this->rollRepository->saveRolls($sendToGlowingRolls);
 
         $this->eventDispatcher->dispatch(new RollsWereSentToGlowCheckInEvent(array_map(fn (Roll $roll) => $roll->getId(), $sendToGlowingRolls)));

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Application\UseCase\Command\SendToPrintCheckIn;
+namespace App\Orders\Application\UseCase\Command\SendRollToPrintCheckIn;
 
 use App\Orders\Domain\Exceptions\NotEnoughFilmLengthToPrintTheRollException;
 use App\Orders\Domain\Exceptions\PrinterIsNotAvailableException;
