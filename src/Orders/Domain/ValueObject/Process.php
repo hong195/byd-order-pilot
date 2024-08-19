@@ -9,11 +9,11 @@ enum Process: string
 {
     case ORDER_CHECK_IN = 'order_check_in';
 
-    case PRINTING_CHECK_IN = 'printing';
+    case PRINTING_CHECK_IN = 'printing_check_in';
 
-    case LAMINATION_CHECK_IN = 'lamination';
+    case LAMINATION_CHECK_IN = 'lamination_check_in';
 
-    case CUTTING_CHECK_IN = 'cutting';
+    case CUTTING_CHECK_IN = 'cutting_check_in';
 
     /**
      * Checks if the current process is equal to the given process.

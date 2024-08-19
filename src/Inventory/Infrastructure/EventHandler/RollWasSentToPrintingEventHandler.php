@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Inventory\Infrastructure\Event;
+namespace App\Inventory\Infrastructure\EventHandler;
 
 use App\Inventory\Application\UseCases\PrivateCommandInteractor;
 use App\Inventory\Application\UseCases\PrivateQueryInteractor;
@@ -37,6 +37,6 @@ final readonly class RollWasSentToPrintingEventHandler implements EventHandlerIn
 
         $film = $this->privateQueryInteractor->findAFilm($roll->filmId)->FilmData;
 
-        $this->privateCommandInteractor->updateFilm(id: $film->id, name: $film->name, length: $roll->length);
+        $this->privateCommandInteractor->updateFilm(id: $film->id, name: $film->name, length: $film->length - $roll->length);
     }
 }

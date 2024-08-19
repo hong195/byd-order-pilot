@@ -10,6 +10,7 @@ use App\Orders\Application\UseCase\Command\ChangeOrderPriority\ChangeOrderPriori
 use App\Orders\Application\UseCase\Command\ChangeOrderSort\ChangeOrderSortCommand;
 use App\Orders\Application\UseCase\Command\ChangePrinterAvailability\ChangePrinterAvailabilityCommand;
 use App\Orders\Application\UseCase\Command\CreatePrinters\CreatePrintersCommand;
+use App\Orders\Application\UseCase\Command\SendToPrintCheckIn\SendRollToPrintCheckIntCommand;
 use App\Orders\Application\UseCase\Command\UnassignOrder\UnassignOrderCommand;
 use App\Shared\Application\Command\CommandBusInterface;
 
@@ -75,9 +76,35 @@ readonly class PrivateCommandInteractor
         $this->commandBus->execute($command);
     }
 
+    /**
+     * Makes a printer available.
+     *
+     * @param int $printerId The ID of the printer
+     */
     public function makePrinterAvailable(int $printerId): void
     {
         $command = new ChangePrinterAvailabilityCommand(printerId: $printerId, isAvailable: true);
         $this->commandBus->execute($command);
+    }
+
+    /**
+     * Makes a printer available.
+     *
+     * @param int $printerId The ID of the printer
+     */
+    public function makePrinterUnAvailable(int $printerId): void
+    {
+        $command = new ChangePrinterAvailabilityCommand(printerId: $printerId, isAvailable: false);
+        $this->commandBus->execute($command);
+    }
+
+    /**
+     * Sends a roll to print check-in.
+     *
+     * @param int $rollId The ID of the roll to send to print check-in
+     */
+    public function sendToPrintCheckIn(int $rollId): void
+    {
+        $this->commandBus->execute(new SendRollToPrintCheckIntCommand($rollId));
     }
 }

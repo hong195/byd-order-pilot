@@ -44,6 +44,7 @@ final readonly class RollDataTransformer
             count: $roll->getOrdersCount(),
             films: $roll->getFilmTypes(),
             laminations: $roll->getLaminations(),
+            filmId: $roll->getFilmId(),
             printerId: $roll->getPrinter()?->getId(),
             dateAdded: $roll->getDateAdded()
         );

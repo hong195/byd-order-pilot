@@ -18,7 +18,7 @@ use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 /**
  * This class is responsible for handling the printing process.
  */
-final readonly class SendToPrintCheckInService
+final readonly class SendRollToPrintCheckInService
 {
     /**
      * Construct the class.
@@ -41,7 +41,7 @@ final readonly class SendToPrintCheckInService
      * @throws RollCantBeSentPrintedException             If the roll is not in the correct process
      * @throws NotEnoughFilmLengthToPrintTheRollException
      */
-    public function print(int $rollId): void
+    public function handle(int $rollId): void
     {
         $roll = $this->rollRepository->findById($rollId);
 
@@ -51,6 +51,10 @@ final readonly class SendToPrintCheckInService
 
         if (!$roll->getProcess()->equals(Process::ORDER_CHECK_IN)) {
             throw new RollCantBeSentPrintedException('Roll cannot be printed! It is not in the correct process.');
+        }
+
+        if ($roll->getOrders()->isEmpty()) {
+            throw new RollCantBeSentPrintedException('Roll cannot be printed! It has no orders.');
         }
 
         $printer = $roll->getPrinter();
@@ -85,9 +89,11 @@ final readonly class SendToPrintCheckInService
      */
     private function getByFilmType(?int $filmId = null): ?FilmData
     {
-        return $this->availableFilmService->getAvailableFilms()->filter(function (FilmData $filmData) use ($filmId) {
+        $result = $this->availableFilmService->getAvailableFilms()->filter(function (FilmData $filmData) use ($filmId) {
             return $filmData->id === $filmId;
         })
             ->first();
+
+        return $result ?: null;
     }
 }
