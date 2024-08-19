@@ -19,6 +19,17 @@ final readonly class FilmMaker
     {
         $film = $this->filmFactory->make($name, $length, FilmType::from($filmType), $type);
 
+        if ($filmType === FilmType::Film->value) {
+            if (!in_array($type, ['chrome', 'neon', 'white', 'clear', 'eco'])) {
+                throw new \InvalidArgumentException('Invalid film type');
+            }
+        }
+
+        if ($filmType === FilmType::LAMINATION->value) {
+            if (!in_array($type, ['holo_flakes', 'matt', 'glossy', 'gold_flakes'])) {
+                throw new \InvalidArgumentException('Invalid film type');
+            }
+        }
         $this->filmRepository->save($film);
 
         return $film;

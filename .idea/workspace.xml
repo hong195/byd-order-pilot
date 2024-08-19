@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Rename controllers.">
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Application/UseCases/PrivateCommandInteractor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Film/AddFilmAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Film/AddFilmAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Film/AddLaminationAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Film/AddLaminationAction.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated migrations.">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Service/FilmMaker.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Domain/Service/FilmMaker.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -273,31 +272,7 @@
       <workItem from="1723390311692" duration="26395000" />
       <workItem from="1724051941853" duration="6737000" />
       <workItem from="1724061816641" duration="5003000" />
-      <workItem from="1724068553916" duration="6938000" />
-    </task>
-    <task id="LOCAL-00168" summary="Clean up commit.">
-      <option name="closed" value="true" />
-      <created>1723563997235</created>
-      <option name="number" value="00168" />
-      <option name="presentableId" value="LOCAL-00168" />
-      <option name="project" value="LOCAL" />
-      <updated>1723563997235</updated>
-    </task>
-    <task id="LOCAL-00169" summary="Added change priority api.">
-      <option name="closed" value="true" />
-      <created>1723619496435</created>
-      <option name="number" value="00169" />
-      <option name="presentableId" value="LOCAL-00169" />
-      <option name="project" value="LOCAL" />
-      <updated>1723619496435</updated>
-    </task>
-    <task id="LOCAL-00170" summary="Clean up commit.">
-      <option name="closed" value="true" />
-      <created>1723619818197</created>
-      <option name="number" value="00170" />
-      <option name="presentableId" value="LOCAL-00170" />
-      <option name="project" value="LOCAL" />
-      <updated>1723619818197</updated>
+      <workItem from="1724068553916" duration="7359000" />
     </task>
     <task id="LOCAL-00171" summary="Added unassign order api.">
       <option name="closed" value="true" />
@@ -667,7 +642,31 @@
       <option name="project" value="LOCAL" />
       <updated>1724082707250</updated>
     </task>
-    <option name="localTasksCounter" value="217" />
+    <task id="LOCAL-00217" summary="Rename methods.">
+      <option name="closed" value="true" />
+      <created>1724083387569</created>
+      <option name="number" value="00217" />
+      <option name="presentableId" value="LOCAL-00217" />
+      <option name="project" value="LOCAL" />
+      <updated>1724083387569</updated>
+    </task>
+    <task id="LOCAL-00218" summary="Rename methods.">
+      <option name="closed" value="true" />
+      <created>1724083442256</created>
+      <option name="number" value="00218" />
+      <option name="presentableId" value="LOCAL-00218" />
+      <option name="project" value="LOCAL" />
+      <updated>1724083442256</updated>
+    </task>
+    <task id="LOCAL-00219" summary="Updated migrations.">
+      <option name="closed" value="true" />
+      <created>1724083554780</created>
+      <option name="number" value="00219" />
+      <option name="presentableId" value="LOCAL-00219" />
+      <option name="project" value="LOCAL" />
+      <updated>1724083554780</updated>
+    </task>
+    <option name="localTasksCounter" value="220" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -703,8 +702,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated roll api." />
-    <MESSAGE value="Added inventory implementation." />
     <MESSAGE value="Added change priority api." />
     <MESSAGE value="Added unassign order api." />
     <MESSAGE value="Updated rolls have process orders status." />
@@ -728,7 +725,9 @@
     <MESSAGE value="Rename roll type to film type." />
     <MESSAGE value="Migrations updated." />
     <MESSAGE value="Rename controllers." />
-    <option name="LAST_COMMIT_MESSAGE" value="Rename controllers." />
+    <MESSAGE value="Rename methods." />
+    <MESSAGE value="Updated migrations." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated migrations." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
