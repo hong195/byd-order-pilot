@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Migrations updated.">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Film/AddLaminationFilmAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Film/AddLaminationAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Film/AddRollFilmAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Film/AddFilmAction.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Rename controllers.">
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Application/UseCases/PrivateCommandInteractor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Film/AddFilmAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Film/AddFilmAction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Film/AddLaminationAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Film/AddLaminationAction.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -273,23 +273,7 @@
       <workItem from="1723390311692" duration="26395000" />
       <workItem from="1724051941853" duration="6737000" />
       <workItem from="1724061816641" duration="5003000" />
-      <workItem from="1724068553916" duration="6251000" />
-    </task>
-    <task id="LOCAL-00166" summary="Clean up commit.">
-      <option name="closed" value="true" />
-      <created>1723563978669</created>
-      <option name="number" value="00166" />
-      <option name="presentableId" value="LOCAL-00166" />
-      <option name="project" value="LOCAL" />
-      <updated>1723563978669</updated>
-    </task>
-    <task id="LOCAL-00167" summary="Clean up commit.">
-      <option name="closed" value="true" />
-      <created>1723563994348</created>
-      <option name="number" value="00167" />
-      <option name="presentableId" value="LOCAL-00167" />
-      <option name="project" value="LOCAL" />
-      <updated>1723563994348</updated>
+      <workItem from="1724068553916" duration="6938000" />
     </task>
     <task id="LOCAL-00168" summary="Clean up commit.">
       <option name="closed" value="true" />
@@ -667,7 +651,23 @@
       <option name="project" value="LOCAL" />
       <updated>1724082234551</updated>
     </task>
-    <option name="localTasksCounter" value="215" />
+    <task id="LOCAL-00215" summary="Rename controllers.">
+      <option name="closed" value="true" />
+      <created>1724082704043</created>
+      <option name="number" value="00215" />
+      <option name="presentableId" value="LOCAL-00215" />
+      <option name="project" value="LOCAL" />
+      <updated>1724082704043</updated>
+    </task>
+    <task id="LOCAL-00216" summary="Rename controllers.">
+      <option name="closed" value="true" />
+      <created>1724082707250</created>
+      <option name="number" value="00216" />
+      <option name="presentableId" value="LOCAL-00216" />
+      <option name="project" value="LOCAL" />
+      <updated>1724082707250</updated>
+    </task>
+    <option name="localTasksCounter" value="217" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -703,7 +703,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated docker env file #2." />
     <MESSAGE value="Updated roll api." />
     <MESSAGE value="Added inventory implementation." />
     <MESSAGE value="Added change priority api." />
@@ -728,7 +727,8 @@
     <MESSAGE value="Updated removes orders from roll when deleting roll." />
     <MESSAGE value="Rename roll type to film type." />
     <MESSAGE value="Migrations updated." />
-    <option name="LAST_COMMIT_MESSAGE" value="Migrations updated." />
+    <MESSAGE value="Rename controllers." />
+    <option name="LAST_COMMIT_MESSAGE" value="Rename controllers." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

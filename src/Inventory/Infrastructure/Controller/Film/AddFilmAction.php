@@ -30,7 +30,7 @@ final readonly class AddFilmAction
      */
     public function __invoke(Request $request): JsonResponse
     {
-        $id = $this->commandInteractor->addARollFilm(
+        $id = $this->commandInteractor->addFilm(
             name: $request->request->get('name'),
             length: (int) $request->request->get('length'),
             type: $request->request->get('type')

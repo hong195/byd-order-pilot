@@ -39,7 +39,7 @@ readonly class UpdateFilmCommandHandler implements CommandHandlerInterface
 
         match ($updateFilmCommand->filmType) {
             FilmType::LAMINATION->value => $this->laminationUpdater->update(id: $updateFilmCommand->id, name: $updateFilmCommand->name, length: $updateFilmCommand->length, type: $updateFilmCommand->type),
-            FilmType::ROLL->value => $this->filmUpdater->update(id: $updateFilmCommand->id, name: $updateFilmCommand->name, length: $updateFilmCommand->length, type: $updateFilmCommand->type),
+            FilmType::Film->value => $this->filmUpdater->update(id: $updateFilmCommand->id, name: $updateFilmCommand->name, length: $updateFilmCommand->length, type: $updateFilmCommand->type),
             default => throw new \InvalidArgumentException('Invalid film type'),
         };
     }

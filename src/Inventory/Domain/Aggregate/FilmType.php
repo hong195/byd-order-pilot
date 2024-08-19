@@ -11,7 +11,7 @@ namespace App\Inventory\Domain\Aggregate;
  */
 enum FilmType: string
 {
-    case ROLL = 'roll';
+    case Film = 'film';
 
     case LAMINATION = 'lamination';
 }

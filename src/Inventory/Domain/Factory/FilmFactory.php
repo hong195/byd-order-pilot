@@ -13,7 +13,7 @@ final readonly class FilmFactory
 {
     public function make(string $name, int $length, FilmType $filmType, string $type): AbstractFilm
     {
-        if ($filmType->value === FilmType::ROLL->value) {
+        if ($filmType->value === FilmType::Film->value) {
             return new RollFilm($name, $length, $type);
         } else {
             return new LaminationFilm($name, $length, $type);

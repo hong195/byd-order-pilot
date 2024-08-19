@@ -23,14 +23,14 @@ readonly class PrivateCommandInteractor
     ) {
     }
 
-    public function addARollFilm(string $name, int $length, string $type): int
+    public function addFilm(string $name, int $length, string $type): int
     {
-        $command = new AddFilmCommand($name, $length, FilmType::ROLL->value, $type);
+        $command = new AddFilmCommand($name, $length, FilmType::Film->value, $type);
 
         return $this->commandBus->execute($command);
     }
 
-    public function addALaminationFilm(string $name, int $length, string $type): int
+    public function addALamination(string $name, int $length, string $type): int
     {
         $command = new AddFilmCommand($name, $length, FilmType::LAMINATION->value, $type);
 
@@ -39,7 +39,7 @@ readonly class PrivateCommandInteractor
 
     public function updateFilm(int $id, string $name, int $length, ?string $type = null): void
     {
-        $command = new UpdateFilmCommand(id: $id, filmType: FilmType::ROLL->value, name: $name, length: $length, type: $type);
+        $command = new UpdateFilmCommand(id: $id, filmType: FilmType::Film->value, name: $name, length: $length, type: $type);
         $this->commandBus->execute($command);
     }
 

@@ -32,6 +32,6 @@ final readonly class InventoryApi implements InventoryApiInterface
      */
     public function getAvailableFilms(): array
     {
-        return $this->privateQueryInteractor->findFilms(FilmType::ROLL->value)->items;
+        return $this->privateQueryInteractor->findFilms(FilmType::Film->value)->items;
     }
 }

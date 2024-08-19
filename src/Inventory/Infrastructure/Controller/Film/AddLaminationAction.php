@@ -30,7 +30,7 @@ final readonly class AddLaminationAction
      */
     public function __invoke(Request $request): JsonResponse
     {
-        $id = $this->commandInteractor->addALaminationFilm(
+        $id = $this->commandInteractor->addALamination(
             name: $request->request->get('name'),
             length: (int) $request->request->get('length'),
             type: $request->request->get('type')
