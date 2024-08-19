@@ -2,15 +2,25 @@
 
 declare(strict_types=1);
 
-namespace App\Inventory\Api;
+namespace App\Inventory\Infrastructure\Api;
 
 use App\Inventory\Application\UseCases\PrivateQueryInteractor;
 use App\Inventory\Application\UseCases\Query\DTO\FilmData;
 use App\Inventory\Domain\Aggregate\FilmType;
 use App\Orders\Infrastructure\Adapter\InventoryApiInterface;
 
+/**
+ * Class constructor.
+ *
+ * @param PrivateQueryInteractor $privateQueryInteractor the instance of the PrivateQueryInteractor class
+ */
 final readonly class InventoryApi implements InventoryApiInterface
 {
+    /**
+     * Class constructor.
+     *
+     * @param PrivateQueryInteractor $privateQueryInteractor the instance of the PrivateQueryInteractor class
+     */
     public function __construct(private PrivateQueryInteractor $privateQueryInteractor)
     {
     }
