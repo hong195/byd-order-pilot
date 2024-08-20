@@ -12,7 +12,7 @@ use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[AsController]
-#[Route('/api/films', name: 'add_film', methods: ['POST'])]
+#[Route('/api/films', name: 'add_films', methods: ['POST'])]
 final readonly class AddFilmAction
 {
     public function __construct(private PrivateCommandInteractor $commandInteractor)
