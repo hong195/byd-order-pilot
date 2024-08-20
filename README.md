@@ -25,6 +25,7 @@
     ```bash
     make php
     composer install
+    php bin/console app:create-printers
     ```
 5. Run the migrations
     ```bash

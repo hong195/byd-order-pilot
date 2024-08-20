@@ -35,7 +35,7 @@ readonly class AssignOrderCommandHandler implements CommandHandlerInterface
     {
         AssertService::true($this->accessControlService->isGranted(), 'Not change priority.');
 
-        $this->changeStatusOrder->handle($command->id, Status::ASSIGNED);
+        $this->changeStatusOrder->handle($command->id, Status::ASSIGNABLE);
 
         $this->checkInService->checkIn();
     }

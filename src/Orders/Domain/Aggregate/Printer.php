@@ -93,7 +93,7 @@ class Printer
      *
      * @return FilmType[] the array of roll types
      */
-    public function getfilmTypes(): array
+    public function getFilmTypes(): array
     {
         return $this->filmTypes;
     }

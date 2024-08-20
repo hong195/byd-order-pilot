@@ -9,7 +9,7 @@ namespace App\Orders\Domain\ValueObject;
  */
 enum Status: string
 {
-    case NEW = 'new';
+    case ASSIGNABLE = 'assignable';
     case UNASSIGNED = 'unassigned';
 
     case ASSIGNED = 'assigned';

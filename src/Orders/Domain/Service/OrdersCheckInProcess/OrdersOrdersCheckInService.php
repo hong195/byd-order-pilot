@@ -28,6 +28,8 @@ final class OrdersOrdersCheckInService implements OrdersCheckInInterface
 
     private Collection $rolls;
 
+    private Collection $orders;
+
     /**
      * Class constructor.
      *
@@ -43,9 +45,7 @@ final class OrdersOrdersCheckInService implements OrdersCheckInInterface
 
         $this->rolls = new ArrayCollection($this->rollRepository->findByFilter(new RollFilter(process: Process::ORDER_CHECK_IN)));
 
-        foreach ($this->rolls as $roll) {
-            $roll->removeOrders();
-        }
+        $this->initOrders();
     }
 
     /**
@@ -55,11 +55,9 @@ final class OrdersOrdersCheckInService implements OrdersCheckInInterface
      */
     public function checkIn(): void
     {
-        $assignedOrders = $this->sortOrdersService->getSorted(new ArrayCollection($this->orderRepository->findByStatus(Status::ASSIGNED)));
-
         $availableFilms = $this->availableFilmService->getAvailableFilms();
         $groupedFilms = $this->groupFilmsByType($availableFilms);
-        $groupedOrders = $this->groupOrdersByFilm($assignedOrders);
+        $groupedOrders = $this->groupOrdersByFilm($this->orders);
 
         foreach ($groupedOrders as $filmType => $orders) {
             if (!isset($groupedFilms[$filmType])) {
@@ -124,7 +122,7 @@ final class OrdersOrdersCheckInService implements OrdersCheckInInterface
     private function findOrMakeRoll(string $name, ?int $filmId = null, ?FilmType $filmType = null): Roll
     {
         $roll = $this->rolls->filter(function (Roll $roll) use ($filmId, $filmType) {
-            return $roll->getFilmId() === $filmId && in_array($filmType, $roll->getPrinter()->getfilmTypes());
+            return $roll->getFilmId() === $filmId && in_array($filmType, $roll->getPrinter()->getFilmTypes());
         })->first();
 
         if ($roll) {
@@ -187,5 +185,33 @@ final class OrdersOrdersCheckInService implements OrdersCheckInInterface
         }
 
         return $groupedFilms;
+    }
+
+    /**
+     * Initializes the orders in the application.
+     *
+     * This method retrieves the orders with status "assignable" from the order repository,
+     * adds them to the $orders collection, and then adds the orders associated with each
+     * roll in the $rolls collection to the $orders collection. Finally, it sorts the
+     * $orders collection using the SortOrdersService.
+     */
+    private function initOrders(): void
+    {
+        $this->orders = new ArrayCollection();
+        $assignableOrders = $this->orderRepository->findByStatus(Status::ASSIGNABLE);
+
+        foreach ($assignableOrders as $order) {
+            $this->orders->add($order);
+        }
+
+        foreach ($this->rolls as $roll) {
+            foreach ($roll->getOrders() as $order) {
+                $this->orders->add($order);
+            }
+
+            $roll->removeOrders();
+        }
+
+        $this->orders = $this->sortOrdersService->getSorted($this->orders);
     }
 }

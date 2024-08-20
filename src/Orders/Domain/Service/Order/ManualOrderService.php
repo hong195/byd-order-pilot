@@ -6,6 +6,7 @@ namespace App\Orders\Domain\Service\Order;
 
 use App\Orders\Domain\Aggregate\Order;
 use App\Orders\Domain\Factory\OrderFactory;
+use App\Orders\Domain\ValueObject\Status;
 use App\Orders\Infrastructure\Repository\OrderRepository;
 use App\Shared\Infrastructure\Repository\MediaFileRepository;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -49,6 +50,7 @@ final readonly class ManualOrderService
             productType: $productType,
             laminationType: $laminationType,
             filmType: $filmType,
+            status: Status::UNASSIGNED->value,
             hasPriority: $hasPriority,
             orderNumber: $orderNumber
         );

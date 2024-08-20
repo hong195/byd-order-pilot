@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Orders\Domain\Aggregate;
 
 use App\Orders\Domain\ValueObject\Process;
+use App\Orders\Domain\ValueObject\Status;
 use App\Shared\Domain\Aggregate\Aggregate;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -165,6 +166,8 @@ final class Roll extends Aggregate
      */
     public function addOrder(Order $order): void
     {
+        $order->changeStatus(Status::ASSIGNED);
+        $order->setRoll($this);
         $this->orders->add($order);
     }
 
@@ -174,6 +177,7 @@ final class Roll extends Aggregate
     public function removeOrders(): void
     {
         foreach ($this->orders as $order) {
+            $order->removeRoll();
             $this->orders->removeElement($order);
         }
     }

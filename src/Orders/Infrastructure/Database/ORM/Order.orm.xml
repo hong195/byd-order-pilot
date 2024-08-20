@@ -68,5 +68,11 @@
             <join-column name="print_file_id"/>
         </one-to-one>
 
+        <many-to-one field="roll" target-entity="App\Orders\Domain\Aggregate\Roll" inversed-by="orders" fetch="EXTRA_LAZY">
+            <cascade>
+                <cascade-persist />
+            </cascade>
+            <join-column name="roll_id" nullable="true" />
+        </many-to-one>
     </entity>
 </doctrine-mapping>

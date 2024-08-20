@@ -14,6 +14,14 @@ final readonly class ChangeStatusOrder
     {
     }
 
+    /**
+     * Handles a request to change the status of an order.
+     *
+     * @param int    $id     the ID of the order to change status
+     * @param Status $status the new status to set for the order
+     *
+     * @throws \InvalidArgumentException if the order is not found
+     */
     public function handle(int $id, Status $status): void
     {
         $order = $this->orderRepository->findById($id);

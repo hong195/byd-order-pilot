@@ -35,7 +35,7 @@ final readonly class OrderFactory
             length: $length,
             productType: ProductType::from($productType),
             filmType: $filmType ? FilmType::from($filmType) : null,
-            status: $status ? Status::from($status) : Status::NEW,
+            status: $status ? Status::from($status) : Status::ASSIGNABLE,
             hasPriority: $hasPriority,
             laminationType: $laminationType ? LaminationType::from($laminationType) : null,
             orderNumber: $orderNumber,

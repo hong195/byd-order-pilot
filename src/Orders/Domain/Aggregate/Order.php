@@ -29,6 +29,8 @@ final class Order extends Aggregate
     private ?MediaFile $cutFile = null;
     private ?MediaFile $printFile = null;
 
+    private ?Roll $roll = null;
+
     private int $sortOrder = 0;
 
     /**
@@ -46,7 +48,7 @@ final class Order extends Aggregate
         private readonly int $length,
         private readonly ProductType $productType,
         private FilmType $filmType,
-        private Status $status = Status::NEW,
+        private Status $status = Status::ASSIGNABLE,
         private bool $hasPriority = false,
         private ?LaminationType $laminationType = null,
         private ?int $orderNumber = null,
@@ -252,5 +254,33 @@ final class Order extends Aggregate
     public function changeSortOrder(int $sortOrder): void
     {
         $this->sortOrder = $sortOrder;
+    }
+
+    /**
+     * Returns the roll object.
+     *
+     * @return Roll the roll object
+     */
+    public function getRoll(): Roll
+    {
+        return $this->roll;
+    }
+
+    /**
+     * Sets the roll.
+     *
+     * @param Roll $roll the roll
+     */
+    public function setRoll(Roll $roll): void
+    {
+        $this->roll = $roll;
+    }
+
+    /**
+     * Removes the roll.
+     */
+    public function removeRoll(): void
+    {
+        $this->roll = null;
     }
 }
