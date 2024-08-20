@@ -10,6 +10,7 @@ use App\Orders\Application\UseCase\Command\ChangeOrderPriority\ChangeOrderPriori
 use App\Orders\Application\UseCase\Command\ChangeOrderSort\ChangeOrderSortCommand;
 use App\Orders\Application\UseCase\Command\ChangePrinterAvailability\ChangePrinterAvailabilityCommand;
 use App\Orders\Application\UseCase\Command\CreatePrinters\CreatePrintersCommand;
+use App\Orders\Application\UseCase\Command\CuttingCheckIn\CuttingCheckIntCommand;
 use App\Orders\Application\UseCase\Command\SendToPrintCheckIn\SendRollToPrintCheckIntCommand;
 use App\Orders\Application\UseCase\Command\UnassignOrder\UnassignOrderCommand;
 use App\Shared\Application\Command\CommandBusInterface;
@@ -107,4 +108,14 @@ readonly class PrivateCommandInteractor
     {
         $this->commandBus->execute(new SendRollToPrintCheckIntCommand($rollId));
     }
+
+	/**
+	 * Sends a roll to be checked in for cutting.
+	 *
+	 * @param int $rollId The ID of the roll to be checked in
+	 */
+	public function cuttingCheckIn(int $rollId): void
+	{
+		$this->commandBus->execute(new CuttingCheckIntCommand($rollId));
+	}
 }
