@@ -15,6 +15,9 @@ enum Process: string
 
     case CUTTING_CHECK_IN = 'cutting_check_in';
 
+    // means after cutting check in roll no more exists, its sliced
+    case CUT = 'cut';
+
     /**
      * Checks if the current process is equal to the given process.
      *

@@ -15,4 +15,6 @@ enum Status: string
     case ASSIGNED = 'assigned';
 
     case CONFLICT = 'conflict';
+
+    case SHIP_AND_COLLECT = 'ship_and_collect';
 }

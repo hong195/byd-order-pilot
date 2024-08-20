@@ -54,7 +54,7 @@ final readonly class PrintCheckInService
         }
 
         if ($roll->getOrders()->isEmpty()) {
-            throw new RollCantBeSentToPrintException('Roll cannot be printed! It has no orders.');
+            throw new NotFoundHttpException('No Orders found!');
         }
 
         $printer = $roll->getPrinter();

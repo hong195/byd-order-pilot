@@ -41,14 +41,6 @@ final readonly class CuttingCheckInService
             throw new NotFoundHttpException('Roll not found');
         }
 
-        if (!$roll->getProcess()->equals(Process::LAMINATION_CHECK_IN)) {
-            throw new RollCantBeSentToCuttingException('Roll cannot be cut! It is not in the correct process.');
-        }
-
-        if ($roll->getOrders()->isEmpty()) {
-            throw new RollCantBeSentToCuttingException('Roll cannot be cut! It has no orders.');
-        }
-
         $roll->updateProcess(Process::PRINTING_CHECK_IN);
 
         $this->rollRepository->save($roll);

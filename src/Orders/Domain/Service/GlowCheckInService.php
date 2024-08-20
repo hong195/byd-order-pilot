@@ -55,7 +55,7 @@ final readonly class GlowCheckInService
         $ordersGroups = $this->groupService->handle($foundRoll->getOrders());
 
         if ($foundRoll->getOrders()->isEmpty()) {
-            throw new RollCantBeSentToGlowException('Roll cannot be glowed! It has no orders.');
+            throw new NotFoundHttpException('No Orders found!');
         }
 
         $sendToGlowingRolls = [];
