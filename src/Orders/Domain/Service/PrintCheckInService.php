@@ -18,7 +18,7 @@ use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 /**
  * This class is responsible for handling the printing process.
  */
-final readonly class SendRollToPrintCheckInService
+final readonly class PrintCheckInService
 {
     /**
      * Construct the class.
