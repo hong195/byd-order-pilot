@@ -109,13 +109,13 @@ readonly class PrivateCommandInteractor
         $this->commandBus->execute(new SendRollToPrintCheckIntCommand($rollId));
     }
 
-	/**
-	 * Sends a roll to be checked in for cutting.
-	 *
-	 * @param int $rollId The ID of the roll to be checked in
-	 */
-	public function cuttingCheckIn(int $rollId): void
-	{
-		$this->commandBus->execute(new CuttingCheckIntCommand($rollId));
-	}
+    /**
+     * Sends a roll to be checked in for cutting.
+     *
+     * @param int $rollId The ID of the roll to be checked in
+     */
+    public function cuttingCheckIn(int $rollId): void
+    {
+        $this->commandBus->execute(new CuttingCheckIntCommand($rollId));
+    }
 }
