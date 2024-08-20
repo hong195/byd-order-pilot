@@ -10,6 +10,7 @@ use App\Orders\Application\UseCase\Command\ChangeOrderPriority\ChangeOrderPriori
 use App\Orders\Application\UseCase\Command\ChangeOrderSort\ChangeOrderSortCommand;
 use App\Orders\Application\UseCase\Command\ChangePrinterAvailability\ChangePrinterAvailabilityCommand;
 use App\Orders\Application\UseCase\Command\CreatePrinters\CreatePrintersCommand;
+use App\Orders\Application\UseCase\Command\CuttingCheckIn\CuttingCheckIntCommand;
 use App\Orders\Application\UseCase\Command\GlowCheckIn\GlowCheckInCommand;
 use App\Orders\Application\UseCase\Command\PrintCheckIn\PrintCheckIntCommand;
 use App\Orders\Application\UseCase\Command\UnassignOrder\UnassignOrderCommand;
@@ -117,5 +118,15 @@ readonly class PrivateCommandInteractor
     public function sendRollToGlowCheckIn(int $rollId): void
     {
         $this->commandBus->execute(new GlowCheckInCommand($rollId));
+    }
+
+    /**
+     * Sends a roll to be checked in for cutting.
+     *
+     * @param int $rollId The ID of the roll to be checked in
+     */
+    public function cuttingCheckIn(int $rollId): void
+    {
+        $this->commandBus->execute(new CuttingCheckIntCommand($rollId));
     }
 }
