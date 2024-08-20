@@ -14,11 +14,11 @@ use Symfony\Component\Routing\Attribute\Route;
 /**
  * Controller to find a roll by ID.
  *
- * @Route("/api/rolls/{id}", requirements={"id"="\d+"}, methods={"GET"})
+ * @Route("/api/rolls/print-check-in/{rollId}", requirements={"rollId"="\d+"}, methods={"POST"})
  */
 #[AsController]
-#[Route('/api/rolls/glow-check-in/{rollId}', name: 'send_roll_to_glow_check_in', requirements: ['rollId' => '^\d+$'], methods: ['POST'])]
-final class SendRollToGlowCheckInAction extends BaseController
+#[Route('/api/rolls/print-check-in/{rollId}', name: 'send_roll_to_print_check_in', requirements: ['rollId' => '^\d+$'], methods: ['POST'])]
+final class PrintingCheckInAction extends BaseController
 {
     /**
      * Class description: this class represents a constructor for the PrivateCommandInteractor class.
@@ -38,8 +38,8 @@ final class SendRollToGlowCheckInAction extends BaseController
      */
     public function __invoke(int $rollId): JsonResponse
     {
-        $this->privateCommandInteractor->sendRollToGlowCheckIn($rollId);
+        $this->privateCommandInteractor->printingCheckIn($rollId);
 
-        return $this->json(['message' => 'Roll was sent to glow check-in'], Response::HTTP_OK);
+        return $this->json(['message' => 'Roll was sent to print check-in'], Response::HTTP_OK);
     }
 }

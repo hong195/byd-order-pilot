@@ -105,7 +105,7 @@ readonly class PrivateCommandInteractor
      *
      * @param int $rollId The ID of the roll to send to print check-in
      */
-    public function sendRollToPrintCheckIn(int $rollId): void
+    public function printingCheckIn(int $rollId): void
     {
         $this->commandBus->execute(new PrintCheckIntCommand($rollId));
     }
@@ -115,7 +115,7 @@ readonly class PrivateCommandInteractor
      *
      * @param int $rollId the ID of the roll to be sent
      */
-    public function sendRollToGlowCheckIn(int $rollId): void
+    public function glowCheckIn(int $rollId): void
     {
         $this->commandBus->execute(new GlowCheckInCommand($rollId));
     }

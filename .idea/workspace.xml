@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added send to print check in api.">
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/CuttingCheckIn/CuttingCheckInCommandHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/CuttingCheckIn/CuttingCheckIntCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Exceptions/RollCantBeSentToCuttingException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/CuttingCheckInService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Rolls/CuttingCheckInAction.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Rolls/SendRollToGlowCheckInAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Rolls/GlowCheckInAction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Rolls/SendRollToPrintCheckInAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Rolls/PrintingCheckInAction.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
