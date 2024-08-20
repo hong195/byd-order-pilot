@@ -13,6 +13,7 @@ use App\Orders\Application\UseCase\Command\CreatePrinters\CreatePrintersCommand;
 use App\Orders\Application\UseCase\Command\CuttingCheckIn\CuttingCheckIntCommand;
 use App\Orders\Application\UseCase\Command\GlowCheckIn\GlowCheckInCommand;
 use App\Orders\Application\UseCase\Command\PrintCheckIn\PrintCheckIntCommand;
+use App\Orders\Application\UseCase\Command\ShipAndCollectOrders\ShipAndCollectOrdersCommand;
 use App\Orders\Application\UseCase\Command\UnassignOrder\UnassignOrderCommand;
 use App\Shared\Application\Command\CommandBusInterface;
 
@@ -128,5 +129,15 @@ readonly class PrivateCommandInteractor
     public function cuttingCheckIn(int $rollId): void
     {
         $this->commandBus->execute(new CuttingCheckIntCommand($rollId));
+    }
+
+    /**
+     * Ships and collects orders for a given roll.
+     *
+     * @param int $rollId The ID of the roll
+     */
+    public function shipAndCollectOrders(int $rollId): void
+    {
+        $this->commandBus->execute(new ShipAndCollectOrdersCommand($rollId));
     }
 }

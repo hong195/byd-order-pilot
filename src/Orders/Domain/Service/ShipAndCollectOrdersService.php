@@ -16,7 +16,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
  *
  * This class handles the cutting of a roll.
  */
-final readonly class ShipAndCollectService
+final readonly class ShipAndCollectOrdersService
 {
     /**
      * Construct the class.
