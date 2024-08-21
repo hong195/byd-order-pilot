@@ -16,7 +16,7 @@ use Webmozart\Assert\Assert;
  *
  * Represents a roll in the application.
  */
-final class Roll extends Aggregate
+class Roll extends Aggregate
 {
     private ?int $id = null;
 
