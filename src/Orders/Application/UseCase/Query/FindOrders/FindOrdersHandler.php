@@ -49,6 +49,11 @@ final readonly class FindOrdersHandler implements QueryHandlerInterface
 
         $ordersByGroupedLamination = $this->groupService->handle(new ArrayCollection($result->items));
 
+        foreach ($ordersByGroupedLamination as $items) {
+            foreach ($items as $item) {
+                dump($item->getSortOrder());
+            }
+        }
         $orderData = $this->orderDataTransformer->fromLaminationGroup($ordersByGroupedLamination);
 
         return new FindOrdersResult($orderData);

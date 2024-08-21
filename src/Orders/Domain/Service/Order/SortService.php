@@ -23,17 +23,17 @@ final readonly class SortService implements SortOrdersServiceInterface
 
         usort($orders, function (Order $a, Order $b) {
             // Compare sort number
-            $rollComparison = $b->getFilmType()->value <=> $a->getFilmType()->value;
-
-            if (0 !== $rollComparison) {
-                return $rollComparison;
-            }
-
-            // Compare sort number
             $sortNumberComparison = $b->getSortOrder() <=> $a->getSortOrder();
 
             if (0 !== $sortNumberComparison) {
                 return $sortNumberComparison;
+            }
+
+            // Compare film type
+            $rollComparison = $b->getFilmType()->value <=> $a->getFilmType()->value;
+
+            if (0 !== $rollComparison) {
+                return $rollComparison;
             }
 
             // Compare priority (convert boolean to int for comparison)

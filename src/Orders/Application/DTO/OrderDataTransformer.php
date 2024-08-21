@@ -45,7 +45,7 @@ final readonly class OrderDataTransformer
      *
      * @param array<int, Collection<Order>> $groups The groups of lamination
      *
-     * @return array<int, Order[]> The converted array format of lamination groups
+     * @return array<int, OrderData[]> The converted array format of lamination groups
      */
     public function fromLaminationGroup(array $groups): array
     {
@@ -76,6 +76,7 @@ final readonly class OrderDataTransformer
             filmType: $order->getFilmType()->value,
             addedAt: $order->getDateAdded(),
             laminationType: $order->getLaminationType()?->value,
+            sortOrder: $order->getSortOrder(),
             orderNumber: $order->getOrderNumber(),
             cutFile: $order->getCutFile() ? $this->assetUrlService->getLink($order->getCutFile()->getPath()) : null,
             printFile: $order->getPrintFile() ? $this->assetUrlService->getLink($order->getPrintFile()->getPath()) : null,

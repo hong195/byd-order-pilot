@@ -59,7 +59,7 @@ final readonly class ChangeSortOrder
                 throw new NotFoundHttpException('Order not found');
             }
 
-            $order->changeSortOrder($orderId);
+            $order->changeSortOrder($sortOrder);
             $this->orderRepository->save($order);
         }
     }
