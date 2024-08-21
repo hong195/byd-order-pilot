@@ -23,7 +23,7 @@ final readonly class SortService implements SortOrdersServiceInterface
 
         usort($orders, function (Order $a, Order $b) {
             // Compare sort number
-            $sortNumberComparison = $b->getSortOrder() <=> $a->getSortOrder();
+            $sortNumberComparison = $a->getSortOrder() <=> $b->getSortOrder();
 
             if (0 !== $sortNumberComparison) {
                 return $sortNumberComparison;
