@@ -35,12 +35,6 @@ readonly class CreatePrintersCommandHandler implements CommandHandlerInterface
      */
     public function __invoke(CreatePrintersCommand $createPrintersCommand): void
     {
-        $printers = $this->printerRepository->findByNames(array_column(PrinterType::cases(), 'value'));
-
-        if (3 === count($printers)) {
-            return;
-        }
-
         $printers = [
             [
                 'name' => PrinterType::ROLAND_UV_PRINTER,
@@ -63,7 +57,5 @@ readonly class CreatePrintersCommandHandler implements CommandHandlerInterface
             $printer = $this->printerFactory->make($printerData['name'], $printerData['filmTypes'], $printerData['laminationTypes']);
             $this->printerRepository->save($printer);
         }
-
-        return;
     }
 }

@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace App\Orders\Application\DTO;
 
 use App\Orders\Domain\Aggregate\Printer;
-use App\Orders\Domain\ValueObject\FilmType;
-use App\Orders\Domain\ValueObject\LaminationType;
 
 /**
  * Class RollData.
@@ -16,40 +14,14 @@ use App\Orders\Domain\ValueObject\LaminationType;
 final readonly class PrinterData
 {
     /**
-     * Constructor method for the class.
+     * Constructor for creating an instance of the class.
      *
-     * @param int      $id          the ID of the object
-     * @param string[] $filmTypes   an array of film types
-     * @param string[] $laminations an array of laminations
+     * @param int    $id          the ID of the object
+     * @param string $name        the name of the object
+     * @param array  $filmTypes   (optional) The array of film types associated with the object
+     * @param array  $laminations (optional) The array of laminations associated with the object
      */
-    public function __construct(public int $id, public array $filmTypes = [], public array $laminations = [])
+    public function __construct(public int $id, public string $name, public array $filmTypes = [], public array $laminations = [])
     {
-    }
-
-    /**
-     * Converts an array of entities into an array of DTOs.
-     *
-     * @param Printer[] $entities An array of entities to convert
-     *
-     * @return self[] An array of DTOs
-     */
-    public function fromEntityList(array $entities): array
-    {
-        $dtos = [];
-        foreach ($entities as $entity) {
-            $dtos[] = new self(
-                id: $entity->getId(),
-                filmTypes: array_map(
-                    fn (FilmType $filmType) => $filmType->value,
-                    $entity->getFilmTypes()
-                ),
-                laminations: array_map(
-                    fn (LaminationType $lamination) => $lamination->value,
-                    $entity->getLaminationTypes()
-                )
-            );
-        }
-
-        return $dtos;
     }
 }
