@@ -41,11 +41,6 @@ final class OrdersOrdersCheckInService implements OrdersCheckInInterface
      */
     public function __construct(private readonly OrderRepositoryInterface $orderRepository, private readonly SortOrdersServiceInterface $sortOrdersService, private readonly RollRepository $rollRepository, private readonly AvailableFilmServiceInterface $availableFilmService, private readonly RollMaker $rollMaker)
     {
-        $this->assignedRolls = new ArrayCollection([]);
-
-        $this->rolls = new ArrayCollection($this->rollRepository->findByFilter(new RollFilter(process: Process::ORDER_CHECK_IN)));
-
-        $this->initOrders();
     }
 
     /**
@@ -55,6 +50,8 @@ final class OrdersOrdersCheckInService implements OrdersCheckInInterface
      */
     public function checkIn(): void
     {
+        $this->initData();
+
         $availableFilms = $this->availableFilmService->getAvailableFilms();
         $groupedFilms = $this->groupFilmsByType($availableFilms);
         $groupedOrders = $this->groupOrdersByFilm($this->orders);
@@ -108,6 +105,17 @@ final class OrdersOrdersCheckInService implements OrdersCheckInInterface
         }
 
         $this->rollRepository->saveRolls($this->assignedRolls);
+    }
+
+    /**
+     * Initializes the data for the orders check in, uses latest rolls and orders to do that.
+     */
+    private function initData(): void
+    {
+        $this->assignedRolls = new ArrayCollection([]);
+        $this->rolls = new ArrayCollection($this->rollRepository->findByFilter(new RollFilter(process: Process::ORDER_CHECK_IN)));
+
+        $this->initOrders();
     }
 
     /**

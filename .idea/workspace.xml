@@ -4,23 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added ship and collect api route.">
-      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240820131927.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fixed incorrect order.">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AssignOrder/AssignOrderCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AssignOrder/AssignOrderCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Printer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Printer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Roll.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Roll.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Factory/OrderFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Factory/OrderFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/ChangeStatusOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/ChangeStatusOrder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/ManualOrderService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/ManualOrderService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/OrdersCheckInProcess/OrdersOrdersCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/OrdersCheckInProcess/OrdersOrdersCheckInService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/ValueObject/Status.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/ValueObject/Status.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Order.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Order.orm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Roll.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Roll.orm.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +31,7 @@
   <component name="GitRewordedCommitMessages">
     <option name="onto" value="e41a5877cef6ab9db1892139cf57e608dea8b9f3" />
   </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpServers">
     <servers>
       <server host="127.0.0.1" id="7d2728ca-5a64-4d37-9fe8-0e9275687d69" name="Docker" port="8081" use_path_mappings="true">
@@ -182,35 +171,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;PHPUnit.Main.executor&quot;: &quot;Coverage&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
-    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm&quot;: &quot;Docker Compose&quot;,
-    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm&quot;: &quot;Docker Compose&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/aleksejem/Sites/order-pilot/src/Orders/Application/UseCase/Command&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;php.add.doc.comment.for.fields.panel.add.php.doc.for.all.properties&quot;: &quot;true&quot;,
-    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.General&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "PHPUnit.Main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
+    "WebServerToolWindowPanel.toolwindow.show.date": "false",
+    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
+    "WebServerToolWindowPanel.toolwindow.show.size": "false",
+    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm": "Docker Compose",
+    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm": "Docker Compose",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/src/Orders/Application/UseCase/Command",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "php.add.doc.comment.for.fields.panel.add.php.doc.for.all.properties": "true",
+    "php.override.implement.member.chooser.php.doc": "NONE",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.General",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Command" />
@@ -286,54 +275,6 @@
       <workItem from="1723390311692" duration="26395000" />
       <workItem from="1724051941853" duration="6737000" />
       <workItem from="1724163360669" duration="1936000" />
-    </task>
-    <task id="LOCAL-00153" summary="Added order check in process.">
-      <option name="closed" value="true" />
-      <created>1723479176590</created>
-      <option name="number" value="00153" />
-      <option name="presentableId" value="LOCAL-00153" />
-      <option name="project" value="LOCAL" />
-      <updated>1723479176590</updated>
-    </task>
-    <task id="LOCAL-00154" summary="Added order check in process.">
-      <option name="closed" value="true" />
-      <created>1723479179728</created>
-      <option name="number" value="00154" />
-      <option name="presentableId" value="LOCAL-00154" />
-      <option name="project" value="LOCAL" />
-      <updated>1723479179728</updated>
-    </task>
-    <task id="LOCAL-00155" summary="Updated logic for check in service.">
-      <option name="closed" value="true" />
-      <created>1723535548459</created>
-      <option name="number" value="00155" />
-      <option name="presentableId" value="LOCAL-00155" />
-      <option name="project" value="LOCAL" />
-      <updated>1723535548459</updated>
-    </task>
-    <task id="LOCAL-00156" summary="Updated logic for check in service.">
-      <option name="closed" value="true" />
-      <created>1723535552648</created>
-      <option name="number" value="00156" />
-      <option name="presentableId" value="LOCAL-00156" />
-      <option name="project" value="LOCAL" />
-      <updated>1723535552648</updated>
-    </task>
-    <task id="LOCAL-00157" summary="Updated logic for check in service.">
-      <option name="closed" value="true" />
-      <created>1723535630527</created>
-      <option name="number" value="00157" />
-      <option name="presentableId" value="LOCAL-00157" />
-      <option name="project" value="LOCAL" />
-      <updated>1723535630527</updated>
-    </task>
-    <task id="LOCAL-00158" summary="Updated logic for check in service.">
-      <option name="closed" value="true" />
-      <created>1723535633846</created>
-      <option name="number" value="00158" />
-      <option name="presentableId" value="LOCAL-00158" />
-      <option name="project" value="LOCAL" />
-      <updated>1723535633846</updated>
     </task>
     <task id="LOCAL-00159" summary="Updated roll api endpoints.">
       <option name="closed" value="true" />
@@ -679,7 +620,55 @@
       <option name="project" value="LOCAL" />
       <updated>1724156872893</updated>
     </task>
-    <option name="localTasksCounter" value="202" />
+    <task id="LOCAL-00202" summary="Updated roll is not final class.">
+      <option name="closed" value="true" />
+      <created>1724224387453</created>
+      <option name="number" value="00202" />
+      <option name="presentableId" value="LOCAL-00202" />
+      <option name="project" value="LOCAL" />
+      <updated>1724224387453</updated>
+    </task>
+    <task id="LOCAL-00203" summary="Fixed sort order bug.">
+      <option name="closed" value="true" />
+      <created>1724247504334</created>
+      <option name="number" value="00203" />
+      <option name="presentableId" value="LOCAL-00203" />
+      <option name="project" value="LOCAL" />
+      <updated>1724247504334</updated>
+    </task>
+    <task id="LOCAL-00204" summary="Fixed sort order bug.">
+      <option name="closed" value="true" />
+      <created>1724247507495</created>
+      <option name="number" value="00204" />
+      <option name="presentableId" value="LOCAL-00204" />
+      <option name="project" value="LOCAL" />
+      <updated>1724247507495</updated>
+    </task>
+    <task id="LOCAL-00205" summary="Fixed sort order bug.">
+      <option name="closed" value="true" />
+      <created>1724247595754</created>
+      <option name="number" value="00205" />
+      <option name="presentableId" value="LOCAL-00205" />
+      <option name="project" value="LOCAL" />
+      <updated>1724247595754</updated>
+    </task>
+    <task id="LOCAL-00206" summary="Remove dump.">
+      <option name="closed" value="true" />
+      <created>1724247619762</created>
+      <option name="number" value="00206" />
+      <option name="presentableId" value="LOCAL-00206" />
+      <option name="project" value="LOCAL" />
+      <updated>1724247619763</updated>
+    </task>
+    <task id="LOCAL-00207" summary="Fixed incorrect order.">
+      <option name="closed" value="true" />
+      <created>1724248379482</created>
+      <option name="number" value="00207" />
+      <option name="presentableId" value="LOCAL-00207" />
+      <option name="project" value="LOCAL" />
+      <updated>1724248379482</updated>
+    </task>
+    <option name="localTasksCounter" value="208" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -715,10 +704,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated logic for check in service." />
-    <MESSAGE value="Updated roll api endpoints." />
-    <MESSAGE value="Updated docker env file." />
-    <MESSAGE value="Updated docker env file #2." />
     <MESSAGE value="Updated roll api." />
     <MESSAGE value="Added inventory implementation." />
     <MESSAGE value="Added change priority api." />
@@ -740,7 +725,11 @@
     <MESSAGE value="Rename inventory api." />
     <MESSAGE value="Added ship and collect service." />
     <MESSAGE value="Added ship and collect api route." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added ship and collect api route." />
+    <MESSAGE value="Updated roll is not final class." />
+    <MESSAGE value="Fixed sort order bug." />
+    <MESSAGE value="Remove dump." />
+    <MESSAGE value="Fixed incorrect order." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed incorrect order." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -757,11 +746,6 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/Orders/Domain/Service/OrdersCheckInProcess/OrdersOrdersCheckInService.php" line="72">
-        <watch expression="$order" language="PHP" />
-      </inline-watch>
-    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
