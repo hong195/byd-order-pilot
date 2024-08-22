@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fixed orders check in.">
-      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Exceptions/OrderReprintException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/ReprintOrder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/ShipAndCollectOrdersService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/ShipAndCollectOrdersService.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added reprint order.">
+      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ReprintOrder/ReprintCommandHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ReprintOrder/ReprintOrderCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/ReprintOrderAction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/ReprintOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/ReprintOrder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +32,6 @@
   <component name="GitRewordedCommitMessages">
     <option name="onto" value="e41a5877cef6ab9db1892139cf57e608dea8b9f3" />
   </component>
-  <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpServers">
     <servers>
       <server host="127.0.0.1" id="7d2728ca-5a64-4d37-9fe8-0e9275687d69" name="Docker" port="8081" use_path_mappings="true">
@@ -274,22 +275,6 @@
       <workItem from="1723390311692" duration="26395000" />
       <workItem from="1724051941853" duration="6737000" />
       <workItem from="1724163360669" duration="1936000" />
-    </task>
-    <task id="LOCAL-00160" summary="Updated roll api endpoints.">
-      <option name="closed" value="true" />
-      <created>1723540432192</created>
-      <option name="number" value="00160" />
-      <option name="presentableId" value="LOCAL-00160" />
-      <option name="project" value="LOCAL" />
-      <updated>1723540432192</updated>
-    </task>
-    <task id="LOCAL-00161" summary="Updated docker env file.">
-      <option name="closed" value="true" />
-      <created>1723543837376</created>
-      <option name="number" value="00161" />
-      <option name="presentableId" value="LOCAL-00161" />
-      <option name="project" value="LOCAL" />
-      <updated>1723543837376</updated>
     </task>
     <task id="LOCAL-00162" summary="Updated docker env file #2.">
       <option name="closed" value="true" />
@@ -667,7 +652,23 @@
       <option name="project" value="LOCAL" />
       <updated>1724315524610</updated>
     </task>
-    <option name="localTasksCounter" value="209" />
+    <task id="LOCAL-00209" summary="Added reprint order.">
+      <option name="closed" value="true" />
+      <created>1724318112324</created>
+      <option name="number" value="00209" />
+      <option name="presentableId" value="LOCAL-00209" />
+      <option name="project" value="LOCAL" />
+      <updated>1724318112324</updated>
+    </task>
+    <task id="LOCAL-00210" summary="Added reprint order.">
+      <option name="closed" value="true" />
+      <created>1724318115383</created>
+      <option name="number" value="00210" />
+      <option name="presentableId" value="LOCAL-00210" />
+      <option name="project" value="LOCAL" />
+      <updated>1724318115383</updated>
+    </task>
+    <option name="localTasksCounter" value="211" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -703,7 +704,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added inventory implementation." />
     <MESSAGE value="Added change priority api." />
     <MESSAGE value="Added unassign order api." />
     <MESSAGE value="Updated rolls have process orders status." />
@@ -728,7 +728,8 @@
     <MESSAGE value="Remove dump." />
     <MESSAGE value="Fixed incorrect order." />
     <MESSAGE value="Fixed orders check in." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed orders check in." />
+    <MESSAGE value="Added reprint order." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added reprint order." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

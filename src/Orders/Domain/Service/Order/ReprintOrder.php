@@ -57,6 +57,8 @@ final readonly class ReprintOrder
                 $order->changeStatus(Status::ASSIGNABLE);
                 $order->updateHasPriority(true);
 
+                $order->removeRoll();
+
                 $this->orderRepository->save($order);
 
                 return;
