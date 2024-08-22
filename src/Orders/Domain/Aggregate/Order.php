@@ -283,4 +283,16 @@ final class Order extends Aggregate
     {
         $this->roll = null;
     }
+
+    /**
+     * Reprints the document.
+     *
+     * Sets the status to ASSIGNABLE, sets hasPriority to true and roll to null.
+     */
+    public function reprint(): void
+    {
+        $this->status = Status::ASSIGNABLE;
+        $this->hasPriority = true;
+        $this->roll = null;
+    }
 }

@@ -8,7 +8,6 @@ use App\Orders\Domain\Exceptions\OrderReprintException;
 use App\Orders\Domain\Repository\OrderRepositoryInterface;
 use App\Orders\Domain\Repository\RollRepositoryInterface;
 use App\Orders\Domain\ValueObject\Process;
-use App\Orders\Domain\ValueObject\Status;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -54,11 +53,7 @@ final readonly class ReprintOrder
 
         foreach ($roll->getOrders() as $order) {
             if ($order->getId() === $orderId) {
-                $order->changeStatus(Status::ASSIGNABLE);
-                $order->updateHasPriority(true);
-
-                $order->removeRoll();
-
+                $order->reprint();
                 $this->orderRepository->save($order);
 
                 return;
