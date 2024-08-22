@@ -41,6 +41,18 @@ final class PrinterRepository extends ServiceEntityRepository implements Printer
     }
 
     /**
+     * Finds all printers.
+     *
+     * @return Printer[] an array containing all the printer objects
+     */
+    public function findAll(): array
+    {
+        $queryBuilder = $this->createQueryBuilder('p');
+
+        return $queryBuilder->getQuery()->getResult();
+    }
+
+    /**
      * Returns an array of entities based on the given names.
      *
      * @param string[] $names the names to search for

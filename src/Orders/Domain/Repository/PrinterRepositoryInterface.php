@@ -27,6 +27,13 @@ interface PrinterRepositoryInterface
     public function findById(int $printerId): ?Printer;
 
     /**
+     * Find all printers.
+     *
+     * @return Printer[] An array of printers
+     */
+    public function findAll(): array;
+
+    /**
      * Finds records in the database based on a given name.
      *
      * @param string[] $names the name to search by

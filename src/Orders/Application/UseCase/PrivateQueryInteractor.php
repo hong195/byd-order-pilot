@@ -10,6 +10,8 @@ use App\Orders\Application\UseCase\Query\FindARoll\FindARollQuery;
 use App\Orders\Application\UseCase\Query\FindARoll\FindARollResult;
 use App\Orders\Application\UseCase\Query\FindOrders\FindOrdersQuery;
 use App\Orders\Application\UseCase\Query\FindOrders\FindOrdersResult;
+use App\Orders\Application\UseCase\Query\FindPrinters\FindPrintersQuery;
+use App\Orders\Application\UseCase\Query\FindPrinters\FindPrintersResult;
 use App\Orders\Application\UseCase\Query\FindRolls\FindRollsQuery;
 use App\Orders\Application\UseCase\Query\FindRolls\FindRollsResult;
 use App\Shared\Application\Query\QueryBusInterface;
@@ -72,5 +74,15 @@ readonly class PrivateQueryInteractor
         $query = new FindOrdersQuery(rollId: $rollId, status: $status);
 
         return $this->queryBus->execute($query);
+    }
+
+    /**
+     * Finds printers.
+     *
+     * @return FindPrintersResult the result of finding printers
+     */
+    public function findPrinters(): FindPrintersResult
+    {
+        return $this->queryBus->execute(new FindPrintersQuery());
     }
 }
