@@ -27,6 +27,9 @@ final readonly class ShipAndCollectOrdersService
     {
     }
 
+    /**
+     * @throws ShipAndCollectionException
+     */
     public function handle(int $rollId): void
     {
         $roll = $this->rollRepository->findById($rollId);

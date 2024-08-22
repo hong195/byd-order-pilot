@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fixed incorrect order.">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/OrdersCheckInProcess/OrdersOrdersCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/OrdersCheckInProcess/OrdersOrdersCheckInService.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fixed orders check in.">
+      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Exceptions/OrderReprintException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/ReprintOrder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/ShipAndCollectOrdersService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/ShipAndCollectOrdersService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -275,14 +274,6 @@
       <workItem from="1723390311692" duration="26395000" />
       <workItem from="1724051941853" duration="6737000" />
       <workItem from="1724163360669" duration="1936000" />
-    </task>
-    <task id="LOCAL-00159" summary="Updated roll api endpoints.">
-      <option name="closed" value="true" />
-      <created>1723540428503</created>
-      <option name="number" value="00159" />
-      <option name="presentableId" value="LOCAL-00159" />
-      <option name="project" value="LOCAL" />
-      <updated>1723540428503</updated>
     </task>
     <task id="LOCAL-00160" summary="Updated roll api endpoints.">
       <option name="closed" value="true" />
@@ -668,7 +659,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724248379482</updated>
     </task>
-    <option name="localTasksCounter" value="208" />
+    <task id="LOCAL-00208" summary="Fixed orders check in.">
+      <option name="closed" value="true" />
+      <created>1724315524610</created>
+      <option name="number" value="00208" />
+      <option name="presentableId" value="LOCAL-00208" />
+      <option name="project" value="LOCAL" />
+      <updated>1724315524610</updated>
+    </task>
+    <option name="localTasksCounter" value="209" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -704,7 +703,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated roll api." />
     <MESSAGE value="Added inventory implementation." />
     <MESSAGE value="Added change priority api." />
     <MESSAGE value="Added unassign order api." />
@@ -729,7 +727,8 @@
     <MESSAGE value="Fixed sort order bug." />
     <MESSAGE value="Remove dump." />
     <MESSAGE value="Fixed incorrect order." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed incorrect order." />
+    <MESSAGE value="Fixed orders check in." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed orders check in." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -738,11 +737,6 @@
           <url>file://$PROJECT_DIR$/src/Order/Domain/Aggregate/OrderStack/OrderStack.php</url>
           <line>210</line>
           <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/Orders/Domain/Service/Order/SortOrdersServiceInterface.php</url>
-          <line>19</line>
-          <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
