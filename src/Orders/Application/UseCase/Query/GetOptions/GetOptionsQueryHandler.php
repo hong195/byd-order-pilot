@@ -42,7 +42,7 @@ final readonly class GetOptionsQueryHandler implements QueryHandlerInterface
     {
         AssertService::true($this->accessControlService->isGranted(), 'Access denied');
 
-        $lamination = [
+        $laminationTypes = [
             LaminationType::GOLD_FLAKES->value => $this->prepareLabel(LaminationType::GOLD_FLAKES->name),
             LaminationType::HOLO_FLAKES->value => $this->prepareLabel(LaminationType::HOLO_FLAKES->name),
             LaminationType::GLOSSY->value => $this->prepareLabel(LaminationType::GLOSSY->name),
@@ -56,7 +56,7 @@ final readonly class GetOptionsQueryHandler implements QueryHandlerInterface
             FilmType::ECO->value => $this->prepareLabel(FilmType::ECO->name),
         ];
 
-        return new GetOptionsQueryResult(compact('filmTypes', 'lamination'));
+        return new GetOptionsQueryResult(compact('filmTypes', 'laminationTypes'));
     }
 
     private function prepareLabel(string $word): string
