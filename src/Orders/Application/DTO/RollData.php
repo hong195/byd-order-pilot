@@ -25,8 +25,7 @@ final readonly class RollData
      */
     public function __construct(
         public int $id, public string $name, public int $length, public int $count,
-        public int $priorityCount = 0,
-        public array $films, public array $laminations = [], public ?int $filmId = null, public ?int $printerId = null,
+        public array $films, public int $priorityCount = 0, public array $laminations = [], public ?int $filmId = null, public ?int $printerId = null,
         public ?\DateTimeInterface $dateAdded = null)
     {
     }
