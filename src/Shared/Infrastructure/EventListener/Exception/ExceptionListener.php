@@ -19,7 +19,7 @@ class ExceptionListener
     {
     }
 
-    #[AsEventListener(priority: 190)]
+    #[AsEventListener(event: 'kernel.exception', priority: 190)]
     public function onKernelException(ExceptionEvent $event): void
     {
         // Получаем MIME тип из заголовка Accept
