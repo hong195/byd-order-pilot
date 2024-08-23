@@ -42,6 +42,7 @@ final readonly class RollDataTransformer
             name: $roll->getName(),
             length: $roll->getOrdersLength(),
             count: $roll->getOrdersCount(),
+            priorityCount: $roll->getPriorityOrders(),
             films: $roll->getFilmTypes(),
             laminations: $roll->getLaminations(),
             filmId: $roll->getFilmId(),
