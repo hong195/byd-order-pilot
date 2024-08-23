@@ -6,15 +6,13 @@ namespace App\Orders\Infrastructure\Controller\Options;
 
 use App\Orders\Application\UseCase\PrivateQueryInteractor;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Component\Serializer\Exception\ExceptionInterface;
 
 #[AsController]
 #[Route('/api/options', name: 'get_options', methods: ['GET'])]
-final readonly class GetOptions
+final readonly class GetOptionsAction
 {
     /**
      * Constructor.
@@ -26,13 +24,11 @@ final readonly class GetOptions
     }
 
     /**
-     * Retrieves orders and returns them as a JSON response.
+     * Invoke the controller.
      *
-     * @return JsonResponse returns a JSON response with the normalized orders
-     *
-     * @throws ExceptionInterface
+     * @return JsonResponse the JSON response
      */
-    public function __invoke(Request $request): JsonResponse
+    public function __invoke(): JsonResponse
     {
         $options = $this->privateQueryInteractor->getOptions();
 
