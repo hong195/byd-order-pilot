@@ -43,19 +43,24 @@ final readonly class GetOptionsQueryHandler implements QueryHandlerInterface
         AssertService::true($this->accessControlService->isGranted(), 'Access denied');
 
         $lamination = [
-            ucwords(LaminationType::GOLD_FLAKES->name, '_') => LaminationType::GOLD_FLAKES->value,
-            ucwords(LaminationType::HOLO_FLAKES->name, '_') => LaminationType::HOLO_FLAKES->value,
-            ucwords(LaminationType::GLOSSY->name, '_') => LaminationType::GLOSSY->value,
-            ucwords(LaminationType::MATT->name, '_') => LaminationType::MATT->value,
+            LaminationType::GOLD_FLAKES->value => $this->prepareLabel(LaminationType::GOLD_FLAKES->name),
+            LaminationType::HOLO_FLAKES->value => $this->prepareLabel(LaminationType::HOLO_FLAKES->name),
+            LaminationType::GLOSSY->value => $this->prepareLabel(LaminationType::GLOSSY->name),
+            LaminationType::MATT->value => $this->prepareLabel(LaminationType::MATT->name),
         ];
 
         $filmTypes = [
-            ucwords(FilmType::CHROME->name, '_') => FilmType::CHROME->value,
-            ucwords(FilmType::NEON->name, '_') => FilmType::NEON->value,
-            ucwords(FilmType::WHITE->name, '_') => FilmType::WHITE->value,
-            ucwords(FilmType::ECO->name, '_') => FilmType::ECO->value,
+            FilmType::CHROME->value => $this->prepareLabel(FilmType::CHROME->name),
+            FilmType::NEON->value => $this->prepareLabel(FilmType::NEON->name),
+            FilmType::WHITE->value => $this->prepareLabel(FilmType::WHITE->name),
+            FilmType::ECO->value => $this->prepareLabel(FilmType::ECO->name),
         ];
 
         return new GetOptionsQueryResult(compact('filmTypes', 'lamination'));
+    }
+
+    private function prepareLabel(string $word): string
+    {
+        return ucwords(mb_strtolower(str_replace('_', ' ', $word)), ' ');
     }
 }
