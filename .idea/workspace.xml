@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added .env.example">
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/GeOptions/GetOptionsQuery.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/GeOptions/GetOptionsQueryHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/GeOptions/GetOptionsQueryResult.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fixed optional $priorityCount param after required.">
+      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/GetOptions/GetOptionsQuery.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/GetOptions/GetOptionsQueryHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/GetOptions/GetOptionsQueryResult.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Options/GetOptions.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/RollData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/RollData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/RollDataTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/RollDataTransformer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindRolls/FindRollsHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindRolls/FindRollsHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateQueryInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateQueryInteractor.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -277,22 +276,6 @@
       <workItem from="1723390311692" duration="26395000" />
       <workItem from="1724051941853" duration="6737000" />
       <workItem from="1724163360669" duration="1936000" />
-    </task>
-    <task id="LOCAL-00177" summary="Added assign order api.">
-      <option name="closed" value="true" />
-      <created>1723632026380</created>
-      <option name="number" value="00177" />
-      <option name="presentableId" value="LOCAL-00177" />
-      <option name="project" value="LOCAL" />
-      <updated>1723632026380</updated>
-    </task>
-    <task id="LOCAL-00178" summary="Clean up commit.">
-      <option name="closed" value="true" />
-      <created>1723635623419</created>
-      <option name="number" value="00178" />
-      <option name="presentableId" value="LOCAL-00178" />
-      <option name="project" value="LOCAL" />
-      <updated>1723635623420</updated>
     </task>
     <task id="LOCAL-00179" summary="Updated read me file.">
       <option name="closed" value="true" />
@@ -670,7 +653,23 @@
       <option name="project" value="LOCAL" />
       <updated>1724413336229</updated>
     </task>
-    <option name="localTasksCounter" value="226" />
+    <task id="LOCAL-00226" summary="Updated roll data added priority count.">
+      <option name="closed" value="true" />
+      <created>1724413721939</created>
+      <option name="number" value="00226" />
+      <option name="presentableId" value="LOCAL-00226" />
+      <option name="project" value="LOCAL" />
+      <updated>1724413721939</updated>
+    </task>
+    <task id="LOCAL-00227" summary="Fixed optional $priorityCount param after required.">
+      <option name="closed" value="true" />
+      <created>1724413971932</created>
+      <option name="number" value="00227" />
+      <option name="presentableId" value="LOCAL-00227" />
+      <option name="project" value="LOCAL" />
+      <updated>1724413971932</updated>
+    </task>
+    <option name="localTasksCounter" value="228" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -706,8 +705,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated sort can be changed only if its belong to the group." />
-    <MESSAGE value="Added send roll to print process action." />
     <MESSAGE value="Added changing printer availability." />
     <MESSAGE value="Updated inventory interface." />
     <MESSAGE value="Fixed InventoryAdapter missing service." />
@@ -731,7 +728,9 @@
     <MESSAGE value="Rename route." />
     <MESSAGE value="Remove .env from git." />
     <MESSAGE value="Added .env.example" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added .env.example" />
+    <MESSAGE value="Updated roll data added priority count." />
+    <MESSAGE value="Fixed optional $priorityCount param after required." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed optional $priorityCount param after required." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

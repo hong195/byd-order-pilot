@@ -14,6 +14,8 @@ use App\Orders\Application\UseCase\Query\FindPrinters\FindPrintersQuery;
 use App\Orders\Application\UseCase\Query\FindPrinters\FindPrintersResult;
 use App\Orders\Application\UseCase\Query\FindRolls\FindRollsQuery;
 use App\Orders\Application\UseCase\Query\FindRolls\FindRollsResult;
+use App\Orders\Application\UseCase\Query\GetOptions\GetOptionsQuery;
+use App\Orders\Application\UseCase\Query\GetOptions\GetOptionsQueryResult;
 use App\Shared\Application\Query\QueryBusInterface;
 
 /**
@@ -84,5 +86,15 @@ readonly class PrivateQueryInteractor
     public function findPrinters(): FindPrintersResult
     {
         return $this->queryBus->execute(new FindPrintersQuery());
+    }
+
+    /**
+     * Retrieves the options by executing the GetOptionsQuery.
+     *
+     * @return GetOptionsQueryResult the result of executing the GetOptionsQuery
+     */
+    public function getOptions(): GetOptionsQueryResult
+    {
+        return $this->queryBus->execute(new GetOptionsQuery());
     }
 }
