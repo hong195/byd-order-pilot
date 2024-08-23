@@ -21,17 +21,29 @@
     ```bash
     cp docker/.env.dist /docker/.env
     ```
-4. Run the composer
+   
+4. For local development
+   ```bash
+    touch .env
+    cp .env.example .env.local
+    ``` 
+
+4.1. For production
+    ```
+     cp .env.example .env.prod
+     ```
+  
+5. Run the composer
     ```bash
     make php
     composer install
     php bin/console app:create-printers
     ```
-5. Run the migrations
+6. Run the migrations
     ```bash
     make db_migrate
     ```
-6. Set key pair for JWT
+7. Set key pair for JWT
     ```bash
     make php
     php bin/console lexik:jwt:generate-keypair

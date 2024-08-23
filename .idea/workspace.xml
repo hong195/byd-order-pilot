@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Rename route.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/EventListener/Exception/ExceptionListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/EventListener/Exception/ExceptionListener.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added .env.example">
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +179,7 @@
     "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm": "Docker Compose",
     "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm": "Docker Compose",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/src/Orders/Application/UseCase/Query",
+    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -199,11 +198,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Query" />
       <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Command" />
       <recent name="$PROJECT_DIR$/src/Inventory/Infrastructure/Adapter/Rolls" />
       <recent name="$PROJECT_DIR$/src/Inventory/Infrastructure/Api" />
-      <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/Inventory/Infrastructure/Adapter" />
@@ -272,54 +271,6 @@
       <workItem from="1723390311692" duration="26395000" />
       <workItem from="1724051941853" duration="6737000" />
       <workItem from="1724163360669" duration="1936000" />
-    </task>
-    <task id="LOCAL-00170" summary="Clean up commit.">
-      <option name="closed" value="true" />
-      <created>1723619818197</created>
-      <option name="number" value="00170" />
-      <option name="presentableId" value="LOCAL-00170" />
-      <option name="project" value="LOCAL" />
-      <updated>1723619818197</updated>
-    </task>
-    <task id="LOCAL-00171" summary="Added unassign order api.">
-      <option name="closed" value="true" />
-      <created>1723621678242</created>
-      <option name="number" value="00171" />
-      <option name="presentableId" value="LOCAL-00171" />
-      <option name="project" value="LOCAL" />
-      <updated>1723621678242</updated>
-    </task>
-    <task id="LOCAL-00172" summary="Added unassign order api.">
-      <option name="closed" value="true" />
-      <created>1723621681524</created>
-      <option name="number" value="00172" />
-      <option name="presentableId" value="LOCAL-00172" />
-      <option name="project" value="LOCAL" />
-      <updated>1723621681524</updated>
-    </task>
-    <task id="LOCAL-00173" summary="Updated rolls have process orders status.">
-      <option name="closed" value="true" />
-      <created>1723629897326</created>
-      <option name="number" value="00173" />
-      <option name="presentableId" value="LOCAL-00173" />
-      <option name="project" value="LOCAL" />
-      <updated>1723629897326</updated>
-    </task>
-    <task id="LOCAL-00174" summary="Updated rolls have process orders status.">
-      <option name="closed" value="true" />
-      <created>1723630515270</created>
-      <option name="number" value="00174" />
-      <option name="presentableId" value="LOCAL-00174" />
-      <option name="project" value="LOCAL" />
-      <updated>1723630515270</updated>
-    </task>
-    <task id="LOCAL-00175" summary="Updated rolls have process orders status.">
-      <option name="closed" value="true" />
-      <created>1723630518270</created>
-      <option name="number" value="00175" />
-      <option name="presentableId" value="LOCAL-00175" />
-      <option name="project" value="LOCAL" />
-      <updated>1723630518270</updated>
     </task>
     <task id="LOCAL-00176" summary="Added assign order api.">
       <option name="closed" value="true" />
@@ -665,7 +616,55 @@
       <option name="project" value="LOCAL" />
       <updated>1724411315960</updated>
     </task>
-    <option name="localTasksCounter" value="219" />
+    <task id="LOCAL-00219" summary="Remove .env from git.">
+      <option name="closed" value="true" />
+      <created>1724411891349</created>
+      <option name="number" value="00219" />
+      <option name="presentableId" value="LOCAL-00219" />
+      <option name="project" value="LOCAL" />
+      <updated>1724411891349</updated>
+    </task>
+    <task id="LOCAL-00220" summary="Added .env.example">
+      <option name="closed" value="true" />
+      <created>1724413073123</created>
+      <option name="number" value="00220" />
+      <option name="presentableId" value="LOCAL-00220" />
+      <option name="project" value="LOCAL" />
+      <updated>1724413073123</updated>
+    </task>
+    <task id="LOCAL-00221" summary="Added .env.example">
+      <option name="closed" value="true" />
+      <created>1724413091136</created>
+      <option name="number" value="00221" />
+      <option name="presentableId" value="LOCAL-00221" />
+      <option name="project" value="LOCAL" />
+      <updated>1724413091136</updated>
+    </task>
+    <task id="LOCAL-00222" summary="Added .env.example">
+      <option name="closed" value="true" />
+      <created>1724413103968</created>
+      <option name="number" value="00222" />
+      <option name="presentableId" value="LOCAL-00222" />
+      <option name="project" value="LOCAL" />
+      <updated>1724413103968</updated>
+    </task>
+    <task id="LOCAL-00223" summary="Added .env.example">
+      <option name="closed" value="true" />
+      <created>1724413129305</created>
+      <option name="number" value="00223" />
+      <option name="presentableId" value="LOCAL-00223" />
+      <option name="project" value="LOCAL" />
+      <updated>1724413129305</updated>
+    </task>
+    <task id="LOCAL-00224" summary="Added .env.example">
+      <option name="closed" value="true" />
+      <created>1724413315215</created>
+      <option name="number" value="00224" />
+      <option name="presentableId" value="LOCAL-00224" />
+      <option name="project" value="LOCAL" />
+      <updated>1724413315215</updated>
+    </task>
+    <option name="localTasksCounter" value="225" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -701,8 +700,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated read me file." />
-    <MESSAGE value="Added change sort orders on specific roll." />
     <MESSAGE value="Updated sort can be changed only if its belong to the group." />
     <MESSAGE value="Added send roll to print process action." />
     <MESSAGE value="Added changing printer availability." />
@@ -726,7 +723,9 @@
     <MESSAGE value="Added printers api." />
     <MESSAGE value="Added printers names." />
     <MESSAGE value="Rename route." />
-    <option name="LAST_COMMIT_MESSAGE" value="Rename route." />
+    <MESSAGE value="Remove .env from git." />
+    <MESSAGE value="Added .env.example" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added .env.example" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
