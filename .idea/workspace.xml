@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Small refactor.">
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/PrinterData.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/PrinterDataTransformer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindPrinters/FindPrintersHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindPrinters/FindPrintersQuery.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindPrinters/FindPrintersResult.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Rolls/FindPrintersAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/RollData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/RollData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateQueryInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateQueryInteractor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Repository/PrinterRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Repository/PrinterRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/PrinterRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/PrinterRepository.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added printers names.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/ReprintOrderAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/ReprintOrderAction.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -280,30 +272,6 @@
       <workItem from="1723390311692" duration="26395000" />
       <workItem from="1724051941853" duration="6737000" />
       <workItem from="1724163360669" duration="1936000" />
-    </task>
-    <task id="LOCAL-00166" summary="Clean up commit.">
-      <option name="closed" value="true" />
-      <created>1723563978669</created>
-      <option name="number" value="00166" />
-      <option name="presentableId" value="LOCAL-00166" />
-      <option name="project" value="LOCAL" />
-      <updated>1723563978669</updated>
-    </task>
-    <task id="LOCAL-00167" summary="Clean up commit.">
-      <option name="closed" value="true" />
-      <created>1723563994348</created>
-      <option name="number" value="00167" />
-      <option name="presentableId" value="LOCAL-00167" />
-      <option name="project" value="LOCAL" />
-      <updated>1723563994348</updated>
-    </task>
-    <task id="LOCAL-00168" summary="Clean up commit.">
-      <option name="closed" value="true" />
-      <created>1723563997235</created>
-      <option name="number" value="00168" />
-      <option name="presentableId" value="LOCAL-00168" />
-      <option name="project" value="LOCAL" />
-      <updated>1723563997235</updated>
     </task>
     <task id="LOCAL-00169" summary="Added change priority api.">
       <option name="closed" value="true" />
@@ -673,7 +641,31 @@
       <option name="project" value="LOCAL" />
       <updated>1724318957956</updated>
     </task>
-    <option name="localTasksCounter" value="215" />
+    <task id="LOCAL-00215" summary="Added printers api.">
+      <option name="closed" value="true" />
+      <created>1724327596634</created>
+      <option name="number" value="00215" />
+      <option name="presentableId" value="LOCAL-00215" />
+      <option name="project" value="LOCAL" />
+      <updated>1724327596634</updated>
+    </task>
+    <task id="LOCAL-00216" summary="Added printers api.">
+      <option name="closed" value="true" />
+      <created>1724327657655</created>
+      <option name="number" value="00216" />
+      <option name="presentableId" value="LOCAL-00216" />
+      <option name="project" value="LOCAL" />
+      <updated>1724327657655</updated>
+    </task>
+    <task id="LOCAL-00217" summary="Added printers names.">
+      <option name="closed" value="true" />
+      <created>1724328236466</created>
+      <option name="number" value="00217" />
+      <option name="presentableId" value="LOCAL-00217" />
+      <option name="project" value="LOCAL" />
+      <updated>1724328236466</updated>
+    </task>
+    <option name="localTasksCounter" value="218" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -709,8 +701,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated rolls have process orders status." />
-    <MESSAGE value="Added assign order api." />
     <MESSAGE value="Clean up commit." />
     <MESSAGE value="Updated read me file." />
     <MESSAGE value="Added change sort orders on specific roll." />
@@ -734,7 +724,9 @@
     <MESSAGE value="Added reprint order." />
     <MESSAGE value="Added reprint order api." />
     <MESSAGE value="Small refactor." />
-    <option name="LAST_COMMIT_MESSAGE" value="Small refactor." />
+    <MESSAGE value="Added printers api." />
+    <MESSAGE value="Added printers names." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added printers names." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
