@@ -30,6 +30,8 @@ COPY ./ /var/www
 
 WORKDIR /var/www
 
+RUN if [ ! -f .env ]; then touch .env; fi
+
 # Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 ARG BUILD_MODE=dev

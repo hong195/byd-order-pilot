@@ -6,13 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Renamed inventory type.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Film/AddFilmAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Inventory/AddInventoryFilmAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Film/AddLaminationAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Inventory/AddInventoryLaminationAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Film/DeleteFilmAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Inventory/DeleteInventoryAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Film/FindAFilmAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Inventory/FindAInventoryAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Film/FindFilmsAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Inventory/FindInventoryAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Film/UpdateLaminationAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Inventory/UpdateLaminationAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Film/UpdateRollAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Inventory/UpdateInventoryFilmAction.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +180,7 @@
     "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm": "Docker Compose",
     "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm": "Docker Compose",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/src/Orders/Application/UseCase/Command",
+    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -206,10 +199,10 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Command" />
       <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Query" />
       <recent name="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM" />
-      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/Inventory/Infrastructure/Adapter/Rolls" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
