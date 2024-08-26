@@ -8,7 +8,6 @@ use App\Orders\Domain\Factory\PrinterFactory;
 use App\Orders\Domain\Repository\PrinterRepositoryInterface;
 use App\Orders\Domain\ValueObject\FilmType;
 use App\Orders\Domain\ValueObject\LaminationType;
-use App\Orders\Domain\ValueObject\PrinterType;
 use App\Shared\Application\Command\CommandHandlerInterface;
 
 /**
@@ -37,17 +36,17 @@ readonly class CreatePrintersCommandHandler implements CommandHandlerInterface
     {
         $printers = [
             [
-                'name' => PrinterType::ROLAND_UV_PRINTER,
+                'name' => 'Roland UV Printer',
                 'filmTypes' => [FilmType::WHITE],
                 'laminationTypes' => LaminationType::cases(),
             ],
             [
-                'name' => PrinterType::MIMAKI_UV_PRINTER,
+                'name' => 'Mimaki UV Printer',
                 'filmTypes' => [FilmType::CHROME, FilmType::NEON, FilmType::CLEAR],
                 'laminationTypes' => LaminationType::cases(),
             ],
             [
-                'name' => PrinterType::ROLAND_NORMAL_PRINTER,
+                'name' => 'Roland Normal Printer',
                 'filmTypes' => [FilmType::ECO],
                 'laminationTypes' => [],
             ],

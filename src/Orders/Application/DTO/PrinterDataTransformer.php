@@ -28,7 +28,7 @@ final readonly class PrinterDataTransformer
         foreach ($entities as $entity) {
             $dtos[] = new PrinterData(
                 id: $entity->getId(),
-                name: $entity->getName()->getName(),
+                name: $entity->getName(),
                 filmTypes: array_map(
                     fn (FilmType $filmType) => $filmType->value,
                     $entity->getFilmTypes()

@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Renamed inventory type.">
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added creating .env">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/PrinterDataTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/PrinterDataTransformer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/CreatePrinters/CreatePrintersCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/CreatePrinters/CreatePrintersCommandHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Printer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Printer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Factory/PrinterFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Factory/PrinterFactory.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -273,14 +277,6 @@
       <workItem from="1724051941853" duration="6737000" />
       <workItem from="1724163360669" duration="1936000" />
       <workItem from="1724656479377" duration="18521000" />
-    </task>
-    <task id="LOCAL-00194" summary="Rename processes.">
-      <option name="closed" value="true" />
-      <created>1724056693219</created>
-      <option name="number" value="00194" />
-      <option name="presentableId" value="LOCAL-00194" />
-      <option name="project" value="LOCAL" />
-      <updated>1724056693219</updated>
     </task>
     <task id="LOCAL-00195" summary="Added send to print check in api.">
       <option name="closed" value="true" />
@@ -666,7 +662,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724679938003</updated>
     </task>
-    <option name="localTasksCounter" value="243" />
+    <task id="LOCAL-00243" summary="Added creating .env">
+      <option name="closed" value="true" />
+      <created>1724681610925</created>
+      <option name="number" value="00243" />
+      <option name="presentableId" value="LOCAL-00243" />
+      <option name="project" value="LOCAL" />
+      <updated>1724681610925</updated>
+    </task>
+    <option name="localTasksCounter" value="244" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -702,7 +706,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated roll is not final class." />
     <MESSAGE value="Fixed sort order bug." />
     <MESSAGE value="Remove dump." />
     <MESSAGE value="Fixed incorrect order." />
@@ -727,7 +730,8 @@
     <MESSAGE value="Added find products api." />
     <MESSAGE value="Added pack product." />
     <MESSAGE value="Renamed inventory type." />
-    <option name="LAST_COMMIT_MESSAGE" value="Renamed inventory type." />
+    <MESSAGE value="Added creating .env" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added creating .env" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

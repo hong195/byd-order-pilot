@@ -6,7 +6,6 @@ namespace App\Orders\Domain\Aggregate;
 
 use App\Orders\Domain\ValueObject\FilmType;
 use App\Orders\Domain\ValueObject\LaminationType;
-use App\Orders\Domain\ValueObject\PrinterType;
 
 /**
  * Class Printer.
@@ -29,11 +28,11 @@ class Printer
     /**
      * Printer constructor.
      *
-     * @param PrinterType      $name            the name of the printer
+     * @param string           $name            the name of the printer
      * @param FilmType[]       $filmTypes       an array of roll types
      * @param LaminationType[] $laminationTypes an array of lamination types
      */
-    public function __construct(private readonly PrinterType $name, private array $filmTypes = [], private array $laminationTypes = [])
+    public function __construct(private readonly string $name, private array $filmTypes = [], private array $laminationTypes = [])
     {
         $this->dateAdded = new \DateTimeImmutable();
     }
@@ -51,9 +50,9 @@ class Printer
     /**
      * Get the name property.
      *
-     * @return PrinterType the name property
+     * @return string the name property
      */
-    public function getName(): PrinterType
+    public function getName(): string
     {
         return $this->name;
     }
