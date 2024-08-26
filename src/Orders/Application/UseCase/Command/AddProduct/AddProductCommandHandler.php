@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Orders\Application\UseCase\Command\AddProduct;
 
-use App\Orders\Domain\Exceptions\CantAddProductToOrderException;
 use App\Orders\Domain\Service\Order\Product\ProductMaker;
 use App\Orders\Domain\ValueObject\FilmType;
 use App\Orders\Domain\ValueObject\LaminationType;
@@ -24,12 +23,10 @@ readonly class AddProductCommandHandler implements CommandHandlerInterface
     {
     }
 
-	/**
-	 * Class AddProductHandler.
-	 *
-	 * @package MyApp\Handler
-	 */
-	public function __invoke(AddProductCommand $command): int
+    /**
+     * Class AddProductHandler.
+     */
+    public function __invoke(AddProductCommand $command): int
     {
         AssertService::true($this->accessControlService->isGranted(), 'Not change priority.');
 
