@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated printers name.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindRolls/FindRollsHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindRolls/FindRollsHandler.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -274,14 +273,6 @@
       <workItem from="1724051941853" duration="6737000" />
       <workItem from="1724163360669" duration="1936000" />
       <workItem from="1724656479377" duration="18521000" />
-    </task>
-    <task id="LOCAL-00197" summary="Renamed classes.">
-      <option name="closed" value="true" />
-      <created>1724150644608</created>
-      <option name="number" value="00197" />
-      <option name="presentableId" value="LOCAL-00197" />
-      <option name="project" value="LOCAL" />
-      <updated>1724150644608</updated>
     </task>
     <task id="LOCAL-00198" summary="Rename inventory api.">
       <option name="closed" value="true" />
@@ -667,7 +658,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724685011717</updated>
     </task>
-    <option name="localTasksCounter" value="246" />
+    <task id="LOCAL-00246" summary="Fixed roll filter invalid value.">
+      <option name="closed" value="true" />
+      <created>1724692922744</created>
+      <option name="number" value="00246" />
+      <option name="presentableId" value="LOCAL-00246" />
+      <option name="project" value="LOCAL" />
+      <updated>1724692922744</updated>
+    </task>
+    <option name="localTasksCounter" value="247" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -703,7 +702,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Remove dump." />
     <MESSAGE value="Fixed incorrect order." />
     <MESSAGE value="Fixed orders check in." />
     <MESSAGE value="Added reprint order." />
@@ -728,7 +726,8 @@
     <MESSAGE value="Renamed inventory type." />
     <MESSAGE value="Added creating .env" />
     <MESSAGE value="Updated printers name." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated printers name." />
+    <MESSAGE value="Fixed roll filter invalid value." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed roll filter invalid value." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

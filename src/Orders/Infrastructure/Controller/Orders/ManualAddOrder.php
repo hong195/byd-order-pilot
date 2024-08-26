@@ -51,7 +51,7 @@ final readonly class ManualAddOrder
             productType: $request->get('productType'),
             length: (int) $request->get('length'),
             filmType: $request->get('filmType'),
-            hasPriority: (bool) $request->get('hasPriority'),
+            hasPriority: filter_var($request->get('hasPriority'), FILTER_VALIDATE_BOOLEAN),
             laminationType: $request->get('laminationType'),
             orderNumber: $request->get('orderNumber'),
             cutFileId: $cutFileId,
