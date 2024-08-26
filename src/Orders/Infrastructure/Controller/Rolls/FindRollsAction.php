@@ -7,6 +7,7 @@ namespace App\Orders\Infrastructure\Controller\Rolls;
 use App\Orders\Application\UseCase\PrivateQueryInteractor;
 use App\Shared\Infrastructure\Controller\BaseController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Attribute\Route;
@@ -36,9 +37,11 @@ final class FindRollsAction extends BaseController
      *
      * @throws ExceptionInterface
      */
-    public function __invoke(): JsonResponse
+    public function __invoke(Request $request): JsonResponse
     {
-        $result = $this->privateQueryInteractor->findRolls();
+        $result = $this->privateQueryInteractor->findRolls(
+            process: $request->query->get('process')
+        );
 
         $result = $this->normalizer->normalize($result);
 

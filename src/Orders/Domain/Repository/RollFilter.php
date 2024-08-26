@@ -12,11 +12,11 @@ use App\Orders\Domain\ValueObject\Process;
 readonly class RollFilter
 {
     /**
-     * Class constructor.
+     * Constructor method.
      *
-     * @param Process|null $process  The process object. If null, it means no process is set.
-     * @param array        $filmIds  An array of film ids. It is an optional parameter and defaults to an empty array.
-     * @param string|null  $filmType The roll type. If null, it means no roll type is set.
+     * @param Process|null $process  The process object. (optional)
+     * @param int[]        $filmIds  The array of film IDs. (optional)
+     * @param string|null  $filmType The type of film. (optional)
      */
     public function __construct(public ?Process $process = null, public array $filmIds = [], public ?string $filmType = null)
     {

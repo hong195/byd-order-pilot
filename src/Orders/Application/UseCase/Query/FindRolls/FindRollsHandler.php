@@ -7,6 +7,7 @@ namespace App\Orders\Application\UseCase\Query\FindRolls;
 use App\Orders\Application\DTO\RollDataTransformer;
 use App\Orders\Domain\Repository\RollFilter;
 use App\Orders\Domain\Repository\RollRepositoryInterface;
+use App\Orders\Domain\ValueObject\Process;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Query\QueryHandlerInterface;
 use App\Shared\Domain\Service\AssertService;
@@ -40,7 +41,7 @@ final readonly class FindRollsHandler implements QueryHandlerInterface
     public function __invoke(FindRollsQuery $rollQuery): FindRollsResult
     {
         AssertService::true($this->accessControlService->isGranted(), 'Access denied');
-        $rollFilterQuery = new RollFilter();
+        $rollFilterQuery = new RollFilter(process: Process::from($rollQuery->process));
         $rolls = $this->rollRepository->findByFilter($rollFilterQuery);
 
         $rollsData = $this->rollDataTransformer->fromRollsEntityList($rolls);
