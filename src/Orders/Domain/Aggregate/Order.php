@@ -261,9 +261,9 @@ final class Order extends Aggregate
     /**
      * Returns the roll object.
      *
-     * @return Roll the roll object
+     * @return ?Roll the roll object
      */
-    public function getRoll(): Roll
+    public function getRoll(): ?Roll
     {
         return $this->roll;
     }

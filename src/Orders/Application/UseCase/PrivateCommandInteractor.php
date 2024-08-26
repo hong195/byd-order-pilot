@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Orders\Application\UseCase;
 
 use App\Orders\Application\DTO\SortOrderData;
+use App\Orders\Application\UseCase\Command\AddProduct\AddProductCommand;
 use App\Orders\Application\UseCase\Command\AssignOrder\AssignOrderCommand;
 use App\Orders\Application\UseCase\Command\ChangeOrderPriority\ChangeOrderPriorityCommand;
 use App\Orders\Application\UseCase\Command\ChangeOrderSort\ChangeOrderSortCommand;
@@ -156,5 +157,19 @@ readonly class PrivateCommandInteractor
     public function reprintOrder(int $rollId, int $orderId): void
     {
         $this->commandBus->execute(new ReprintOrderCommand($rollId, $orderId));
+    }
+
+    /**
+     * Adds a product to an order.
+     *
+     * @param int         $orderId        The ID of the order
+     * @param string      $filmType       The film type of the product
+     * @param string|null $laminationType The lamination type of the product. Optional.
+     *
+     * @return int The ID of the added product
+     */
+    public function addProduct(int $orderId, string $filmType, ?string $laminationType = null): int
+    {
+        return $this->commandBus->execute(new AddProductCommand($orderId, $filmType, $laminationType));
     }
 }
