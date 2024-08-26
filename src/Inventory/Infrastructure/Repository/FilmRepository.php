@@ -78,7 +78,7 @@ final class FilmRepository extends ServiceEntityRepository implements FilmReposi
         $dql = 'SELECT f FROM App\Inventory\Domain\Aggregate\AbstractFilm f WHERE f INSTANCE OF :filmType ORDER BY f.length ASC';
 
         $query = $this->getEntityManager()->createQuery($dql)
-            ->setParameter('filmType', $filmFilter->filmType);
+            ->setParameter('filmType', $filmFilter->inventoryType);
 
         return $query->getResult();
     }

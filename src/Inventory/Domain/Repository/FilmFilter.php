@@ -14,11 +14,11 @@ final readonly class FilmFilter
     /**
      * Class constructor.
      *
-     * @param string|null $filmType the film type
-     * @param string|null $name     the name
-     * @param string|null $type     the type
+     * @param string|null $inventoryType the film type
+     * @param string|null $name          the name
+     * @param string|null $type          the type
      */
-    public function __construct(public ?string $filmType = null, public ?string $name = null, public ?string $type = null)
+    public function __construct(public ?string $inventoryType = null, public ?string $name = null, public ?string $type = null)
     {
     }
 }

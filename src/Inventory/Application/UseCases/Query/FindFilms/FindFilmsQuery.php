@@ -16,9 +16,9 @@ final readonly class FindFilmsQuery extends Query
     /**
      * Class Constructor.
      *
-     * @param string|null $filmType The type of Film
+     * @param string|null $inventoryType The type of Film
      */
-    public function __construct(public ?string $filmType)
+    public function __construct(public ?string $inventoryType)
     {
     }
 }

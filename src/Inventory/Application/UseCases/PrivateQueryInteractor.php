@@ -40,13 +40,13 @@ readonly class PrivateQueryInteractor
     /**
      * Finds films based on the given film type.
      *
-     * @param string $filmType the film type
+     * @param string $inventoryType the film type
      *
      * @return FindFilmsResult the array of found films
      */
-    public function findFilms(string $filmType): FindFilmsResult
+    public function findFilms(string $inventoryType): FindFilmsResult
     {
-        $command = new FindFilmsQuery($filmType);
+        $command = new FindFilmsQuery($inventoryType);
 
         return $this->queryBus->execute($command);
     }

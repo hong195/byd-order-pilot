@@ -30,7 +30,7 @@ final readonly class FindFilmsHandler implements QueryHandlerInterface
      */
     public function __invoke(FindFilmsQuery $FilmQuery): FindFilmsResult
     {
-        $filmFilter = new FilmFilter($FilmQuery->filmType);
+        $filmFilter = new FilmFilter($FilmQuery->inventoryType);
         $films = $this->FilmRepository->findByFilter($filmFilter);
 
         $FilmsData = $this->FilmDataTransformer->fromFilmList($films);

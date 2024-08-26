@@ -34,7 +34,7 @@ final readonly class FindFilmsAction
     public function __invoke(Request $request): JsonResponse
     {
         $result = $this->queryInteractor->findFilms(
-            filmType: $request->get('filmType'),
+            inventoryType: $request->get('inventoryType'),
         );
 
         $result = $this->normalizer->normalize($result->items);
