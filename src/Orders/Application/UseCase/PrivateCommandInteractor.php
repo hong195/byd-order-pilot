@@ -13,6 +13,7 @@ use App\Orders\Application\UseCase\Command\ChangePrinterAvailability\ChangePrint
 use App\Orders\Application\UseCase\Command\CreatePrinters\CreatePrintersCommand;
 use App\Orders\Application\UseCase\Command\CuttingCheckIn\CuttingCheckIntCommand;
 use App\Orders\Application\UseCase\Command\GlowCheckIn\GlowCheckInCommand;
+use App\Orders\Application\UseCase\Command\PackProduct\PackProductCommand;
 use App\Orders\Application\UseCase\Command\PrintCheckIn\PrintCheckIntCommand;
 use App\Orders\Application\UseCase\Command\ReprintOrder\ReprintOrderCommand;
 use App\Orders\Application\UseCase\Command\ShipAndCollectOrders\ShipAndCollectOrdersCommand;
@@ -171,5 +172,17 @@ readonly class PrivateCommandInteractor
     public function addProduct(int $orderId, string $filmType, ?string $laminationType = null): int
     {
         return $this->commandBus->execute(new AddProductCommand($orderId, $filmType, $laminationType));
+    }
+
+    /**
+     * Checks the product status for a given order.
+     *
+     * @param int  $orderId   The ID of the order
+     * @param int  $productId The ID of the product
+     * @param bool $isPacked  The status of the product
+     */
+    public function packProduct(int $orderId, int $productId, bool $isPacked): void
+    {
+        $this->commandBus->execute(new PackProductCommand($orderId, $productId, $isPacked));
     }
 }

@@ -31,7 +31,7 @@ final class ProductRepository extends ServiceEntityRepository implements Product
      *
      * @param Product $product The product to be added
      */
-    public function add(Product $product): void
+    public function save(Product $product): void
     {
         $this->getEntityManager()->persist($product);
         $this->getEntityManager()->flush();

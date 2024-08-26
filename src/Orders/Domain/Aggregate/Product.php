@@ -13,7 +13,7 @@ final class Product
 
     private bool $isPacked = false;
 
-    private bool $isSend = false;
+    private bool $isSent = false;
 
     private bool $hasPriority = false;
 
@@ -65,19 +65,19 @@ final class Product
      *
      * @return bool the value indicating if the item is sent
      */
-    public function isSend(): bool
+    public function isSent(): bool
     {
-        return $this->isSend;
+        return $this->isSent;
     }
 
     /**
      * Set the value of isSend property.
      *
-     * @param bool $isSend the value indicating if the product is sent
+     * @param bool $isSent the value indicating if the product is sent
      */
-    public function setIsSend(bool $isSend): void
+    public function setIsSent(bool $isSent): void
     {
-        $this->isSend = $isSend;
+        $this->isSent = $isSent;
     }
 
     /**

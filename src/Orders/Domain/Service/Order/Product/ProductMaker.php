@@ -47,7 +47,7 @@ final readonly class ProductMaker
 
         $product = new Product($filmType, $laminationType);
 
-        $this->productRepository->add($product);
+        $this->productRepository->save($product);
 
         $order->addProduct($product);
 

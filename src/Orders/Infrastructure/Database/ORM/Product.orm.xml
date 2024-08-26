@@ -24,10 +24,21 @@
                nullable="true"
         />
 
+        <field name="isPacked"
+               type="boolean"
+               column="is_packed"
+               nullable="true"
+        />
+
+        <field name="isSent"
+               type="boolean"
+               column="is_sent"
+               nullable="true"
+        />
+
         <field name="hasPriority"
                type="boolean"
                column="has_priority"
-               length="255"
                nullable="true"
         />
 
