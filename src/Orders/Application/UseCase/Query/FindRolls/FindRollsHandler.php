@@ -41,7 +41,7 @@ final readonly class FindRollsHandler implements QueryHandlerInterface
     public function __invoke(FindRollsQuery $rollQuery): FindRollsResult
     {
         AssertService::true($this->accessControlService->isGranted(), 'Access denied');
-        $rollFilterQuery = new RollFilter(process: Process::from($rollQuery->process));
+        $rollFilterQuery = new RollFilter(process: $rollQuery->process ? Process::from($rollQuery->process) : null);
         $rolls = $this->rollRepository->findByFilter($rollFilterQuery);
 
         $rollsData = $this->rollDataTransformer->fromRollsEntityList($rolls);
