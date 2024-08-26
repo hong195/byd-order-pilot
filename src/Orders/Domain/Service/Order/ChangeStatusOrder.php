@@ -30,6 +30,10 @@ final readonly class ChangeStatusOrder
 
         $order->changeStatus($status);
 
+        if ($status->equals(Status::UNASSIGNED)) {
+            $order->removeRoll();
+        }
+
         $this->orderRepository->save($order);
     }
 }
