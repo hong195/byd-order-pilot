@@ -12,6 +12,8 @@ use App\Orders\Application\UseCase\Query\FindOrders\FindOrdersQuery;
 use App\Orders\Application\UseCase\Query\FindOrders\FindOrdersResult;
 use App\Orders\Application\UseCase\Query\FindPrinters\FindPrintersQuery;
 use App\Orders\Application\UseCase\Query\FindPrinters\FindPrintersResult;
+use App\Orders\Application\UseCase\Query\FindProducts\FindProductsQuery;
+use App\Orders\Application\UseCase\Query\FindProducts\FindProductsResult;
 use App\Orders\Application\UseCase\Query\FindRolls\FindRollsQuery;
 use App\Orders\Application\UseCase\Query\FindRolls\FindRollsResult;
 use App\Orders\Application\UseCase\Query\GetOptions\GetOptionsQuery;
@@ -96,5 +98,17 @@ readonly class PrivateQueryInteractor
     public function getOptions(): GetOptionsQueryResult
     {
         return $this->queryBus->execute(new GetOptionsQuery());
+    }
+
+    /**
+     * Finds products by order ID.
+     *
+     * @param int $orderId the ID of the order to search for products
+     *
+     * @return FindProductsResult the result of finding products
+     */
+    public function findProducts(int $orderId): FindProductsResult
+    {
+        return $this->queryBus->execute(new FindProductsQuery($orderId));
     }
 }
