@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Inventory\Infrastructure\Controller\Film;
+namespace App\Inventory\Infrastructure\Controller\Inventory;
 
 use App\Inventory\Application\UseCases\PrivateCommandInteractor;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -11,8 +11,8 @@ use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[AsController]
-#[Route('/api/films/{id}', name: 'delete_film', requirements: ['id' => '^\d+$'], methods: ['DELETE'])]
-final readonly class DeleteFilmAction
+#[Route('/api/inventory/{id}', name: 'delete_inventory', requirements: ['id' => '^\d+$'], methods: ['DELETE'])]
+final readonly class DeleteInventoryAction
 {
     /**
      * Constructor of the class.

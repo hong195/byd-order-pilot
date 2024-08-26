@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Inventory\Infrastructure\Controller\Film;
+namespace App\Inventory\Infrastructure\Controller\Inventory;
 
 use App\Inventory\Application\UseCases\PrivateCommandInteractor;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -12,8 +12,8 @@ use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[AsController]
-#[Route('/api/films/rolls/{id}', name: 'update_roll_film', requirements: ['id' => '^\d+$'], methods: ['PUT'])]
-final readonly class UpdateRollAction
+#[Route('/api/inventory/films/{id}', name: 'update_inventory_film', requirements: ['id' => '^\d+$'], methods: ['PUT'])]
+final readonly class UpdateInventoryFilmAction
 {
     /**
      * Constructor for the class.

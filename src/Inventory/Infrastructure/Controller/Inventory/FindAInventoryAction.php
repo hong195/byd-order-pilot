@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Inventory\Infrastructure\Controller\Film;
+namespace App\Inventory\Infrastructure\Controller\Inventory;
 
 use App\Inventory\Application\UseCases\PrivateQueryInteractor;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -14,8 +14,8 @@ use Symfony\Component\Serializer\Exception\ExceptionInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 #[AsController]
-#[Route('/api/films', name: 'find_single_film', methods: ['GET'])]
-final readonly class FindFilmsAction
+#[Route('/api/inventory/{id}', name: 'find_a_inventory', requirements: ['id' => '^\d+$'], methods: ['GET'])]
+final readonly class FindAInventoryAction
 {
     public function __construct(private PrivateQueryInteractor $queryInteractor, private NormalizerInterface $normalizer)
     {
@@ -33,11 +33,11 @@ final readonly class FindFilmsAction
      */
     public function __invoke(Request $request): JsonResponse
     {
-        $result = $this->queryInteractor->findFilms(
-            inventoryType: $request->get('inventoryType'),
+        $result = $this->queryInteractor->findAFilm(
+            id: (int) $request->attributes->get('id')
         );
 
-        $result = $this->normalizer->normalize($result->items);
+        $result = $this->normalizer->normalize($result->FilmData);
 
         return new JsonResponse($result, Response::HTTP_CREATED);
     }

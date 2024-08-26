@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added pack product.">
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/FindFilms/FindFilmsHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/FindFilms/FindFilmsHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/FindFilms/FindFilmsQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/FindFilms/FindFilmsQuery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Repository/FilmFilter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Domain/Repository/FilmFilter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Film/FindFilmsAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Film/FindFilmsAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Repository/FilmRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Repository/FilmRepository.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Renamed inventory type.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Film/AddFilmAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Inventory/AddInventoryFilmAction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Film/AddLaminationAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Inventory/AddInventoryLaminationAction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Film/DeleteFilmAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Inventory/DeleteInventoryAction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Film/FindAFilmAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Inventory/FindAInventoryAction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Film/FindFilmsAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Inventory/FindInventoryAction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Film/UpdateLaminationAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Inventory/UpdateLaminationAction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Film/UpdateRollAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Inventory/UpdateInventoryFilmAction.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -276,23 +279,7 @@
       <workItem from="1723390311692" duration="26395000" />
       <workItem from="1724051941853" duration="6737000" />
       <workItem from="1724163360669" duration="1936000" />
-      <workItem from="1724656479377" duration="17958000" />
-    </task>
-    <task id="LOCAL-00192" summary="Rename process.">
-      <option name="closed" value="true" />
-      <created>1724054036964</created>
-      <option name="number" value="00192" />
-      <option name="presentableId" value="LOCAL-00192" />
-      <option name="project" value="LOCAL" />
-      <updated>1724054036964</updated>
-    </task>
-    <task id="LOCAL-00193" summary="Rename processes.">
-      <option name="closed" value="true" />
-      <created>1724056631797</created>
-      <option name="number" value="00193" />
-      <option name="presentableId" value="LOCAL-00193" />
-      <option name="project" value="LOCAL" />
-      <updated>1724056631797</updated>
+      <workItem from="1724656479377" duration="18521000" />
     </task>
     <task id="LOCAL-00194" summary="Rename processes.">
       <option name="closed" value="true" />
@@ -670,7 +657,23 @@
       <option name="project" value="LOCAL" />
       <updated>1724679606016</updated>
     </task>
-    <option name="localTasksCounter" value="241" />
+    <task id="LOCAL-00241" summary="Renamed inventory type.">
+      <option name="closed" value="true" />
+      <created>1724679935257</created>
+      <option name="number" value="00241" />
+      <option name="presentableId" value="LOCAL-00241" />
+      <option name="project" value="LOCAL" />
+      <updated>1724679935257</updated>
+    </task>
+    <task id="LOCAL-00242" summary="Renamed inventory type.">
+      <option name="closed" value="true" />
+      <created>1724679938003</created>
+      <option name="number" value="00242" />
+      <option name="presentableId" value="LOCAL-00242" />
+      <option name="project" value="LOCAL" />
+      <updated>1724679938003</updated>
+    </task>
+    <option name="localTasksCounter" value="243" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -706,7 +709,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added ship and collect api route." />
     <MESSAGE value="Updated roll is not final class." />
     <MESSAGE value="Fixed sort order bug." />
     <MESSAGE value="Remove dump." />
@@ -731,7 +733,8 @@
     <MESSAGE value="Added add product api." />
     <MESSAGE value="Added find products api." />
     <MESSAGE value="Added pack product." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added pack product." />
+    <MESSAGE value="Renamed inventory type." />
+    <option name="LAST_COMMIT_MESSAGE" value="Renamed inventory type." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

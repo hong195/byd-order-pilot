@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Inventory\Infrastructure\Controller\Film;
+namespace App\Inventory\Infrastructure\Controller\Inventory;
 
 use App\Inventory\Application\UseCases\PrivateCommandInteractor;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -12,8 +12,8 @@ use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[AsController]
-#[Route('/api/films', name: 'add_films', methods: ['POST'])]
-final readonly class AddFilmAction
+#[Route('/api/inventory/laminations', name: 'add_inventory_lamination', methods: ['POST'])]
+final readonly class AddInventoryLaminationAction
 {
     public function __construct(private PrivateCommandInteractor $commandInteractor)
     {
@@ -30,7 +30,7 @@ final readonly class AddFilmAction
      */
     public function __invoke(Request $request): JsonResponse
     {
-        $id = $this->commandInteractor->addFilm(
+        $id = $this->commandInteractor->addALamination(
             name: $request->request->get('name'),
             length: (int) $request->request->get('length'),
             type: $request->request->get('type')
