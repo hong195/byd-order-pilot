@@ -74,5 +74,12 @@
             </cascade>
             <join-column name="roll_id" nullable="true" />
         </many-to-one>
+
+        <one-to-many field="products" target-entity="App\Orders\Domain\Aggregate\Product" mapped-by="order" fetch="EXTRA_LAZY" >
+            <cascade>
+                <cascade-persist/>
+            </cascade>
+        </one-to-many>
+
     </entity>
 </doctrine-mapping>

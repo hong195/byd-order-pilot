@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+        https://doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
+>
+
+    <entity name="App\Orders\Domain\Aggregate\Product" table="orders_product">
+        <id name="id" type="integer">
+            <generator/>
+        </id>
+
+        <field name="laminationType"
+               enum-type="App\Orders\Domain\ValueObject\LaminationType"
+               column="lamination_type"
+               length="255"
+               nullable="true"
+        />
+
+        <field name="filmType"
+               enum-type="App\Orders\Domain\ValueObject\FilmType"
+               column="film_type"
+               length="255"
+               nullable="true"
+        />
+
+        <field name="hasPriority"
+               type="boolean"
+               column="has_priority"
+               length="255"
+               nullable="true"
+        />
+
+        <many-to-one field="order" target-entity="App\Orders\Domain\Aggregate\Order" inversed-by="products" fetch="EXTRA_LAZY">
+            <cascade>
+                <cascade-persist />
+            </cascade>
+            <join-column name="order_id" nullable="true" />
+        </many-to-one>
+
+        <field name="dateAdded" type="datetime_immutable" column="date_added"/>
+    </entity>
+</doctrine-mapping>

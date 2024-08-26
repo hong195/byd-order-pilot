@@ -10,6 +10,8 @@ use App\Orders\Domain\ValueObject\ProductType;
 use App\Orders\Domain\ValueObject\Status;
 use App\Shared\Domain\Aggregate\Aggregate;
 use App\Shared\Domain\Entity\MediaFile;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * Class Orders.
@@ -24,14 +26,13 @@ final class Order extends Aggregate
      */
     private ?int $id;
 
-    private readonly \DateTimeInterface $dateAdded;
-
     private ?MediaFile $cutFile = null;
     private ?MediaFile $printFile = null;
-
     private ?Roll $roll = null;
 
+    private Collection $products;
     private int $sortOrder = 0;
+    private readonly \DateTimeInterface $dateAdded;
 
     /**
      * Class constructor.
@@ -54,6 +55,7 @@ final class Order extends Aggregate
         private ?int $orderNumber = null,
     ) {
         $this->dateAdded = new \DateTimeImmutable();
+        $this->products = new ArrayCollection([]);
     }
 
     /**
@@ -294,5 +296,26 @@ final class Order extends Aggregate
         $this->status = Status::ASSIGNABLE;
         $this->hasPriority = true;
         $this->roll = null;
+    }
+
+    /**
+     * Returns the collection of products.
+     *
+     * @return Collection the collection of products
+     */
+    public function getProducts(): Collection
+    {
+        return $this->products;
+    }
+
+    /**
+     * Adds a product to the order.
+     *
+     * @param Product $product The product to be added
+     */
+    public function addProduct(Product $product): void
+    {
+        $product->setOrder($this);
+        $this->products->add($product);
     }
 }
