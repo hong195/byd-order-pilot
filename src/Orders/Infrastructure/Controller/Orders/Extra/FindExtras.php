@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Infrastructure\Controller\Orders\Products;
+namespace App\Orders\Infrastructure\Controller\Orders\Extra;
 
 use App\Orders\Application\UseCase\PrivateQueryInteractor;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -13,8 +13,8 @@ use Symfony\Component\Serializer\Exception\ExceptionInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 #[AsController]
-#[Route('/api/orders/{orderId}/products', name: 'find_products', requirements: ['orderId' => '^\d+'], methods: ['GET'])]
-final readonly class FindProducts
+#[Route('/api/orders/{orderId}/extras', name: 'find_order_extras', requirements: ['orderId' => '^\d+$'], methods: ['GET'])]
+final readonly class FindExtras
 {
     public function __construct(private PrivateQueryInteractor $privateQueryInteractor, private NormalizerInterface $normalizer)
     {
@@ -29,9 +29,9 @@ final readonly class FindProducts
      */
     public function __invoke(int $orderId): JsonResponse
     {
-        $orders = $this->privateQueryInteractor->findProducts($orderId);
+        $extras = $this->privateQueryInteractor->findExtras($orderId);
 
-        $res = $this->normalizer->normalize($orders->products);
+        $res = $this->normalizer->normalize($extras->extras);
 
         return new JsonResponse($res, Response::HTTP_OK);
     }

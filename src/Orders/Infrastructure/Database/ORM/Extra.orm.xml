@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+        https://doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
+>
+
+    <entity name="App\Orders\Domain\Aggregate\Extra" table="orders_extra">
+        <id name="id" type="integer">
+            <generator/>
+        </id>
+
+        <field name="name" column="name" length="255"/>
+
+        <field name="orderNumber" column="order_number" length="255"/>
+
+        <field name="isChecked" type="boolean" column="is_checked" nullable="true"/>
+
+        <many-to-one field="order" target-entity="App\Orders\Domain\Aggregate\Order" inversed-by="extras"
+                     fetch="EXTRA_LAZY">
+            <cascade>
+                <cascade-persist/>
+            </cascade>
+            <join-column name="order_id" nullable="true"/>
+        </many-to-one>
+    </entity>
+</doctrine-mapping>

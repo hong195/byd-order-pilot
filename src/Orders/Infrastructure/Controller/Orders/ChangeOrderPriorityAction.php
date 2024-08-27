@@ -35,7 +35,7 @@ final readonly class ChangeOrderPriorityAction
      */
     public function __invoke(int $id, Request $request): JsonResponse
     {
-        $this->privateCommandInteractor->changeOrderPriority($id, (bool) $request->get('priority'));
+        $this->privateCommandInteractor->changeOrderPriority($id, filter_var($request->get('priority'), FILTER_VALIDATE_BOOLEAN));
 
         return new JsonResponse(['message' => 'Success'], Response::HTTP_OK);
     }

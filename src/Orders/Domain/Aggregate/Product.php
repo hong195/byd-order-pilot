@@ -27,7 +27,7 @@ final class Product
      * @param FilmType       $filmType       The film type associated with the instance
      * @param LaminationType $laminationType The lamination type associated with the instance
      */
-    public function __construct(public FilmType $filmType, public LaminationType $laminationType)
+    public function __construct(public readonly FilmType $filmType, public readonly LaminationType $laminationType)
     {
         $this->dateAdded = new \DateTimeImmutable();
     }

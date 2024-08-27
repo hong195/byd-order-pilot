@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Application\UseCase\Query\FindProducts;
+namespace App\Orders\Application\UseCase\Query\FindExtras;
 
 use App\Shared\Application\Query\Query;
 
@@ -11,7 +11,7 @@ use App\Shared\Application\Query\Query;
  *
  * This class represents a query to find a roll by its ID.
  */
-final readonly class FindProductsQuery extends Query
+final readonly class FindExtrasQuery extends Query
 {
     /**
      * Class constructor.

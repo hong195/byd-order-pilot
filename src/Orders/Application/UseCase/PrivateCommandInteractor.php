@@ -5,15 +5,14 @@ declare(strict_types=1);
 namespace App\Orders\Application\UseCase;
 
 use App\Orders\Application\DTO\SortOrderData;
-use App\Orders\Application\UseCase\Command\AddProduct\AddProductCommand;
 use App\Orders\Application\UseCase\Command\AssignOrder\AssignOrderCommand;
 use App\Orders\Application\UseCase\Command\ChangeOrderPriority\ChangeOrderPriorityCommand;
 use App\Orders\Application\UseCase\Command\ChangeOrderSort\ChangeOrderSortCommand;
 use App\Orders\Application\UseCase\Command\ChangePrinterAvailability\ChangePrinterAvailabilityCommand;
+use App\Orders\Application\UseCase\Command\CreateExtra\CreateExtraCommand;
 use App\Orders\Application\UseCase\Command\CreatePrinters\CreatePrintersCommand;
 use App\Orders\Application\UseCase\Command\CuttingCheckIn\CuttingCheckIntCommand;
 use App\Orders\Application\UseCase\Command\GlowCheckIn\GlowCheckInCommand;
-use App\Orders\Application\UseCase\Command\PackProduct\PackProductCommand;
 use App\Orders\Application\UseCase\Command\PrintCheckIn\PrintCheckIntCommand;
 use App\Orders\Application\UseCase\Command\ReprintOrder\ReprintOrderCommand;
 use App\Orders\Application\UseCase\Command\ShipAndCollectOrders\ShipAndCollectOrdersCommand;
@@ -161,28 +160,14 @@ readonly class PrivateCommandInteractor
     }
 
     /**
-     * Adds a product to an order.
+     * Creates a new extra for an order.
      *
-     * @param int         $orderId        The ID of the order
-     * @param string      $filmType       The film type of the product
-     * @param string|null $laminationType The lamination type of the product. Optional.
-     *
-     * @return int The ID of the added product
+     * @param int    $orderId     The ID of the order for which the extra is being created
+     * @param string $name        The name of the extra
+     * @param string $orderNumber The order number of the extra
      */
-    public function addProduct(int $orderId, string $filmType, ?string $laminationType = null): int
+    public function createExtra(int $orderId, string $name, string $orderNumber): void
     {
-        return $this->commandBus->execute(new AddProductCommand($orderId, $filmType, $laminationType));
-    }
-
-    /**
-     * Checks the product status for a given order.
-     *
-     * @param int  $orderId   The ID of the order
-     * @param int  $productId The ID of the product
-     * @param bool $isPacked  The status of the product
-     */
-    public function packProduct(int $orderId, int $productId, bool $isPacked): void
-    {
-        $this->commandBus->execute(new PackProductCommand($orderId, $productId, $isPacked));
+        $this->commandBus->execute(new CreateExtraCommand($orderId, $name, $orderNumber));
     }
 }

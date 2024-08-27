@@ -31,6 +31,7 @@ final class Order extends Aggregate
     private ?Roll $roll = null;
 
     private Collection $products;
+    private Collection $extras;
     private int $sortOrder = 0;
     private readonly \DateTimeInterface $dateAdded;
 
@@ -56,6 +57,7 @@ final class Order extends Aggregate
     ) {
         $this->dateAdded = new \DateTimeImmutable();
         $this->products = new ArrayCollection([]);
+        $this->extras = new ArrayCollection([]);
     }
 
     /**
@@ -317,5 +319,26 @@ final class Order extends Aggregate
     {
         $product->setOrder($this);
         $this->products->add($product);
+    }
+
+    /**
+     * Adds an Extra to the order.
+     *
+     * @param Extra $extra The Extra to add
+     */
+    public function addExtra(Extra $extra): void
+    {
+        $extra->setOrder($this);
+        $this->extras->add($extra);
+    }
+
+    /**
+     * Returns the collection of extras.
+     *
+     * @return Collection the collection of extras
+     */
+    public function getExtras(): Collection
+    {
+        return $this->extras;
     }
 }

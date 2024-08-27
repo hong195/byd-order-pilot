@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Application\UseCase\Query\FindProducts;
+namespace App\Orders\Application\UseCase\Query\FindExtras;
 
-use App\Orders\Application\DTO\ProductDataTransformer;
+use App\Orders\Application\DTO\ExtraDataTransformer;
 use App\Orders\Infrastructure\Repository\OrderRepository;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Query\QueryHandlerInterface;
@@ -14,7 +14,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 /**
  * Handles the FindARollQuery and returns the FindARollResult.
  */
-final readonly class FindProductsHandler implements QueryHandlerInterface
+final readonly class FindExtrasHandler implements QueryHandlerInterface
 {
     /**
      * Constructs a new instance of the class.
@@ -24,16 +24,16 @@ final readonly class FindProductsHandler implements QueryHandlerInterface
      */
     public function __construct(private OrderRepository $orderRepository,
         private AccessControlService $accessControlService,
-        private ProductDataTransformer $productDataTransformer
+        private ExtraDataTransformer $productDataTransformer
     ) {
     }
 
     /**
      * Invokes the FindARollQuery and returns the FindOrderResult.
      *
-     * @return FindProductsResult the result of finding the order
+     * @return FindExtrasResult the result of finding the order
      */
-    public function __invoke(FindProductsQuery $productsQuery): FindProductsResult
+    public function __invoke(FindExtrasQuery $productsQuery): FindExtrasResult
     {
         AssertService::true($this->accessControlService->isGranted(), 'Access denied');
 
@@ -43,10 +43,10 @@ final readonly class FindProductsHandler implements QueryHandlerInterface
             throw new NotFoundHttpException('Orders not found');
         }
 
-        $products = $order->getProducts();
+        $extras = $order->getExtras();
 
-        $productsData = $this->productDataTransformer->fromProductsList($products->toArray());
+        $extrasData = $this->productDataTransformer->fromExtrasList($extras->toArray());
 
-        return new FindProductsResult($productsData);
+        return new FindExtrasResult($extrasData);
     }
 }

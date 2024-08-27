@@ -75,7 +75,7 @@
             <join-column name="roll_id" nullable="true" />
         </many-to-one>
 
-        <one-to-many field="products" target-entity="App\Orders\Domain\Aggregate\Product" mapped-by="order" fetch="EXTRA_LAZY" >
+        <one-to-many field="extras" target-entity="App\Orders\Domain\Aggregate\Extra" mapped-by="order" fetch="EXTRA_LAZY" >
             <cascade>
                 <cascade-persist/>
             </cascade>
