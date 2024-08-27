@@ -14,7 +14,6 @@ readonly class ManuallyAddOrderCommand implements CommandInterface
     /**
      * Class constructor.
      *
-     * @param string      $productType    the type of the product
      * @param int         $length         the length of the product
      * @param string|null $filmType       the type of the roll (nullable)
      * @param bool        $hasPriority    indicates if the product has priority (default is false)
@@ -24,7 +23,6 @@ readonly class ManuallyAddOrderCommand implements CommandInterface
      * @param int|null    $printFileId    the ID of the print file (nullable)
      */
     public function __construct(
-        public string $productType,
         public int $length,
         public ?string $filmType,
         public bool $hasPriority = false,

@@ -48,7 +48,6 @@ final readonly class ManualAddOrder
         }
 
         $manuallyAddCommand = new ManuallyAddOrderCommand(
-            productType: $request->get('productType'),
             length: (int) $request->get('length'),
             filmType: $request->get('filmType'),
             hasPriority: filter_var($request->get('hasPriority'), FILTER_VALIDATE_BOOLEAN),

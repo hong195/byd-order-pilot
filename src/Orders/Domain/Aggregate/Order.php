@@ -6,7 +6,7 @@ namespace App\Orders\Domain\Aggregate;
 
 use App\Orders\Domain\ValueObject\FilmType;
 use App\Orders\Domain\ValueObject\LaminationType;
-use App\Orders\Domain\ValueObject\ProductType;
+use App\Orders\Domain\ValueObject\OrderType;
 use App\Orders\Domain\ValueObject\Status;
 use App\Shared\Domain\Aggregate\Aggregate;
 use App\Shared\Domain\Entity\MediaFile;
@@ -39,7 +39,6 @@ final class Order extends Aggregate
      * Class constructor.
      *
      * @param int             $length         The length of the product
-     * @param ProductType     $productType    The type of the product
      * @param FilmType        $filmType       The roll type of the product
      * @param Status          $status         The status of the product (optional, default: Status::UNASSIGNED)
      * @param bool            $hasPriority    Whether the product has priority (optional, default: false)
@@ -48,7 +47,6 @@ final class Order extends Aggregate
      */
     public function __construct(
         private readonly int $length,
-        private readonly ProductType $productType,
         private FilmType $filmType,
         private Status $status = Status::ASSIGNABLE,
         private bool $hasPriority = false,
@@ -78,16 +76,6 @@ final class Order extends Aggregate
     public function getOrderNumber(): ?int
     {
         return $this->orderNumber;
-    }
-
-    /**
-     * Get the product type.
-     *
-     * @return ProductType the product type value
-     */
-    public function getProductType(): ProductType
-    {
-        return $this->productType;
     }
 
     /**
@@ -311,17 +299,6 @@ final class Order extends Aggregate
     }
 
     /**
-     * Adds a product to the order.
-     *
-     * @param Product $product The product to be added
-     */
-    public function addProduct(Product $product): void
-    {
-        $product->setOrder($this);
-        $this->products->add($product);
-    }
-
-    /**
      * Adds an Extra to the order.
      *
      * @param Extra $extra The Extra to add
@@ -340,5 +317,27 @@ final class Order extends Aggregate
     public function getExtras(): Collection
     {
         return $this->extras;
+    }
+
+    /**
+     * Returns the order type.
+     *
+     * If the order has both extras and products, it returns OrderType::Combined.
+     * If the order has only products, it returns OrderType::Production.
+     * If the order has neither extras nor products, it returns OrderType::Extra.
+     *
+     * @return OrderType the order type
+     */
+    public function getOrderType(): OrderType
+    {
+        if (!$this->extras->isEmpty() && !$this->products->isEmpty()) {
+            return OrderType::Combined;
+        }
+
+        if (!$this->products->isEmpty()) {
+            return OrderType::Product;
+        }
+
+        return OrderType::Extra;
     }
 }

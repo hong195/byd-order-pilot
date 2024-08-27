@@ -39,12 +39,6 @@
                nullable="true"
         />
 
-        <field name="productType"
-               enum-type="App\Orders\Domain\ValueObject\ProductType"
-               column="product_type"
-               length="255"
-        />
-
         <field name="orderNumber" type="bigint" column="order_number"  nullable="true"/>
 
         <field name="sortOrder" type="integer" column="sort_order">
