@@ -11,6 +11,7 @@ use App\Orders\Domain\Exceptions\RollCantBeSentToGlowException;
 use App\Orders\Domain\Repository\RollRepositoryInterface;
 use App\Orders\Domain\Service\Order\GroupService;
 use App\Orders\Domain\ValueObject\Process;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 
@@ -51,36 +52,40 @@ final readonly class GlowCheckInService
             throw new RollCantBeSentToGlowException('Roll cannot be glowed! It is not in the correct process.');
         }
 
-        // Group orders by the lamination
-        $ordersGroups = $this->groupService->handle($foundRoll->getOrders());
+        $copyRoll = $foundRoll;
+        // copy orders to new collection
+        $orders = new ArrayCollection($foundRoll->getOrders()->toArray());
 
-        if ($foundRoll->getOrders()->isEmpty()) {
+        $this->rollRepository->remove($foundRoll);
+
+        $ordersGroups = $this->groupService->handle($orders);
+
+        if ($orders->isEmpty()) {
             throw new NotFoundHttpException('No Orders found!');
         }
 
         $sendToGlowingRolls = [];
 
-        foreach ($ordersGroups as $group => $orders) {
-            $roll = $this->rollMaker->make(name: $foundRoll->getName(), filmId: $foundRoll->getFilmId());
+        foreach ($ordersGroups as $group => $groupOrders) {
+            $roll = $this->rollMaker->make(name: $copyRoll->getName(), filmId: $copyRoll->getFilmId());
 
             $roll->assignPrinter($foundRoll->getPrinter());
 
             /** @var Order $firstOrder */
-            $firstOrder = $orders->first();
+            $firstOrder = $groupOrders->first();
             $hasLamination = null !== $firstOrder->getLaminationType();
             // if roll does not have lamination it goes directly to cut check in, otherwise to glow check in
             $process = $hasLamination ? Process::GLOW_CHECK_IN : Process::CUTTING_CHECK_IN;
 
             $roll->updateProcess($process);
 
-            foreach ($orders as $order) {
+            foreach ($groupOrders as $order) {
                 $roll->addOrder($order);
             }
 
             $sendToGlowingRolls[] = $roll;
         }
 
-        $this->rollRepository->remove($foundRoll);
         $this->rollRepository->saveRolls($sendToGlowingRolls);
 
         $this->eventDispatcher->dispatch(new RollsWereSentToGlowCheckInEvent(array_map(fn (Roll $roll) => $roll->getId(), $sendToGlowingRolls)));
