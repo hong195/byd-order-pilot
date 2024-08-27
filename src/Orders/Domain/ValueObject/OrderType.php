@@ -5,10 +5,10 @@ namespace App\Orders\Domain\ValueObject;
 /**
  * @enum OrderType
  */
-enum OrderType
+enum OrderType: string
 {
-    case Product;
+    case Product = 'product';
 
-    case Extra;
-    case Combined;
+    case Extra = 'extra';
+    case Combined = 'combined';
 }

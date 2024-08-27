@@ -8,6 +8,7 @@ use App\Orders\Application\DTO\RollDataTransformer;
 use App\Orders\Domain\Repository\RollRepositoryInterface;
 use App\Orders\Domain\ValueObject\FilmType;
 use App\Orders\Domain\ValueObject\LaminationType;
+use App\Orders\Domain\ValueObject\OrderType;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Query\QueryHandlerInterface;
 use App\Shared\Domain\Service\AssertService;
@@ -56,7 +57,12 @@ final readonly class GetOptionsQueryHandler implements QueryHandlerInterface
             FilmType::ECO->value => $this->prepareLabel(FilmType::ECO->name),
         ];
 
-        return new GetOptionsQueryResult(compact('filmTypes', 'laminationTypes'));
+        $orderTypes = [
+            OrderType::Product->value => 'Product',
+            OrderType::Combined->value => 'Combined',
+        ];
+
+        return new GetOptionsQueryResult(compact('filmTypes', 'laminationTypes', 'orderTypes'));
     }
 
     private function prepareLabel(string $word): string

@@ -72,7 +72,7 @@ final readonly class OrderDataTransformer
             status: $order->getStatus()->value,
             hasPriority: $order->hasPriority(),
             length: $order->getLength(),
-            orderType: $order->getOrderType()->name,
+            orderType: $order->getOrderType()->value,
             filmType: $order->getFilmType()->value,
             addedAt: $order->getDateAdded(),
             laminationType: $order->getLaminationType()?->value,
