@@ -30,7 +30,6 @@ final class Order extends Aggregate
     private ?MediaFile $printFile = null;
     private ?Roll $roll = null;
 
-    private Collection $products;
     private Collection $extras;
     private int $sortOrder = 0;
     private readonly \DateTimeInterface $dateAdded;
@@ -54,7 +53,6 @@ final class Order extends Aggregate
         private ?int $orderNumber = null,
     ) {
         $this->dateAdded = new \DateTimeImmutable();
-        $this->products = new ArrayCollection([]);
         $this->extras = new ArrayCollection([]);
     }
 
@@ -289,16 +287,6 @@ final class Order extends Aggregate
     }
 
     /**
-     * Returns the collection of products.
-     *
-     * @return Collection the collection of products
-     */
-    public function getProducts(): Collection
-    {
-        return $this->products;
-    }
-
-    /**
      * Adds an Extra to the order.
      *
      * @param Extra $extra The Extra to add
@@ -320,24 +308,16 @@ final class Order extends Aggregate
     }
 
     /**
-     * Returns the order type.
-     *
-     * If the order has both extras and products, it returns OrderType::Combined.
-     * If the order has only products, it returns OrderType::Production.
-     * If the order has neither extras nor products, it returns OrderType::Extra.
+     * Returns the order type based on the presence of extras.
      *
      * @return OrderType the order type
      */
     public function getOrderType(): OrderType
     {
-        if (!$this->extras->isEmpty() && !$this->products->isEmpty()) {
+        if (!$this->extras->isEmpty()) {
             return OrderType::Combined;
         }
 
-        if (!$this->products->isEmpty()) {
-            return OrderType::Product;
-        }
-
-        return OrderType::Extra;
+        return OrderType::Product;
     }
 }
