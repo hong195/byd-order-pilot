@@ -28,6 +28,8 @@ RUN set -x \
 RUN apk add --update --no-cache nginx
 COPY ./docker/php-fpm/nginx.conf /etc/nginx/
 
+RUN addgroup -g 82 -S www-data && adduser -u 82 -D -S -G www-data www-data
+
 RUN mkdir -p /var/lib/nginx/tmp /var/log/nginx \
     && chown -R www-data:www-data /var/lib/nginx /var/log/nginx \
     && chmod -R 755 /var/lib/nginx /var/log/nginx
