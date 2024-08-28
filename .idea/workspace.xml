@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added creation /var/lib/nginx/tmp directory.">
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated docker file.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -272,14 +273,6 @@
       <workItem from="1724051941853" duration="6737000" />
       <workItem from="1724163360669" duration="1936000" />
       <workItem from="1724656479377" duration="18521000" />
-    </task>
-    <task id="LOCAL-00212" summary="Added reprint order api.">
-      <option name="closed" value="true" />
-      <created>1724318798142</created>
-      <option name="number" value="00212" />
-      <option name="presentableId" value="LOCAL-00212" />
-      <option name="project" value="LOCAL" />
-      <updated>1724318798142</updated>
     </task>
     <task id="LOCAL-00213" summary="Small refactor.">
       <option name="closed" value="true" />
@@ -665,7 +658,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724851014759</updated>
     </task>
-    <option name="localTasksCounter" value="261" />
+    <task id="LOCAL-00261" summary="Updated docker file.">
+      <option name="closed" value="true" />
+      <created>1724851925105</created>
+      <option name="number" value="00261" />
+      <option name="presentableId" value="LOCAL-00261" />
+      <option name="project" value="LOCAL" />
+      <updated>1724851925105</updated>
+    </task>
+    <option name="localTasksCounter" value="262" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -701,7 +702,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated roll data added priority count." />
     <MESSAGE value="Fixed optional $priorityCount param after required." />
     <MESSAGE value="Added options api (film &amp; lamination types)" />
     <MESSAGE value="Changed options keys." />
@@ -726,7 +726,8 @@
     <MESSAGE value="Fixed roll film &amp; lamination values." />
     <MESSAGE value="Updated nginx config #2." />
     <MESSAGE value="Added creation /var/lib/nginx/tmp directory." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added creation /var/lib/nginx/tmp directory." />
+    <MESSAGE value="Updated docker file." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated docker file." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -27,12 +27,10 @@ RUN set -x \
 # Nginx
 RUN apk add --update --no-cache nginx
 COPY ./docker/php-fpm/nginx.conf /etc/nginx/
-RUN chown -Rf www-data:www-data /var/lib/nginx
 
 RUN mkdir -p /var/lib/nginx/tmp /var/log/nginx \
-    && chown -Rf www-data:www-data /var/lib/nginx /var/log/nginx \
-    && chown -R www-data:www-data /var/lib/nginx \
-    && chmod -Rf 755 /var/lib/nginx /var/log/nginx \
+    && chown -R www-data:www-data /var/lib/nginx /var/log/nginx \
+    && chmod -R 755 /var/lib/nginx /var/log/nginx
 
 # Supervisor
 RUN apk add --no-cache supervisor
