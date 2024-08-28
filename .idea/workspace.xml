@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated docker file.">
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated docker file #3.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/php-fpm/run.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/php-fpm/run.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -273,22 +273,6 @@
       <workItem from="1724051941853" duration="6737000" />
       <workItem from="1724163360669" duration="1936000" />
       <workItem from="1724656479377" duration="18521000" />
-    </task>
-    <task id="LOCAL-00213" summary="Small refactor.">
-      <option name="closed" value="true" />
-      <created>1724318955603</created>
-      <option name="number" value="00213" />
-      <option name="presentableId" value="LOCAL-00213" />
-      <option name="project" value="LOCAL" />
-      <updated>1724318955603</updated>
-    </task>
-    <task id="LOCAL-00214" summary="Small refactor.">
-      <option name="closed" value="true" />
-      <created>1724318957956</created>
-      <option name="number" value="00214" />
-      <option name="presentableId" value="LOCAL-00214" />
-      <option name="project" value="LOCAL" />
-      <updated>1724318957956</updated>
     </task>
     <task id="LOCAL-00215" summary="Added printers api.">
       <option name="closed" value="true" />
@@ -666,7 +650,23 @@
       <option name="project" value="LOCAL" />
       <updated>1724851925105</updated>
     </task>
-    <option name="localTasksCounter" value="262" />
+    <task id="LOCAL-00262" summary="Updated docker file #2.">
+      <option name="closed" value="true" />
+      <created>1724852589606</created>
+      <option name="number" value="00262" />
+      <option name="presentableId" value="LOCAL-00262" />
+      <option name="project" value="LOCAL" />
+      <updated>1724852589606</updated>
+    </task>
+    <task id="LOCAL-00263" summary="Updated docker file #3.">
+      <option name="closed" value="true" />
+      <created>1724852882369</created>
+      <option name="number" value="00263" />
+      <option name="presentableId" value="LOCAL-00263" />
+      <option name="project" value="LOCAL" />
+      <updated>1724852882369</updated>
+    </task>
+    <option name="localTasksCounter" value="264" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -702,8 +702,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed optional $priorityCount param after required." />
-    <MESSAGE value="Added options api (film &amp; lamination types)" />
     <MESSAGE value="Changed options keys." />
     <MESSAGE value="Updated keys." />
     <MESSAGE value="Style fix.." />
@@ -727,7 +725,9 @@
     <MESSAGE value="Updated nginx config #2." />
     <MESSAGE value="Added creation /var/lib/nginx/tmp directory." />
     <MESSAGE value="Updated docker file." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated docker file." />
+    <MESSAGE value="Updated docker file #2." />
+    <MESSAGE value="Updated docker file #3." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated docker file #3." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
