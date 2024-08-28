@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Removed products reference." />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated nginx config #2.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -270,14 +272,6 @@
       <workItem from="1724051941853" duration="6737000" />
       <workItem from="1724163360669" duration="1936000" />
       <workItem from="1724656479377" duration="18521000" />
-    </task>
-    <task id="LOCAL-00210" summary="Added reprint order.">
-      <option name="closed" value="true" />
-      <created>1724318115383</created>
-      <option name="number" value="00210" />
-      <option name="presentableId" value="LOCAL-00210" />
-      <option name="project" value="LOCAL" />
-      <updated>1724318115383</updated>
     </task>
     <task id="LOCAL-00211" summary="Added reprint order api.">
       <option name="closed" value="true" />
@@ -663,7 +657,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724835620583</updated>
     </task>
-    <option name="localTasksCounter" value="259" />
+    <task id="LOCAL-00259" summary="Updated nginx config #2.">
+      <option name="closed" value="true" />
+      <created>1724841174967</created>
+      <option name="number" value="00259" />
+      <option name="presentableId" value="LOCAL-00259" />
+      <option name="project" value="LOCAL" />
+      <updated>1724841174967</updated>
+    </task>
+    <option name="localTasksCounter" value="260" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -699,7 +701,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Remove .env from git." />
     <MESSAGE value="Added .env.example" />
     <MESSAGE value="Updated roll data added priority count." />
     <MESSAGE value="Fixed optional $priorityCount param after required." />
@@ -724,7 +725,8 @@
     <MESSAGE value="Removed products reference," />
     <MESSAGE value="Removed products reference." />
     <MESSAGE value="Fixed roll film &amp; lamination values." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed roll film &amp; lamination values." />
+    <MESSAGE value="Updated nginx config #2." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated nginx config #2." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
