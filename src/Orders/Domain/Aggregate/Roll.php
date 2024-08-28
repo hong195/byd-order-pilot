@@ -219,7 +219,7 @@ class Roll extends Aggregate
      */
     public function getFilmTypes(): array
     {
-        return array_unique($this->orders->map(fn (Order $order) => $order->getFilmType()->value)->toArray());
+        return array_values(array_unique($this->orders->map(fn (Order $order) => $order->getFilmType()->value)->toArray()));
     }
 
     /**
@@ -229,6 +229,6 @@ class Roll extends Aggregate
      */
     public function getLaminations(): array
     {
-        return array_unique($this->orders->map(fn (Order $order) => $order->getLaminationType()?->value)->toArray());
+        return array_values(array_unique($this->orders->map(fn (Order $order) => $order->getLaminationType()?->value)->toArray()));
     }
 }
