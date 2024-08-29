@@ -55,6 +55,8 @@ final readonly class ManualOrderService
 
         $this->orderRepository->save($order);
 
+        $order->changeOrderNumber($order->getId());
+
         return $order;
     }
 

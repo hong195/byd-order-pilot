@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated docker file #3.">
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added docker container right changing after its build.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/php-fpm/run.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/php-fpm/run.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/ManualOrderService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/ManualOrderService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -273,14 +274,6 @@
       <workItem from="1724051941853" duration="6737000" />
       <workItem from="1724163360669" duration="1936000" />
       <workItem from="1724656479377" duration="18521000" />
-    </task>
-    <task id="LOCAL-00215" summary="Added printers api.">
-      <option name="closed" value="true" />
-      <created>1724327596634</created>
-      <option name="number" value="00215" />
-      <option name="presentableId" value="LOCAL-00215" />
-      <option name="project" value="LOCAL" />
-      <updated>1724327596634</updated>
     </task>
     <task id="LOCAL-00216" summary="Added printers api.">
       <option name="closed" value="true" />
@@ -666,7 +659,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724852882369</updated>
     </task>
-    <option name="localTasksCounter" value="264" />
+    <task id="LOCAL-00264" summary="Added docker container right changing after its build.">
+      <option name="closed" value="true" />
+      <created>1724854767062</created>
+      <option name="number" value="00264" />
+      <option name="presentableId" value="LOCAL-00264" />
+      <option name="project" value="LOCAL" />
+      <updated>1724854767062</updated>
+    </task>
+    <option name="localTasksCounter" value="265" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -702,7 +703,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changed options keys." />
     <MESSAGE value="Updated keys." />
     <MESSAGE value="Style fix.." />
     <MESSAGE value="Fixed after unassign order roll relation is unset." />
@@ -727,7 +727,8 @@
     <MESSAGE value="Updated docker file." />
     <MESSAGE value="Updated docker file #2." />
     <MESSAGE value="Updated docker file #3." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated docker file #3." />
+    <MESSAGE value="Added docker container right changing after its build." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added docker container right changing after its build." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
