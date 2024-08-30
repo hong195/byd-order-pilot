@@ -35,7 +35,7 @@ final readonly class OrderData
         public \DateTimeInterface $addedAt,
         public ?string $laminationType = null,
         public ?int $sortOrder = null,
-        public ?int $orderNumber = null,
+        public ?string $orderNumber = null,
         public ?string $cutFile = null,
         public ?string $printFile = null
     ) {

@@ -69,9 +69,9 @@ final class Order extends Aggregate
     /**
      * Returns the order number.
      *
-     * @return ?int the order number
+     * @return ?string the order number
      */
-    public function getOrderNumber(): ?int
+    public function getOrderNumber(): ?string
     {
         return $this->orderNumber;
     }
@@ -229,9 +229,9 @@ final class Order extends Aggregate
     /**
      * Returns the order number.
      *
-     * @return int the order sort order
+     * @return ?int the order sort order
      */
-    public function getSortOrder(): int
+    public function getSortOrder(): ?int
     {
         return $this->sortOrder;
     }
