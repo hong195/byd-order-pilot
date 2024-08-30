@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Php stan fix.">
-      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240830100912.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added customer and packages instructions notes.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/OrderData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/OrderData.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/OrderDataTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/OrderDataTransformer.php" afterDir="false" />
@@ -14,7 +13,7 @@
       <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Factory/OrderFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Factory/OrderFactory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/ManualOrderService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/ManualOrderService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/ManualAddOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/ManualAddOrder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/ManualAddOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/ManualAddOrderAction.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Order.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Order.orm.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -282,22 +281,6 @@
       <workItem from="1724051941853" duration="6737000" />
       <workItem from="1724163360669" duration="1936000" />
       <workItem from="1724656479377" duration="18521000" />
-    </task>
-    <task id="LOCAL-00230" summary="Updated keys.">
-      <option name="closed" value="true" />
-      <created>1724416406831</created>
-      <option name="number" value="00230" />
-      <option name="presentableId" value="LOCAL-00230" />
-      <option name="project" value="LOCAL" />
-      <updated>1724416406831</updated>
-    </task>
-    <task id="LOCAL-00231" summary="Style fix..">
-      <option name="closed" value="true" />
-      <created>1724417059795</created>
-      <option name="number" value="00231" />
-      <option name="presentableId" value="LOCAL-00231" />
-      <option name="project" value="LOCAL" />
-      <updated>1724417059795</updated>
     </task>
     <task id="LOCAL-00232" summary="Style fix..">
       <option name="closed" value="true" />
@@ -675,7 +658,23 @@
       <option name="project" value="LOCAL" />
       <updated>1725012105056</updated>
     </task>
-    <option name="localTasksCounter" value="279" />
+    <task id="LOCAL-00279" summary="Added customer and packages instructions notes.">
+      <option name="closed" value="true" />
+      <created>1725014335174</created>
+      <option name="number" value="00279" />
+      <option name="presentableId" value="LOCAL-00279" />
+      <option name="project" value="LOCAL" />
+      <updated>1725014335174</updated>
+    </task>
+    <task id="LOCAL-00280" summary="Added customer and packages instructions notes.">
+      <option name="closed" value="true" />
+      <created>1725014338023</created>
+      <option name="number" value="00280" />
+      <option name="presentableId" value="LOCAL-00280" />
+      <option name="project" value="LOCAL" />
+      <updated>1725014338023</updated>
+    </task>
+    <option name="localTasksCounter" value="281" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -711,7 +710,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Renamed inventory type." />
     <MESSAGE value="Added creating .env" />
     <MESSAGE value="Updated printers name." />
     <MESSAGE value="Fixed roll filter invalid value." />
@@ -736,7 +734,8 @@
     <MESSAGE value="Updated order number db column type." />
     <MESSAGE value="Fixed order number return types." />
     <MESSAGE value="Php stan fix." />
-    <option name="LAST_COMMIT_MESSAGE" value="Php stan fix." />
+    <MESSAGE value="Added customer and packages instructions notes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added customer and packages instructions notes." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

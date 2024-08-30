@@ -30,13 +30,14 @@ final readonly class OrderFactory
      *
      * @return Order the created Order instance
      */
-    public function make(int $length, ?string $laminationType = null, ?string $filmType = null,
+    public function make(string $customerName, int $length, ?string $laminationType = null, ?string $filmType = null,
         ?string $status = null, bool $hasPriority = false, ?string $orderNumber = null,
         ?string $customerNotes = null, ?string $packagingInstructions = null): Order
     {
         return new Order(
             length: $length,
             filmType: $filmType ? FilmType::from($filmType) : null,
+            customerName: $customerName,
             status: $status ? Status::from($status) : Status::ASSIGNABLE,
             hasPriority: $hasPriority,
             laminationType: $laminationType ? LaminationType::from($laminationType) : null,

@@ -10,25 +10,27 @@ namespace App\Orders\Application\DTO;
 final readonly class OrderData
 {
     /**
-     * Constructs a new object with the specified parameters.
+     * Constructor for the class.
      *
-     * @param int                $id                    the ID of the object
-     * @param string             $status                the status of the object
-     * @param bool               $hasPriority           whether the object has priority
-     * @param int                $length                the length of the object
-     * @param string             $orderType             the order type of the object
-     * @param string             $filmType              the film type of the object
-     * @param \DateTimeInterface $addedAt               the date and time when the object was added
-     * @param string|null        $laminationType        The lamination type of the object. Default is null.
-     * @param int|null           $sortOrder             The sort order of the object. Default is null.
-     * @param string|null        $orderNumber           The order number of the object. Default is null.
-     * @param string|null        $cutFile               The cut file of the object. Default is null.
-     * @param string|null        $printFile             The print file of the object. Default is null.
-     * @param string|null        $customerNotes         The customer notes of the object. Default is null.
-     * @param string|null        $packagingInstructions The packaging instructions of the object. Default is null.
+     * @param int                $id                    the order ID
+     * @param string             $customerName          the customer's name
+     * @param string             $status                the order status
+     * @param bool               $hasPriority           whether the order has priority
+     * @param int                $length                the length of the order
+     * @param string             $orderType             the order type
+     * @param string             $filmType              the film type
+     * @param \DateTimeInterface $addedAt               the date and time the order was added
+     * @param string|null        $laminationType        The type of lamination for the order. (Optional)
+     * @param int|null           $sortOrder             The sort order of the order. (Optional)
+     * @param string|null        $orderNumber           The order number. (Optional)
+     * @param string|null        $cutFile               The cut file for the order. (Optional)
+     * @param string|null        $printFile             The print file for the order. (Optional)
+     * @param string|null        $customerNotes         Any notes from the customer. (Optional)
+     * @param string|null        $packagingInstructions The packaging instructions for the order. (Optional)
      */
     public function __construct(
         public int $id,
+        public string $customerName,
         public string $status,
         public bool $hasPriority,
         public int $length,

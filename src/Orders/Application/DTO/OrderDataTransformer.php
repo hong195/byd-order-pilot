@@ -69,6 +69,7 @@ final readonly class OrderDataTransformer
     {
         return new OrderData(
             id: $order->getId(),
+            customerName: $order->getCustomerName(),
             status: $order->getStatus()->value,
             hasPriority: $order->hasPriority(),
             length: $order->getLength(),

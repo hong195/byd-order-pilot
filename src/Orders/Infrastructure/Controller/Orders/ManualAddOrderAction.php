@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 #[AsController]
 #[Route('api/manually-add-order', 'manually-add-order', methods: ['POST'])]
-final readonly class ManualAddOrder
+final readonly class ManualAddOrderAction
 {
     /**
      * Class constructor.
@@ -48,6 +48,7 @@ final readonly class ManualAddOrder
         }
 
         $manuallyAddCommand = new ManuallyAddOrderCommand(
+            customerName: $request->get('customerName'),
             length: (int) $request->get('length'),
             filmType: $request->get('filmType'),
             hasPriority: filter_var($request->get('hasPriority'), FILTER_VALIDATE_BOOLEAN),

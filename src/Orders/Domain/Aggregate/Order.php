@@ -47,6 +47,7 @@ final class Order extends Aggregate
     public function __construct(
         private readonly int $length,
         private FilmType $filmType,
+        private string $customerName,
         private Status $status = Status::ASSIGNABLE,
         private bool $hasPriority = false,
         private ?LaminationType $laminationType = null,
@@ -321,5 +322,15 @@ final class Order extends Aggregate
         }
 
         return OrderType::Product;
+    }
+
+    /**
+     * Returns the customer name.
+     *
+     * @return string the customer name
+     */
+    public function getCustomerName(): string
+    {
+        return $this->customerName;
     }
 }
