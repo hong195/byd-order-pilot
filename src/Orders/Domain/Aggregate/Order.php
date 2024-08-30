@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orders\Domain\Aggregate;
 
+use App\Orders\Domain\ValueObject\Customer;
 use App\Orders\Domain\ValueObject\FilmType;
 use App\Orders\Domain\ValueObject\LaminationType;
 use App\Orders\Domain\ValueObject\OrderType;
@@ -19,42 +20,32 @@ use Doctrine\Common\Collections\Collection;
 final class Order extends Aggregate
 {
     public const CUT_FILE = 'cut_file';
-
     public const PRINT_FILE = 'print_file';
     /**
      * @phpstan-ignore-next-line
      */
     private ?int $id;
-
+    private Status $status = Status::UNASSIGNED;
+    private ?LaminationType $laminationType = null;
     private ?MediaFile $cutFile = null;
     private ?MediaFile $printFile = null;
     private ?Roll $roll = null;
-
     private Collection $extras;
     private ?int $sortOrder = 0;
+    private ?string $orderNumber = null;
+    private ?string $packagingInstructions = null;
+    private bool $hasPriority = false;
     private readonly \DateTimeInterface $dateAdded;
 
     /**
-     * Class constructor.
+     * Initializes a new instance of the class.
      *
-     * @param int             $length         The length of the product
-     * @param FilmType        $filmType       The roll type of the product
-     * @param Status          $status         The status of the product (optional, default: Status::UNASSIGNED)
-     * @param bool            $hasPriority    Whether the product has priority (optional, default: false)
-     * @param ?LaminationType $laminationType The lamination type of the product (optional, default: null)
-     * @param string|null     $orderNumber    The order number of the product (optional, default: null)
+     * @param Customer $customer the customer object
+     * @param FilmType $filmType the film type
+     * @param int      $length   the length
      */
-    public function __construct(
-        private readonly int $length,
-        private FilmType $filmType,
-        private string $customerName,
-        private Status $status = Status::ASSIGNABLE,
-        private bool $hasPriority = false,
-        private ?LaminationType $laminationType = null,
-        private ?string $orderNumber = null,
-        public readonly ?string $customerNotes = null,
-        public readonly ?string $packagingInstructions = null
-    ) {
+    public function __construct(public readonly Customer $customer, public FilmType $filmType, public readonly int $length)
+    {
         $this->dateAdded = new \DateTimeImmutable();
         $this->extras = new ArrayCollection([]);
     }
@@ -325,12 +316,12 @@ final class Order extends Aggregate
     }
 
     /**
-     * Returns the customer name.
+     * Returns the packaging instructions.
      *
-     * @return string the customer name
+     * @return ?string the packaging instructions
      */
-    public function getCustomerName(): string
+    public function getPackagingInstructions(): ?string
     {
-        return $this->customerName;
+        return $this->packagingInstructions;
     }
 }
