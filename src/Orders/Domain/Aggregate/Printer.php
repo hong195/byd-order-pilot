@@ -23,7 +23,7 @@ class Printer
 
     private \DateTimeImmutable $dateAdded;
 
-    private bool $isAvailable = false;
+    private bool $isAvailable = true;
 
     /**
      * Printer constructor.
