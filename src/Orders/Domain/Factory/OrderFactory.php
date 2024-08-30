@@ -27,7 +27,7 @@ final readonly class OrderFactory
      *
      * @return Order the newly created order
      */
-    public function make(int $length, ?string $laminationType = null, ?string $filmType = null, ?string $status = null, bool $hasPriority = false, int|string|null $orderNumber = null): Order
+    public function make(int $length, ?string $laminationType = null, ?string $filmType = null, ?string $status = null, bool $hasPriority = false, ?string $orderNumber = null): Order
     {
         return new Order(
             length: $length,

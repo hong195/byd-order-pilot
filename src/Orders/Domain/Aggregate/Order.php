@@ -42,7 +42,7 @@ final class Order extends Aggregate
      * @param Status          $status         The status of the product (optional, default: Status::UNASSIGNED)
      * @param bool            $hasPriority    Whether the product has priority (optional, default: false)
      * @param ?LaminationType $laminationType The lamination type of the product (optional, default: null)
-     * @param int|null        $orderNumber    The order number of the product (optional, default: null)
+     * @param string|null     $orderNumber    The order number of the product (optional, default: null)
      */
     public function __construct(
         private readonly int $length,
@@ -50,7 +50,7 @@ final class Order extends Aggregate
         private Status $status = Status::ASSIGNABLE,
         private bool $hasPriority = false,
         private ?LaminationType $laminationType = null,
-        private ?int $orderNumber = null,
+        private ?string $orderNumber = null,
     ) {
         $this->dateAdded = new \DateTimeImmutable();
         $this->extras = new ArrayCollection([]);
@@ -209,9 +209,9 @@ final class Order extends Aggregate
     /**
      * Changes the order number.
      *
-     * @param int $orderNumber the new order number
+     * @param string $orderNumber the new order number
      */
-    public function changeOrderNumber(int $orderNumber): void
+    public function changeOrderNumber(string $orderNumber): void
     {
         $this->orderNumber = $orderNumber;
     }

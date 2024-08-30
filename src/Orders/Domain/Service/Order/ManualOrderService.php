@@ -20,6 +20,8 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
  */
 final readonly class ManualOrderService
 {
+    private const ORDER_MANUAL_PREFIX = 'MANUAL';
+
     /**
      * Constructs a new instance of the class.
      *
@@ -55,7 +57,7 @@ final readonly class ManualOrderService
 
         $this->orderRepository->save($order);
 
-        $order->changeOrderNumber($order->getId());
+        $order->changeOrderNumber(self::ORDER_MANUAL_PREFIX.'_'.$order->getId());
 
         return $order;
     }

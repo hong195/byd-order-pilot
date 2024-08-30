@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated sort order is set to null when order is unassign.">
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/OrdersCheckInProcess/OrdersOrdersCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/OrdersCheckInProcess/OrdersOrdersCheckInService.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="If roll is empty it will be deleted after orders check in.">
+      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240830090114.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Factory/OrderFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Factory/OrderFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/ManualOrderService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/ManualOrderService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Order.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Order.orm.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -272,22 +276,6 @@
       <workItem from="1724051941853" duration="6737000" />
       <workItem from="1724163360669" duration="1936000" />
       <workItem from="1724656479377" duration="18521000" />
-    </task>
-    <task id="LOCAL-00219" summary="Remove .env from git.">
-      <option name="closed" value="true" />
-      <created>1724411891349</created>
-      <option name="number" value="00219" />
-      <option name="presentableId" value="LOCAL-00219" />
-      <option name="project" value="LOCAL" />
-      <updated>1724411891349</updated>
-    </task>
-    <task id="LOCAL-00220" summary="Added .env.example">
-      <option name="closed" value="true" />
-      <created>1724413073123</created>
-      <option name="number" value="00220" />
-      <option name="presentableId" value="LOCAL-00220" />
-      <option name="project" value="LOCAL" />
-      <updated>1724413073123</updated>
     </task>
     <task id="LOCAL-00221" summary="Added .env.example">
       <option name="closed" value="true" />
@@ -665,7 +653,23 @@
       <option name="project" value="LOCAL" />
       <updated>1725008008056</updated>
     </task>
-    <option name="localTasksCounter" value="268" />
+    <task id="LOCAL-00268" summary="If roll is empty it will be deleted after orders check in.">
+      <option name="closed" value="true" />
+      <created>1725008425426</created>
+      <option name="number" value="00268" />
+      <option name="presentableId" value="LOCAL-00268" />
+      <option name="project" value="LOCAL" />
+      <updated>1725008425426</updated>
+    </task>
+    <task id="LOCAL-00269" summary="If roll is empty it will be deleted after orders check in.">
+      <option name="closed" value="true" />
+      <created>1725008427979</created>
+      <option name="number" value="00269" />
+      <option name="presentableId" value="LOCAL-00269" />
+      <option name="project" value="LOCAL" />
+      <updated>1725008427979</updated>
+    </task>
+    <option name="localTasksCounter" value="270" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -701,7 +705,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed after unassign order roll relation is unset." />
     <MESSAGE value="Added product entity." />
     <MESSAGE value="Added add product api." />
     <MESSAGE value="Added find products api." />
@@ -726,7 +729,8 @@
     <MESSAGE value="Added docker container right changing after its build." />
     <MESSAGE value="Updated printers are available by default." />
     <MESSAGE value="Updated sort order is set to null when order is unassign." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated sort order is set to null when order is unassign." />
+    <MESSAGE value="If roll is empty it will be deleted after orders check in." />
+    <option name="LAST_COMMIT_MESSAGE" value="If roll is empty it will be deleted after orders check in." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
