@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 namespace App\Orders\Domain\Factory;
 
+use App\Orders\Domain\Aggregate\Customer;
 use App\Orders\Domain\Aggregate\Order;
-use App\Orders\Domain\ValueObject\Customer;
 use App\Orders\Domain\ValueObject\FilmType;
 use App\Orders\Domain\ValueObject\LaminationType;
-use App\Orders\Domain\ValueObject\ShippingAddress;
 use App\Orders\Domain\ValueObject\Status;
 
 /**
@@ -27,25 +26,39 @@ final class OrderFactory
     private ?string $packagingInstructions = null;
 
     /**
-     * Create a new Order instance with the given parameters.
+     * Creates a new Order for a customer.
      *
-     * @param int         $length   the length of the order
-     * @param string|null $filmType the film type of the order (optional)
+     * @param Customer $customer The customer for the order
+     * @param int      $length   The length of the film
+     * @param FilmType $filmType The type of film
      *
-     * @return Order the created Order instance
+     * @return Order The created order
      */
-    public function make(Customer $customer, ShippingAddress $shippingAddress, int $length, FilmType $filmType): Order
+    public function make(Customer $customer, int $length, FilmType $filmType): Order
     {
-        return new Order(
+        $order = new Order(
             customer: $customer,
-            shippingAddress: $shippingAddress,
-            length: $length,
             filmType: $filmType,
-            status: $this->status,
-            laminationType: $this->laminationType,
-            orderNumber: $this->orderNumber,
-            packagingInstructions: $this->packagingInstructions
+            length: $length
         );
+
+        if ($this->orderNumber) {
+            $order->changeOrderNumber($this->orderNumber);
+        }
+
+        if ($this->packagingInstructions) {
+            $order->setPackagingInstructions($this->packagingInstructions);
+        }
+
+        if ($this->status) {
+            $order->changeStatus($this->status);
+        }
+
+        if ($this->laminationType) {
+            $order->setLaminationType($this->laminationType);
+        }
+
+        return $order;
     }
 
     /**

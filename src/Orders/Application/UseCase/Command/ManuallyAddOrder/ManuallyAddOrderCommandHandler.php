@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace App\Orders\Application\UseCase\Command\ManuallyAddOrder;
 
+use App\Orders\Application\DTO\ManualCreateOrderDTO;
+use App\Orders\Application\Service\Order\ManualOrderService;
 use App\Orders\Domain\Aggregate\Order;
-use App\Orders\Domain\Service\Order\ManualOrderService;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Command\CommandHandlerInterface;
 use App\Shared\Domain\Service\AssertService;
@@ -38,16 +39,16 @@ final readonly class ManuallyAddOrderCommandHandler implements CommandHandlerInt
     {
         AssertService::true($this->accessControlService->isGranted(), 'Not allowed to handle resource.');
 
-        $order = $this->manuallyAddOrderService->add(
+        $orderData = new ManualCreateOrderDTO(
             customerName: $command->customerName,
             length: $command->length,
             filmType: $command->filmType,
-            hasPriority: $command->hasPriority,
             laminationType: $command->laminationType,
-            orderNumber: $command->orderNumber,
             customerNotes: $command->customerNotes,
-            packagingInstructions: $command->packagingInstructions
+            packagingInstructions: $command->packagingInstructions,
         );
+
+        $order = $this->manuallyAddOrderService->add($orderData);
 
         if ($command->cutFileId) {
             $this->manuallyAddOrderService->attachFile($order, $command->cutFileId, Order::CUT_FILE);

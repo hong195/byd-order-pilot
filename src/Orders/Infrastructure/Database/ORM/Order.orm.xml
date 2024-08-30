@@ -10,7 +10,7 @@
             <generator/>
         </id>
 
-        <field name="customerName" type="string" column="customer_name" length="255"/>
+        <embedded name="customer" class="App\Orders\Domain\Aggregate\Customer" column-prefix="customer_" />
 
         <field name="status"
                enum-type="App\Orders\Domain\ValueObject\Status"
@@ -51,8 +51,6 @@
 
         <field name="dateAdded" type="datetime_immutable" column="date_added"/>
 
-        <field name="customerNotes" type="text" column="customer_notes" nullable="true"/>
-
         <field name="packagingInstructions" type="text" column="packaging_instructions" nullable="true"/>
 
         <one-to-one field="cutFile" target-entity="App\Shared\Domain\Entity\MediaFile">
@@ -80,6 +78,5 @@
                 <cascade-persist/>
             </cascade>
         </one-to-many>
-
     </entity>
 </doctrine-mapping>

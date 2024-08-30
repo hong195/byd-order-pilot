@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added order customer name.">
-      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/ValueObject/Customer.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Remove customer notes.">
+      <change afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/ManualCreateOrderDTO.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Customer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Customer.orm.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240830132652.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ManuallyAddOrder/ManuallyAddOrderCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ManuallyAddOrder/ManuallyAddOrderCommandHandler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Factory/OrderFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Factory/OrderFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/ManualOrderService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/Service/Order/ManualOrderService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Order.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Order.orm.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,11 +214,11 @@
       <recent name="$PROJECT_DIR$/src/Inventory/Infrastructure/Adapter/Rolls" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order" />
       <recent name="$PROJECT_DIR$/src/Inventory/Infrastructure/Adapter" />
       <recent name="$PROJECT_DIR$/src/Inventory/Infrastructure" />
       <recent name="$PROJECT_DIR$/src/Inventory/Infrastructure/Api" />
       <recent name="$PROJECT_DIR$/src/Orders/Domain/Service/Inventory" />
-      <recent name="$PROJECT_DIR$/src/Orders/Domain/Service/Order" />
     </key>
   </component>
   <component name="RunManager">
@@ -275,14 +281,6 @@
       <workItem from="1724051941853" duration="6737000" />
       <workItem from="1724163360669" duration="1936000" />
       <workItem from="1724656479377" duration="18521000" />
-    </task>
-    <task id="LOCAL-00234" summary="Added product entity.">
-      <option name="closed" value="true" />
-      <created>1724668657737</created>
-      <option name="number" value="00234" />
-      <option name="presentableId" value="LOCAL-00234" />
-      <option name="project" value="LOCAL" />
-      <updated>1724668657737</updated>
     </task>
     <task id="LOCAL-00235" summary="Added add product api.">
       <option name="closed" value="true" />
@@ -668,7 +666,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725015678658</updated>
     </task>
-    <option name="localTasksCounter" value="283" />
+    <task id="LOCAL-00283" summary="Remove customer notes.">
+      <option name="closed" value="true" />
+      <created>1725024322977</created>
+      <option name="number" value="00283" />
+      <option name="presentableId" value="LOCAL-00283" />
+      <option name="project" value="LOCAL" />
+      <updated>1725024322977</updated>
+    </task>
+    <option name="localTasksCounter" value="284" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -704,7 +710,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated printers name." />
     <MESSAGE value="Fixed roll filter invalid value." />
     <MESSAGE value="Fixed order glow check in," />
     <MESSAGE value="Fixed order glow check in." />
@@ -729,7 +734,8 @@
     <MESSAGE value="Php stan fix." />
     <MESSAGE value="Added customer and packages instructions notes." />
     <MESSAGE value="Added order customer name." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added order customer name." />
+    <MESSAGE value="Remove customer notes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove customer notes." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

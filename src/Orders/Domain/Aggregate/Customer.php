@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Domain\ValueObject;
+namespace App\Orders\Domain\Aggregate;
 
 /**
  * Customer class represents a customer in the application.

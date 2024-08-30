@@ -69,7 +69,7 @@ final readonly class OrderDataTransformer
     {
         return new OrderData(
             id: $order->getId(),
-            customerName: $order->getCustomerName(),
+            customerName: $order->customer->name,
             status: $order->getStatus()->value,
             hasPriority: $order->hasPriority(),
             length: $order->getLength(),
@@ -81,8 +81,8 @@ final readonly class OrderDataTransformer
             orderNumber: $order->getOrderNumber(),
             cutFile: $order->getCutFile() ? $this->assetUrlService->getLink($order->getCutFile()->getPath()) : null,
             printFile: $order->getPrintFile() ? $this->assetUrlService->getLink($order->getPrintFile()->getPath()) : null,
-            customerNotes: $order->customerNotes,
-            packagingInstructions: $order->packagingInstructions
+            customerNotes: $order->customer->notes,
+            packagingInstructions: $order->getPackagingInstructions()
         );
     }
 }

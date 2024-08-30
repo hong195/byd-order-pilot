@@ -2,10 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Domain\Service\Order;
+namespace App\Orders\Application\Service\Order;
 
+use App\Orders\Application\DTO\ManualCreateOrderDTO;
+use App\Orders\Domain\Aggregate\Customer;
 use App\Orders\Domain\Aggregate\Order;
 use App\Orders\Domain\Factory\OrderFactory;
+use App\Orders\Domain\ValueObject\FilmType;
+use App\Orders\Domain\ValueObject\LaminationType;
 use App\Orders\Domain\ValueObject\Status;
 use App\Orders\Infrastructure\Repository\OrderRepository;
 use App\Shared\Infrastructure\Repository\MediaFileRepository;
@@ -36,32 +40,25 @@ final readonly class ManualOrderService
     /**
      * Creates and saves a new order.
      *
-     * @param int         $length         the length of the order
-     * @param string      $filmType       the type of the roll, if applicable, otherwise null
-     * @param bool        $hasPriority    indicates whether the order has priority
-     * @param string|null $laminationType the type of lamination, if applicable, otherwise null
-     * @param string|null $orderNumber    the order number, if provided, otherwise null
-     *
      * @return Order the created order
      */
-    public function add(string $customerName, int $length, string $filmType, bool $hasPriority, ?string $laminationType = null,
-        ?string $orderNumber = null, ?string $customerNotes = null, ?string $packagingInstructions = null): Order
+    public function add(ManualCreateOrderDTO $orderData): Order
     {
+        $this->orderFactory->withStatus(Status::UNASSIGNED);
+        $this->orderFactory->withLamination(LaminationType::from($orderData->laminationType));
+        $this->orderFactory->withPackagingInstructions($orderData->packagingInstructions);
+
         $order = $this->orderFactory->make(
-            customerName: $customerName,
-            length: $length,
-            laminationType: $laminationType,
-            filmType: $filmType,
-            status: Status::UNASSIGNED->value,
-            hasPriority: $hasPriority,
-            orderNumber: $orderNumber,
-            customerNotes: $customerNotes,
-            packagingInstructions: $packagingInstructions
+            customer: new Customer(name: $orderData->customerName, notes: $orderData->customerNotes),
+            length: $orderData->length,
+            filmType: FilmType::from($orderData->filmType),
         );
 
         $this->orderRepository->save($order);
 
         $order->changeOrderNumber(self::ORDER_MANUAL_PREFIX.'_'.$order->getId());
+
+        $this->orderRepository->save($order);
 
         return $order;
     }

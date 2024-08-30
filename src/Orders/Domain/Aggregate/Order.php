@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Orders\Domain\Aggregate;
 
-use App\Orders\Domain\ValueObject\Customer;
 use App\Orders\Domain\ValueObject\FilmType;
 use App\Orders\Domain\ValueObject\LaminationType;
 use App\Orders\Domain\ValueObject\OrderType;
@@ -323,5 +322,15 @@ final class Order extends Aggregate
     public function getPackagingInstructions(): ?string
     {
         return $this->packagingInstructions;
+    }
+
+    /**
+     * Sets the packaging instructions.
+     *
+     * @param string $text the packaging instructions
+     */
+    public function setPackagingInstructions(string $text): void
+    {
+        $this->packagingInstructions = $text;
     }
 }
