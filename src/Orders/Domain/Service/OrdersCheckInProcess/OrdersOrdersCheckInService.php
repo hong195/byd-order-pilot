@@ -230,6 +230,10 @@ final class OrdersOrdersCheckInService implements OrdersCheckInInterface
      */
     private function saveRolls(): void
     {
+        foreach ($this->rolls as $roll) {
+            $this->syncAssignRolls($roll);
+        }
+
         foreach ($this->assignedRolls as $roll) {
             if ($roll->getOrders()->isEmpty()) {
                 $this->rollRepository->remove($roll);

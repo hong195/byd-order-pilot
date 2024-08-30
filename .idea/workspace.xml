@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Remove customer notes.">
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/ManualCreateOrderDTO.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Customer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Customer.orm.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240830132652.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Refactor customer is value object.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ManuallyAddOrder/ManuallyAddOrderCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ManuallyAddOrder/ManuallyAddOrderCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Factory/OrderFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Factory/OrderFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/ManualOrderService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/Service/Order/ManualOrderService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Order.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Order.orm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/OrdersCheckInProcess/OrdersOrdersCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/OrdersCheckInProcess/OrdersOrdersCheckInService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -281,22 +273,6 @@
       <workItem from="1724051941853" duration="6737000" />
       <workItem from="1724163360669" duration="1936000" />
       <workItem from="1724656479377" duration="18521000" />
-    </task>
-    <task id="LOCAL-00235" summary="Added add product api.">
-      <option name="closed" value="true" />
-      <created>1724672265665</created>
-      <option name="number" value="00235" />
-      <option name="presentableId" value="LOCAL-00235" />
-      <option name="project" value="LOCAL" />
-      <updated>1724672265665</updated>
-    </task>
-    <task id="LOCAL-00236" summary="Added add product api.">
-      <option name="closed" value="true" />
-      <created>1724672268460</created>
-      <option name="number" value="00236" />
-      <option name="presentableId" value="LOCAL-00236" />
-      <option name="project" value="LOCAL" />
-      <updated>1724672268460</updated>
     </task>
     <task id="LOCAL-00237" summary="Added find products api.">
       <option name="closed" value="true" />
@@ -674,7 +650,23 @@
       <option name="project" value="LOCAL" />
       <updated>1725024322977</updated>
     </task>
-    <option name="localTasksCounter" value="284" />
+    <task id="LOCAL-00284" summary="Refactor customer is value object.">
+      <option name="closed" value="true" />
+      <created>1725026304246</created>
+      <option name="number" value="00284" />
+      <option name="presentableId" value="LOCAL-00284" />
+      <option name="project" value="LOCAL" />
+      <updated>1725026304246</updated>
+    </task>
+    <task id="LOCAL-00285" summary="Refactor customer is value object.">
+      <option name="closed" value="true" />
+      <created>1725026308264</created>
+      <option name="number" value="00285" />
+      <option name="presentableId" value="LOCAL-00285" />
+      <option name="project" value="LOCAL" />
+      <updated>1725026308264</updated>
+    </task>
+    <option name="localTasksCounter" value="286" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -710,7 +702,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed roll filter invalid value." />
     <MESSAGE value="Fixed order glow check in," />
     <MESSAGE value="Fixed order glow check in." />
     <MESSAGE value="Added extra api endpoints." />
@@ -735,7 +726,8 @@
     <MESSAGE value="Added customer and packages instructions notes." />
     <MESSAGE value="Added order customer name." />
     <MESSAGE value="Remove customer notes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove customer notes." />
+    <MESSAGE value="Refactor customer is value object." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor customer is value object." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -749,10 +741,6 @@
           <url>file://$PROJECT_DIR$/src/Orders/Domain/Repository/RollRepositoryInterface.php</url>
           <line>56</line>
           <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/Orders/Domain/ValueObject/Customer.php</url>
-          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
