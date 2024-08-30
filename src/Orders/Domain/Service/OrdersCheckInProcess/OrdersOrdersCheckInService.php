@@ -60,7 +60,7 @@ final class OrdersOrdersCheckInService implements OrdersCheckInInterface
             if (!isset($groupedFilms[$filmType])) {
                 // If there is no film of this type, create an empty roll for all orders of this type
                 foreach ($orders as $order) {
-                    $roll = $this->findOrMakeRoll(name: "Empty Roll {$order->getFilmType()->value}", filmId: null, filmType: $order->getFilmType());
+                    $roll = $this->findOrMakeRoll(name: "Empty Roll {$order->getFilmType()->value}", filmType: $order->getFilmType());
                     $roll->addOrder($order);
                     $this->syncAssignRolls($roll);
                 }
@@ -104,7 +104,7 @@ final class OrdersOrdersCheckInService implements OrdersCheckInInterface
             }
         }
 
-        $this->rollRepository->saveRolls($this->assignedRolls);
+        $this->saveRolls();
     }
 
     /**
@@ -221,5 +221,22 @@ final class OrdersOrdersCheckInService implements OrdersCheckInInterface
         }
 
         $this->orders = $this->sortOrdersService->getSorted($this->orders);
+    }
+
+    /**
+     * Saves the assigned rolls.
+     *
+     * If a roll has no orders associated with it, it will be removed from the repository.
+     */
+    private function saveRolls(): void
+    {
+        foreach ($this->assignedRolls as $roll) {
+            if ($roll->getOrders()->isEmpty()) {
+                $this->rollRepository->remove($roll);
+                continue;
+            }
+
+            $this->rollRepository->save($roll);
+        }
     }
 }
