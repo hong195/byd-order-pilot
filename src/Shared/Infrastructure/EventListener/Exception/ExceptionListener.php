@@ -19,7 +19,7 @@ class ExceptionListener
     {
     }
 
-    // #[AsEventListener(event: 'kernel.exception', priority: 190)]
+    #[AsEventListener(event: 'kernel.exception', priority: 190)]
     public function onKernelException(ExceptionEvent $event): void
     {
         // Получаем MIME тип из заголовка Accept
@@ -45,7 +45,7 @@ class ExceptionListener
     public function exceptionToArray(\Throwable $exception): array
     {
         $data = [
-            'message' => $exception->getMessage(),
+            'message' => $exception->getPrevious()->getMessage(),
         ];
         if ($this->containerBag->get('kernel.debug')) {
             $data = array_merge(
