@@ -7,17 +7,16 @@ namespace App\Orders\Application\UseCase\Command\ReprintOrder;
 use App\Shared\Application\Command\CommandInterface;
 
 /**
- * Represents a command to change the priority of an order.
+ * Represents a command for reprinting an order.
  */
 readonly class ReprintOrderCommand implements CommandInterface
 {
     /**
      * Class constructor.
      *
-     * @param int $rollId  the roll ID
      * @param int $orderId the order ID
      */
-    public function __construct(public int $rollId, public int $orderId)
+    public function __construct(public int $orderId)
     {
     }
 }

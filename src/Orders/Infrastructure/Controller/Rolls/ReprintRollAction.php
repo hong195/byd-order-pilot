@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Infrastructure\Controller\Orders;
+namespace App\Orders\Infrastructure\Controller\Rolls;
 
 use App\Orders\Application\UseCase\PrivateCommandInteractor;
 use App\Orders\Domain\Exceptions\OrderReprintException;
@@ -15,8 +15,8 @@ use Symfony\Component\Routing\Attribute\Route;
  * This class handles the find_order API endpoint.
  */
 #[AsController]
-#[Route('/api/orders/{orderId}/reprint', name: 'reprint-order', requirements: ['orderId' => '^\d+$'], methods: ['POST'])]
-final readonly class ReprintOrderAction
+#[Route('/api/rolls/{rollId}/reprint', name: 'reprint-roll', requirements: ['rollId' => '^\d+$'], methods: ['POST'])]
+final readonly class ReprintRollAction
 {
     /**
      * Class constructor.
@@ -28,15 +28,13 @@ final readonly class ReprintOrderAction
     /**
      * Invokes the command to reprint an order.
      *
-     * @param int $orderId the ID of the order
-     *
      * @return JsonResponse the JSON response containing the success message
      *
      * @throws OrderReprintException
      */
-    public function __invoke(int $orderId): JsonResponse
+    public function __invoke(int $rollId): JsonResponse
     {
-        $this->privateCommandInteractor->reprintOrder($orderId);
+        $this->privateCommandInteractor->reprintRoll($rollId);
 
         return new JsonResponse(['message' => 'Success'], Response::HTTP_OK);
     }

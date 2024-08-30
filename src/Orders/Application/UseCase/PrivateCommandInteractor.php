@@ -15,9 +15,9 @@ use App\Orders\Application\UseCase\Command\CuttingCheckIn\CuttingCheckIntCommand
 use App\Orders\Application\UseCase\Command\GlowCheckIn\GlowCheckInCommand;
 use App\Orders\Application\UseCase\Command\PrintCheckIn\PrintCheckIntCommand;
 use App\Orders\Application\UseCase\Command\ReprintOrder\ReprintOrderCommand;
+use App\Orders\Application\UseCase\Command\ReprintRoll\ReprintRollCommand;
 use App\Orders\Application\UseCase\Command\ShipAndCollectOrders\ShipAndCollectOrdersCommand;
 use App\Orders\Application\UseCase\Command\UnassignOrder\UnassignOrderCommand;
-use App\Orders\Domain\Exceptions\OrderReprintException;
 use App\Shared\Application\Command\CommandBusInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -148,15 +148,25 @@ readonly class PrivateCommandInteractor
     /**
      * Prints a new copy of an order.
      *
-     * @param int $rollId  The ID of the roll
+     * @param int $rollId The ID of the roll
+     *
+     * @throws NotFoundHttpException
+     */
+    public function reprintRoll(int $rollId): void
+    {
+        $this->commandBus->execute(new ReprintRollCommand($rollId));
+    }
+
+    /**
+     * Prints a new copy of an order.
+     *
      * @param int $orderId The ID of the order
      *
      * @throws NotFoundHttpException
-     * @throws OrderReprintException
      */
-    public function reprintOrder(int $rollId, int $orderId): void
+    public function reprintOrder(int $orderId): void
     {
-        $this->commandBus->execute(new ReprintOrderCommand($rollId, $orderId));
+        $this->commandBus->execute(new ReprintOrderCommand($orderId));
     }
 
     /**

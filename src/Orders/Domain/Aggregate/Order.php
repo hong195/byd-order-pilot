@@ -277,6 +277,7 @@ final class Order extends Aggregate
         $this->status = Status::ASSIGNABLE;
         $this->hasPriority = true;
         $this->roll = null;
+        $this->sortOrder = null;
     }
 
     /**
