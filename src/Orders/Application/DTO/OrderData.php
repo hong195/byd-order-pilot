@@ -21,7 +21,7 @@ final readonly class OrderData
      * @param \DateTimeInterface $addedAt        the date and time when the object was added
      * @param string|null        $laminationType the lamination type of the object, defaults to null
      * @param int|null           $sortOrder      the sort order of the object, defaults to null
-     * @param int|null           $orderNumber    the order number of the object, defaults to null
+     * @param string|null        $orderNumber    the order number of the object, defaults to null
      * @param string|null        $cutFile        the cut file of the object, defaults to null
      * @param string|null        $printFile      the print file of the object, defaults to null
      */
