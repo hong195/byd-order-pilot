@@ -39,7 +39,7 @@
                nullable="true"
         />
 
-        <field name="orderNumber" column="order_number"  nullable="true"/>
+        <field name="orderNumber" type="string" column="order_number"  nullable="true"/>
 
         <field name="sortOrder" type="integer" column="sort_order" nullable="true">
             <options>
