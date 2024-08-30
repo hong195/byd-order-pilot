@@ -51,6 +51,8 @@ final class Order extends Aggregate
         private bool $hasPriority = false,
         private ?LaminationType $laminationType = null,
         private ?string $orderNumber = null,
+        public readonly ?string $customerNotes = null,
+        public readonly ?string $packagingInstructions = null
     ) {
         $this->dateAdded = new \DateTimeImmutable();
         $this->extras = new ArrayCollection([]);

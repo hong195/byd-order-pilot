@@ -43,7 +43,9 @@ final readonly class ManuallyAddOrderCommandHandler implements CommandHandlerInt
             filmType: $command->filmType,
             hasPriority: $command->hasPriority,
             laminationType: $command->laminationType,
-            orderNumber: $command->orderNumber
+            orderNumber: $command->orderNumber,
+            customerNotes: $command->customerNotes,
+            packagingInstructions: $command->packagingInstructions
         );
 
         if ($command->cutFileId) {

@@ -10,20 +10,22 @@ namespace App\Orders\Application\DTO;
 final readonly class OrderData
 {
     /**
-     * Class Constructor.
+     * Constructs a new object with the specified parameters.
      *
-     * @param int                $id             the ID of the object
-     * @param string             $status         the status of the object
-     * @param bool               $hasPriority    whether the object has priority
-     * @param int                $length         the length of the object
-     * @param string             $orderType      the order type of the object
-     * @param string             $filmType       the film type of the object
-     * @param \DateTimeInterface $addedAt        the date and time when the object was added
-     * @param string|null        $laminationType the lamination type of the object, defaults to null
-     * @param int|null           $sortOrder      the sort order of the object, defaults to null
-     * @param string|null        $orderNumber    the order number of the object, defaults to null
-     * @param string|null        $cutFile        the cut file of the object, defaults to null
-     * @param string|null        $printFile      the print file of the object, defaults to null
+     * @param int                $id                    the ID of the object
+     * @param string             $status                the status of the object
+     * @param bool               $hasPriority           whether the object has priority
+     * @param int                $length                the length of the object
+     * @param string             $orderType             the order type of the object
+     * @param string             $filmType              the film type of the object
+     * @param \DateTimeInterface $addedAt               the date and time when the object was added
+     * @param string|null        $laminationType        The lamination type of the object. Default is null.
+     * @param int|null           $sortOrder             The sort order of the object. Default is null.
+     * @param string|null        $orderNumber           The order number of the object. Default is null.
+     * @param string|null        $cutFile               The cut file of the object. Default is null.
+     * @param string|null        $printFile             The print file of the object. Default is null.
+     * @param string|null        $customerNotes         The customer notes of the object. Default is null.
+     * @param string|null        $packagingInstructions The packaging instructions of the object. Default is null.
      */
     public function __construct(
         public int $id,
@@ -37,7 +39,9 @@ final readonly class OrderData
         public ?int $sortOrder = null,
         public ?string $orderNumber = null,
         public ?string $cutFile = null,
-        public ?string $printFile = null
+        public ?string $printFile = null,
+        public ?string $customerNotes = null,
+        public ?string $packagingInstructions = null
     ) {
     }
 }

@@ -12,15 +12,17 @@ use App\Shared\Application\Command\CommandInterface;
 readonly class ManuallyAddOrderCommand implements CommandInterface
 {
     /**
-     * Class constructor.
+     * Constructor for the class.
      *
-     * @param int         $length         the length of the product
-     * @param string|null $filmType       the type of the roll (nullable)
-     * @param bool        $hasPriority    indicates if the product has priority (default is false)
-     * @param string|null $laminationType the type of the lamination (nullable)
-     * @param string|null $orderNumber    the order number (nullable)
-     * @param int|null    $cutFileId      the ID of the cut file (nullable)
-     * @param int|null    $printFileId    the ID of the print file (nullable)
+     * @param int         $length                the length of the film
+     * @param string|null $filmType              the type of film (nullable)
+     * @param bool        $hasPriority           whether or not the film has priority (default false)
+     * @param string|null $laminationType        the type of lamination (nullable)
+     * @param string|null $orderNumber           the order number (nullable)
+     * @param int|null    $cutFileId             the ID of the cut file (nullable)
+     * @param int|null    $printFileId           the ID of the print file (nullable)
+     * @param string|null $customerNotes         the customer notes (nullable)
+     * @param string|null $packagingInstructions the packaging instructions (nullable)
      */
     public function __construct(
         public int $length,
@@ -30,6 +32,8 @@ readonly class ManuallyAddOrderCommand implements CommandInterface
         public ?string $orderNumber = null,
         public ?int $cutFileId = null,
         public ?int $printFileId = null,
+        public ?string $customerNotes = null,
+        public ?string $packagingInstructions = null
     ) {
     }
 }

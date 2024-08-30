@@ -80,6 +80,8 @@ final readonly class OrderDataTransformer
             orderNumber: $order->getOrderNumber(),
             cutFile: $order->getCutFile() ? $this->assetUrlService->getLink($order->getCutFile()->getPath()) : null,
             printFile: $order->getPrintFile() ? $this->assetUrlService->getLink($order->getPrintFile()->getPath()) : null,
+            customerNotes: $order->customerNotes,
+            packagingInstructions: $order->packagingInstructions
         );
     }
 }

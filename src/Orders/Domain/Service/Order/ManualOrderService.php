@@ -44,7 +44,8 @@ final readonly class ManualOrderService
      *
      * @return Order the created order
      */
-    public function add(int $length, string $filmType, bool $hasPriority, ?string $laminationType = null, ?string $orderNumber = null): Order
+    public function add(int $length, string $filmType, bool $hasPriority, ?string $laminationType = null,
+        ?string $orderNumber = null, ?string $customerNotes = null, ?string $packagingInstructions = null): Order
     {
         $order = $this->orderFactory->make(
             length: $length,
@@ -52,7 +53,9 @@ final readonly class ManualOrderService
             filmType: $filmType,
             status: Status::UNASSIGNED->value,
             hasPriority: $hasPriority,
-            orderNumber: $orderNumber
+            orderNumber: $orderNumber,
+            customerNotes: $customerNotes,
+            packagingInstructions: $packagingInstructions
         );
 
         $this->orderRepository->save($order);

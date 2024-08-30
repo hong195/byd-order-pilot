@@ -54,7 +54,9 @@ final readonly class ManualAddOrder
             laminationType: $request->get('laminationType'),
             orderNumber: $request->get('orderNumber'),
             cutFileId: $cutFileId,
-            printFileId: $printFileId
+            printFileId: $printFileId,
+            customerNotes: $request->get('customerNotes'),
+            packagingInstructions: $request->get('packagingInstructions'),
         );
 
         $orderId = $this->commandBus->execute($manuallyAddCommand);

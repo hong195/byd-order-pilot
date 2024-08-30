@@ -17,17 +17,22 @@ use App\Orders\Domain\ValueObject\Status;
 final readonly class OrderFactory
 {
     /**
-     * Creates a new order.
+     * Create a new Order instance with the given parameters.
      *
-     * @param int             $length         the length of the order
-     * @param string|null     $laminationType the type of lamination for the order, or null if no lamination is needed
-     * @param string|null     $filmType       the type of roll for the order, or null if no roll is needed
-     * @param bool            $hasPriority    true if the order has priority, false otherwise
-     * @param int|string|null $orderNumber    the order number, or null if no order number is provided
+     * @param int         $length                the length of the order
+     * @param string|null $laminationType        the lamination type of the order (optional)
+     * @param string|null $filmType              the film type of the order (optional)
+     * @param string|null $status                the status of the order (optional)
+     * @param bool        $hasPriority           whether the order has priority (default: false)
+     * @param string|null $orderNumber           the order number (optional)
+     * @param string|null $customerNotes         additional notes from the customer (optional)
+     * @param string|null $packagingInstructions packaging instructions for the order (optional)
      *
-     * @return Order the newly created order
+     * @return Order the created Order instance
      */
-    public function make(int $length, ?string $laminationType = null, ?string $filmType = null, ?string $status = null, bool $hasPriority = false, ?string $orderNumber = null): Order
+    public function make(int $length, ?string $laminationType = null, ?string $filmType = null,
+        ?string $status = null, bool $hasPriority = false, ?string $orderNumber = null,
+        ?string $customerNotes = null, ?string $packagingInstructions = null): Order
     {
         return new Order(
             length: $length,
@@ -36,6 +41,8 @@ final readonly class OrderFactory
             hasPriority: $hasPriority,
             laminationType: $laminationType ? LaminationType::from($laminationType) : null,
             orderNumber: $orderNumber,
+            customerNotes: $customerNotes,
+            packagingInstructions: $packagingInstructions
         );
     }
 }

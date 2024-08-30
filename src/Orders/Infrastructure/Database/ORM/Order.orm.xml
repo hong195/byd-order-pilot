@@ -49,6 +49,10 @@
 
         <field name="dateAdded" type="datetime_immutable" column="date_added"/>
 
+        <field name="customerNotes" type="text" column="customer_notes" nullable="true"/>
+
+        <field name="packagingInstructions" type="text" column="packaging_instructions" nullable="true"/>
+
         <one-to-one field="cutFile" target-entity="App\Shared\Domain\Entity\MediaFile">
             <cascade>
                 <cascade-all/>
