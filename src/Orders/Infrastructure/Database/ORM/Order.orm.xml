@@ -41,7 +41,7 @@
 
         <field name="orderNumber" type="bigint" column="order_number"  nullable="true"/>
 
-        <field name="sortOrder" type="integer" column="sort_order">
+        <field name="sortOrder" type="integer" column="sort_order" nullable="true">
             <options>
                 <option name="default">0</option>
             </options>

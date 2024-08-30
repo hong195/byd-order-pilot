@@ -168,6 +168,9 @@ class Roll extends Aggregate
     {
         $order->changeStatus(Status::ASSIGNED);
         $order->setRoll($this);
+
+        $order->changeSortOrder($this->orders->count() + 1);
+
         $this->orders->add($order);
     }
 

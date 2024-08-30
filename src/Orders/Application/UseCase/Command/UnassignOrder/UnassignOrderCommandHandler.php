@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orders\Application\UseCase\Command\UnassignOrder;
 
-use App\Orders\Domain\Service\Order\ChangeStatusOrder;
-use App\Orders\Domain\ValueObject\Status;
+use App\Orders\Domain\Service\Order\UnassignOrder;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Command\CommandHandlerInterface;
 use App\Shared\Domain\Service\AssertService;
@@ -18,7 +17,7 @@ readonly class UnassignOrderCommandHandler implements CommandHandlerInterface
     /**
      * Class MyClass.
      */
-    public function __construct(private ChangeStatusOrder $changeStatusOrder, private AccessControlService $accessControlService)
+    public function __construct(private UnassignOrder $unassignOrder, private AccessControlService $accessControlService)
     {
     }
 
@@ -29,6 +28,6 @@ readonly class UnassignOrderCommandHandler implements CommandHandlerInterface
     {
         AssertService::true($this->accessControlService->isGranted(), 'Not change priority.');
 
-        $this->changeStatusOrder->handle($command->id, Status::UNASSIGNED);
+        $this->unassignOrder->handle($command->id);
     }
 }

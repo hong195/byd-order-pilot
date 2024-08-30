@@ -31,7 +31,7 @@ final class Order extends Aggregate
     private ?Roll $roll = null;
 
     private Collection $extras;
-    private int $sortOrder = 0;
+    private ?int $sortOrder = 0;
     private readonly \DateTimeInterface $dateAdded;
 
     /**
@@ -239,9 +239,9 @@ final class Order extends Aggregate
     /**
      * Changes the sort order.
      *
-     * @param int $sortOrder the new sort order
+     * @param ?int $sortOrder the new sort order
      */
-    public function changeSortOrder(int $sortOrder): void
+    public function changeSortOrder(?int $sortOrder = null): void
     {
         $this->sortOrder = $sortOrder;
     }
