@@ -41,7 +41,7 @@ final readonly class CuttingCheckInService
             throw new NotFoundHttpException('Roll not found');
         }
 
-        $roll->updateProcess(Process::PRINTING_CHECK_IN);
+        $roll->updateProcess(Process::CUTTING_CHECK_IN);
 
         $this->rollRepository->save($roll);
     }

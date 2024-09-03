@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fixed removing empty roll after orders check in.">
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated readable exception message.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -272,14 +272,7 @@
       <workItem from="1724051941853" duration="6737000" />
       <workItem from="1724163360669" duration="1936000" />
       <workItem from="1724656479377" duration="18521000" />
-    </task>
-    <task id="LOCAL-00238" summary="Added find products api.">
-      <option name="closed" value="true" />
-      <created>1724674153911</created>
-      <option name="number" value="00238" />
-      <option name="presentableId" value="LOCAL-00238" />
-      <option name="project" value="LOCAL" />
-      <updated>1724674153911</updated>
+      <workItem from="1725260306393" duration="214000" />
     </task>
     <task id="LOCAL-00239" summary="Added pack product.">
       <option name="closed" value="true" />
@@ -665,7 +658,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725034273913</updated>
     </task>
-    <option name="localTasksCounter" value="287" />
+    <task id="LOCAL-00287" summary="Updated readable exception message.">
+      <option name="closed" value="true" />
+      <created>1725037000363</created>
+      <option name="number" value="00287" />
+      <option name="presentableId" value="LOCAL-00287" />
+      <option name="project" value="LOCAL" />
+      <updated>1725037000363</updated>
+    </task>
+    <option name="localTasksCounter" value="288" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -701,7 +702,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed order glow check in." />
     <MESSAGE value="Added extra api endpoints." />
     <MESSAGE value="Clean up commit." />
     <MESSAGE value="Added order type." />
@@ -726,7 +726,8 @@
     <MESSAGE value="Remove customer notes." />
     <MESSAGE value="Refactor customer is value object." />
     <MESSAGE value="Fixed removing empty roll after orders check in." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed removing empty roll after orders check in." />
+    <MESSAGE value="Updated readable exception message." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated readable exception message." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
