@@ -14,7 +14,7 @@
 
         <field name="orderNumber" column="order_number" length="255"/>
 
-        <field name="isChecked" type="boolean" column="is_checked" nullable="true"/>
+        <field name="isPacked" type="boolean" column="is_packed" nullable="true"/>
 
         <many-to-one field="order" target-entity="App\Orders\Domain\Aggregate\Order" inversed-by="extras"
                      fetch="EXTRA_LAZY">

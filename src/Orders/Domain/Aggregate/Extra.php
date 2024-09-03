@@ -8,7 +8,7 @@ class Extra
 {
     private ?int $id = null;
 
-    private bool $isChecked = false;
+    private bool $isPacked = false;
 
     private ?Order $order = null;
 
@@ -31,19 +31,19 @@ class Extra
      *
      * @return bool returns true if the message has been sent, otherwise false
      */
-    public function checked(): bool
+    public function isPacked(): bool
     {
-        return $this->isChecked;
+        return $this->isPacked;
     }
 
     /**
      * Set the isSent property.
      *
-     * @param bool $isChecked the value to set for the isSent property
+     * @param bool $isPacked the value to set for the isSent property
      */
-    public function setIsChecked(bool $isChecked): void
+    public function setIsPacked(bool $isPacked): void
     {
-        $this->isChecked = $isChecked;
+        $this->isPacked = $isPacked;
     }
 
     /**

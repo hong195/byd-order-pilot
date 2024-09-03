@@ -13,12 +13,14 @@ use App\Orders\Application\UseCase\Command\CreateExtra\CreateExtraCommand;
 use App\Orders\Application\UseCase\Command\CreatePrinters\CreatePrintersCommand;
 use App\Orders\Application\UseCase\Command\CuttingCheckIn\CuttingCheckIntCommand;
 use App\Orders\Application\UseCase\Command\GlowCheckIn\GlowCheckInCommand;
+use App\Orders\Application\UseCase\Command\PackExtra\PackExtraCommand;
 use App\Orders\Application\UseCase\Command\PackMainProduct\PackMainProductCommand;
 use App\Orders\Application\UseCase\Command\PrintCheckIn\PrintCheckIntCommand;
 use App\Orders\Application\UseCase\Command\ReprintOrder\ReprintOrderCommand;
 use App\Orders\Application\UseCase\Command\ReprintRoll\ReprintRollCommand;
 use App\Orders\Application\UseCase\Command\ShipAndCollectOrders\ShipAndCollectOrdersCommand;
 use App\Orders\Application\UseCase\Command\UnassignOrder\UnassignOrderCommand;
+use App\Orders\Application\UseCase\Command\UnPackExtra\UnPackExtraCommand;
 use App\Orders\Application\UseCase\Command\UnPackMainProduct\UnPackMainProductCommand;
 use App\Shared\Application\Command\CommandBusInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -203,5 +205,27 @@ readonly class PrivateCommandInteractor
     public function unpackMainProduct(int $rollId, int $orderId): void
     {
         $this->commandBus->execute(new UnPackMainProductCommand($rollId, $orderId));
+    }
+
+    /**
+     * Packs or unpacks an extra for an order.
+     *
+     * @param int $orderId The ID of the order
+     * @param int $extraId The ID of the extra
+     */
+    public function packExtra(int $orderId, int $extraId): void
+    {
+        $this->commandBus->execute(new PackExtraCommand(orderId: $orderId, extraId: $extraId));
+    }
+
+    /**
+     * Unpacks an extra for a given order.
+     *
+     * @param int $orderId The ID of the order
+     * @param int $extraId The ID of the extra to unpack
+     */
+    public function unPackExtra(int $orderId, int $extraId): void
+    {
+        $this->commandBus->execute(new UnPackExtraCommand(orderId: $orderId, extraId: $extraId));
     }
 }
