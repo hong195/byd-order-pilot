@@ -5,7 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated readable exception message.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/PackMainProduct/PackMainProductCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/PackMainProduct/PackMainProductCommandHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UnPackMainProduct/UnPackMainProductCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UnPackMainProduct/UnPackMainProductCommandHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Exceptions/CantPackMainProductException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Pack/FindOrderForPacking.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Pack/PackMainProduct.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Pack/UnPackMainProduct.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Rolls/PackMainProductAction.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Rolls/UnPackMainProductAction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ReprintRoll/ReprintRollCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ReprintRoll/ReprintRollCommandHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,17 +211,17 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Command" />
+      <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/PackMainProduct" />
       <recent name="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Query" />
-      <recent name="$PROJECT_DIR$/src/Inventory/Infrastructure/Adapter/Rolls" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Pack" />
+      <recent name="$PROJECT_DIR$/src/Orders/Domain/Service/Order" />
       <recent name="$PROJECT_DIR$/src/Orders/Domain/Service" />
       <recent name="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order" />
       <recent name="$PROJECT_DIR$/src/Inventory/Infrastructure/Adapter" />
-      <recent name="$PROJECT_DIR$/src/Inventory/Infrastructure" />
-      <recent name="$PROJECT_DIR$/src/Inventory/Infrastructure/Api" />
     </key>
   </component>
   <component name="RunManager">
@@ -741,6 +753,10 @@
           <url>file://$PROJECT_DIR$/src/Orders/Domain/Repository/RollRepositoryInterface.php</url>
           <line>56</line>
           <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/Orders/Domain/ValueObject/Customer.php</url>
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

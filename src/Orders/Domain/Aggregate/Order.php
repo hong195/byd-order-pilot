@@ -35,6 +35,7 @@ final class Order extends Aggregate
     private ?string $packagingInstructions = null;
     private bool $hasPriority = false;
     private readonly \DateTimeInterface $dateAdded;
+    private bool $isPacked = false;
 
     /**
      * Initializes a new instance of the class.
@@ -333,5 +334,15 @@ final class Order extends Aggregate
     public function setPackagingInstructions(string $text): void
     {
         $this->packagingInstructions = $text;
+    }
+
+    /**
+     * Sets whether the item is packed or not.
+     *
+     * @param bool $pack whether the item is packed or not
+     */
+    public function setPack(bool $pack): void
+    {
+        $this->isPacked = $pack;
     }
 }

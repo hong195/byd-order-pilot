@@ -13,11 +13,13 @@ use App\Orders\Application\UseCase\Command\CreateExtra\CreateExtraCommand;
 use App\Orders\Application\UseCase\Command\CreatePrinters\CreatePrintersCommand;
 use App\Orders\Application\UseCase\Command\CuttingCheckIn\CuttingCheckIntCommand;
 use App\Orders\Application\UseCase\Command\GlowCheckIn\GlowCheckInCommand;
+use App\Orders\Application\UseCase\Command\PackMainProduct\PackMainProductCommand;
 use App\Orders\Application\UseCase\Command\PrintCheckIn\PrintCheckIntCommand;
 use App\Orders\Application\UseCase\Command\ReprintOrder\ReprintOrderCommand;
 use App\Orders\Application\UseCase\Command\ReprintRoll\ReprintRollCommand;
 use App\Orders\Application\UseCase\Command\ShipAndCollectOrders\ShipAndCollectOrdersCommand;
 use App\Orders\Application\UseCase\Command\UnassignOrder\UnassignOrderCommand;
+use App\Orders\Application\UseCase\Command\UnPackMainProduct\UnPackMainProductCommand;
 use App\Shared\Application\Command\CommandBusInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -179,5 +181,27 @@ readonly class PrivateCommandInteractor
     public function createExtra(int $orderId, string $name, string $orderNumber): void
     {
         $this->commandBus->execute(new CreateExtraCommand($orderId, $name, $orderNumber));
+    }
+
+    /**
+     * Packs the main product of an order.
+     *
+     * @param int $rollId  The ID of the roll to be packed
+     * @param int $orderId The ID of the order to which the roll belongs
+     */
+    public function packMainProduct(int $rollId, int $orderId): void
+    {
+        $this->commandBus->execute(new PackMainProductCommand($rollId, $orderId));
+    }
+
+    /**
+     * Unpacks the main product from a roll for an order.
+     *
+     * @param int $rollId  The ID of the roll containing the main product
+     * @param int $orderId The ID of the order
+     */
+    public function unpackMainProduct(int $rollId, int $orderId): void
+    {
+        $this->commandBus->execute(new UnPackMainProductCommand($rollId, $orderId));
     }
 }

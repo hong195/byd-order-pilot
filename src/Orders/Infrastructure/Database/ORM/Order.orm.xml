@@ -49,6 +49,12 @@
             </options>
         </field>
 
+        <field name="isPacked" type="boolean" column="is_packed">
+            <options>
+                <option name="default">false</option>
+            </options>
+        </field>
+
         <field name="dateAdded" type="datetime_immutable" column="date_added"/>
 
         <field name="packagingInstructions" type="text" column="packaging_instructions" nullable="true"/>
