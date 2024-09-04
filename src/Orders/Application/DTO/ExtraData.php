@@ -16,7 +16,7 @@ final readonly class ExtraData
      * @param string $name        the name of the item
      * @param string $orderNumber the order number of the item
      */
-    public function __construct(public int $id, public string $name, public string $orderNumber)
+    public function __construct(public int $id, public string $name, public string $orderNumber, public bool $isPacked = false)
     {
     }
 }

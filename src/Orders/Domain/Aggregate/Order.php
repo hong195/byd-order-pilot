@@ -345,4 +345,14 @@ final class Order extends Aggregate
     {
         $this->isPacked = $pack;
     }
+
+    /**
+     * Returns whether the item is packed or not.
+     *
+     * @return bool true if the item is packed, false otherwise
+     */
+    public function isPacked(): bool
+    {
+        return $this->isPacked;
+    }
 }

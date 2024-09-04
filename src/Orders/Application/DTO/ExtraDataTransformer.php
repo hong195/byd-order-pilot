@@ -24,7 +24,8 @@ final readonly class ExtraDataTransformer
             fn (Extra $extra) => new ExtraData(
                 $extra->getId(),
                 $extra->name,
-                $extra->orderNumber
+                $extra->orderNumber,
+                $extra->isPacked()
             ),
             $products
         );

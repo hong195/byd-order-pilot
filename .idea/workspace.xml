@@ -4,20 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added packing feature.">
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/PackExtra/PackExtraCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/PackExtra/PackExtraCommandHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UnPackExtra/UnPackExtraCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UnPackExtra/UnPackExtraCommandHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Exceptions/CantPackExtraException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Extra/SetPackExtra.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/Extra/PackExtraAction.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/Extra/UnPackExtraAction.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240903123358.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added pack/unpack extra">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Extra.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Extra.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Extra.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Extra.orm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/ExtraData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/ExtraData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/ExtraDataTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/ExtraDataTransformer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/OrderData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/OrderData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/OrderDataTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/OrderDataTransformer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -285,22 +278,6 @@
       <workItem from="1724163360669" duration="1936000" />
       <workItem from="1724656479377" duration="18521000" />
       <workItem from="1725260306393" duration="214000" />
-    </task>
-    <task id="LOCAL-00242" summary="Renamed inventory type.">
-      <option name="closed" value="true" />
-      <created>1724679938003</created>
-      <option name="number" value="00242" />
-      <option name="presentableId" value="LOCAL-00242" />
-      <option name="project" value="LOCAL" />
-      <updated>1724679938003</updated>
-    </task>
-    <task id="LOCAL-00243" summary="Added creating .env">
-      <option name="closed" value="true" />
-      <created>1724681610925</created>
-      <option name="number" value="00243" />
-      <option name="presentableId" value="LOCAL-00243" />
-      <option name="project" value="LOCAL" />
-      <updated>1724681610925</updated>
     </task>
     <task id="LOCAL-00244" summary="Updated printers name.">
       <option name="closed" value="true" />
@@ -678,7 +655,23 @@
       <option name="project" value="LOCAL" />
       <updated>1725364200675</updated>
     </task>
-    <option name="localTasksCounter" value="291" />
+    <task id="LOCAL-00291" summary="Added pack/unpack extra">
+      <option name="closed" value="true" />
+      <created>1725367416790</created>
+      <option name="number" value="00291" />
+      <option name="presentableId" value="LOCAL-00291" />
+      <option name="project" value="LOCAL" />
+      <updated>1725367416790</updated>
+    </task>
+    <task id="LOCAL-00292" summary="Added pack/unpack extra">
+      <option name="closed" value="true" />
+      <created>1725367419967</created>
+      <option name="number" value="00292" />
+      <option name="presentableId" value="LOCAL-00292" />
+      <option name="project" value="LOCAL" />
+      <updated>1725367419967</updated>
+    </task>
+    <option name="localTasksCounter" value="293" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -714,7 +707,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Clean up commit." />
     <MESSAGE value="Added order type." />
     <MESSAGE value="Removed products reference," />
     <MESSAGE value="Removed products reference." />
@@ -739,7 +731,8 @@
     <MESSAGE value="Fixed removing empty roll after orders check in." />
     <MESSAGE value="Updated readable exception message." />
     <MESSAGE value="Added packing feature." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added packing feature." />
+    <MESSAGE value="Added pack/unpack extra" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added pack/unpack extra" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

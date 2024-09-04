@@ -10,23 +10,24 @@ namespace App\Orders\Application\DTO;
 final readonly class OrderData
 {
     /**
-     * Constructor for the class.
+     * Class constructor.
      *
      * @param int                $id                    the order ID
-     * @param string             $customerName          the customer's name
-     * @param string             $status                the order status
-     * @param bool               $hasPriority           whether the order has priority
+     * @param string             $customerName          the name of the customer who placed the order
+     * @param string             $status                the status of the order
+     * @param bool               $hasPriority           indicates whether the order has priority or not
      * @param int                $length                the length of the order
-     * @param string             $orderType             the order type
-     * @param string             $filmType              the film type
-     * @param \DateTimeInterface $addedAt               the date and time the order was added
-     * @param string|null        $laminationType        The type of lamination for the order. (Optional)
-     * @param int|null           $sortOrder             The sort order of the order. (Optional)
-     * @param string|null        $orderNumber           The order number. (Optional)
-     * @param string|null        $cutFile               The cut file for the order. (Optional)
-     * @param string|null        $printFile             The print file for the order. (Optional)
-     * @param string|null        $customerNotes         Any notes from the customer. (Optional)
-     * @param string|null        $packagingInstructions The packaging instructions for the order. (Optional)
+     * @param string             $orderType             the type of the order
+     * @param string             $filmType              the type of film used in the order
+     * @param \DateTimeInterface $addedAt               the date and time when the order was added
+     * @param string|null        $laminationType        the type of lamination used in the order (optional)
+     * @param int|null           $sortOrder             the sort order of the order (optional)
+     * @param string|null        $orderNumber           the order number (optional)
+     * @param string|null        $cutFile               the file path of the cut file (optional)
+     * @param string|null        $printFile             the file path of the print file (optional)
+     * @param string|null        $customerNotes         additional notes provided by the customer (optional)
+     * @param string|null        $packagingInstructions packaging instructions (optional)
+     * @param bool               $isPacked              indicates whether the order is packed or not
      */
     public function __construct(
         public int $id,
@@ -43,7 +44,8 @@ final readonly class OrderData
         public ?string $cutFile = null,
         public ?string $printFile = null,
         public ?string $customerNotes = null,
-        public ?string $packagingInstructions = null
+        public ?string $packagingInstructions = null,
+        public bool $isPacked = false
     ) {
     }
 }
