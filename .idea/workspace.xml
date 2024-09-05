@@ -5,17 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Move roll services to own folder.">
-      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/GeneralProcessValidation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AssignEmployeeToRoll/AssignEmployeeToRollCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AssignEmployeeToRoll/AssignEmployeeToRollCommandHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UnAssignEmployeeFromRoll/UnAssignEmployeeFromRollCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UnAssignEmployeeFromRoll/UnAssignEmployeeFromRollCommandHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Rolls/AssignEmployeeToRollAction.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Rolls/UnAssignEmployeeFromRollAction.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AssignOrder/AssignOrderCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AssignOrder/AssignOrderCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Roll.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Roll.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/ReprintOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/ReprintOrder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/CuttingCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/CuttingCheckInService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/GlowCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/GlowCheckInService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/OrdersCheckInProcess/OrdersOrdersCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/OrdersCheckInProcess/OrdersOrdersCheckInService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/PrintCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/PrintCheckInService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/ReprintRoll.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/ReprintRoll.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/ShipAndCollectOrdersService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/ShipAndCollectOrdersService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +33,7 @@
     <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitRewordedCommitMessages">
-    <option name="onto" value="540781c94438cb2982470c22a9e90253be2ed24e" />
+    <option name="onto" value="1c954403722eb1cdc4e9efd425fae33cd4d98d78" />
   </component>
   <component name="PhpServers">
     <servers>
@@ -177,49 +174,49 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;PHPUnit.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
-    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm&quot;: &quot;Docker Compose&quot;,
-    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm&quot;: &quot;Docker Compose&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/aleksejem/Sites/order-pilot/src/Orders/Application/UseCase/Command&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;php.add.doc.comment.for.fields.panel.add.php.doc.for.all.properties&quot;: &quot;true&quot;,
-    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.General&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "PHPUnit.Main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
+    "WebServerToolWindowPanel.toolwindow.show.date": "false",
+    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
+    "WebServerToolWindowPanel.toolwindow.show.size": "false",
+    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm": "Docker Compose",
+    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm": "Docker Compose",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/src/Orders/Application/UseCase/Command",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "php.add.doc.comment.for.fields.panel.add.php.doc.for.all.properties": "true",
+    "php.override.implement.member.chooser.php.doc": "NONE",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.General",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Command" />
+      <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AcceptR" />
       <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/PackMainProduct" />
       <recent name="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Query" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AcceptRoll" />
+      <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Command" />
       <recent name="$PROJECT_DIR$/src/Orders/Domain/Service/Roll" />
       <recent name="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Pack" />
       <recent name="$PROJECT_DIR$/src/Orders/Domain/Service/Order" />
-      <recent name="$PROJECT_DIR$/src/Orders/Domain/Service" />
-      <recent name="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order" />
     </key>
   </component>
   <component name="RunManager">
@@ -283,30 +280,6 @@
       <workItem from="1724163360669" duration="1936000" />
       <workItem from="1724656479377" duration="18521000" />
       <workItem from="1725260306393" duration="214000" />
-    </task>
-    <task id="LOCAL-00252" summary="Clean up commit.">
-      <option name="closed" value="true" />
-      <created>1724763576417</created>
-      <option name="number" value="00252" />
-      <option name="presentableId" value="LOCAL-00252" />
-      <option name="project" value="LOCAL" />
-      <updated>1724763576417</updated>
-    </task>
-    <task id="LOCAL-00253" summary="Added order type.">
-      <option name="closed" value="true" />
-      <created>1724764568165</created>
-      <option name="number" value="00253" />
-      <option name="presentableId" value="LOCAL-00253" />
-      <option name="project" value="LOCAL" />
-      <updated>1724764568165</updated>
-    </task>
-    <task id="LOCAL-00254" summary="Removed products reference,">
-      <option name="closed" value="true" />
-      <created>1724764745697</created>
-      <option name="number" value="00254" />
-      <option name="presentableId" value="LOCAL-00254" />
-      <option name="project" value="LOCAL" />
-      <updated>1724764745697</updated>
     </task>
     <task id="LOCAL-00255" summary="Removed products reference.">
       <option name="closed" value="true" />
@@ -676,7 +649,31 @@
       <option name="project" value="LOCAL" />
       <updated>1725536112985</updated>
     </task>
-    <option name="localTasksCounter" value="301" />
+    <task id="LOCAL-00301" summary="Move roll services to own folder.">
+      <option name="closed" value="true" />
+      <created>1725545516419</created>
+      <option name="number" value="00301" />
+      <option name="presentableId" value="LOCAL-00301" />
+      <option name="project" value="LOCAL" />
+      <updated>1725545516419</updated>
+    </task>
+    <task id="LOCAL-00302" summary="Move roll services to own folder.">
+      <option name="closed" value="true" />
+      <created>1725545664263</created>
+      <option name="number" value="00302" />
+      <option name="presentableId" value="LOCAL-00302" />
+      <option name="project" value="LOCAL" />
+      <updated>1725545664264</updated>
+    </task>
+    <task id="LOCAL-00303" summary="Move roll services to own folder.">
+      <option name="closed" value="true" />
+      <created>1725545669720</created>
+      <option name="number" value="00303" />
+      <option name="presentableId" value="LOCAL-00303" />
+      <option name="project" value="LOCAL" />
+      <updated>1725545669720</updated>
+    </task>
+    <option name="localTasksCounter" value="304" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -712,7 +709,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated nginx config #2." />
     <MESSAGE value="Added creation /var/lib/nginx/tmp directory." />
     <MESSAGE value="Updated docker file." />
     <MESSAGE value="Updated docker file #2." />
@@ -736,6 +732,7 @@
     <MESSAGE value="Updated extra &amp; order dto objects." />
     <MESSAGE value="Added extra count." />
     <MESSAGE value="Added extra count to dto." />
+    <MESSAGE value="Added general roll validation." />
     <MESSAGE value="Move roll services to own folder." />
     <option name="LAST_COMMIT_MESSAGE" value="Move roll services to own folder." />
   </component>

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Orders\Application\UseCase;
 
 use App\Orders\Application\DTO\SortOrderData;
+use App\Orders\Application\UseCase\Command\AssignEmployeeToRoll\AssignEmployeeToRollCommand;
 use App\Orders\Application\UseCase\Command\AssignOrder\AssignOrderCommand;
 use App\Orders\Application\UseCase\Command\ChangeOrderPriority\ChangeOrderPriorityCommand;
 use App\Orders\Application\UseCase\Command\ChangeOrderSort\ChangeOrderSortCommand;
@@ -19,6 +20,7 @@ use App\Orders\Application\UseCase\Command\PrintCheckIn\PrintCheckIntCommand;
 use App\Orders\Application\UseCase\Command\ReprintOrder\ReprintOrderCommand;
 use App\Orders\Application\UseCase\Command\ReprintRoll\ReprintRollCommand;
 use App\Orders\Application\UseCase\Command\ShipAndCollectOrders\ShipAndCollectOrdersCommand;
+use App\Orders\Application\UseCase\Command\UnAssignEmployeeFromRoll\UnAssignEmployeeFromRollCommand;
 use App\Orders\Application\UseCase\Command\UnassignOrder\UnassignOrderCommand;
 use App\Orders\Application\UseCase\Command\UnPackExtra\UnPackExtraCommand;
 use App\Orders\Application\UseCase\Command\UnPackMainProduct\UnPackMainProductCommand;
@@ -225,5 +227,26 @@ readonly class PrivateCommandInteractor
     public function unPackExtra(int $orderId, int $extraId): void
     {
         $this->commandBus->execute(new UnPackExtraCommand(orderId: $orderId, extraId: $extraId));
+    }
+
+    /**
+     * Assigns an employee to a role.
+     *
+     * @param int $rollId     The ID of the role
+     * @param int $employeeId The ID of the employee
+     */
+    public function assignEmployeeToARoll(int $rollId, int $employeeId): void
+    {
+        $this->commandBus->execute(new AssignEmployeeToRollCommand(rollId: $rollId, employeeId: $employeeId));
+    }
+
+    /**
+     * Unassigns an employee from a roll.
+     *
+     * @param int $rollId The ID of the roll
+     */
+    public function unassignEmployeeFromRoll(int $rollId): void
+    {
+        $this->commandBus->execute(new UnAssignEmployeeFromRollCommand(rollId: $rollId));
     }
 }
