@@ -12,7 +12,14 @@ class Extra
 
     private ?Order $order = null;
 
-    public function __construct(public readonly string $name, public readonly string $orderNumber)
+    /**
+     * Constructs a new instance of the class.
+     *
+     * @param string $name        the value of the name (readonly property)
+     * @param string $orderNumber the value of the order number (readonly property)
+     * @param int    $count       the value of the count (private property with a default value of 0)
+     */
+    public function __construct(public readonly string $name, public readonly string $orderNumber, private int $count = 0)
     {
     }
 
@@ -64,5 +71,25 @@ class Extra
     public function setOrder(?Order $order): void
     {
         $this->order = $order;
+    }
+
+    /**
+     * Returns the current count.
+     *
+     * @return int the current count
+     */
+    public function getCount(): int
+    {
+        return $this->count;
+    }
+
+    /**
+     * Sets the count.
+     *
+     * @param int $count the value of the count
+     */
+    public function setCount(int $count): void
+    {
+        $this->count = $count;
     }
 }

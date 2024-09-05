@@ -31,9 +31,9 @@ final readonly class ExtraMaker
      *
      * @return Extra the newly created Extra object
      */
-    public function make(string $name, string $orderNumber): Extra
+    public function make(string $name, string $orderNumber, int $count = 0): Extra
     {
-        $extra = new Extra($name, $orderNumber);
+        $extra = new Extra($name, $orderNumber, $count);
 
         $this->extraRepository->add($extra);
 

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orders\Infrastructure\Controller\Orders\Extra;
 
+use App\Orders\Application\UseCase\Command\CreateExtra\CreateExtraCommand;
 use App\Orders\Application\UseCase\PrivateCommandInteractor;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -35,7 +36,12 @@ final readonly class AddExtraAction
      */
     public function __invoke(int $orderId, Request $request): JsonResponse
     {
-        $this->privateCommandInteractor->createExtra(orderId: $orderId, name: $request->request->get('name'), orderNumber: $request->request->get('orderNumber'));
+        $this->privateCommandInteractor->createExtra(new CreateExtraCommand(
+            orderId: $orderId,
+            name: (string) $request->get('name'),
+            orderNumber: $request->get('name'),
+            count: (int) $request->get('count'),
+        ));
 
         return new JsonResponse(['message' => 'Success'], Response::HTTP_OK);
     }

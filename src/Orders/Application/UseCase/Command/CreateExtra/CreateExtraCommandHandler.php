@@ -36,7 +36,7 @@ readonly class CreateExtraCommandHandler implements CommandHandlerInterface
             throw new NotFoundHttpException('Order not found');
         }
 
-        $extra = $this->extraMaker->make($command->name, $command->orderNumber);
+        $extra = $this->extraMaker->make($command->name, $command->orderNumber, $command->count);
 
         $order->addExtra($extra);
 

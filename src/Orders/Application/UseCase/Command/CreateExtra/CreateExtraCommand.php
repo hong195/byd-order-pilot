@@ -14,15 +14,14 @@ use App\Shared\Application\Command\CommandInterface;
 readonly class CreateExtraCommand implements CommandInterface
 {
     /**
-     * Constructor for the class.
+     * Represents a constructor for a class.
      *
      * @param int    $orderId     the ID of the order
      * @param string $name        the name of the order
      * @param string $orderNumber the number of the order
-     *
-     * @return void
+     * @param int    $count       the count of the items in the order
      */
-    public function __construct(public int $orderId, public string $name, public string $orderNumber)
+    public function __construct(public int $orderId, public string $name, public string $orderNumber, public int $count)
     {
     }
 }

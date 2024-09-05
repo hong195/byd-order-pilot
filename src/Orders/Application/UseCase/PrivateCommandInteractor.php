@@ -174,15 +174,13 @@ readonly class PrivateCommandInteractor
     }
 
     /**
-     * Creates a new extra for an order.
+     * Creates an extra.
      *
-     * @param int    $orderId     The ID of the order for which the extra is being created
-     * @param string $name        The name of the extra
-     * @param string $orderNumber The order number of the extra
+     * @param CreateExtraCommand $command The command to create an extra
      */
-    public function createExtra(int $orderId, string $name, string $orderNumber): void
+    public function createExtra(CreateExtraCommand $command): void
     {
-        $this->commandBus->execute(new CreateExtraCommand($orderId, $name, $orderNumber));
+        $this->commandBus->execute($command);
     }
 
     /**
