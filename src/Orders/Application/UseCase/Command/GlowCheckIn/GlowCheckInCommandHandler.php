@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Orders\Application\UseCase\Command\GlowCheckIn;
 
 use App\Orders\Domain\Exceptions\RollCantBeSentToGlowException;
-use App\Orders\Domain\Service\GlowCheckInService;
+use App\Orders\Domain\Service\Roll\GlowCheckInService;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Command\CommandHandlerInterface;
 use App\Shared\Domain\Service\AssertService;

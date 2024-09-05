@@ -1,0 +1,154 @@
+Index: src/Orders/Domain/Service/Roll/ReprintRoll.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\n\ndeclare(strict_types=1);\n\nnamespace App\\Orders\\Domain\\Service\\Roll;\n\nuse App\\Orders\\Domain\\Exceptions\\OrderReprintException;\nuse App\\Orders\\Domain\\Repository\\OrderRepositoryInterface;\nuse App\\Orders\\Domain\\Repository\\RollRepositoryInterface;\nuse App\\Orders\\Domain\\Service\\Roll\\OrdersCheckInProcess\\OrdersCheckInInterface;\nuse Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException;\n\n/**\n * Class ReprintOrder.\n *\n * This class handles the printing of orders.\n */\nfinal readonly class ReprintRoll\n{\n\t/**\n\t * Class constructor.\n\t *\n\t * @param RollRepositoryInterface $rollRepository The roll repository interface.\n\t * @param OrderRepositoryInterface $orderRepository The order repository interface.\n\t * @param OrdersCheckInInterface $ordersCheckIn The orders check-in interface.\n\t */\n    public function __construct(private RollRepositoryInterface $rollRepository, private OrderRepositoryInterface $orderRepository, private OrdersCheckInInterface $ordersCheckIn)\n    {\n    }\n\n    /**\n     * Handle the order reprint.\n     *\n     * @param int $rollId The ID of the roll\n     *\n     * @throws NotFoundHttpException If the roll with the specified ID is not found\n     * @throws OrderReprintException\n     */\n    public function handle(int $rollId): void\n    {\n        $roll = $this->rollRepository->findById($rollId);\n\n        if (!$roll) {\n            throw new NotFoundHttpException('Roll not found');\n        }\n\n        foreach ($roll->getOrders() as $order) {\n            $order->reprint();\n            $this->orderRepository->save($order);\n        }\n\n        $this->rollRepository->remove($roll);\n\n        $this->ordersCheckIn->checkIn();\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Orders/Domain/Service/Roll/ReprintRoll.php b/src/Orders/Domain/Service/Roll/ReprintRoll.php
+--- a/src/Orders/Domain/Service/Roll/ReprintRoll.php	(revision 1014b2e47c95ee80d47a8b5c5a2b5cac25c2b225)
++++ b/src/Orders/Domain/Service/Roll/ReprintRoll.php	(date 1725545516118)
+@@ -17,13 +17,13 @@
+  */
+ final readonly class ReprintRoll
+ {
+-	/**
+-	 * Class constructor.
+-	 *
+-	 * @param RollRepositoryInterface $rollRepository The roll repository interface.
+-	 * @param OrderRepositoryInterface $orderRepository The order repository interface.
+-	 * @param OrdersCheckInInterface $ordersCheckIn The orders check-in interface.
+-	 */
++    /**
++     * Class constructor.
++     *
++     * @param RollRepositoryInterface  $rollRepository  the roll repository interface
++     * @param OrderRepositoryInterface $orderRepository the order repository interface
++     * @param OrdersCheckInInterface   $ordersCheckIn   the orders check-in interface
++     */
+     public function __construct(private RollRepositoryInterface $rollRepository, private OrderRepositoryInterface $orderRepository, private OrdersCheckInInterface $ordersCheckIn)
+     {
+     }
+Index: src/Orders/Domain/Service/Roll/PrintCheckInService.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\n\ndeclare(strict_types=1);\n\nnamespace App\\Orders\\Domain\\Service\\Roll;\n\nuse App\\Orders\\Domain\\DTO\\FilmData;\nuse App\\Orders\\Domain\\Events\\RollWasSentToPrintCheckInEvent;\nuse App\\Orders\\Domain\\Exceptions\\NotEnoughFilmLengthToPrintTheRollException;\nuse App\\Orders\\Domain\\Exceptions\\PrinterIsNotAvailableException;\nuse App\\Orders\\Domain\\Exceptions\\RollCantBeSentToPrintException;\nuse App\\Orders\\Domain\\Repository\\RollRepositoryInterface;\nuse App\\Orders\\Domain\\Service\\Inventory\\AvailableFilmServiceInterface;\nuse App\\Orders\\Domain\\ValueObject\\Process;\nuse Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException;\nuse Symfony\\Contracts\\EventDispatcher\\EventDispatcherInterface;\n\n/**\n * This class is responsible for handling the printing process.\n */\nfinal readonly class PrintCheckInService\n{\n    /**\n     * Construct the class.\n     *\n     * @param RollRepositoryInterface       $rollRepository       the roll repository\n     * @param AvailableFilmServiceInterface $availableFilmService the available film service\n     * @param EventDispatcherInterface      $eventDispatcher      the event dispatcher\n     */\n    public function __construct(private RollRepositoryInterface $rollRepository, private AvailableFilmServiceInterface $availableFilmService, private EventDispatcherInterface $eventDispatcher, private GeneralProcessValidation $generalProcessValidatior)\n    {\n    }\n\n    /**\n     * Print a roll.\n     *\n     * @param int $rollId The ID of the roll to be printed\n     *\n     * @throws NotFoundHttpException                      If the roll is not found\n     * @throws PrinterIsNotAvailableException             If the printer is not available\n     * @throws RollCantBeSentToPrintException             If the roll is not in the correct process\n     * @throws NotEnoughFilmLengthToPrintTheRollException\n     */\n    public function handle(int $rollId): void\n    {\n        $roll = $this->rollRepository->findById($rollId);\n\n\t\t$this->generalProcessValidatior->validate($roll);\n\n        if (!$roll->getProcess()->equals(Process::ORDER_CHECK_IN)) {\n            throw new RollCantBeSentToPrintException('Roll cannot be printed! It is not in the correct process.');\n        }\n\n        $printer = $roll->getPrinter();\n\n        if (!$printer->isAvailable()) {\n            throw new PrinterIsNotAvailableException('Printer is not available');\n        }\n\n        $availableFilm = $this->getByFilmType($roll->getFilmId());\n\n        if (!$availableFilm || $availableFilm->length < $roll->getOrdersLength()) {\n            throw new NotEnoughFilmLengthToPrintTheRollException('Not enough film to print');\n        }\n\n        $roll->updateProcess(Process::PRINTING_CHECK_IN);\n\n        $this->rollRepository->save($roll);\n\n        $this->eventDispatcher->dispatch(new RollWasSentToPrintCheckInEvent($roll->getId()));\n    }\n\n    /**\n     * Retrieves a film by its type.\n     *\n     * If a specific film ID is provided, it filters the available film list\n     * and returns the first film matching the ID. If no film ID is provided,\n     * it returns null.\n     *\n     * @param int|null $filmId The ID of the film to retrieve. (optional)\n     *\n     * @return FilmData|null the film object matching the provided ID, or null if not found\n     */\n    private function getByFilmType(?int $filmId = null): ?FilmData\n    {\n        $result = $this->availableFilmService->getAvailableFilms()->filter(function (FilmData $filmData) use ($filmId) {\n            return $filmData->id === $filmId;\n        })\n            ->first();\n\n        return $result ?: null;\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Orders/Domain/Service/Roll/PrintCheckInService.php b/src/Orders/Domain/Service/Roll/PrintCheckInService.php
+--- a/src/Orders/Domain/Service/Roll/PrintCheckInService.php	(revision 1014b2e47c95ee80d47a8b5c5a2b5cac25c2b225)
++++ b/src/Orders/Domain/Service/Roll/PrintCheckInService.php	(date 1725545516194)
+@@ -45,7 +45,7 @@
+     {
+         $roll = $this->rollRepository->findById($rollId);
+ 
+-		$this->generalProcessValidatior->validate($roll);
++        $this->generalProcessValidatior->validate($roll);
+ 
+         if (!$roll->getProcess()->equals(Process::ORDER_CHECK_IN)) {
+             throw new RollCantBeSentToPrintException('Roll cannot be printed! It is not in the correct process.');
+Index: src/Orders/Domain/Service/Roll/GeneralProcessValidation.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\n\ndeclare(strict_types=1);\n\nnamespace App\\Orders\\Domain\\Service\\Roll;\n\nuse App\\Orders\\Domain\\Aggregate\\Roll;\nuse Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException;\n\nfinal readonly class GeneralProcessValidation\n{\n\tpublic function __construct()\n\t{\n\t}\n\n\tpublic function validate(?Roll $roll): void\n\t{\n\t\tif (!$roll) {\n\t\t\tthrow new NotFoundHttpException('Roll not found');\n\t\t}\n\n\t\tif ($roll->getOrders()->isEmpty()) {\n\t\t\tthrow new NotFoundHttpException('No Orders found!');\n\t\t}\n\n\t\tif (!$roll->getEmployeeId()) {\n\t\t\tthrow new NotFoundHttpException('No assigned employee found!');\n\t\t}\n\t}\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Orders/Domain/Service/Roll/GeneralProcessValidation.php b/src/Orders/Domain/Service/Roll/GeneralProcessValidation.php
+--- a/src/Orders/Domain/Service/Roll/GeneralProcessValidation.php	(revision 1014b2e47c95ee80d47a8b5c5a2b5cac25c2b225)
++++ b/src/Orders/Domain/Service/Roll/GeneralProcessValidation.php	(date 1725545516201)
+@@ -9,22 +9,22 @@
+ 
+ final readonly class GeneralProcessValidation
+ {
+-	public function __construct()
+-	{
+-	}
++    public function __construct()
++    {
++    }
+ 
+-	public function validate(?Roll $roll): void
+-	{
+-		if (!$roll) {
+-			throw new NotFoundHttpException('Roll not found');
+-		}
++    public function validate(?Roll $roll): void
++    {
++        if (!$roll) {
++            throw new NotFoundHttpException('Roll not found');
++        }
+ 
+-		if ($roll->getOrders()->isEmpty()) {
+-			throw new NotFoundHttpException('No Orders found!');
+-		}
++        if ($roll->getOrders()->isEmpty()) {
++            throw new NotFoundHttpException('No Orders found!');
++        }
+ 
+-		if (!$roll->getEmployeeId()) {
+-			throw new NotFoundHttpException('No assigned employee found!');
+-		}
+-	}
++        if (!$roll->getEmployeeId()) {
++            throw new NotFoundHttpException('No assigned employee found!');
++        }
++    }
+ }
+Index: src/Orders/Domain/Service/Roll/ShipAndCollectOrdersService.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\n\ndeclare(strict_types=1);\n\nnamespace App\\Orders\\Domain\\Service\\Roll;\n\nuse App\\Orders\\Domain\\Exceptions\\ShipAndCollectionException;\nuse App\\Orders\\Domain\\Repository\\OrderRepositoryInterface;\nuse App\\Orders\\Domain\\Repository\\RollRepositoryInterface;\nuse App\\Orders\\Domain\\ValueObject\\Process;\nuse App\\Orders\\Domain\\ValueObject\\Status;\nuse Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException;\n\n/**\n * Class CutCheckInService.\n *\n * This class handles the cutting of a roll.\n */\nfinal readonly class ShipAndCollectOrdersService\n{\n    /**\n     * Construct the class.\n     *\n     * @param RollRepositoryInterface $rollRepository the roll repository\n     */\n    public function __construct(private RollRepositoryInterface $rollRepository, private OrderRepositoryInterface $orderRepository, private GeneralProcessValidation $processValidator)\n    {\n    }\n\n    /**\n     * @throws ShipAndCollectionException\n     */\n    public function handle(int $rollId): void\n    {\n        $roll = $this->rollRepository->findById($rollId);\n\n        $this->processValidator->validate($roll);\n\n        if (!$roll->getProcess()->equals(Process::CUTTING_CHECK_IN)) {\n            throw new ShipAndCollectionException('Orders cant be send to ship be collected!');\n        }\n\n        foreach ($roll->getOrders() as $order) {\n            $order->changeStatus(Status::SHIP_AND_COLLECT);\n            $this->orderRepository->save($order);\n        }\n\n        $roll->updateProcess(Process::CUT);\n\n        $this->rollRepository->save($roll);\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Orders/Domain/Service/Roll/ShipAndCollectOrdersService.php b/src/Orders/Domain/Service/Roll/ShipAndCollectOrdersService.php
+--- a/src/Orders/Domain/Service/Roll/ShipAndCollectOrdersService.php	(revision 1014b2e47c95ee80d47a8b5c5a2b5cac25c2b225)
++++ b/src/Orders/Domain/Service/Roll/ShipAndCollectOrdersService.php	(date 1725545516140)
+@@ -9,7 +9,6 @@
+ use App\Orders\Domain\Repository\RollRepositoryInterface;
+ use App\Orders\Domain\ValueObject\Process;
+ use App\Orders\Domain\ValueObject\Status;
+-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+ 
+ /**
+  * Class CutCheckInService.
+Index: src/Orders/Domain/Service/Roll/GlowCheckInService.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\n\ndeclare(strict_types=1);\n\nnamespace App\\Orders\\Domain\\Service\\Roll;\n\nuse App\\Orders\\Domain\\Aggregate\\Order;\nuse App\\Orders\\Domain\\Aggregate\\Roll;\nuse App\\Orders\\Domain\\Events\\RollsWereSentToGlowCheckInEvent;\nuse App\\Orders\\Domain\\Exceptions\\RollCantBeSentToGlowException;\nuse App\\Orders\\Domain\\Repository\\RollRepositoryInterface;\nuse App\\Orders\\Domain\\Service\\Order\\GroupService;\nuse App\\Orders\\Domain\\ValueObject\\Process;\nuse Doctrine\\Common\\Collections\\ArrayCollection;\nuse Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException;\nuse Symfony\\Contracts\\EventDispatcher\\EventDispatcherInterface;\n\n/**\n * This class is responsible for handling the printing process.\n */\nfinal readonly class GlowCheckInService\n{\n    /**\n     * Constructor for the class.\n     *\n     * @param RollRepositoryInterface  $rollRepository  the roll repository interface\n     * @param GroupService             $groupService    the group service\n     * @param RollMaker                $rollMaker       the roll maker\n     * @param EventDispatcherInterface $eventDispatcher the event dispatcher interface\n     */\n    public function __construct(private RollRepositoryInterface $rollRepository, private GroupService $groupService, private RollMaker $rollMaker, private EventDispatcherInterface $eventDispatcher, private GeneralProcessValidation $generalProcessValidatior)\n    {\n    }\n\n    /**\n     * Print a roll.\n     *\n     * @param int $rollId The ID of the roll to be printed\n     *\n     * @throws NotFoundHttpException         If the roll is not found\n     * @throws RollCantBeSentToGlowException\n     */\n    public function handle(int $rollId): void\n    {\n        $foundRoll = $this->rollRepository->findById($rollId);\n\n  \t\t$this->generalProcessValidatior->validate($foundRoll);\n\n        if (!$foundRoll->getProcess()->equals(Process::PRINTING_CHECK_IN)) {\n            throw new RollCantBeSentToGlowException('Roll cannot be glowed! It is not in the correct process.');\n        }\n\n        $copyRoll = $foundRoll;\n        // copy orders to new collection\n        $orders = new ArrayCollection($foundRoll->getOrders()->toArray());\n\n        $this->rollRepository->remove($foundRoll);\n\n        $ordersGroups = $this->groupService->handle($orders);\n\n        $sendToGlowingRolls = [];\n\n        foreach ($ordersGroups as $group => $groupOrders) {\n            $roll = $this->rollMaker->make(name: $copyRoll->getName(), filmId: $copyRoll->getFilmId());\n\n            $roll->assignPrinter($foundRoll->getPrinter());\n\n            /** @var Order $firstOrder */\n            $firstOrder = $groupOrders->first();\n            $hasLamination = null !== $firstOrder->getLaminationType();\n            // if roll does not have lamination it goes directly to cut check in, otherwise to glow check in\n            $process = $hasLamination ? Process::GLOW_CHECK_IN : Process::CUTTING_CHECK_IN;\n\n            $roll->updateProcess($process);\n\n            foreach ($groupOrders as $order) {\n                $roll->addOrder($order);\n            }\n\n            $sendToGlowingRolls[] = $roll;\n        }\n\n        $this->rollRepository->saveRolls($sendToGlowingRolls);\n\n        $this->eventDispatcher->dispatch(new RollsWereSentToGlowCheckInEvent(array_map(fn (Roll $roll) => $roll->getId(), $sendToGlowingRolls)));\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Orders/Domain/Service/Roll/GlowCheckInService.php b/src/Orders/Domain/Service/Roll/GlowCheckInService.php
+--- a/src/Orders/Domain/Service/Roll/GlowCheckInService.php	(revision 1014b2e47c95ee80d47a8b5c5a2b5cac25c2b225)
++++ b/src/Orders/Domain/Service/Roll/GlowCheckInService.php	(date 1725545516169)
+@@ -44,7 +44,7 @@
+     {
+         $foundRoll = $this->rollRepository->findById($rollId);
+ 
+-  		$this->generalProcessValidatior->validate($foundRoll);
++        $this->generalProcessValidatior->validate($foundRoll);
+ 
+         if (!$foundRoll->getProcess()->equals(Process::PRINTING_CHECK_IN)) {
+             throw new RollCantBeSentToGlowException('Roll cannot be glowed! It is not in the correct process.');
+Index: src/Orders/Domain/Service/Roll/OrdersCheckInProcess/OrdersOrdersCheckInService.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\n\ndeclare(strict_types=1);\n\nnamespace App\\Orders\\Domain\\Service\\Roll\\OrdersCheckInProcess;\n\nuse App\\Orders\\Domain\\Aggregate\\Order;\nuse App\\Orders\\Domain\\Aggregate\\Roll;\nuse App\\Orders\\Domain\\DTO\\FilmData;\nuse App\\Orders\\Domain\\Repository\\OrderRepositoryInterface;\nuse App\\Orders\\Domain\\Repository\\RollFilter;\nuse App\\Orders\\Domain\\Service\\Inventory\\AvailableFilmServiceInterface;\nuse App\\Orders\\Domain\\Service\\Order\\SortOrdersServiceInterface;\nuse App\\Orders\\Domain\\Service\\Roll\\RollMaker;\nuse App\\Orders\\Domain\\ValueObject\\FilmType;\nuse App\\Orders\\Domain\\ValueObject\\Process;\nuse App\\Orders\\Domain\\ValueObject\\Status;\nuse App\\Orders\\Infrastructure\\Repository\\RollRepository;\nuse Doctrine\\Common\\Collections\\ArrayCollection;\nuse Doctrine\\Common\\Collections\\Collection;\n\n/**\n * Class MaxMinReArrangeOrderService.\n */\nfinal class OrdersOrdersCheckInService implements OrdersCheckInInterface\n{\n    private Collection $assignedRolls;\n\n    private Collection $rolls;\n\n    private Collection $orders;\n\n    /**\n     * Class constructor.\n     *\n     * @param OrderRepositoryInterface      $orderRepository      The order repository\n     * @param SortOrdersServiceInterface    $sortOrdersService    The sort orders service\n     * @param RollRepository                $rollRepository       The roll repository\n     * @param AvailableFilmServiceInterface $availableFilmService The available film service\n     * @param RollMaker                     $rollMaker            The roll maker\n     */\n    public function __construct(private readonly OrderRepositoryInterface $orderRepository, private readonly SortOrdersServiceInterface $sortOrdersService, private readonly RollRepository $rollRepository, private readonly AvailableFilmServiceInterface $availableFilmService, private readonly RollMaker $rollMaker)\n    {\n    }\n\n    /**\n     * Performs the check-in process for the current session.\n     *\n     * @throws \\Exception if an error occurs during the check-in process\n     */\n    public function checkIn(): void\n    {\n        $this->initData();\n\n        $availableFilms = $this->availableFilmService->getAvailableFilms();\n        $groupedFilms = $this->groupFilmsByType($availableFilms);\n        $groupedOrders = $this->groupOrdersByFilm($this->orders);\n\n        foreach ($groupedOrders as $filmType => $orders) {\n            if (!isset($groupedFilms[$filmType])) {\n                // If there is no film of this type, create an empty roll for all orders of this type\n                foreach ($orders as $order) {\n                    $roll = $this->findOrMakeRoll(name: \"Empty Roll {$order->getFilmType()->value}\", filmType: $order->getFilmType());\n                    $roll->addOrder($order);\n                    $this->syncAssignRolls($roll);\n                }\n                continue;\n            }\n\n            // Инициализируем доступные пленки для данного типа\n            $currentFilm = $groupedFilms[$filmType];\n\n            foreach ($orders as $order) {\n                $orderPlaced = false;\n\n                // Attempting to place an order on existing film rolls\n                foreach ($currentFilm as $key => $film) {\n                    $filmLength = $film->length;\n\n                    $roll = $this->findOrMakeRoll(name: \"Roll {$film->filmType}\", filmId: $film->id, filmType: $order->getFilmType());\n\n                    if ($roll->getOrdersLength() + $order->getLength() <= $filmLength) {\n                        $roll->addOrder($order);\n\n                        $this->syncAssignRolls($roll);\n                        $orderPlaced = true;\n\n                        if (0 === $filmLength) {\n                            unset($currentFilm[$key]); // Remove the film from the available films\n                        }\n\n                        break;\n                    }\n                }\n\n                // Если заказ не был размещен, создаем пустой рулон\n                if (!$orderPlaced) {\n                    $roll = $this->findOrMakeRoll(\"Empty Roll {$order->getFilmType()->value}\", null, $order->getFilmType());\n                    $roll->getOrders()->count();\n                    $roll->addOrder($order);\n\n                    $this->syncAssignRolls($roll);\n                }\n            }\n        }\n\n        $this->saveRolls();\n    }\n\n    /**\n     * Initializes the data for the orders check in, uses latest rolls and orders to do that.\n     */\n    private function initData(): void\n    {\n        $this->assignedRolls = new ArrayCollection([]);\n        $this->rolls = new ArrayCollection($this->rollRepository->findByFilter(new RollFilter(process: Process::ORDER_CHECK_IN)));\n\n        $this->initOrders();\n    }\n\n    /**\n     * Finds or makes a roll based on the given parameters.\n     *\n     * @param string        $name     The name of the roll\n     * @param int|null      $filmId   The ID of the film associated with the roll (optional)\n     * @param FilmType|null $filmType The roll type associated with the roll (optional)\n     *\n     * @return Roll The found or newly created roll\n     */\n    private function findOrMakeRoll(string $name, ?int $filmId = null, ?FilmType $filmType = null): Roll\n    {\n        $roll = $this->rolls->filter(function (Roll $roll) use ($filmId, $filmType) {\n            return $roll->getFilmId() === $filmId && in_array($filmType, $roll->getPrinter()->getFilmTypes());\n        })->first();\n\n        if ($roll) {\n            return $roll;\n        }\n\n        $roll = $this->rollMaker->make($name, $filmId, $filmType, Process::ORDER_CHECK_IN);\n\n        $this->rolls->add($roll);\n\n        return $roll;\n    }\n\n    /**\n     * Syncs the assigned rolls with a new roll.\n     *\n     * @param Roll $roll The roll to sync with\n     */\n    private function syncAssignRolls(Roll $roll): void\n    {\n        // if roll was added previously to assignedRolls, remove it and add it again\n        if ($this->assignedRolls->contains($roll)) {\n            $this->assignedRolls->removeElement($roll);\n        }\n\n        $this->assignedRolls->add($roll);\n    }\n\n    /**\n     * Groups orders by roll type.\n     *\n     * @param Collection<Order> $orders the collection of orders\n     *\n     * @return array<string, Order[]> the array of grouped orders\n     */\n    private function groupOrdersByFilm(Collection $orders): array\n    {\n        $groupedOrders = [];\n\n        foreach ($orders as $order) {\n            $groupedOrders[$order->getFilmType()->value][] = $order;\n        }\n\n        return $groupedOrders;\n    }\n\n    /**\n     * Groups films by roll type.\n     *\n     * @param Collection<FilmData> $films the collection of films\n     *\n     * @return array<string, FilmData[]> the array of grouped films\n     */\n    private function groupFilmsByType(Collection $films): array\n    {\n        $groupedFilms = [];\n\n        foreach ($films as $film) {\n            $groupedFilms[$film->filmType][] = $film;\n        }\n\n        return $groupedFilms;\n    }\n\n    /**\n     * Initializes the orders in the application.\n     *\n     * This method retrieves the orders with status \"assignable\" from the order repository,\n     * adds them to the $orders collection, and then adds the orders associated with each\n     * roll in the $rolls collection to the $orders collection. Finally, it sorts the\n     * $orders collection using the SortOrdersService.\n     */\n    private function initOrders(): void\n    {\n        $this->orders = new ArrayCollection();\n        $assignableOrders = $this->orderRepository->findByStatus(Status::ASSIGNABLE);\n\n        foreach ($assignableOrders as $order) {\n            $this->orders->add($order);\n        }\n\n        foreach ($this->rolls as $roll) {\n            foreach ($roll->getOrders() as $order) {\n                $this->orders->add($order);\n            }\n\n            $roll->removeOrders();\n        }\n\n        $this->orders = $this->sortOrdersService->getSorted($this->orders);\n    }\n\n    /**\n     * Saves the assigned rolls.\n     *\n     * If a roll has no orders associated with it, it will be removed from the repository.\n     */\n    private function saveRolls(): void\n    {\n        foreach ($this->rolls as $roll) {\n            $this->syncAssignRolls($roll);\n        }\n\n        foreach ($this->assignedRolls as $roll) {\n            if ($roll->getOrders()->isEmpty()) {\n                $this->rollRepository->remove($roll);\n                continue;\n            }\n\n\t\t\t$roll->setEmployeeId(null);\n            $this->rollRepository->save($roll);\n        }\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Orders/Domain/Service/Roll/OrdersCheckInProcess/OrdersOrdersCheckInService.php b/src/Orders/Domain/Service/Roll/OrdersCheckInProcess/OrdersOrdersCheckInService.php
+--- a/src/Orders/Domain/Service/Roll/OrdersCheckInProcess/OrdersOrdersCheckInService.php	(revision 1014b2e47c95ee80d47a8b5c5a2b5cac25c2b225)
++++ b/src/Orders/Domain/Service/Roll/OrdersCheckInProcess/OrdersOrdersCheckInService.php	(date 1725545516270)
+@@ -240,7 +240,7 @@
+                 continue;
+             }
+ 
+-			$roll->setEmployeeId(null);
++            $roll->setEmployeeId(null);
+             $this->rollRepository->save($roll);
+         }
+     }

@@ -7,7 +7,7 @@ namespace App\Orders\Application\UseCase\Command\PrintCheckIn;
 use App\Orders\Domain\Exceptions\NotEnoughFilmLengthToPrintTheRollException;
 use App\Orders\Domain\Exceptions\PrinterIsNotAvailableException;
 use App\Orders\Domain\Exceptions\RollCantBeSentToPrintException;
-use App\Orders\Domain\Service\PrintCheckInService;
+use App\Orders\Domain\Service\Roll\PrintCheckInService;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Command\CommandHandlerInterface;
 use App\Shared\Domain\Service\AssertService;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Domain\Service;
+namespace App\Orders\Domain\Service\Roll;
 
 use App\Orders\Domain\Aggregate\Order;
 use App\Orders\Domain\Aggregate\Roll;
@@ -28,7 +28,7 @@ final readonly class GlowCheckInService
      * @param RollMaker                $rollMaker       the roll maker
      * @param EventDispatcherInterface $eventDispatcher the event dispatcher interface
      */
-    public function __construct(private RollRepositoryInterface $rollRepository, private GroupService $groupService, private RollMaker $rollMaker, private EventDispatcherInterface $eventDispatcher)
+    public function __construct(private RollRepositoryInterface $rollRepository, private GroupService $groupService, private RollMaker $rollMaker, private EventDispatcherInterface $eventDispatcher, private GeneralProcessValidation $generalProcessValidatior)
     {
     }
 
@@ -44,9 +44,7 @@ final readonly class GlowCheckInService
     {
         $foundRoll = $this->rollRepository->findById($rollId);
 
-        if (!$foundRoll) {
-            throw new NotFoundHttpException('Roll not found');
-        }
+        $this->generalProcessValidatior->validate($foundRoll);
 
         if (!$foundRoll->getProcess()->equals(Process::PRINTING_CHECK_IN)) {
             throw new RollCantBeSentToGlowException('Roll cannot be glowed! It is not in the correct process.');
@@ -59,10 +57,6 @@ final readonly class GlowCheckInService
         $this->rollRepository->remove($foundRoll);
 
         $ordersGroups = $this->groupService->handle($orders);
-
-        if ($orders->isEmpty()) {
-            throw new NotFoundHttpException('No Orders found!');
-        }
 
         $sendToGlowingRolls = [];
 

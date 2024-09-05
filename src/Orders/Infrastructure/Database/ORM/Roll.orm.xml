@@ -10,6 +10,8 @@
         </id>
         <field name="name" column="name" length="255"/>
 
+        <field name="employeeId" type="integer" column="employee_id"  nullable="true"/>
+
         <field name="filmId" type="integer" column="film_id" nullable="true"/>
 
         <field name="process" enum-type="App\Orders\Domain\ValueObject\Process" column="process" length="255" nullable="true"/>

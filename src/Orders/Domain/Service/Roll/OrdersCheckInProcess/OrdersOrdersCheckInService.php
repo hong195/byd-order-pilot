@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Domain\Service\OrdersCheckInProcess;
+namespace App\Orders\Domain\Service\Roll\OrdersCheckInProcess;
 
 use App\Orders\Domain\Aggregate\Order;
 use App\Orders\Domain\Aggregate\Roll;
@@ -11,7 +11,7 @@ use App\Orders\Domain\Repository\OrderRepositoryInterface;
 use App\Orders\Domain\Repository\RollFilter;
 use App\Orders\Domain\Service\Inventory\AvailableFilmServiceInterface;
 use App\Orders\Domain\Service\Order\SortOrdersServiceInterface;
-use App\Orders\Domain\Service\RollMaker;
+use App\Orders\Domain\Service\Roll\RollMaker;
 use App\Orders\Domain\ValueObject\FilmType;
 use App\Orders\Domain\ValueObject\Process;
 use App\Orders\Domain\ValueObject\Status;
@@ -240,6 +240,7 @@ final class OrdersOrdersCheckInService implements OrdersCheckInInterface
                 continue;
             }
 
+            $roll->setEmployeeId(null);
             $this->rollRepository->save($roll);
         }
     }

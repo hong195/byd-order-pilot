@@ -2,14 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Domain\Service;
+namespace App\Orders\Domain\Service\Roll;
 
 use App\Orders\Domain\Exceptions\ShipAndCollectionException;
 use App\Orders\Domain\Repository\OrderRepositoryInterface;
 use App\Orders\Domain\Repository\RollRepositoryInterface;
 use App\Orders\Domain\ValueObject\Process;
 use App\Orders\Domain\ValueObject\Status;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class CutCheckInService.
@@ -23,7 +22,7 @@ final readonly class ShipAndCollectOrdersService
      *
      * @param RollRepositoryInterface $rollRepository the roll repository
      */
-    public function __construct(private RollRepositoryInterface $rollRepository, private OrderRepositoryInterface $orderRepository)
+    public function __construct(private RollRepositoryInterface $rollRepository, private OrderRepositoryInterface $orderRepository, private GeneralProcessValidation $processValidator)
     {
     }
 
@@ -34,13 +33,7 @@ final readonly class ShipAndCollectOrdersService
     {
         $roll = $this->rollRepository->findById($rollId);
 
-        if (!$roll) {
-            throw new NotFoundHttpException('Roll not found');
-        }
-
-        if ($roll->getOrders()->isEmpty()) {
-            throw new NotFoundHttpException('No orders found!');
-        }
+        $this->processValidator->validate($roll);
 
         if (!$roll->getProcess()->equals(Process::CUTTING_CHECK_IN)) {
             throw new ShipAndCollectionException('Orders cant be send to ship be collected!');

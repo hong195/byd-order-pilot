@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Domain\Service;
+namespace App\Orders\Domain\Service\Roll;
 
 use App\Orders\Domain\Exceptions\OrderReprintException;
 use App\Orders\Domain\Repository\OrderRepositoryInterface;
 use App\Orders\Domain\Repository\RollRepositoryInterface;
-use App\Orders\Domain\Service\OrdersCheckInProcess\OrdersCheckInInterface;
+use App\Orders\Domain\Service\Roll\OrdersCheckInProcess\OrdersCheckInInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -18,9 +18,11 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 final readonly class ReprintRoll
 {
     /**
-     * Example class constructor.
+     * Class constructor.
      *
-     * @param OrderRepositoryInterface $orderRepository The order repository interface
+     * @param RollRepositoryInterface  $rollRepository  the roll repository interface
+     * @param OrderRepositoryInterface $orderRepository the order repository interface
+     * @param OrdersCheckInInterface   $ordersCheckIn   the orders check-in interface
      */
     public function __construct(private RollRepositoryInterface $rollRepository, private OrderRepositoryInterface $orderRepository, private OrdersCheckInInterface $ordersCheckIn)
     {

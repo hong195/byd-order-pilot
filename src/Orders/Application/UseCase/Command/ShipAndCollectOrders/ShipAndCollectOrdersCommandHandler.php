@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Orders\Application\UseCase\Command\ShipAndCollectOrders;
 
 use App\Orders\Domain\Exceptions\ShipAndCollectionException;
-use App\Orders\Domain\Service\ShipAndCollectOrdersService;
+use App\Orders\Domain\Service\Roll\ShipAndCollectOrdersService;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Command\CommandHandlerInterface;
 use App\Shared\Domain\Service\AssertService;

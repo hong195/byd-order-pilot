@@ -32,6 +32,8 @@ class Roll extends Aggregate
     private Collection $orders;
     private ?Printer $printer = null;
 
+    private ?int $employeeId = null;
+
     /**
      * Constructs a new object with the given name, roll type, and lamination types.
      *
@@ -233,5 +235,25 @@ class Roll extends Aggregate
     public function getLaminations(): array
     {
         return array_values(array_unique($this->orders->map(fn (Order $order) => $order->getLaminationType()?->value)->toArray()));
+    }
+
+    /**
+     * Retrieves the employee ID associated with this object.
+     *
+     * @return ?int the employee ID associated with this object
+     */
+    public function getEmployeeId(): ?int
+    {
+        return $this->employeeId;
+    }
+
+    /**
+     * Assigns the given employee ID to this object.
+     *
+     * @param ?int $employeeId the ID of the employee to be assigned
+     */
+    public function setEmployeeId(?int $employeeId): void
+    {
+        $this->employeeId = $employeeId;
     }
 }

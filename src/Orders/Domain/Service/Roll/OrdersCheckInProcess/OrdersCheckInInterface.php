@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Orders\Domain\Service\OrdersCheckInProcess;
+namespace App\Orders\Domain\Service\Roll\OrdersCheckInProcess;
 
 /**
  * Interface ArrangeServiceInterface.

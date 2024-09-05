@@ -6,7 +6,7 @@ namespace App\Orders\Domain\Service\Order;
 
 use App\Orders\Domain\Exceptions\OrderReprintException;
 use App\Orders\Domain\Repository\OrderRepositoryInterface;
-use App\Orders\Domain\Service\OrdersCheckInProcess\OrdersCheckInInterface;
+use App\Orders\Domain\Service\Roll\OrdersCheckInProcess\OrdersCheckInInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**

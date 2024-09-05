@@ -4,8 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added extra count.">
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/ExtraDataTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/ExtraDataTransformer.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Move roll services to own folder.">
+      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/GeneralProcessValidation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AssignOrder/AssignOrderCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AssignOrder/AssignOrderCommandHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Roll.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Roll.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/ReprintOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/ReprintOrder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/CuttingCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/CuttingCheckInService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/GlowCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/GlowCheckInService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/OrdersCheckInProcess/OrdersOrdersCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/OrdersCheckInProcess/OrdersOrdersCheckInService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/PrintCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/PrintCheckInService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/ReprintRoll.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/ReprintRoll.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/ShipAndCollectOrdersService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/ShipAndCollectOrdersService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,11 +215,11 @@
       <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Query" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Orders/Domain/Service/Roll" />
       <recent name="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Pack" />
       <recent name="$PROJECT_DIR$/src/Orders/Domain/Service/Order" />
       <recent name="$PROJECT_DIR$/src/Orders/Domain/Service" />
       <recent name="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order" />
-      <recent name="$PROJECT_DIR$/src/Inventory/Infrastructure/Adapter" />
     </key>
   </component>
   <component name="RunManager">
@@ -273,38 +283,6 @@
       <workItem from="1724163360669" duration="1936000" />
       <workItem from="1724656479377" duration="18521000" />
       <workItem from="1725260306393" duration="214000" />
-    </task>
-    <task id="LOCAL-00248" summary="Fixed order glow check in.">
-      <option name="closed" value="true" />
-      <created>1724754731167</created>
-      <option name="number" value="00248" />
-      <option name="presentableId" value="LOCAL-00248" />
-      <option name="project" value="LOCAL" />
-      <updated>1724754731167</updated>
-    </task>
-    <task id="LOCAL-00249" summary="Added extra api endpoints.">
-      <option name="closed" value="true" />
-      <created>1724759638079</created>
-      <option name="number" value="00249" />
-      <option name="presentableId" value="LOCAL-00249" />
-      <option name="project" value="LOCAL" />
-      <updated>1724759638079</updated>
-    </task>
-    <task id="LOCAL-00250" summary="Added extra api endpoints.">
-      <option name="closed" value="true" />
-      <created>1724759699245</created>
-      <option name="number" value="00250" />
-      <option name="presentableId" value="LOCAL-00250" />
-      <option name="project" value="LOCAL" />
-      <updated>1724759699245</updated>
-    </task>
-    <task id="LOCAL-00251" summary="Clean up commit.">
-      <option name="closed" value="true" />
-      <created>1724763515144</created>
-      <option name="number" value="00251" />
-      <option name="presentableId" value="LOCAL-00251" />
-      <option name="project" value="LOCAL" />
-      <updated>1724763515144</updated>
     </task>
     <task id="LOCAL-00252" summary="Clean up commit.">
       <option name="closed" value="true" />
@@ -666,7 +644,39 @@
       <option name="project" value="LOCAL" />
       <updated>1725531865999</updated>
     </task>
-    <option name="localTasksCounter" value="297" />
+    <task id="LOCAL-00297" summary="Added extra count to dto.">
+      <option name="closed" value="true" />
+      <created>1725533912173</created>
+      <option name="number" value="00297" />
+      <option name="presentableId" value="LOCAL-00297" />
+      <option name="project" value="LOCAL" />
+      <updated>1725533912173</updated>
+    </task>
+    <task id="LOCAL-00298" summary="Added extra count to dto.">
+      <option name="closed" value="true" />
+      <created>1725533914836</created>
+      <option name="number" value="00298" />
+      <option name="presentableId" value="LOCAL-00298" />
+      <option name="project" value="LOCAL" />
+      <updated>1725533914836</updated>
+    </task>
+    <task id="LOCAL-00299" summary="Move roll services to own folder.">
+      <option name="closed" value="true" />
+      <created>1725536110955</created>
+      <option name="number" value="00299" />
+      <option name="presentableId" value="LOCAL-00299" />
+      <option name="project" value="LOCAL" />
+      <updated>1725536110955</updated>
+    </task>
+    <task id="LOCAL-00300" summary="Move roll services to own folder.">
+      <option name="closed" value="true" />
+      <created>1725536112985</created>
+      <option name="number" value="00300" />
+      <option name="presentableId" value="LOCAL-00300" />
+      <option name="project" value="LOCAL" />
+      <updated>1725536112985</updated>
+    </task>
+    <option name="localTasksCounter" value="301" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -702,8 +712,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Removed products reference." />
-    <MESSAGE value="Fixed roll film &amp; lamination values." />
     <MESSAGE value="Updated nginx config #2." />
     <MESSAGE value="Added creation /var/lib/nginx/tmp directory." />
     <MESSAGE value="Updated docker file." />
@@ -727,7 +735,9 @@
     <MESSAGE value="Added pack/unpack extra" />
     <MESSAGE value="Updated extra &amp; order dto objects." />
     <MESSAGE value="Added extra count." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added extra count." />
+    <MESSAGE value="Added extra count to dto." />
+    <MESSAGE value="Move roll services to own folder." />
+    <option name="LAST_COMMIT_MESSAGE" value="Move roll services to own folder." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

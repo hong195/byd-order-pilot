@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Domain\Service;
+namespace App\Orders\Domain\Service\Roll;
 
 use App\Orders\Domain\DTO\FilmData;
 use App\Orders\Domain\Events\RollWasSentToPrintCheckInEvent;
@@ -27,7 +27,7 @@ final readonly class PrintCheckInService
      * @param AvailableFilmServiceInterface $availableFilmService the available film service
      * @param EventDispatcherInterface      $eventDispatcher      the event dispatcher
      */
-    public function __construct(private RollRepositoryInterface $rollRepository, private AvailableFilmServiceInterface $availableFilmService, private EventDispatcherInterface $eventDispatcher)
+    public function __construct(private RollRepositoryInterface $rollRepository, private AvailableFilmServiceInterface $availableFilmService, private EventDispatcherInterface $eventDispatcher, private GeneralProcessValidation $generalProcessValidatior)
     {
     }
 
@@ -45,16 +45,10 @@ final readonly class PrintCheckInService
     {
         $roll = $this->rollRepository->findById($rollId);
 
-        if (!$roll) {
-            throw new NotFoundHttpException('Roll not found');
-        }
+        $this->generalProcessValidatior->validate($roll);
 
         if (!$roll->getProcess()->equals(Process::ORDER_CHECK_IN)) {
             throw new RollCantBeSentToPrintException('Roll cannot be printed! It is not in the correct process.');
-        }
-
-        if ($roll->getOrders()->isEmpty()) {
-            throw new NotFoundHttpException('No Orders found!');
         }
 
         $printer = $roll->getPrinter();

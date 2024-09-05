@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Domain\Service;
+namespace App\Orders\Domain\Service\Roll;
 
 use App\Orders\Domain\Exceptions\RollCantBeSentToCuttingException;
 use App\Orders\Domain\Repository\RollRepositoryInterface;
@@ -21,7 +21,7 @@ final readonly class CuttingCheckInService
      *
      * @param RollRepositoryInterface $rollRepository the roll repository
      */
-    public function __construct(private RollRepositoryInterface $rollRepository)
+    public function __construct(private RollRepositoryInterface $rollRepository, private GeneralProcessValidation $generalProcessValidator)
     {
     }
 
@@ -37,9 +37,7 @@ final readonly class CuttingCheckInService
     {
         $roll = $this->rollRepository->findById($rollId);
 
-        if (!$roll) {
-            throw new NotFoundHttpException('Roll not found');
-        }
+        $this->generalProcessValidator->validate($roll);
 
         $roll->updateProcess(Process::CUTTING_CHECK_IN);
 

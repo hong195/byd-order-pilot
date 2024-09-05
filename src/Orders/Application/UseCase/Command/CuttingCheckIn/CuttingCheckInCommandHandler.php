@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Orders\Application\UseCase\Command\CuttingCheckIn;
 
 use App\Orders\Domain\Exceptions\RollCantBeSentToCuttingException;
-use App\Orders\Domain\Service\CuttingCheckInService;
+use App\Orders\Domain\Service\Roll\CuttingCheckInService;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Command\CommandHandlerInterface;
 use App\Shared\Domain\Service\AssertService;
