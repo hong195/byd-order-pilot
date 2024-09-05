@@ -22,10 +22,11 @@ final readonly class ExtraDataTransformer
     {
         return array_map(
             fn (Extra $extra) => new ExtraData(
-                $extra->getId(),
-                $extra->name,
-                $extra->orderNumber,
-                $extra->isPacked()
+                id: $extra->getId(),
+                name: $extra->name,
+                orderNumber: $extra->orderNumber,
+                count: $extra->getCount(),
+                isPacked: $extra->isPacked()
             ),
             $products
         );
