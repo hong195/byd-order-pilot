@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orders\Domain\Service\Roll;
 
-use App\Orders\Domain\Aggregate\Roll;
+use App\Orders\Domain\Aggregate\Roll\Roll;
 use App\Orders\Domain\Factory\RollFactory;
 use App\Orders\Domain\Repository\PrinterRepositoryInterface;
 use App\Orders\Domain\ValueObject\FilmType;

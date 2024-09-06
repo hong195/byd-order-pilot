@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Orders\Domain\Service\Roll\OrdersCheckInProcess;
 
 use App\Orders\Domain\Aggregate\Order;
-use App\Orders\Domain\Aggregate\Roll;
+use App\Orders\Domain\Aggregate\Roll\Roll;
 use App\Orders\Domain\DTO\FilmData;
 use App\Orders\Domain\Repository\OrderRepositoryInterface;
 use App\Orders\Domain\Repository\RollFilter;

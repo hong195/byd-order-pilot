@@ -2,7 +2,7 @@
 
 namespace App\Orders\Infrastructure\Repository;
 
-use App\Orders\Domain\Aggregate\Roll;
+use App\Orders\Domain\Aggregate\Roll\Roll;
 use App\Orders\Domain\Repository\RollFilter;
 use App\Orders\Domain\Repository\RollRepositoryInterface;
 use App\Orders\Domain\ValueObject\Status;

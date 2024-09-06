@@ -42,6 +42,13 @@ class ExceptionListener
         }
     }
 
+    /**
+     * Converts an exception to an array representation.
+     *
+     * @param \Throwable $exception the exception to convert
+     *
+     * @return array the array representation of the exception
+     */
     public function exceptionToArray(\Throwable $exception): array
     {
         $data = [

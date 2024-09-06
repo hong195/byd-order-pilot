@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orders\Application\DTO;
 
-use App\Orders\Domain\Aggregate\Roll;
+use App\Orders\Domain\Aggregate\Roll\Roll;
 
 /**
  * RollDataTransformer class is responsible for converting an array of Roll entities into an array of RollData instances.

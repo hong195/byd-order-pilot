@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orders\Domain\Aggregate;
 
+use App\Orders\Domain\Aggregate\Roll\Roll;
 use App\Orders\Domain\ValueObject\FilmType;
 use App\Orders\Domain\ValueObject\LaminationType;
 use App\Orders\Domain\ValueObject\OrderType;

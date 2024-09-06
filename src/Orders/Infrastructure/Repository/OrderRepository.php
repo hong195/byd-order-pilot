@@ -80,7 +80,7 @@ final class OrderRepository extends ServiceEntityRepository implements OrderRepo
      */
     public function findByRollId(int $rollId): array
     {
-        $qb = $this->getEntityManager()->createQuery("SELECT o FROM App\Orders\Domain\Aggregate\Order o JOIN App\Orders\Domain\Aggregate\Roll r WITH o MEMBER OF r.orders WHERE r.id = :rollId");
+        $qb = $this->getEntityManager()->createQuery("SELECT o FROM App\Orders\Domain\Aggregate\Order o JOIN App\Orders\Domain\Aggregate\Roll\Roll r WITH o MEMBER OF r.orders WHERE r.id = :rollId");
 
         $qb->setParameter('rollId', $rollId);
 
@@ -97,7 +97,7 @@ final class OrderRepository extends ServiceEntityRepository implements OrderRepo
         $qb = $this->createQueryBuilder('o');
 
         if ($filter->rollId) {
-            $qb->join('App\Orders\Domain\Aggregate\Roll', 'r', \Doctrine\ORM\Query\Expr\Join::WITH, 'o MEMBER OF r.orders')
+            $qb->join('App\Orders\Domain\Aggregate\Roll\Roll', 'r', \Doctrine\ORM\Query\Expr\Join::WITH, 'o MEMBER OF r.orders')
                 ->andWhere('r.id = :rollId')
                 ->setParameter('rollId', $filter->rollId);
         }

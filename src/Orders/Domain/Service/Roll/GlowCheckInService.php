@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Orders\Domain\Service\Roll;
 
 use App\Orders\Domain\Aggregate\Order;
-use App\Orders\Domain\Aggregate\Roll;
+use App\Orders\Domain\Aggregate\Roll\Roll;
 use App\Orders\Domain\Events\RollsWereSentToGlowCheckInEvent;
 use App\Orders\Domain\Exceptions\RollCantBeSentToGlowException;
 use App\Orders\Domain\Repository\RollRepositoryInterface;

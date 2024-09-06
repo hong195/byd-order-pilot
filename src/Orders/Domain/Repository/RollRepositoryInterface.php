@@ -2,7 +2,7 @@
 
 namespace App\Orders\Domain\Repository;
 
-use App\Orders\Domain\Aggregate\Roll;
+use App\Orders\Domain\Aggregate\Roll\Roll;
 use App\Orders\Domain\ValueObject\Status;
 
 /**

@@ -2,8 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Domain\Aggregate;
+namespace App\Orders\Domain\Aggregate\Roll;
 
+use App\Orders\Domain\Aggregate\Order;
+use App\Orders\Domain\Aggregate\Printer;
 use App\Orders\Domain\ValueObject\Process;
 use App\Orders\Domain\ValueObject\Status;
 use App\Shared\Domain\Aggregate\Aggregate;

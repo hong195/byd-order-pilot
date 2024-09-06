@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orders\Domain\Service\Roll;
 
-use App\Orders\Domain\Aggregate\Roll;
+use App\Orders\Domain\Aggregate\Roll\Roll;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 final readonly class GeneralProcessValidation
