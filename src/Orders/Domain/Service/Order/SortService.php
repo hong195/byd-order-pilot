@@ -29,17 +29,17 @@ final readonly class SortService implements SortOrdersServiceInterface
                 return $sortNumberComparison;
             }
 
+            // Compare priority (convert boolean to int for comparison)
+            $priorityComparison = (int) $b->hasPriority() <=> (int) $a->hasPriority();
+            if (0 !== $priorityComparison) {
+                return $priorityComparison;
+            }
+
             // Compare film type
             $rollComparison = $b->getFilmType()->value <=> $a->getFilmType()->value;
 
             if (0 !== $rollComparison) {
                 return $rollComparison;
-            }
-
-            // Compare priority (convert boolean to int for comparison)
-            $priorityComparison = (int) $b->hasPriority() <=> (int) $a->hasPriority();
-            if (0 !== $priorityComparison) {
-                return $priorityComparison;
             }
 
             return $b->getLength() <=> $a->getLength();
