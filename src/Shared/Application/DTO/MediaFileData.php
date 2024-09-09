@@ -13,7 +13,7 @@ final readonly class MediaFileData
         public string $path,
         public string $type,
         public int $ownerId,
-        public string $ownerType
+        public string $ownerType,
     ) {
     }
 }

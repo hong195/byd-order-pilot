@@ -45,7 +45,7 @@ final readonly class OrderData
         public ?string $printFile = null,
         public ?string $customerNotes = null,
         public ?string $packagingInstructions = null,
-        public bool $isPacked = false
+        public bool $isPacked = false,
     ) {
     }
 }

@@ -24,7 +24,7 @@ final readonly class FindAnOrderHandler implements QueryHandlerInterface
      */
     public function __construct(private OrderRepository $orderRepository,
         private AccessControlService $accessControlService,
-        private OrderDataTransformer $orderDataTransformer
+        private OrderDataTransformer $orderDataTransformer,
     ) {
     }
 

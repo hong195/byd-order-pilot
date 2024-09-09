@@ -7,6 +7,7 @@ namespace App\Orders\Domain\Service\Roll\OrdersCheckInProcess;
 use App\Orders\Domain\Aggregate\Order;
 use App\Orders\Domain\Aggregate\Roll\Roll;
 use App\Orders\Domain\DTO\FilmData;
+use App\Orders\Domain\Factory\HistoryFactory;
 use App\Orders\Domain\Repository\OrderRepositoryInterface;
 use App\Orders\Domain\Repository\RollFilter;
 use App\Orders\Domain\Service\Inventory\AvailableFilmServiceInterface;
@@ -39,8 +40,13 @@ final class OrdersOrdersCheckInService implements OrdersCheckInInterface
      * @param AvailableFilmServiceInterface $availableFilmService The available film service
      * @param RollMaker                     $rollMaker            The roll maker
      */
-    public function __construct(private readonly OrderRepositoryInterface $orderRepository, private readonly SortOrdersServiceInterface $sortOrdersService, private readonly RollRepository $rollRepository, private readonly AvailableFilmServiceInterface $availableFilmService, private readonly RollMaker $rollMaker)
-    {
+    public function __construct(private readonly OrderRepositoryInterface $orderRepository,
+        private readonly SortOrdersServiceInterface $sortOrdersService,
+        private readonly RollRepository $rollRepository,
+        private readonly AvailableFilmServiceInterface $availableFilmService,
+        private readonly RollMaker $rollMaker,
+        private readonly HistoryFactory $historyFactory,
+    ) {
     }
 
     /**

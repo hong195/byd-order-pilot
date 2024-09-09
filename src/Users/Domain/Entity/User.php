@@ -58,7 +58,7 @@ class User implements AuthUserInterface
 
     public function setPassword(
         ?string $password,
-        UserPasswordHasherInterface $passwordHasher
+        UserPasswordHasherInterface $passwordHasher,
     ): void {
         if (is_null($password)) {
             $this->password = null;

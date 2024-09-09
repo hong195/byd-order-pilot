@@ -23,7 +23,7 @@ final readonly class UploadFileService
     public function __construct(
         private MediaFileFactory $mediaFileFactory,
         private FilePathService $filePathService,
-        private MediaFileRepositoryInterface $fileRepository
+        private MediaFileRepositoryInterface $fileRepository,
     ) {
     }
 

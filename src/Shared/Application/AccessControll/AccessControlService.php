@@ -15,7 +15,7 @@ use App\Shared\Domain\Security\Role;
 class AccessControlService
 {
     public function __construct(
-        private AuthChecker $authChecker
+        private AuthChecker $authChecker,
     ) {
     }
 

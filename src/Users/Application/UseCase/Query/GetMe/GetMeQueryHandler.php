@@ -13,7 +13,7 @@ readonly class GetMeQueryHandler implements QueryHandlerInterface
 {
     public function __construct(
         private UserRepositoryInterface $userRepository,
-        private UserFetcherInterface $userFetcher
+        private UserFetcherInterface $userFetcher,
     ) {
     }
 

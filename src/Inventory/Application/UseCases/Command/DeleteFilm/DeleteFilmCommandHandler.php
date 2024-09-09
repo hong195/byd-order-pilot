@@ -23,7 +23,7 @@ readonly class DeleteFilmCommandHandler implements CommandHandlerInterface
      */
     public function __construct(
         private FilmRepository $filmRepository,
-        private AccessControlService $accessControlService
+        private AccessControlService $accessControlService,
     ) {
     }
 

@@ -19,7 +19,7 @@ readonly class PrivateQueryInteractor
      * Class ExampleClass.
      */
     public function __construct(
-        private QueryBusInterface $queryBus
+        private QueryBusInterface $queryBus,
     ) {
     }
 

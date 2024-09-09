@@ -4,28 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added assign/unassign employee to roll.">
-      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Roll/History.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/phpspec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpspec.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Moved roll to its own folder.">
+      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Factory/HistoryFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Roll.History.orm.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/RollDataTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/RollDataTransformer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Roll.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Roll/Roll.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Factory/RollFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Factory/RollFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Repository/RollRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Repository/RollRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/GeneralProcessValidation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/GeneralProcessValidation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/GlowCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/GlowCheckInService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Command/AddFilm/AddFilmCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Command/AddFilm/AddFilmCommandHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Command/DeleteFilm/DeleteFilmCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Command/DeleteFilm/DeleteFilmCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Command/DeleteFilm/DeleteFilmCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Command/DeleteFilm/DeleteFilmCommandHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Application/UseCases/PrivateCommandInteractor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/PrivateQueryInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Application/UseCases/PrivateQueryInteractor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/FindAFilm/FindAFilmHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/FindAFilm/FindAFilmHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/ManualCreateOrderDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/ManualCreateOrderDTO.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/OrderData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/OrderData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/CreateExtra/CreateExtraCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/CreateExtra/CreateExtraCommandHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ManuallyAddOrder/ManuallyAddOrderCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ManuallyAddOrder/ManuallyAddOrderCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindAnOrder/FindAnOrderHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindAnOrder/FindAnOrderHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindExtras/FindExtrasHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindExtras/FindExtrasHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindOrders/FindOrdersHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindOrders/FindOrdersHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Roll/History.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Roll/History.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Roll/Roll.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Roll/Roll.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Extra/ExtraMaker.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Extra/ExtraMaker.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/OrdersCheckInProcess/OrdersOrdersCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/OrdersCheckInProcess/OrdersOrdersCheckInService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/RollMaker.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/RollMaker.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Order.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Order.orm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Roll.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Roll.Roll.orm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/OrderRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/OrderRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/RollRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/RollRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/EventListener/Exception/ExceptionListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/EventListener/Exception/ExceptionListener.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/Extra/AddExtraAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/Extra/AddExtraAction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Application/AccessControll/AccessControlService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Application/AccessControll/AccessControlService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Application/DTO/MediaFileData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Application/DTO/MediaFileData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Domain/Entity/MediaFile.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Domain/Entity/MediaFile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Domain/Repository/Pager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Domain/Repository/Pager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Domain/Service/UploadFileService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Domain/Service/UploadFileService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/Application/UseCase/Command/UpdateUser/UpdateUserCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Application/UseCase/Command/UpdateUser/UpdateUserCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/Application/UseCase/Command/UpdateUser/UpdateUserCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Application/UseCase/Command/UpdateUser/UpdateUserCommandHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/Application/UseCase/Query/GetMe/GetMeQueryHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Application/UseCase/Query/GetMe/GetMeQueryHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/Domain/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Domain/Entity/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,41 +196,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;PHPUnit.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
-    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm&quot;: &quot;Docker Compose&quot;,
-    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm&quot;: &quot;Docker Compose&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/aleksejem/Sites/order-pilot/src/Orders/Application/UseCase/Command&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;php.add.doc.comment.for.fields.panel.add.php.doc.for.all.properties&quot;: &quot;true&quot;,
-    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "PHPUnit.Main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
+    "WebServerToolWindowPanel.toolwindow.show.date": "false",
+    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
+    "WebServerToolWindowPanel.toolwindow.show.size": "false",
+    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm": "Docker Compose",
+    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm": "Docker Compose",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/src/Orders/Infrastructure/Database/ORM",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "php.add.doc.comment.for.fields.panel.add.php.doc.for.all.properties": "true",
+    "php.override.implement.member.chooser.php.doc": "NONE",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM" />
       <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Command" />
       <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AcceptR" />
       <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/PackMainProduct" />
-      <recent name="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -294,15 +303,8 @@
       <workItem from="1724656479377" duration="18521000" />
       <workItem from="1725260306393" duration="214000" />
       <workItem from="1725613898092" duration="85000" />
-      <workItem from="1725613992573" duration="8802000" />
-    </task>
-    <task id="LOCAL-00256" summary="Removed products reference.">
-      <option name="closed" value="true" />
-      <created>1724764769184</created>
-      <option name="number" value="00256" />
-      <option name="presentableId" value="LOCAL-00256" />
-      <option name="project" value="LOCAL" />
-      <updated>1724764769184</updated>
+      <workItem from="1725613992573" duration="8817000" />
+      <workItem from="1725629652154" duration="10729000" />
     </task>
     <task id="LOCAL-00257" summary="Removed products reference.">
       <option name="closed" value="true" />
@@ -688,7 +690,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725547786751</updated>
     </task>
-    <option name="localTasksCounter" value="305" />
+    <task id="LOCAL-00305" summary="Moved roll to its own folder.">
+      <option name="closed" value="true" />
+      <created>1725627547996</created>
+      <option name="number" value="00305" />
+      <option name="presentableId" value="LOCAL-00305" />
+      <option name="project" value="LOCAL" />
+      <updated>1725627547996</updated>
+    </task>
+    <option name="localTasksCounter" value="306" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -724,7 +734,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated docker file." />
     <MESSAGE value="Updated docker file #2." />
     <MESSAGE value="Updated docker file #3." />
     <MESSAGE value="Added docker container right changing after its build." />
@@ -749,7 +758,8 @@
     <MESSAGE value="Added general roll validation." />
     <MESSAGE value="Move roll services to own folder." />
     <MESSAGE value="Added assign/unassign employee to roll." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added assign/unassign employee to roll." />
+    <MESSAGE value="Moved roll to its own folder." />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved roll to its own folder." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

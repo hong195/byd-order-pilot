@@ -9,7 +9,7 @@ readonly class Pager
     public function __construct(
         public int $page,
         public int $perPage,
-        public ?int $total = null
+        public ?int $total = null,
     ) {
     }
 

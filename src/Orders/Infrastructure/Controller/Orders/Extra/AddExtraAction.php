@@ -39,7 +39,7 @@ final readonly class AddExtraAction
         $this->privateCommandInteractor->createExtra(new CreateExtraCommand(
             orderId: $orderId,
             name: (string) $request->get('name'),
-            orderNumber: $request->get('name'),
+            orderNumber: $request->get('orderNumber'),
             count: (int) $request->get('count'),
         ));
 

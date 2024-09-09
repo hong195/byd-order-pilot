@@ -24,7 +24,7 @@ final readonly class FindExtrasHandler implements QueryHandlerInterface
      */
     public function __construct(private OrderRepository $orderRepository,
         private AccessControlService $accessControlService,
-        private ExtraDataTransformer $productDataTransformer
+        private ExtraDataTransformer $productDataTransformer,
     ) {
     }
 

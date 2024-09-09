@@ -16,7 +16,7 @@ final readonly class FindAFilmHandler implements QueryHandlerInterface
 {
     public function __construct(
         private FilmRepositoryInterface $FilmRepository,
-        private FilmDataTransformer $dataTransformer
+        private FilmDataTransformer $dataTransformer,
     ) {
     }
 

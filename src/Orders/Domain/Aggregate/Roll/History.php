@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Orders\Domain\Aggregate\Roll;
 
+use App\Orders\Domain\ValueObject\Process;
+
 /**
  * Class History.
  *
@@ -13,21 +15,19 @@ final class History
 {
     /**@phpstan-ignore-next-line */
     private ?int $id;
-    private \DateTimeImmutable $from;
-    private ?\DateTimeInterface $startedAt = null;
-    private ?\DateTimeInterface $endedAt = null;
+    public ?int $parentRollId = null;
     private ?int $employeeId = null;
+    public ?\DateTimeImmutable $endedAt = null;
 
     /**
-     * Class constructor.
+     * Constructor method.
      *
-     * @param int    $rollId       the roll id
-     * @param int    $parentRollId the parent roll id
-     * @param string $status       the status
+     * @param int                     $rollId    the roll ID
+     * @param Process                 $process   the process
+     * @param \DateTimeImmutable|null $startedAt the started at date
      */
-    public function __construct(public readonly int $rollId, public readonly int $parentRollId, public readonly string $status)
+    public function __construct(public readonly int $rollId, public readonly Process $process, public readonly ?\DateTimeImmutable $startedAt)
     {
-        $this->from = new \DateTimeImmutable();
     }
 
     /**
@@ -38,16 +38,6 @@ final class History
     public function getId(): int
     {
         return $this->id;
-    }
-
-    /**
-     * Get the "from" datetime.
-     *
-     * @return \DateTimeImmutable the "from" datetime
-     */
-    public function getFrom(): \DateTimeImmutable
-    {
-        return $this->from;
     }
 
     /**
@@ -71,42 +61,40 @@ final class History
     }
 
     /**
-     * Get the endedAt datetime.
+     * Get the parent roll ID.
      *
-     * @return \DateTimeInterface|null the endedAt datetime or null if not set
+     * @return int|null the parent roll ID
      */
-    public function getEndedAt(): ?\DateTimeInterface
+    public function getParentRollId(): ?int
+    {
+        return $this->parentRollId;
+    }
+
+    /**
+     * Set the parent roll ID.
+     *
+     * @param int|null $parentRollId the parent roll ID
+     */
+    public function setParentRollId(?int $parentRollId): void
+    {
+        $this->parentRollId = $parentRollId;
+    }
+
+    /**
+     * Get the ended date and time.
+     *
+     * @return \DateTimeImmutable|null the ended date and time
+     */
+    public function getEndedAt(): ?\DateTimeImmutable
     {
         return $this->endedAt;
     }
 
     /**
-     * Set the end datetime.
-     *
-     * @param \DateTimeInterface $endedAt the end datetime
+     * Sets the endedAt property to the current date and time.
      */
-    public function setEndedAt(\DateTimeInterface $endedAt): void
+    public function end(): void
     {
-        $this->endedAt = $endedAt;
-    }
-
-    /**
-     * Get the date and time when the task started.
-     *
-     * @return \DateTimeInterface the date and time when the task started
-     */
-    public function getStartedAt(): \DateTimeInterface
-    {
-        return $this->startedAt;
-    }
-
-    /**
-     * Set "to" date.
-     *
-     * @param \DateTimeInterface $startedAt The "to" date to be set
-     */
-    public function setStartedAt(\DateTimeInterface $startedAt): void
-    {
-        $this->startedAt = $startedAt;
+        $this->endedAt = new \DateTimeImmutable();
     }
 }

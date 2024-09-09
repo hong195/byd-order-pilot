@@ -10,7 +10,7 @@ readonly class UpdateUserCommand implements CommandInterface
         public int $userId,
         public string $email,
         public string $name,
-        public ?string $password
+        public ?string $password,
     ) {
     }
 }

@@ -19,7 +19,7 @@ readonly class PrivateCommandInteractor
      * Class ExampleClass.
      */
     public function __construct(
-        private CommandBusInterface $commandBus
+        private CommandBusInterface $commandBus,
     ) {
     }
 

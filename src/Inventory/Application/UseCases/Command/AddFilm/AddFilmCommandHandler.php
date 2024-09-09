@@ -13,7 +13,7 @@ readonly class AddFilmCommandHandler implements CommandHandlerInterface
 {
     public function __construct(
         private AccessControlService $accessControlService,
-        private FilmMaker $filmMaker
+        private FilmMaker $filmMaker,
     ) {
     }
 

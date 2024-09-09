@@ -29,7 +29,7 @@ final readonly class ManualCreateOrderDTO
         public ?string $cutFile = null,
         public ?string $printFile = null,
         public ?string $customerNotes = null,
-        public ?string $packagingInstructions = null
+        public ?string $packagingInstructions = null,
     ) {
     }
 }

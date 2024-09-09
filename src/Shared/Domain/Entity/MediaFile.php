@@ -28,7 +28,7 @@ class MediaFile
         private string $path,
         private ?string $type = null,
         private ?int $ownerId = null,
-        private ?string $ownerType = null
+        private ?string $ownerType = null,
     ) {
     }
 

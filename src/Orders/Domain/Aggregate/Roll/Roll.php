@@ -27,7 +27,7 @@ class Roll extends Aggregate
      */
     private ?int $filmId = null;
 
-    private \DateTimeInterface $dateAdded;
+    private \DateTimeImmutable $dateAdded;
     /**
      * @var Collection<Order>
      */
