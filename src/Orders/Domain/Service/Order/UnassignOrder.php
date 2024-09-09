@@ -33,8 +33,8 @@ final readonly class UnassignOrder
         }
 
         $order->changeStatus(Status::UNASSIGNED);
-
         $order->changeSortOrder(null);
+        $order->removeRoll();
 
         $this->orderRepository->save($order);
     }
