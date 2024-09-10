@@ -6,6 +6,7 @@ namespace App\Orders\Domain\Factory;
 
 use App\Orders\Domain\Aggregate\Roll\History;
 use App\Orders\Domain\Aggregate\Roll\Roll;
+use App\Orders\Domain\ValueObject\Process;
 
 /**
  * Class HistoryFactory.
@@ -14,37 +15,26 @@ use App\Orders\Domain\Aggregate\Roll\Roll;
  */
 final class HistoryFactory
 {
-    private ?History $history = null;
-
     /**
      * Takes a Roll object and returns a new History object with the given rollId, process, and startedAt values.
      *
      * @param Roll $roll the Roll object to retrieve data from
      */
-    public function fromRoll(Roll $roll): void
+    public function fromRoll(Roll $roll): History
     {
         $startedAt = \DateTimeImmutable::createFromInterface($roll->getDateAdded());
 
-        $this->history = new History(rollId: $roll->getId(), process: $roll->getProcess(), startedAt: $startedAt);
+		$history = new History(rollId: $roll->getId(), process: $roll->getProcess(), startedAt: $startedAt);
+
+		if ($roll->getEmployeeId()) {
+			$history->setEmployeeId($roll->getEmployeeId());
+		}
+
+		return $history;
     }
 
-    /**
-     * Sets the parent roll id for the history object.
-     *
-     * @param int $parentRollId the parent roll id to set
-     */
-    public function withParentRollId(int $parentRollId): void
-    {
-        $this->history->setParentRollId($parentRollId);
-    }
-
-    /**
-     * Returns the history object.
-     *
-     * @return History|null the history object if it exists, null otherwise
-     */
-    public function build(): ?History
-    {
-        return $this->history;
-    }
+	public function make(int $rollId, Process $process, \DateTimeImmutable $startedAt): History
+	{
+		return new History(rollId: $rollId, process: $process, startedAt: $startedAt);
+	}
 }

@@ -10,6 +10,7 @@ use App\Orders\Application\UseCase\Command\AssignOrder\AssignOrderCommand;
 use App\Orders\Application\UseCase\Command\ChangeOrderPriority\ChangeOrderPriorityCommand;
 use App\Orders\Application\UseCase\Command\ChangeOrderSort\ChangeOrderSortCommand;
 use App\Orders\Application\UseCase\Command\ChangePrinterAvailability\ChangePrinterAvailabilityCommand;
+use App\Orders\Application\UseCase\Command\CopyRollHistory\CopyRollHistoryCommand;
 use App\Orders\Application\UseCase\Command\CreateExtra\CreateExtraCommand;
 use App\Orders\Application\UseCase\Command\CreatePrinters\CreatePrintersCommand;
 use App\Orders\Application\UseCase\Command\CuttingCheckIn\CuttingCheckIntCommand;
@@ -20,6 +21,7 @@ use App\Orders\Application\UseCase\Command\PrintCheckIn\PrintCheckIntCommand;
 use App\Orders\Application\UseCase\Command\ReprintOrder\ReprintOrderCommand;
 use App\Orders\Application\UseCase\Command\ReprintRoll\ReprintRollCommand;
 use App\Orders\Application\UseCase\Command\ShipAndCollectOrders\ShipAndCollectOrdersCommand;
+use App\Orders\Application\UseCase\Command\SyncRollHistory\SyncRollHistoryCommand;
 use App\Orders\Application\UseCase\Command\UnAssignEmployeeFromRoll\UnAssignEmployeeFromRollCommand;
 use App\Orders\Application\UseCase\Command\UnassignOrder\UnassignOrderCommand;
 use App\Orders\Application\UseCase\Command\UnPackExtra\UnPackExtraCommand;
@@ -249,4 +251,26 @@ readonly class PrivateCommandInteractor
     {
         $this->commandBus->execute(new UnAssignEmployeeFromRollCommand(rollId: $rollId));
     }
+
+    /**
+     * Synchronizes the roll history.
+     *
+     * @param int $rollId The ID of the roll
+     */
+    public function syncRollHistory(int $rollId): void
+    {
+        $this->commandBus->execute(new SyncRollHistoryCommand($rollId));
+    }
+
+	/**
+	 * Copies the history of a roll to another roll.
+	 *
+	 * @param int   $rollId  The ID of the roll
+	 * @param array $rollIds The IDs of the rolls to which the history will be copied
+	 */
+	public function copyRollHistory(int $rollId, array $rollIds): void
+	{
+		$command = new CopyRollHistoryCommand(rollId: $rollId, newRollIds: $rollIds);
+		$this->commandBus->execute($command);
+	}
 }

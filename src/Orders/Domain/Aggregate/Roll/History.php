@@ -15,18 +15,16 @@ final class History
 {
     /**@phpstan-ignore-next-line */
     private ?int $id;
-    public ?int $parentRollId = null;
     private ?int $employeeId = null;
-    public ?\DateTimeImmutable $endedAt = null;
+    private ?\DateTimeImmutable $finishedAt = null;
 
     /**
      * Constructor method.
      *
-     * @param int                     $rollId    the roll ID
-     * @param Process                 $process   the process
-     * @param \DateTimeImmutable|null $startedAt the started at date
+     * @param int     $rollId  the roll ID
+     * @param Process $process the process
      */
-    public function __construct(public readonly int $rollId, public readonly Process $process, public readonly ?\DateTimeImmutable $startedAt)
+    public function __construct(public readonly int $rollId, public readonly Process $process, public readonly \DateTimeImmutable $startedAt)
     {
     }
 
@@ -61,23 +59,13 @@ final class History
     }
 
     /**
-     * Get the parent roll ID.
+     * Returns the value of the startedAt property.
      *
-     * @return int|null the parent roll ID
+     * @return \DateTimeImmutable the value of the startedAt property
      */
-    public function getParentRollId(): ?int
+    public function getStartedAt(): \DateTimeImmutable
     {
-        return $this->parentRollId;
-    }
-
-    /**
-     * Set the parent roll ID.
-     *
-     * @param int|null $parentRollId the parent roll ID
-     */
-    public function setParentRollId(?int $parentRollId): void
-    {
-        $this->parentRollId = $parentRollId;
+        return $this->startedAt;
     }
 
     /**
@@ -85,16 +73,16 @@ final class History
      *
      * @return \DateTimeImmutable|null the ended date and time
      */
-    public function getEndedAt(): ?\DateTimeImmutable
+    public function getFinishedAt(): ?\DateTimeImmutable
     {
-        return $this->endedAt;
+        return $this->finishedAt;
     }
 
     /**
      * Sets the endedAt property to the current date and time.
      */
-    public function end(): void
+    public function finish(): void
     {
-        $this->endedAt = new \DateTimeImmutable();
+        $this->finishedAt = new \DateTimeImmutable();
     }
 }

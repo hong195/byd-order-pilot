@@ -108,7 +108,7 @@ class Roll extends Aggregate
      *
      * @return \DateTimeInterface the date when the entity was added
      */
-    public function getDateAdded(): \DateTimeInterface
+    public function getDateAdded(): \DateTimeImmutable
     {
         return $this->dateAdded;
     }

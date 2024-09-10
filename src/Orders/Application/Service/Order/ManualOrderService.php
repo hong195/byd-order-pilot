@@ -56,7 +56,7 @@ final readonly class ManualOrderService
 
         $this->orderRepository->save($order);
 
-        $order->changeOrderNumber(self::ORDER_MANUAL_PREFIX.'_'.$order->getId());
+        $order->changeOrderNumber(self::ORDER_MANUAL_PREFIX.'-'.$order->getId());
 
         $this->orderRepository->save($order);
 

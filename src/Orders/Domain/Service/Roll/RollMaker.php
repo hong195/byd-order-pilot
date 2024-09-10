@@ -5,11 +5,13 @@ declare(strict_types=1);
 namespace App\Orders\Domain\Service\Roll;
 
 use App\Orders\Domain\Aggregate\Roll\Roll;
+use App\Orders\Domain\Events\RollWasCreatedEvent;
 use App\Orders\Domain\Factory\RollFactory;
 use App\Orders\Domain\Repository\PrinterRepositoryInterface;
 use App\Orders\Domain\ValueObject\FilmType;
 use App\Orders\Domain\ValueObject\Process;
 use App\Orders\Infrastructure\Repository\RollRepository;
+use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 
 /**
  * Class RollMaker.
@@ -25,7 +27,7 @@ final readonly class RollMaker
      * @param RollFactory                $rollFactory       the RollFactory instance
      * @param PrinterRepositoryInterface $printerRepository the PrinterRepositoryInterface instance
      */
-    public function __construct(private RollRepository $rollRepository, private RollFactory $rollFactory, private PrinterRepositoryInterface $printerRepository)
+    public function __construct(private RollRepository $rollRepository, private RollFactory $rollFactory, private PrinterRepositoryInterface $printerRepository, private EventDispatcherInterface $dispatcher)
     {
     }
 
@@ -51,6 +53,8 @@ final readonly class RollMaker
         }
 
         $this->rollRepository->save($roll);
+
+		$this->dispatcher->dispatch(new RollWasCreatedEvent($roll->getId()));
 
         return $roll;
     }
