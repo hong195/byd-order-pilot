@@ -54,7 +54,7 @@ final readonly class RollMaker
 
         $this->rollRepository->save($roll);
 
-		$this->dispatcher->dispatch(new RollWasCreatedEvent($roll->getId()));
+        $this->dispatcher->dispatch(new RollWasCreatedEvent($roll->getId()));
 
         return $roll;
     }

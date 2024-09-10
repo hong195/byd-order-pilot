@@ -24,17 +24,17 @@ final class HistoryFactory
     {
         $startedAt = \DateTimeImmutable::createFromInterface($roll->getDateAdded());
 
-		$history = new History(rollId: $roll->getId(), process: $roll->getProcess(), startedAt: $startedAt);
+        $history = new History(rollId: $roll->getId(), process: $roll->getProcess(), startedAt: $startedAt);
 
-		if ($roll->getEmployeeId()) {
-			$history->setEmployeeId($roll->getEmployeeId());
-		}
+        if ($roll->getEmployeeId()) {
+            $history->setEmployeeId($roll->getEmployeeId());
+        }
 
-		return $history;
+        return $history;
     }
 
-	public function make(int $rollId, Process $process, \DateTimeImmutable $startedAt): History
-	{
-		return new History(rollId: $rollId, process: $process, startedAt: $startedAt);
-	}
+    public function make(int $rollId, Process $process, \DateTimeImmutable $startedAt): History
+    {
+        return new History(rollId: $rollId, process: $process, startedAt: $startedAt);
+    }
 }

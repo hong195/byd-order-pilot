@@ -10,46 +10,47 @@ use App\Orders\Domain\Repository\RollRepositoryInterface;
 
 final readonly class HistorySyncService
 {
-	public function __construct(private RollRepositoryInterface $rollRepository, private HistoryRepositoryInterface $historyRepository, private HistoryFactory $historyFactory)
-	{
-	}
+    public function __construct(private RollRepositoryInterface $rollRepository, private HistoryRepositoryInterface $historyRepository, private HistoryFactory $historyFactory)
+    {
+    }
 
-	private function start(int $rollId): void
-	{
-		$roll = $this->rollRepository->findById($rollId);
+    private function start(int $rollId): void
+    {
+        $roll = $this->rollRepository->findById($rollId);
 
-		$history = $this->historyFactory->fromRoll($roll);
+        $history = $this->historyFactory->fromRoll($roll);
 
-		$this->historyRepository->save($history);
-	}
+        $this->historyRepository->save($history);
+    }
 
-	public function sync(int $rollId): void
-	{
-		$history = $this->historyRepository->findUnfinished($rollId);
+    public function sync(int $rollId): void
+    {
+        $history = $this->historyRepository->findUnfinished($rollId);
 
-		if (!$history) {
-			$this->start($rollId);
-			return;
-		}
+        if (!$history) {
+            $this->start($rollId);
 
-		$history->finish();
+            return;
+        }
 
-		$this->historyRepository->save($history);
-	}
+        $history->finish();
 
-	public function copyHistory(int $parentRollId, array $childrenRollId): void
-	{
-		$histories = $this->historyRepository->findByRollId($parentRollId);
+        $this->historyRepository->save($history);
+    }
 
-		$newHistories = [];
-		foreach ($histories as $history) {
-			foreach ($childrenRollId as $copyRollId) {
-				$newHistories[] = $this->historyFactory->make($copyRollId, $history->process, $history->startedAt);
-			}
-		}
+    public function copyHistory(int $parentRollId, array $childrenRollId): void
+    {
+        $histories = $this->historyRepository->findByRollId($parentRollId);
 
-		$this->historyRepository->saveMany($newHistories);
+        $newHistories = [];
+        foreach ($histories as $history) {
+            foreach ($childrenRollId as $copyRollId) {
+                $newHistories[] = $this->historyFactory->make($copyRollId, $history->process, $history->startedAt);
+            }
+        }
 
-		$this->historyRepository->deleteAll($histories);
-	}
+        $this->historyRepository->saveMany($newHistories);
+
+        $this->historyRepository->deleteAll($histories);
+    }
 }
