@@ -4,32 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added roll history.">
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/EmployeeData.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/HistoryData.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/Service/Employee/EmployeeFetcher.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/Service/Roll/RollListService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindRollHistory/FindRollHistoryHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindRollHistory/FindRollHistoryQuery.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindRollHistory/FindRollHistoryResult.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Adapter/Employee/EmployeeAdapter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Adapter/Employee/EmployeeAdapterInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Rolls/History/FindRollHistoryAction.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Users/Infrastructure/Api/EmployeeApi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/PrinterDataTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/PrinterDataTransformer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/RollData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/RollData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/RollDataTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/RollDataTransformer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateQueryInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateQueryInteractor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindRolls/FindRollsHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindRolls/FindRollsHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindRolls/FindRollsQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindRolls/FindRollsQuery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Repository/PrinterRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Repository/PrinterRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/PrinterRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/PrinterRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/Application/UseCase/PrivateUseCaseInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Application/UseCase/PrivateUseCaseInteractor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/Application/UseCase/Query/FindUsers/FindUsersQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Application/UseCase/Query/FindUsers/FindUsersQuery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/Application/UseCase/Query/FindUsers/FindUsersQueryHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Application/UseCase/Query/FindUsers/FindUsersQueryHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/Domain/Repository/UserFilter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Domain/Repository/UserFilter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/Infrastructure/Controller/FinUsersAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Infrastructure/Controller/FinUsersAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/Infrastructure/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Infrastructure/Repository/UserRepository.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added relation info for rolls and history.">
+      <change afterPath="$PROJECT_DIR$/src/Orders/Application/Service/Roll/History/HistoryListService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindRollHistory/FindRollHistoryHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindRollHistory/FindRollHistoryHandler.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,36 +168,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Makefile Target.restart.executor": "Run",
-    "PHPUnit.Main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
-    "WebServerToolWindowPanel.toolwindow.show.date": "false",
-    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
-    "WebServerToolWindowPanel.toolwindow.show.size": "false",
-    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm": "Docker Compose",
-    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm": "Docker Compose",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/src/Orders/Application/UseCase/Query",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "php.add.doc.comment.for.fields.panel.add.php.doc.for.all.properties": "true",
-    "php.override.implement.member.chooser.php.doc": "NONE",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Makefile Target.restart.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
+    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm&quot;: &quot;Docker Compose&quot;,
+    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm&quot;: &quot;Docker Compose&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/aleksejem/Sites/order-pilot/src/Orders/Application/UseCase/Query&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;php.add.doc.comment.for.fields.panel.add.php.doc.for.all.properties&quot;: &quot;true&quot;,
+    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Query" />
@@ -312,14 +289,7 @@
       <workItem from="1725613898092" duration="85000" />
       <workItem from="1725613992573" duration="8817000" />
       <workItem from="1725629652154" duration="26411000" />
-    </task>
-    <task id="LOCAL-00264" summary="Added docker container right changing after its build.">
-      <option name="closed" value="true" />
-      <created>1724854767062</created>
-      <option name="number" value="00264" />
-      <option name="presentableId" value="LOCAL-00264" />
-      <option name="project" value="LOCAL" />
-      <updated>1724854767062</updated>
+      <workItem from="1726063769562" duration="575000" />
     </task>
     <task id="LOCAL-00265" summary="Updated printers are available by default.">
       <option name="closed" value="true" />
@@ -705,7 +675,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726051107499</updated>
     </task>
-    <option name="localTasksCounter" value="313" />
+    <task id="LOCAL-00313" summary="Added relation info for rolls and history.">
+      <option name="closed" value="true" />
+      <created>1726063777746</created>
+      <option name="number" value="00313" />
+      <option name="presentableId" value="LOCAL-00313" />
+      <option name="project" value="LOCAL" />
+      <updated>1726063777746</updated>
+    </task>
+    <option name="localTasksCounter" value="314" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -741,7 +719,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated sort order is set to null when order is unassign." />
     <MESSAGE value="If roll is empty it will be deleted after orders check in." />
     <MESSAGE value="Updated order number prefix." />
     <MESSAGE value="Updated order number db column type." />
@@ -766,7 +743,8 @@
     <MESSAGE value="Fixed removing roll relation when order is unassign." />
     <MESSAGE value="Updated sorting order." />
     <MESSAGE value="Added roll history." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added roll history." />
+    <MESSAGE value="Added relation info for rolls and history." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added relation info for rolls and history." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
