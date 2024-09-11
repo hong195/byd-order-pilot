@@ -16,7 +16,6 @@ final class History
     /**@phpstan-ignore-next-line */
     private ?int $id;
     private ?int $employeeId = null;
-    private ?\DateTimeImmutable $finishedAt = null;
 
     /**
      * Constructor method.
@@ -24,7 +23,7 @@ final class History
      * @param int     $rollId  the roll ID
      * @param Process $process the process
      */
-    public function __construct(public readonly int $rollId, public readonly Process $process, public readonly \DateTimeImmutable $startedAt)
+    public function __construct(public readonly int $rollId, public readonly Process $process, public readonly \DateTimeImmutable $happenedAt)
     {
     }
 
@@ -63,26 +62,8 @@ final class History
      *
      * @return \DateTimeImmutable the value of the startedAt property
      */
-    public function getStartedAt(): \DateTimeImmutable
+    public function getHappenedAt(): \DateTimeImmutable
     {
-        return $this->startedAt;
-    }
-
-    /**
-     * Get the ended date and time.
-     *
-     * @return \DateTimeImmutable|null the ended date and time
-     */
-    public function getFinishedAt(): ?\DateTimeImmutable
-    {
-        return $this->finishedAt;
-    }
-
-    /**
-     * Sets the endedAt property to the current date and time.
-     */
-    public function finish(): void
-    {
-        $this->finishedAt = new \DateTimeImmutable();
+        return $this->happenedAt;
     }
 }

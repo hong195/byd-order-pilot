@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Application\UseCase\Command\SyncRollHistory;
+namespace App\Orders\Application\UseCase\Command\RecordRollHistory;
 
 use App\Shared\Application\Command\CommandInterface;
 
 /**
- * Class SyncRollHistoryCommand.
+ * Class RecordRollHistoryCommand.
  *
  * Represents a command to unassign an employee from a roll.
  */
-readonly class SyncRollHistoryCommand implements CommandInterface
+readonly class RecordRollHistoryCommand implements CommandInterface
 {
     /**
      * Class constructor.

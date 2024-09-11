@@ -8,49 +8,58 @@ use App\Orders\Domain\Factory\HistoryFactory;
 use App\Orders\Domain\Repository\HistoryRepositoryInterface;
 use App\Orders\Domain\Repository\RollRepositoryInterface;
 
+/**
+ * Class HistorySyncService.
+ *
+ * This class is responsible for synchronizing and copying history records for rolls.
+ */
 final readonly class HistorySyncService
 {
+    /**
+     * Constructs a new instance of the class.
+     *
+     * @param RollRepositoryInterface    $rollRepository    the roll repository
+     * @param HistoryRepositoryInterface $historyRepository the history repository
+     * @param HistoryFactory             $historyFactory    the history factory
+     */
     public function __construct(private RollRepositoryInterface $rollRepository, private HistoryRepositoryInterface $historyRepository, private HistoryFactory $historyFactory)
     {
     }
 
-    private function start(int $rollId): void
+    /**
+     * Syncs the history with the specified roll ID.
+     *
+     * If there is no unfinished history found for the given roll ID, a new history will be started.
+     * Otherwise, the existing history will be finished and saved.
+     *
+     * @param int $rollId the ID of the roll to sync the history for
+     */
+    public function record(int $rollId): void
     {
         $roll = $this->rollRepository->findById($rollId);
 
         $history = $this->historyFactory->fromRoll($roll);
 
-        $this->historyRepository->save($history);
+        $this->historyRepository->add($history);
     }
 
-    public function sync(int $rollId): void
-    {
-        $history = $this->historyRepository->findUnfinished($rollId);
-
-        if (!$history) {
-            $this->start($rollId);
-
-            return;
-        }
-
-        $history->finish();
-
-        $this->historyRepository->save($history);
-    }
-
+    /**
+     * Copies the history of a parent roll to multiple children rolls.
+     *
+     * @param int   $parentRollId   the ID of the parent roll
+     * @param int[] $childrenRollId an array of child roll IDs
+     */
     public function copyHistory(int $parentRollId, array $childrenRollId): void
     {
         $histories = $this->historyRepository->findByRollId($parentRollId);
 
-        $newHistories = [];
         foreach ($histories as $history) {
             foreach ($childrenRollId as $copyRollId) {
-                $newHistories[] = $this->historyFactory->make($copyRollId, $history->process, $history->startedAt);
+                $copiedHistory = $this->historyFactory->make($copyRollId, $history->process, $history->happenedAt, $history->getEmployeeId());
+                $this->historyRepository->add($copiedHistory);
+
+                $this->historyRepository->delete($history);
             }
         }
-
-        $this->historyRepository->saveMany($newHistories);
-
-        $this->historyRepository->deleteAll($histories);
     }
 }

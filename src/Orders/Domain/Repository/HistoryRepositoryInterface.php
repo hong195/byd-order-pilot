@@ -12,7 +12,7 @@ interface HistoryRepositoryInterface
     /**
      * Saves a history record.
      */
-    public function save(History $history): void;
+    public function add(History $history): void;
 
     /**
      * Finds a history record by its roll ID.
@@ -35,14 +35,12 @@ interface HistoryRepositoryInterface
     /**
      * Saves multiple history records.
      *
-     * @param iterable $histories a collection of History objects to be saved
+     * @param iterable<int> $histories a collection of History objects to be saved
      */
     public function saveMany(iterable $histories): void;
 
     /**
      * Deletes a History record.
-     *
-     * @param History[] $histories the History record to be deleted
      */
-    public function deleteAll(iterable $histories): void;
+    public function delete(History $history): void;
 }

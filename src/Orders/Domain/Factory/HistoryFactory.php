@@ -24,7 +24,7 @@ final class HistoryFactory
     {
         $startedAt = \DateTimeImmutable::createFromInterface($roll->getDateAdded());
 
-        $history = new History(rollId: $roll->getId(), process: $roll->getProcess(), startedAt: $startedAt);
+        $history = new History(rollId: $roll->getId(), process: $roll->getProcess(), happenedAt: $startedAt);
 
         if ($roll->getEmployeeId()) {
             $history->setEmployeeId($roll->getEmployeeId());
@@ -33,8 +33,24 @@ final class HistoryFactory
         return $history;
     }
 
-    public function make(int $rollId, Process $process, \DateTimeImmutable $startedAt): History
+    /**
+     * Creates a new instance of History.
+     *
+     * @param int                $rollId     the ID of the roll
+     * @param Process            $process    the process object
+     * @param \DateTimeImmutable $startedAt  the date and time when the history entry started
+     * @param int|null           $employeeId the ID of the employee (optional)
+     *
+     * @return History the newly created History instance
+     */
+    public function make(int $rollId, Process $process, \DateTimeImmutable $startedAt, ?int $employeeId = null): History
     {
-        return new History(rollId: $rollId, process: $process, startedAt: $startedAt);
+        $history = new History(rollId: $rollId, process: $process, happenedAt: $startedAt);
+
+        if ($employeeId) {
+            $history->setEmployeeId($employeeId);
+        }
+
+        return $history;
     }
 }

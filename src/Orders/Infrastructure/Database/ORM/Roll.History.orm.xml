@@ -15,8 +15,6 @@
 
         <field name="process" enum-type="App\Orders\Domain\ValueObject\Process" column="process" length="255"/>
 
-        <field name="startedAt" type="datetime_immutable" column="started_at"/>
-
-        <field name="finishedAt" type="datetime_immutable" column="finished_at" nullable="true"/>
+        <field name="happenedAt" type="datetime_immutable" column="happened_at"/>
     </entity>
 </doctrine-mapping>

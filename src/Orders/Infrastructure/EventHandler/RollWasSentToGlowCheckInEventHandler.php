@@ -34,9 +34,14 @@ final readonly class RollWasSentToGlowCheckInEventHandler implements EventHandle
     public function __invoke(RollsWereSentToGlowCheckInEvent $event): void
     {
         $rollsIds = $event->rollIds;
-        // rolls sent to glow check in are using the same printer
+
+        foreach ($rollsIds as $rollId) {
+            $this->privateCommandInteractor->unassignEmployeeFromRoll($rollId);
+        }
+
         $roll = $this->privateQueryInteractor->findARoll($rollsIds[0]);
 
+        // rolls sent to glow check in are using the same printer
         $this->privateCommandInteractor->makePrinterAvailable($roll->rollData->printerId);
     }
 }

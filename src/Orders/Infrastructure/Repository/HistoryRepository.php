@@ -29,7 +29,7 @@ class HistoryRepository extends ServiceEntityRepository implements HistoryReposi
      *
      * @param History $history The History entity to be saved
      */
-    public function save(History $history): void
+    public function add(History $history): void
     {
         $this->getEntityManager()->persist($history);
         $this->getEntityManager()->flush();
@@ -72,20 +72,20 @@ class HistoryRepository extends ServiceEntityRepository implements HistoryReposi
      */
     public function findByRollId(int $rollId): array
     {
-        return $this->find(['rollId' => $rollId]);
+        $query = $this->createQueryBuilder('h');
+
+        $query->where('h.rollId = :rollId')
+            ->setParameter('rollId', $rollId);
+
+        return $query->getQuery()->getResult();
     }
 
     /**
      * Deletes a History entity from the database.
-     *
-     * @param History[] $histories The History entity to delete
      */
-    public function deleteAll(iterable $histories): void
+    public function delete(History $history): void
     {
-        foreach ($histories as $history) {
-            $this->getEntityManager()->remove($history);
-        }
-
+        $this->getEntityManager()->remove($history);
         $this->getEntityManager()->flush();
     }
 }

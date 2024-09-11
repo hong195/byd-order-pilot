@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Orders\Application\UseCase\Command\AssignEmployeeToRoll;
 
 use App\Orders\Domain\Repository\RollRepositoryInterface;
+use App\Orders\Domain\Service\Roll\History\HistorySyncService;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Command\CommandHandlerInterface;
 use App\Shared\Domain\Service\AssertService;
@@ -21,7 +22,7 @@ readonly class AssignEmployeeToRollCommandHandler implements CommandHandlerInter
      * @param AccessControlService    $accessControlService the access control service
      * @param RollRepositoryInterface $rollRepository       the roll repository
      */
-    public function __construct(private AccessControlService $accessControlService, private RollRepositoryInterface $rollRepository)
+    public function __construct(private AccessControlService $accessControlService, private RollRepositoryInterface $rollRepository, private HistorySyncService $historySyncService)
     {
     }
 
@@ -45,5 +46,8 @@ readonly class AssignEmployeeToRollCommandHandler implements CommandHandlerInter
         $roll->setEmployeeId($command->employeeId);
 
         $this->rollRepository->save($roll);
+
+        // Add a new history record for the roll
+        $this->historySyncService->record($roll->getId());
     }
 }

@@ -64,7 +64,6 @@ final readonly class PrintCheckInService
         }
 
         $roll->updateProcess(Process::PRINTING_CHECK_IN);
-
         $this->rollRepository->save($roll);
 
         $this->eventDispatcher->dispatch(new RollWasSentToPrintCheckInEvent($roll->getId()));

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Application\UseCase\Command\SyncRollHistory;
+namespace App\Orders\Application\UseCase\Command\RecordRollHistory;
 
 use App\Orders\Domain\Service\Roll\History\HistorySyncService;
 use App\Shared\Application\Command\CommandHandlerInterface;
@@ -10,7 +10,7 @@ use App\Shared\Application\Command\CommandHandlerInterface;
 /**
  * Class UpdateRollCommandHandler handles updating a Roll entity.
  */
-readonly class SyncRollHistoryCommandHandler implements CommandHandlerInterface
+readonly class RecordRollHistoryCommandHandler implements CommandHandlerInterface
 {
     /**
      * Class MyClass.
@@ -22,10 +22,10 @@ readonly class SyncRollHistoryCommandHandler implements CommandHandlerInterface
     /**
      * Invokes the command to change the order priority.
      *
-     * @param SyncRollHistoryCommand $command the change order priority command instance
+     * @param RecordRollHistoryCommand $command the change order priority command instance
      */
-    public function __invoke(SyncRollHistoryCommand $command): void
+    public function __invoke(RecordRollHistoryCommand $command): void
     {
-        $this->historySyncService->sync($command->rollId);
+        $this->historySyncService->record($command->rollId);
     }
 }

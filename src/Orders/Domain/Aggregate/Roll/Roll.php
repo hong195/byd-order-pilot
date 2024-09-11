@@ -6,6 +6,7 @@ namespace App\Orders\Domain\Aggregate\Roll;
 
 use App\Orders\Domain\Aggregate\Order;
 use App\Orders\Domain\Aggregate\Printer;
+use App\Orders\Domain\Events\RollProcessWasUpdatedEvent;
 use App\Orders\Domain\ValueObject\Process;
 use App\Orders\Domain\ValueObject\Status;
 use App\Shared\Domain\Aggregate\Aggregate;
@@ -106,7 +107,7 @@ class Roll extends Aggregate
     /**
      * Returns the date when the entity was added.
      *
-     * @return \DateTimeInterface the date when the entity was added
+     * @return \DateTimeImmutable the date when the entity was added
      */
     public function getDateAdded(): \DateTimeImmutable
     {
@@ -141,6 +142,8 @@ class Roll extends Aggregate
     public function updateProcess(Process $process): void
     {
         $this->process = $process;
+
+        $this->raise(new RollProcessWasUpdatedEvent($this->id));
     }
 
     /**

@@ -7,7 +7,7 @@ namespace App\Orders\Application\UseCase\Command\CopyRollHistory;
 use App\Shared\Application\Command\CommandInterface;
 
 /**
- * Class SyncRollHistoryCommand.
+ * Class RecordRollHistoryCommand.
  *
  * Represents a command to unassign an employee from a roll.
  */

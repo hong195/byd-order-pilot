@@ -18,10 +18,10 @@ use App\Orders\Application\UseCase\Command\GlowCheckIn\GlowCheckInCommand;
 use App\Orders\Application\UseCase\Command\PackExtra\PackExtraCommand;
 use App\Orders\Application\UseCase\Command\PackMainProduct\PackMainProductCommand;
 use App\Orders\Application\UseCase\Command\PrintCheckIn\PrintCheckIntCommand;
+use App\Orders\Application\UseCase\Command\RecordRollHistory\RecordRollHistoryCommand;
 use App\Orders\Application\UseCase\Command\ReprintOrder\ReprintOrderCommand;
 use App\Orders\Application\UseCase\Command\ReprintRoll\ReprintRollCommand;
 use App\Orders\Application\UseCase\Command\ShipAndCollectOrders\ShipAndCollectOrdersCommand;
-use App\Orders\Application\UseCase\Command\SyncRollHistory\SyncRollHistoryCommand;
 use App\Orders\Application\UseCase\Command\UnAssignEmployeeFromRoll\UnAssignEmployeeFromRollCommand;
 use App\Orders\Application\UseCase\Command\UnassignOrder\UnassignOrderCommand;
 use App\Orders\Application\UseCase\Command\UnPackExtra\UnPackExtraCommand;
@@ -257,16 +257,16 @@ readonly class PrivateCommandInteractor
      *
      * @param int $rollId The ID of the roll
      */
-    public function syncRollHistory(int $rollId): void
+    public function recordRollHistory(int $rollId): void
     {
-        $this->commandBus->execute(new SyncRollHistoryCommand($rollId));
+        $this->commandBus->execute(new RecordRollHistoryCommand($rollId));
     }
 
     /**
      * Copies the history of a roll to another roll.
      *
      * @param int   $rollId  The ID of the roll
-     * @param array $rollIds The IDs of the rolls to which the history will be copied
+     * @param int[] $rollIds The IDs of the rolls to which the history will be copied
      */
     public function copyRollHistory(int $rollId, array $rollIds): void
     {
