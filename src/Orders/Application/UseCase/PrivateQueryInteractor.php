@@ -14,6 +14,8 @@ use App\Orders\Application\UseCase\Query\FindOrders\FindOrdersQuery;
 use App\Orders\Application\UseCase\Query\FindOrders\FindOrdersResult;
 use App\Orders\Application\UseCase\Query\FindPrinters\FindPrintersQuery;
 use App\Orders\Application\UseCase\Query\FindPrinters\FindPrintersResult;
+use App\Orders\Application\UseCase\Query\FindRollHistory\FindRollHistoryQuery;
+use App\Orders\Application\UseCase\Query\FindRollHistory\FindRollHistoryResult;
 use App\Orders\Application\UseCase\Query\FindRolls\FindRollsQuery;
 use App\Orders\Application\UseCase\Query\FindRolls\FindRollsResult;
 use App\Orders\Application\UseCase\Query\GetOptions\GetOptionsQuery;
@@ -100,8 +102,27 @@ readonly class PrivateQueryInteractor
         return $this->queryBus->execute(new GetOptionsQuery());
     }
 
+    /**
+     * Finds the extras by executing the FindExtrasQuery.
+     *
+     * @param int $order the order ID
+     *
+     * @return FindExtrasResult the result of executing the FindExtrasQuery
+     */
     public function findExtras(int $order): FindExtrasResult
     {
         return $this->queryBus->execute(new FindExtrasQuery($order));
+    }
+
+    /**
+     * Retrieves the roll history by executing the FindRollHistoryQuery.
+     *
+     * @param int $rollId the roll ID to find the history for
+     *
+     * @return FindRollHistoryResult the result of executing the FindRollHistoryQuery
+     */
+    public function findRollHistory(int $rollId): FindRollHistoryResult
+    {
+        return $this->queryBus->execute(new FindRollHistoryQuery($rollId));
     }
 }

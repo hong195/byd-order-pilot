@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Users\Application\UseCase;
 
 use App\Shared\Application\Query\QueryBusInterface;
-use App\Shared\Domain\Repository\Pager;
 use App\Users\Application\UseCase\Query\FindUser\FindUserQuery;
 use App\Users\Application\UseCase\Query\FindUser\FindUserQueryResult;
 use App\Users\Application\UseCase\Query\FindUsers\FindUsersQuery;
@@ -25,21 +24,15 @@ readonly class PrivateUseCaseInteractor
     }
 
     /**
-     * Find users based on given criteria.
+     * Find users based on a query.
      *
-     * @param int         $page  The page number to retrieve. Default is 1.
-     * @param string|null $email The email to search for. Default is null.
-     * @param string|null $name  The name to search for. Default is null.
+     * @param FindUsersQuery $query the query to find the users
      *
-     * @return FindUsersQueryResult the result of the find users query
+     * @return FindUsersQueryResult the result of the query to find the users
      */
-    public function findUsers(int $page = 1, ?string $email = null, ?string $name = null): FindUsersQueryResult
+    public function findUsers(FindUsersQuery $query): FindUsersQueryResult
     {
-        $pager = new Pager(page: $page, perPage: 10);
-
-        $command = new FindUsersQuery($pager, $email, $name);
-
-        return $this->queryBus->execute($command);
+        return $this->queryBus->execute($query);
     }
 
     /**

@@ -110,6 +110,10 @@ class UserRepository extends ServiceEntityRepository implements UserRepositoryIn
             $qb->setFirstResult(max(0, $userFilter->pager->getOffset()));
         }
 
+        if ($userFilter->ids) {
+            $qb->andWhere($qb->expr()->in('u.id', $userFilter->ids));
+        }
+
         $paginator = new Paginator($qb->getQuery());
 
         return new PaginationResult(

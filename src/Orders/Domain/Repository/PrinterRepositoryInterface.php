@@ -4,6 +4,7 @@ namespace App\Orders\Domain\Repository;
 
 use App\Orders\Domain\Aggregate\Printer;
 use App\Orders\Domain\ValueObject\FilmType;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * Interface for interacting with the Printer repository.
@@ -29,9 +30,9 @@ interface PrinterRepositoryInterface
     /**
      * Find all printers.
      *
-     * @return Printer[] An array of printers
+     * @return Collection<Printer> An array of printers
      */
-    public function findAll(): array;
+    public function all(): Collection;
 
     /**
      * Finds records in the database based on a given name.

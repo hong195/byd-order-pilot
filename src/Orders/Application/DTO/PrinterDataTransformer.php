@@ -7,6 +7,8 @@ namespace App\Orders\Application\DTO;
 use App\Orders\Domain\Aggregate\Printer;
 use App\Orders\Domain\ValueObject\FilmType;
 use App\Orders\Domain\ValueObject\LaminationType;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * Class RollData.
@@ -18,13 +20,13 @@ final readonly class PrinterDataTransformer
     /**
      * Converts an array of entities into an array of DTOs.
      *
-     * @param Printer[] $entities An array of entities to convert
+     * @param iterable<Printer> $entities An array of entities to convert
      *
-     * @return PrinterData[] An array of DTOs
+     * @return Collection<PrinterData> An array of DTOs
      */
-    public function fromEntityList(array $entities): array
+    public function fromEntityList(iterable $entities): Collection
     {
-        $dtos = [];
+        $dtos = new ArrayCollection();
         foreach ($entities as $entity) {
             $dtos[] = new PrinterData(
                 id: $entity->getId(),

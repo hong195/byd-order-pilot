@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Orders\Application\UseCase\Query\FindRolls;
 
 use App\Orders\Application\DTO\RollDataTransformer;
-use App\Orders\Domain\Repository\RollFilter;
+use App\Orders\Application\Service\Roll\RollListService;
 use App\Orders\Domain\Repository\RollRepositoryInterface;
 use App\Orders\Domain\ValueObject\Process;
 use App\Shared\Application\AccessControll\AccessControlService;
@@ -21,13 +21,12 @@ use App\Shared\Domain\Service\AssertService;
 final readonly class FindRollsHandler implements QueryHandlerInterface
 {
     /**
-     * Class Constructor.
+     * Constructor for the class.
      *
-     * @param AccessControlService    $accessControlService the Access Control Service object
-     * @param RollRepositoryInterface $rollRepository       the Roll Repository Interface object
-     * @param RollDataTransformer     $rollDataTransformer  the Roll Data Transformer object
+     * @param AccessControlService $accessControlService the access control service dependency
+     * @param RollListService      $rollListService      the roll list service dependency
      */
-    public function __construct(private AccessControlService $accessControlService, private RollRepositoryInterface $rollRepository, private RollDataTransformer $rollDataTransformer)
+    public function __construct(private AccessControlService $accessControlService, private RollListService $rollListService)
     {
     }
 
@@ -41,11 +40,9 @@ final readonly class FindRollsHandler implements QueryHandlerInterface
     public function __invoke(FindRollsQuery $rollQuery): FindRollsResult
     {
         AssertService::true($this->accessControlService->isGranted(), 'Access denied');
-        $rollFilterQuery = new RollFilter(process: $rollQuery->process ? Process::from($rollQuery->process) : null);
-        $rolls = $this->rollRepository->findByFilter($rollFilterQuery);
 
-        $rollsData = $this->rollDataTransformer->fromRollsEntityList($rolls);
+        $rollDataList = $this->rollListService->getList(Process::from($rollQuery->process));
 
-        return new FindRollsResult($rollsData);
+        return new FindRollsResult($rollDataList);
     }
 }

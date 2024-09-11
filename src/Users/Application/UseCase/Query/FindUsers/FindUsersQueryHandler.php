@@ -34,7 +34,7 @@ readonly class FindUsersQueryHandler implements QueryHandlerInterface
     {
         Assert::true($this->accessControlService->isGranted(), 'Access denied');
 
-        $filter = new UserFilter(pager: $query->pager, name: $query->name, email: $query->email);
+        $filter = new UserFilter(pager: $query->pager, name: $query->name, email: $query->email, ids: $query->ids);
 
         $users = $this->userRepository->findByFilter($filter);
 

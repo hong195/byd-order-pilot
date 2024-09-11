@@ -15,11 +15,11 @@ readonly class FindUsersQuery extends Query
     /**
      * Constructs a new instance of the class.
      *
-     * @param Pager       $pager the pager object
+     * @param ?Pager      $pager the pager object
      * @param string|null $email the email string (optional)
      * @param string|null $name  the name string (optional)
      */
-    public function __construct(public Pager $pager, public ?string $email = null, public ?string $name = null)
+    public function __construct(public ?Pager $pager = null, public ?string $email = null, public ?string $name = null, public array $ids = [])
     {
     }
 }

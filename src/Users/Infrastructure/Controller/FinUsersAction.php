@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Users\Infrastructure\Controller;
 
 use App\Users\Application\UseCase\PrivateUseCaseInteractor;
+use App\Users\Application\UseCase\Query\FindUsers\FindUsersQuery;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Attribute\AsController;
@@ -39,11 +40,13 @@ readonly class FinUsersAction
      */
     public function __invoke(Request $request): JsonResponse
     {
-        $users = $this->useCaseInteractor->findUsers(
-            page: (int) $request->get('page'),
+        $query = new FindUsersQuery(
             email: $request->get('email'),
-            name: $request->get('name')
+            name: $request->get('name'),
+            ids: $request->get('ids') ?? []
         );
+
+        $users = $this->useCaseInteractor->findUsers($query);
 
         $result = $this->normalizer->normalize($users);
 

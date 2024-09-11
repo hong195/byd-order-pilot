@@ -8,6 +8,7 @@ use App\Orders\Domain\Aggregate\Printer;
 use App\Orders\Domain\Repository\PrinterRepositoryInterface;
 use App\Orders\Domain\ValueObject\FilmType;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Persistence\ManagerRegistry;
 
 final class PrinterRepository extends ServiceEntityRepository implements PrinterRepositoryInterface
@@ -43,13 +44,13 @@ final class PrinterRepository extends ServiceEntityRepository implements Printer
     /**
      * Finds all printers.
      *
-     * @return Printer[] an array containing all the printer objects
+     * @return ArrayCollection an array containing all the printer objects
      */
-    public function findAll(): array
+    public function all(): ArrayCollection
     {
         $queryBuilder = $this->createQueryBuilder('p');
 
-        return $queryBuilder->getQuery()->getResult();
+        return new ArrayCollection($queryBuilder->getQuery()->getResult());
     }
 
     /**

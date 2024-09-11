@@ -47,7 +47,6 @@ final readonly class RollDataTransformer
             priorityCount: $roll->getPriorityOrders(),
             laminations: $roll->getLaminations(),
             filmId: $roll->getFilmId(),
-            printerId: $roll->getPrinter()?->getId(),
             dateAdded: $roll->getDateAdded()
         );
     }
