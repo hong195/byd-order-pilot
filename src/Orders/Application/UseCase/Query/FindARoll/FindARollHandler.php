@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Orders\Application\UseCase\Query\FindARoll;
 
 use App\Orders\Application\DTO\RollDataTransformer;
+use App\Orders\Application\Service\Roll\RollListService;
 use App\Orders\Domain\Repository\RollRepositoryInterface;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Query\QueryHandlerInterface;
@@ -23,7 +24,7 @@ final readonly class FindARollHandler implements QueryHandlerInterface
      * @param RollRepositoryInterface $rollRepository       the roll repository
      * @param RollDataTransformer     $dataTransformer      the roll data transformer
      */
-    public function __construct(private AccessControlService $accessControlService, private RollRepositoryInterface $rollRepository, private RollDataTransformer $dataTransformer)
+    public function __construct(private AccessControlService $accessControlService, private RollListService $rollListService)
     {
     }
 
@@ -38,13 +39,7 @@ final readonly class FindARollHandler implements QueryHandlerInterface
     {
         AssertService::true($this->accessControlService->isGranted(), 'Access denied');
 
-        $roll = $this->rollRepository->findById($rollQuery->rollId);
-
-        if (is_null($roll)) {
-            throw new NotFoundHttpException();
-        }
-
-        $rollData = $this->dataTransformer->fromEntity($roll);
+        $rollData = $this->rollListService->getSingle($rollQuery->rollId);
 
         return new FindARollResult($rollData);
     }

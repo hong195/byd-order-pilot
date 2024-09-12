@@ -21,7 +21,7 @@ interface EmployeeFetcher
     /**
      * Retrieves employees by their ids.
      *
-     * @param array $employeeIds the array of employee ids
+     * @param int[] $employeeIds the array of employee ids
      *
      * @return Collection<EmployeeData> the array of employees
      */

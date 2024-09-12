@@ -36,7 +36,8 @@ final readonly class RollListService
         $filter = new RollFilter(process : $process);
 
         $rolls = $this->rollRepository->findByFilter($filter);
-        $employees = $this->employeeFetcher->getByIds(array_map(fn ($roll) => $roll->getEmployeeId(), $rolls));
+		$rollsIds = array_unique(array_filter(array_map(fn ($roll) => $roll->getEmployeeId(), $rolls)));
+        $employees = $this->employeeFetcher->getByIds($rollsIds);
         $printers = $this->printerRepository->all();
 
         $rollsData = [];
@@ -69,11 +70,19 @@ final readonly class RollListService
 
         $data = $this->rollDataTransformer->fromEntity($roll);
 
-        $employee = $this->employeeFetcher->getById($roll->getEmployeeId());
         $printer = $this->printerRepository->findById($roll->getPrinter()?->getId());
 
-        $data->withEmployee($employee);
-        $data->withPrinter($printer);
+		if ($printer) {
+	        $data->withPrinter(new PrinterData(
+				id: $printer->getId(),
+				name: $printer->getName(),
+			));
+		}
+
+		if ($roll->getEmployeeId()) {
+        	$employee = $this->employeeFetcher->getById($roll->getEmployeeId());
+        	$data->withEmployee($employee);
+		}
 
         return $data;
     }
