@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fixed history data.">
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/HistoryData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/HistoryData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/HistoryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/HistoryRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -288,15 +288,7 @@
       <workItem from="1725613898092" duration="85000" />
       <workItem from="1725613992573" duration="8817000" />
       <workItem from="1725629652154" duration="26411000" />
-      <workItem from="1726063769562" duration="9703000" />
-    </task>
-    <task id="LOCAL-00272" summary="Updated order number db column type.">
-      <option name="closed" value="true" />
-      <created>1725009044007</created>
-      <option name="number" value="00272" />
-      <option name="presentableId" value="LOCAL-00272" />
-      <option name="project" value="LOCAL" />
-      <updated>1725009044007</updated>
+      <workItem from="1726063769562" duration="10078000" />
     </task>
     <task id="LOCAL-00273" summary="Updated order number db column type.">
       <option name="closed" value="true" />
@@ -682,7 +674,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726144862224</updated>
     </task>
-    <option name="localTasksCounter" value="321" />
+    <task id="LOCAL-00321" summary="Fixed history data.">
+      <option name="closed" value="true" />
+      <created>1726146214881</created>
+      <option name="number" value="00321" />
+      <option name="presentableId" value="LOCAL-00321" />
+      <option name="project" value="LOCAL" />
+      <updated>1726146214881</updated>
+    </task>
+    <option name="localTasksCounter" value="322" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -718,7 +718,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added order customer name." />
     <MESSAGE value="Remove customer notes." />
     <MESSAGE value="Refactor customer is value object." />
     <MESSAGE value="Fixed removing empty roll after orders check in." />
@@ -742,6 +741,7 @@
     <MESSAGE value="Added docs." />
     <MESSAGE value="Fixed making unavailable printer." />
     <MESSAGE value="Fixed making unavailable printer #2." />
+    <MESSAGE value="Added process to history dto" />
     <MESSAGE value="Fixed history data." />
     <option name="LAST_COMMIT_MESSAGE" value="Fixed history data." />
   </component>

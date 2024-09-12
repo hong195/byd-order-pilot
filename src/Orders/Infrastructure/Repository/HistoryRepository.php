@@ -75,7 +75,9 @@ class HistoryRepository extends ServiceEntityRepository implements HistoryReposi
         $query = $this->createQueryBuilder('h');
 
         $query->where('h.rollId = :rollId')
-            ->setParameter('rollId', $rollId);
+            ->setParameter('rollId', $rollId)
+			->orderBy('h.happenedAt', 'ASC')
+		;
 
         return $query->getQuery()->getResult();
     }
