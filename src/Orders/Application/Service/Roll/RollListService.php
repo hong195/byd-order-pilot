@@ -36,7 +36,7 @@ final readonly class RollListService
         $filter = new RollFilter(process : $process);
 
         $rolls = $this->rollRepository->findByFilter($filter);
-		$rollsIds = array_unique(array_filter(array_map(fn ($roll) => $roll->getEmployeeId(), $rolls)));
+        $rollsIds = array_unique(array_filter(array_map(fn ($roll) => $roll->getEmployeeId(), $rolls)));
         $employees = $this->employeeFetcher->getByIds($rollsIds);
         $printers = $this->printerRepository->all();
 
@@ -64,6 +64,13 @@ final readonly class RollListService
         return $rollsData;
     }
 
+    /**
+     * Retrieves a single roll data along with employee and printer information by its ID.
+     *
+     * @param int $id the ID of the roll
+     *
+     * @return RollData the roll data along with employee and printer information
+     */
     public function getSingle(int $id): RollData
     {
         $roll = $this->rollRepository->findById($id);
@@ -72,17 +79,17 @@ final readonly class RollListService
 
         $printer = $this->printerRepository->findById($roll->getPrinter()?->getId());
 
-		if ($printer) {
-	        $data->withPrinter(new PrinterData(
-				id: $printer->getId(),
-				name: $printer->getName(),
-			));
-		}
+        if ($printer) {
+            $data->withPrinter(new PrinterData(
+                id: $printer->getId(),
+                name: $printer->getName(),
+            ));
+        }
 
-		if ($roll->getEmployeeId()) {
-        	$employee = $this->employeeFetcher->getById($roll->getEmployeeId());
-        	$data->withEmployee($employee);
-		}
+        if ($roll->getEmployeeId()) {
+            $employee = $this->employeeFetcher->getById($roll->getEmployeeId());
+            $data->withEmployee($employee);
+        }
 
         return $data;
     }
