@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added docs.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/RollData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/RollData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UnAssignEmployeeFromRoll/UnAssignEmployeeFromRollCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UnAssignEmployeeFromRoll/UnAssignEmployeeFromRollCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindARoll/FindARollHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindARoll/FindARollHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/EventHandler/RollWasSentToGlowCheckInEventHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/EventHandler/RollWasSentToGlowCheckInEventHandler.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fixed making unavailable printer.">
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/EventHandler/RollWasSentToPrintCheckInEventHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/EventHandler/RollWasSentToPrintCheckInEventHandler.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -292,15 +288,7 @@
       <workItem from="1725613898092" duration="85000" />
       <workItem from="1725613992573" duration="8817000" />
       <workItem from="1725629652154" duration="26411000" />
-      <workItem from="1726063769562" duration="6081000" />
-    </task>
-    <task id="LOCAL-00268" summary="If roll is empty it will be deleted after orders check in.">
-      <option name="closed" value="true" />
-      <created>1725008425426</created>
-      <option name="number" value="00268" />
-      <option name="presentableId" value="LOCAL-00268" />
-      <option name="project" value="LOCAL" />
-      <updated>1725008425426</updated>
+      <workItem from="1726063769562" duration="6497000" />
     </task>
     <task id="LOCAL-00269" summary="If roll is empty it will be deleted after orders check in.">
       <option name="closed" value="true" />
@@ -686,7 +674,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726133243237</updated>
     </task>
-    <option name="localTasksCounter" value="317" />
+    <task id="LOCAL-00317" summary="Fixed making unavailable printer.">
+      <option name="closed" value="true" />
+      <created>1726138715825</created>
+      <option name="number" value="00317" />
+      <option name="presentableId" value="LOCAL-00317" />
+      <option name="project" value="LOCAL" />
+      <updated>1726138715825</updated>
+    </task>
+    <option name="localTasksCounter" value="318" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -722,7 +718,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed order number return types." />
     <MESSAGE value="Php stan fix." />
     <MESSAGE value="Added customer and packages instructions notes." />
     <MESSAGE value="Added order customer name." />
@@ -747,7 +742,8 @@
     <MESSAGE value="Roll history small refactor." />
     <MESSAGE value="Fixed missing relations." />
     <MESSAGE value="Added docs." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added docs." />
+    <MESSAGE value="Fixed making unavailable printer." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed making unavailable printer." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
