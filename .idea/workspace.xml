@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fixed making unavailable printer.">
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/EventHandler/RollWasSentToPrintCheckInEventHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/EventHandler/RollWasSentToPrintCheckInEventHandler.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fixed history data.">
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/HistoryData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/HistoryData.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -288,31 +288,7 @@
       <workItem from="1725613898092" duration="85000" />
       <workItem from="1725613992573" duration="8817000" />
       <workItem from="1725629652154" duration="26411000" />
-      <workItem from="1726063769562" duration="6497000" />
-    </task>
-    <task id="LOCAL-00269" summary="If roll is empty it will be deleted after orders check in.">
-      <option name="closed" value="true" />
-      <created>1725008427979</created>
-      <option name="number" value="00269" />
-      <option name="presentableId" value="LOCAL-00269" />
-      <option name="project" value="LOCAL" />
-      <updated>1725008427979</updated>
-    </task>
-    <task id="LOCAL-00270" summary="Updated order number prefix.">
-      <option name="closed" value="true" />
-      <created>1725008833946</created>
-      <option name="number" value="00270" />
-      <option name="presentableId" value="LOCAL-00270" />
-      <option name="project" value="LOCAL" />
-      <updated>1725008833946</updated>
-    </task>
-    <task id="LOCAL-00271" summary="Updated order number prefix.">
-      <option name="closed" value="true" />
-      <created>1725008838063</created>
-      <option name="number" value="00271" />
-      <option name="presentableId" value="LOCAL-00271" />
-      <option name="project" value="LOCAL" />
-      <updated>1725008838063</updated>
+      <workItem from="1726063769562" duration="9703000" />
     </task>
     <task id="LOCAL-00272" summary="Updated order number db column type.">
       <option name="closed" value="true" />
@@ -682,7 +658,31 @@
       <option name="project" value="LOCAL" />
       <updated>1726138715825</updated>
     </task>
-    <option name="localTasksCounter" value="318" />
+    <task id="LOCAL-00318" summary="Fixed making unavailable printer #2.">
+      <option name="closed" value="true" />
+      <created>1726139121287</created>
+      <option name="number" value="00318" />
+      <option name="presentableId" value="LOCAL-00318" />
+      <option name="project" value="LOCAL" />
+      <updated>1726139121287</updated>
+    </task>
+    <task id="LOCAL-00319" summary="Fixed making unavailable printer #2.">
+      <option name="closed" value="true" />
+      <created>1726139123319</created>
+      <option name="number" value="00319" />
+      <option name="presentableId" value="LOCAL-00319" />
+      <option name="project" value="LOCAL" />
+      <updated>1726139123319</updated>
+    </task>
+    <task id="LOCAL-00320" summary="Fixed history data.">
+      <option name="closed" value="true" />
+      <created>1726144862224</created>
+      <option name="number" value="00320" />
+      <option name="presentableId" value="LOCAL-00320" />
+      <option name="project" value="LOCAL" />
+      <updated>1726144862224</updated>
+    </task>
+    <option name="localTasksCounter" value="321" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -718,8 +718,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Php stan fix." />
-    <MESSAGE value="Added customer and packages instructions notes." />
     <MESSAGE value="Added order customer name." />
     <MESSAGE value="Remove customer notes." />
     <MESSAGE value="Refactor customer is value object." />
@@ -743,7 +741,9 @@
     <MESSAGE value="Fixed missing relations." />
     <MESSAGE value="Added docs." />
     <MESSAGE value="Fixed making unavailable printer." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed making unavailable printer." />
+    <MESSAGE value="Fixed making unavailable printer #2." />
+    <MESSAGE value="Fixed history data." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed history data." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

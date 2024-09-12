@@ -22,7 +22,7 @@ final class HistoryData
      * @param int|null                $rollId     The roll ID of the object. Default is null.
      * @param \DateTimeInterface|null $happenedAt The happened at date and time of the object. Default is null.
      */
-    public function __construct(public readonly ?int $id = null, public readonly ?int $rollId = null, public readonly ?\DateTimeInterface $happenedAt = null)
+    public function __construct(public readonly ?int $id = null, public readonly ?int $rollId = null, public ?string $process = null, public readonly ?\DateTimeInterface $happenedAt = null)
     {
     }
 
@@ -38,6 +38,7 @@ final class HistoryData
         return new self(
             id: $history->getId(),
             rollId: $history->rollId,
+			process: $history->process->value,
             happenedAt: $history->happenedAt,
         );
     }
