@@ -37,6 +37,6 @@ final readonly class RollWasSentToPrintCheckInEventHandler implements EventHandl
 
         $this->privateCommandInteractor->unassignEmployeeFromRoll($roll->rollData->id);
 
-        $this->privateCommandInteractor->makePrinterUnAvailable($roll->rollData->printerId);
+        $this->privateCommandInteractor->makePrinterUnAvailable($roll->rollData->getPrinter()->id);
     }
 }
