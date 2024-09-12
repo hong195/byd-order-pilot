@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Orders\Application\UseCase\Command\UnAssignEmployeeFromRoll;
 
+use App\Orders\Application\Service\Roll\History\HistoryListService;
 use App\Orders\Domain\Repository\RollRepositoryInterface;
+use App\Orders\Domain\Service\Roll\History\HistorySyncService;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Command\CommandHandlerInterface;
 use App\Shared\Domain\Service\AssertService;
@@ -18,7 +20,7 @@ readonly class UnAssignEmployeeFromRollCommandHandler implements CommandHandlerI
     /**
      * Class MyClass.
      */
-    public function __construct(private AccessControlService $accessControlService, private RollRepositoryInterface $rollRepository)
+    public function __construct(private AccessControlService $accessControlService, private RollRepositoryInterface $rollRepository, private HistorySyncService $historyListService)
     {
     }
 
@@ -41,5 +43,7 @@ readonly class UnAssignEmployeeFromRollCommandHandler implements CommandHandlerI
         $roll->setEmployeeId(null);
 
         $this->rollRepository->save($roll);
+
+		$this->historyListService->record($roll->getId());
     }
 }

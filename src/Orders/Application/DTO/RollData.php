@@ -42,12 +42,24 @@ final class RollData
     ) {
     }
 
-    public function withEmployee(?EmployeeData $employee): void
+	/**
+	 * Setter method to set the employee object.
+	 *
+	 * @param EmployeeData|null $employee the employee object to set, or null to unset
+	 * @return void
+	 */
+	public function withEmployee(?EmployeeData $employee): void
     {
         $this->employee = $employee;
     }
 
-    public function withPrinter(?Printerdata $printer): void
+	/**
+	 * Setter method to set the printer object.
+	 *
+	 * @param Printerdata|null $printer The printer object to be set or null to unset the printer
+	 * @return void
+	 */
+	public function withPrinter(?Printerdata $printer): void
     {
         $this->printer = $printer;
     }

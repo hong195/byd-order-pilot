@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Roll history small refactor.">
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/Service/Employee/EmployeeFetcher.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/Service/Employee/EmployeeFetcher.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/Service/Roll/RollListService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/Service/Roll/RollListService.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added docs.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/RollData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/RollData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UnAssignEmployeeFromRoll/UnAssignEmployeeFromRollCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UnAssignEmployeeFromRoll/UnAssignEmployeeFromRollCommandHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindARoll/FindARollHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindARoll/FindARollHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/EventHandler/RollWasSentToGlowCheckInEventHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/EventHandler/RollWasSentToGlowCheckInEventHandler.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -289,23 +292,7 @@
       <workItem from="1725613898092" duration="85000" />
       <workItem from="1725613992573" duration="8817000" />
       <workItem from="1725629652154" duration="26411000" />
-      <workItem from="1726063769562" duration="4128000" />
-    </task>
-    <task id="LOCAL-00266" summary="Updated sort order is set to null when order is unassign.">
-      <option name="closed" value="true" />
-      <created>1725008005347</created>
-      <option name="number" value="00266" />
-      <option name="presentableId" value="LOCAL-00266" />
-      <option name="project" value="LOCAL" />
-      <updated>1725008005347</updated>
-    </task>
-    <task id="LOCAL-00267" summary="Updated sort order is set to null when order is unassign.">
-      <option name="closed" value="true" />
-      <created>1725008008056</created>
-      <option name="number" value="00267" />
-      <option name="presentableId" value="LOCAL-00267" />
-      <option name="project" value="LOCAL" />
-      <updated>1725008008056</updated>
+      <workItem from="1726063769562" duration="6081000" />
     </task>
     <task id="LOCAL-00268" summary="If roll is empty it will be deleted after orders check in.">
       <option name="closed" value="true" />
@@ -683,7 +670,23 @@
       <option name="project" value="LOCAL" />
       <updated>1726064415171</updated>
     </task>
-    <option name="localTasksCounter" value="315" />
+    <task id="LOCAL-00315" summary="Fixed missing relations.">
+      <option name="closed" value="true" />
+      <created>1726133209418</created>
+      <option name="number" value="00315" />
+      <option name="presentableId" value="LOCAL-00315" />
+      <option name="project" value="LOCAL" />
+      <updated>1726133209419</updated>
+    </task>
+    <task id="LOCAL-00316" summary="Added docs.">
+      <option name="closed" value="true" />
+      <created>1726133243237</created>
+      <option name="number" value="00316" />
+      <option name="presentableId" value="LOCAL-00316" />
+      <option name="project" value="LOCAL" />
+      <updated>1726133243237</updated>
+    </task>
+    <option name="localTasksCounter" value="317" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -719,8 +722,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated order number prefix." />
-    <MESSAGE value="Updated order number db column type." />
     <MESSAGE value="Fixed order number return types." />
     <MESSAGE value="Php stan fix." />
     <MESSAGE value="Added customer and packages instructions notes." />
@@ -744,7 +745,9 @@
     <MESSAGE value="Added roll history." />
     <MESSAGE value="Added relation info for rolls and history." />
     <MESSAGE value="Roll history small refactor." />
-    <option name="LAST_COMMIT_MESSAGE" value="Roll history small refactor." />
+    <MESSAGE value="Fixed missing relations." />
+    <MESSAGE value="Added docs." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added docs." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
