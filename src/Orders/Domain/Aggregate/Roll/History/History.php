@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Domain\Aggregate\Roll;
+namespace App\Orders\Domain\Aggregate\Roll\History;
 
 use App\Orders\Domain\ValueObject\Process;
 
@@ -23,7 +23,7 @@ final class History
      * @param int     $rollId  the roll ID
      * @param Process $process the process
      */
-    public function __construct(public readonly int $rollId, public readonly Process $process, public readonly \DateTimeImmutable $happenedAt)
+    public function __construct(public readonly int $rollId, public readonly Process $process, public readonly Type $type, public readonly \DateTimeImmutable $happenedAt)
     {
     }
 

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orders\Application\UseCase\Command\RecordRollHistory;
 
+use App\Orders\Domain\Aggregate\Roll\History\Type;
 use App\Orders\Domain\Service\Roll\History\HistorySyncService;
 use App\Shared\Application\Command\CommandHandlerInterface;
 
@@ -26,6 +27,6 @@ readonly class RecordRollHistoryCommandHandler implements CommandHandlerInterfac
      */
     public function __invoke(RecordRollHistoryCommand $command): void
     {
-        $this->historySyncService->record($command->rollId);
+        $this->historySyncService->record($command->rollId, $command->getType());
     }
 }

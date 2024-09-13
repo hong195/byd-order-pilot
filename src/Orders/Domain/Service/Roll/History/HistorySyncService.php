@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orders\Domain\Service\Roll\History;
 
+use App\Orders\Domain\Aggregate\Roll\History\Type;
 use App\Orders\Domain\Factory\HistoryFactory;
 use App\Orders\Domain\Repository\HistoryRepositoryInterface;
 use App\Orders\Domain\Repository\RollRepositoryInterface;
@@ -34,11 +35,11 @@ final readonly class HistorySyncService
      *
      * @param int $rollId the ID of the roll to sync the history for
      */
-    public function record(int $rollId): void
+    public function record(int $rollId, Type $type): void
     {
         $roll = $this->rollRepository->findById($rollId);
 
-        $history = $this->historyFactory->fromRoll($roll);
+        $history = $this->historyFactory->make(rollId: $rollId, process: $roll->getProcess(), happenedAt: new \DateTimeImmutable(), type: $type, employeeId: $roll->getEmployeeId());
 
         $this->historyRepository->add($history);
     }
@@ -55,7 +56,13 @@ final readonly class HistorySyncService
 
         foreach ($histories as $history) {
             foreach ($childrenRollId as $copyRollId) {
-                $copiedHistory = $this->historyFactory->make($copyRollId, $history->process, $history->happenedAt, $history->getEmployeeId());
+                $copiedHistory = $this->historyFactory->make(
+					rollId: $copyRollId,
+					process: $history->process,
+					happenedAt: $history->happenedAt,
+					type: $history->type,
+					employeeId: $history->getEmployeeId()
+				);
                 $this->historyRepository->add($copiedHistory);
 
                 $this->historyRepository->delete($history);

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orders\Infrastructure\Repository;
 
-use App\Orders\Domain\Aggregate\Roll\History;
+use App\Orders\Domain\Aggregate\Roll\History\History;
 use App\Orders\Domain\Repository\HistoryRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;

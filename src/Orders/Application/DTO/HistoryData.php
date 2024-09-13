@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orders\Application\DTO;
 
-use App\Orders\Domain\Aggregate\Roll\History;
+use App\Orders\Domain\Aggregate\Roll\History\History;
 
 /**
  * Class HistoryData.

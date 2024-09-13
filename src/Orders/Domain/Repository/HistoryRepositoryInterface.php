@@ -2,7 +2,7 @@
 
 namespace App\Orders\Domain\Repository;
 
-use App\Orders\Domain\Aggregate\Roll\History;
+use App\Orders\Domain\Aggregate\Roll\History\History;
 
 /**
  * Interface HistoryRepositoryInterface.

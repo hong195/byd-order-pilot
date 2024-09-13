@@ -257,7 +257,7 @@ readonly class PrivateCommandInteractor
      *
      * @param int $rollId The ID of the roll
      */
-    public function recordRollHistory(int $rollId): void
+    public function recordRollProcessUpdate(int $rollId): void
     {
         $this->commandBus->execute(new RecordRollHistoryCommand($rollId));
     }
