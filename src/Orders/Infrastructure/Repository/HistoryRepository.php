@@ -48,19 +48,6 @@ class HistoryRepository extends ServiceEntityRepository implements HistoryReposi
 
         $this->getEntityManager()->flush();
     }
-
-    /**
-     * Finds an unfinished History by rollId.
-     *
-     * @param int $rollId the rollId of the History
-     *
-     * @return History|null the unfinished History, or null if not found
-     */
-    public function findUnfinished(int $rollId): ?History
-    {
-        return $this->findOneBy(['rollId' => $rollId, 'finishedAt' => null]);
-    }
-
     /**
      * Finds a History entity by a rollId.
      *
@@ -76,8 +63,8 @@ class HistoryRepository extends ServiceEntityRepository implements HistoryReposi
 
         $query->where('h.rollId = :rollId')
             ->setParameter('rollId', $rollId)
-			->orderBy('h.happenedAt', 'ASC')
-		;
+            ->orderBy('h.happenedAt', 'ASC')
+        ;
 
         return $query->getQuery()->getResult();
     }

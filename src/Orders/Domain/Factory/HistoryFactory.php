@@ -22,7 +22,7 @@ final class HistoryFactory
      */
     public function fromRoll(Roll $roll): History
     {
-        $startedAt = \DateTimeImmutable::createFromInterface($roll->getDateAdded());
+        $startedAt = new \DateTimeImmutable();
 
         $history = new History(rollId: $roll->getId(), process: $roll->getProcess(), happenedAt: $startedAt);
 

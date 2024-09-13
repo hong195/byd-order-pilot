@@ -24,15 +24,6 @@ interface HistoryRepositoryInterface
     public function findByRollId(int $rollId): array;
 
     /**
-     * Finds an unfinished history record by roll ID.
-     *
-     * @param int $rollId the roll ID to search for
-     *
-     * @return History|null the unfinished history record, or null if not found
-     */
-    public function findUnfinished(int $rollId): ?History;
-
-    /**
      * Saves multiple history records.
      *
      * @param iterable<int> $histories a collection of History objects to be saved

@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fixed history data.">
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added order by happened at asc.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Repository/HistoryRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Repository/HistoryRepositoryInterface.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/HistoryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/HistoryRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -288,15 +290,7 @@
       <workItem from="1725613898092" duration="85000" />
       <workItem from="1725613992573" duration="8817000" />
       <workItem from="1725629652154" duration="26411000" />
-      <workItem from="1726063769562" duration="10078000" />
-    </task>
-    <task id="LOCAL-00273" summary="Updated order number db column type.">
-      <option name="closed" value="true" />
-      <created>1725009050298</created>
-      <option name="number" value="00273" />
-      <option name="presentableId" value="LOCAL-00273" />
-      <option name="project" value="LOCAL" />
-      <updated>1725009050298</updated>
+      <workItem from="1726063769562" duration="12800000" />
     </task>
     <task id="LOCAL-00274" summary="Updated order number db column type.">
       <option name="closed" value="true" />
@@ -682,7 +676,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726146214881</updated>
     </task>
-    <option name="localTasksCounter" value="322" />
+    <task id="LOCAL-00322" summary="Added order by happened at asc.">
+      <option name="closed" value="true" />
+      <created>1726146590396</created>
+      <option name="number" value="00322" />
+      <option name="presentableId" value="LOCAL-00322" />
+      <option name="project" value="LOCAL" />
+      <updated>1726146590396</updated>
+    </task>
+    <option name="localTasksCounter" value="323" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -718,7 +720,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Remove customer notes." />
     <MESSAGE value="Refactor customer is value object." />
     <MESSAGE value="Fixed removing empty roll after orders check in." />
     <MESSAGE value="Updated readable exception message." />
@@ -743,7 +744,8 @@
     <MESSAGE value="Fixed making unavailable printer #2." />
     <MESSAGE value="Added process to history dto" />
     <MESSAGE value="Fixed history data." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed history data." />
+    <MESSAGE value="Added order by happened at asc." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added order by happened at asc." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
