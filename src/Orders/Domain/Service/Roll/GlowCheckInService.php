@@ -21,14 +21,14 @@ use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
  */
 final readonly class GlowCheckInService
 {
-    /**
-     * Constructor for the class.
-     *
-     * @param RollRepositoryInterface  $rollRepository  the roll repository interface
-     * @param GroupService             $groupService    the group service
-     * @param RollMaker                $rollMaker       the roll maker
-     * @param EventDispatcherInterface $eventDispatcher the event dispatcher interface
-     */
+	/**
+	 * Class constructor.
+	 *
+	 * @param RollRepositoryInterface $rollRepository
+	 * @param GroupService $groupService
+	 * @param EventDispatcherInterface $eventDispatcher
+	 * @param GeneralProcessValidation $generalProcessValidatior
+	 */
     public function __construct(
         private RollRepositoryInterface $rollRepository, private GroupService $groupService,
         private RollMaker $rollMaker, private EventDispatcherInterface $eventDispatcher, private GeneralProcessValidation $generalProcessValidatior,
@@ -46,30 +46,43 @@ final readonly class GlowCheckInService
      */
     public function handle(int $rollId): void
     {
-        $foundRoll = $this->rollRepository->findById($rollId);
+        $rollToGlow = $this->rollRepository->findById($rollId);
 
-        $this->generalProcessValidatior->validate($foundRoll);
+        $this->generalProcessValidatior->validate($rollToGlow);
 
-        if (!$foundRoll->getProcess()->equals(Process::PRINTING_CHECK_IN)) {
+        if (!$rollToGlow->getProcess()->equals(Process::PRINTING_CHECK_IN)) {
             throw new RollCantBeSentToGlowException('Roll cannot be glowed! It is not in the correct process.');
         }
 
-        $copyRoll = $foundRoll;
-        // copy orders to new collection
-        $orders = new ArrayCollection($foundRoll->getOrders()->toArray());
+		$orders = new ArrayCollection($rollToGlow->getOrders()->toArray());
+		$ordersGroups = $this->groupService->handle($orders);
 
-        $this->rollRepository->remove($foundRoll);
+		if (count($ordersGroups) === 1) {
+			$firstOrder = $rollToGlow->getOrders()->first();
+			$hasLamination = null !== $firstOrder->getLaminationType();
+			$process = $hasLamination ? Process::GLOW_CHECK_IN : Process::CUTTING_CHECK_IN;
 
-        $ordersGroups = $this->groupService->handle($orders);
+			$rollToGlow->updateProcess($process);
 
+			$this->rollRepository->save($rollToGlow);
+			$this->eventDispatcher->dispatch(new RollsWereSentToGlowCheckInEvent([$rollToGlow->getId()]));
+
+			return;
+		}
+
+		$rollToGlow->removeOrders();
         $sendToGlowingRolls = [];
 
-        foreach ($ordersGroups as $group => $groupOrders) {
-            $roll = $this->rollMaker->make(name: $copyRoll->getName(), filmId: $copyRoll->getFilmId());
+		$rollToGlow->updateProcess(Process::CUT);
 
-            $roll->setEmployeeId($copyRoll->getEmployeeId());
+		$this->rollRepository->save($rollToGlow);
 
-            $roll->assignPrinter($foundRoll->getPrinter());
+		foreach ($ordersGroups as $group => $groupOrders) {
+			$roll = $this->rollMaker->make(name: $rollToGlow->getName(), filmId: $rollToGlow->getFilmId());
+
+			$roll->setEmployeeId($rollToGlow->getEmployeeId());
+			$roll->assignPrinter($rollToGlow->getPrinter());
+			$roll->setParentRoll($rollToGlow);
 
             /** @var Order $firstOrder */
             $firstOrder = $groupOrders->first();
@@ -83,12 +96,9 @@ final readonly class GlowCheckInService
                 $roll->addOrder($order);
             }
 
-            $sendToGlowingRolls[] = $roll;
+			$this->rollRepository->save($roll);
+			$sendToGlowingRolls[] = $roll;
         }
-
-        $this->rollRepository->saveRolls($sendToGlowingRolls);
-
-        $this->historySyncService->copyHistory($rollId, array_map(fn (Roll $roll) => $roll->getId(), $sendToGlowingRolls));
 
         $this->eventDispatcher->dispatch(new RollsWereSentToGlowCheckInEvent(array_map(fn (Roll $roll) => $roll->getId(), $sendToGlowingRolls)));
     }

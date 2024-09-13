@@ -4,24 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fixed history happened at equals to current time.">
-      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Roll/History/Type.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated history data.">
+      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240913124045.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240913145256.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/HistoryData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/HistoryData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AssignEmployeeToRoll/AssignEmployeeToRollCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AssignEmployeeToRoll/AssignEmployeeToRollCommandHandler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/RecordRollHistory/RecordRollHistoryCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/RecordRollHistory/RecordRollHistoryCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/RecordRollHistory/RecordRollHistoryCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/RecordRollHistory/RecordRollHistoryCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UnAssignEmployeeFromRoll/UnAssignEmployeeFromRollCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UnAssignEmployeeFromRoll/UnAssignEmployeeFromRollCommandHandler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Roll/History.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Roll/History/History.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Roll/History/History.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Roll/History/History.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Roll/Roll.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Roll/Roll.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Factory/HistoryFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Factory/HistoryFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Repository/HistoryRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Repository/HistoryRepositoryInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/GeneralProcessValidation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/GeneralProcessValidation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/GlowCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/GlowCheckInService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/History/HistorySyncService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/History/HistorySyncService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Roll.History.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Roll.History.History.orm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/OrdersCheckInProcess/OrdersOrdersCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/OrdersCheckInProcess/OrdersOrdersCheckInService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Roll.History.History.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Roll.History.History.orm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Roll.Roll.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Roll.Roll.orm.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/EventHandler/RollProcessWasUpdatedEventHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/EventHandler/RollProcessWasUpdatedEventHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/HistoryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/HistoryRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -304,47 +303,7 @@
       <workItem from="1725613898092" duration="85000" />
       <workItem from="1725613992573" duration="8817000" />
       <workItem from="1725629652154" duration="26411000" />
-      <workItem from="1726063769562" duration="16282000" />
-    </task>
-    <task id="LOCAL-00275" summary="Fixed order number return types.">
-      <option name="closed" value="true" />
-      <created>1725012006312</created>
-      <option name="number" value="00275" />
-      <option name="presentableId" value="LOCAL-00275" />
-      <option name="project" value="LOCAL" />
-      <updated>1725012006312</updated>
-    </task>
-    <task id="LOCAL-00276" summary="Fixed order number return types.">
-      <option name="closed" value="true" />
-      <created>1725012009726</created>
-      <option name="number" value="00276" />
-      <option name="presentableId" value="LOCAL-00276" />
-      <option name="project" value="LOCAL" />
-      <updated>1725012009726</updated>
-    </task>
-    <task id="LOCAL-00277" summary="Php stan fix.">
-      <option name="closed" value="true" />
-      <created>1725012102814</created>
-      <option name="number" value="00277" />
-      <option name="presentableId" value="LOCAL-00277" />
-      <option name="project" value="LOCAL" />
-      <updated>1725012102814</updated>
-    </task>
-    <task id="LOCAL-00278" summary="Php stan fix.">
-      <option name="closed" value="true" />
-      <created>1725012105056</created>
-      <option name="number" value="00278" />
-      <option name="presentableId" value="LOCAL-00278" />
-      <option name="project" value="LOCAL" />
-      <updated>1725012105056</updated>
-    </task>
-    <task id="LOCAL-00279" summary="Added customer and packages instructions notes.">
-      <option name="closed" value="true" />
-      <created>1725014335174</created>
-      <option name="number" value="00279" />
-      <option name="presentableId" value="LOCAL-00279" />
-      <option name="project" value="LOCAL" />
-      <updated>1725014335174</updated>
+      <workItem from="1726063769562" duration="30019000" />
     </task>
     <task id="LOCAL-00280" summary="Added customer and packages instructions notes.">
       <option name="closed" value="true" />
@@ -698,7 +657,47 @@
       <option name="project" value="LOCAL" />
       <updated>1726213946282</updated>
     </task>
-    <option name="localTasksCounter" value="324" />
+    <task id="LOCAL-00324" summary="Added history event types.">
+      <option name="closed" value="true" />
+      <created>1726222173381</created>
+      <option name="number" value="00324" />
+      <option name="presentableId" value="LOCAL-00324" />
+      <option name="project" value="LOCAL" />
+      <updated>1726222173381</updated>
+    </task>
+    <task id="LOCAL-00325" summary="Added history event types.">
+      <option name="closed" value="true" />
+      <created>1726222179138</created>
+      <option name="number" value="00325" />
+      <option name="presentableId" value="LOCAL-00325" />
+      <option name="project" value="LOCAL" />
+      <updated>1726222179138</updated>
+    </task>
+    <task id="LOCAL-00326" summary="Added history event types.">
+      <option name="closed" value="true" />
+      <created>1726222214860</created>
+      <option name="number" value="00326" />
+      <option name="presentableId" value="LOCAL-00326" />
+      <option name="project" value="LOCAL" />
+      <updated>1726222214860</updated>
+    </task>
+    <task id="LOCAL-00327" summary="Added history event types.">
+      <option name="closed" value="true" />
+      <created>1726222315758</created>
+      <option name="number" value="00327" />
+      <option name="presentableId" value="LOCAL-00327" />
+      <option name="project" value="LOCAL" />
+      <updated>1726222315758</updated>
+    </task>
+    <task id="LOCAL-00328" summary="Updated history data.">
+      <option name="closed" value="true" />
+      <created>1726222442532</created>
+      <option name="number" value="00328" />
+      <option name="presentableId" value="LOCAL-00328" />
+      <option name="project" value="LOCAL" />
+      <updated>1726222442532</updated>
+    </task>
+    <option name="localTasksCounter" value="329" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -734,9 +733,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed removing empty roll after orders check in." />
-    <MESSAGE value="Updated readable exception message." />
-    <MESSAGE value="Added packing feature." />
     <MESSAGE value="Added pack/unpack extra" />
     <MESSAGE value="Updated extra &amp; order dto objects." />
     <MESSAGE value="Added extra count." />
@@ -759,7 +755,10 @@
     <MESSAGE value="Fixed history data." />
     <MESSAGE value="Added order by happened at asc." />
     <MESSAGE value="Fixed history happened at equals to current time." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed history happened at equals to current time." />
+    <MESSAGE value="Added doc" />
+    <MESSAGE value="Added history event types." />
+    <MESSAGE value="Updated history data." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated history data." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

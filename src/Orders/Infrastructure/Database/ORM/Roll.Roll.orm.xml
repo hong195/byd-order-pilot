@@ -10,6 +10,10 @@
         </id>
         <field name="name" column="name" length="255"/>
 
+        <many-to-one field="parentRoll" target-entity="App\Orders\Domain\Aggregate\Roll\Roll" fetch="EXTRA_LAZY" >
+            <join-column name="parent_roll_id" referenced-column-name="id" nullable="true"/>
+        </many-to-one>
+
         <field name="employeeId" type="integer" column="employee_id"  nullable="true"/>
 
         <field name="filmId" type="integer" column="film_id" nullable="true"/>

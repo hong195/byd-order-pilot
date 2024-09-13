@@ -134,7 +134,7 @@ final class OrdersOrdersCheckInService implements OrdersCheckInInterface
     private function findOrMakeRoll(string $name, ?int $filmId = null, ?FilmType $filmType = null): Roll
     {
         $roll = $this->rolls->filter(function (Roll $roll) use ($filmId, $filmType) {
-            return $roll->getFilmId() === $filmId && in_array($filmType, $roll->getPrinter()->getFilmTypes());
+            return $roll->getFilmId() === $filmId && in_array($filmType, $roll->getPrinter()?->getFilmTypes() ?? []);
         })->first();
 
         if ($roll) {

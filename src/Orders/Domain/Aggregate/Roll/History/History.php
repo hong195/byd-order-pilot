@@ -17,6 +17,8 @@ final class History
     private ?int $id;
     private ?int $employeeId = null;
 
+    private ?int $parentRollId = null;
+
     /**
      * Constructor method.
      *
@@ -65,5 +67,25 @@ final class History
     public function getHappenedAt(): \DateTimeImmutable
     {
         return $this->happenedAt;
+    }
+
+    /**
+     * Get the parent roll ID.
+     *
+     * @return int|null the parent roll ID
+     */
+    public function getParentRollId(): ?int
+    {
+        return $this->parentRollId;
+    }
+
+    /**
+     * Set the parent roll ID.
+     *
+     * @param int|null $parentRollId the parent roll ID
+     */
+    public function setParentRollId(?int $parentRollId): void
+    {
+        $this->parentRollId = $parentRollId;
     }
 }

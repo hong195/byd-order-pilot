@@ -37,6 +37,7 @@ class Roll extends Aggregate
 
     private ?int $employeeId = null;
 
+	private ?self $parentRoll = null;
     /**
      * Constructs a new object with the given name, roll type, and lamination types.
      *
@@ -261,4 +262,25 @@ class Roll extends Aggregate
     {
         $this->employeeId = $employeeId;
     }
+
+	public function setParentRoll(Roll $roll): void
+	{
+		$this->parentRoll = $roll;
+	}
+
+	public function getParentRoll(): ?self
+	{
+		return $this->parentRoll;
+	}
+
+	public function __clone(): void
+	{
+		if ($this->id) {
+			$this->id = null;
+			$this->printer = null;
+			$this->parentRoll = null;
+			$this->dateAdded = new \DateTimeImmutable();
+			$this->orders = new ArrayCollection([]);
+		}
+	}
 }

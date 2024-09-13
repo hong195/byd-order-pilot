@@ -7,13 +7,19 @@ namespace App\Orders\Domain\Service\Roll;
 use App\Orders\Domain\Aggregate\Roll\Roll;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Validates a Roll object.
+ */
 final readonly class GeneralProcessValidation
 {
-    public function __construct()
-    {
-    }
-
-    public function validate(?Roll $roll): void
+	/**
+	 * Validates a Roll object.
+	 *
+	 * @param Roll|null $roll The roll object to validate.
+	 *
+	 * @throws NotFoundHttpException
+	 */
+	public function validate(?Roll $roll): void
     {
         if (!$roll) {
             throw new NotFoundHttpException('Roll not found');

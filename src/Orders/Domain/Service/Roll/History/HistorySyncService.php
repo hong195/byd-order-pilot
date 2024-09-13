@@ -39,34 +39,15 @@ final readonly class HistorySyncService
     {
         $roll = $this->rollRepository->findById($rollId);
 
-        $history = $this->historyFactory->make(rollId: $rollId, process: $roll->getProcess(), happenedAt: new \DateTimeImmutable(), type: $type, employeeId: $roll->getEmployeeId());
+        $history = $this->historyFactory->make(
+			rollId: $rollId,
+			process: $roll->getProcess(),
+			happenedAt: new \DateTimeImmutable(),
+			type: $type,
+			parentRollId: $roll->getParentRoll()?->getId(),
+			employeeId: $roll->getEmployeeId()
+		);
 
         $this->historyRepository->add($history);
-    }
-
-    /**
-     * Copies the history of a parent roll to multiple children rolls.
-     *
-     * @param int   $parentRollId   the ID of the parent roll
-     * @param int[] $childrenRollId an array of child roll IDs
-     */
-    public function copyHistory(int $parentRollId, array $childrenRollId): void
-    {
-        $histories = $this->historyRepository->findByRollId($parentRollId);
-
-        foreach ($histories as $history) {
-            foreach ($childrenRollId as $copyRollId) {
-                $copiedHistory = $this->historyFactory->make(
-					rollId: $copyRollId,
-					process: $history->process,
-					happenedAt: $history->happenedAt,
-					type: $history->type,
-					employeeId: $history->getEmployeeId()
-				);
-                $this->historyRepository->add($copiedHistory);
-
-                $this->historyRepository->delete($history);
-            }
-        }
     }
 }

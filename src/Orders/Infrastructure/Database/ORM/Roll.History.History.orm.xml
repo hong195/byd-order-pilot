@@ -11,6 +11,8 @@
 
         <field name="rollId" type="integer" column="roll_id" nullable="true"/>
 
+        <field name="parentRollId" type="integer" column="parent_roll_id" nullable="true"/>
+
         <field name="employeeId" type="integer" column="employee_id" nullable="true"/>
 
         <field name="type" enum-type="App\Orders\Domain\Aggregate\Roll\History\Type" column="type" nullable="true"/>
