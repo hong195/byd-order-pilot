@@ -41,11 +41,11 @@ final class Order extends Aggregate
     /**
      * Initializes a new instance of the class.
      *
-     * @param Customer $customer the customer object
-     * @param FilmType $filmType the film type
-     * @param int      $length   the length
+     * @param Customer  $customer the customer object
+     * @param FilmType  $filmType the film type
+     * @param int|float $length   the length
      */
-    public function __construct(public readonly Customer $customer, public FilmType $filmType, public readonly int $length)
+    public function __construct(public readonly Customer $customer, public FilmType $filmType, public readonly int|float $length)
     {
         $this->dateAdded = new \DateTimeImmutable();
         $this->extras = new ArrayCollection([]);
@@ -214,9 +214,9 @@ final class Order extends Aggregate
     /**
      * Returns the length.
      *
-     * @return int the length
+     * @return int|float the length
      */
-    public function getLength(): int
+    public function getLength(): float|int
     {
         return $this->length;
     }

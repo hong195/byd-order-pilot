@@ -49,7 +49,7 @@ final readonly class ManualAddOrderAction
 
         $manuallyAddCommand = new ManuallyAddOrderCommand(
             customerName: $request->get('customerName'),
-            length: (int) $request->get('length'),
+            length: (float) $request->get('length'),
             filmType: $request->get('filmType'),
             hasPriority: filter_var($request->get('hasPriority'), FILTER_VALIDATE_BOOLEAN),
             laminationType: $request->get('laminationType'),

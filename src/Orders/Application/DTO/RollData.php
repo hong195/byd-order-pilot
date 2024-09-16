@@ -19,7 +19,7 @@ final class RollData
      *
      * @param int                     $id            the ID of the object
      * @param string                  $name          the name of the object
-     * @param int                     $length        the length of the object
+     * @param int|float               $length        the length of the object
      * @param int                     $count         the count of the object
      * @param string[]                $films         an array of films
      * @param string|null             $process       the process of the object (optional)
@@ -31,7 +31,7 @@ final class RollData
     public function __construct(
         public readonly int $id,
         public readonly string $name,
-        public readonly int $length,
+        public readonly int|float $length,
         public readonly int $count,
         public readonly array $films,
         public readonly ?string $process = null,
@@ -42,24 +42,22 @@ final class RollData
     ) {
     }
 
-	/**
-	 * Setter method to set the employee object.
-	 *
-	 * @param EmployeeData|null $employee the employee object to set, or null to unset
-	 * @return void
-	 */
-	public function withEmployee(?EmployeeData $employee): void
+    /**
+     * Setter method to set the employee object.
+     *
+     * @param EmployeeData|null $employee the employee object to set, or null to unset
+     */
+    public function withEmployee(?EmployeeData $employee): void
     {
         $this->employee = $employee;
     }
 
-	/**
-	 * Setter method to set the printer object.
-	 *
-	 * @param Printerdata|null $printer The printer object to be set or null to unset the printer
-	 * @return void
-	 */
-	public function withPrinter(?Printerdata $printer): void
+    /**
+     * Setter method to set the printer object.
+     *
+     * @param Printerdata|null $printer The printer object to be set or null to unset the printer
+     */
+    public function withPrinter(?Printerdata $printer): void
     {
         $this->printer = $printer;
     }

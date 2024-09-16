@@ -15,7 +15,7 @@ readonly class ManuallyAddOrderCommand implements CommandInterface
      * Class constructor.
      *
      * @param string      $customerName          the name of the customer
-     * @param int         $length                the length of the object
+     * @param int|float   $length                the length of the object
      * @param string|null $filmType              the type of film
      * @param bool        $hasPriority           indicates if the order has priority
      * @param string|null $laminationType        the type of lamination
@@ -27,7 +27,7 @@ readonly class ManuallyAddOrderCommand implements CommandInterface
      */
     public function __construct(
         public string $customerName,
-        public int $length,
+        public int|float $length,
         public ?string $filmType,
         public bool $hasPriority = false,
         public ?string $laminationType = null,

@@ -13,7 +13,7 @@ final readonly class ManualCreateOrderDTO
      * Constructor for the class.
      *
      * @param string      $customerName          the customer's name
-     * @param int         $length                the length of the order
+     * @param int|float   $length                the length of the order
      * @param string      $filmType              the film type
      * @param string|null $laminationType        The type of lamination for the order. (Optional)
      * @param string|null $cutFile               The cut file for the order. (Optional)
@@ -23,7 +23,7 @@ final readonly class ManualCreateOrderDTO
      */
     public function __construct(
         public string $customerName,
-        public int $length,
+        public int|float $length,
         public string $filmType,
         public ?string $laminationType = null,
         public ?string $cutFile = null,

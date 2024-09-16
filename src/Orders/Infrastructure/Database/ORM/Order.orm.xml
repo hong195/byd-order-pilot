@@ -18,7 +18,7 @@
                length="255"
         />
 
-        <field name="length" type="bigint" column="length"  nullable="true"/>
+        <field name="length" type="decimal" column="length"  nullable="true" precision="15" scale="2"/>
 
         <field name="laminationType"
                enum-type="App\Orders\Domain\ValueObject\LaminationType"

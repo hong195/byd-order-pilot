@@ -29,12 +29,12 @@ final class OrderFactory
      * Creates a new Order for a customer.
      *
      * @param Customer $customer The customer for the order
-     * @param int      $length   The length of the film
+     * @param int|float      $length   The length of the film
      * @param FilmType $filmType The type of film
      *
      * @return Order The created order
      */
-    public function make(Customer $customer, int $length, FilmType $filmType): Order
+    public function make(Customer $customer, int|float $length, FilmType $filmType): Order
     {
         $order = new Order(
             customer: $customer,
