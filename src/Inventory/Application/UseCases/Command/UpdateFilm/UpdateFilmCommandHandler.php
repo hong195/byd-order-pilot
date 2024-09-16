@@ -10,6 +10,7 @@ use App\Inventory\Domain\Service\LaminationUpdater;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Command\CommandHandlerInterface;
 use App\Shared\Domain\Service\AssertService;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -22,7 +23,7 @@ readonly class UpdateFilmCommandHandler implements CommandHandlerInterface
      *
      * @param AccessControlService $accessControlService an instance of the AccessControlService class used for controlling access to the application
      */
-    public function __construct(private AccessControlService $accessControlService, private FilmUpdater $filmUpdater, private LaminationUpdater $laminationUpdater)
+    public function __construct(private AccessControlService $accessControlService, private FilmUpdater $filmUpdater, private LaminationUpdater $laminationUpdater, private EventDispatcherInterface $eventDispatcher)
     {
     }
 
@@ -42,5 +43,7 @@ readonly class UpdateFilmCommandHandler implements CommandHandlerInterface
             FilmType::Film->value => $this->filmUpdater->update(id: $updateFilmCommand->id, name: $updateFilmCommand->name, length: $updateFilmCommand->length, type: $updateFilmCommand->type),
             default => throw new \InvalidArgumentException('Invalid film type'),
         };
+
+		#$this->eventDispatcher->dispatch(new FilmWasUpdatedEvent($updateFilmCommand->id));
     }
 }

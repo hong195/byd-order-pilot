@@ -4,12 +4,15 @@ declare(strict_types=1);
 
 namespace App\Inventory\Domain\Aggregate;
 
+use App\Inventory\Domain\Events\FilmLengthWasUpdatedEvent;
+use App\Shared\Domain\Aggregate\Aggregate;
+
 /**
  * Class AbstractFilm.
  *
  * This class represents a roll.
  */
-abstract class AbstractFilm
+abstract class AbstractFilm extends Aggregate
 {
     /**
      * @phpstan-ignore-next-line
@@ -78,6 +81,10 @@ abstract class AbstractFilm
      */
     public function updateLength(int $length): void
     {
+		if ($this->length !== $length) {
+			$this->raise(new FilmLengthWasUpdatedEvent($this->id, $length));
+		}
+
         $this->length = $length;
     }
 

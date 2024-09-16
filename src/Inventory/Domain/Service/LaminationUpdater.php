@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Inventory\Domain\Service;
 
 use App\Inventory\Infrastructure\Repository\FilmRepository;
+use Psr\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -17,7 +18,7 @@ final readonly class LaminationUpdater
      *
      * @param FilmRepository $filmRepository the instance of the FilmRepository
      */
-    public function __construct(private FilmRepository $filmRepository)
+    public function __construct(private FilmRepository $filmRepository, private EventDispatcherInterface $eventDispatcher)
     {
     }
 
@@ -44,7 +45,7 @@ final readonly class LaminationUpdater
 
         if ($length !== $film->getLength()) {
             $film->updateLength($length);
-        }
+		}
 
         if ($type) {
             if (!in_array($type, ['holo_flakes', 'matt', 'glossy', 'gold_flakes'])) {
