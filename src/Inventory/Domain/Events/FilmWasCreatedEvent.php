@@ -14,6 +14,6 @@ final readonly class FilmWasCreatedEvent implements EventInterface, EventHasName
 
     public function __toString(): string
     {
-        return 'film_length_was_updated';
+        return 'film_length_was_created';
     }
 }

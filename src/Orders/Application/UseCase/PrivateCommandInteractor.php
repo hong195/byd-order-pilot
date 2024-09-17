@@ -261,16 +261,4 @@ readonly class PrivateCommandInteractor
     {
         $this->commandBus->execute(new RecordRollHistoryCommand($rollId));
     }
-
-    /**
-     * Copies the history of a roll to another roll.
-     *
-     * @param int   $rollId  The ID of the roll
-     * @param int[] $rollIds The IDs of the rolls to which the history will be copied
-     */
-    public function copyRollHistory(int $rollId, array $rollIds): void
-    {
-        $command = new CopyRollHistoryCommand(rollId: $rollId, newRollIds: $rollIds);
-        $this->commandBus->execute($command);
-    }
 }

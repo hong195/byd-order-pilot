@@ -118,9 +118,9 @@ class Roll extends Aggregate
     /**
      * Retrieves the total length of the orders associated with this object.
      *
-     * @return int the total length of the orders associated with this object
+     * @return float the total length of the orders associated with this object
      */
-    public function getOrdersLength(): int
+    public function getOrdersLength(): float
     {
         return $this->orders->reduce(fn (int $carry, Order $order) => $carry + $order->getLength(), 0);
     }

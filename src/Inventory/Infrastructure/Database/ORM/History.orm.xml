@@ -16,9 +16,9 @@
 
         <field name="eventType" column="event_type"/>
 
-        <field name="changeAmount" type="decimal" column="change_amount" precision="15" scale="2"/>
+        <field name="newSize" type="decimal" column="new_size" precision="15" scale="2"/>
 
-        <field name="remainingSize" type="decimal" column="remaining_size" precision="15" scale="2"/>
+        <field name="oldSize" type="decimal" column="old_size" precision="15" scale="2"/>
 
         <field name="createdAt" type="datetime_immutable" column="created_at"/>
     </entity>

@@ -13,7 +13,7 @@
 
         <field name="name" column="name" length="255"/>
 
-        <field name="length" column="length" type="bigint"/>
+        <field name="length" column="length" type="float" precision="15" scale="2"/>
 
         <field name="type" column="type" length="255"/>
 

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Inventory\Domain\Aggregate;
 
 use App\Inventory\Domain\Events\FilmLengthWasUpdatedEvent;
+use App\Inventory\Domain\Events\FilmWasUsedEvent;
 use App\Shared\Domain\Aggregate\Aggregate;
 
 /**
@@ -25,11 +26,11 @@ abstract class AbstractFilm extends Aggregate
      * Class Constructor.
      *
      * @param string $name   the name of the object
-     * @param int    $length the length of the object
+     * @param float    $length the length of the object
      *
      * @return void
      */
-    public function __construct(protected string $name, protected int $length, protected string $type)
+    public function __construct(protected string $name, protected float $length, protected string $type)
     {
         $this->dateAdded = new \DateTimeImmutable();
     }
@@ -67,9 +68,9 @@ abstract class AbstractFilm extends Aggregate
     /**
      * Get the length of the object.
      *
-     * @return int the length of the object
+     * @return float the length of the object
      */
-    public function getLength(): int
+    public function getLength(): float
     {
         return $this->length;
     }
@@ -77,15 +78,15 @@ abstract class AbstractFilm extends Aggregate
     /**
      * Updates the length of the object.
      *
-     * @param int $length the new length of the object
+     * @param float $newLength the new length of the object
      */
-    public function updateLength(int $length): void
+    public function updateLength(float $newLength): void
     {
-		if ($this->length !== $length) {
-			$this->raise(new FilmLengthWasUpdatedEvent($this->id, $length));
+		if ($this->length !== $newLength) {
+			$this->raise(new FilmLengthWasUpdatedEvent(filmId: $this->id, newSize: $newLength, oldSize:  $this->length));
 		}
 
-        $this->length = $length;
+        $this->length = $newLength;
     }
 
     /**

@@ -6,7 +6,7 @@ namespace App\Orders\Domain\DTO;
 
 final readonly class FilmDataTransformer
 {
-    public function fromArray(int $id, string $name, int $length, string $type): FilmData
+    public function fromArray(int $id, string $name, float $length, string $type): FilmData
     {
         return new FilmData(
             id: $id,

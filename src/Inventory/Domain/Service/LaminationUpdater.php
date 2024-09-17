@@ -27,11 +27,11 @@ final readonly class LaminationUpdater
      *
      * @param int    $id     the id of the film to update
      * @param string $name   the new name for the film
-     * @param int    $length the new length for the film
+     * @param float    $length the new length for the film
      *
      * @throws NotFoundHttpException if the film with the given id is not found
      */
-    public function update(int $id, string $name, int $length, ?string $type = null): void
+    public function update(int $id, string $name, float $length, ?string $type = null): void
     {
         $film = $this->filmRepository->findById($id);
 
@@ -43,9 +43,7 @@ final readonly class LaminationUpdater
             $film->changeName($name);
         }
 
-        if ($length !== $film->getLength()) {
-            $film->updateLength($length);
-		}
+		$film->updateLength($length);
 
         if ($type) {
             if (!in_array($type, ['holo_flakes', 'matt', 'glossy', 'gold_flakes'])) {

@@ -12,20 +12,23 @@ final class History
     public ?int $id;
     private \DateTimeImmutable $createdAt;
 
+    public float $difference = 0;
+
     /**
      * Class Constructor.
      *
-     * @param string    $filmType      the film type
-     * @param string    $eventType     the event type
-     * @param float|int $changeAmount  the change amount
-     * @param float|int $remainingSize the remaining size
+     * @param int    $filmId    the ID of the film
+     * @param string $filmType  the type of the film
+     * @param string $eventType the type of the event
+     * @param float  $newSize   the new size of the film
+     * @param float  $oldSize   the old size of the film
      */
     public function __construct(
         public readonly int $filmId,
         public readonly string $filmType,
         public readonly string $eventType,
-        public readonly float|int $changeAmount,
-        public readonly float|int $remainingSize,
+        public readonly float $newSize,
+        public readonly float $oldSize,
     ) {
         $this->createdAt = new \DateTimeImmutable();
     }
@@ -48,5 +51,15 @@ final class History
     public function getCreatedAt(): \DateTimeImmutable
     {
         return $this->createdAt;
+    }
+
+    /**
+     * Get the difference between the new size and the old size.
+     *
+     * @return float the difference between the new size and the old size
+     */
+    public function getDifference(): float
+    {
+        return $this->newSize - $this->oldSize;
     }
 }
