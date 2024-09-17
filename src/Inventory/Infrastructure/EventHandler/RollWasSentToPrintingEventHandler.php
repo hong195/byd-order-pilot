@@ -37,6 +37,6 @@ final readonly class RollWasSentToPrintingEventHandler implements EventHandlerIn
 
         $film = $this->privateQueryInteractor->findAFilm($roll->filmId)->FilmData;
 
-        $this->privateCommandInteractor->updateFilm(id: $film->id, name: $film->name, length: $film->length - $roll->length);
+        $this->privateCommandInteractor->useFilm(filmId: $film->id, lengthToUse: $roll->length);
     }
 }

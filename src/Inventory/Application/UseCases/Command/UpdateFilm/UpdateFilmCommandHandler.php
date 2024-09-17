@@ -43,5 +43,5 @@ readonly class UpdateFilmCommandHandler implements CommandHandlerInterface
             FilmType::Film->value => $this->filmUpdater->update(id: $updateFilmCommand->id, name: $updateFilmCommand->name, length: $updateFilmCommand->length, type: $updateFilmCommand->type),
             default => throw new \InvalidArgumentException('Invalid film type'),
         };
-	}
+    }
 }

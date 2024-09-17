@@ -6,7 +6,9 @@ namespace App\Inventory\Domain\Aggregate;
 
 use App\Inventory\Domain\Events\FilmLengthWasUpdatedEvent;
 use App\Inventory\Domain\Events\FilmWasUsedEvent;
+use App\Inventory\Domain\Exceptions\NotEnoughFilmException;
 use App\Shared\Domain\Aggregate\Aggregate;
+use Webmozart\Assert\Assert;
 
 /**
  * Class AbstractFilm.
@@ -26,7 +28,7 @@ abstract class AbstractFilm extends Aggregate
      * Class Constructor.
      *
      * @param string $name   the name of the object
-     * @param float    $length the length of the object
+     * @param float  $length the length of the object
      *
      * @return void
      */
@@ -82,12 +84,30 @@ abstract class AbstractFilm extends Aggregate
      */
     public function updateLength(float $newLength): void
     {
-		if ($this->length !== $newLength) {
-			$this->raise(new FilmLengthWasUpdatedEvent(filmId: $this->id, newSize: $newLength, oldSize:  $this->length));
-		}
+        if ($this->length !== $newLength) {
+            $this->raise(new FilmLengthWasUpdatedEvent(filmId: $this->id, newSize: $newLength, oldSize: $this->length));
+        }
 
         $this->length = $newLength;
     }
+
+	/**
+	 * @throws NotEnoughFilmException
+	 */
+	public function use(float $lengthToUse): void
+	{
+		if ($lengthToUse > $this->length) {
+			throw new NotEnoughFilmException('Not Enough Film');
+		}
+
+		$this->raise(new FilmWasUsedEvent(filmId: $this->id, newSize: $lengthToUse, oldSize: $this->length));
+
+		$this->length -= $lengthToUse;
+
+		if ($this->length == 0) {
+			#$this->status = 'used';
+		}
+	}
 
     /**
      * Get the type of the object.

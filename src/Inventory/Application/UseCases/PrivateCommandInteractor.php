@@ -5,10 +5,11 @@ declare(strict_types=1);
 namespace App\Inventory\Application\UseCases;
 
 use App\Inventory\Application\UseCases\Command\AddFilm\AddFilmCommand;
-use App\Inventory\Application\UseCases\Command\RecordInventoryAdding\RecordInventoryAddingCommand;
 use App\Inventory\Application\UseCases\Command\DeleteFilm\DeleteFilmCommand;
+use App\Inventory\Application\UseCases\Command\RecordInventoryAdding\RecordInventoryAddingCommand;
 use App\Inventory\Application\UseCases\Command\RecordInventoryUpdating\RecordInventoryUpdatingCommand;
 use App\Inventory\Application\UseCases\Command\UpdateFilm\UpdateFilmCommand;
+use App\Inventory\Application\UseCases\Command\UseFilm\UseFilmCommand;
 use App\Inventory\Domain\Aggregate\FilmType;
 use App\Shared\Application\Command\CommandBusInterface;
 
@@ -63,7 +64,7 @@ readonly class PrivateCommandInteractor
      *
      * @param int         $id     the ID of the film
      * @param string      $name   the new name of the film
-     * @param float         $length the new length of the film
+     * @param float       $length the new length of the film
      * @param string|null $type   the new type of the film (optional)
      */
     public function updateFilm(int $id, string $name, float $length, ?string $type = null): void
@@ -98,28 +99,35 @@ readonly class PrivateCommandInteractor
         $this->commandBus->execute($command);
     }
 
-	/**
-	 * Records the addition of inventory to the application.
-	 *
-	 * @param int $filmId the ID of the film for which inventory is being added
-	 * @param string $event the event description for the inventory addition
-	 *
-	 * @return void
-	 */
-	public function recordInventoryAdding(int $filmId, string $event): void
+    /**
+     * Records the addition of inventory to the application.
+     *
+     * @param int    $filmId the ID of the film for which inventory is being added
+     * @param string $event  the event description for the inventory addition
+     */
+    public function recordInventoryAdding(int $filmId, string $event): void
     {
         $this->commandBus->execute(new RecordInventoryAddingCommand($filmId, $event));
     }
 
-	/**
-	 * Records an inventory updating.
-	 *
-	 * @param RecordInventoryUpdatingCommand $command the command to record the inventory updating
-	 *
-	 * @return void
-	 */
-	public function recordInventoryUpdating(RecordInventoryUpdatingCommand $command): void
+    /**
+     * Records an inventory updating.
+     *
+     * @param RecordInventoryUpdatingCommand $command the command to record the inventory updating
+     */
+    public function recordInventoryUpdating(RecordInventoryUpdatingCommand $command): void
     {
         $this->commandBus->execute($command);
+    }
+
+    /**
+     * Uses a film in the application.
+     *
+     * @param int   $filmId the ID of the film
+     * @param float $lengthToUse the length of film to use
+     */
+    public function useFilm(int $filmId, float $lengthToUse): void
+    {
+        $this->commandBus->execute(new UseFilmCommand(filmId: $filmId, length: $lengthToUse));
     }
 }
