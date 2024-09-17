@@ -6,6 +6,8 @@ namespace App\Inventory\Application\UseCases;
 
 use App\Inventory\Application\UseCases\Query\FindAFilm\FindAFilmQuery;
 use App\Inventory\Application\UseCases\Query\FindAFilm\FindAFilmResult;
+use App\Inventory\Application\UseCases\Query\FindFilmHistory\FindFilmHistoryQuery;
+use App\Inventory\Application\UseCases\Query\FindFilmHistory\FindFilmHistoryQueryResult;
 use App\Inventory\Application\UseCases\Query\FindFilms\FindFilmsQuery;
 use App\Inventory\Application\UseCases\Query\FindFilms\FindFilmsResult;
 use App\Shared\Application\Query\QueryBusInterface;
@@ -15,9 +17,11 @@ use App\Shared\Application\Query\QueryBusInterface;
  */
 readonly class PrivateQueryInteractor
 {
-    /**
-     * Class ExampleClass.
-     */
+	/**
+	 * Constructor.
+	 *
+	 * @param QueryBusInterface $queryBus The query bus instance.
+	 */
     public function __construct(
         private QueryBusInterface $queryBus,
     ) {
@@ -28,7 +32,7 @@ readonly class PrivateQueryInteractor
      *
      * @param int $id the ID of the film
      *
-     * @return FindFilmsResult the film data
+     * @return FindAFilmResult the film data
      */
     public function findAFilm(int $id): FindAFilmResult
     {
@@ -49,5 +53,17 @@ readonly class PrivateQueryInteractor
         $command = new FindFilmsQuery($inventoryType);
 
         return $this->queryBus->execute($command);
+    }
+
+    /**
+     * Finds films based on the given film type.
+     *
+     * @param FindFilmHistoryQuery $query the film type
+     *
+     * @return FindFilmHistoryQueryResult the array of found films
+     */
+    public function findFilmHistory(FindFilmHistoryQuery $query): FindFilmHistoryQueryResult
+    {
+        return $this->queryBus->execute($query);
     }
 }

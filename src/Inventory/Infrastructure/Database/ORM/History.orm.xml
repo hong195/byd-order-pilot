@@ -12,6 +12,8 @@
 
         <field name="filmId" type="integer" column="film_id"/>
 
+        <field name="inventoryType" column="inventory_type"/>
+
         <field name="filmType" column="film_type"/>
 
         <field name="eventType" column="event_type"/>

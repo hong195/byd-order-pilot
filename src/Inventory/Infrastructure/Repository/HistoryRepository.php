@@ -5,8 +5,11 @@ declare(strict_types=1);
 namespace App\Inventory\Infrastructure\Repository;
 
 use App\Inventory\Domain\Aggregate\History;
+use App\Inventory\Domain\Repository\HistoryFilter;
 use App\Inventory\Domain\Repository\HistoryRepositoryInterface;
+use App\Shared\Domain\Repository\PaginationResult;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Doctrine\Persistence\ManagerRegistry;
 
 final class HistoryRepository extends ServiceEntityRepository implements HistoryRepositoryInterface
@@ -49,5 +52,62 @@ final class HistoryRepository extends ServiceEntityRepository implements History
     public function findByFilmType(string $filmType): array
     {
         return $this->findBy(['filmType' => $filmType]);
+    }
+
+    /**
+     * Finds entities by filter.
+     *
+     * @param HistoryFilter $filter the filter criteria
+     *
+     * @return PaginationResult the found entities
+     *
+     * @throws \Exception
+     */
+    public function findByFilter(HistoryFilter $filter): PaginationResult
+    {
+        $qb = $this->createQueryBuilder('h');
+
+        if ($filter->inventoryType) {
+            $qb->where('h.inventoryType = :inventoryType')
+                ->setParameter('inventoryType', $filter->inventoryType);
+        }
+
+        if ($filter->filmId) {
+            $qb->where('h.filmId = :filmId')
+                ->setParameter('filmId', $filter->filmId);
+        }
+
+        if ($filter->event) {
+            $qb->where('h.eventType = :event')
+                ->setParameter('event', $filter->event);
+        }
+
+        if ($filter->type) {
+            $qb->where('h.filmType = :filmType')
+                ->setParameter('filmType', $filter->type);
+        }
+
+        if ($filter->pager) {
+            $qb->setMaxResults($filter->pager->getLimit());
+            $qb->setFirstResult($filter->pager->getOffset());
+        }
+
+        if ($filter->interval) {
+            $start = $filter->interval[0];
+            $end = $filter->interval[1];
+
+            $qb->andWhere('h.createdAt >= :startDate')
+                ->setParameter('startDate', $start);
+
+            $qb->andWhere('h.createdAt <= :endDate')
+                ->setParameter('endDate', $end);
+        }
+
+        $paginator = new Paginator($qb->getQuery());
+
+        return new PaginationResult(
+            iterator_to_array($paginator->getIterator()),
+            $paginator->count()
+        );
     }
 }

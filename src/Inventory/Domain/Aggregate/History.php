@@ -7,7 +7,7 @@ namespace App\Inventory\Domain\Aggregate;
 final class History
 {
     /*
-     * @phpstan-ignore-next-line
+     * @php-stan-ignore-next-line
      */
     public ?int $id;
     private \DateTimeImmutable $createdAt;
@@ -15,16 +15,18 @@ final class History
     public float $difference = 0;
 
     /**
-     * Class Constructor.
+     * Class constructor.
      *
-     * @param int    $filmId    the ID of the film
-     * @param string $filmType  the type of the film
-     * @param string $eventType the type of the event
-     * @param float  $newSize   the new size of the film
-     * @param float  $oldSize   the old size of the film
+     * @param int    $filmId        The film ID
+     * @param string $inventoryType The inventory type
+     * @param string $filmType      The film type
+     * @param string $eventType     The event type
+     * @param float  $newSize       The new size
+     * @param float  $oldSize       The old size
      */
     public function __construct(
         public readonly int $filmId,
+        public string $inventoryType,
         public readonly string $filmType,
         public readonly string $eventType,
         public readonly float $newSize,

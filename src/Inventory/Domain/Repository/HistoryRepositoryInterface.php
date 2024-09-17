@@ -3,6 +3,7 @@
 namespace App\Inventory\Domain\Repository;
 
 use App\Inventory\Domain\Aggregate\History;
+use App\Shared\Domain\Repository\PaginationResult;
 
 interface HistoryRepositoryInterface
 {
@@ -30,4 +31,13 @@ interface HistoryRepositoryInterface
      * @return History[]
      */
     public function findByFilmType(string $filmType): array;
+
+    /**
+     * Finds records by filter.
+     *
+     * @param HistoryFilter $filter The filter criteria
+     *
+     * @return PaginationResult
+     */
+    public function findByFilter(HistoryFilter $filter): PaginationResult;
 }

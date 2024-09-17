@@ -6,12 +6,16 @@ namespace App\Inventory\Infrastructure\EventHandler;
 
 use App\Inventory\Application\UseCases\Command\RecordInventoryUpdating\RecordInventoryUpdatingCommand;
 use App\Inventory\Application\UseCases\PrivateCommandInteractor;
-use App\Inventory\Domain\Events\FilmLengthWasUpdatedEvent;
+use App\Inventory\Domain\Events\FilmWasCreatedEvent;
+use App\Inventory\Domain\Events\FilmWasDeletedEvent;
 use App\Shared\Application\Event\EventHandlerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 
-#[AsEventListener(event: FilmLengthWasUpdatedEvent::class, method: '__invoke')]
-final readonly class FilmLengthWasUpdatedEventHandler implements EventHandlerInterface
+#[AsEventListener(event: FilmWasDeletedEvent::class, method: '__invoke')]
+/**
+ * RollWasSentToPrintCheckInEventHandler handles the RollWasSentToPrintCheckInEvent.
+ */
+final readonly class FilmWasDeletedEventHandler implements EventHandlerInterface
 {
     /**
      * Class constructor.
@@ -23,11 +27,11 @@ final readonly class FilmLengthWasUpdatedEventHandler implements EventHandlerInt
     }
 
     /**
-     * Invokes the FilmLengthWasUpdatedEvent event.
+     * Invokes the FilmWasCreatedEvent event.
      *
-     * @param FilmLengthWasUpdatedEvent $event the event object
+     * @param FilmWasDeletedEvent $event the event object
      */
-    public function __invoke(FilmLengthWasUpdatedEvent $event): void
+    public function __invoke(FilmWasDeletedEvent $event): void
     {
 		$command = new RecordInventoryUpdatingCommand(
 			filmId: $event->filmId,
@@ -35,6 +39,7 @@ final readonly class FilmLengthWasUpdatedEventHandler implements EventHandlerInt
 			newSize: $event->newSize,
 			oldSize: $event->oldSize
 		);
-		$this->privateCommandInteractor->recordInventoryUpdating($command);
+
+        $this->privateCommandInteractor->recordInventoryUpdating($command);
     }
 }
