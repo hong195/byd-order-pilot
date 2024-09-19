@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added film history.">
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Bug fix.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Aggregate/History.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Domain/Aggregate/History.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/OrderData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/OrderData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/Service/Roll/RollListService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/Service/Roll/RollListService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Repository/HistoryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Repository/HistoryRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -294,15 +292,7 @@
       <workItem from="1726063769562" duration="34578000" />
       <workItem from="1726470299712" duration="17482000" />
       <workItem from="1726574611729" duration="15256000" />
-      <workItem from="1726657747853" duration="9513000" />
-    </task>
-    <task id="LOCAL-00292" summary="Added pack/unpack extra">
-      <option name="closed" value="true" />
-      <created>1725367419967</created>
-      <option name="number" value="00292" />
-      <option name="presentableId" value="LOCAL-00292" />
-      <option name="project" value="LOCAL" />
-      <updated>1725367419967</updated>
+      <workItem from="1726657747853" duration="12368000" />
     </task>
     <task id="LOCAL-00293" summary="Updated extra &amp; order dto objects.">
       <option name="closed" value="true" />
@@ -688,7 +678,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726664463494</updated>
     </task>
-    <option name="localTasksCounter" value="341" />
+    <task id="LOCAL-00341" summary="Bug fix.">
+      <option name="closed" value="true" />
+      <created>1726733058255</created>
+      <option name="number" value="00341" />
+      <option name="presentableId" value="LOCAL-00341" />
+      <option name="project" value="LOCAL" />
+      <updated>1726733058255</updated>
+    </task>
+    <option name="localTasksCounter" value="342" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -724,7 +722,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added assign/unassign employee to roll." />
     <MESSAGE value="Moved roll to its own folder." />
     <MESSAGE value="Fixed incorrect extra name." />
     <MESSAGE value="Fixed removing roll relation when order is unassign." />
@@ -749,7 +746,8 @@
     <MESSAGE value="Added new event triggered when film is used to print." />
     <MESSAGE value="Added event handler when film is deleted." />
     <MESSAGE value="Added film history." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added film history." />
+    <MESSAGE value="Bug fix." />
+    <option name="LAST_COMMIT_MESSAGE" value="Bug fix." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

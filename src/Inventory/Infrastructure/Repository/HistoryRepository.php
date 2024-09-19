@@ -68,28 +68,23 @@ final class HistoryRepository extends ServiceEntityRepository implements History
         $qb = $this->createQueryBuilder('h');
 
         if ($filter->inventoryType) {
-            $qb->where('h.inventoryType = :inventoryType')
+            $qb->andWhere('h.inventoryType = :inventoryType')
                 ->setParameter('inventoryType', $filter->inventoryType);
         }
 
         if ($filter->filmId) {
-            $qb->where('h.filmId = :filmId')
+            $qb->andWhere('h.filmId = :filmId')
                 ->setParameter('filmId', $filter->filmId);
         }
 
         if ($filter->event) {
-            $qb->where('h.eventType = :event')
+            $qb->andWhere('h.eventType = :event')
                 ->setParameter('event', $filter->event);
         }
 
         if ($filter->type) {
-            $qb->where('h.filmType = :filmType')
+            $qb->andWhere('h.filmType = :filmType')
                 ->setParameter('filmType', $filter->type);
-        }
-
-        if ($filter->pager) {
-            $qb->setMaxResults($filter->pager->getLimit());
-            $qb->setFirstResult($filter->pager->getOffset());
         }
 
         if ($filter->interval) {
@@ -102,6 +97,11 @@ final class HistoryRepository extends ServiceEntityRepository implements History
             $qb->andWhere('h.createdAt <= :endDate')
                 ->setParameter('endDate', $end);
         }
+
+		if ($filter->pager) {
+			$qb->setMaxResults($filter->pager->getLimit());
+			$qb->setFirstResult($filter->pager->getOffset());
+		}
 
         $paginator = new Paginator($qb->getQuery());
 
