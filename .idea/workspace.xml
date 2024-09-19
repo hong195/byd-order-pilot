@@ -4,25 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added event handler when film is deleted.">
-      <change afterPath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/DTO/FilmHistoryData.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/DTO/FilmHistoryDataTransformer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/FindFilmHistory/FindFilmHistoryQuery.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/FindFilmHistory/FindFilmHistoryQueryHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/FindFilmHistory/FindFilmHistoryQueryResult.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Inventory/Domain/Repository/HistoryFilter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Inventory/History/FindFilmHistoryAction.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added film history.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/PrivateQueryInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Application/UseCases/PrivateQueryInteractor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Services/HistoryService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Services/HistoryService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Aggregate/AbstractFilm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Domain/Aggregate/AbstractFilm.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Aggregate/History.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Domain/Aggregate/History.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Events/FilmLengthWasUpdatedEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Domain/Events/FilmWasUpdatedEvent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Events/FilmWasCreatedEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Domain/Events/FilmWasCreatedEvent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Repository/HistoryRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Domain/Repository/HistoryRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Database/ORM/History.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Database/ORM/History.orm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/EventHandler/FilmLengthWasUpdatedEventHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/EventHandler/FilmWasUpdatedEventHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Repository/HistoryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Repository/HistoryRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/OrderData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/OrderData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/Service/Roll/RollListService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/Service/Roll/RollListService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -308,23 +294,7 @@
       <workItem from="1726063769562" duration="34578000" />
       <workItem from="1726470299712" duration="17482000" />
       <workItem from="1726574611729" duration="15256000" />
-      <workItem from="1726657747853" duration="5942000" />
-    </task>
-    <task id="LOCAL-00290" summary="Added packing feature.">
-      <option name="closed" value="true" />
-      <created>1725364200675</created>
-      <option name="number" value="00290" />
-      <option name="presentableId" value="LOCAL-00290" />
-      <option name="project" value="LOCAL" />
-      <updated>1725364200675</updated>
-    </task>
-    <task id="LOCAL-00291" summary="Added pack/unpack extra">
-      <option name="closed" value="true" />
-      <created>1725367416790</created>
-      <option name="number" value="00291" />
-      <option name="presentableId" value="LOCAL-00291" />
-      <option name="project" value="LOCAL" />
-      <updated>1725367416790</updated>
+      <workItem from="1726657747853" duration="9513000" />
     </task>
     <task id="LOCAL-00292" summary="Added pack/unpack extra">
       <option name="closed" value="true" />
@@ -702,7 +672,23 @@
       <option name="project" value="LOCAL" />
       <updated>1726589947610</updated>
     </task>
-    <option name="localTasksCounter" value="339" />
+    <task id="LOCAL-00339" summary="Added film history.">
+      <option name="closed" value="true" />
+      <created>1726664402428</created>
+      <option name="number" value="00339" />
+      <option name="presentableId" value="LOCAL-00339" />
+      <option name="project" value="LOCAL" />
+      <updated>1726664402428</updated>
+    </task>
+    <task id="LOCAL-00340" summary="Added film history.">
+      <option name="closed" value="true" />
+      <created>1726664463494</created>
+      <option name="number" value="00340" />
+      <option name="presentableId" value="LOCAL-00340" />
+      <option name="project" value="LOCAL" />
+      <updated>1726664463494</updated>
+    </task>
+    <option name="localTasksCounter" value="341" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -760,10 +746,10 @@
     <MESSAGE value="Updated history has parent roll id." />
     <MESSAGE value="Added films events." />
     <MESSAGE value="Added inventory history entity." />
-    <MESSAGE value="Added film history." />
     <MESSAGE value="Added new event triggered when film is used to print." />
     <MESSAGE value="Added event handler when film is deleted." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added event handler when film is deleted." />
+    <MESSAGE value="Added film history." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added film history." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -16,7 +16,7 @@ final readonly class OrderData
      * @param string             $customerName          the name of the customer who placed the order
      * @param string             $status                the status of the order
      * @param bool               $hasPriority           indicates whether the order has priority or not
-     * @param int                $length                the length of the order
+     * @param float              $length                the length of the order
      * @param string             $orderType             the type of the order
      * @param string             $filmType              the type of film used in the order
      * @param \DateTimeInterface $addedAt               the date and time when the order was added
@@ -34,7 +34,7 @@ final readonly class OrderData
         public string $customerName,
         public string $status,
         public bool $hasPriority,
-        public int $length,
+        public float $length,
         public string $orderType,
         public string $filmType,
         public \DateTimeInterface $addedAt,

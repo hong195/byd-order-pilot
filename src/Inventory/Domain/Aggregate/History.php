@@ -11,9 +11,6 @@ final class History
      */
     public ?int $id;
     private \DateTimeImmutable $createdAt;
-
-    public float $difference = 0;
-
     /**
      * Class constructor.
      *

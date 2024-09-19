@@ -15,6 +15,7 @@ use App\Orders\Domain\Repository\PrinterRepositoryInterface;
 use App\Orders\Domain\Repository\RollFilter;
 use App\Orders\Domain\Repository\RollRepositoryInterface;
 use App\Orders\Domain\ValueObject\Process;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 final readonly class RollListService
 {
@@ -74,6 +75,10 @@ final readonly class RollListService
     public function getSingle(int $id): RollData
     {
         $roll = $this->rollRepository->findById($id);
+
+		if (!$roll) {
+			throw new NotFoundHttpException('Roll not found');
+		}
 
         $data = $this->rollDataTransformer->fromEntity($roll);
 
