@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Inventory\Application\UseCases\Query\FindFilmHistory;
 
+use App\Inventory\Application\UseCases\Query\DTO\FilmHistoryDataTransformer;
 use App\Inventory\Domain\Repository\HistoryFilter;
 use App\Inventory\Domain\Repository\HistoryRepositoryInterface;
 use App\Shared\Application\Query\QueryHandlerInterface;
@@ -16,7 +17,7 @@ final readonly class FindFilmHistoryQueryHandler implements QueryHandlerInterfac
      *
      * @param HistoryRepositoryInterface $historyRepository - The instance of HistoryRepositoryInterface injected into the class
      */
-    public function __construct(private HistoryRepositoryInterface $historyRepository)
+    public function __construct(private HistoryRepositoryInterface $historyRepository, private FilmHistoryDataTransformer $transformer)
     {
     }
 
@@ -41,8 +42,10 @@ final readonly class FindFilmHistoryQueryHandler implements QueryHandlerInterfac
 
         $result = $this->historyRepository->findByFilter($filter);
 
+		$dto = $this->transformer->fromHistoryList($result->items);
+
         return new FindFilmHistoryQueryResult(
-            items: $result->items,
+            items: $dto,
             total: $result->total,
         );
     }

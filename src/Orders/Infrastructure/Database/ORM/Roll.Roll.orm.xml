@@ -22,7 +22,7 @@
 
         <many-to-one field="printer" target-entity="App\Orders\Domain\Aggregate\Printer" fetch="EXTRA_LAZY" />
 
-        <one-to-many field="orders" target-entity="App\Orders\Domain\Aggregate\Order" mapped-by="roll" fetch="EXTRA_LAZY" >
+        <one-to-many field="products" target-entity="App\Orders\Domain\Aggregate\Product" mapped-by="roll" fetch="EXTRA_LAZY" >
             <cascade>
                 <cascade-persist/>
             </cascade>

@@ -3,9 +3,9 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.52">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>4974</IntrospectionStateNumber>
+      <IntrospectionStateNumber>5068</IntrospectionStateNumber>
       <ServerVersion>16.4</ServerVersion>
-      <StartupTime>1725976562</StartupTime>
+      <StartupTime>1727087761</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -801,7 +801,7 @@ true posixrules
 13255||10|C|G
 13255||-9223372036854775808|U|G
 13255||10|U|G</Grants>
-      <IntrospectionStateNumber>4974</IntrospectionStateNumber>
+      <IntrospectionStateNumber>5068</IntrospectionStateNumber>
       <ObjectId>16384</ObjectId>
       <OwnerName>symfony</OwnerName>
     </database>
@@ -4225,8 +4225,8 @@ true posixrules
     <schema id="264" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>4974</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2024-09-17.12:22:09</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>5068</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2024-09-23.10:58:43</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>524</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -4279,7 +4279,15 @@ true posixrules
       <StateNumber>4792</StateNumber>
       <OwnerName>symfony</OwnerName>
     </sequence>
-    <sequence id="271" parent="264" name="orders_roll_history_id_seq">
+    <sequence id="271" parent="264" name="orders_product_id_seq">
+      <DasType>bigint|0s</DasType>
+      <ObjectId>21561</ObjectId>
+      <SequenceIdentity>1</SequenceIdentity>
+      <StartValue>1</StartValue>
+      <StateNumber>5061</StateNumber>
+      <OwnerName>symfony</OwnerName>
+    </sequence>
+    <sequence id="272" parent="264" name="orders_roll_history_id_seq">
       <DasType>bigint|0s</DasType>
       <ObjectId>21520</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
@@ -4287,7 +4295,7 @@ true posixrules
       <StateNumber>4810</StateNumber>
       <OwnerName>symfony</OwnerName>
     </sequence>
-    <sequence id="272" parent="264" name="orders_roll_id_seq">
+    <sequence id="273" parent="264" name="orders_roll_id_seq">
       <DasType>bigint|0s</DasType>
       <ObjectId>21366</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
@@ -4295,7 +4303,7 @@ true posixrules
       <StateNumber>4792</StateNumber>
       <OwnerName>symfony</OwnerName>
     </sequence>
-    <sequence id="273" parent="264" name="refresh_token_id_seq">
+    <sequence id="274" parent="264" name="refresh_token_id_seq">
       <DasType>bigint|0s</DasType>
       <ObjectId>21367</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
@@ -4303,7 +4311,7 @@ true posixrules
       <StateNumber>4792</StateNumber>
       <OwnerName>symfony</OwnerName>
     </sequence>
-    <sequence id="274" parent="264" name="users_id_seq">
+    <sequence id="275" parent="264" name="users_id_seq">
       <DasType>bigint|0s</DasType>
       <ObjectId>21368</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
@@ -4311,93 +4319,99 @@ true posixrules
       <StateNumber>4792</StateNumber>
       <OwnerName>symfony</OwnerName>
     </sequence>
-    <table id="275" parent="264" name="doctrine_migration_versions">
+    <table id="276" parent="264" name="doctrine_migration_versions">
       <ObjectId>21356</ObjectId>
       <StateNumber>4791</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>symfony</OwnerName>
     </table>
-    <table id="276" parent="264" name="inventory_film">
+    <table id="277" parent="264" name="inventory_film">
       <ObjectId>21369</ObjectId>
-      <StateNumber>4792</StateNumber>
+      <StateNumber>5041</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>symfony</OwnerName>
     </table>
-    <table id="277" parent="264" name="inventory_history">
+    <table id="278" parent="264" name="inventory_history">
       <ObjectId>21539</ObjectId>
-      <StateNumber>4973</StateNumber>
+      <StateNumber>5041</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>symfony</OwnerName>
     </table>
-    <table id="278" parent="264" name="media_files">
+    <table id="279" parent="264" name="media_files">
       <ObjectId>21376</ObjectId>
       <StateNumber>4792</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>symfony</OwnerName>
     </table>
-    <table id="279" parent="264" name="orders_extra">
+    <table id="280" parent="264" name="orders_extra">
       <ObjectId>21487</ObjectId>
       <StateNumber>4808</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>symfony</OwnerName>
     </table>
-    <table id="280" parent="264" name="orders_order">
+    <table id="281" parent="264" name="orders_order">
       <ObjectId>21385</ObjectId>
       <StateNumber>4932</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>symfony</OwnerName>
     </table>
-    <table id="281" parent="264" name="orders_printer">
+    <table id="282" parent="264" name="orders_printer">
       <ObjectId>21397</ObjectId>
       <StateNumber>4792</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>symfony</OwnerName>
     </table>
-    <table id="282" parent="264" name="orders_roll">
+    <table id="283" parent="264" name="orders_product">
+      <ObjectId>21562</ObjectId>
+      <StateNumber>5066</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>symfony</OwnerName>
+    </table>
+    <table id="284" parent="264" name="orders_roll">
       <ObjectId>21407</ObjectId>
       <StateNumber>4813</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>symfony</OwnerName>
     </table>
-    <table id="283" parent="264" name="orders_roll_history">
+    <table id="285" parent="264" name="orders_roll_history">
       <ObjectId>21521</ObjectId>
       <StateNumber>4813</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>symfony</OwnerName>
     </table>
-    <table id="284" parent="264" name="refresh_token">
+    <table id="286" parent="264" name="refresh_token">
       <ObjectId>21423</ObjectId>
       <StateNumber>4792</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>symfony</OwnerName>
     </table>
-    <table id="285" parent="264" name="users">
+    <table id="287" parent="264" name="users">
       <ObjectId>21429</ObjectId>
       <StateNumber>4792</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>symfony</OwnerName>
     </table>
-    <column id="286" parent="275" name="version">
+    <column id="288" parent="276" name="version">
       <DasType>varchar(191)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>4791</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="287" parent="275" name="executed_at">
+    <column id="289" parent="276" name="executed_at">
       <DasType>timestamp(0)|0s</DasType>
       <DefaultExpression>NULL::timestamp without time zone</DefaultExpression>
       <Position>2</Position>
       <StateNumber>4791</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="288" parent="275" name="execution_time">
+    <column id="290" parent="276" name="execution_time">
       <DasType>integer|0s</DasType>
       <Position>3</Position>
       <StateNumber>4791</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="289" parent="275" name="doctrine_migration_versions_pkey">
+    <index id="291" parent="276" name="doctrine_migration_versions_pkey">
       <ColNames>version</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>21360</ObjectId>
@@ -4409,42 +4423,42 @@ true posixrules
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="290" parent="275" name="doctrine_migration_versions_pkey">
+    <key id="292" parent="276" name="doctrine_migration_versions_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>21361</ObjectId>
       <Primary>1</Primary>
       <StateNumber>4791</StateNumber>
       <UnderlyingIndexId>21360</UnderlyingIndexId>
     </key>
-    <column id="291" parent="276" name="id">
+    <column id="293" parent="277" name="id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>4792</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="292" parent="276" name="name">
+    <column id="294" parent="277" name="name">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>4792</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="293" parent="276" name="length">
-      <DasType>bigint|0s</DasType>
+    <column id="295" parent="277" name="length">
+      <DasType>double precision|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>4792</StateNumber>
-      <TypeId>20</TypeId>
+      <StateNumber>5041</StateNumber>
+      <TypeId>701</TypeId>
     </column>
-    <column id="294" parent="276" name="type">
+    <column id="296" parent="277" name="type">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StateNumber>4792</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="295" parent="276" name="date_added">
+    <column id="297" parent="277" name="date_added">
       <Comment>(DC2Type:datetime_immutable)</Comment>
       <DasType>timestamp(0)|0s</DasType>
       <NotNull>1</NotNull>
@@ -4452,65 +4466,65 @@ true posixrules
       <StateNumber>4792</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="296" parent="276" name="dtype">
+    <column id="298" parent="277" name="dtype">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StateNumber>4792</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="297" parent="276" name="inventory_film_pkey">
+    <index id="299" parent="277" name="inventory_film_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>21374</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>4792</StateNumber>
+      <StateNumber>5041</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="298" parent="276" name="inventory_film_pkey">
+    <key id="300" parent="277" name="inventory_film_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>21375</ObjectId>
       <Primary>1</Primary>
       <StateNumber>4792</StateNumber>
       <UnderlyingIndexId>21374</UnderlyingIndexId>
     </key>
-    <column id="299" parent="277" name="id">
+    <column id="301" parent="278" name="id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>4932</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="300" parent="277" name="film_id">
+    <column id="302" parent="278" name="film_id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>4932</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="301" parent="277" name="film_type">
+    <column id="303" parent="278" name="film_type">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>4932</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="302" parent="277" name="event_type">
+    <column id="304" parent="278" name="event_type">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StateNumber>4932</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="303" parent="277" name="new_size">
+    <column id="305" parent="278" name="new_size">
       <DasType>numeric(15,2 digit)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StateNumber>4973</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <column id="304" parent="277" name="created_at">
+    <column id="306" parent="278" name="created_at">
       <Comment>(DC2Type:datetime_immutable)</Comment>
       <DasType>timestamp(0)|0s</DasType>
       <NotNull>1</NotNull>
@@ -4518,14 +4532,21 @@ true posixrules
       <StateNumber>4932</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="305" parent="277" name="old_size">
+    <column id="307" parent="278" name="old_size">
       <DasType>numeric(15,2 digit)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>8</Position>
       <StateNumber>4973</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <index id="306" parent="277" name="inventory_history_pkey">
+    <column id="308" parent="278" name="inventory_type">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>9</Position>
+      <StateNumber>5041</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="309" parent="278" name="inventory_history_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>21544</ObjectId>
@@ -4534,62 +4555,62 @@ true posixrules
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="307" parent="277" name="inventory_history_pkey">
+    <key id="310" parent="278" name="inventory_history_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>21545</ObjectId>
       <Primary>1</Primary>
       <StateNumber>4932</StateNumber>
       <UnderlyingIndexId>21544</UnderlyingIndexId>
     </key>
-    <column id="308" parent="278" name="id">
+    <column id="311" parent="279" name="id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>4792</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="309" parent="278" name="filename">
+    <column id="312" parent="279" name="filename">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>4792</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="310" parent="278" name="source">
+    <column id="313" parent="279" name="source">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>4792</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="311" parent="278" name="path">
+    <column id="314" parent="279" name="path">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StateNumber>4792</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="312" parent="278" name="type">
+    <column id="315" parent="279" name="type">
       <DasType>varchar(50)|0s</DasType>
       <DefaultExpression>NULL::character varying</DefaultExpression>
       <Position>5</Position>
       <StateNumber>4792</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="313" parent="278" name="owner_id">
+    <column id="316" parent="279" name="owner_id">
       <DasType>integer|0s</DasType>
       <Position>6</Position>
       <StateNumber>4792</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="314" parent="278" name="owner_type">
+    <column id="317" parent="279" name="owner_type">
       <DasType>varchar(50)|0s</DasType>
       <DefaultExpression>NULL::character varying</DefaultExpression>
       <Position>7</Position>
       <StateNumber>4792</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="315" parent="278" name="media_files_pkey">
+    <index id="318" parent="279" name="media_files_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>21383</ObjectId>
@@ -4598,47 +4619,47 @@ true posixrules
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="316" parent="278" name="media_files_pkey">
+    <key id="319" parent="279" name="media_files_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>21384</ObjectId>
       <Primary>1</Primary>
       <StateNumber>4792</StateNumber>
       <UnderlyingIndexId>21383</UnderlyingIndexId>
     </key>
-    <column id="317" parent="279" name="id">
+    <column id="320" parent="280" name="id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>4796</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="318" parent="279" name="order_id">
+    <column id="321" parent="280" name="order_id">
       <DasType>integer|0s</DasType>
       <Position>2</Position>
       <StateNumber>4796</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="319" parent="279" name="name">
+    <column id="322" parent="280" name="name">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>4796</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="320" parent="279" name="order_number">
+    <column id="323" parent="280" name="order_number">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StateNumber>4796</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="321" parent="279" name="is_packed">
+    <column id="324" parent="280" name="is_packed">
       <DasType>boolean|0s</DasType>
       <Position>5</Position>
       <StateNumber>4807</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <column id="322" parent="279" name="count">
+    <column id="325" parent="280" name="count">
       <DasType>integer|0s</DasType>
       <DefaultExpression>0</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4646,14 +4667,14 @@ true posixrules
       <StateNumber>4809</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="323" parent="279" name="fk_c95a2c48d9f6d38">
+    <foreign-key id="326" parent="280" name="fk_c95a2c48d9f6d38">
       <ColNames>order_id</ColNames>
       <ObjectId>21495</ObjectId>
       <StateNumber>4796</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>21385</RefTableId>
     </foreign-key>
-    <index id="324" parent="279" name="orders_extra_pkey">
+    <index id="327" parent="280" name="orders_extra_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>21492</ObjectId>
@@ -4662,85 +4683,33 @@ true posixrules
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="325" parent="279" name="idx_c95a2c48d9f6d38">
+    <index id="328" parent="280" name="idx_c95a2c48d9f6d38">
       <ColNames>order_id</ColNames>
       <ObjectId>21494</ObjectId>
       <StateNumber>4796</StateNumber>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="326" parent="279" name="orders_extra_pkey">
+    <key id="329" parent="280" name="orders_extra_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>21493</ObjectId>
       <Primary>1</Primary>
       <StateNumber>4796</StateNumber>
       <UnderlyingIndexId>21492</UnderlyingIndexId>
     </key>
-    <column id="327" parent="280" name="id">
+    <column id="330" parent="281" name="id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>4792</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="328" parent="280" name="cut_file_id">
-      <DasType>integer|0s</DasType>
-      <Position>2</Position>
-      <StateNumber>4792</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="329" parent="280" name="print_file_id">
-      <DasType>integer|0s</DasType>
-      <Position>3</Position>
-      <StateNumber>4792</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="330" parent="280" name="status">
-      <DasType>varchar(255)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-      <StateNumber>4792</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="331" parent="280" name="length">
-      <DasType>numeric(15,2 digit)|0s</DasType>
-      <Position>5</Position>
-      <StateNumber>4932</StateNumber>
-      <TypeId>1700</TypeId>
-    </column>
-    <column id="332" parent="280" name="lamination_type">
-      <DasType>varchar(255)|0s</DasType>
-      <DefaultExpression>NULL::character varying</DefaultExpression>
-      <Position>6</Position>
-      <StateNumber>4792</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="333" parent="280" name="film_type">
-      <DasType>varchar(255)|0s</DasType>
-      <DefaultExpression>NULL::character varying</DefaultExpression>
-      <Position>7</Position>
-      <StateNumber>4792</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="334" parent="280" name="has_priority">
-      <DasType>boolean|0s</DasType>
-      <Position>8</Position>
-      <StateNumber>4792</StateNumber>
-      <TypeId>16</TypeId>
-    </column>
-    <column id="335" parent="280" name="order_number">
+    <column id="331" parent="281" name="order_number">
       <DasType>varchar(255)|0s</DasType>
       <Position>10</Position>
       <StateNumber>4801</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="336" parent="280" name="sort_order">
-      <DasType>integer|0s</DasType>
-      <DefaultExpression>0</DefaultExpression>
-      <Position>11</Position>
-      <StateNumber>4799</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="337" parent="280" name="date_added">
+    <column id="332" parent="281" name="date_added">
       <Comment>(DC2Type:datetime_immutable)</Comment>
       <DasType>timestamp(0)|0s</DasType>
       <NotNull>1</NotNull>
@@ -4748,61 +4717,26 @@ true posixrules
       <StateNumber>4792</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="338" parent="280" name="roll_id">
-      <DasType>integer|0s</DasType>
-      <Position>13</Position>
-      <StateNumber>4793</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="339" parent="280" name="packaging_instructions">
+    <column id="333" parent="281" name="packaging_instructions">
       <DasType>text|0s</DasType>
       <Position>15</Position>
       <StateNumber>4802</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="340" parent="280" name="customer_name">
+    <column id="334" parent="281" name="customer_name">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>16</Position>
       <StateNumber>4803</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="341" parent="280" name="customer_notes">
+    <column id="335" parent="281" name="customer_notes">
       <DasType>text|0s</DasType>
       <Position>17</Position>
       <StateNumber>4805</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="342" parent="280" name="is_packed">
-      <DasType>boolean|0s</DasType>
-      <DefaultExpression>false</DefaultExpression>
-      <NotNull>1</NotNull>
-      <Position>18</Position>
-      <StateNumber>4932</StateNumber>
-      <TypeId>16</TypeId>
-    </column>
-    <foreign-key id="343" parent="280" name="fk_b4833c399d3fdaa8">
-      <ColNames>cut_file_id</ColNames>
-      <ObjectId>21439</ObjectId>
-      <StateNumber>4792</StateNumber>
-      <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>21376</RefTableId>
-    </foreign-key>
-    <foreign-key id="344" parent="280" name="fk_b4833c39b6a86cb2">
-      <ColNames>print_file_id</ColNames>
-      <ObjectId>21444</ObjectId>
-      <StateNumber>4792</StateNumber>
-      <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>21376</RefTableId>
-    </foreign-key>
-    <foreign-key id="345" parent="280" name="fk_b4833c39ab0b6d26">
-      <ColNames>roll_id</ColNames>
-      <ObjectId>21464</ObjectId>
-      <StateNumber>4793</StateNumber>
-      <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>21407</RefTableId>
-    </foreign-key>
-    <index id="346" parent="280" name="orders_order_pkey">
+    <index id="336" parent="281" name="orders_order_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>21393</ObjectId>
@@ -4811,62 +4745,42 @@ true posixrules
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="347" parent="280" name="uniq_b4833c399d3fdaa8">
-      <ColNames>cut_file_id</ColNames>
-      <ObjectId>21395</ObjectId>
-      <StateNumber>4932</StateNumber>
-      <Unique>1</Unique>
-      <AccessMethodId>403</AccessMethodId>
-    </index>
-    <index id="348" parent="280" name="uniq_b4833c39b6a86cb2">
-      <ColNames>print_file_id</ColNames>
-      <ObjectId>21396</ObjectId>
-      <StateNumber>4932</StateNumber>
-      <Unique>1</Unique>
-      <AccessMethodId>403</AccessMethodId>
-    </index>
-    <index id="349" parent="280" name="idx_b4833c39ab0b6d26">
-      <ColNames>roll_id</ColNames>
-      <ObjectId>21469</ObjectId>
-      <StateNumber>4932</StateNumber>
-      <AccessMethodId>403</AccessMethodId>
-    </index>
-    <key id="350" parent="280" name="orders_order_pkey">
+    <key id="337" parent="281" name="orders_order_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>21394</ObjectId>
       <Primary>1</Primary>
       <StateNumber>4792</StateNumber>
       <UnderlyingIndexId>21393</UnderlyingIndexId>
     </key>
-    <column id="351" parent="281" name="id">
+    <column id="338" parent="282" name="id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>4792</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="352" parent="281" name="name">
+    <column id="339" parent="282" name="name">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>4792</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="353" parent="281" name="color">
+    <column id="340" parent="282" name="color">
       <DasType>varchar(255)|0s</DasType>
       <DefaultExpression>NULL::character varying</DefaultExpression>
       <Position>3</Position>
       <StateNumber>4792</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="354" parent="281" name="is_available">
+    <column id="341" parent="282" name="is_available">
       <DasType>boolean|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StateNumber>4792</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <column id="355" parent="281" name="film_types">
+    <column id="342" parent="282" name="film_types">
       <DasType>jsonb|0s</DasType>
       <DefaultExpression>&apos;[]&apos;::jsonb</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4874,7 +4788,7 @@ true posixrules
       <StateNumber>4792</StateNumber>
       <TypeId>3802</TypeId>
     </column>
-    <column id="356" parent="281" name="lamination_types">
+    <column id="343" parent="282" name="lamination_types">
       <DasType>jsonb|0s</DasType>
       <DefaultExpression>&apos;[]&apos;::jsonb</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4882,7 +4796,7 @@ true posixrules
       <StateNumber>4792</StateNumber>
       <TypeId>3802</TypeId>
     </column>
-    <index id="357" parent="281" name="orders_printer_pkey">
+    <index id="344" parent="282" name="orders_printer_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>21405</ObjectId>
@@ -4891,47 +4805,205 @@ true posixrules
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="358" parent="281" name="orders_printer_pkey">
+    <key id="345" parent="282" name="orders_printer_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>21406</ObjectId>
       <Primary>1</Primary>
       <StateNumber>4792</StateNumber>
       <UnderlyingIndexId>21405</UnderlyingIndexId>
     </key>
-    <column id="359" parent="282" name="id">
+    <column id="346" parent="283" name="id">
+      <DasType>integer|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>5061</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="347" parent="283" name="cut_file_id">
+      <DasType>integer|0s</DasType>
+      <Position>2</Position>
+      <StateNumber>5061</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="348" parent="283" name="print_file_id">
+      <DasType>integer|0s</DasType>
+      <Position>3</Position>
+      <StateNumber>5061</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="349" parent="283" name="status">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StateNumber>5061</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="350" parent="283" name="length">
+      <DasType>numeric(15,2 digit)|0s</DasType>
+      <DefaultExpression>NULL::numeric</DefaultExpression>
+      <Position>5</Position>
+      <StateNumber>5061</StateNumber>
+      <TypeId>1700</TypeId>
+    </column>
+    <column id="351" parent="283" name="lamination_type">
+      <DasType>varchar(255)|0s</DasType>
+      <DefaultExpression>NULL::character varying</DefaultExpression>
+      <Position>6</Position>
+      <StateNumber>5061</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="352" parent="283" name="film_type">
+      <DasType>varchar(255)|0s</DasType>
+      <DefaultExpression>NULL::character varying</DefaultExpression>
+      <Position>7</Position>
+      <StateNumber>5061</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="353" parent="283" name="has_priority">
+      <DasType>boolean|0s</DasType>
+      <Position>8</Position>
+      <StateNumber>5061</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <column id="354" parent="283" name="sort_order">
+      <DasType>integer|0s</DasType>
+      <DefaultExpression>0</DefaultExpression>
+      <Position>9</Position>
+      <StateNumber>5061</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="355" parent="283" name="is_packed">
+      <DasType>boolean|0s</DasType>
+      <DefaultExpression>false</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>10</Position>
+      <StateNumber>5061</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <column id="356" parent="283" name="date_added">
+      <Comment>(DC2Type:datetime_immutable)</Comment>
+      <DasType>timestamp(0)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>11</Position>
+      <StateNumber>5061</StateNumber>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="357" parent="283" name="roll_id">
+      <DasType>integer|0s</DasType>
+      <Position>12</Position>
+      <StateNumber>5061</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="358" parent="283" name="order_id">
+      <DasType>integer|0s</DasType>
+      <Position>13</Position>
+      <StateNumber>5066</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <foreign-key id="359" parent="283" name="fk_223f76d69d3fdaa8">
+      <ColNames>cut_file_id</ColNames>
+      <ObjectId>21577</ObjectId>
+      <StateNumber>5061</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>21376</RefTableId>
+    </foreign-key>
+    <foreign-key id="360" parent="283" name="fk_223f76d6b6a86cb2">
+      <ColNames>print_file_id</ColNames>
+      <ObjectId>21582</ObjectId>
+      <StateNumber>5061</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>21376</RefTableId>
+    </foreign-key>
+    <foreign-key id="361" parent="283" name="fk_223f76d6ab0b6d26">
+      <ColNames>roll_id</ColNames>
+      <ObjectId>21592</ObjectId>
+      <StateNumber>5066</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>21407</RefTableId>
+    </foreign-key>
+    <foreign-key id="362" parent="283" name="fk_223f76d68d9f6d38">
+      <ColNames>order_id</ColNames>
+      <ObjectId>21587</ObjectId>
+      <StateNumber>5066</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>21385</RefTableId>
+    </foreign-key>
+    <index id="363" parent="283" name="orders_product_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>21572</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>5061</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <index id="364" parent="283" name="uniq_223f76d69d3fdaa8">
+      <ColNames>cut_file_id</ColNames>
+      <ObjectId>21574</ObjectId>
+      <StateNumber>5061</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <index id="365" parent="283" name="uniq_223f76d6b6a86cb2">
+      <ColNames>print_file_id</ColNames>
+      <ObjectId>21575</ObjectId>
+      <StateNumber>5061</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <index id="366" parent="283" name="idx_223f76d6ab0b6d26">
+      <ColNames>roll_id</ColNames>
+      <ObjectId>21576</ObjectId>
+      <StateNumber>5061</StateNumber>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <index id="367" parent="283" name="idx_223f76d68d9f6d38">
+      <ColNames>order_id</ColNames>
+      <ObjectId>21597</ObjectId>
+      <StateNumber>5066</StateNumber>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="368" parent="283" name="orders_product_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>21573</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>5061</StateNumber>
+      <UnderlyingIndexId>21572</UnderlyingIndexId>
+    </key>
+    <column id="369" parent="284" name="id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>4792</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="360" parent="282" name="printer_id">
+    <column id="370" parent="284" name="printer_id">
       <DasType>integer|0s</DasType>
       <Position>2</Position>
       <StateNumber>4792</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="361" parent="282" name="name">
+    <column id="371" parent="284" name="name">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>4792</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="362" parent="282" name="film_id">
+    <column id="372" parent="284" name="film_id">
       <DasType>integer|0s</DasType>
       <Position>4</Position>
       <StateNumber>4792</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="363" parent="282" name="process">
+    <column id="373" parent="284" name="process">
       <DasType>varchar(255)|0s</DasType>
       <DefaultExpression>NULL::character varying</DefaultExpression>
       <Position>5</Position>
       <StateNumber>4792</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="364" parent="282" name="date_added">
+    <column id="374" parent="284" name="date_added">
       <Comment>(DC2Type:datetime_immutable)</Comment>
       <DasType>timestamp(0)|0s</DasType>
       <NotNull>1</NotNull>
@@ -4939,33 +5011,33 @@ true posixrules
       <StateNumber>4792</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="365" parent="282" name="employee_id">
+    <column id="375" parent="284" name="employee_id">
       <DasType>integer|0s</DasType>
       <Position>7</Position>
       <StateNumber>4809</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="366" parent="282" name="parent_roll_id">
+    <column id="376" parent="284" name="parent_roll_id">
       <DasType>integer|0s</DasType>
       <Position>8</Position>
       <StateNumber>4813</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="367" parent="282" name="fk_8060f36546ec494a">
+    <foreign-key id="377" parent="284" name="fk_8060f36546ec494a">
       <ColNames>printer_id</ColNames>
       <ObjectId>21449</ObjectId>
       <StateNumber>4792</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>21397</RefTableId>
     </foreign-key>
-    <foreign-key id="368" parent="282" name="fk_8060f365d9431960">
+    <foreign-key id="378" parent="284" name="fk_8060f365d9431960">
       <ColNames>parent_roll_id</ColNames>
       <ObjectId>21530</ObjectId>
       <StateNumber>4813</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>21407</RefTableId>
     </foreign-key>
-    <index id="369" parent="282" name="orders_roll_pkey">
+    <index id="379" parent="284" name="orders_roll_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>21413</ObjectId>
@@ -4974,52 +5046,52 @@ true posixrules
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="370" parent="282" name="idx_8060f36546ec494a">
+    <index id="380" parent="284" name="idx_8060f36546ec494a">
       <ColNames>printer_id</ColNames>
       <ObjectId>21415</ObjectId>
       <StateNumber>4792</StateNumber>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="371" parent="282" name="idx_8060f365d9431960">
+    <index id="381" parent="284" name="idx_8060f365d9431960">
       <ColNames>parent_roll_id</ColNames>
       <ObjectId>21536</ObjectId>
       <StateNumber>4815</StateNumber>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="372" parent="282" name="orders_roll_pkey">
+    <key id="382" parent="284" name="orders_roll_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>21414</ObjectId>
       <Primary>1</Primary>
       <StateNumber>4792</StateNumber>
       <UnderlyingIndexId>21413</UnderlyingIndexId>
     </key>
-    <column id="373" parent="283" name="id">
+    <column id="383" parent="285" name="id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>4810</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="374" parent="283" name="roll_id">
+    <column id="384" parent="285" name="roll_id">
       <DasType>integer|0s</DasType>
       <Position>2</Position>
       <StateNumber>4810</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="375" parent="283" name="employee_id">
+    <column id="385" parent="285" name="employee_id">
       <DasType>integer|0s</DasType>
       <Position>3</Position>
       <StateNumber>4810</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="376" parent="283" name="process">
+    <column id="386" parent="285" name="process">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StateNumber>4810</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="377" parent="283" name="happened_at">
+    <column id="387" parent="285" name="happened_at">
       <Comment>(DC2Type:datetime_immutable)</Comment>
       <DasType>timestamp(0)|0s</DasType>
       <NotNull>1</NotNull>
@@ -5027,20 +5099,20 @@ true posixrules
       <StateNumber>4811</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="378" parent="283" name="type">
+    <column id="388" parent="285" name="type">
       <DasType>varchar(255)|0s</DasType>
       <DefaultExpression>NULL::character varying</DefaultExpression>
       <Position>7</Position>
       <StateNumber>4812</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="379" parent="283" name="parent_roll_id">
+    <column id="389" parent="285" name="parent_roll_id">
       <DasType>integer|0s</DasType>
       <Position>8</Position>
       <StateNumber>4813</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="380" parent="283" name="orders_roll_history_pkey">
+    <index id="390" parent="285" name="orders_roll_history_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>21525</ObjectId>
@@ -5049,42 +5121,42 @@ true posixrules
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="381" parent="283" name="orders_roll_history_pkey">
+    <key id="391" parent="285" name="orders_roll_history_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>21526</ObjectId>
       <Primary>1</Primary>
       <StateNumber>4810</StateNumber>
       <UnderlyingIndexId>21525</UnderlyingIndexId>
     </key>
-    <column id="382" parent="284" name="id">
+    <column id="392" parent="286" name="id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>4792</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="383" parent="284" name="refresh_token">
+    <column id="393" parent="286" name="refresh_token">
       <DasType>varchar(128)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>4792</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="384" parent="284" name="username">
+    <column id="394" parent="286" name="username">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>4792</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="385" parent="284" name="valid">
+    <column id="395" parent="286" name="valid">
       <DasType>timestamp(0)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StateNumber>4792</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <index id="386" parent="284" name="refresh_token_pkey">
+    <index id="396" parent="286" name="refresh_token_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>21426</ObjectId>
@@ -5093,7 +5165,7 @@ true posixrules
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="387" parent="284" name="uniq_c74f2195c74f2195">
+    <index id="397" parent="286" name="uniq_c74f2195c74f2195">
       <ColNames>refresh_token</ColNames>
       <ObjectId>21428</ObjectId>
       <StateNumber>4792</StateNumber>
@@ -5103,42 +5175,42 @@ true posixrules
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="388" parent="284" name="refresh_token_pkey">
+    <key id="398" parent="286" name="refresh_token_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>21427</ObjectId>
       <Primary>1</Primary>
       <StateNumber>4792</StateNumber>
       <UnderlyingIndexId>21426</UnderlyingIndexId>
     </key>
-    <column id="389" parent="285" name="id">
+    <column id="399" parent="287" name="id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>4792</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="390" parent="285" name="name">
+    <column id="400" parent="287" name="name">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>4792</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="391" parent="285" name="email">
+    <column id="401" parent="287" name="email">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>4792</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="392" parent="285" name="password">
+    <column id="402" parent="287" name="password">
       <DasType>varchar(255)|0s</DasType>
       <DefaultExpression>NULL::character varying</DefaultExpression>
       <Position>4</Position>
       <StateNumber>4792</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="393" parent="285" name="roles">
+    <column id="403" parent="287" name="roles">
       <DasType>json|0s</DasType>
       <DefaultExpression>&apos;[]&apos;::json</DefaultExpression>
       <NotNull>1</NotNull>
@@ -5146,7 +5218,7 @@ true posixrules
       <StateNumber>4792</StateNumber>
       <TypeId>114</TypeId>
     </column>
-    <index id="394" parent="285" name="users_pkey">
+    <index id="404" parent="287" name="users_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>21436</ObjectId>
@@ -5155,7 +5227,7 @@ true posixrules
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="395" parent="285" name="uniq_1483a5e9e7927c74">
+    <index id="405" parent="287" name="uniq_1483a5e9e7927c74">
       <ColNames>email</ColNames>
       <ObjectId>21438</ObjectId>
       <StateNumber>4792</StateNumber>
@@ -5165,7 +5237,7 @@ true posixrules
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="396" parent="285" name="users_pkey">
+    <key id="406" parent="287" name="users_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>21437</ObjectId>
       <Primary>1</Primary>

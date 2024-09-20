@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Application\DTO;
+namespace App\Orders\Application\DTO\Extra;
 
 use App\Orders\Domain\Aggregate\Extra;
 

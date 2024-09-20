@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Application\DTO;
+namespace App\Orders\Application\DTO\Roll;
 
 use App\Orders\Domain\Aggregate\Roll\Roll;
 
@@ -44,7 +44,7 @@ final readonly class RollDataTransformer
             count: $roll->getOrdersCount(),
             films: $roll->getFilmTypes(),
             process: $roll->getProcess()->value,
-            priorityCount: $roll->getPriorityOrders(),
+            priorityCount: $roll->getProductsWithPriority(),
             laminations: $roll->getLaminations(),
             filmId: $roll->getFilmId(),
             dateAdded: $roll->getDateAdded()

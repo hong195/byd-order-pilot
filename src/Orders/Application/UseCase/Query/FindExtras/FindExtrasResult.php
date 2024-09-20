@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orders\Application\UseCase\Query\FindExtras;
 
-use App\Orders\Application\DTO\ExtraData;
+use App\Orders\Application\DTO\Extra\ExtraData;
 
 /**
  * Represents the result of finding extras.

@@ -70,7 +70,7 @@ final readonly class GlowCheckInService
 			return;
 		}
 
-		$rollToGlow->removeOrders();
+		$rollToGlow->removeProducts();
         $sendToGlowingRolls = [];
 
 		$rollToGlow->updateProcess(Process::CUT);

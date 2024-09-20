@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orders\Application\UseCase\Query\FindOrders;
 
-use App\Orders\Application\DTO\OrderDataTransformer;
+use App\Orders\Application\DTO\Order\OrderDataTransformer;
 use App\Orders\Domain\Repository\OrderFilter;
 use App\Orders\Domain\Service\Order\GroupService;
 use App\Orders\Domain\ValueObject\Status;

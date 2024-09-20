@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orders\Application\UseCase\Query\FindAnOrder;
 
-use App\Orders\Application\DTO\OrderDataTransformer;
+use App\Orders\Application\DTO\Order\OrderDataTransformer;
 use App\Orders\Infrastructure\Repository\OrderRepository;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Query\QueryHandlerInterface;

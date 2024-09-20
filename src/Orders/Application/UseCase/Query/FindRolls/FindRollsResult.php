@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orders\Application\UseCase\Query\FindRolls;
 
-use App\Orders\Application\DTO\RollData;
+use App\Orders\Application\DTO\Roll\RollData;
 
 /**
  * Represents the result of finding a roll.

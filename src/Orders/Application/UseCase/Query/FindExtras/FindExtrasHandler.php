@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orders\Application\UseCase\Query\FindExtras;
 
-use App\Orders\Application\DTO\ExtraDataTransformer;
+use App\Orders\Application\DTO\Extra\ExtraDataTransformer;
 use App\Orders\Infrastructure\Repository\OrderRepository;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Query\QueryHandlerInterface;

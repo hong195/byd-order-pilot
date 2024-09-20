@@ -5,10 +5,9 @@ declare(strict_types=1);
 namespace App\Orders\Application\Service\Roll;
 
 use App\Orders\Application\DTO\EmployeeData;
-use App\Orders\Application\DTO\PrinterData;
-use App\Orders\Application\DTO\PrinterDataTransformer;
-use App\Orders\Application\DTO\RollData;
-use App\Orders\Application\DTO\RollDataTransformer;
+use App\Orders\Application\DTO\Printer\PrinterData;
+use App\Orders\Application\DTO\Roll\RollData;
+use App\Orders\Application\DTO\Roll\RollDataTransformer;
 use App\Orders\Application\Service\Employee\EmployeeFetcher;
 use App\Orders\Domain\Aggregate\Printer;
 use App\Orders\Domain\Repository\PrinterRepositoryInterface;
@@ -21,7 +20,7 @@ final readonly class RollListService
 {
     public function __construct(private RollRepositoryInterface $rollRepository, private EmployeeFetcher $employeeFetcher,
         private PrinterRepositoryInterface $printerRepository,
-        private RollDataTransformer $rollDataTransformer, private PrinterDataTransformer $printerDataTransformer)
+        private RollDataTransformer $rollDataTransformer)
     {
     }
 

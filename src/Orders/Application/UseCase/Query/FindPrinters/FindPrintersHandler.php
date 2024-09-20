@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orders\Application\UseCase\Query\FindPrinters;
 
-use App\Orders\Application\DTO\PrinterDataTransformer;
+use App\Orders\Application\DTO\Printer\PrinterDataTransformer;
 use App\Orders\Domain\Repository\PrinterRepositoryInterface;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Query\QueryHandlerInterface;

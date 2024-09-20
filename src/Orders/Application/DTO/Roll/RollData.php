@@ -2,7 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Application\DTO;
+namespace App\Orders\Application\DTO\Roll;
+
+use App\Orders\Application\DTO\EmployeeData;
+use App\Orders\Application\DTO\Printer\PrinterData;
 
 /**
  * Class RollData.

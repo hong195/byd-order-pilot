@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orders\Application\UseCase\Query\FindPrinters;
 
-use App\Orders\Application\DTO\PrinterData;
+use App\Orders\Application\DTO\Printer\PrinterData;
 
 /**
  * Class FindPrintersResult.

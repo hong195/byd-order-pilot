@@ -43,7 +43,7 @@ final readonly class FilmHistoryDataTransformer
             inventoryType: $history->inventoryType,
             filmType: $history->filmType,
             event: $history->eventType,
-            createdAt: $history->getCreatedAt(),
+            createdAt: $history->getCreatedAt()->format('Y-m-d H:i:s'),
             newSize: $history->newSize,
             oldSize: $history->oldSize
         );

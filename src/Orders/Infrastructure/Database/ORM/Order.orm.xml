@@ -10,79 +10,27 @@
             <generator/>
         </id>
 
-        <embedded name="customer" class="App\Orders\Domain\Aggregate\Customer" column-prefix="customer_" />
+        <embedded name="customer" class="App\Orders\Domain\Aggregate\Customer" column-prefix="customer_"/>
 
-        <field name="status"
-               enum-type="App\Orders\Domain\ValueObject\Status"
-               column="status"
-               length="255"
-        />
-
-        <field name="length" type="decimal" column="length"  nullable="true" precision="15" scale="2"/>
-
-        <field name="laminationType"
-               enum-type="App\Orders\Domain\ValueObject\LaminationType"
-               column="lamination_type"
-               length="255"
-               nullable="true"
-        />
-
-        <field name="filmType"
-               enum-type="App\Orders\Domain\ValueObject\FilmType"
-               column="film_type"
-               length="255"
-               nullable="true"
-        />
-
-        <field name="hasPriority"
-               type="boolean"
-               column="has_priority"
-               length="255"
-               nullable="true"
-        />
-
-        <field name="orderNumber" type="string" column="order_number"  nullable="true"/>
-
-        <field name="sortOrder" type="integer" column="sort_order" nullable="true">
-            <options>
-                <option name="default">0</option>
-            </options>
-        </field>
-
-        <field name="isPacked" type="boolean" column="is_packed">
-            <options>
-                <option name="default">false</option>
-            </options>
-        </field>
-
-        <field name="dateAdded" type="datetime_immutable" column="date_added"/>
+        <field name="orderNumber" type="string" column="order_number" nullable="true"/>
 
         <field name="packagingInstructions" type="text" column="packaging_instructions" nullable="true"/>
 
-        <one-to-one field="cutFile" target-entity="App\Shared\Domain\Entity\MediaFile">
-            <cascade>
-                <cascade-all/>
-            </cascade>
-            <join-column name="cut_file_id"/>
-        </one-to-one>
-        <one-to-one field="printFile" target-entity="App\Shared\Domain\Entity\MediaFile">
-            <cascade>
-                <cascade-all/>
-            </cascade>
-            <join-column name="print_file_id"/>
-        </one-to-one>
-
-        <many-to-one field="roll" target-entity="App\Orders\Domain\Aggregate\Roll\Roll" inversed-by="orders" fetch="EXTRA_LAZY">
-            <cascade>
-                <cascade-persist />
-            </cascade>
-            <join-column name="roll_id" nullable="true" />
-        </many-to-one>
-
-        <one-to-many field="extras" target-entity="App\Orders\Domain\Aggregate\Extra" mapped-by="order" fetch="EXTRA_LAZY">
+        <one-to-many field="extras" target-entity="App\Orders\Domain\Aggregate\Extra" mapped-by="order"
+                     fetch="EXTRA_LAZY">
             <cascade>
                 <cascade-persist/>
             </cascade>
         </one-to-many>
+
+        <one-to-many field="products" target-entity="App\Orders\Domain\Aggregate\Product" mapped-by="order"
+                     fetch="EXTRA_LAZY">
+            <cascade>
+                <cascade-persist/>
+            </cascade>
+        </one-to-many>
+
+        <field name="dateAdded" type="datetime_immutable" column="date_added"/>
+
     </entity>
 </doctrine-mapping>

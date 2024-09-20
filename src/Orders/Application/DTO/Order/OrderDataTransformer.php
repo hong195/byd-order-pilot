@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Application\DTO;
+namespace App\Orders\Application\DTO\Order;
 
 use App\Orders\Application\Service\AssetUrlServiceInterface;
 use App\Orders\Domain\Aggregate\Order;
@@ -69,21 +69,12 @@ final readonly class OrderDataTransformer
     {
         return new OrderData(
             id: $order->getId(),
-            customerName: $order->customer->name,
-            status: $order->getStatus()->value,
-            hasPriority: $order->hasPriority(),
-            length: $order->getLength(),
-            orderType: $order->getOrderType()->value,
-            filmType: $order->getFilmType()->value,
-            addedAt: $order->getDateAdded(),
-            laminationType: $order->getLaminationType()?->value,
-            sortOrder: $order->getSortOrder(),
-            orderNumber: $order->getOrderNumber(),
-            cutFile: $order->getCutFile() ? $this->assetUrlService->getLink($order->getCutFile()->getPath()) : null,
-            printFile: $order->getPrintFile() ? $this->assetUrlService->getLink($order->getPrintFile()->getPath()) : null,
-            customerNotes: $order->customer->notes,
-            packagingInstructions: $order->getPackagingInstructions(),
-            isPacked: $order->isPacked()
+			customerName: $order->customer->name,
+			type: $order->getOrderType()->value,
+			number: $order->getOrderNumber(),
+			addedAt: $order->getDateAdded(),
+			customerNotes: $order->customer->notes,
+			packagingInstructions: $order->getPackagingInstructions(),
         );
     }
 }

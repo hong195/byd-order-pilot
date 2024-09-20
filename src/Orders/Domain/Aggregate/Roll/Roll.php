@@ -6,6 +6,7 @@ namespace App\Orders\Domain\Aggregate\Roll;
 
 use App\Orders\Domain\Aggregate\Order;
 use App\Orders\Domain\Aggregate\Printer;
+use App\Orders\Domain\Aggregate\Product;
 use App\Orders\Domain\Events\RollProcessWasUpdatedEvent;
 use App\Orders\Domain\ValueObject\Process;
 use App\Orders\Domain\ValueObject\Status;
@@ -29,10 +30,10 @@ class Roll extends Aggregate
     private ?int $filmId = null;
 
     private \DateTimeImmutable $dateAdded;
-    /**
-     * @var Collection<Order>
-     */
-    private Collection $orders;
+	/**
+	 * @var Collection<Order>
+	 */
+	private Collection $products;
     private ?Printer $printer = null;
 
     private ?int $employeeId = null;
@@ -48,7 +49,7 @@ class Roll extends Aggregate
     public function __construct(private string $name, ?int $filmId = null, private ?Process $process = Process::ORDER_CHECK_IN)
     {
         $this->filmId = $filmId;
-        $this->orders = new ArrayCollection();
+        $this->products = new ArrayCollection([]);
         $this->dateAdded = new \DateTimeImmutable();
     }
 
@@ -116,13 +117,13 @@ class Roll extends Aggregate
     }
 
     /**
-     * Retrieves the total length of the orders associated with this object.
+     * Retrieves the total length of the products associated with this object.
      *
-     * @return float the total length of the orders associated with this object
+     * @return float the total length of the products associated with this object
      */
-    public function getOrdersLength(): float
+    public function getProductsLength(): float
     {
-        return $this->orders->reduce(fn (int $carry, Order $order) => $carry + $order->getLength(), 0);
+        return $this->products->reduce(fn (int $carry, Order $product) => $carry + $product->getLength(), 0);
     }
 
     /**
@@ -148,59 +149,59 @@ class Roll extends Aggregate
     }
 
     /**
-     * Retrieves the collection of orders associated with this object.
+     * Retrieves the collection of products associated with this object.
      *
-     * @return Collection<Order> the collection of orders associated with this object
+     * @return Collection<Order> the collection of products associated with this object
      */
-    public function getOrders(): Collection
+    public function getProducts(): Collection
     {
-        return $this->orders;
+        return $this->products;
     }
 
     /**
-     * Retrieves the number of orders associated with this object.
+     * Retrieves the number of products associated with this object.
      *
-     * @return int the number of orders associated with this object
+     * @return int the number of products associated with this object
      */
-    public function getOrdersCount(): int
+    public function getProductsCount(): int
     {
-        return $this->orders->count();
+        return $this->products->count();
     }
 
     /**
      * Adds an Order to the collection.
      *
-     * @param Order $order The order to be added
+     * @param Product $product The product to be added
      */
-    public function addOrder(Order $order): void
+    public function addProduct(Product $product): void
     {
-        $order->changeStatus(Status::ASSIGNED);
-        $order->setRoll($this);
+        $product->changeStatus(Status::ASSIGNED);
+        $product->setRoll($this);
 
-        $order->changeSortOrder($this->orders->count() + 1);
+        $product->changeSortOrder($this->products->count() + 1);
 
-        $this->orders->add($order);
+        $this->products->add($product);
     }
 
     /**
-     * Removes all orders from the object.
+     * Removes all products from the object.
      */
-    public function removeOrders(): void
+    public function removeProducts(): void
     {
-        foreach ($this->orders as $order) {
-            $order->removeRoll();
-            $this->orders->removeElement($order);
+        foreach ($this->products as $product) {
+			$product->removeRoll();
+            $this->products->removeElement($product);
         }
     }
 
     /**
-     * Returns the count of priority orders.
+     * Returns the count of priority products.
      *
-     * @return int the count of priority orders
+     * @return int the count of priority products
      */
-    public function getPriorityOrders(): int
+    public function getProductsWithPriority(): int
     {
-        return $this->orders->filter(fn (Order $order) => $order->hasPriority())->count();
+        return $this->products->filter(fn (Product $product) => $product->hasPriority())->count();
     }
 
     /**
@@ -224,13 +225,13 @@ class Roll extends Aggregate
     }
 
     /**
-     * Retrieves an array of roll types associated with the orders in this object.
+     * Retrieves an array of roll types associated with the products in this object.
      *
-     * @return string[] an array of roll types associated with the orders in this object
+     * @return string[] an array of roll types associated with the products in this object
      */
     public function getFilmTypes(): array
     {
-        return array_values(array_unique($this->orders->map(fn (Order $order) => $order->getFilmType()->value)->toArray()));
+        return array_values(array_unique($this->products->map(fn (Product $product) => $product->getFilmType()->value)->toArray()));
     }
 
     /**
@@ -240,7 +241,7 @@ class Roll extends Aggregate
      */
     public function getLaminations(): array
     {
-        return array_values(array_unique($this->orders->map(fn (Order $order) => $order->getLaminationType()?->value)->toArray()));
+        return array_values(array_unique($this->products->map(fn (Product $product) => $product->getLaminationType()?->value)->toArray()));
     }
 
     /**
@@ -280,7 +281,7 @@ class Roll extends Aggregate
 			$this->printer = null;
 			$this->parentRoll = null;
 			$this->dateAdded = new \DateTimeImmutable();
-			$this->orders = new ArrayCollection([]);
+			$this->products = new ArrayCollection([]);
 		}
 	}
 }

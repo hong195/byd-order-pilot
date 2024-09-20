@@ -66,7 +66,7 @@ class RollRepository extends ServiceEntityRepository implements RollRepositoryIn
      */
     public function remove(Roll $roll): void
     {
-        $roll->removeOrders();
+        $roll->removeProducts();
         $this->getEntityManager()->remove($roll);
         $this->getEntityManager()->flush();
     }
