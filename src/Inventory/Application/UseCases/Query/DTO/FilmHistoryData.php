@@ -18,7 +18,7 @@ final readonly class FilmHistoryData
         public string $inventoryType,
         public string $filmType,
         public string $event,
-        public \DateTimeInterface $createdAt,
+        public string $createdAt,
         public float $newSize = 0,
         public float $oldSize = 0,
     ) {
