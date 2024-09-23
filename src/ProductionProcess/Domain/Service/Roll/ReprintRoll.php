@@ -17,16 +17,16 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
  */
 final readonly class ReprintRoll
 {
-    /**
-     * Class constructor.
-     *
-     * @param RollRepositoryInterface  $rollRepository  the roll repository interface
-     * @param OrderRepositoryInterface $orderRepository the order repository interface
-     * @param OrdersCheckInInterface   $ordersCheckIn   the orders check-in interface
-     */
-    public function __construct(private RollRepositoryInterface $rollRepository, private OrderRepositoryInterface $orderRepository, private OrdersCheckInInterface $ordersCheckIn)
-    {
-    }
+//    /**
+//     * Class constructor.
+//     *
+//     * @param RollRepositoryInterface  $rollRepository  the roll repository interface
+//     * @param OrderRepositoryInterface $orderRepository the order repository interface
+//     * @param OrdersCheckInInterface   $ordersCheckIn   the orders check-in interface
+//     */
+//    public function __construct(private RollRepositoryInterface $rollRepository, private OrderRepositoryInterface $orderRepository, private OrdersCheckInInterface $ordersCheckIn)
+//    {
+//    }
 
     /**
      * Handle the order reprint.
@@ -38,19 +38,19 @@ final readonly class ReprintRoll
      */
     public function handle(int $rollId): void
     {
-        $roll = $this->rollRepository->findById($rollId);
-
-        if (!$roll) {
-            throw new NotFoundHttpException('Roll not found');
-        }
-
-        foreach ($roll->getOrders() as $order) {
-            $order->reprint();
-            $this->orderRepository->save($order);
-        }
-
-        $this->rollRepository->remove($roll);
-
-        $this->ordersCheckIn->checkIn();
+//        $roll = $this->rollRepository->findById($rollId);
+//
+//        if (!$roll) {
+//            throw new NotFoundHttpException('Roll not found');
+//        }
+//
+//        foreach ($roll->getOrders() as $order) {
+//            $order->reprint();
+//            $this->orderRepository->save($order);
+//        }
+//
+//        $this->rollRepository->remove($roll);
+//
+//        $this->ordersCheckIn->checkIn();
     }
 }

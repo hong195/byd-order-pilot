@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Domain\Aggregate\Roll;
 
-use App\ProductionProcess\Domain\Aggregate\Order;
+use App\ProductionProcess\Domain\Aggregate\Job;
 use App\ProductionProcess\Domain\Aggregate\Printer;
-use App\ProductionProcess\Domain\Aggregate\Product;
 use App\ProductionProcess\Domain\Events\RollProcessWasUpdatedEvent;
 use App\ProductionProcess\Domain\ValueObject\Process;
-use App\ProductionProcess\Domain\ValueObject\Status;
 use App\Shared\Domain\Aggregate\Aggregate;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -23,22 +21,19 @@ use Webmozart\Assert\Assert;
 class Roll extends Aggregate
 {
     private ?int $id = null;
-
-    /*
-     * Reference to the inventory film
-     */
     private ?int $filmId = null;
-
+    private ?int $glowId = null;
     private \DateTimeImmutable $dateAdded;
-	/**
-	 * @var Collection<Order>
-	 */
-	private Collection $products;
+    /**
+     * @var Collection<Job>
+     */
+    private Collection $jobs;
     private ?Printer $printer = null;
 
     private ?int $employeeId = null;
 
-	private ?self $parentRoll = null;
+    private ?self $parentRoll = null;
+
     /**
      * Constructs a new object with the given name, roll type, and lamination types.
      *
@@ -49,7 +44,7 @@ class Roll extends Aggregate
     public function __construct(private string $name, ?int $filmId = null, private ?Process $process = Process::ORDER_CHECK_IN)
     {
         $this->filmId = $filmId;
-        $this->products = new ArrayCollection([]);
+        $this->jobs = new ArrayCollection([]);
         $this->dateAdded = new \DateTimeImmutable();
     }
 
@@ -117,16 +112,6 @@ class Roll extends Aggregate
     }
 
     /**
-     * Retrieves the total length of the products associated with this object.
-     *
-     * @return float the total length of the products associated with this object
-     */
-    public function getProductsLength(): float
-    {
-        return $this->products->reduce(fn (int $carry, Order $product) => $carry + $product->getLength(), 0);
-    }
-
-    /**
      * Retrieves the status associated with this object.
      *
      * @return Process the status associated with this object
@@ -146,62 +131,6 @@ class Roll extends Aggregate
         $this->process = $process;
 
         $this->raise(new RollProcessWasUpdatedEvent($this->id));
-    }
-
-    /**
-     * Retrieves the collection of products associated with this object.
-     *
-     * @return Collection<Order> the collection of products associated with this object
-     */
-    public function getProducts(): Collection
-    {
-        return $this->products;
-    }
-
-    /**
-     * Retrieves the number of products associated with this object.
-     *
-     * @return int the number of products associated with this object
-     */
-    public function getProductsCount(): int
-    {
-        return $this->products->count();
-    }
-
-    /**
-     * Adds an Order to the collection.
-     *
-     * @param Product $product The product to be added
-     */
-    public function addProduct(Product $product): void
-    {
-        $product->changeStatus(Status::ASSIGNED);
-        $product->setRoll($this);
-
-        $product->changeSortOrder($this->products->count() + 1);
-
-        $this->products->add($product);
-    }
-
-    /**
-     * Removes all products from the object.
-     */
-    public function removeProducts(): void
-    {
-        foreach ($this->products as $product) {
-			$product->removeRoll();
-            $this->products->removeElement($product);
-        }
-    }
-
-    /**
-     * Returns the count of priority products.
-     *
-     * @return int the count of priority products
-     */
-    public function getProductsWithPriority(): int
-    {
-        return $this->products->filter(fn (Product $product) => $product->hasPriority())->count();
     }
 
     /**
@@ -225,13 +154,13 @@ class Roll extends Aggregate
     }
 
     /**
-     * Retrieves an array of roll types associated with the products in this object.
+     * Retrieves an array of roll types associated with the jobs in this object.
      *
-     * @return string[] an array of roll types associated with the products in this object
+     * @return string[] an array of roll types associated with the jobs in this object
      */
     public function getFilmTypes(): array
     {
-        return array_values(array_unique($this->products->map(fn (Product $product) => $product->getFilmType()->value)->toArray()));
+        return array_values(array_unique($this->jobs->map(fn (Job $job) => $job->getFilmType()->value)->toArray()));
     }
 
     /**
@@ -241,7 +170,7 @@ class Roll extends Aggregate
      */
     public function getLaminations(): array
     {
-        return array_values(array_unique($this->products->map(fn (Product $product) => $product->getLaminationType()?->value)->toArray()));
+        return array_values(array_unique($this->jobs->map(fn (Job $job) => $job->getLaminationType()?->value)->toArray()));
     }
 
     /**
@@ -264,24 +193,67 @@ class Roll extends Aggregate
         $this->employeeId = $employeeId;
     }
 
-	public function setParentRoll(Roll $roll): void
-	{
-		$this->parentRoll = $roll;
-	}
+    /**
+     * Sets the parent roll for this object.
+     *
+     * @param Roll $roll the parent roll to set
+     */
+    public function setParentRozll(Roll $roll): void
+    {
+        $this->parentRoll = $roll;
+    }
 
-	public function getParentRoll(): ?self
-	{
-		return $this->parentRoll;
-	}
+    /**
+     * Get the parent roll.
+     *
+     * @return self|null the parent roll if it exists, null otherwise
+     */
+    public function getParentRoll(): ?self
+    {
+        return $this->parentRoll;
+    }
 
-	public function __clone(): void
-	{
-		if ($this->id) {
-			$this->id = null;
-			$this->printer = null;
-			$this->parentRoll = null;
-			$this->dateAdded = new \DateTimeImmutable();
-			$this->products = new ArrayCollection([]);
-		}
-	}
+    /**
+     * Clone the object.
+     */
+    public function __clone(): void
+    {
+        if ($this->id) {
+            $this->id = null;
+            $this->printer = null;
+            $this->parentRoll = null;
+            $this->dateAdded = new \DateTimeImmutable();
+            $this->jobs = new ArrayCollection([]);
+        }
+    }
+
+    /**
+     * Retrieves the collection of jobs associated with this object.
+     *
+     * @return Collection<Job> the collection of jobs associated with this object
+     */
+    public function getJobs(): Collection
+    {
+        return $this->jobs;
+    }
+
+    /**
+     * Get the glowId.
+     *
+     * @return int|null the glowId or null if it is not set
+     */
+    public function getGlowId(): ?int
+    {
+        return $this->glowId;
+    }
+
+    /**
+     * Sets the glowId property.
+     *
+     * @param int|null $glowId The glowId value. Can be null.
+     */
+    public function setGlowId(?int $glowId): void
+    {
+        $this->glowId = $glowId;
+    }
 }

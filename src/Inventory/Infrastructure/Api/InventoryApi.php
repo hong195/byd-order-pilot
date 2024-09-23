@@ -7,7 +7,7 @@ namespace App\Inventory\Infrastructure\Api;
 use App\Inventory\Application\UseCases\PrivateQueryInteractor;
 use App\Inventory\Application\UseCases\Query\DTO\FilmData;
 use App\Inventory\Domain\Aggregate\FilmType;
-use App\Orders\Infrastructure\Adapter\InventoryApiInterface;
+use App\ProductionProcess\Infrastructure\Adapter\InventoryApiInterface;
 
 /**
  * Class constructor.

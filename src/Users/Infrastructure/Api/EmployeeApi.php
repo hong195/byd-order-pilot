@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Users\Infrastructure\Api;
 
-use App\Orders\Infrastructure\Adapter\Employee\EmployeeAdapterInterface;
+use App\ProductionProcess\Infrastructure\Adapter\Employee\EmployeeAdapterInterface;
 use App\Users\Application\UseCase\PrivateUseCaseInteractor;
 
 final readonly class EmployeeApi implements EmployeeAdapterInterface

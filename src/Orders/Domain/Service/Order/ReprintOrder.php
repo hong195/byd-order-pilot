@@ -21,7 +21,7 @@ final readonly class ReprintOrder
      *
      * @param OrderRepositoryInterface $orderRepository The order repository interface
      */
-    public function __construct(private OrderRepositoryInterface $orderRepository, private OrdersCheckInInterface $ordersCheckIn)
+    public function __construct(private OrderRepositoryInterface $orderRepository)
     {
     }
 
@@ -33,16 +33,16 @@ final readonly class ReprintOrder
      */
     public function handle(int $orderId): void
     {
-        $order = $this->orderRepository->findById($orderId);
-
-        if (!$order) {
-            throw new NotFoundHttpException('Order not found');
-        }
-
-        $order->reprint();
-
-        $this->orderRepository->save($order);
-
-        $this->ordersCheckIn->checkIn();
+//        $order = $this->orderRepository->findById($orderId);
+//
+//        if (!$order) {
+//            throw new NotFoundHttpException('Order not found');
+//        }
+//
+//        $order->reprint();
+//
+//        $this->orderRepository->save($order);
+//
+//        $this->ordersCheckIn->checkIn();
     }
 }

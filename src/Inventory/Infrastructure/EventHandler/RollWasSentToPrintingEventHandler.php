@@ -7,7 +7,7 @@ namespace App\Inventory\Infrastructure\EventHandler;
 use App\Inventory\Application\UseCases\PrivateCommandInteractor;
 use App\Inventory\Application\UseCases\PrivateQueryInteractor;
 use App\Inventory\Infrastructure\Adapter\Rolls\RollsApiAdapter;
-use App\Orders\Domain\Events\RollWasSentToPrintCheckInEvent;
+use App\ProductionProcess\Domain\Events\RollWasSentToPrintCheckInEvent;
 use App\Shared\Application\Event\EventHandlerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 

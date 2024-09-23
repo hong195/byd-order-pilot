@@ -20,16 +20,16 @@ use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
  */
 final readonly class PrintCheckInService
 {
-    /**
-     * Construct the class.
-     *
-     * @param RollRepositoryInterface       $rollRepository       the roll repository
-     * @param AvailableFilmServiceInterface $availableFilmService the available film service
-     * @param EventDispatcherInterface      $eventDispatcher      the event dispatcher
-     */
-    public function __construct(private RollRepositoryInterface $rollRepository, private AvailableFilmServiceInterface $availableFilmService, private EventDispatcherInterface $eventDispatcher, private GeneralProcessValidation $generalProcessValidatior)
-    {
-    }
+//    /**
+//     * Construct the class.
+//     *
+//     * @param RollRepositoryInterface       $rollRepository       the roll repository
+//     * @param AvailableFilmServiceInterface $availableFilmService the available film service
+//     * @param EventDispatcherInterface      $eventDispatcher      the event dispatcher
+//     */
+//    public function __construct(private RollRepositoryInterface $rollRepository, private AvailableFilmServiceInterface $availableFilmService, private EventDispatcherInterface $eventDispatcher, private GeneralProcessValidation $generalProcessValidatior)
+//    {
+//    }
 
     /**
      * Print a roll.
@@ -43,30 +43,30 @@ final readonly class PrintCheckInService
      */
     public function handle(int $rollId): void
     {
-        $roll = $this->rollRepository->findById($rollId);
-
-        $this->generalProcessValidatior->validate($roll);
-
-        if (!$roll->getProcess()->equals(Process::ORDER_CHECK_IN)) {
-            throw new RollCantBeSentToPrintException('Roll cannot be printed! It is not in the correct process.');
-        }
-
-        $printer = $roll->getPrinter();
-
-        if (!$printer->isAvailable()) {
-            throw new PrinterIsNotAvailableException('Printer is not available');
-        }
+//        $roll = $this->rollRepository->findById($rollId);
+//
+//        $this->generalProcessValidatior->validate($roll);
+//
+//        if (!$roll->getProcess()->equals(Process::ORDER_CHECK_IN)) {
+//            throw new RollCantBeSentToPrintException('Roll cannot be printed! It is not in the correct process.');
+//        }
+//
+//        $printer = $roll->getPrinter();
+//
+//        if (!$printer->isAvailable()) {
+//            throw new PrinterIsNotAvailableException('Printer is not available');
+//        }
 
         $availableFilm = $this->getByFilmType($roll->getFilmId());
 
-        if (!$availableFilm || $availableFilm->length < $roll->getOrdersLength()) {
-            throw new NotEnoughFilmLengthToPrintTheRollException('Not enough film to print');
-        }
-
-        $roll->updateProcess(Process::PRINTING_CHECK_IN);
-        $this->rollRepository->save($roll);
-
-        $this->eventDispatcher->dispatch(new RollWasSentToPrintCheckInEvent($roll->getId()));
+        //        if (!$availableFilm || $availableFilm->length < $roll->getOrdersLength()) {
+        //            throw new NotEnoughFilmLengthToPrintTheRollException('Not enough film to print');
+        //        }
+        //
+        //        $roll->updateProcess(Process::PRINTING_CHECK_IN);
+        //        $this->rollRepository->save($roll);
+        //
+        //        $this->eventDispatcher->dispatch(new RollWasSentToPrintCheckInEvent($roll->getId()));
     }
 
     /**

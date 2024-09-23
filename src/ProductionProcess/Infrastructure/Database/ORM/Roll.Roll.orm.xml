@@ -4,7 +4,7 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
         https://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="App\ProductionProcess\Domain\Aggregate\Roll\Roll" table="orders_roll">
+    <entity name="App\ProductionProcess\Domain\Aggregate\Roll\Roll" table="prod_process_roll">
         <id name="id" type="integer">
             <generator/>
         </id>
@@ -22,7 +22,7 @@
 
         <many-to-one field="printer" target-entity="App\ProductionProcess\Domain\Aggregate\Printer" fetch="EXTRA_LAZY" />
 
-        <one-to-many field="products" target-entity="App\ProductionProcess\Domain\Aggregate\Product" mapped-by="roll" fetch="EXTRA_LAZY" >
+        <one-to-many field="jobs" target-entity="App\ProductionProcess\Domain\Aggregate\Job" mapped-by="roll" fetch="EXTRA_LAZY" >
             <cascade>
                 <cascade-persist/>
             </cascade>

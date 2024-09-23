@@ -4,7 +4,7 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
         https://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="App\ProductionProcess\Domain\Aggregate\Roll\History\History" table="orders_roll_history">
+    <entity name="App\ProductionProcess\Domain\Aggregate\Roll\History\History" table="prod_process_roll_history">
         <id name="id" type="integer">
             <generator/>
         </id>

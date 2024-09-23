@@ -40,6 +40,12 @@ doctrine:
                 dir: '%kernel.project_dir%/src/Users/Infrastructure/Database/ORM'
                 prefix: 'App\Users\Domain\Entity'
                 alias: Users
+            ProductionProcess:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/src/ProductionProcess/Infrastructure/Database/ORM'
+                prefix: 'App\ProductionProcess\Domain\Aggregate'
+                alias: ProductionProcess
             Orders:
                 is_bundle: false
                 type: xml

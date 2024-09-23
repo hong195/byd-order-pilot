@@ -39,8 +39,8 @@ services:
         resource: '../src/*/Domain/Factory'
         exclude: '../src/Shared/*'
 
-    App\Orders\Domain\Service\Inventory\AvailableFilmServiceInterface:
-        class: App\Orders\Infrastructure\Adapter\InventoryApiAdapter
+    App\ProductionProcess\Domain\Service\Inventory\AvailableFilmServiceInterface:
+        class: App\ProductionProcess\Infrastructure\Adapter\InventoryApiAdapter
         public: true
 
     Symfony\Component\Serializer\Normalizer\ObjectNormalizer: ~

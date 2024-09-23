@@ -5,12 +5,12 @@
         https://doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
 >
 
-    <entity name="App\Orders\Domain\Aggregate\Product" table="orders_product">
+    <entity name="App\ProductionProcess\Domain\Aggregate\Job" table="prod_process_job">
         <id name="id" type="integer">
             <generator/>
         </id>
 
-        <many-to-one field="order" target-entity="App\Orders\Domain\Aggregate\Order" inversed-by="order"
+        <many-to-one field="roll" target-entity="App\ProductionProcess\Domain\Aggregate\Roll\Roll" inversed-by="roll"
                      fetch="EXTRA_LAZY">
             <cascade>
                 <cascade-persist/>
@@ -18,38 +18,40 @@
             <join-column name="order_id" nullable="true"/>
         </many-to-one>
 
+        <field name="status"
+               enum-type="App\ProductionProcess\Domain\ValueObject\Status"
+               column="status"
+               length="255"
+        />
+
+        <field name="length" type="decimal" column="length" nullable="true" precision="15" scale="2"/>
+
         <field name="laminationType"
-               enum-type="App\Orders\Domain\ValueObject\LaminationType"
+               enum-type="App\ProductionProcess\Domain\ValueObject\LaminationType"
                column="lamination_type"
                length="255"
                nullable="true"
         />
 
         <field name="filmType"
-               enum-type="App\Orders\Domain\ValueObject\FilmType"
+               enum-type="App\ProductionProcess\Domain\ValueObject\FilmType"
                column="film_type"
                length="255"
                nullable="true"
         />
 
-        <field name="isPacked" type="boolean" column="is_packed">
+        <field name="hasPriority"
+               type="boolean"
+               column="has_priority"
+               length="255"
+               nullable="true"
+        />
+
+        <field name="sortOrder" type="integer" column="sort_order" nullable="true">
             <options>
-                <option name="default">false</option>
+                <option name="default">0</option>
             </options>
         </field>
-
-        <one-to-one field="cutFile" target-entity="App\Shared\Domain\Entity\MediaFile">
-            <cascade>
-                <cascade-all/>
-            </cascade>
-            <join-column name="cut_file_id"/>
-        </one-to-one>
-        <one-to-one field="printFile" target-entity="App\Shared\Domain\Entity\MediaFile">
-            <cascade>
-                <cascade-all/>
-            </cascade>
-            <join-column name="print_file_id"/>
-        </one-to-one>
 
         <field name="dateAdded" type="datetime_immutable" column="date_added"/>
     </entity>

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Orders\Domain\Aggregate;
 
-use App\Orders\Domain\ValueObject\OrderType;
 use App\Shared\Domain\Aggregate\Aggregate;
+use App\Orders\Domain\ValueObject\OrderType;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
