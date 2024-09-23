@@ -4,25 +4,15 @@ declare(strict_types=1);
 
 namespace App\Orders\Application\UseCase;
 
-use App\Orders\Application\DTO\SortOrderData;
-use App\Orders\Application\UseCase\Command\AssignEmployeeToRoll\AssignEmployeeToRollCommand;
+use App\Orders\Application\DTO\Order\SortOrderData;
 use App\Orders\Application\UseCase\Command\AssignOrder\AssignOrderCommand;
 use App\Orders\Application\UseCase\Command\ChangeOrderPriority\ChangeOrderPriorityCommand;
 use App\Orders\Application\UseCase\Command\ChangeOrderSort\ChangeOrderSortCommand;
-use App\Orders\Application\UseCase\Command\ChangePrinterAvailability\ChangePrinterAvailabilityCommand;
-use App\Orders\Application\UseCase\Command\CopyRollHistory\CopyRollHistoryCommand;
 use App\Orders\Application\UseCase\Command\CreateExtra\CreateExtraCommand;
-use App\Orders\Application\UseCase\Command\CreatePrinters\CreatePrintersCommand;
-use App\Orders\Application\UseCase\Command\CuttingCheckIn\CuttingCheckIntCommand;
-use App\Orders\Application\UseCase\Command\GlowCheckIn\GlowCheckInCommand;
 use App\Orders\Application\UseCase\Command\PackExtra\PackExtraCommand;
 use App\Orders\Application\UseCase\Command\PackMainProduct\PackMainProductCommand;
-use App\Orders\Application\UseCase\Command\PrintCheckIn\PrintCheckIntCommand;
-use App\Orders\Application\UseCase\Command\RecordRollHistory\RecordRollHistoryCommand;
 use App\Orders\Application\UseCase\Command\ReprintOrder\ReprintOrderCommand;
-use App\Orders\Application\UseCase\Command\ReprintRoll\ReprintRollCommand;
 use App\Orders\Application\UseCase\Command\ShipAndCollectOrders\ShipAndCollectOrdersCommand;
-use App\Orders\Application\UseCase\Command\UnAssignEmployeeFromRoll\UnAssignEmployeeFromRollCommand;
 use App\Orders\Application\UseCase\Command\UnassignOrder\UnassignOrderCommand;
 use App\Orders\Application\UseCase\Command\UnPackExtra\UnPackExtraCommand;
 use App\Orders\Application\UseCase\Command\UnPackMainProduct\UnPackMainProductCommand;
@@ -40,16 +30,6 @@ readonly class PrivateCommandInteractor
     public function __construct(private CommandBusInterface $commandBus)
     {
     }
-
-    /**
-     * Create printers in the database.
-     */
-    public function createPrinters(): void
-    {
-        $command = new CreatePrintersCommand();
-        $this->commandBus->execute($command);
-    }
-
     /**
      * Changes the status of an order.
      *
@@ -81,69 +61,6 @@ readonly class PrivateCommandInteractor
     }
 
     /**
-     * Changes the sort order of an order.
-     *
-     * @param SortOrderData $orderData The data containing the roll ID, order ID, and sort order
-     */
-    public function changeSortOrder(SortOrderData $orderData): void
-    {
-        $command = new ChangeOrderSortCommand(rollId: $orderData->rollId, group: $orderData->group, sortOrders: $orderData->sortOrders);
-        $this->commandBus->execute($command);
-    }
-
-    /**
-     * Makes a printer available.
-     *
-     * @param int $printerId The ID of the printer
-     */
-    public function makePrinterAvailable(int $printerId): void
-    {
-        $command = new ChangePrinterAvailabilityCommand(printerId: $printerId, isAvailable: true);
-        $this->commandBus->execute($command);
-    }
-
-    /**
-     * Makes a printer available.
-     *
-     * @param int $printerId The ID of the printer
-     */
-    public function makePrinterUnAvailable(int $printerId): void
-    {
-        $command = new ChangePrinterAvailabilityCommand(printerId: $printerId, isAvailable: false);
-        $this->commandBus->execute($command);
-    }
-
-    /**
-     * Sends a roll to print check-in.
-     *
-     * @param int $rollId The ID of the roll to send to print check-in
-     */
-    public function printingCheckIn(int $rollId): void
-    {
-        $this->commandBus->execute(new PrintCheckIntCommand($rollId));
-    }
-
-    /**
-     * Sends a roll to the glow check-in process.
-     *
-     * @param int $rollId the ID of the roll to be sent
-     */
-    public function glowCheckIn(int $rollId): void
-    {
-        $this->commandBus->execute(new GlowCheckInCommand($rollId));
-    }
-
-    /**
-     * Sends a roll to be checked in for cutting.
-     *
-     * @param int $rollId The ID of the roll to be checked in
-     */
-    public function cuttingCheckIn(int $rollId): void
-    {
-        $this->commandBus->execute(new CuttingCheckIntCommand($rollId));
-    }
-
-    /**
      * Ships and collects orders for a given roll.
      *
      * @param int $rollId The ID of the roll
@@ -151,18 +68,6 @@ readonly class PrivateCommandInteractor
     public function shipAndCollectOrders(int $rollId): void
     {
         $this->commandBus->execute(new ShipAndCollectOrdersCommand($rollId));
-    }
-
-    /**
-     * Prints a new copy of an order.
-     *
-     * @param int $rollId The ID of the roll
-     *
-     * @throws NotFoundHttpException
-     */
-    public function reprintRoll(int $rollId): void
-    {
-        $this->commandBus->execute(new ReprintRollCommand($rollId));
     }
 
     /**
@@ -231,34 +136,14 @@ readonly class PrivateCommandInteractor
         $this->commandBus->execute(new UnPackExtraCommand(orderId: $orderId, extraId: $extraId));
     }
 
-    /**
-     * Assigns an employee to a role.
-     *
-     * @param int $rollId     The ID of the role
-     * @param int $employeeId The ID of the employee
-     */
-    public function assignEmployeeToARoll(int $rollId, int $employeeId): void
-    {
-        $this->commandBus->execute(new AssignEmployeeToRollCommand(rollId: $rollId, employeeId: $employeeId));
-    }
-
-    /**
-     * Unassigns an employee from a roll.
-     *
-     * @param int $rollId The ID of the roll
-     */
-    public function unassignEmployeeFromRoll(int $rollId): void
-    {
-        $this->commandBus->execute(new UnAssignEmployeeFromRollCommand(rollId: $rollId));
-    }
-
-    /**
-     * Synchronizes the roll history.
-     *
-     * @param int $rollId The ID of the roll
-     */
-    public function recoredRollProcessUpdate(int $rollId): void
-    {
-        $this->commandBus->execute(new RecordRollHistoryCommand($rollId));
-    }
+	/**
+	 * Changes the sort order of an order.
+	 *
+	 * @param SortOrderData $orderData The data containing the roll ID, order ID, and sort order
+	 */
+	public function changeSortOrder(SortOrderData $orderData): void
+	{
+		$command = new ChangeOrderSortCommand(rollId: $orderData->rollId, group: $orderData->group, sortOrders: $orderData->sortOrders);
+		$this->commandBus->execute($command);
+	}
 }

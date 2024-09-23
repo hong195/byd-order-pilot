@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Application\UseCase\Query\GetOptions;
+namespace App\ProductionProcess\Application\UseCase\Query\GetOptions;
 
 /**
  * Represents the result of finding a roll.
