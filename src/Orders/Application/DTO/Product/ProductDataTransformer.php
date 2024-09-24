@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Orders\Application\DTO\Product;
 
-use App\Orders\Application\DTO\OrderData;
 use App\Orders\Application\Service\AssetUrlServiceInterface;
 use App\Orders\Domain\Aggregate\Order;
 use App\Orders\Domain\Aggregate\Product;
@@ -27,11 +26,11 @@ final readonly class ProductDataTransformer
     /**
      * Converts an array of Orders entities into an array of OrderData instances.
      *
-     * @param Order[] $productEntityList an array of Orders entities to convert
+     * @param Product[] $productEntityList an array of Orders entities to convert
      *
-     * @return OrderData[] an array of OrderData instances
+     * @return ProductData[] an array of OrderData instances
      */
-    public function fromOrdersEntityList(array $productEntityList): array
+    public function fromProductsEntityList(array $productEntityList): array
     {
         $productData = [];
 
@@ -47,7 +46,7 @@ final readonly class ProductDataTransformer
      *
      * @param array<int, Collection<Order>> $groups The groups of lamination
      *
-     * @return array<int, OrderData[]> The converted array format of lamination groups
+     * @return array<int, ProductData[]> The converted array format of lamination groups
      */
     public function fromLaminationGroup(array $groups): array
     {
@@ -71,8 +70,6 @@ final readonly class ProductDataTransformer
     {
         return new ProductData(
             id: $product->getId(),
-			status: $product->getStatus()->value,
-			hasPriority: $product->hasPriority(),
 			length: $product->getLength(),
 			filmType: $product->getFilmType()->value,
 			orderNumber: $product->getOrderNumber(),

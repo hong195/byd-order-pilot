@@ -31,9 +31,26 @@ final class ProductRepository extends ServiceEntityRepository implements Product
      *
      * @param Product $product The product to be added
      */
-    public function save(Product $product): void
+    public function add(Product $product): void
     {
         $this->getEntityManager()->persist($product);
         $this->getEntityManager()->flush();
+    }
+
+    /**
+     * Returns an array of entities filtered by the given orderId.
+     *
+     * @param int $orderId the orderId to filter the entities
+     *
+     * @return Product[] an array of entities filtered by the orderId
+     */
+    public function findByOrderId(int $orderId): array
+    {
+        $qb = $this->createQueryBuilder('p');
+
+        $qb->setParameter('orderId', $orderId);
+        $qb->where('p.order = :orderId');
+
+        return $qb->getQuery()->getResult();
     }
 }

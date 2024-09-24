@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Orders\Application\UseCase;
 
 use App\Orders\Application\DTO\Order\SortOrderData;
+use App\Orders\Application\UseCase\Command\AddProduct\AddProductCommand;
 use App\Orders\Application\UseCase\Command\AssignOrder\AssignOrderCommand;
 use App\Orders\Application\UseCase\Command\ChangeOrderPriority\ChangeOrderPriorityCommand;
 use App\Orders\Application\UseCase\Command\ChangeOrderSort\ChangeOrderSortCommand;
@@ -30,6 +31,7 @@ readonly class PrivateCommandInteractor
     public function __construct(private CommandBusInterface $commandBus)
     {
     }
+
     /**
      * Changes the status of an order.
      *
@@ -136,14 +138,24 @@ readonly class PrivateCommandInteractor
         $this->commandBus->execute(new UnPackExtraCommand(orderId: $orderId, extraId: $extraId));
     }
 
-	/**
-	 * Changes the sort order of an order.
-	 *
-	 * @param SortOrderData $orderData The data containing the roll ID, order ID, and sort order
-	 */
-	public function changeSortOrder(SortOrderData $orderData): void
-	{
-		$command = new ChangeOrderSortCommand(rollId: $orderData->rollId, group: $orderData->group, sortOrders: $orderData->sortOrders);
-		$this->commandBus->execute($command);
-	}
+    /**
+     * Changes the sort order of an order.
+     *
+     * @param SortOrderData $orderData The data containing the roll ID, order ID, and sort order
+     */
+    public function changeSortOrder(SortOrderData $orderData): void
+    {
+        $command = new ChangeOrderSortCommand(rollId: $orderData->rollId, group: $orderData->group, sortOrders: $orderData->sortOrders);
+        $this->commandBus->execute($command);
+    }
+
+    /**
+     * Adds a product to the application.
+     *
+     * @param AddProductCommand $command The command containing the product information
+     */
+    public function addProduct(AddProductCommand $command): void
+    {
+        $this->commandBus->execute($command);
+    }
 }

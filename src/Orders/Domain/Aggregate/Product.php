@@ -6,13 +6,12 @@ namespace App\Orders\Domain\Aggregate;
 
 use App\Orders\Domain\ValueObject\FilmType;
 use App\Orders\Domain\ValueObject\LaminationType;
-use App\Shared\Domain\Aggregate\Aggregate;
 use App\Shared\Domain\Entity\MediaFile;
 
 /**
  * Class Orders.
  */
-final class Product extends Aggregate
+class Product
 {
     public const CUT_FILE = 'cut_file';
     public const PRINT_FILE = 'print_file';

@@ -5,16 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Clean up commit.">
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/CreateExtra/CreateExtraCommand.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/CreateExtra/CreateExtraCommandHandler.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/PackExtra/PackExtraCommand.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/PackExtra/PackExtraCommandHandler.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/PackMainProduct/PackMainProductCommand.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/PackMainProduct/PackMainProductCommandHandler.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/UnPackExtra/UnPackExtraCommand.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/UnPackExtra/UnPackExtraCommandHandler.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/UnPackMainProduct/UnPackMainProductCommand.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/UnPackMainProduct/UnPackMainProductCommandHandler.php" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/Product/ProductCreateDTO.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Application/Service/Product/ProductService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AddProduct/AddProductCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AddProduct/AddProductCommandHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindProducts/FindProductsHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindProducts/FindProductsQuery.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindProducts/FindProductsResult.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Event/ProductAddedEvent.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Repository/ProductRepositoryInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/Products/AddProductAction.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/Products/FindProducts.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240924114659.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/Order/ManualCreateOrderDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/Order/ManualCreateOrderDTO.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/Product/ProductData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/Product/ProductData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/Product/ProductDataTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/Product/ProductDataTransformer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/Service/Order/ManualOrderService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/Service/Order/ManualOrderService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ManuallyAddOrder/ManuallyAddOrderCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ManuallyAddOrder/ManuallyAddOrderCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ManuallyAddOrder/ManuallyAddOrderCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ManuallyAddOrder/ManuallyAddOrderCommandHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateQueryInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateQueryInteractor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Factory/OrderFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Factory/OrderFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Factory/PrinterFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Factory/ProductFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/ManualAddOrderAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/ManualAddOrderAction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Product.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Product.orm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/ProductRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/ProductRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +207,7 @@
     "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm": "Docker Compose",
     "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm": "Docker Compose",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/src/ProductionProcess/Application/UseCase/Command",
+    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/src/Orders/Application/UseCase/Query",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -208,18 +226,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Query" />
+      <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Command" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess" />
-      <recent name="$PROJECT_DIR$/src/Orders/Application/DTO/Order" />
-      <recent name="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Orders/Application/Service/Product" />
+      <recent name="$PROJECT_DIR$/src/Orders/Application/DTO/Product" />
       <recent name="$PROJECT_DIR$/src/Orders/Domain/Aggregate" />
       <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Query" />
       <recent name="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders" />
-      <recent name="$PROJECT_DIR$/src/Orders/Application/DTO/Roll" />
-      <recent name="$PROJECT_DIR$/src/Orders/Application/DTO/Extra" />
     </key>
   </component>
   <component name="RunManager" selected="Makefile Target.restart">
@@ -300,15 +318,7 @@
       <workItem from="1726063769562" duration="34578000" />
       <workItem from="1726470299712" duration="17482000" />
       <workItem from="1726574611729" duration="15256000" />
-      <workItem from="1726657747853" duration="51428000" />
-    </task>
-    <task id="LOCAL-00305" summary="Moved roll to its own folder.">
-      <option name="closed" value="true" />
-      <created>1725627547996</created>
-      <option name="number" value="00305" />
-      <option name="presentableId" value="LOCAL-00305" />
-      <option name="project" value="LOCAL" />
-      <updated>1725627547996</updated>
+      <workItem from="1726657747853" duration="61188000" />
     </task>
     <task id="LOCAL-00306" summary="Fixed incorrect extra name.">
       <option name="closed" value="true" />
@@ -694,7 +704,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727167330443</updated>
     </task>
-    <option name="localTasksCounter" value="354" />
+    <task id="LOCAL-00354" summary="Clean up commit.">
+      <option name="closed" value="true" />
+      <created>1727167551725</created>
+      <option name="number" value="00354" />
+      <option name="presentableId" value="LOCAL-00354" />
+      <option name="project" value="LOCAL" />
+      <updated>1727167551725</updated>
+    </task>
+    <option name="localTasksCounter" value="355" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

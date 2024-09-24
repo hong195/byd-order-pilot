@@ -14,7 +14,7 @@ use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[AsController]
-#[Route('api/manually-add-order', 'manually-add-order', methods: ['POST'])]
+#[Route('api/orders/manually-add-order', 'manually-add-order', methods: ['POST'])]
 final readonly class ManualAddOrderAction
 {
     /**
@@ -36,26 +36,10 @@ final readonly class ManualAddOrderAction
      */
     public function __invoke(Request $request): JsonResponse
     {
-        $cutFileId = null;
-        $printFileId = null;
-
-        if ($request->files->has('cutFile')) {
-            $cutFileId = $this->uploadFileService->upload($request->files->get('cutFile'));
-        }
-
-        if ($request->files->has('printFile')) {
-            $printFileId = $this->uploadFileService->upload($request->files->get('printFile'));
-        }
-
         $manuallyAddCommand = new ManuallyAddOrderCommand(
             customerName: $request->get('customerName'),
-            length: (float) $request->get('length'),
             filmType: $request->get('filmType'),
-            hasPriority: filter_var($request->get('hasPriority'), FILTER_VALIDATE_BOOLEAN),
             laminationType: $request->get('laminationType'),
-            orderNumber: $request->get('orderNumber'),
-            cutFileId: $cutFileId,
-            printFileId: $printFileId,
             customerNotes: $request->get('customerNotes'),
             packagingInstructions: $request->get('packagingInstructions'),
         );

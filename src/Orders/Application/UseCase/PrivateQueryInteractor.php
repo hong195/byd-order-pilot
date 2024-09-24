@@ -10,6 +10,8 @@ use App\Orders\Application\UseCase\Query\FindExtras\FindExtrasQuery;
 use App\Orders\Application\UseCase\Query\FindExtras\FindExtrasResult;
 use App\Orders\Application\UseCase\Query\FindOrders\FindOrdersQuery;
 use App\Orders\Application\UseCase\Query\FindOrders\FindOrdersResult;
+use App\Orders\Application\UseCase\Query\FindProducts\FindProductsQuery;
+use App\Orders\Application\UseCase\Query\FindProducts\FindProductsResult;
 use App\Orders\Application\UseCase\Query\GetOptions\GetOptionsQuery;
 use App\Orders\Application\UseCase\Query\GetOptions\GetOptionsQueryResult;
 use App\Shared\Application\Query\QueryBusInterface;
@@ -68,5 +70,16 @@ readonly class PrivateQueryInteractor
     public function findExtras(int $order): FindExtrasResult
     {
         return $this->queryBus->execute(new FindExtrasQuery($order));
+    }
+
+	/**
+	 * Finds products for a given order ID.
+	 *
+	 * @param int $orderId The ID of the order to find products for.
+	 * @return FindProductsResult The result of the find products operation.
+	 */
+    public function findProducts(int $orderId): FindProductsResult
+    {
+        return $this->queryBus->execute(new FindProductsQuery($orderId));
     }
 }

@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace App\Orders\Application\UseCase\Command\ManuallyAddOrder;
 
-use App\Orders\Application\DTO\ManualCreateOrderDTO;
+use App\Orders\Application\DTO\Order\ManualCreateOrderDTO;
 use App\Orders\Application\Service\Order\ManualOrderService;
-use App\Orders\Domain\Aggregate\Order;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Command\CommandHandlerInterface;
 use App\Shared\Domain\Service\AssertService;
@@ -41,22 +40,11 @@ final readonly class ManuallyAddOrderCommandHandler implements CommandHandlerInt
 
         $orderData = new ManualCreateOrderDTO(
             customerName: $command->customerName,
-            length: $command->length,
-            filmType: $command->filmType,
-            laminationType: $command->laminationType,
             customerNotes: $command->customerNotes,
             packagingInstructions: $command->packagingInstructions,
         );
 
-        $order = $this->manuallyAddOrderService->add($orderData);
-
-        if ($command->cutFileId) {
-            $this->manuallyAddOrderService->attachFile($order, $command->cutFileId, Order::CUT_FILE);
-        }
-
-        if ($command->printFileId) {
-            $this->manuallyAddOrderService->attachFile($order, $command->printFileId, Order::PRINT_FILE);
-        }
+        $order = $this->manuallyAddOrderService->create($orderData);
 
         return $order->getId();
     }
