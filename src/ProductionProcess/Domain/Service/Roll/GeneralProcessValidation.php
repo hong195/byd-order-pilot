@@ -25,7 +25,7 @@ final readonly class GeneralProcessValidation
             throw new NotFoundHttpException('Roll not found');
         }
 
-        if ($roll->getOrders()->isEmpty()) {
+        if ($roll->getJobs()->isEmpty()) {
             throw new NotFoundHttpException('No Orders found!');
         }
 

@@ -4,35 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Clean up commit.">
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/Product/ProductCreateDTO.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/Service/Product/ProductService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AddProduct/AddProductCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AddProduct/AddProductCommandHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindProducts/FindProductsHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindProducts/FindProductsQuery.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindProducts/FindProductsResult.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Event/ProductAddedEvent.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Repository/ProductRepositoryInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/Products/AddProductAction.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/Products/FindProducts.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240924114659.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added product routes.">
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/JobRepositoryInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Job/GroupService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Job/SortService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/Order/ManualCreateOrderDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/Order/ManualCreateOrderDTO.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/Product/ProductData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/Product/ProductData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/Product/ProductDataTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/Product/ProductDataTransformer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/Service/Order/ManualOrderService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/Service/Order/ManualOrderService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ManuallyAddOrder/ManuallyAddOrderCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ManuallyAddOrder/ManuallyAddOrderCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ManuallyAddOrder/ManuallyAddOrderCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ManuallyAddOrder/ManuallyAddOrderCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateQueryInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateQueryInteractor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Factory/OrderFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Factory/OrderFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Factory/PrinterFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Factory/ProductFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/ManualAddOrderAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/ManualAddOrderAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Product.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Product.orm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/ProductRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/ProductRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Inventory/AvailableFilmServiceInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Inventory/InMemoryAvailableFilmService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Roll/Roll.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Roll/Roll.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/CuttingCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/CuttingCheckInService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/GeneralProcessValidation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/GeneralProcessValidation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/GlowCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/GlowCheckInService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/OrdersCheckInProcess/OrdersCheckInInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/JobsCheckInProcess/JobCheckInInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/OrdersCheckInProcess/OrdersOrdersCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/JobsCheckInProcess/JobsCheckInService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintCheckInService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/ReprintRoll.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/ReprintRoll.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,11 +221,11 @@
       <recent name="$PROJECT_DIR$/src/ProductionProcess" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Job" />
       <recent name="$PROJECT_DIR$/src/Orders/Application/Service/Product" />
       <recent name="$PROJECT_DIR$/src/Orders/Application/DTO/Product" />
       <recent name="$PROJECT_DIR$/src/Orders/Domain/Aggregate" />
       <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Query" />
-      <recent name="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders" />
     </key>
   </component>
   <component name="RunManager" selected="Makefile Target.restart">
@@ -318,15 +306,7 @@
       <workItem from="1726063769562" duration="34578000" />
       <workItem from="1726470299712" duration="17482000" />
       <workItem from="1726574611729" duration="15256000" />
-      <workItem from="1726657747853" duration="61188000" />
-    </task>
-    <task id="LOCAL-00306" summary="Fixed incorrect extra name.">
-      <option name="closed" value="true" />
-      <created>1725878351150</created>
-      <option name="number" value="00306" />
-      <option name="presentableId" value="LOCAL-00306" />
-      <option name="project" value="LOCAL" />
-      <updated>1725878351150</updated>
+      <workItem from="1726657747853" duration="74312000" />
     </task>
     <task id="LOCAL-00307" summary="Fixed removing roll relation when order is unassign.">
       <option name="closed" value="true" />
@@ -712,7 +692,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727167551725</updated>
     </task>
-    <option name="localTasksCounter" value="355" />
+    <task id="LOCAL-00355" summary="Added product routes.">
+      <option name="closed" value="true" />
+      <created>1727178630820</created>
+      <option name="number" value="00355" />
+      <option name="presentableId" value="LOCAL-00355" />
+      <option name="project" value="LOCAL" />
+      <updated>1727178630820</updated>
+    </task>
+    <option name="localTasksCounter" value="356" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -731,6 +719,11 @@
     </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="b779282f-d827-4338-bc85-66e11c3810f1" value="TOOL_WINDOW" />
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -744,11 +737,35 @@
             </State>
           </value>
         </entry>
+        <entry key="b779282f-d827-4338-bc85-66e11c3810f1">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:/Users/aleksejem/Sites/order-pilot/src/Orders/Domain/Service/Order" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+            </State>
+          </value>
+        </entry>
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Roll history small refactor." />
     <MESSAGE value="Fixed missing relations." />
     <MESSAGE value="Added docs." />
     <MESSAGE value="Fixed making unavailable printer." />
@@ -773,7 +790,8 @@
     <MESSAGE value="Added new domain &quot;Production process&quot;" />
     <MESSAGE value="Updated models." />
     <MESSAGE value="Clean up commit." />
-    <option name="LAST_COMMIT_MESSAGE" value="Clean up commit." />
+    <MESSAGE value="Added product routes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added product routes." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

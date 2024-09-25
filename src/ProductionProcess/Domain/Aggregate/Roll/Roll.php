@@ -198,7 +198,7 @@ class Roll extends Aggregate
      *
      * @param Roll $roll the parent roll to set
      */
-    public function setParentRozll(Roll $roll): void
+    public function setParentRoll(Roll $roll): void
     {
         $this->parentRoll = $roll;
     }
@@ -255,5 +255,34 @@ class Roll extends Aggregate
     public function setGlowId(?int $glowId): void
     {
         $this->glowId = $glowId;
+    }
+
+    /**
+     * Add a job to the roll.
+     *
+     * @param Job $job The job to be added
+     */
+    public function addJob(Job $job): void
+    {
+        $job->setRoll($this);
+        $this->jobs->add($job);
+    }
+
+    /**
+     * Get the total length of jobs.
+     *
+     * @return float|int the total length of jobs as a float or integer
+     */
+    public function getJobsLength(): float|int
+    {
+        return $this->jobs->reduce(fn (float|int $carry, Job $job) => $carry + $job->getLength(), 0);
+    }
+
+    /**
+     * Remove all jobs.
+     */
+    public function removeJobs(): void
+    {
+        $this->jobs->clear();
     }
 }

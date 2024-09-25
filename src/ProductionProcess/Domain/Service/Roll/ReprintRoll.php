@@ -7,7 +7,7 @@ namespace App\ProductionProcess\Domain\Service\Roll;
 use App\ProductionProcess\Domain\Exceptions\OrderReprintException;
 use App\ProductionProcess\Domain\Repository\OrderRepositoryInterface;
 use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
-use App\ProductionProcess\Domain\Service\Roll\OrdersCheckInProcess\OrdersCheckInInterface;
+use App\ProductionProcess\Domain\Service\Roll\JobCheckInProcess\JobCheckInInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -22,9 +22,9 @@ final readonly class ReprintRoll
 //     *
 //     * @param RollRepositoryInterface  $rollRepository  the roll repository interface
 //     * @param OrderRepositoryInterface $orderRepository the order repository interface
-//     * @param OrdersCheckInInterface   $ordersCheckIn   the orders check-in interface
+//     * @param JobCheckInInterface   $ordersCheckIn   the orders check-in interface
 //     */
-//    public function __construct(private RollRepositoryInterface $rollRepository, private OrderRepositoryInterface $orderRepository, private OrdersCheckInInterface $ordersCheckIn)
+//    public function __construct(private RollRepositoryInterface $rollRepository, private OrderRepositoryInterface $orderRepository, private JobCheckInInterface $ordersCheckIn)
 //    {
 //    }
 

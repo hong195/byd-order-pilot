@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\ProductionProcess\Domain\Service\Roll\OrdersCheckInProcess;
+namespace App\ProductionProcess\Domain\Service\Roll\JobsCheckInProcess;
 
-use App\ProductionProcess\Domain\Aggregate\Order;
+use App\ProductionProcess\Domain\Aggregate\Job;
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
 use App\ProductionProcess\Domain\DTO\FilmData;
-use App\ProductionProcess\Domain\Repository\OrderRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\JobRepositoryInterface;
 use App\ProductionProcess\Domain\Repository\RollFilter;
 use App\ProductionProcess\Domain\Service\Inventory\AvailableFilmServiceInterface;
-use App\ProductionProcess\Domain\Service\Order\SortOrdersServiceInterface;
+use App\ProductionProcess\Domain\Service\Job\SortService as JobSortService;
 use App\ProductionProcess\Domain\Service\Roll\RollMaker;
 use App\ProductionProcess\Domain\ValueObject\FilmType;
 use App\ProductionProcess\Domain\ValueObject\Process;
@@ -20,27 +20,26 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
 /**
- * Class MaxMinReArrangeOrderService.
+ * Class MaxMinReArrangeJobService.
  */
-final class OrdersOrdersCheckInService implements OrdersCheckInInterface
+final class JobsCheckInService implements JobCheckInInterface
 {
     private Collection $assignedRolls;
-
     private Collection $rolls;
-
-    private Collection $orders;
+    private Collection $jobs;
 
     /**
      * Class constructor.
      *
-     * @param OrderRepositoryInterface      $orderRepository      The order repository
-     * @param SortOrdersServiceInterface    $sortOrdersService    The sort orders service
+     * @param JobRepositoryInterface        $jobRepository        The job repository
+     * @param JobSortService                $sortJobsService      The sort jobs service
      * @param RollRepository                $rollRepository       The roll repository
      * @param AvailableFilmServiceInterface $availableFilmService The available film service
      * @param RollMaker                     $rollMaker            The roll maker
      */
-    public function __construct(private readonly OrderRepositoryInterface $orderRepository,
-        private readonly SortOrdersServiceInterface $sortOrdersService,
+    public function __construct(
+        private readonly JobRepositoryInterface $jobRepository,
+        private readonly JobSortService $sortJobsService,
         private readonly RollRepository $rollRepository,
         private readonly AvailableFilmServiceInterface $availableFilmService,
         private readonly RollMaker $rollMaker,
@@ -58,14 +57,14 @@ final class OrdersOrdersCheckInService implements OrdersCheckInInterface
 
         $availableFilms = $this->availableFilmService->getAvailableFilms();
         $groupedFilms = $this->groupFilmsByType($availableFilms);
-        $groupedOrders = $this->groupOrdersByFilm($this->orders);
+        $groupedJobs = $this->groupJobsByFilm($this->jobs);
 
-        foreach ($groupedOrders as $filmType => $orders) {
+        foreach ($groupedJobs as $filmType => $jobs) {
             if (!isset($groupedFilms[$filmType])) {
-                // If there is no film of this type, create an empty roll for all orders of this type
-                foreach ($orders as $order) {
-                    $roll = $this->findOrMakeRoll(name: "Empty Roll {$order->getFilmType()->value}", filmType: $order->getFilmType());
-                    $roll->addOrder($order);
+                // If there is no film of this type, create an empty roll for all jobs of this type
+                foreach ($jobs as $job) {
+                    $roll = $this->findOrMakeRoll(name: "Empty Roll {$job->getFilmType()->value}", filmType: $job->getFilmType());
+                    $roll->addJob($job);
                     $this->syncAssignRolls($roll);
                 }
                 continue;
@@ -74,20 +73,20 @@ final class OrdersOrdersCheckInService implements OrdersCheckInInterface
             // Инициализируем доступные пленки для данного типа
             $currentFilm = $groupedFilms[$filmType];
 
-            foreach ($orders as $order) {
-                $orderPlaced = false;
+            foreach ($jobs as $job) {
+                $jobPlaced = false;
 
-                // Attempting to place an order on existing film rolls
+                // Attempting to place a job on existing film rolls
                 foreach ($currentFilm as $key => $film) {
                     $filmLength = $film->length;
 
-                    $roll = $this->findOrMakeRoll(name: "Roll {$film->filmType}", filmId: $film->id, filmType: $order->getFilmType());
+                    $roll = $this->findOrMakeRoll(name: "Roll {$film->filmType}", filmId: $film->id, filmType: $job->getFilmType());
 
-                    if ($roll->getOrdersLength() + $order->getLength() <= $filmLength) {
-                        $roll->addOrder($order);
+                    if ($roll->getJobsLength() + $job->getLength() <= $filmLength) {
+                        $roll->addJob($job);
 
                         $this->syncAssignRolls($roll);
-                        $orderPlaced = true;
+                        $jobPlaced = true;
 
                         if (0 === $filmLength) {
                             unset($currentFilm[$key]); // Remove the film from the available films
@@ -98,10 +97,9 @@ final class OrdersOrdersCheckInService implements OrdersCheckInInterface
                 }
 
                 // Если заказ не был размещен, создаем пустой рулон
-                if (!$orderPlaced) {
-                    $roll = $this->findOrMakeRoll("Empty Roll {$order->getFilmType()->value}", null, $order->getFilmType());
-                    $roll->getOrders()->count();
-                    $roll->addOrder($order);
+                if (!$jobPlaced) {
+                    $roll = $this->findOrMakeRoll("Empty Roll {$job->getFilmType()->value}", null, $job->getFilmType());
+                    $roll->addJob($job);
 
                     $this->syncAssignRolls($roll);
                 }
@@ -112,14 +110,14 @@ final class OrdersOrdersCheckInService implements OrdersCheckInInterface
     }
 
     /**
-     * Initializes the data for the orders check in, uses latest rolls and orders to do that.
+     * Initializes the data for the jobs check in, uses latest rolls and jobs to do that.
      */
     private function initData(): void
     {
         $this->assignedRolls = new ArrayCollection([]);
         $this->rolls = new ArrayCollection($this->rollRepository->findByFilter(new RollFilter(process: Process::ORDER_CHECK_IN)));
 
-        $this->initOrders();
+        $this->initJobs();
     }
 
     /**
@@ -164,21 +162,21 @@ final class OrdersOrdersCheckInService implements OrdersCheckInInterface
     }
 
     /**
-     * Groups orders by roll type.
+     * Groups jobs by roll type.
      *
-     * @param Collection<Order> $orders the collection of orders
+     * @param Collection<Job> $jobs the collection of jobs
      *
-     * @return array<string, Order[]> the array of grouped orders
+     * @return array<string, Job[]> the array of grouped jobs
      */
-    private function groupOrdersByFilm(Collection $orders): array
+    private function groupJobsByFilm(Collection $jobs): array
     {
-        $groupedOrders = [];
+        $groupedJobs = [];
 
-        foreach ($orders as $order) {
-            $groupedOrders[$order->getFilmType()->value][] = $order;
+        foreach ($jobs as $job) {
+            $groupedJobs[$job->getFilmType()->value][] = $job;
         }
 
-        return $groupedOrders;
+        return $groupedJobs;
     }
 
     /**
@@ -200,37 +198,38 @@ final class OrdersOrdersCheckInService implements OrdersCheckInInterface
     }
 
     /**
-     * Initializes the orders in the application.
+     * Initializes the jobs in the application.
      *
-     * This method retrieves the orders with status "assignable" from the order repository,
-     * adds them to the $orders collection, and then adds the orders associated with each
-     * roll in the $rolls collection to the $orders collection. Finally, it sorts the
-     * $orders collection using the SortOrdersService.
+     * This method retrieves the jobs with status "assignable" from the job repository,
+     * adds them to the $jobs collection, and then adds the jobs associated with each
+     * roll in the $rolls collection to the $jobs collection. Finally, it sorts the
+     * $jobs collection using the SortJobsService.
      */
-    private function initOrders(): void
+    private function initJobs(): void
     {
-        $this->orders = new ArrayCollection();
-        $assignableOrders = $this->orderRepository->findByStatus(Status::ASSIGNABLE);
+        $this->jobs = new ArrayCollection();
+        $assignableJobs = $this->jobRepository->findByStatus(Status::ASSIGNABLE);
 
-        foreach ($assignableOrders as $order) {
-            $this->orders->add($order);
+        foreach ($assignableJobs as $job) {
+            $this->jobs->add($job);
         }
 
+        /** @var Roll $roll */
         foreach ($this->rolls as $roll) {
-            foreach ($roll->getOrders() as $order) {
-                $this->orders->add($order);
+            foreach ($roll->getJobs() as $job) {
+                $this->jobs->add($job);
             }
 
-            $roll->removeOrders();
+            $roll->removeJobs();
         }
 
-        $this->orders = $this->sortOrdersService->getSorted($this->orders);
+        $this->jobs = $this->sortJobsService->getSorted($this->jobs);
     }
 
     /**
      * Saves the assigned rolls.
      *
-     * If a roll has no orders associated with it, it will be removed from the repository.
+     * If a roll has no jobs associated with it, it will be removed from the repository.
      */
     private function saveRolls(): void
     {
@@ -239,7 +238,7 @@ final class OrdersOrdersCheckInService implements OrdersCheckInInterface
         }
 
         foreach ($this->assignedRolls as $roll) {
-            if ($roll->getOrders()->isEmpty()) {
+            if ($roll->getJobs()->isEmpty()) {
                 $this->rollRepository->remove($roll);
                 continue;
             }

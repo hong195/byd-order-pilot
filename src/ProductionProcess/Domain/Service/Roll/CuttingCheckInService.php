@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Domain\Service\Roll;
 
-use App\ProductionProcess\Domain\Exceptions\RollCantBeSentToCuttingException;
 use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -30,8 +29,7 @@ final readonly class CuttingCheckInService
      *
      * @param int $rollId the ID of the roll to be cut
      *
-     * @throws NotFoundHttpException            if the roll was not found in the repository
-     * @throws RollCantBeSentToCuttingException if the roll cannot be cut due to incorrect process or no orders
+     * @throws NotFoundHttpException if the roll was not found in the repository
      */
     public function handle(int $rollId): void
     {
