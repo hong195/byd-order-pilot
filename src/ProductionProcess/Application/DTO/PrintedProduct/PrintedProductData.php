@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\ProductionProcess\Application\DTO\Product;
+namespace App\ProductionProcess\Application\DTO\PrintedProduct;
 
 /**
  * OrderData class represents order data.
  */
-final readonly class ProductData
+final readonly class PrintedProductData
 {
     /**
      * Class Constructor.

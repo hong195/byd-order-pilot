@@ -5,7 +5,6 @@ namespace App\ProductionProcess\Infrastructure\Repository;
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
 use App\ProductionProcess\Domain\Repository\RollFilter;
 use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
-use App\ProductionProcess\Domain\ValueObject\Status;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -66,28 +65,9 @@ class RollRepository extends ServiceEntityRepository implements RollRepositoryIn
      */
     public function remove(Roll $roll): void
     {
-        $roll->removeProducts();
+        $roll->removePrintedProducts();
         $this->getEntityManager()->remove($roll);
         $this->getEntityManager()->flush();
-    }
-
-    /**
-     * Finds rolls by roll type.
-     *
-     * @return Roll[] an array of rolls matching the roll type
-     */
-    public function findByStatus(Status $status): array
-    {
-        $qb = $this->createQueryBuilder('r');
-
-        $qb->where('r.status = :status');
-        $qb->setParameter('status', $status->value);
-
-        $query = $qb->getQuery();
-
-        $query->setMaxResults(10);
-
-        return $query->getResult();
     }
 
     /**

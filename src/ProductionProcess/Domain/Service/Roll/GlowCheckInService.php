@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Domain\Service\Roll;
 
-use App\ProductionProcess\Domain\Aggregate\Job;
+use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
 use App\ProductionProcess\Domain\Events\RollsWereSentToGlowCheckInEvent;
 use App\ProductionProcess\Domain\Exceptions\RollCantBeSentToGlowException;
 use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
-use App\ProductionProcess\Domain\Service\Job\GroupService;
+use App\ProductionProcess\Domain\Service\PrintedProduct\GroupService;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -48,12 +48,12 @@ final readonly class GlowCheckInService
             throw new RollCantBeSentToGlowException('Roll cannot be glowed! It is not in the correct process.');
         }
 
-        $jobs = new ArrayCollection($rollToGlow->getJobs()->toArray());
-        $jobsGroups = $this->groupService->handle($jobs);
+        $printedProducts = new ArrayCollection($rollToGlow->getPrintedProducts()->toArray());
+        $printedProductsGroups = $this->groupService->handle($printedProducts);
 
-        if (1 === count($jobsGroups)) {
-            $firstJob = $rollToGlow->getJobs()->first();
-            $hasLamination = null !== $firstJob->getLaminationType();
+        if (1 === count($printedProductsGroups)) {
+            $firstPrintedProduct = $rollToGlow->getPrintedProducts()->first();
+            $hasLamination = null !== $firstPrintedProduct->getLaminationType();
             $process = $hasLamination ? Process::GLOW_CHECK_IN : Process::CUTTING_CHECK_IN;
 
             $rollToGlow->updateProcess($process);
@@ -64,30 +64,30 @@ final readonly class GlowCheckInService
             return;
         }
 
-        $rollToGlow->removeJobs();
+        $rollToGlow->removePrintedProducts();
         $sendToGlowingRolls = [];
 
         $rollToGlow->updateProcess(Process::CUT);
 
         $this->rollRepository->save($rollToGlow);
 
-        foreach ($jobsGroups as $group => $groupJobs) {
+        foreach ($printedProductsGroups as $group => $groupPrintedProducts) {
             $roll = $this->rollMaker->make(name: $rollToGlow->getName(), filmId: $rollToGlow->getFilmId());
 
             $roll->setEmployeeId($rollToGlow->getEmployeeId());
             $roll->assignPrinter($rollToGlow->getPrinter());
             $roll->setParentRoll($rollToGlow);
 
-            /** @var Job $firstJob */
-            $firstJob = $groupJobs->first();
-            $hasLamination = null !== $firstJob->getLaminationType();
+            /** @var PrintedProduct $firstPrintedProduct */
+            $firstPrintedProduct = $groupPrintedProducts->first();
+            $hasLamination = null !== $firstPrintedProduct->getLaminationType();
             // if roll does not have lamination it goes directly to cut check in, otherwise to glow check in
             $process = $hasLamination ? Process::GLOW_CHECK_IN : Process::CUTTING_CHECK_IN;
 
             $roll->updateProcess($process);
 
-            foreach ($groupJobs as $job) {
-                $roll->addJob($job);
+            foreach ($groupPrintedProducts as $printedProduct) {
+                $roll->addPrintedProduct($printedProduct);
             }
 
             $this->rollRepository->save($roll);

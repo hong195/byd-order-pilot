@@ -41,13 +41,6 @@ interface RollRepositoryInterface
     public function remove(Roll $roll): void;
 
     /**
-     * Finds records by roll type.
-     *
-     * @return Roll[] an array of records matching the roll type
-     */
-    public function findByStatus(Status $status): array;
-
-    /**
      * Finds records based on the given RollFilter.
      *
      * @param RollFilter $rollFilter the filter to query records

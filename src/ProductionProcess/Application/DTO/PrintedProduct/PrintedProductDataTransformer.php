@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\ProductionProcess\Application\DTO\Product;
+namespace App\ProductionProcess\Application\DTO\PrintedProduct;
 
 use App\ProductionProcess\Application\DTO\OrderData;
 use App\ProductionProcess\Application\Service\AssetUrlServiceInterface;
@@ -13,7 +13,7 @@ use Doctrine\Common\Collections\Collection;
 /**
  * OrderData class represents product data.
  */
-final readonly class ProductDataTransformer
+final readonly class PrintedProductDataTransformer
 {
     /**
      * Class constructor.
@@ -29,7 +29,7 @@ final readonly class ProductDataTransformer
      *
      * @param Product[] $productEntityList an array of Orders entities to convert
      *
-     * @return ProductData[] an array of OrderData instances
+     * @return PrintedProductData[] an array of OrderData instances
      */
     public function fromOrdersEntityList(array $productEntityList): array
     {
@@ -65,19 +65,16 @@ final readonly class ProductDataTransformer
      *
      * @param Product $product the Orders entity to convert
      *
-     * @return ProductData the converted ProductData object
+     * @return PrintedProductData the converted PrintedProductData object
      */
-    public function fromEntity(Product $product): ProductData
+    public function fromEntity(Product $product): PrintedProductData
     {
-        return new ProductData(
+        return new PrintedProductData(
             id: $product->getId(),
-			status: $product->getStatus()->value,
 			hasPriority: $product->hasPriority(),
 			length: $product->getLength(),
 			filmType: $product->getFilmType()->value,
 			orderNumber: $product->getOrderNumber(),
-			cutFile: $product->getCutFile() ? $this->assetUrlService->getLink($product->getCutFile()->getPath()) : null,
-			printFile: $product->getPrintFile() ? $this->assetUrlService->getLink($product->getPrintFile()->getPath()) : null,
 			addedAt: $product->getDateAdded(),
 			laminationType: $product->getLaminationType()?->value,
         );

@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace App\Orders\Infrastructure\Controller\Orders\Products;
 
+use App\Orders\Application\DTO\Product\ProductCreateDTO;
 use App\Orders\Application\UseCase\Command\AddProduct\AddProductCommand;
+use App\Orders\Application\UseCase\Command\AddProduct\CreatePrintedProductCommand;
+use App\Orders\Application\UseCase\PrivateCommandInteractor;
 use App\Shared\Domain\Service\UploadFileService;
 use App\Shared\Infrastructure\Bus\CommandBus;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -23,7 +26,7 @@ final readonly class AddProductAction
 	 * @param CommandBus $commandBus the command bus instance
 	 * @param UploadFileService $uploadFileService the upload file service instance
 	 */
-	public function __construct(private CommandBus $commandBus, private UploadFileService $uploadFileService)
+	public function __construct(private PrivateCommandInteractor $privateCommandInteractor, private UploadFileService $uploadFileService)
 	{
 	}
 
@@ -56,7 +59,7 @@ final readonly class AddProductAction
             printFileId: $printFileId,
         );
 
-        $productId = $this->commandBus->execute($productDTO);
+		$productId = $this->privateCommandInteractor->addProduct($productDTO);
 
         return new JsonResponse(['id' => $productId], Response::HTTP_CREATED);
     }

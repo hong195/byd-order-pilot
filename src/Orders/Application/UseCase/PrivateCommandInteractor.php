@@ -6,6 +6,7 @@ namespace App\Orders\Application\UseCase;
 
 use App\Orders\Application\DTO\Order\SortOrderData;
 use App\Orders\Application\UseCase\Command\AddProduct\AddProductCommand;
+use App\Orders\Application\UseCase\Command\AddProduct\CreatePrintedProductCommand;
 use App\Orders\Application\UseCase\Command\AssignOrder\AssignOrderCommand;
 use App\Orders\Application\UseCase\Command\ChangeOrderPriority\ChangeOrderPriorityCommand;
 use App\Orders\Application\UseCase\Command\ChangeOrderSort\ChangeOrderSortCommand;
@@ -154,8 +155,8 @@ readonly class PrivateCommandInteractor
      *
      * @param AddProductCommand $command The command containing the product information
      */
-    public function addProduct(AddProductCommand $command): void
+    public function addProduct(AddProductCommand $command): int
     {
-        $this->commandBus->execute($command);
+        return $this->commandBus->execute($command);
     }
 }

@@ -31,16 +31,17 @@ final readonly class RollMaker
     {
     }
 
-    /**
-     * Get the name of a person.
-     *
-     * @param string    $name     The name of the person
-     * @param ?int      $filmId   Film Id
-     * @param ?FilmType $filmType roll type
-     *
-     * @return Roll The name of the person
-     */
-    public function make(string $name, ?int $filmId = null, ?FilmType $filmType = null, ?Process $process = null): Roll
+	/**
+	 * Creates a new Roll.
+	 *
+	 * @param string $name The name of the roll
+	 * @param int|null $filmId The ID of the film associated with the roll
+	 * @param string|null $filmType The type of the film associated with the roll
+	 * @param Process|null $process The process associated with the roll
+	 *
+	 * @return Roll                         The created Roll object
+	 */
+    public function make(string $name, ?int $filmId = null, ?string $filmType = null, ?Process $process = null): Roll
     {
         $roll = $this->rollFactory->create($name, $filmId, $process);
 

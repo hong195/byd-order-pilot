@@ -5,7 +5,7 @@
         https://doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
 >
 
-    <entity name="App\ProductionProcess\Domain\Aggregate\Job" table="prod_process_job">
+    <entity name="App\ProductionProcess\Domain\Aggregate\PrintedProduct" table="prod_process_printed_product">
         <id name="id" type="integer">
             <generator/>
         </id>
@@ -15,7 +15,7 @@
             <cascade>
                 <cascade-persist/>
             </cascade>
-            <join-column name="order_id" nullable="true"/>
+            <join-column name="roll_id" nullable="true"/>
         </many-to-one>
 
         <field name="status"
@@ -26,19 +26,11 @@
 
         <field name="length" type="decimal" column="length" nullable="true" precision="15" scale="2"/>
 
-        <field name="laminationType"
-               enum-type="App\ProductionProcess\Domain\ValueObject\LaminationType"
-               column="lamination_type"
-               length="255"
-               nullable="true"
-        />
+        <field name="orderNumber" column="order_number" length="255" nullable="true"/>
 
-        <field name="filmType"
-               enum-type="App\ProductionProcess\Domain\ValueObject\FilmType"
-               column="film_type"
-               length="255"
-               nullable="true"
-        />
+        <field name="laminationType" column="lamination_type" length="255" nullable="true"/>
+
+        <field name="filmType" column="film_type" length="255" nullable="true"/>
 
         <field name="hasPriority"
                type="boolean"

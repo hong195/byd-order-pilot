@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\ProductionProcess\Domain\Service\Job;
+namespace App\ProductionProcess\Domain\Service\PrintedProduct;
 
-use App\ProductionProcess\Domain\Aggregate\Job;
+use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
@@ -13,7 +13,7 @@ final readonly class SortService
     /**
      * Sorts the given collection of jobs based on priority and length.
      *
-     * @param Collection<Job> $jobs the collection of jobs to be sorted
+     * @param Collection<PrintedProduct> $jobs the collection of jobs to be sorted
      *
      * @return Collection the sorted collection of jobs
      */
@@ -21,7 +21,7 @@ final readonly class SortService
     {
         $jobs = $jobs->toArray();
 
-        usort($jobs, function (Job $a, Job $b) {
+        usort($jobs, function (PrintedProduct $a, PrintedProduct $b) {
             // Compare sort number
             $sortNumberComparison = $a->getSortOrder() <=> $b->getSortOrder();
 

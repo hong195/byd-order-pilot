@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Domain\Aggregate\Roll;
 
-use App\ProductionProcess\Domain\Aggregate\Job;
+use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use App\ProductionProcess\Domain\Aggregate\Printer;
 use App\ProductionProcess\Domain\Events\RollProcessWasUpdatedEvent;
 use App\ProductionProcess\Domain\ValueObject\Process;
@@ -25,9 +25,9 @@ class Roll extends Aggregate
     private ?int $glowId = null;
     private \DateTimeImmutable $dateAdded;
     /**
-     * @var Collection<Job>
+     * @var Collection<PrintedProduct>
      */
-    private Collection $jobs;
+    private Collection $printedProducts;
     private ?Printer $printer = null;
 
     private ?int $employeeId = null;
@@ -44,7 +44,7 @@ class Roll extends Aggregate
     public function __construct(private string $name, ?int $filmId = null, private ?Process $process = Process::ORDER_CHECK_IN)
     {
         $this->filmId = $filmId;
-        $this->jobs = new ArrayCollection([]);
+        $this->printedProducts = new ArrayCollection([]);
         $this->dateAdded = new \DateTimeImmutable();
     }
 
@@ -154,13 +154,13 @@ class Roll extends Aggregate
     }
 
     /**
-     * Retrieves an array of roll types associated with the jobs in this object.
+     * Retrieves an array of roll types associated with the printedProducts in this object.
      *
-     * @return string[] an array of roll types associated with the jobs in this object
+     * @return string[] an array of roll types associated with the printedProducts in this object
      */
     public function getFilmTypes(): array
     {
-        return array_values(array_unique($this->jobs->map(fn (Job $job) => $job->getFilmType()->value)->toArray()));
+        return array_values(array_unique($this->printedProducts->map(fn (PrintedProduct $printedProduct) => $printedProduct->getFilmType()->value)->toArray()));
     }
 
     /**
@@ -170,7 +170,7 @@ class Roll extends Aggregate
      */
     public function getLaminations(): array
     {
-        return array_values(array_unique($this->jobs->map(fn (Job $job) => $job->getLaminationType()?->value)->toArray()));
+        return array_values(array_unique($this->printedProducts->map(fn (PrintedProduct $printedProduct) => $printedProduct->getLaminationType()?->value)->toArray()));
     }
 
     /**
@@ -223,18 +223,18 @@ class Roll extends Aggregate
             $this->printer = null;
             $this->parentRoll = null;
             $this->dateAdded = new \DateTimeImmutable();
-            $this->jobs = new ArrayCollection([]);
+            $this->printedProducts = new ArrayCollection([]);
         }
     }
 
     /**
-     * Retrieves the collection of jobs associated with this object.
+     * Retrieves the collection of printedProducts associated with this object.
      *
-     * @return Collection<Job> the collection of jobs associated with this object
+     * @return Collection<PrintedProduct> the collection of printedProducts associated with this object
      */
-    public function getJobs(): Collection
+    public function getPrintedProducts(): Collection
     {
-        return $this->jobs;
+        return $this->printedProducts;
     }
 
     /**
@@ -258,31 +258,31 @@ class Roll extends Aggregate
     }
 
     /**
-     * Add a job to the roll.
+     * Add a printedProduct to the roll.
      *
-     * @param Job $job The job to be added
+     * @param PrintedProduct $printedProduct The printedProduct to be added
      */
-    public function addJob(Job $job): void
+    public function addPrintedProduct(PrintedProduct $printedProduct): void
     {
-        $job->setRoll($this);
-        $this->jobs->add($job);
+		$printedProduct->setRoll($this);
+        $this->printedProducts->add($printedProduct);
     }
 
     /**
-     * Get the total length of jobs.
+     * Get the total length of printedProducts.
      *
-     * @return float|int the total length of jobs as a float or integer
+     * @return float|int the total length of printedProducts as a float or integer
      */
-    public function getJobsLength(): float|int
+    public function getPrintedProductsLength(): float|int
     {
-        return $this->jobs->reduce(fn (float|int $carry, Job $job) => $carry + $job->getLength(), 0);
+        return $this->printedProducts->reduce(fn (float|int $carry, PrintedProduct $printedProduct) => $carry + $printedProduct->getLength(), 0);
     }
 
     /**
-     * Remove all jobs.
+     * Remove all printedProducts.
      */
-    public function removeJobs(): void
+    public function removePrintedProducts(): void
     {
-        $this->jobs->clear();
+        $this->printedProducts->clear();
     }
 }

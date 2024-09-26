@@ -59,7 +59,7 @@ final readonly class PrintCheckInService
 
         $availableFilm = $this->getByFilmType($roll->getFilmId());
 
-        if (!$availableFilm || $availableFilm->length < $roll->getJobsLength()) {
+        if (!$availableFilm || $availableFilm->length < $roll->getPrintedProductsLength()) {
             throw new NotEnoughFilmLengthToPrintTheRollException('Not enough film to print');
         }
 

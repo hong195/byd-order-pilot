@@ -1,11 +1,11 @@
 <?php
 
-namespace App\ProductionProcess\Domain\Service\Roll\JobsCheckInProcess;
+namespace App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess;
 
 /**
  * Interface ArrangeServiceInterface.
  */
-interface JobCheckInInterface
+interface PrintedProductCheckInInterface
 {
     /**
      * Arranges the orders rolls.

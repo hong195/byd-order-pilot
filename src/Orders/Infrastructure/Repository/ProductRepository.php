@@ -53,4 +53,16 @@ final class ProductRepository extends ServiceEntityRepository implements Product
 
         return $qb->getQuery()->getResult();
     }
+
+    /**
+     * Returns a single entity by the given productId.
+     *
+     * @param int $productId the productId to filter the entity
+     *
+     * @return Product the entity filtered by the productId
+     */
+    public function findById(int $productId): Product
+    {
+        return $this->find(['id' => $productId]);
+    }
 }

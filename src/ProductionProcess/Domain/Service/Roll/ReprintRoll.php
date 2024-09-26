@@ -22,9 +22,9 @@ final readonly class ReprintRoll
 //     *
 //     * @param RollRepositoryInterface  $rollRepository  the roll repository interface
 //     * @param OrderRepositoryInterface $orderRepository the order repository interface
-//     * @param JobCheckInInterface   $ordersCheckIn   the orders check-in interface
+//     * @param PrintedProductCheckInInterface   $ordersCheckIn   the orders check-in interface
 //     */
-//    public function __construct(private RollRepositoryInterface $rollRepository, private OrderRepositoryInterface $orderRepository, private JobCheckInInterface $ordersCheckIn)
+//    public function __construct(private RollRepositoryInterface $rollRepository, private OrderRepositoryInterface $orderRepository, private PrintedProductCheckInInterface $ordersCheckIn)
 //    {
 //    }
 

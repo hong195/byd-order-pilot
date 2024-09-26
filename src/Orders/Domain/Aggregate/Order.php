@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Orders\Domain\Aggregate;
 
-use App\Orders\Domain\Event\ProductAddedEvent;
-use App\Shared\Domain\Aggregate\Aggregate;
+use App\Orders\Domain\Event\ProductCreatedEvent;
 use App\Orders\Domain\ValueObject\OrderType;
+use App\Shared\Domain\Aggregate\Aggregate;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
@@ -152,14 +152,10 @@ class Order extends Aggregate
      * Adds a product to the order.
      *
      * @param Product $product The product to add to the order
-     *
-     * @throws \InvalidArgumentException If the given argument is not an instance of Product
      */
     public function addProduct(Product $product): void
     {
         $product->setOrder($this);
         $this->products->add($product);
-
-		$this->raise(new ProductAddedEvent($product->getId()));
     }
 }

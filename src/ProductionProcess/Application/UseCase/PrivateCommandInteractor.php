@@ -6,6 +6,7 @@ namespace App\ProductionProcess\Application\UseCase;
 
 use App\ProductionProcess\Application\UseCase\Command\AssignEmployeeToRoll\AssignEmployeeToRollCommand;
 use App\ProductionProcess\Application\UseCase\Command\ChangePrinterAvailability\ChangePrinterAvailabilityCommand;
+use App\ProductionProcess\Application\UseCase\Command\CreatePrintedProduct\CreatePrintedProductCommand;
 use App\ProductionProcess\Application\UseCase\Command\CreatePrinters\CreatePrintersCommand;
 use App\ProductionProcess\Application\UseCase\Command\CuttingCheckIn\CuttingCheckIntCommand;
 use App\ProductionProcess\Application\UseCase\Command\GlowCheckIn\GlowCheckInCommand;
@@ -130,5 +131,15 @@ readonly class PrivateCommandInteractor
     public function recoredRollProcessUpdate(int $rollId): void
     {
         $this->commandBus->execute(new RecordRollHistoryCommand($rollId));
+    }
+
+    /**
+     * Creates a new printed product.
+     *
+     * @param CreatePrintedProductCommand $command the command containing the details of the printed product
+     */
+    public function createPrintedProduct(CreatePrintedProductCommand $command): void
+    {
+        $this->commandBus->execute($command);
     }
 }

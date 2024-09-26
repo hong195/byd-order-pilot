@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\ProductionProcess\Domain\Service\Job;
+namespace App\ProductionProcess\Domain\Service\PrintedProduct;
 
-use App\ProductionProcess\Domain\Aggregate\Job;
+use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use Doctrine\Common\Collections\Collection;
 
 /**
@@ -28,19 +28,19 @@ final readonly class GroupService
     /**
      * Handles a collection of jobs and filters them based on their lamination type.
      *
-     * @param Collection<Job> $jobs The collection of jobs
+     * @param Collection<PrintedProduct> $printedProducts The collection of jobs
      *
-     * @return array<int, Collection<Job>> The filtered jobs grouped by lamination type
+     * @return array<int, Collection<PrintedProduct>> The filtered jobs grouped by lamination type
      */
-    public function handle(Collection $jobs): array
+    public function handle(Collection $printedProducts): array
     {
         $result = [];
 
-        $laminations = $this->getLaminationGroupFromJobs($jobs);
+        $laminations = $this->getLaminationGroupFromJobs($printedProducts);
 
         foreach ($laminations as $lamination) {
-            $result[] = $this->sortJobsService->getSorted($jobs)->filter(function ($job) use ($lamination) {
-                return $job->getLaminationType()?->value === $lamination;
+            $result[] = $this->sortJobsService->getSorted($printedProducts)->filter(function ($job) use ($lamination) {
+                return $job->getLaminationType() === $lamination;
             });
         }
 
@@ -50,16 +50,17 @@ final readonly class GroupService
     /**
      * Get lamination group from jobs.
      *
-     * @param Collection<Job> $jobs the collection of jobs
+     * @param Collection<PrintedProduct> $printedProducts the collection of jobs
      *
      * @return string[] the array of lamination types
      */
-    private function getLaminationGroupFromJobs(Collection $jobs): array
+    private function getLaminationGroupFromJobs(Collection $printedProducts): array
     {
         $laminations = [];
 
-        foreach ($this->sortJobsService->getSorted($jobs) as $job) {
-            $laminations[] = $job->getLaminationType()?->value;
+		/** @var PrintedProduct $printedProduct */
+		foreach ($this->sortJobsService->getSorted($printedProducts) as $printedProduct) {
+            $laminations[] = $printedProduct->getLaminationType();
         }
 
         $laminations = array_unique($laminations);

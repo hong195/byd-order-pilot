@@ -5,35 +5,33 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Domain\Aggregate;
 
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
-use App\ProductionProcess\Domain\ValueObject\FilmType;
-use App\ProductionProcess\Domain\ValueObject\LaminationType;
 use App\ProductionProcess\Domain\ValueObject\Status;
 
 /**
  * Class Job.
  */
-class Job
+class PrintedProduct
 {
     /**
      * @phpstan-ignore-next-line
      */
     private ?int $id;
-    private Status $status;
-    private ?LaminationType $laminationType = null;
+    private ?string $laminationType = null;
     private ?Roll $roll = null;
     private ?int $sortOrder = null;
     private bool $hasPriority = false;
     private readonly \DateTimeInterface $dateAdded;
+    private Status $status = Status::UNASSIGNED;
 
     /**
      * Constructs a new instance of the class.
      *
-     * @param int       $productId   the product ID
+     * @param int       $productId   the product id
      * @param string    $orderNumber the order number
-     * @param FilmType  $filmType    the film type
-     * @param int|float $length      the length of the film in minutes or seconds
+     * @param string    $filmType    the film type
+     * @param int|float $length      the length
      */
-    public function __construct(public readonly int $productId, public readonly string $orderNumber, public readonly FilmType $filmType, public readonly int|float $length)
+    public function __construct(public readonly int $productId, public readonly string $orderNumber, public readonly string $filmType, public readonly int|float $length)
     {
         $this->dateAdded = new \DateTimeImmutable();
     }
@@ -101,9 +99,9 @@ class Job
     /**
      * Returns the roll type.
      *
-     * @return FilmType the roll type
+     * @return string the roll type
      */
-    public function getFilmType(): FilmType
+    public function getFilmType(): string
     {
         return $this->filmType;
     }
@@ -111,9 +109,9 @@ class Job
     /**
      * Returns the lamination type.
      *
-     * @return ?LaminationType the lamination type
+     * @return ?string the lamination type
      */
-    public function getLaminationType(): ?LaminationType
+    public function getLaminationType(): ?string
     {
         return $this->laminationType;
     }
@@ -121,9 +119,9 @@ class Job
     /**
      * Sets the lamination type.
      *
-     * @param LaminationType $laminationType the lamination type to set
+     * @param string $laminationType the lamination type to set
      */
-    public function setLaminationType(LaminationType $laminationType): void
+    public function setLaminationType(string $laminationType): void
     {
         $this->laminationType = $laminationType;
     }

@@ -6,6 +6,8 @@ namespace App\Orders\Application\UseCase;
 
 use App\Orders\Application\UseCase\Query\FindAnOrder\FindAnOrderQuery;
 use App\Orders\Application\UseCase\Query\FindAnOrder\FindAnOrderResult;
+use App\Orders\Application\UseCase\Query\FindAProduct\FindAProductQuery;
+use App\Orders\Application\UseCase\Query\FindAProduct\FindAProductResult;
 use App\Orders\Application\UseCase\Query\FindExtras\FindExtrasQuery;
 use App\Orders\Application\UseCase\Query\FindExtras\FindExtrasResult;
 use App\Orders\Application\UseCase\Query\FindOrders\FindOrdersQuery;
@@ -13,7 +15,6 @@ use App\Orders\Application\UseCase\Query\FindOrders\FindOrdersResult;
 use App\Orders\Application\UseCase\Query\FindProducts\FindProductsQuery;
 use App\Orders\Application\UseCase\Query\FindProducts\FindProductsResult;
 use App\Orders\Application\UseCase\Query\GetOptions\GetOptionsQuery;
-use App\Orders\Application\UseCase\Query\GetOptions\GetOptionsQueryResult;
 use App\Shared\Application\Query\QueryBusInterface;
 
 /**
@@ -72,14 +73,27 @@ readonly class PrivateQueryInteractor
         return $this->queryBus->execute(new FindExtrasQuery($order));
     }
 
-	/**
-	 * Finds products for a given order ID.
-	 *
-	 * @param int $orderId The ID of the order to find products for.
-	 * @return FindProductsResult The result of the find products operation.
-	 */
+    /**
+     * Finds products for a given order ID.
+     *
+     * @param int $orderId the ID of the order to find products for
+     *
+     * @return FindProductsResult the result of the find products operation
+     */
     public function findProducts(int $orderId): FindProductsResult
     {
         return $this->queryBus->execute(new FindProductsQuery($orderId));
+    }
+
+	/**
+	 * Finds a specific product by its ID.
+	 *
+	 * @param int $productId the ID of the product to find
+	 *
+	 * @return FindAProductResult the result of the find product operation
+	 */
+    public function findAProduct(int $productId): FindAProductResult
+    {
+        return $this->queryBus->execute(new FindAProductQuery($productId));
     }
 }

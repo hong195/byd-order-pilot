@@ -6,12 +6,14 @@ namespace App\Orders\Application\Service\Product;
 
 use App\Orders\Application\DTO\Product\ProductCreateDTO;
 use App\Orders\Domain\Aggregate\Product;
+use App\Orders\Domain\Event\ProductCreatedEvent;
 use App\Orders\Domain\Factory\ProductFactory;
 use App\Orders\Domain\Repository\ProductRepositoryInterface;
 use App\Orders\Domain\ValueObject\FilmType;
 use App\Orders\Domain\ValueObject\LaminationType;
 use App\Orders\Infrastructure\Repository\OrderRepository;
 use App\Shared\Infrastructure\Repository\MediaFileRepository;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 final readonly class ProductService
@@ -22,7 +24,7 @@ final readonly class ProductService
      * @param OrderRepository     $orderRepository     the order repository instance
      * @param MediaFileRepository $mediaFileRepository the media file repository instance
      */
-    public function __construct(private OrderRepository $orderRepository, private ProductFactory $productFactory, private ProductRepositoryInterface $productRepository, private MediaFileRepository $mediaFileRepository)
+    public function __construct(private OrderRepository $orderRepository, private ProductFactory $productFactory, private ProductRepositoryInterface $productRepository, private MediaFileRepository $mediaFileRepository, private EventDispatcherInterface $eventDispatcher)
     {
     }
 
@@ -57,6 +59,8 @@ final readonly class ProductService
 
         $this->orderRepository->save($order);
 
-		return $product;
+        $this->eventDispatcher->dispatch(new ProductCreatedEvent($product->getId()));
+
+        return $product;
     }
 }
