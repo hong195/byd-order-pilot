@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Application\UseCase\Command\ChangeOrderSort;
+namespace App\ProductionProcess\Application\UseCase\Command\ChangePrintedProductSort;
 
-use App\Orders\Domain\Service\Order\ChangeSortOrder;
+use App\ProductionProcess\Domain\Service\PrintedProduct\ChangeSortOrder;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Command\CommandHandlerInterface;
 use App\Shared\Domain\Service\AssertService;
@@ -12,7 +12,7 @@ use App\Shared\Domain\Service\AssertService;
 /**
  * Handles the change order sort command.
  */
-readonly class ChangeOrderSortCommandHandler implements CommandHandlerInterface
+readonly class ChangePrintedProductSortCommandHandler implements CommandHandlerInterface
 {
     /**
      * Class constructor.
@@ -27,9 +27,9 @@ readonly class ChangeOrderSortCommandHandler implements CommandHandlerInterface
     /**
      * __invoke method of the class.
      *
-     * @param ChangeOrderSortCommand $command the ChangeOrderSortCommand instance
+     * @param ChangePrintedProductSortCommand $command the ChangeOrderSortCommand instance
      */
-    public function __invoke(ChangeOrderSortCommand $command): void
+    public function __invoke(ChangePrintedProductSortCommand $command): void
     {
         AssertService::true($this->accessControlService->isGranted(), 'Cannot change order sort.');
 

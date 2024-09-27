@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Application\UseCase\Command\UnassignOrder;
+namespace App\ProductionProcess\Application\UseCase\Command\UnassignPrintedProduct;
 
 use App\Shared\Application\Command\CommandInterface;
 
 /**
  * Represents a command to change the priority of an order.
  */
-readonly class UnassignOrderCommand implements CommandInterface
+readonly class UnassignPrintedProductCommand implements CommandInterface
 {
     /**
      * Constructor.

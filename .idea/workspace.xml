@@ -5,17 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added printed product creator.">
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/ChangeSortOrder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/ChangeStatus.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/ReprintPrintedProduct.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/UnAssignPrintedProduct.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/Product/ProductDataTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/Product/ProductDataTransformer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/Service/Product/ProductService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/Service/Product/ProductService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Event/ProductAddedEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Event/ProductCreatedEvent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/Products/AddProductAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/Products/AddProductAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/OrderRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/OrderRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/CreatePrintedProduct/CreatePrintedProductCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/CreatePrintedProduct/CreatePrintedProductCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/AssignOrderAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/PrintedProducts/AssignPrintedProductAction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/ChangeOrderPriorityAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/PrintedProducts/ChangePrintedProductPriorityAction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/ChangeSortOrderAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/PrintedProducts/ChangeSortPrintedProductAction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/ReprintOrderAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/PrintedProducts/ReprintPrintedProductAction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/UnassignOrderAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/PrintedProducts/UnassignPrintedProductAction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/AssignOrder/AssignOrderCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/AssignPrintedProduct/AssignOrderCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/AssignOrder/AssignOrderCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/AssignPrintedProduct/AssignOrderCommandHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ChangeOrderPriority/ChangeOrderPriorityCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ChangePrintedProductPriority/ChangePrintedProductPriorityCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ChangeOrderPriority/ChangeOrderPriorityCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ChangePrintedProductPriority/ChangePrintedProductPriorityCommandHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ChangeOrderSort/ChangeOrderSortCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ChangePrintedProductSort/ChangePrintedProductSortCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ChangeOrderSort/ChangeOrderSortCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ChangePrintedProductSort/ChangePrintedProductSortCommandHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/UnassignOrder/UnassignOrderCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/UnassignPrintedProduct/UnassignPrintedProductCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/UnassignOrder/UnassignOrderCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/UnassignPrintedProduct/UnassignPrintedProductHandler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateCommandInteractor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/EventHandler/ProductAddedEventHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/EventHandler/ProductAddedEventHandler.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,11 +225,11 @@
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ChangePrintedProductPriority" />
+      <recent name="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/PrintedProducts" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Application/Service/Job" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Job" />
       <recent name="$PROJECT_DIR$/src/Orders/Application/Service/Product" />
-      <recent name="$PROJECT_DIR$/src/Orders/Application/DTO/Product" />
-      <recent name="$PROJECT_DIR$/src/Orders/Domain/Aggregate" />
     </key>
   </component>
   <component name="RunManager" selected="Makefile Target.restart">
@@ -301,15 +310,7 @@
       <workItem from="1726063769562" duration="34578000" />
       <workItem from="1726470299712" duration="17482000" />
       <workItem from="1726574611729" duration="15256000" />
-      <workItem from="1726657747853" duration="91345000" />
-    </task>
-    <task id="LOCAL-00312" summary="Added roll history.">
-      <option name="closed" value="true" />
-      <created>1726051107499</created>
-      <option name="number" value="00312" />
-      <option name="presentableId" value="LOCAL-00312" />
-      <option name="project" value="LOCAL" />
-      <updated>1726051107499</updated>
+      <workItem from="1726657747853" duration="97199000" />
     </task>
     <task id="LOCAL-00313" summary="Added relation info for rolls and history.">
       <option name="closed" value="true" />
@@ -695,7 +696,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727362509329</updated>
     </task>
-    <option name="localTasksCounter" value="361" />
+    <task id="LOCAL-00361" summary="Added printed product creator.">
+      <option name="closed" value="true" />
+      <created>1727365632018</created>
+      <option name="number" value="00361" />
+      <option name="presentableId" value="LOCAL-00361" />
+      <option name="project" value="LOCAL" />
+      <updated>1727365632018</updated>
+    </task>
+    <option name="localTasksCounter" value="362" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -714,11 +723,6 @@
     </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="OPEN_GENERIC_TABS">
-      <map>
-        <entry key="b779282f-d827-4338-bc85-66e11c3810f1" value="TOOL_WINDOW" />
-      </map>
-    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -729,31 +733,6 @@
                   <entry key="Show.Git.Branches" value="false" />
                 </map>
               </option>
-            </State>
-          </value>
-        </entry>
-        <entry key="b779282f-d827-4338-bc85-66e11c3810f1">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="HEAD" />
-                      </list>
-                    </value>
-                  </entry>
-                  <entry key="structure">
-                    <value>
-                      <list>
-                        <option value="dir:/Users/aleksejem/Sites/order-pilot/src/Orders/Domain/Service/Order" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
             </State>
           </value>
         </entry>

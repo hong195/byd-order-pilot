@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Infrastructure\Controller\Orders;
+namespace App\ProductionProcess\Infrastructure\Controller\PrintedProducts;
 
 use App\Orders\Application\DTO\SortOrderData;
 use App\Orders\Application\UseCase\PrivateCommandInteractor;
@@ -16,8 +16,8 @@ use Symfony\Component\Routing\Attribute\Route;
  * This class handles the change-sort-order API endpoint.
  */
 #[AsController]
-#[Route('/api/rolls/{rollId}/orders/change-sort', name: 'change-sort-order', requirements: ['rollId' => '^\d+$'], methods: ['POST'])]
-final readonly class ChangeSortOrderAction
+#[Route('/api/printed-products/{rollId}/orders/change-sort', name: 'change-sort-order', requirements: ['rollId' => '^\d+$'], methods: ['POST'])]
+final readonly class ChangeSortPrintedProductAction
 {
     /**
      * Class constructor.

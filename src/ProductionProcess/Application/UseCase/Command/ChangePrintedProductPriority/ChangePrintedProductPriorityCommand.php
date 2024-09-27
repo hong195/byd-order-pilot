@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Application\UseCase\Command\ChangeOrderPriority;
+namespace App\ProductionProcess\Application\UseCase\Command\ChangePrintedProductPriority;
 
 use App\Shared\Application\Command\CommandInterface;
 
 /**
  * Represents a command to change the priority of an order.
  */
-readonly class ChangeOrderPriorityCommand implements CommandInterface
+readonly class ChangePrintedProductPriorityCommand implements CommandInterface
 {
     /**
      * Constructor.

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Application\UseCase\Command\AssignOrder;
+namespace App\ProductionProcess\Application\UseCase\Command\AssignPrintedProduct;
 
 use App\Shared\Application\Command\CommandInterface;
 

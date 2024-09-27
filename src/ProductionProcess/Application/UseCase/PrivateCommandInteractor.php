@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Application\UseCase;
 
+use App\Orders\Application\UseCase\Command\AssignOrder\AssignOrderCommand;
+use App\Orders\Application\UseCase\Command\ChangeOrderPriority\ChangePrintedProductPriorityCommand;
+use App\Orders\Application\UseCase\Command\ReprintOrder\ReprintOrderCommand;
+use App\Orders\Application\UseCase\Command\UnassignOrder\UnassignPrintedProductCommand;
 use App\ProductionProcess\Application\UseCase\Command\AssignEmployeeToRoll\AssignEmployeeToRollCommand;
 use App\ProductionProcess\Application\UseCase\Command\ChangePrinterAvailability\ChangePrinterAvailabilityCommand;
 use App\ProductionProcess\Application\UseCase\Command\CreatePrintedProduct\CreatePrintedProductCommand;
@@ -142,4 +146,57 @@ readonly class PrivateCommandInteractor
     {
         $this->commandBus->execute($command);
     }
+
+
+	/**
+	 * Changes the status of an order.
+	 *
+	 * @param bool $status The new status of the order
+	 */
+	public function changeOrderPriority(int $id, bool $status): void
+	{
+		$this->commandBus->execute(new ChangePrintedProductPriorityCommand($id, $status));
+	}
+
+	/**
+	 * Unassigns an order.
+	 *
+	 * @param int $id The id of the order to unassign
+	 */
+	public function unassignOrder(int $id): void
+	{
+		$this->commandBus->execute(new UnassignPrintedProductCommand($id));
+	}
+
+	/**
+	 * Assigns an order. Triggers the check-in process.
+	 *
+	 * @param int $id The id of the order to assign
+	 */
+	public function assignOrder(int $id): void
+	{
+		$this->commandBus->execute(new AssignOrderCommand($id));
+	}
+
+	/**
+	 * Ships and collects orders for a given roll.
+	 *
+	 * @param int $rollId The ID of the roll
+	 */
+	public function shipAndCollectOrders(int $rollId): void
+	{
+		$this->commandBus->execute(new ShipAndCollectOrdersCommand($rollId));
+	}
+
+	/**
+	 * Prints a new copy of an order.
+	 *
+	 * @param int $orderId The ID of the order
+	 *
+	 * @throws NotFoundHttpException
+	 */
+	public function reprintOrder(int $orderId): void
+	{
+		$this->commandBus->execute(new ReprintOrderCommand($orderId));
+	}
 }

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Application\UseCase\Command\AssignOrder;
+namespace App\ProductionProcess\Application\UseCase\Command\AssignPrintedProduct;
 
-use App\Orders\Domain\Service\Order\ChangeStatusOrder;
-use App\Orders\Domain\ValueObject\Status;
+use App\ProductionProcess\Domain\Service\PrintedProduct\ChangeStatus;
+use App\ProductionProcess\Domain\ValueObject\Status;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Command\CommandHandlerInterface;
 use App\Shared\Domain\Service\AssertService;
@@ -19,7 +19,7 @@ readonly class AssignOrderCommandHandler implements CommandHandlerInterface
     /**
      * Class MyClass.
      */
-    public function __construct(private ChangeStatusOrder $changeStatusOrder, private AccessControlService $accessControlService)
+    public function __construct(private ChangeStatus $changeStatus, private AccessControlService $accessControlService)
     {
     }
 
@@ -34,6 +34,6 @@ readonly class AssignOrderCommandHandler implements CommandHandlerInterface
     {
         AssertService::true($this->accessControlService->isGranted(), 'Not change priority.');
 
-        $this->changeStatusOrder->handle($command->id, Status::ASSIGNABLE);
+        $this->changeStatus->handle($command->id, Status::ASSIGNABLE);
     }
 }
