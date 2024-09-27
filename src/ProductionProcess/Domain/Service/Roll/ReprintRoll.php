@@ -11,7 +11,7 @@ use App\ProductionProcess\Domain\Service\Roll\JobCheckInProcess\JobCheckInInterf
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
- * Class ReprintOrder.
+ * Class ReprintPrintedProduct.
  *
  * This class handles the printing of orders.
  */

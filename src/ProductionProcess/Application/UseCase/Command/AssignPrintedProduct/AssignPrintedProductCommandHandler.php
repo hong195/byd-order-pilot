@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Application\UseCase\Command\AssignPrintedProduct;
 
 use App\ProductionProcess\Domain\Service\PrintedProduct\ChangeStatus;
+use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\PrintedProductsCheckInService;
 use App\ProductionProcess\Domain\ValueObject\Status;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Command\CommandHandlerInterface;
@@ -14,26 +15,29 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 /**
  * Class UpdateRollCommandHandler handles updating a Roll entity.
  */
-readonly class AssignOrderCommandHandler implements CommandHandlerInterface
+readonly class AssignPrintedProductCommandHandler implements CommandHandlerInterface
 {
     /**
      * Class MyClass.
      */
-    public function __construct(private ChangeStatus $changeStatus, private AccessControlService $accessControlService)
+    public function __construct(private ChangeStatus $changeStatus, private AccessControlService $accessControlService, private PrintedProductsCheckInService $checkInService)
     {
     }
 
-    /**
-     * Invokes the command to change the order priority.
-     *
-     * @param AssignOrderCommand $command the change order priority command instance
-     *
-     * @throws NotFoundHttpException if the roll is not found
-     */
-    public function __invoke(AssignOrderCommand $command): void
+	/**
+	 * Invokes the command to change the order priority.
+	 *
+	 * @param AssignPrintedProductCommand $command the change order priority command instance
+	 *
+	 * @throws NotFoundHttpException if the roll is not found
+	 * @throws \Exception
+	 */
+    public function __invoke(AssignPrintedProductCommand $command): void
     {
         AssertService::true($this->accessControlService->isGranted(), 'Not change priority.');
 
         $this->changeStatus->handle($command->id, Status::ASSIGNABLE);
+
+		$this->checkInService->checkIn();
     }
 }

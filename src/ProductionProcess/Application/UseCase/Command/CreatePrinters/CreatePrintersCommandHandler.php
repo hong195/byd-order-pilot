@@ -37,17 +37,17 @@ readonly class CreatePrintersCommandHandler implements CommandHandlerInterface
         $printers = [
             [
                 'name' => 'Roland UV Printer',
-                'filmTypes' => [FilmType::WHITE],
-                'laminationTypes' => LaminationType::cases(),
+                'filmTypes' => ['white'],
+                'laminationTypes' => ['gold_flakes', 'holo_flakes', 'matt', 'glossy'],
             ],
             [
                 'name' => 'Mimaki UV Printer',
-                'filmTypes' => [FilmType::CHROME, FilmType::NEON, FilmType::CLEAR],
-                'laminationTypes' => LaminationType::cases(),
+                'filmTypes' => ['chrome', 'neon', 'clear'],
+				'laminationTypes' => ['gold_flakes', 'holo_flakes', 'matt', 'glossy'],
             ],
             [
                 'name' => 'Roland Normal Printer',
-                'filmTypes' => [FilmType::ECO],
+                'filmTypes' => ['eco'],
                 'laminationTypes' => [],
             ],
         ];

@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Application\UseCase\Command\ReprintOrder;
+namespace App\ProductionProcess\Application\UseCase\Command\ReprintPrintedProduct;
 
-use App\Orders\Domain\Exceptions\OrderReprintException;
-use App\Orders\Domain\Service\Order\ReprintOrder;
+use App\ProductionProcess\Domain\Service\PrintedProduct\ReprintPrintedProduct;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Command\CommandHandlerInterface;
 use App\Shared\Domain\Service\AssertService;
@@ -14,28 +13,28 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 /**
  * Class UpdateRollCommandHandler handles updating a Roll entity.
  */
-readonly class ReprintCommandHandler implements CommandHandlerInterface
+readonly class ReprintPrintedProductCommandHandler implements CommandHandlerInterface
 {
     /**
      * Class constructor.
      *
      * @param AccessControlService $accessControlService the access control service
      */
-    public function __construct(private ReprintOrder $reprintOrder, private AccessControlService $accessControlService)
+    public function __construct(private ReprintPrintedProduct $reprintPrintedProduct, private AccessControlService $accessControlService)
     {
     }
 
     /**
      * Handles a ReprintOrderCommand.
      *
-     * @param ReprintOrderCommand $command The command to handle
+     * @param ReprintPrintedProductCommand $command The command to handle
      *
      * @throws NotFoundHttpException
-     * @throws OrderReprintException
+     * @throws \Exception
      */
-    public function __invoke(ReprintOrderCommand $command): void
+    public function __invoke(ReprintPrintedProductCommand $command): void
     {
         AssertService::true($this->accessControlService->isGranted(), 'No access to handle the command');
-        $this->reprintOrder->handle($command->orderId);
+        $this->reprintPrintedProduct->handle($command->printedProductId);
     }
 }

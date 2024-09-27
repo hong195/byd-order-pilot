@@ -40,11 +40,11 @@ final readonly class RollDataTransformer
         return new RollData(
             id: $roll->getId(),
             name: $roll->getName(),
-            length: $roll->getOrdersLength(),
-            count: $roll->getOrdersCount(),
+            length: $roll->getPrintedProductsLength(),
+            count: $roll->getPrintedProducts()->count(),
             films: $roll->getFilmTypes(),
             process: $roll->getProcess()->value,
-            priorityCount: $roll->getProductsWithPriority(),
+            priorityCount: $roll->getPrintedProductsWithPriority(),
             laminations: $roll->getLaminations(),
             filmId: $roll->getFilmId(),
             dateAdded: $roll->getDateAdded()

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Domain\Service\Inventory;
 
 use App\ProductionProcess\Domain\DTO\FilmData;
-use App\ProductionProcess\Domain\ValueObject\FilmType;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
@@ -26,10 +25,10 @@ final readonly class InMemoryAvailableFilmService implements AvailableFilmServic
     public function getAvailableFilms(): Collection
     {
         return new ArrayCollection([
-            new FilmData(3, 'Test Roll Film3', 20, FilmType::CHROME->value),
-            new FilmData(4, 'Test Roll Film4', 20, FilmType::CHROME->value),
-            new FilmData(1, 'Test Roll Film', 15, FilmType::NEON->value),
-            new FilmData(5, 'Test Roll Film5', 20, FilmType::CLEAR->value),
+            new FilmData(3, 'Test Roll Film3', 20, 'chrome'),
+            new FilmData(4, 'Test Roll Film4', 20, 'chrome'),
+            new FilmData(1, 'Test Roll Film', 15, 'neon'),
+            new FilmData(5, 'Test Roll Film5', 20, 'clear'),
         ]);
     }
 }

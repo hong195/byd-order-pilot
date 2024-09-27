@@ -31,14 +31,8 @@ final readonly class PrinterDataTransformer
             $dtos[] = new PrinterData(
                 id: $entity->getId(),
                 name: $entity->getName(),
-                filmTypes: array_map(
-                    fn (FilmType $filmType) => $filmType->value,
-                    $entity->getFilmTypes()
-                ),
-                laminations: array_map(
-                    fn (LaminationType $lamination) => $lamination->value,
-                    $entity->getLaminationTypes()
-                )
+                filmTypes: $entity->getFilmTypes(),
+                laminations: $entity->getLaminationTypes()
             );
         }
 

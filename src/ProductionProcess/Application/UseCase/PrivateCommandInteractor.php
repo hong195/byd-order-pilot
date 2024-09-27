@@ -4,11 +4,9 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Application\UseCase;
 
-use App\Orders\Application\UseCase\Command\AssignOrder\AssignOrderCommand;
-use App\Orders\Application\UseCase\Command\ChangeOrderPriority\ChangePrintedProductPriorityCommand;
-use App\Orders\Application\UseCase\Command\ReprintOrder\ReprintOrderCommand;
-use App\Orders\Application\UseCase\Command\UnassignOrder\UnassignPrintedProductCommand;
 use App\ProductionProcess\Application\UseCase\Command\AssignEmployeeToRoll\AssignEmployeeToRollCommand;
+use App\ProductionProcess\Application\UseCase\Command\AssignPrintedProduct\AssignPrintedProductCommand;
+use App\ProductionProcess\Application\UseCase\Command\ChangePrintedProductPriority\ChangePrintedProductPriorityCommand;
 use App\ProductionProcess\Application\UseCase\Command\ChangePrinterAvailability\ChangePrinterAvailabilityCommand;
 use App\ProductionProcess\Application\UseCase\Command\CreatePrintedProduct\CreatePrintedProductCommand;
 use App\ProductionProcess\Application\UseCase\Command\CreatePrinters\CreatePrintersCommand;
@@ -16,8 +14,10 @@ use App\ProductionProcess\Application\UseCase\Command\CuttingCheckIn\CuttingChec
 use App\ProductionProcess\Application\UseCase\Command\GlowCheckIn\GlowCheckInCommand;
 use App\ProductionProcess\Application\UseCase\Command\PrintCheckIn\PrintCheckIntCommand;
 use App\ProductionProcess\Application\UseCase\Command\RecordRollHistory\RecordRollHistoryCommand;
+use App\ProductionProcess\Application\UseCase\Command\ReprintPrintedProduct\ReprintPrintedProductCommand;
 use App\ProductionProcess\Application\UseCase\Command\ReprintRoll\ReprintRollCommand;
 use App\ProductionProcess\Application\UseCase\Command\UnAssignEmployeeFromRoll\UnAssignEmployeeFromRollCommand;
+use App\ProductionProcess\Application\UseCase\Command\UnassignPrintedProduct\UnassignPrintedProductCommand;
 use App\Shared\Application\Command\CommandBusInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -147,56 +147,53 @@ readonly class PrivateCommandInteractor
         $this->commandBus->execute($command);
     }
 
+    /**
+     * Changes the status of an order.
+     *
+     * @param bool $status The new status of the order
+     */
+    public function changePrintedProductPriority(int $id, bool $status): void
+    {
+        $this->commandBus->execute(new ChangePrintedProductPriorityCommand($id, $status));
+    }
 
-	/**
-	 * Changes the status of an order.
-	 *
-	 * @param bool $status The new status of the order
-	 */
-	public function changeOrderPriority(int $id, bool $status): void
-	{
-		$this->commandBus->execute(new ChangePrintedProductPriorityCommand($id, $status));
-	}
+    /**
+     * Unassigns an order.
+     *
+     * @param int $id The id of the order to unassign
+     */
+    public function unassignPrintedProduct(int $id): void
+    {
+        $this->commandBus->execute(new UnassignPrintedProductCommand($id));
+    }
 
-	/**
-	 * Unassigns an order.
-	 *
-	 * @param int $id The id of the order to unassign
-	 */
-	public function unassignOrder(int $id): void
-	{
-		$this->commandBus->execute(new UnassignPrintedProductCommand($id));
-	}
+    /**
+     * Assigns an order. Triggers the check-in process.
+     *
+     * @param int $id The id of the order to assign
+     */
+    public function assignPrintedProduct(int $id): void
+    {
+        $this->commandBus->execute(new AssignPrintedProductCommand($id));
+    }
 
-	/**
-	 * Assigns an order. Triggers the check-in process.
-	 *
-	 * @param int $id The id of the order to assign
-	 */
-	public function assignOrder(int $id): void
-	{
-		$this->commandBus->execute(new AssignOrderCommand($id));
-	}
+    /**
+     * Ships and collects orders for a given roll.
+     *
+     * @param int $rollId The ID of the roll
+     */
+    public function shipAndCollectOrders(int $rollId): void
+    {
+        $this->commandBus->execute(new ShipAndCollectOrdersCommand($rollId));
+    }
 
-	/**
-	 * Ships and collects orders for a given roll.
-	 *
-	 * @param int $rollId The ID of the roll
-	 */
-	public function shipAndCollectOrders(int $rollId): void
-	{
-		$this->commandBus->execute(new ShipAndCollectOrdersCommand($rollId));
-	}
-
-	/**
-	 * Prints a new copy of an order.
-	 *
-	 * @param int $orderId The ID of the order
-	 *
-	 * @throws NotFoundHttpException
-	 */
-	public function reprintOrder(int $orderId): void
-	{
-		$this->commandBus->execute(new ReprintOrderCommand($orderId));
-	}
+    /**
+     * Reprints a printed product.
+     *
+     * @param int $printedProductId The ID of the printed product to be reprinted
+     */
+    public function reprintPrintedProduct(int $printedProductId): void
+    {
+        $this->commandBus->execute(new ReprintPrintedProductCommand($printedProductId));
+    }
 }

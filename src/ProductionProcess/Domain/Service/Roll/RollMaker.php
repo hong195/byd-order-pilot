@@ -8,7 +8,6 @@ use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
 use App\ProductionProcess\Domain\Events\RollWasCreatedEvent;
 use App\ProductionProcess\Domain\Factory\RollFactory;
 use App\ProductionProcess\Domain\Repository\PrinterRepositoryInterface;
-use App\ProductionProcess\Domain\ValueObject\FilmType;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use App\ProductionProcess\Infrastructure\Repository\RollRepository;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;

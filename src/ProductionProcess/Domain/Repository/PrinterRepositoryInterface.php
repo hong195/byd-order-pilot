@@ -3,7 +3,6 @@
 namespace App\ProductionProcess\Domain\Repository;
 
 use App\ProductionProcess\Domain\Aggregate\Printer;
-use App\ProductionProcess\Domain\ValueObject\FilmType;
 use Doctrine\Common\Collections\Collection;
 
 /**

@@ -160,7 +160,7 @@ class Roll extends Aggregate
      */
     public function getFilmTypes(): array
     {
-        return array_values(array_unique($this->printedProducts->map(fn (PrintedProduct $printedProduct) => $printedProduct->getFilmType()->value)->toArray()));
+        return array_values(array_unique($this->printedProducts->map(fn (PrintedProduct $printedProduct) => $printedProduct->getFilmType())->toArray()));
     }
 
     /**
@@ -170,7 +170,7 @@ class Roll extends Aggregate
      */
     public function getLaminations(): array
     {
-        return array_values(array_unique($this->printedProducts->map(fn (PrintedProduct $printedProduct) => $printedProduct->getLaminationType()?->value)->toArray()));
+        return array_values(array_unique($this->printedProducts->map(fn (PrintedProduct $printedProduct) => $printedProduct->getLaminationType())->toArray()));
     }
 
     /**
@@ -285,4 +285,9 @@ class Roll extends Aggregate
     {
         $this->printedProducts->clear();
     }
+
+	public function getPrintedProductsWithPriority(): int
+	{
+		return $this->printedProducts->filter(fn (PrintedProduct $printedProduct) => $printedProduct->hasPriority() === true)->count();
+	}
 }

@@ -3,10 +3,6 @@
 declare(strict_types=1);
 
 namespace App\ProductionProcess\Domain\Aggregate;
-
-use App\ProductionProcess\Domain\ValueObject\FilmType;
-use App\ProductionProcess\Domain\ValueObject\LaminationType;
-
 /**
  * Class Printer.
  *
@@ -29,8 +25,8 @@ class Printer
      * Printer constructor.
      *
      * @param string           $name            the name of the printer
-     * @param FilmType[]       $filmTypes       an array of roll types
-     * @param LaminationType[] $laminationTypes an array of lamination types
+     * @param string[]       $filmTypes       an array of roll types
+     * @param string[] $laminationTypes an array of lamination types
      */
     public function __construct(private readonly string $name, private array $filmTypes = [], private array $laminationTypes = [])
     {
@@ -90,7 +86,7 @@ class Printer
     /**
      * Returns the available roll types.
      *
-     * @return FilmType[] the array of roll types
+     * @return string[] the array of roll types
      */
     public function getFilmTypes(): array
     {
@@ -100,7 +96,7 @@ class Printer
     /**
      * Returns the available lamination types.
      *
-     * @return LaminationType[] the array of lamination types
+     * @return string[] the array of lamination types
      */
     public function getLaminationTypes(): array
     {

@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace App\Orders\Application\DTO\Order;
 
 /**
- * Class SortOrderData.
+ * Class SortData.
  *
  * Represents data related to sort orders.
  */
-final readonly class SortOrderData
+final readonly class SortData
 {
     /**
      * Initializes a new instance of the class.

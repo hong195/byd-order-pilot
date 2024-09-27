@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Infrastructure\Controller\PrintedProducts;
 
-use App\Orders\Application\DTO\SortOrderData;
+use App\Orders\Application\DTO\Order\SortData;
 use App\Orders\Application\UseCase\PrivateCommandInteractor;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Attribute\Route;
  * This class handles the change-sort-order API endpoint.
  */
 #[AsController]
-#[Route('/api/printed-products/{rollId}/orders/change-sort', name: 'change-sort-order', requirements: ['rollId' => '^\d+$'], methods: ['POST'])]
+#[Route('/api/rolls/{rollId}/printed-products/change-sort', name: 'change-printed-product-order', requirements: ['rollId' => '^\d+$'], methods: ['POST'])]
 final readonly class ChangeSortPrintedProductAction
 {
     /**
@@ -33,7 +33,7 @@ final readonly class ChangeSortPrintedProductAction
      */
     public function __invoke(int $rollId, Request $request): JsonResponse
     {
-        $sortOrderData = new SortOrderData(rollId: $rollId, group: (int) $request->get('group'), sortOrders: array_map('intval', $request->get('sortOrders')));
+        $sortOrderData = new SortData(rollId: $rollId, group: (int) $request->get('group'), sortOrders: array_map('intval', $request->get('sortOrders')));
         $this->privateCommandInteractor->changeSortOrder($sortOrderData);
 
         return new JsonResponse(['message' => 'Success'], Response::HTTP_OK);

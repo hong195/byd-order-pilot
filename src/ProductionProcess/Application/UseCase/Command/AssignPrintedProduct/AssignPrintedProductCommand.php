@@ -9,7 +9,7 @@ use App\Shared\Application\Command\CommandInterface;
 /**
  * Represents a command to change the priority of an order.
  */
-readonly class AssignOrderCommand implements CommandInterface
+readonly class AssignPrintedProductCommand implements CommandInterface
 {
     /**
      * Constructor.

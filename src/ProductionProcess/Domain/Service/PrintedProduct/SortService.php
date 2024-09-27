@@ -36,7 +36,7 @@ final readonly class SortService
             }
 
             // Compare film type
-            $rollComparison = $b->getFilmType()->value <=> $a->getFilmType()->value;
+            $rollComparison = $b->getFilmType() <=> $a->getFilmType();
 
             if (0 !== $rollComparison) {
                 return $rollComparison;

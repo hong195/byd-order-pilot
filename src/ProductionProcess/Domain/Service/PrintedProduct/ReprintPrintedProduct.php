@@ -9,7 +9,7 @@ use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Print
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
- * Class ReprintOrder.
+ * Class ReprintPrintedProduct.
  *
  * This class handles the printing of orders.
  */
@@ -25,14 +25,14 @@ final readonly class ReprintPrintedProduct
     {
     }
 
-	/**
-	 * Handle the printing of a specific printed product.
-	 *
-	 * @param int $printedProductId The ID of the printed product to handle
-	 *
-	 * @throws NotFoundHttpException If the printed product is not found
-	 * @throws \Exception
-	 */
+    /**
+     * Handle the printing of a specific printed product.
+     *
+     * @param int $printedProductId The ID of the printed product to handle
+     *
+     * @throws NotFoundHttpException If the printed product is not found
+     * @throws \Exception
+     */
     public function handle(int $printedProductId): void
     {
         $printedProduct = $this->printedProductRepository->findById($printedProductId);

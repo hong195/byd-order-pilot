@@ -22,7 +22,7 @@
             </options>
         </field>
 
-        <field name="laminationTypes" type="jsonb" enum-type="App\ProductionProcess\Domain\ValueObject\LaminationType">
+        <field name="laminationTypes" type="jsonb">
             <options>
                 <option name="default">[]</option>
             </options>

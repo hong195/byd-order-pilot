@@ -25,7 +25,7 @@ final class PrintedProductsCheckInService implements PrintedProductCheckInInterf
 {
     private Collection $assignedRolls;
     private Collection $rolls;
-    private Collection $jobs;
+    private Collection $printedProducts;
 
     /**
      * Class constructor.
@@ -61,7 +61,7 @@ final class PrintedProductsCheckInService implements PrintedProductCheckInInterf
             if (!isset($groupedFilms[$filmType])) {
                 // If there is no film of this type, create an empty roll for all printedProducts of this type
                 foreach ($printedProducts as $printedProduct) {
-                    $roll = $this->findOrMakeRoll(name: "Empty Roll {$printedProduct->getFilmType()->value}", filmType: $printedProduct->getFilmType());
+                    $roll = $this->findOrMakeRoll(name: "Empty Roll {$printedProduct->getFilmType()}", filmType: $printedProduct->getFilmType());
                     $roll->addPrintedProduct($printedProduct);
                     $this->syncAssignRolls($roll);
                 }
@@ -96,7 +96,7 @@ final class PrintedProductsCheckInService implements PrintedProductCheckInInterf
 
                 // Если заказ не был размещен, создаем пустой рулон
                 if (!$printedProductPlaced) {
-                    $roll = $this->findOrMakeRoll("Empty Roll {$printedProduct->getFilmType()->value}", null, $printedProduct->getFilmType());
+                    $roll = $this->findOrMakeRoll("Empty Roll {$printedProduct->getFilmType()}", null, $printedProduct->getFilmType());
                     $roll->addPrintedProduct($printedProduct);
 
                     $this->syncAssignRolls($roll);
@@ -171,7 +171,7 @@ final class PrintedProductsCheckInService implements PrintedProductCheckInInterf
         $groupedPrintedProducts = [];
 
         foreach ($printedProducts as $printedProduct) {
-            $groupedPrintedProducts[$printedProduct->getFilmType()->value][] = $printedProduct;
+            $groupedPrintedProducts[$printedProduct->getFilmType()][] = $printedProduct;
         }
 
         return $groupedPrintedProducts;
