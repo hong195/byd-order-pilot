@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fix query.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/DTO/FilmHistoryData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/DTO/FilmHistoryData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/DTO/FilmHistoryDataTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/DTO/FilmHistoryDataTransformer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/FindFilmHistory/FindFilmHistoryQueryHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/FindFilmHistory/FindFilmHistoryQueryHandler.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fixed removing roll relation when order is unassign.">
+      <change afterPath="$PROJECT_DIR$/docker/php-fpm/php.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/php-fpm/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/php-fpm/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +20,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="dev" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -172,7 +170,6 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;Makefile Target.restart.executor&quot;: &quot;Run&quot;,
     &quot;PHPUnit.Main.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
@@ -183,7 +180,7 @@
     &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm&quot;: &quot;Docker Compose&quot;,
     &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm&quot;: &quot;Docker Compose&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/aleksejem/Sites/order-pilot/src/Inventory/Application/UseCases/Command&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/aleksejem/Sites/order-pilot/src/Orders/Infrastructure/Database/ORM&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -202,36 +199,25 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/Inventory/Application/UseCases/Command" />
-      <recent name="$PROJECT_DIR$/src/Inventory/Infrastructure/Database/ORM" />
-      <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Query" />
+      <recent name="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM" />
       <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Command" />
-      <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/SyncRollHistory" />
+      <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AcceptR" />
+      <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/PackMainProduct" />
+      <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query" />
-      <recent name="$PROJECT_DIR$/src/Inventory/Domain/Aggregate" />
-      <recent name="$PROJECT_DIR$/src/Inventory/Domain/Aggregate/History" />
-      <recent name="$PROJECT_DIR$/src/Inventory/Domain/Events" />
-      <recent name="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Roll/History" />
+      <recent name="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Roll" />
+      <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AcceptRoll" />
+      <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Command" />
+      <recent name="$PROJECT_DIR$/src/Orders/Domain/Service/Roll" />
+      <recent name="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Pack" />
     </key>
   </component>
-  <component name="RunManager" selected="Makefile Target.restart">
-    <configuration name="restart" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/Makefile" target="restart" workingDirectory="" arguments="">
-        <envs />
-      </makefile>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager">
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
       <method v="2" />
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Makefile Target.restart" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -290,11 +276,279 @@
       <workItem from="1725260306393" duration="214000" />
       <workItem from="1725613898092" duration="85000" />
       <workItem from="1725613992573" duration="8817000" />
-      <workItem from="1725629652154" duration="26411000" />
-      <workItem from="1726063769562" duration="34578000" />
-      <workItem from="1726470299712" duration="17482000" />
-      <workItem from="1726574611729" duration="15256000" />
-      <workItem from="1726657747853" duration="21704000" />
+      <workItem from="1725629652154" duration="13892000" />
+    </task>
+    <task id="LOCAL-00260" summary="Added creation /var/lib/nginx/tmp directory.">
+      <option name="closed" value="true" />
+      <created>1724851014759</created>
+      <option name="number" value="00260" />
+      <option name="presentableId" value="LOCAL-00260" />
+      <option name="project" value="LOCAL" />
+      <updated>1724851014759</updated>
+    </task>
+    <task id="LOCAL-00261" summary="Updated docker file.">
+      <option name="closed" value="true" />
+      <created>1724851925105</created>
+      <option name="number" value="00261" />
+      <option name="presentableId" value="LOCAL-00261" />
+      <option name="project" value="LOCAL" />
+      <updated>1724851925105</updated>
+    </task>
+    <task id="LOCAL-00262" summary="Updated docker file #2.">
+      <option name="closed" value="true" />
+      <created>1724852589606</created>
+      <option name="number" value="00262" />
+      <option name="presentableId" value="LOCAL-00262" />
+      <option name="project" value="LOCAL" />
+      <updated>1724852589606</updated>
+    </task>
+    <task id="LOCAL-00263" summary="Updated docker file #3.">
+      <option name="closed" value="true" />
+      <created>1724852882369</created>
+      <option name="number" value="00263" />
+      <option name="presentableId" value="LOCAL-00263" />
+      <option name="project" value="LOCAL" />
+      <updated>1724852882369</updated>
+    </task>
+    <task id="LOCAL-00264" summary="Added docker container right changing after its build.">
+      <option name="closed" value="true" />
+      <created>1724854767062</created>
+      <option name="number" value="00264" />
+      <option name="presentableId" value="LOCAL-00264" />
+      <option name="project" value="LOCAL" />
+      <updated>1724854767062</updated>
+    </task>
+    <task id="LOCAL-00265" summary="Updated printers are available by default.">
+      <option name="closed" value="true" />
+      <created>1725007247681</created>
+      <option name="number" value="00265" />
+      <option name="presentableId" value="LOCAL-00265" />
+      <option name="project" value="LOCAL" />
+      <updated>1725007247681</updated>
+    </task>
+    <task id="LOCAL-00266" summary="Updated sort order is set to null when order is unassign.">
+      <option name="closed" value="true" />
+      <created>1725008005347</created>
+      <option name="number" value="00266" />
+      <option name="presentableId" value="LOCAL-00266" />
+      <option name="project" value="LOCAL" />
+      <updated>1725008005347</updated>
+    </task>
+    <task id="LOCAL-00267" summary="Updated sort order is set to null when order is unassign.">
+      <option name="closed" value="true" />
+      <created>1725008008056</created>
+      <option name="number" value="00267" />
+      <option name="presentableId" value="LOCAL-00267" />
+      <option name="project" value="LOCAL" />
+      <updated>1725008008056</updated>
+    </task>
+    <task id="LOCAL-00268" summary="If roll is empty it will be deleted after orders check in.">
+      <option name="closed" value="true" />
+      <created>1725008425426</created>
+      <option name="number" value="00268" />
+      <option name="presentableId" value="LOCAL-00268" />
+      <option name="project" value="LOCAL" />
+      <updated>1725008425426</updated>
+    </task>
+    <task id="LOCAL-00269" summary="If roll is empty it will be deleted after orders check in.">
+      <option name="closed" value="true" />
+      <created>1725008427979</created>
+      <option name="number" value="00269" />
+      <option name="presentableId" value="LOCAL-00269" />
+      <option name="project" value="LOCAL" />
+      <updated>1725008427979</updated>
+    </task>
+    <task id="LOCAL-00270" summary="Updated order number prefix.">
+      <option name="closed" value="true" />
+      <created>1725008833946</created>
+      <option name="number" value="00270" />
+      <option name="presentableId" value="LOCAL-00270" />
+      <option name="project" value="LOCAL" />
+      <updated>1725008833946</updated>
+    </task>
+    <task id="LOCAL-00271" summary="Updated order number prefix.">
+      <option name="closed" value="true" />
+      <created>1725008838063</created>
+      <option name="number" value="00271" />
+      <option name="presentableId" value="LOCAL-00271" />
+      <option name="project" value="LOCAL" />
+      <updated>1725008838063</updated>
+    </task>
+    <task id="LOCAL-00272" summary="Updated order number db column type.">
+      <option name="closed" value="true" />
+      <created>1725009044007</created>
+      <option name="number" value="00272" />
+      <option name="presentableId" value="LOCAL-00272" />
+      <option name="project" value="LOCAL" />
+      <updated>1725009044007</updated>
+    </task>
+    <task id="LOCAL-00273" summary="Updated order number db column type.">
+      <option name="closed" value="true" />
+      <created>1725009050298</created>
+      <option name="number" value="00273" />
+      <option name="presentableId" value="LOCAL-00273" />
+      <option name="project" value="LOCAL" />
+      <updated>1725009050298</updated>
+    </task>
+    <task id="LOCAL-00274" summary="Updated order number db column type.">
+      <option name="closed" value="true" />
+      <created>1725009052556</created>
+      <option name="number" value="00274" />
+      <option name="presentableId" value="LOCAL-00274" />
+      <option name="project" value="LOCAL" />
+      <updated>1725009052556</updated>
+    </task>
+    <task id="LOCAL-00275" summary="Fixed order number return types.">
+      <option name="closed" value="true" />
+      <created>1725012006312</created>
+      <option name="number" value="00275" />
+      <option name="presentableId" value="LOCAL-00275" />
+      <option name="project" value="LOCAL" />
+      <updated>1725012006312</updated>
+    </task>
+    <task id="LOCAL-00276" summary="Fixed order number return types.">
+      <option name="closed" value="true" />
+      <created>1725012009726</created>
+      <option name="number" value="00276" />
+      <option name="presentableId" value="LOCAL-00276" />
+      <option name="project" value="LOCAL" />
+      <updated>1725012009726</updated>
+    </task>
+    <task id="LOCAL-00277" summary="Php stan fix.">
+      <option name="closed" value="true" />
+      <created>1725012102814</created>
+      <option name="number" value="00277" />
+      <option name="presentableId" value="LOCAL-00277" />
+      <option name="project" value="LOCAL" />
+      <updated>1725012102814</updated>
+    </task>
+    <task id="LOCAL-00278" summary="Php stan fix.">
+      <option name="closed" value="true" />
+      <created>1725012105056</created>
+      <option name="number" value="00278" />
+      <option name="presentableId" value="LOCAL-00278" />
+      <option name="project" value="LOCAL" />
+      <updated>1725012105056</updated>
+    </task>
+    <task id="LOCAL-00279" summary="Added customer and packages instructions notes.">
+      <option name="closed" value="true" />
+      <created>1725014335174</created>
+      <option name="number" value="00279" />
+      <option name="presentableId" value="LOCAL-00279" />
+      <option name="project" value="LOCAL" />
+      <updated>1725014335174</updated>
+    </task>
+    <task id="LOCAL-00280" summary="Added customer and packages instructions notes.">
+      <option name="closed" value="true" />
+      <created>1725014338023</created>
+      <option name="number" value="00280" />
+      <option name="presentableId" value="LOCAL-00280" />
+      <option name="project" value="LOCAL" />
+      <updated>1725014338023</updated>
+    </task>
+    <task id="LOCAL-00281" summary="Added order customer name.">
+      <option name="closed" value="true" />
+      <created>1725015674523</created>
+      <option name="number" value="00281" />
+      <option name="presentableId" value="LOCAL-00281" />
+      <option name="project" value="LOCAL" />
+      <updated>1725015674523</updated>
+    </task>
+    <task id="LOCAL-00282" summary="Added order customer name.">
+      <option name="closed" value="true" />
+      <created>1725015678658</created>
+      <option name="number" value="00282" />
+      <option name="presentableId" value="LOCAL-00282" />
+      <option name="project" value="LOCAL" />
+      <updated>1725015678658</updated>
+    </task>
+    <task id="LOCAL-00283" summary="Remove customer notes.">
+      <option name="closed" value="true" />
+      <created>1725024322977</created>
+      <option name="number" value="00283" />
+      <option name="presentableId" value="LOCAL-00283" />
+      <option name="project" value="LOCAL" />
+      <updated>1725024322977</updated>
+    </task>
+    <task id="LOCAL-00284" summary="Refactor customer is value object.">
+      <option name="closed" value="true" />
+      <created>1725026304246</created>
+      <option name="number" value="00284" />
+      <option name="presentableId" value="LOCAL-00284" />
+      <option name="project" value="LOCAL" />
+      <updated>1725026304246</updated>
+    </task>
+    <task id="LOCAL-00285" summary="Refactor customer is value object.">
+      <option name="closed" value="true" />
+      <created>1725026308264</created>
+      <option name="number" value="00285" />
+      <option name="presentableId" value="LOCAL-00285" />
+      <option name="project" value="LOCAL" />
+      <updated>1725026308264</updated>
+    </task>
+    <task id="LOCAL-00286" summary="Fixed removing empty roll after orders check in.">
+      <option name="closed" value="true" />
+      <created>1725034273913</created>
+      <option name="number" value="00286" />
+      <option name="presentableId" value="LOCAL-00286" />
+      <option name="project" value="LOCAL" />
+      <updated>1725034273913</updated>
+    </task>
+    <task id="LOCAL-00287" summary="Updated readable exception message.">
+      <option name="closed" value="true" />
+      <created>1725037000363</created>
+      <option name="number" value="00287" />
+      <option name="presentableId" value="LOCAL-00287" />
+      <option name="project" value="LOCAL" />
+      <updated>1725037000363</updated>
+    </task>
+    <task id="LOCAL-00288" summary="Added packing feature.">
+      <option name="closed" value="true" />
+      <created>1725364079515</created>
+      <option name="number" value="00288" />
+      <option name="presentableId" value="LOCAL-00288" />
+      <option name="project" value="LOCAL" />
+      <updated>1725364079515</updated>
+    </task>
+    <task id="LOCAL-00289" summary="Added packing feature.">
+      <option name="closed" value="true" />
+      <created>1725364083016</created>
+      <option name="number" value="00289" />
+      <option name="presentableId" value="LOCAL-00289" />
+      <option name="project" value="LOCAL" />
+      <updated>1725364083016</updated>
+    </task>
+    <task id="LOCAL-00290" summary="Added packing feature.">
+      <option name="closed" value="true" />
+      <created>1725364200675</created>
+      <option name="number" value="00290" />
+      <option name="presentableId" value="LOCAL-00290" />
+      <option name="project" value="LOCAL" />
+      <updated>1725364200675</updated>
+    </task>
+    <task id="LOCAL-00291" summary="Added pack/unpack extra">
+      <option name="closed" value="true" />
+      <created>1725367416790</created>
+      <option name="number" value="00291" />
+      <option name="presentableId" value="LOCAL-00291" />
+      <option name="project" value="LOCAL" />
+      <updated>1725367416790</updated>
+    </task>
+    <task id="LOCAL-00292" summary="Added pack/unpack extra">
+      <option name="closed" value="true" />
+      <created>1725367419967</created>
+      <option name="number" value="00292" />
+      <option name="presentableId" value="LOCAL-00292" />
+      <option name="project" value="LOCAL" />
+      <updated>1725367419967</updated>
+    </task>
+    <task id="LOCAL-00293" summary="Updated extra &amp; order dto objects.">
+      <option name="closed" value="true" />
+      <created>1725465420566</created>
+      <option name="number" value="00293" />
+      <option name="presentableId" value="LOCAL-00293" />
+      <option name="project" value="LOCAL" />
+      <updated>1725465420566</updated>
     </task>
     <task id="LOCAL-00294" summary="Updated extra &amp; order dto objects.">
       <option name="closed" value="true" />
@@ -416,279 +670,7 @@
       <option name="project" value="LOCAL" />
       <updated>1725879046971</updated>
     </task>
-    <task id="LOCAL-00309" summary="Updated sorting order.">
-      <option name="closed" value="true" />
-      <created>1725882544428</created>
-      <option name="number" value="00309" />
-      <option name="presentableId" value="LOCAL-00309" />
-      <option name="project" value="LOCAL" />
-      <updated>1725882544428</updated>
-    </task>
-    <task id="LOCAL-00310" summary="Updated sorting order.">
-      <option name="closed" value="true" />
-      <created>1725882546988</created>
-      <option name="number" value="00310" />
-      <option name="presentableId" value="LOCAL-00310" />
-      <option name="project" value="LOCAL" />
-      <updated>1725882546988</updated>
-    </task>
-    <task id="LOCAL-00311" summary="Added roll history.">
-      <option name="closed" value="true" />
-      <created>1726051105057</created>
-      <option name="number" value="00311" />
-      <option name="presentableId" value="LOCAL-00311" />
-      <option name="project" value="LOCAL" />
-      <updated>1726051105057</updated>
-    </task>
-    <task id="LOCAL-00312" summary="Added roll history.">
-      <option name="closed" value="true" />
-      <created>1726051107499</created>
-      <option name="number" value="00312" />
-      <option name="presentableId" value="LOCAL-00312" />
-      <option name="project" value="LOCAL" />
-      <updated>1726051107499</updated>
-    </task>
-    <task id="LOCAL-00313" summary="Added relation info for rolls and history.">
-      <option name="closed" value="true" />
-      <created>1726063777746</created>
-      <option name="number" value="00313" />
-      <option name="presentableId" value="LOCAL-00313" />
-      <option name="project" value="LOCAL" />
-      <updated>1726063777746</updated>
-    </task>
-    <task id="LOCAL-00314" summary="Roll history small refactor.">
-      <option name="closed" value="true" />
-      <created>1726064415171</created>
-      <option name="number" value="00314" />
-      <option name="presentableId" value="LOCAL-00314" />
-      <option name="project" value="LOCAL" />
-      <updated>1726064415171</updated>
-    </task>
-    <task id="LOCAL-00315" summary="Fixed missing relations.">
-      <option name="closed" value="true" />
-      <created>1726133209418</created>
-      <option name="number" value="00315" />
-      <option name="presentableId" value="LOCAL-00315" />
-      <option name="project" value="LOCAL" />
-      <updated>1726133209419</updated>
-    </task>
-    <task id="LOCAL-00316" summary="Added docs.">
-      <option name="closed" value="true" />
-      <created>1726133243237</created>
-      <option name="number" value="00316" />
-      <option name="presentableId" value="LOCAL-00316" />
-      <option name="project" value="LOCAL" />
-      <updated>1726133243237</updated>
-    </task>
-    <task id="LOCAL-00317" summary="Fixed making unavailable printer.">
-      <option name="closed" value="true" />
-      <created>1726138715825</created>
-      <option name="number" value="00317" />
-      <option name="presentableId" value="LOCAL-00317" />
-      <option name="project" value="LOCAL" />
-      <updated>1726138715825</updated>
-    </task>
-    <task id="LOCAL-00318" summary="Fixed making unavailable printer #2.">
-      <option name="closed" value="true" />
-      <created>1726139121287</created>
-      <option name="number" value="00318" />
-      <option name="presentableId" value="LOCAL-00318" />
-      <option name="project" value="LOCAL" />
-      <updated>1726139121287</updated>
-    </task>
-    <task id="LOCAL-00319" summary="Fixed making unavailable printer #2.">
-      <option name="closed" value="true" />
-      <created>1726139123319</created>
-      <option name="number" value="00319" />
-      <option name="presentableId" value="LOCAL-00319" />
-      <option name="project" value="LOCAL" />
-      <updated>1726139123319</updated>
-    </task>
-    <task id="LOCAL-00320" summary="Fixed history data.">
-      <option name="closed" value="true" />
-      <created>1726144862224</created>
-      <option name="number" value="00320" />
-      <option name="presentableId" value="LOCAL-00320" />
-      <option name="project" value="LOCAL" />
-      <updated>1726144862224</updated>
-    </task>
-    <task id="LOCAL-00321" summary="Fixed history data.">
-      <option name="closed" value="true" />
-      <created>1726146214881</created>
-      <option name="number" value="00321" />
-      <option name="presentableId" value="LOCAL-00321" />
-      <option name="project" value="LOCAL" />
-      <updated>1726146214881</updated>
-    </task>
-    <task id="LOCAL-00322" summary="Added order by happened at asc.">
-      <option name="closed" value="true" />
-      <created>1726146590396</created>
-      <option name="number" value="00322" />
-      <option name="presentableId" value="LOCAL-00322" />
-      <option name="project" value="LOCAL" />
-      <updated>1726146590396</updated>
-    </task>
-    <task id="LOCAL-00323" summary="Fixed history happened at equals to current time.">
-      <option name="closed" value="true" />
-      <created>1726213946282</created>
-      <option name="number" value="00323" />
-      <option name="presentableId" value="LOCAL-00323" />
-      <option name="project" value="LOCAL" />
-      <updated>1726213946282</updated>
-    </task>
-    <task id="LOCAL-00324" summary="Added history event types.">
-      <option name="closed" value="true" />
-      <created>1726222173381</created>
-      <option name="number" value="00324" />
-      <option name="presentableId" value="LOCAL-00324" />
-      <option name="project" value="LOCAL" />
-      <updated>1726222173381</updated>
-    </task>
-    <task id="LOCAL-00325" summary="Added history event types.">
-      <option name="closed" value="true" />
-      <created>1726222179138</created>
-      <option name="number" value="00325" />
-      <option name="presentableId" value="LOCAL-00325" />
-      <option name="project" value="LOCAL" />
-      <updated>1726222179138</updated>
-    </task>
-    <task id="LOCAL-00326" summary="Added history event types.">
-      <option name="closed" value="true" />
-      <created>1726222214860</created>
-      <option name="number" value="00326" />
-      <option name="presentableId" value="LOCAL-00326" />
-      <option name="project" value="LOCAL" />
-      <updated>1726222214860</updated>
-    </task>
-    <task id="LOCAL-00327" summary="Added history event types.">
-      <option name="closed" value="true" />
-      <created>1726222315758</created>
-      <option name="number" value="00327" />
-      <option name="presentableId" value="LOCAL-00327" />
-      <option name="project" value="LOCAL" />
-      <updated>1726222315758</updated>
-    </task>
-    <task id="LOCAL-00328" summary="Updated history data.">
-      <option name="closed" value="true" />
-      <created>1726222442532</created>
-      <option name="number" value="00328" />
-      <option name="presentableId" value="LOCAL-00328" />
-      <option name="project" value="LOCAL" />
-      <updated>1726222442532</updated>
-    </task>
-    <task id="LOCAL-00329" summary="Updated history has parent roll id.">
-      <option name="closed" value="true" />
-      <created>1726246297496</created>
-      <option name="number" value="00329" />
-      <option name="presentableId" value="LOCAL-00329" />
-      <option name="project" value="LOCAL" />
-      <updated>1726246297496</updated>
-    </task>
-    <task id="LOCAL-00330" summary="Updated history has parent roll id.">
-      <option name="closed" value="true" />
-      <created>1726246301723</created>
-      <option name="number" value="00330" />
-      <option name="presentableId" value="LOCAL-00330" />
-      <option name="project" value="LOCAL" />
-      <updated>1726246301723</updated>
-    </task>
-    <task id="LOCAL-00331" summary="Added films events.">
-      <option name="closed" value="true" />
-      <created>1726477364165</created>
-      <option name="number" value="00331" />
-      <option name="presentableId" value="LOCAL-00331" />
-      <option name="project" value="LOCAL" />
-      <updated>1726477364165</updated>
-    </task>
-    <task id="LOCAL-00332" summary="Added films events.">
-      <option name="closed" value="true" />
-      <created>1726477445476</created>
-      <option name="number" value="00332" />
-      <option name="presentableId" value="LOCAL-00332" />
-      <option name="project" value="LOCAL" />
-      <updated>1726477445476</updated>
-    </task>
-    <task id="LOCAL-00333" summary="Added inventory history entity.">
-      <option name="closed" value="true" />
-      <created>1726484490407</created>
-      <option name="number" value="00333" />
-      <option name="presentableId" value="LOCAL-00333" />
-      <option name="project" value="LOCAL" />
-      <updated>1726484490407</updated>
-    </task>
-    <task id="LOCAL-00334" summary="Added inventory history entity.">
-      <option name="closed" value="true" />
-      <created>1726484504668</created>
-      <option name="number" value="00334" />
-      <option name="presentableId" value="LOCAL-00334" />
-      <option name="project" value="LOCAL" />
-      <updated>1726484504668</updated>
-    </task>
-    <task id="LOCAL-00335" summary="Added inventory history entity.">
-      <option name="closed" value="true" />
-      <created>1726484508580</created>
-      <option name="number" value="00335" />
-      <option name="presentableId" value="LOCAL-00335" />
-      <option name="project" value="LOCAL" />
-      <updated>1726484508580</updated>
-    </task>
-    <task id="LOCAL-00336" summary="Added film history.">
-      <option name="closed" value="true" />
-      <created>1726579497483</created>
-      <option name="number" value="00336" />
-      <option name="presentableId" value="LOCAL-00336" />
-      <option name="project" value="LOCAL" />
-      <updated>1726579497483</updated>
-    </task>
-    <task id="LOCAL-00337" summary="Added new event triggered when film is used to print.">
-      <option name="closed" value="true" />
-      <created>1726585203971</created>
-      <option name="number" value="00337" />
-      <option name="presentableId" value="LOCAL-00337" />
-      <option name="project" value="LOCAL" />
-      <updated>1726585203971</updated>
-    </task>
-    <task id="LOCAL-00338" summary="Added event handler when film is deleted.">
-      <option name="closed" value="true" />
-      <created>1726589947610</created>
-      <option name="number" value="00338" />
-      <option name="presentableId" value="LOCAL-00338" />
-      <option name="project" value="LOCAL" />
-      <updated>1726589947610</updated>
-    </task>
-    <task id="LOCAL-00339" summary="Added film history.">
-      <option name="closed" value="true" />
-      <created>1726664402428</created>
-      <option name="number" value="00339" />
-      <option name="presentableId" value="LOCAL-00339" />
-      <option name="project" value="LOCAL" />
-      <updated>1726664402428</updated>
-    </task>
-    <task id="LOCAL-00340" summary="Added film history.">
-      <option name="closed" value="true" />
-      <created>1726664463494</created>
-      <option name="number" value="00340" />
-      <option name="presentableId" value="LOCAL-00340" />
-      <option name="project" value="LOCAL" />
-      <updated>1726664463494</updated>
-    </task>
-    <task id="LOCAL-00341" summary="Bug fix.">
-      <option name="closed" value="true" />
-      <created>1726733058255</created>
-      <option name="number" value="00341" />
-      <option name="presentableId" value="LOCAL-00341" />
-      <option name="project" value="LOCAL" />
-      <updated>1726733058255</updated>
-    </task>
-    <task id="LOCAL-00342" summary="Fix query.">
-      <option name="closed" value="true" />
-      <created>1726738781292</created>
-      <option name="number" value="00342" />
-      <option name="presentableId" value="LOCAL-00342" />
-      <option name="project" value="LOCAL" />
-      <updated>1726738781292</updated>
-    </task>
-    <option name="localTasksCounter" value="343" />
+    <option name="localTasksCounter" value="309" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -724,32 +706,32 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added docker container right changing after its build." />
+    <MESSAGE value="Updated printers are available by default." />
+    <MESSAGE value="Updated sort order is set to null when order is unassign." />
+    <MESSAGE value="If roll is empty it will be deleted after orders check in." />
+    <MESSAGE value="Updated order number prefix." />
+    <MESSAGE value="Updated order number db column type." />
+    <MESSAGE value="Fixed order number return types." />
+    <MESSAGE value="Php stan fix." />
+    <MESSAGE value="Added customer and packages instructions notes." />
+    <MESSAGE value="Added order customer name." />
+    <MESSAGE value="Remove customer notes." />
+    <MESSAGE value="Refactor customer is value object." />
+    <MESSAGE value="Fixed removing empty roll after orders check in." />
+    <MESSAGE value="Updated readable exception message." />
+    <MESSAGE value="Added packing feature." />
+    <MESSAGE value="Added pack/unpack extra" />
+    <MESSAGE value="Updated extra &amp; order dto objects." />
+    <MESSAGE value="Added extra count." />
+    <MESSAGE value="Added extra count to dto." />
+    <MESSAGE value="Added general roll validation." />
+    <MESSAGE value="Move roll services to own folder." />
+    <MESSAGE value="Added assign/unassign employee to roll." />
+    <MESSAGE value="Moved roll to its own folder." />
     <MESSAGE value="Fixed incorrect extra name." />
     <MESSAGE value="Fixed removing roll relation when order is unassign." />
-    <MESSAGE value="Updated sorting order." />
-    <MESSAGE value="Added roll history." />
-    <MESSAGE value="Added relation info for rolls and history." />
-    <MESSAGE value="Roll history small refactor." />
-    <MESSAGE value="Fixed missing relations." />
-    <MESSAGE value="Added docs." />
-    <MESSAGE value="Fixed making unavailable printer." />
-    <MESSAGE value="Fixed making unavailable printer #2." />
-    <MESSAGE value="Added process to history dto" />
-    <MESSAGE value="Fixed history data." />
-    <MESSAGE value="Added order by happened at asc." />
-    <MESSAGE value="Fixed history happened at equals to current time." />
-    <MESSAGE value="Added doc" />
-    <MESSAGE value="Added history event types." />
-    <MESSAGE value="Updated history data." />
-    <MESSAGE value="Updated history has parent roll id." />
-    <MESSAGE value="Added films events." />
-    <MESSAGE value="Added inventory history entity." />
-    <MESSAGE value="Added new event triggered when film is used to print." />
-    <MESSAGE value="Added event handler when film is deleted." />
-    <MESSAGE value="Added film history." />
-    <MESSAGE value="Bug fix." />
-    <MESSAGE value="Fix query." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix query." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed removing roll relation when order is unassign." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
