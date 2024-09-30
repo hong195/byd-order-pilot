@@ -25,7 +25,9 @@ final readonly class PrintedProductData
         public float $length,
         public string $filmType,
         public ?string $orderNumber,
+        public ?int $rollId = null,
         public ?string $laminationType = null,
+		public ?\DateTimeInterface $addedAt = null,
     ) {
     }
 }

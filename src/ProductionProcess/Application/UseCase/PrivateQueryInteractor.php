@@ -6,6 +6,8 @@ namespace App\ProductionProcess\Application\UseCase;
 
 use App\ProductionProcess\Application\UseCase\Query\FindARoll\FindARollQuery;
 use App\ProductionProcess\Application\UseCase\Query\FindARoll\FindARollResult;
+use App\ProductionProcess\Application\UseCase\Query\FindPrintedProducts\FindPrintedProductsQuery;
+use App\ProductionProcess\Application\UseCase\Query\FindPrintedProducts\FindPrintedProductsQueryResult;
 use App\ProductionProcess\Application\UseCase\Query\FindPrinters\FindPrintersQuery;
 use App\ProductionProcess\Application\UseCase\Query\FindPrinters\FindPrintersResult;
 use App\ProductionProcess\Application\UseCase\Query\FindRollHistory\FindRollHistoryQuery;
@@ -85,4 +87,18 @@ readonly class PrivateQueryInteractor
     {
         return $this->queryBus->execute(new FindRollHistoryQuery($rollId));
     }
+
+	public function findPrintedProductByRollId(int $rollId): FindPrintedProductsQueryResult
+	{
+		$query = new FindPrintedProductsQuery(rollId: $rollId);
+
+		return $this->queryBus->execute($query);
+	}
+
+	public function findUnassignedPrintedProducts(): FindPrintedProductsQueryResult
+	{
+		$query = new FindPrintedProductsQuery(unassigned: true);
+
+		return $this->queryBus->execute($query);
+	}
 }

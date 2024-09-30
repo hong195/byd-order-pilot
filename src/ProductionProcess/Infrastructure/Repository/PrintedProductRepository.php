@@ -5,8 +5,11 @@ namespace App\ProductionProcess\Infrastructure\Repository;
 use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
 use App\ProductionProcess\Domain\Repository\PrintedProductRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\PrintedProductFilter;
 use App\ProductionProcess\Domain\ValueObject\Status;
+use App\Shared\Domain\Repository\PaginationResult;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -81,4 +84,28 @@ class PrintedProductRepository extends ServiceEntityRepository implements Printe
 
         return $query->getResult();
     }
+
+	/**
+	 * Finds PrintedProducts by Roll ID.
+	 *
+	 * @param int $rollId The ID of the Roll.
+	 *
+	 * @return array An array of PrintedProduct objects matching the Roll ID.
+	 */
+	public function findByFilter(PrintedProductFilter $filter): array
+	{
+		$qb = $this->createQueryBuilder('p');
+
+		if ($filter->rollId) {
+			$qb->innerJoin('p.roll', 'r');
+			$qb->andWhere('r.id = :rollId')
+				->setParameter('rollId', $filter->rollId);
+		}
+
+		if ($filter->unassigned) {
+			$qb->andWhere('p.roll IS NULL');
+		}
+
+		return $qb->getQuery()->getResult();
+	}
 }

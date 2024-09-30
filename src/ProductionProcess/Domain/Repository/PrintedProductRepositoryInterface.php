@@ -4,6 +4,7 @@ namespace App\ProductionProcess\Domain\Repository;
 
 use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use App\ProductionProcess\Domain\ValueObject\Status;
+use App\Shared\Domain\Repository\PaginationResult;
 
 /**
  * This interface represents a Job repository.
@@ -39,4 +40,13 @@ interface PrintedProductRepositoryInterface
      * @return PrintedProduct[] an array of records matching the roll type
      */
     public function findByStatus(Status $status): array;
+
+    /**
+     * Finds PrintedProducts based on a specified filter.
+     *
+     * @param PrintedProductFilter $filter the filter to apply on the PrintedProducts
+     *
+     * @return PrintedProduct[] the result of the pagination
+     */
+    public function findByFilter(PrintedProductFilter $filter): array;
 }
