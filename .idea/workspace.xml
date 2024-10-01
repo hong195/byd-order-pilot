@@ -4,19 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Commands update.">
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrintedProducts/FindPrintedProductsQuery.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrintedProducts/FindPrintedProductsQueryHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrintedProducts/FindPrintedProductsQueryResult.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/PrintedProductFilter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/PrintedProducts/FindPrintedProductsAction.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/PrintedProducts/FindUnassignedProductsAction.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added printed products api routes.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/PrintedProduct/PrintedProductData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/PrintedProduct/PrintedProductData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/PrintedProduct/PrintedProductDataTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/PrintedProduct/PrintedProductDataTransformer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateQueryInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateQueryInteractor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/PrintedProductRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/PrintedProductRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/PrintedProductRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/PrintedProductRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -303,14 +292,6 @@
       <workItem from="1726470299712" duration="17482000" />
       <workItem from="1726574611729" duration="15256000" />
       <workItem from="1726657747853" duration="103839000" />
-    </task>
-    <task id="LOCAL-00315" summary="Fixed missing relations.">
-      <option name="closed" value="true" />
-      <created>1726133209418</created>
-      <option name="number" value="00315" />
-      <option name="presentableId" value="LOCAL-00315" />
-      <option name="project" value="LOCAL" />
-      <updated>1726133209419</updated>
     </task>
     <task id="LOCAL-00316" summary="Added docs.">
       <option name="closed" value="true" />
@@ -696,7 +677,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727442696443</updated>
     </task>
-    <option name="localTasksCounter" value="364" />
+    <task id="LOCAL-00364" summary="Added printed products api routes.">
+      <option name="closed" value="true" />
+      <created>1727716176925</created>
+      <option name="number" value="00364" />
+      <option name="presentableId" value="LOCAL-00364" />
+      <option name="project" value="LOCAL" />
+      <updated>1727716176925</updated>
+    </task>
+    <option name="localTasksCounter" value="365" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -732,7 +721,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added process to history dto" />
     <MESSAGE value="Fixed history data." />
     <MESSAGE value="Added order by happened at asc." />
     <MESSAGE value="Fixed history happened at equals to current time." />
@@ -757,7 +745,8 @@
     <MESSAGE value="Added printed product creator." />
     <MESSAGE value="Rename commands." />
     <MESSAGE value="Commands update." />
-    <option name="LAST_COMMIT_MESSAGE" value="Commands update." />
+    <MESSAGE value="Added printed products api routes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added printed products api routes." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

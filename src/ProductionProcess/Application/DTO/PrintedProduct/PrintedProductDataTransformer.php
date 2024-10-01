@@ -44,7 +44,7 @@ final readonly class PrintedProductDataTransformer
 			length: $product->getLength(),
 			filmType: $product->getFilmType(),
 			orderNumber: $product->orderNumber,
-			rollId: $product->getRoll()->getId(),
+			rollId: $product->getRoll()?->getId(),
 			laminationType: $product->getLaminationType(),
 			addedAt: $product->getDateAdded(),
         );
