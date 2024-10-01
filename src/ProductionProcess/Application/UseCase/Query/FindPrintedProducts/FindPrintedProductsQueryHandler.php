@@ -7,9 +7,11 @@ namespace App\ProductionProcess\Application\UseCase\Query\FindPrintedProducts;
 use App\ProductionProcess\Application\DTO\PrintedProduct\PrintedProductDataTransformer;
 use App\ProductionProcess\Domain\Repository\PrintedProductFilter;
 use App\ProductionProcess\Domain\Repository\PrintedProductRepositoryInterface;
+use App\ProductionProcess\Domain\Service\PrintedProduct\GroupService;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Query\QueryHandlerInterface;
 use App\Shared\Domain\Service\AssertService;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Handler class for finding printed products.
@@ -23,7 +25,7 @@ final readonly class FindPrintedProductsQueryHandler implements QueryHandlerInte
      * @param PrintedProductRepositoryInterface $printedProductRepository the printed product repository instance
      * @param PrintedProductDataTransformer     $productDataTransformer   the product data transformer instance
      */
-    public function __construct(private AccessControlService $accessControlService, private PrintedProductRepositoryInterface $printedProductRepository, private PrintedProductDataTransformer $productDataTransformer)
+    public function __construct(private AccessControlService $accessControlService, private PrintedProductRepositoryInterface $printedProductRepository, private PrintedProductDataTransformer $productDataTransformer, private GroupService $groupService)
     {
     }
 
@@ -44,7 +46,9 @@ final readonly class FindPrintedProductsQueryHandler implements QueryHandlerInte
 
         $list = $this->printedProductRepository->findByFilter($filter);
 
-        $listData = $this->productDataTransformer->fromPrintedProductList($list);
+		$list = $this->groupService->handle(new ArrayCollection($list));
+
+		$listData = $this->productDataTransformer->fromLaminationGroup($list);
 
         return new FindPrintedProductsQueryResult($listData);
     }

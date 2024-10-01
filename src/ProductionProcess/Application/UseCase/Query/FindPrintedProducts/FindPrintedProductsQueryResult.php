@@ -14,7 +14,7 @@ final readonly class FindPrintedProductsQueryResult
     /**
      * Class constructor.
      *
-     * @param PrintedProductData[] $items the roll data
+     * @param <int,PrintedProductData[]> $items the roll data
      */
     public function __construct(public array $items)
     {
