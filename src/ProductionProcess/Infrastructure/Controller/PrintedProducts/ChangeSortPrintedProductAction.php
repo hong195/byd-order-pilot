@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Infrastructure\Controller\PrintedProducts;
 
 use App\Orders\Application\DTO\Order\SortData;
-use App\Orders\Application\UseCase\PrivateCommandInteractor;
+use App\ProductionProcess\Application\UseCase\PrivateCommandInteractor;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Application\UseCase;
 
+use App\Orders\Application\DTO\Order\SortData;
 use App\ProductionProcess\Application\UseCase\Command\AssignEmployeeToRoll\AssignEmployeeToRollCommand;
 use App\ProductionProcess\Application\UseCase\Command\AssignPrintedProduct\AssignPrintedProductCommand;
 use App\ProductionProcess\Application\UseCase\Command\ChangePrintedProductPriority\ChangePrintedProductPriorityCommand;
+use App\ProductionProcess\Application\UseCase\Command\ChangePrintedProductSort\ChangePrintedProductSortCommand;
 use App\ProductionProcess\Application\UseCase\Command\ChangePrinterAvailability\ChangePrinterAvailabilityCommand;
 use App\ProductionProcess\Application\UseCase\Command\CreatePrintedProduct\CreatePrintedProductCommand;
 use App\ProductionProcess\Application\UseCase\Command\CreatePrinters\CreatePrintersCommand;
@@ -178,16 +180,6 @@ readonly class PrivateCommandInteractor
     }
 
     /**
-     * Ships and collects orders for a given roll.
-     *
-     * @param int $rollId The ID of the roll
-     */
-    public function shipAndCollectOrders(int $rollId): void
-    {
-        $this->commandBus->execute(new ShipAndCollectOrdersCommand($rollId));
-    }
-
-    /**
      * Reprints a printed product.
      *
      * @param int $printedProductId The ID of the printed product to be reprinted
@@ -196,4 +188,15 @@ readonly class PrivateCommandInteractor
     {
         $this->commandBus->execute(new ReprintPrintedProductCommand($printedProductId));
     }
+
+	/**
+	 * Changes the sort order of an order.
+	 *
+	 * @param SortData $orderData The data containing the roll ID, order ID, and sort order
+	 */
+	public function changeSortOrder(SortData $orderData): void
+	{
+		$command = new ChangePrintedProductSortCommand(rollId: $orderData->rollId, group: $orderData->group, sortOrders: $orderData->sortOrders);
+		$this->commandBus->execute($command);
+	}
 }

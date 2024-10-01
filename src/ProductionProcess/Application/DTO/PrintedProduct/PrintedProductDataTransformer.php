@@ -40,13 +40,13 @@ final readonly class PrintedProductDataTransformer
     {
         return new PrintedProductData(
             id: $product->getId(),
-			hasPriority: $product->hasPriority(),
-			length: $product->getLength(),
-			filmType: $product->getFilmType(),
-			orderNumber: $product->orderNumber,
-			rollId: $product->getRoll()?->getId(),
-			laminationType: $product->getLaminationType(),
-			addedAt: $product->getDateAdded(),
+            hasPriority: $product->hasPriority(),
+            length: $product->getLength(),
+            filmType: $product->getFilmType(),
+            orderNumber: $product->orderNumber,
+            rollId: $product->getRoll()?->getId(),
+            laminationType: $product->getLaminationType(),
+            addedAt: $product->getDateAdded(),
         );
     }
 }

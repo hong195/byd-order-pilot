@@ -6,20 +6,12 @@ namespace App\Orders\Application\UseCase;
 
 use App\Orders\Application\DTO\Order\SortData;
 use App\Orders\Application\UseCase\Command\AddProduct\AddProductCommand;
-use App\Orders\Application\UseCase\Command\AddProduct\CreatePrintedProductCommand;
-use App\Orders\Application\UseCase\Command\AssignOrder\AssignOrderCommand;
-use App\Orders\Application\UseCase\Command\ChangeOrderPriority\ChangePrintedProductPriorityCommand;
-use App\Orders\Application\UseCase\Command\ChangeOrderSort\ChangePrintedProductSortCommand;
 use App\Orders\Application\UseCase\Command\CreateExtra\CreateExtraCommand;
 use App\Orders\Application\UseCase\Command\PackExtra\PackExtraCommand;
 use App\Orders\Application\UseCase\Command\PackMainProduct\PackMainProductCommand;
-use App\Orders\Application\UseCase\Command\ReprintOrder\ReprintOrderCommand;
-use App\Orders\Application\UseCase\Command\ShipAndCollectOrders\ShipAndCollectOrdersCommand;
-use App\Orders\Application\UseCase\Command\UnassignOrder\UnassignPrintedProductCommand;
 use App\Orders\Application\UseCase\Command\UnPackExtra\UnPackExtraCommand;
 use App\Orders\Application\UseCase\Command\UnPackMainProduct\UnPackMainProductCommand;
 use App\Shared\Application\Command\CommandBusInterface;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class PrivateCommandInteractor.
@@ -84,17 +76,6 @@ readonly class PrivateCommandInteractor
     public function unPackExtra(int $orderId, int $extraId): void
     {
         $this->commandBus->execute(new UnPackExtraCommand(orderId: $orderId, extraId: $extraId));
-    }
-
-    /**
-     * Changes the sort order of an order.
-     *
-     * @param SortData $orderData The data containing the roll ID, order ID, and sort order
-     */
-    public function changeSortOrder(SortData $orderData): void
-    {
-        $command = new ChangePrintedProductSortCommand(rollId: $orderData->rollId, group: $orderData->group, sortOrders: $orderData->sortOrders);
-        $this->commandBus->execute($command);
     }
 
     /**
