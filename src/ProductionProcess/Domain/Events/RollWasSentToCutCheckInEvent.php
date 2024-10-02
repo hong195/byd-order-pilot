@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Domain\Events;
+namespace App\ProductionProcess\Domain\Events;
 
 use App\Shared\Domain\Event\EventInterface;
 
