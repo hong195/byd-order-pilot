@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace App\Orders\Domain\Service\Roll;
 
+use App\Orders\Domain\Events\RollWasSentToCutCheckInEvent;
 use App\Orders\Domain\Exceptions\RollCantBeSentToCuttingException;
 use App\Orders\Domain\Repository\RollRepositoryInterface;
 use App\Orders\Domain\ValueObject\Process;
+use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -21,7 +23,7 @@ final readonly class CuttingCheckInService
      *
      * @param RollRepositoryInterface $rollRepository the roll repository
      */
-    public function __construct(private RollRepositoryInterface $rollRepository, private GeneralProcessValidation $generalProcessValidator)
+    public function __construct(private RollRepositoryInterface $rollRepository, private GeneralProcessValidation $generalProcessValidator, private EventDispatcher $eventDispatcher)
     {
     }
 
@@ -42,5 +44,7 @@ final readonly class CuttingCheckInService
         $roll->updateProcess(Process::CUTTING_CHECK_IN);
 
         $this->rollRepository->save($roll);
+
+        $this->eventDispatcher->dispatch(new RollWasSentToCutCheckInEvent($rollId));
     }
 }
