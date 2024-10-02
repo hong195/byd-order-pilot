@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fixed removing roll relation when order is unassign.">
-      <change afterPath="$PROJECT_DIR$/docker/php-fpm/php.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/php-fpm/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/php-fpm/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Events/RollWasSentToCutCheckInEvent.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/EventHandler/RollWasSentToCutCheckInEventHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/CuttingCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Roll/CuttingCheckInService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
