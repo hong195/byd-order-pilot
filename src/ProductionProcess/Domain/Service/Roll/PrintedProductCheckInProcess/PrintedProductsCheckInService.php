@@ -9,12 +9,12 @@ use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
 use App\ProductionProcess\Domain\DTO\FilmData;
 use App\ProductionProcess\Domain\Repository\PrintedProductRepositoryInterface;
 use App\ProductionProcess\Domain\Repository\RollFilter;
+use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
 use App\ProductionProcess\Domain\Service\Inventory\AvailableFilmServiceInterface;
 use App\ProductionProcess\Domain\Service\PrintedProduct\SortService as PrintedProductSortService;
 use App\ProductionProcess\Domain\Service\Roll\RollMaker;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use App\ProductionProcess\Domain\ValueObject\Status;
-use App\ProductionProcess\Infrastructure\Repository\RollRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
@@ -31,14 +31,14 @@ final class PrintedProductsCheckInService implements PrintedProductCheckInInterf
      * Class constructor.
      *
      * @param PrintedProductSortService     $sortPrintedProductsService The sort jobs service
-     * @param RollRepository                $rollRepository             The roll repository
+     * @param RollRepositoryInterface                $rollRepository             The roll repository
      * @param AvailableFilmServiceInterface $availableFilmService       The available film service
      * @param RollMaker                     $rollMaker                  The roll maker
      */
     public function __construct(
         private readonly PrintedProductRepositoryInterface $printedProductRepository,
         private readonly PrintedProductSortService $sortPrintedProductsService,
-        private readonly RollRepository $rollRepository,
+        private readonly RollRepositoryInterface $rollRepository,
         private readonly AvailableFilmServiceInterface $availableFilmService,
         private readonly RollMaker $rollMaker,
     ) {

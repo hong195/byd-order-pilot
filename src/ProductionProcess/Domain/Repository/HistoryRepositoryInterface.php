@@ -22,16 +22,4 @@ interface HistoryRepositoryInterface
      * @return History[] the found history record or null if no record is found
      */
     public function findByRollId(int $rollId): array;
-
-    /**
-     * Saves multiple history records.
-     *
-     * @param iterable<int> $histories a collection of History objects to be saved
-     */
-    public function saveMany(iterable $histories): void;
-
-    /**
-     * Deletes a History record.
-     */
-    public function delete(History $history): void;
 }

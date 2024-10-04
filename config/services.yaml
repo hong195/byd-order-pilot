@@ -43,6 +43,18 @@ services:
         class: App\ProductionProcess\Infrastructure\Adapter\InventoryApiAdapter
         public: true
 
+    App\ProductionProcess\Domain\Repository\RollRepositoryInterface:
+        class: App\ProductionProcess\Infrastructure\Repository\Doctrine\RollRepository
+        public: true
+
+    App\ProductionProcess\Domain\Repository\HistoryRepositoryInterface:
+        class: App\ProductionProcess\Infrastructure\Repository\Doctrine\HistoryRepository
+        public: true
+
+    App\ProductionProcess\Domain\Repository\PrintedProductRepositoryInterface:
+        class: App\ProductionProcess\Infrastructure\Repository\Doctrine\PrintedProductRepository
+        public: true
+
     Symfony\Component\Serializer\Normalizer\ObjectNormalizer: ~
     Symfony\Component\Serializer\Normalizer\ArrayDenormalizer: ~
     Symfony\Component\Serializer\Encoder\JsonEncoder: ~

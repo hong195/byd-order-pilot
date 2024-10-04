@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\ProductionProcess\Infrastructure\Repository;
+namespace App\ProductionProcess\Infrastructure\Repository\Doctrine;
 
 use App\ProductionProcess\Domain\Aggregate\Printer;
 use App\ProductionProcess\Domain\Repository\PrinterRepositoryInterface;

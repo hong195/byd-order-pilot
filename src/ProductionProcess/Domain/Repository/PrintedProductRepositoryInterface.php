@@ -30,9 +30,9 @@ interface PrintedProductRepositoryInterface
     /**
      * Saves a Job object to the database.
      *
-     * @param PrintedProduct $roll the Job object to be saved
+     * @param PrintedProduct $printedProduct the Job object to be saved
      */
-    public function save(PrintedProduct $roll): void;
+    public function save(PrintedProduct $printedProduct): void;
 
     /**
      * Finds records by roll type.

@@ -146,11 +146,11 @@ class Roll extends Aggregate
     /**
      * Assigns the given coil ID to this object.
      *
-     * @param int $coilId the ID of the coil to be assigned
+     * @param int $filmId the ID of the coil to be assigned
      */
-    public function setFilmId(int $coilId): void
+    public function setFilmId(int $filmId): void
     {
-        $this->filmId = $coilId;
+        $this->filmId = $filmId;
     }
 
     /**
@@ -212,7 +212,6 @@ class Roll extends Aggregate
     {
         return $this->parentRoll;
     }
-
     /**
      * Clone the object.
      */
@@ -277,7 +276,6 @@ class Roll extends Aggregate
     {
         return $this->printedProducts->reduce(fn (float|int $carry, PrintedProduct $printedProduct) => $carry + $printedProduct->getLength(), 0);
     }
-
     /**
      * Remove all printedProducts.
      */

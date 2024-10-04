@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Domain\Service\PrintedProduct;
 
+use App\ProductionProcess\Domain\Repository\PrintedProductRepositoryInterface;
 use App\ProductionProcess\Domain\ValueObject\Status;
-use App\ProductionProcess\Infrastructure\Repository\PrintedProductRepository;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 final readonly class UnAssignPrintedProduct
@@ -13,7 +13,7 @@ final readonly class UnAssignPrintedProduct
     /**
      * Class construction.
      */
-    public function __construct(private PrintedProductRepository $printedProductRepository)
+    public function __construct(private PrintedProductRepositoryInterface $printedProductRepository)
     {
     }
 

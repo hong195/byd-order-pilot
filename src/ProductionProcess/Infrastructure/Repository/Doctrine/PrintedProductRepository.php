@@ -1,15 +1,13 @@
 <?php
 
-namespace App\ProductionProcess\Infrastructure\Repository;
+namespace App\ProductionProcess\Infrastructure\Repository\Doctrine;
 
 use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
-use App\ProductionProcess\Domain\Repository\PrintedProductRepositoryInterface;
 use App\ProductionProcess\Domain\Repository\PrintedProductFilter;
+use App\ProductionProcess\Domain\Repository\PrintedProductRepositoryInterface;
 use App\ProductionProcess\Domain\ValueObject\Status;
-use App\Shared\Domain\Repository\PaginationResult;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\ORM\Tools\Pagination\Paginator;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -28,38 +26,34 @@ class PrintedProductRepository extends ServiceEntityRepository implements Printe
         parent::__construct($registry, PrintedProduct::class);
     }
 
-	/**
-	 * Adds a PrintedProduct to the database.
-	 *
-	 * @param PrintedProduct $printedProduct The PrintedProduct object to be added.
-	 *
-	 * @return void
-	 */
+    /**
+     * Adds a PrintedProduct to the database.
+     *
+     * @param PrintedProduct $printedProduct the PrintedProduct object to be added
+     */
     public function add(PrintedProduct $printedProduct): void
     {
         $this->getEntityManager()->persist($printedProduct);
         $this->getEntityManager()->flush();
     }
 
-	/**
-	 * Finds a PrintedProduct by its ID.
-	 *
-	 * @param int $id The ID of the PrintedProduct.
-	 *
-	 * @return PrintedProduct|null The found PrintedProduct object, or null if no PrintedProduct was found.
-	 */
+    /**
+     * Finds a PrintedProduct by its ID.
+     *
+     * @param int $id the ID of the PrintedProduct
+     *
+     * @return PrintedProduct|null the found PrintedProduct object, or null if no PrintedProduct was found
+     */
     public function findById(int $id): ?PrintedProduct
     {
         return $this->find($id);
     }
 
-	/**
-	 * Saves a PrintedProduct object.
-	 *
-	 * @param PrintedProduct $printedProduct The PrintedProduct object to be saved.
-	 *
-	 * @return void
-	 */
+    /**
+     * Saves a PrintedProduct object.
+     *
+     * @param PrintedProduct $printedProduct the PrintedProduct object to be saved
+     */
     public function save(PrintedProduct $printedProduct): void
     {
         $this->getEntityManager()->persist($printedProduct);
@@ -85,27 +79,25 @@ class PrintedProductRepository extends ServiceEntityRepository implements Printe
         return $query->getResult();
     }
 
-	/**
-	 * Finds PrintedProducts by Roll ID.
-	 *
-	 * @param int $rollId The ID of the Roll.
-	 *
-	 * @return array An array of PrintedProduct objects matching the Roll ID.
-	 */
-	public function findByFilter(PrintedProductFilter $filter): array
-	{
-		$qb = $this->createQueryBuilder('p');
+    /**
+     * Finds PrintedProducts by Roll ID.
+     *
+     * @return array an array of PrintedProduct objects matching the Roll ID
+     */
+    public function findByFilter(PrintedProductFilter $filter): array
+    {
+        $qb = $this->createQueryBuilder('p');
 
-		if ($filter->rollId) {
-			$qb->innerJoin('p.roll', 'r');
-			$qb->andWhere('r.id = :rollId')
-				->setParameter('rollId', $filter->rollId);
-		}
+        if ($filter->rollId) {
+            $qb->innerJoin('p.roll', 'r');
+            $qb->andWhere('r.id = :rollId')
+                ->setParameter('rollId', $filter->rollId);
+        }
 
-		if ($filter->unassigned) {
-			$qb->andWhere('p.roll IS NULL');
-		}
+        if ($filter->unassigned) {
+            $qb->andWhere('p.roll IS NULL');
+        }
 
-		return $qb->getQuery()->getResult();
-	}
+        return $qb->getQuery()->getResult();
+    }
 }

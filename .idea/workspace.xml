@@ -4,9 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added change sort order api.">
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Events/RollWasSentToCutCheckInEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Events/RollWasSentToCutCheckInEvent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/CuttingCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/CuttingCheckInService.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added RollWasSentToCutCheckInEvent.">
+      <change afterPath="$PROJECT_DIR$/config/services_test.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Error.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Factory/ErrorFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/ErrorRepositoryInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/InMemory/ErrorRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/InMemory/HistoryRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/InMemory/PrintedProductRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/InMemory/RollRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/ProductionProcess/Domain/Repository/ErrorRepositoryTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/ProductionProcess/Domain/Repository/HistoryRepositoryTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php-test-framework.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/compose.dev.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/php-fpm/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/php-fpm/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/EventHandler/RollWasSentToCutCheckInEventHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/EventHandler/RollWasSentToCutCheckInEventHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/PrintedProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/PrintedProduct.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Roll/Roll.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Roll/Roll.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/HistoryRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/HistoryRepositoryInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/PrintedProductRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/PrintedProductRepositoryInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/UnAssignPrintedProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/UnAssignPrintedProduct.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/PrintedProductsCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/PrintedProductsCheckInService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/ReprintRoll.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/ReprintRoll.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/RollMaker.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/RollMaker.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/HistoryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/Doctrine/HistoryRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/PrintedProductRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/Doctrine/PrintedProductRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/PrinterRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/Doctrine/PrinterRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/RollRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/Doctrine/RollRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,16 +58,19 @@
   <component name="GitRewordedCommitMessages">
     <option name="onto" value="a1c2584157c0b13533df74e01fc5a8bf2aec59fb" />
   </component>
+  <component name="PHPCodeSnifferProjectConfiguration">
+    <option name="selectedConfigurationId" value="2b84c86e-c887-410d-9d1e-1bcb0d9bafa7" />
+  </component>
   <component name="PhpServers">
     <servers>
-      <server host="127.0.0.1" id="7d2728ca-5a64-4d37-9fe8-0e9275687d69" name="Docker" port="8081" use_path_mappings="true">
+      <server host="127.0.0.1" id="7d2728ca-5a64-4d37-9fe8-0e9275687d69" name="Docker" port="888" use_path_mappings="true">
         <path_mappings>
           <mapping local-root="$PROJECT_DIR$" remote-root="/var/www" />
         </path_mappings>
       </server>
     </servers>
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="php-fpm">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="order-pilot-php-fpm:latest">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
       <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
@@ -160,6 +192,9 @@
       <path value="$PROJECT_DIR$/vendor/symfony/var-exporter" />
     </include_path>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -168,57 +203,77 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Makefile Target.restart.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
-    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm&quot;: &quot;Docker Compose&quot;,
-    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm&quot;: &quot;Docker Compose&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/aleksejem/Sites/order-pilot/src/ProductionProcess/Application/UseCase/Query&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;php.add.doc.comment.for.fields.panel.add.php.doc.for.all.properties&quot;: &quot;true&quot;,
-    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Makefile Target.restart.executor": "Run",
+    "PHPUnit.ErrorRepositoryTest.test_add.executor": "Run",
+    "PHPUnit.ErrorRepositoryTest.test_find_by_process.executor": "Run",
+    "PHPUnit.HistoryRepositoryTest.executor": "Run",
+    "PHPUnit.HistoryRepositoryTest.test_add.executor": "Run",
+    "PHPUnit.HistoryRepositoryTest.test_true.executor": "Run",
+    "PHPUnit.Main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
+    "WebServerToolWindowPanel.toolwindow.show.date": "false",
+    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
+    "WebServerToolWindowPanel.toolwindow.show.size": "false",
+    "com.jetbrains.php.phpunit.codeGeneration.PhpNewTestDialog.defaultLibrary": "PHPUnit",
+    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm": "Docker",
+    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm": "Docker",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/config",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "php.add.doc.comment.for.fields.panel.add.php.doc.for.all.properties": "true",
+    "php.override.implement.member.chooser.php.doc": "NONE",
+    "settings.editor.selected.configurable": "settings.php.quality.tools.phpstan",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/config" />
+      <recent name="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/InMemory" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Adapter/Order" />
-      <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Query" />
-      <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Command" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests/Unit/ProductionProcess/Domain/Repository" />
+      <recent name="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/Postgres" />
+      <recent name="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/EventHandler" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Events" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/PrintedProduct" />
-      <recent name="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ChangePrintedProductPriority" />
-      <recent name="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/PrintedProducts" />
-      <recent name="$PROJECT_DIR$/src/ProductionProcess/Application/Service/Job" />
     </key>
   </component>
-  <component name="RunManager" selected="Makefile Target.restart">
-    <configuration name="restart" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/Makefile" target="restart" workingDirectory="" arguments="">
-        <envs />
-      </makefile>
+  <component name="RunManager" selected="PHPUnit.ErrorRepositoryTest.test_find_by_process">
+    <configuration name="ErrorRepositoryTest.test_add" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Unit\ProductionProcess\Domain\Repository\ErrorRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/ProductionProcess/Domain/Repository/ErrorRepositoryTest.php" method="test_add" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ErrorRepositoryTest.test_find_by_process" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Unit\ProductionProcess\Domain\Repository\ErrorRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/ProductionProcess/Domain/Repository/ErrorRepositoryTest.php" method="test_find_by_process" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="HistoryRepositoryTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Unit\ProductionProcess\Domain\Repository\HistoryRepositoryTest" configuration_file="/var/www/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/ProductionProcess/Domain/Repository/HistoryRepositoryTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
+    <configuration name="HistoryRepositoryTest.test_add" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Unit\ProductionProcess\Domain\Repository\HistoryRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/ProductionProcess/Domain/Repository/HistoryRepositoryTest.php" method="test_add" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="HistoryRepositoryTest.test_true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Unit\ProductionProcess\Domain\Repository\HistoryRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/ProductionProcess/Domain/Repository/HistoryRepositoryTest.php" method="test_true" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -227,7 +282,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Makefile Target.restart" />
+        <item itemvalue="PHPUnit.ErrorRepositoryTest.test_find_by_process" />
+        <item itemvalue="PHPUnit.ErrorRepositoryTest.test_add" />
+        <item itemvalue="PHPUnit.HistoryRepositoryTest.test_add" />
+        <item itemvalue="PHPUnit.HistoryRepositoryTest.test_true" />
+        <item itemvalue="PHPUnit.HistoryRepositoryTest" />
       </list>
     </recent_temporary>
   </component>
@@ -293,22 +352,9 @@
       <workItem from="1726470299712" duration="17482000" />
       <workItem from="1726574611729" duration="15256000" />
       <workItem from="1726657747853" duration="103839000" />
-    </task>
-    <task id="LOCAL-00318" summary="Fixed making unavailable printer #2.">
-      <option name="closed" value="true" />
-      <created>1726139121287</created>
-      <option name="number" value="00318" />
-      <option name="presentableId" value="LOCAL-00318" />
-      <option name="project" value="LOCAL" />
-      <updated>1726139121287</updated>
-    </task>
-    <task id="LOCAL-00319" summary="Fixed making unavailable printer #2.">
-      <option name="closed" value="true" />
-      <created>1726139123319</created>
-      <option name="number" value="00319" />
-      <option name="presentableId" value="LOCAL-00319" />
-      <option name="project" value="LOCAL" />
-      <updated>1726139123319</updated>
+      <workItem from="1727955867881" duration="575000" />
+      <workItem from="1727956453901" duration="155000" />
+      <workItem from="1727956617347" duration="12501000" />
     </task>
     <task id="LOCAL-00320" summary="Fixed history data.">
       <option name="closed" value="true" />
@@ -686,7 +732,23 @@
       <option name="project" value="LOCAL" />
       <updated>1727771621597</updated>
     </task>
-    <option name="localTasksCounter" value="367" />
+    <task id="LOCAL-00367" summary="Added RollWasSentToCutCheckInEvent.">
+      <option name="closed" value="true" />
+      <created>1727873650312</created>
+      <option name="number" value="00367" />
+      <option name="presentableId" value="LOCAL-00367" />
+      <option name="project" value="LOCAL" />
+      <updated>1727873650312</updated>
+    </task>
+    <task id="LOCAL-00368" summary="Added RollWasSentToCutCheckInEvent.">
+      <option name="closed" value="true" />
+      <created>1727873655155</created>
+      <option name="number" value="00368" />
+      <option name="presentableId" value="LOCAL-00368" />
+      <option name="project" value="LOCAL" />
+      <updated>1727873655155</updated>
+    </task>
+    <option name="localTasksCounter" value="369" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -721,7 +783,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed history happened at equals to current time." />
     <MESSAGE value="Added doc" />
     <MESSAGE value="Added history event types." />
     <MESSAGE value="Updated history data." />
@@ -746,7 +807,8 @@
     <MESSAGE value="Added printed products api routes." />
     <MESSAGE value="Fixed null on getId()" />
     <MESSAGE value="Added change sort order api." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added change sort order api." />
+    <MESSAGE value="Added RollWasSentToCutCheckInEvent." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added RollWasSentToCutCheckInEvent." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -759,6 +821,11 @@
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/src/Orders/Domain/ValueObject/Customer.php</url>
           <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrintedProducts/FindPrintedProductsQueryHandler.php</url>
+          <line>44</line>
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

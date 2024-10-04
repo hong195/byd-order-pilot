@@ -14,7 +14,7 @@ RUN if [ ${INSTALL_XDEBUG} = true ]; \
 COPY ./docker/php-fpm/php.ini /usr/local/etc/php/
 COPY ./docker/php-fpm/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
-# Postgres
+# Doctrine
 RUN apk add --no-cache libpq-dev && docker-php-ext-install pdo_pgsql
 RUN apk add --update sudo
 

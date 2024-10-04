@@ -8,8 +8,8 @@ use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
 use App\ProductionProcess\Domain\Events\RollWasCreatedEvent;
 use App\ProductionProcess\Domain\Factory\RollFactory;
 use App\ProductionProcess\Domain\Repository\PrinterRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
 use App\ProductionProcess\Domain\ValueObject\Process;
-use App\ProductionProcess\Infrastructure\Repository\RollRepository;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 
 /**
@@ -22,11 +22,11 @@ final readonly class RollMaker
     /**
      * Class constructor.
      *
-     * @param RollRepository             $rollRepository    the RollRepository instance
+     * @param RollRepositoryInterface             $rollRepository    the RollRepository instance
      * @param RollFactory                $rollFactory       the RollFactory instance
      * @param PrinterRepositoryInterface $printerRepository the PrinterRepositoryInterface instance
      */
-    public function __construct(private RollRepository $rollRepository, private RollFactory $rollFactory, private PrinterRepositoryInterface $printerRepository, private EventDispatcherInterface $dispatcher)
+    public function __construct(private RollRepositoryInterface $rollRepository, private RollFactory $rollFactory, private PrinterRepositoryInterface $printerRepository, private EventDispatcherInterface $dispatcher)
     {
     }
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\ProductionProcess\Infrastructure\Repository;
+namespace App\ProductionProcess\Infrastructure\Repository\Doctrine;
 
 use App\ProductionProcess\Domain\Aggregate\Roll\History\History;
 use App\ProductionProcess\Domain\Repository\HistoryRepositoryInterface;
@@ -36,19 +36,6 @@ class HistoryRepository extends ServiceEntityRepository implements HistoryReposi
     }
 
     /**
-     * Saves multiple History entities.
-     *
-     * @param iterable<History> $histories a collection of History objects to be saved
-     */
-    public function saveMany(iterable $histories): void
-    {
-        foreach ($histories as $history) {
-            $this->getEntityManager()->persist($history);
-        }
-
-        $this->getEntityManager()->flush();
-    }
-    /**
      * Finds a History entity by a rollId.
      *
      * @param int $rollId the rollId to search for
@@ -63,18 +50,8 @@ class HistoryRepository extends ServiceEntityRepository implements HistoryReposi
 
         $query->where('h.rollId = :rollId')
             ->setParameter('rollId', $rollId)
-            ->orderBy('h.happenedAt', 'ASC')
-        ;
+            ->orderBy('h.happenedAt', 'ASC');
 
         return $query->getQuery()->getResult();
-    }
-
-    /**
-     * Deletes a History entity from the database.
-     */
-    public function delete(History $history): void
-    {
-        $this->getEntityManager()->remove($history);
-        $this->getEntityManager()->flush();
     }
 }

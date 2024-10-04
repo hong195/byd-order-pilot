@@ -22,6 +22,7 @@ class PrintedProduct
     private bool $hasPriority = false;
     private readonly \DateTimeInterface $dateAdded;
     private Status $status = Status::UNASSIGNED;
+    private bool $isReprint = false;
 
     /**
      * Constructs a new instance of the class.
@@ -185,6 +186,16 @@ class PrintedProduct
     }
 
     /**
+     * Checks if the item is a reprint.
+     *
+     * @return bool true if the item is a reprint, false otherwise
+     */
+    public function isReprint(): bool
+    {
+        return $this->isReprint;
+    }
+
+    /**
      * Reprints the document.
      *
      * Sets the status to ASSIGNABLE, sets hasPriority to true and roll to null.
@@ -193,6 +204,7 @@ class PrintedProduct
     {
         $this->status = Status::ASSIGNABLE;
         $this->hasPriority = true;
+        $this->isReprint = true;
         $this->roll = null;
         $this->sortOrder = null;
     }
