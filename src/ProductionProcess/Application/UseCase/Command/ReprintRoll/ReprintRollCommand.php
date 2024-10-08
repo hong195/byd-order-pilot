@@ -11,12 +11,14 @@ use App\Shared\Application\Command\CommandInterface;
  */
 readonly class ReprintRollCommand implements CommandInterface
 {
-    /**
-     * Constructor.
-     *
-     * @param int $rollId the ID of the roll
-     */
-    public function __construct(public int $rollId, public ?string $reason = null)
+	/**
+	 * Class constructor.
+	 *
+	 * @param int $rollId The ID of the roll.
+	 * @param string $process The process associated with the roll.
+	 * @param string|null $reason The reason for the roll, defaults to null.
+	 */
+    public function __construct(public int $rollId, public string $process, public ?string $reason = null)
     {
     }
 }

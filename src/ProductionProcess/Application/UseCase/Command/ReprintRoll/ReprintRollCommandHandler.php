@@ -5,12 +5,10 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Application\UseCase\Command\ReprintRoll;
 
 use App\ProductionProcess\Domain\Exceptions\RollErrorManagementException;
-use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
-use App\ProductionProcess\Domain\Service\Roll\Error\ErrorManagementService;
+use App\ProductionProcess\Domain\Service\Roll\ReprintRollService;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Command\CommandHandlerInterface;
 use App\Shared\Domain\Service\AssertService;
-use App\Shared\Infrastructure\Security\UserFetcher;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -21,7 +19,7 @@ readonly class ReprintRollCommandHandler implements CommandHandlerInterface
     /**
      * Constructor.
      */
-    public function __construct(private ErrorManagementService $errorManagementService, private RollRepositoryInterface $rollRepository, private AccessControlService $accessControlService, private UserFetcher $userFetcher)
+    public function __construct(private ReprintRollService $reprintRollService, private AccessControlService $accessControlService)
     {
     }
 
@@ -37,19 +35,10 @@ readonly class ReprintRollCommandHandler implements CommandHandlerInterface
     {
         AssertService::true($this->accessControlService->isGranted(), 'No access to handle the command');
 
-        $roll = $this->rollRepository->findById($command->rollId);
-
-        if (!$roll) {
-            throw new NotFoundHttpException('Roll not found');
-        }
-
-        foreach ($roll->getPrintedProducts() as $printedProduct) {
-            $this->errorManagementService->recordError(
-				printedProductId: $printedProduct->getId(),
-				process: $roll->getProcess(),
-				noticerId: $this->userFetcher->requiredUserId(),
-				reason: $command->reason
-			);
-        }
+        $this->reprintRollService->reprint(
+            rollId: $command->rollId,
+            process: $command->process,
+            reason: $command->reason
+        );
     }
 }

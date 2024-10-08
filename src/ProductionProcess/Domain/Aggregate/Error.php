@@ -12,7 +12,7 @@ class Error
      * @phpstan-ignore-next-line
      */
     private ?int $id;
-    private ?string $reason = null;
+    private ?string $message = null;
     private \DateTimeInterface $createdAt;
 
     /**
@@ -53,18 +53,18 @@ class Error
      *
      * @return string The message value
      */
-    public function getReason(): string
+    public function getMessage(): string
     {
-        return $this->reason;
+        return $this->message;
     }
 
     /**
      * Set the message property.
      *
-     * @param string $reason The message to set
+     * @param string $message The message to set
      */
-    public function setReason(string $reason): void
+    public function setMessage(string $message): void
     {
-        $this->reason = $reason;
+        $this->message = $message;
     }
 }

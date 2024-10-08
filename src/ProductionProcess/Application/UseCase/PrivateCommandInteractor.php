@@ -21,7 +21,6 @@ use App\ProductionProcess\Application\UseCase\Command\ReprintRoll\ReprintRollCom
 use App\ProductionProcess\Application\UseCase\Command\UnAssignEmployeeFromRoll\UnAssignEmployeeFromRollCommand;
 use App\ProductionProcess\Application\UseCase\Command\UnassignPrintedProduct\UnassignPrintedProductCommand;
 use App\Shared\Application\Command\CommandBusInterface;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class PrivateCommandInteractor.
@@ -97,15 +96,13 @@ readonly class PrivateCommandInteractor
     }
 
     /**
-     * Prints a new copy of an order.
+     * Reprints a roll with the given reprint command.
      *
-     * @param int $rollId The ID of the roll
-     *
-     * @throws NotFoundHttpException
+     * @param ReprintRollCommand $command The command for reprinting the roll
      */
-    public function reprintRoll(int $rollId, ?string $reason = null): void
+    public function reprintRoll(ReprintRollCommand $command): void
     {
-        $this->commandBus->execute(new ReprintRollCommand(rollId: $rollId, reason: $reason));
+        $this->commandBus->execute($command);
     }
 
     /**

@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated tests:&#10;&#10;- replace unit test with functional one&#10;- remove in memory implementations&#10;- added Error entity mapping&#10;- added orm fixture packages">
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/PrintedProduct/CreatedPrintedProductData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/PrintedProduct/CreatedPrintedProductData.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Rename message to reason.">
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/ReprintRollService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ReprintRoll/ReprintRollCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ReprintRoll/ReprintRollCommand.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ReprintRoll/ReprintRollCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ReprintRoll/ReprintRollCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/ReprintRoll.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Service/Roll/Error/ErrorManagementServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/Error/ErrorManagementServiceTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateCommandInteractor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Error.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Error.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Factory/ErrorFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Factory/ErrorFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/Error/ErrorManagementService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/Error/ErrorManagementService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/Rolls/ReprintRollAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/Rolls/ReprintRollAction.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,6 +196,7 @@
     "PHPUnit.ErrorManagementServiceTest.test_error_can_be_record_on_current_or_previous_process.executor": "Run",
     "PHPUnit.ErrorManagementServiceTest.test_error_can_be_record_on_existing_process.executor": "Run",
     "PHPUnit.ErrorManagementServiceTest.test_product_must_be_in_progress.executor": "Run",
+    "PHPUnit.ErrorManagementServiceTest.test_roll_must_exists.executor": "Run",
     "PHPUnit.ErrorManagementServiceTest.test_roll_must_have_history_in_order_to_record_error.executor": "Run",
     "PHPUnit.ErrorRepositoryTest.test_add.executor": "Run",
     "PHPUnit.ErrorRepositoryTest.test_find_by_process.executor": "Run",
@@ -346,31 +352,7 @@
       <workItem from="1727956453901" duration="155000" />
       <workItem from="1727956617347" duration="21509000" />
       <workItem from="1728238464282" duration="24399000" />
-      <workItem from="1728378940929" duration="17252000" />
-    </task>
-    <task id="LOCAL-00322" summary="Added order by happened at asc.">
-      <option name="closed" value="true" />
-      <created>1726146590396</created>
-      <option name="number" value="00322" />
-      <option name="presentableId" value="LOCAL-00322" />
-      <option name="project" value="LOCAL" />
-      <updated>1726146590396</updated>
-    </task>
-    <task id="LOCAL-00323" summary="Fixed history happened at equals to current time.">
-      <option name="closed" value="true" />
-      <created>1726213946282</created>
-      <option name="number" value="00323" />
-      <option name="presentableId" value="LOCAL-00323" />
-      <option name="project" value="LOCAL" />
-      <updated>1726213946282</updated>
-    </task>
-    <task id="LOCAL-00324" summary="Added history event types.">
-      <option name="closed" value="true" />
-      <created>1726222173381</created>
-      <option name="number" value="00324" />
-      <option name="presentableId" value="LOCAL-00324" />
-      <option name="project" value="LOCAL" />
-      <updated>1726222173381</updated>
+      <workItem from="1728378940929" duration="18582000" />
     </task>
     <task id="LOCAL-00325" summary="Added history event types.">
       <option name="closed" value="true" />
@@ -740,7 +722,31 @@
       <option name="project" value="LOCAL" />
       <updated>1728403749079</updated>
     </task>
-    <option name="localTasksCounter" value="371" />
+    <task id="LOCAL-00371" summary="Updated history tests.">
+      <option name="closed" value="true" />
+      <created>1728406363300</created>
+      <option name="number" value="00371" />
+      <option name="presentableId" value="LOCAL-00371" />
+      <option name="project" value="LOCAL" />
+      <updated>1728406363300</updated>
+    </task>
+    <task id="LOCAL-00372" summary="Updated history tests.">
+      <option name="closed" value="true" />
+      <created>1728406658677</created>
+      <option name="number" value="00372" />
+      <option name="presentableId" value="LOCAL-00372" />
+      <option name="project" value="LOCAL" />
+      <updated>1728406658677</updated>
+    </task>
+    <task id="LOCAL-00373" summary="Rename message to reason.">
+      <option name="closed" value="true" />
+      <created>1728406930941</created>
+      <option name="number" value="00373" />
+      <option name="presentableId" value="LOCAL-00373" />
+      <option name="project" value="LOCAL" />
+      <updated>1728406930941</updated>
+    </task>
+    <option name="localTasksCounter" value="374" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -775,8 +781,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated history data." />
-    <MESSAGE value="Updated history has parent roll id." />
     <MESSAGE value="Added films events." />
     <MESSAGE value="Added inventory history entity." />
     <MESSAGE value="Added new event triggered when film is used to print." />
@@ -800,7 +804,9 @@
     <MESSAGE value="Added RollWasSentToCutCheckInEvent." />
     <MESSAGE value="Added tests for production process repositories (error, history)" />
     <MESSAGE value="Updated tests:&#10;&#10;- replace unit test with functional one&#10;- remove in memory implementations&#10;- added Error entity mapping&#10;- added orm fixture packages" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated tests:&#10;&#10;- replace unit test with functional one&#10;- remove in memory implementations&#10;- added Error entity mapping&#10;- added orm fixture packages" />
+    <MESSAGE value="Updated history tests." />
+    <MESSAGE value="Rename message to reason." />
+    <option name="LAST_COMMIT_MESSAGE" value="Rename message to reason." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

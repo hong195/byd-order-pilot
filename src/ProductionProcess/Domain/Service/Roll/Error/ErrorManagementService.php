@@ -37,11 +37,11 @@ final readonly class ErrorManagementService
      * @param int         $printedProductId the ID of the printed product
      * @param Process     $process          the process associated with the error
      * @param int         $noticerId        the ID of the user who noticed the error
-     * @param string|null $reson          (Optional) Additional message describing the error
+     * @param string|null $reason          (Optional) Additional message describing the error
      *
      * @throws RollErrorManagementException
      */
-    public function recordError(int $printedProductId, Process $process, int $noticerId, ?string $reson = null): void
+    public function recordError(int $printedProductId, Process $process, int $noticerId, ?string $reason = null): void
     {
         $employeeId = $this->getResponsibleEmployeeId($printedProductId, $process);
 
@@ -52,8 +52,8 @@ final readonly class ErrorManagementService
             noticerId: $noticerId
         );
 
-        if ($reson) {
-            $errorFactory->withReason($reson);
+        if ($reason) {
+            $errorFactory->withReason($reason);
         }
 
         $error = $errorFactory->build();

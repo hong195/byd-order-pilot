@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Infrastructure\Controller\Rolls;
 
+use App\ProductionProcess\Application\UseCase\Command\ReprintRoll\ReprintRollCommand;
 use App\ProductionProcess\Application\UseCase\PrivateCommandInteractor;
 use App\ProductionProcess\Domain\Exceptions\OrderReprintException;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -26,16 +27,21 @@ final readonly class ReprintRollAction
     {
     }
 
-    /**
-     * Invokes the command to reprint an order.
-     *
-     * @return JsonResponse the JSON response containing the success message
-     *
-     * @throws OrderReprintException
-     */
+	/**
+	 * Invokes the command to reprint a roll.
+	 *
+	 * @param int $rollId The ID of the roll to reprint.
+	 * @param Request $request The request object.
+	 * @return JsonResponse A JSON response indicating success.
+	 */
     public function __invoke(int $rollId, Request $request): JsonResponse
     {
-        $this->privateCommandInteractor->reprintRoll(rollId: $rollId, reason: $request->get('reason'));
+		$command = new ReprintRollCommand(
+			rollId: $rollId,
+			process: $request->get('process'),
+			reason: $request->get('reason')
+		);
+        $this->privateCommandInteractor->reprintRoll($command);
 
         return new JsonResponse(['message' => 'Success'], Response::HTTP_OK);
     }
