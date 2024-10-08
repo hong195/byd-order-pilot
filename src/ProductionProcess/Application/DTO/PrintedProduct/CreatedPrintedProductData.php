@@ -29,14 +29,14 @@ final readonly class CreatedPrintedProductData
     ) {
     }
 
-	public static function fromCommand(CreatePrintedProductCommand $command): CreatedPrintedProductData
-	{
-		return new self(
-			productId: $command->productId,
-			length: $command->length,
-			filmType: $command->filmType,
-			orderNumber: $command->orderNumber,
-			laminationType: $command->laminationType
-		);
-	}
+    public static function fromCommand(CreatePrintedProductCommand $command): CreatedPrintedProductData
+    {
+        return new self(
+            productId: $command->productId,
+            length: $command->length,
+            filmType: $command->filmType,
+            orderNumber: $command->orderNumber,
+            laminationType: $command->laminationType
+        );
+    }
 }

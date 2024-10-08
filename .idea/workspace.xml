@@ -4,48 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added tests for production process repositories (error, history)">
-      <change afterPath="$PROJECT_DIR$/.idea/php-docker-settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Exceptions/RollErrorManagementException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/Error/ErrorManagementService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/Error.orm.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/ErrorRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Functional/AbstractTestCase.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Service/Roll/Error/ErrorManagementServiceTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Resource/Fixture/PrintedProductFixture.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Resource/Fixture/RollFixture.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Resource/Fixture/UserFixture.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Tools/FakerTools.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Tools/FixtureTools.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.dev" beforeDir="false" afterPath="$PROJECT_DIR$/.env.dev" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.test" beforeDir="false" afterPath="$PROJECT_DIR$/.env.test" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php-test-framework.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php-test-framework.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/phpspec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpspec.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/doctrine.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services_test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services_test.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Factory/HistoryFactory.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Factory/RollFactory.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Error.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Error.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Roll/Roll.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Roll/Roll.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Factory/ErrorFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Factory/ErrorFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/ValueObject/Process.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/ValueObject/Process.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/Doctrine/HistoryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/HistoryRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/Doctrine/PrintedProductRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/PrintedProductRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/Doctrine/PrinterRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/PrinterRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/Doctrine/RollRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/RollRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/InMemory/ErrorRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/InMemory/HistoryRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/InMemory/PrintedProductRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/InMemory/RollRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/ProductionProcess/Domain/Repository/ErrorRepositoryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Repository/ErrorRepositoryTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/ProductionProcess/Domain/Repository/HistoryRepositoryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Repository/HistoryRepositoryTest.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated tests:&#10;&#10;- replace unit test with functional one&#10;- remove in memory implementations&#10;- added Error entity mapping&#10;- added orm fixture packages">
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/PrintedProduct/CreatedPrintedProductData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/PrintedProduct/CreatedPrintedProductData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ReprintRoll/ReprintRollCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ReprintRoll/ReprintRollCommandHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/ReprintRoll.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Service/Roll/Error/ErrorManagementServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/Error/ErrorManagementServiceTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,7 +187,9 @@
     "PHPUnit.ErrorManagementServiceTest.executor": "Run",
     "PHPUnit.ErrorManagementServiceTest.test_can_be_created.executor": "Run",
     "PHPUnit.ErrorManagementServiceTest.test_can_be_recorded.executor": "Run",
+    "PHPUnit.ErrorManagementServiceTest.test_can_be_recorded_successfully.executor": "Run",
     "PHPUnit.ErrorManagementServiceTest.test_error_can_be_record_on_current_or_previous_process.executor": "Run",
+    "PHPUnit.ErrorManagementServiceTest.test_error_can_be_record_on_existing_process.executor": "Run",
     "PHPUnit.ErrorManagementServiceTest.test_product_must_be_in_progress.executor": "Run",
     "PHPUnit.ErrorManagementServiceTest.test_roll_must_have_history_in_order_to_record_error.executor": "Run",
     "PHPUnit.ErrorRepositoryTest.test_add.executor": "Run",
@@ -233,6 +198,7 @@
     "PHPUnit.HistoryRepositoryTest.test_add.executor": "Run",
     "PHPUnit.HistoryRepositoryTest.test_true.executor": "Run",
     "PHPUnit.Main.executor": "Run",
+    "PHPUnit.ReprintRollTest.test_cannot_reprint_not_existing_roll.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
     "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
@@ -272,45 +238,45 @@
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/InMemory" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository" />
       <recent name="$PROJECT_DIR$/tests/Resources" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Roll" />
-      <recent name="$PROJECT_DIR$/tests/Unit/ProductionProcess/Domain/Repository" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.ErrorManagementServiceTest.test_product_must_be_in_progress">
+  <component name="RunManager" selected="PHPUnit.Main">
     <configuration name="ErrorManagementServiceTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Unit\ProductionProcess\Domain\Service\Roll\Error\ErrorManagementServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Service/Roll/Error/ErrorManagementServiceTest.php" scope="Class" />
+      <TestRunner class="App\Tests\Unit\ProductionProcess\Domain\Service\Roll\Error\ErrorManagementServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/Error/ErrorManagementServiceTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="ErrorManagementServiceTest.test_can_be_recorded" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Unit\ProductionProcess\Domain\Service\Roll\Error\ErrorManagementServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Service/Roll/Error/ErrorManagementServiceTest.php" method="test_can_be_recorded" scope="Method" />
+    <configuration name="ErrorManagementServiceTest.test_can_be_recorded_successfully" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Unit\ProductionProcess\Domain\Service\Roll\Error\ErrorManagementServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/Error/ErrorManagementServiceTest.php" method="test_can_be_recorded_successfully" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="ErrorManagementServiceTest.test_error_can_be_record_on_current_or_previous_process" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Unit\ProductionProcess\Domain\Service\Roll\Error\ErrorManagementServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Service/Roll/Error/ErrorManagementServiceTest.php" method="test_error_can_be_record_on_current_or_previous_process" scope="Method" />
+    <configuration name="ErrorManagementServiceTest.test_error_can_be_record_on_existing_process" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Unit\ProductionProcess\Domain\Service\Roll\Error\ErrorManagementServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/Error/ErrorManagementServiceTest.php" method="test_error_can_be_record_on_existing_process" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="ErrorManagementServiceTest.test_product_must_be_in_progress" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Unit\ProductionProcess\Domain\Service\Roll\Error\ErrorManagementServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Service/Roll/Error/ErrorManagementServiceTest.php" method="test_product_must_be_in_progress" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="HistoryRepositoryTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Infrastructure\Repository\HistoryRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Repository/HistoryRepositoryTest.php" scope="Class" />
+    <configuration name="ErrorManagementServiceTest.test_roll_must_exists" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Unit\ProductionProcess\Domain\Service\Roll\Error\ErrorManagementServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/Error/ErrorManagementServiceTest.php" method="test_roll_must_exists" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
       <method v="2" />
     </configuration>
+    <configuration name="ReprintRollTest.test_cannot_reprint_not_existing_roll" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Application\UseCase\Command\ReprintRollTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Application/UseCase/Command/ReprintRollTest.php" method="test_cannot_reprint_not_existing_roll" scope="Method" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.ErrorManagementServiceTest.test_product_must_be_in_progress" />
+        <item itemvalue="PHPUnit.ErrorManagementServiceTest.test_roll_must_exists" />
+        <item itemvalue="PHPUnit.ErrorManagementServiceTest.test_error_can_be_record_on_existing_process" />
+        <item itemvalue="PHPUnit.ErrorManagementServiceTest.test_can_be_recorded_successfully" />
         <item itemvalue="PHPUnit.ErrorManagementServiceTest" />
-        <item itemvalue="PHPUnit.ErrorManagementServiceTest.test_error_can_be_record_on_current_or_previous_process" />
-        <item itemvalue="PHPUnit.ErrorManagementServiceTest.test_can_be_recorded" />
-        <item itemvalue="PHPUnit.HistoryRepositoryTest" />
+        <item itemvalue="PHPUnit.ReprintRollTest.test_cannot_reprint_not_existing_roll" />
       </list>
     </recent_temporary>
   </component>
@@ -380,15 +346,7 @@
       <workItem from="1727956453901" duration="155000" />
       <workItem from="1727956617347" duration="21509000" />
       <workItem from="1728238464282" duration="24399000" />
-      <workItem from="1728378940929" duration="14758000" />
-    </task>
-    <task id="LOCAL-00321" summary="Fixed history data.">
-      <option name="closed" value="true" />
-      <created>1726146214881</created>
-      <option name="number" value="00321" />
-      <option name="presentableId" value="LOCAL-00321" />
-      <option name="project" value="LOCAL" />
-      <updated>1726146214881</updated>
+      <workItem from="1728378940929" duration="17252000" />
     </task>
     <task id="LOCAL-00322" summary="Added order by happened at asc.">
       <option name="closed" value="true" />
@@ -774,7 +732,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728043186431</updated>
     </task>
-    <option name="localTasksCounter" value="370" />
+    <task id="LOCAL-00370" summary="Updated tests:&#10;&#10;- replace unit test with functional one&#10;- remove in memory implementations&#10;- added Error entity mapping&#10;- added orm fixture packages">
+      <option name="closed" value="true" />
+      <created>1728403749079</created>
+      <option name="number" value="00370" />
+      <option name="presentableId" value="LOCAL-00370" />
+      <option name="project" value="LOCAL" />
+      <updated>1728403749079</updated>
+    </task>
+    <option name="localTasksCounter" value="371" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -809,7 +775,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added history event types." />
     <MESSAGE value="Updated history data." />
     <MESSAGE value="Updated history has parent roll id." />
     <MESSAGE value="Added films events." />
@@ -834,7 +799,8 @@
     <MESSAGE value="Added change sort order api." />
     <MESSAGE value="Added RollWasSentToCutCheckInEvent." />
     <MESSAGE value="Added tests for production process repositories (error, history)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added tests for production process repositories (error, history)" />
+    <MESSAGE value="Updated tests:&#10;&#10;- replace unit test with functional one&#10;- remove in memory implementations&#10;- added Error entity mapping&#10;- added orm fixture packages" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated tests:&#10;&#10;- replace unit test with functional one&#10;- remove in memory implementations&#10;- added Error entity mapping&#10;- added orm fixture packages" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

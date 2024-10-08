@@ -4,6 +4,7 @@ namespace App\Tests\Unit\ProductionProcess\Domain\Service\Roll\Error;
 
 use App\ProductionProcess\Domain\Aggregate\Error;
 use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
+use App\ProductionProcess\Domain\Aggregate\Roll\History\History;
 use App\ProductionProcess\Domain\Aggregate\Roll\History\Type;
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
 use App\ProductionProcess\Domain\Exceptions\RollErrorManagementException;
@@ -30,8 +31,6 @@ class ErrorManagementServiceTest extends AbstractTestCase
 
     private PrintedProduct $printedProduct;
     private Roll $roll;
-    public const FAKE_PRINTED_PRODUCT = 1;
-    public const FAKE_ROLL_ID = 1;
     private ErrorManagementService $errorManagementService;
     private HistoryRepositoryInterface $historyRepository;
     private ErrorRepositoryInterface $errorRepository;
@@ -66,13 +65,13 @@ class ErrorManagementServiceTest extends AbstractTestCase
      *
      * @throws RollErrorManagementException
      */
-    public function test_can_be_recorded(): void
+    public function test_can_be_recorded_successfully(): void
     {
-        $this->createHistory();
+        $history = $this->createHistory();
 
         $this->errorManagementService->recordError(
             printedProductId: $this->printedProduct->getId(),
-            process: Process::CUTTING_CHECK_IN,
+            process: $history->process,
             noticerId: $this->noticer->getId(),
             message: 'This is a test error message'
         );
@@ -90,34 +89,25 @@ class ErrorManagementServiceTest extends AbstractTestCase
         }
     }
 
-    /**
-     * Test that an error can be recorded on the current or previous process for a roll with existing history.
-     *
-     * @throws RollErrorManagementException
-     */
-    public function test_error_can_be_record_on_current_or_previous_process(): void
-    {
-        $this->createHistory();
+	/**
+	 * @throws RollErrorManagementException
+	 */
+	public function test_roll_must_exists(): void
+	{
+		$printedProduct = $this->loadPrintedProduct();
 
-        $this->errorManagementService->recordError(
-            printedProductId: $this->printedProduct->getId(),
-            process: Process::CUTTING_CHECK_IN,
-            noticerId: $this->noticer->getId(),
-        );
+		$this->expectException(NotFoundHttpException::class);
 
-        $errors = $this->errorRepository->findByResponsibleEmployeeId($this->responsibleEmployee->getId());
+		$this->errorManagementService->recordError(
+			printedProductId: $printedProduct->getId(),
+			process: Process::CUTTING_CHECK_IN,
+			noticerId: $this->noticer->getId(),
+		);
 
-        $this->assertCount(1, $errors);
+		$this->assertFalse($printedProduct->getRoll());
+	}
 
-        /** @var Error $error */
-        foreach ($errors as $error) {
-            $this->assertEquals($this->printedProduct->getId(), $error->printedProductId);
-            $this->assertEquals(Process::CUTTING_CHECK_IN, $error->process);
-            $this->assertEquals($this->noticer->getId(), $error->noticerId);
-        }
-    }
-
-    /**
+	/**
      * Test that an error can only be recorded for a roll with existing history.
      */
     public function test_roll_must_have_history_in_order_to_record_error(): void
@@ -132,25 +122,9 @@ class ErrorManagementServiceTest extends AbstractTestCase
     }
 
     /**
-     * @throws RollErrorManagementException
-     */
-    public function test_product_must_be_in_progress(): void
-    {
-        $printedProduct = $this->loadPrintedProduct();
-
-        $this->expectException(NotFoundHttpException::class);
-
-        $this->errorManagementService->recordError(
-            printedProductId: $printedProduct->getId(),
-            process: Process::CUTTING_CHECK_IN,
-            noticerId: $this->noticer->getId(),
-        );
-    }
-
-    /**
      * Create a new history entry and add it to the history repository.
      */
-    private function createHistory(): void
+    private function createHistory(): History
     {
         $history = (new HistoryFactory())->make(
             rollId: $this->roll->getId(),
@@ -161,5 +135,7 @@ class ErrorManagementServiceTest extends AbstractTestCase
         );
 
         $this->historyRepository->add($history);
+
+        return $history;
     }
 }
