@@ -13,19 +13,19 @@ class Error
      */
     private ?int $id;
     private ?string $message = null;
-    private \DateTimeInterface $createdAt;
+    private \DateTimeInterface $happenedAt;
 
     /**
      * Constructor for creating a new instance of the specified class.
      *
      * @param int     $noticerId             The ID of the noticer
      * @param int     $responsibleEmployeeId The ID of the responsible employee
-     * @param int     $rollId                The ID of the roll
+     * @param int     $printedProductId      The ID of the printed product
      * @param Process $process               The process associated with the instance
      */
-    public function __construct(public readonly int $noticerId, public readonly int $responsibleEmployeeId, public readonly int $rollId, public readonly Process $process)
+    public function __construct(public readonly int $noticerId, public readonly int $responsibleEmployeeId, public readonly int $printedProductId, public readonly Process $process)
     {
-        $this->createdAt = new \DateTimeImmutable();
+        $this->happenedAt = new \DateTimeImmutable();
     }
 
     /**

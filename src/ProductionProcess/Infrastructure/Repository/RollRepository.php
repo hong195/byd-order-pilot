@@ -1,18 +1,28 @@
 <?php
 
-namespace App\ProductionProcess\Infrastructure\Repository\InMemory;
+namespace App\ProductionProcess\Infrastructure\Repository;
 
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
 use App\ProductionProcess\Domain\Repository\RollFilter;
 use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Persistence\ManagerRegistry;
 
 /**
  * Repository class for Roll entities.
  * Extends the ServiceEntityRepository class and implements the RollRepositoryInterface.
  */
-class RollRepository implements RollRepositoryInterface
+class RollRepository extends ServiceEntityRepository implements RollRepositoryInterface
 {
-    private array $rolls = [];
+    /**
+     * Constructor.
+     *
+     * @param ManagerRegistry $registry the manager registry
+     */
+    public function __construct(ManagerRegistry $registry)
+    {
+        parent::__construct($registry, Roll::class);
+    }
 
     /**
      * Add a roll to the database.
@@ -21,7 +31,8 @@ class RollRepository implements RollRepositoryInterface
      */
     public function add(Roll $roll): void
     {
-        $this->rolls[] = $roll;
+        $this->getEntityManager()->persist($roll);
+        $this->getEntityManager()->flush();
     }
 
     /**
@@ -33,9 +44,7 @@ class RollRepository implements RollRepositoryInterface
      */
     public function findById(int $id): ?Roll
     {
-        return array_filter($this->rolls, function (Roll $roll) use ($id) {
-            return $roll->getId() === $id;
-        })[0] ?? null;
+        return $this->find($id);
     }
 
     /**
@@ -45,11 +54,8 @@ class RollRepository implements RollRepositoryInterface
      */
     public function save(Roll $roll): void
     {
-        foreach ($this->rolls as $key => $r) {
-            if ($r->getId() === $roll->getId()) {
-                $this->rolls[$key] = $roll;
-            }
-        }
+        $this->getEntityManager()->persist($roll);
+        $this->getEntityManager()->flush();
     }
 
     /**
@@ -59,9 +65,9 @@ class RollRepository implements RollRepositoryInterface
      */
     public function remove(Roll $roll): void
     {
-        $this->rolls = array_filter($this->rolls, function (Roll $r) use ($roll) {
-            return $r->getId() !== $roll->getId();
-        });
+        $roll->removePrintedProducts();
+        $this->getEntityManager()->remove($roll);
+        $this->getEntityManager()->flush();
     }
 
     /**
@@ -73,24 +79,28 @@ class RollRepository implements RollRepositoryInterface
      */
     public function findByFilter(RollFilter $rollFilter): array
     {
-        return array_filter($this->rolls, function (Roll $roll) use ($rollFilter) {
-            if (!empty($rollFilter->filmIds) && !in_array($roll->getFilmId(), $rollFilter->filmIds)) {
-                return false;
-            }
+        $qb = $this->createQueryBuilder('r');
 
-            if ($rollFilter->filmType) {
-                $printerTypes = json_decode($roll->getPrinter()?->getFilmTypes(), true);
-                if (!in_array($rollFilter->filmType, $printerTypes)) {
-                    return false;
-                }
-            }
+        if (!empty($rollFilter->filmIds)) {
+            $qb->where('r.filmId IN (:filmIds)');
+            $qb->setParameter('filmIds', $rollFilter->filmIds);
+        }
 
-            if ($rollFilter->process && ($roll->getProcess()->value != $rollFilter->process->value)) {
-                return false;
-            }
+        if ($rollFilter->filmType) {
+            $qb->join('r.printer', 'p')
+                ->andWhere('JSONB_CONTAINS(p.filmTypes, :filmType) = true')
+                ->setParameter('filmType', json_encode($rollFilter->filmType))
+            ;
+        }
 
-            return true;
-        });
+        if ($rollFilter->process) {
+            $qb->andWhere('r.process = :process');
+            $qb->setParameter('process', $rollFilter->process->value);
+        }
+
+        $query = $qb->getQuery();
+
+        return $query->getResult();
     }
 
     /**
@@ -105,9 +115,7 @@ class RollRepository implements RollRepositoryInterface
      */
     public function findByFilmId(?int $filmId = null): ?Roll
     {
-        return array_filter($this->rolls, function (Roll $roll) use ($filmId) {
-            return $roll->getFilmId() === $filmId;
-        })[0] ?? null;
+        return $this->findBy(['filmId' => $filmId])[0] ?? null;
     }
 
     /**
@@ -118,11 +126,9 @@ class RollRepository implements RollRepositoryInterface
     public function saveRolls(iterable $rolls): void
     {
         foreach ($rolls as $roll) {
-            if ($this->findById($roll->getId())) {
-                $this->save($roll);
-            } else {
-                $this->add($roll);
-            }
+            $this->getEntityManager()->persist($roll);
         }
+
+        $this->getEntityManager()->flush();
     }
 }

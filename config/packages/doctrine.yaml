@@ -6,6 +6,7 @@ doctrine:
         port: '%env(resolve:DB_PORT)%'
         user: '%env(resolve:DB_USER)%'
         password: '%env(resolve:DB_PASSWORD)%'
+        server_version: '%env(DB_SERVER_VERSION)%'
 
         types:
             jsonb: MartinGeorgiev\Doctrine\DBAL\Types\Jsonb
@@ -58,11 +59,19 @@ doctrine:
                 dir: '%kernel.project_dir%/src/Inventory/Infrastructure/Database/ORM'
                 prefix: 'App\Inventory\Domain\Aggregate'
                 alias: Inventory
-#when@test:
-#    doctrine:
-#        dbal:
-#            # "TEST_TOKEN" is typically set by ParaTest
-#            dbname_suffix: '_test%env(default::TEST_TOKEN)%'
+when@test:
+    doctrine:
+        dbal:
+            driver: 'pdo_sqlite'
+            url: 'sqlite:///:memory:'
+            memory: true
+#        orm:
+#            auto_generate_proxy_classes: true
+#            metadata_cache_driver:
+#                type: array
+#            query_cache_driver: 'array'
+#            result_cache_driver: 'array'
+
 
 #when@prod:
 #    doctrine:

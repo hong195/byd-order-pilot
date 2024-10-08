@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+        https://doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
+>
+
+    <entity name="App\ProductionProcess\Domain\Aggregate\Error" table="prod_process_error">
+        <id name="id" type="integer">
+            <generator />
+        </id>
+
+        <field name="printedProductId" column="printed_product_id" type="integer"/>
+        <field name="process" column="process" length="255"/>
+        <field name="responsibleEmployeeId" column="responsible_employee_id" type="integer"/>
+        <field name="noticerId" column="noticer_id" type="integer"/>
+        <field name="message" column="message" type="text" nullable="true"/>
+        <field name="happenedAt" column="happened_at" type="datetime_immutable"/>
+
+        <indexes>
+            <index name="printed_product_id_index" columns="printed_product_id"/>
+            <index name="process_index" columns="process"/>
+            <index name="noticer_id_index" columns="noticer_id"/>
+            <index name="happened_at_index" columns="happened_at"/>
+        </indexes>
+
+
+    </entity>
+</doctrine-mapping>

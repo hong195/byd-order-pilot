@@ -29,4 +29,19 @@ enum Process: string
     {
         return $this === $process;
     }
+
+    /**
+     * Generates an array representing the workflow chain in order.
+     *
+     * @return array the array representing the workflow chain with key-value pairs in order
+     */
+    private function chain(): array
+    {
+        return [
+            self::ORDER_CHECK_IN->value => self::PRINTING_CHECK_IN,
+            self::PRINTING_CHECK_IN->value => self::GLOW_CHECK_IN,
+            self::GLOW_CHECK_IN->value => self::CUTTING_CHECK_IN,
+            self::CUTTING_CHECK_IN->value => self::CUT,
+        ];
+    }
 }

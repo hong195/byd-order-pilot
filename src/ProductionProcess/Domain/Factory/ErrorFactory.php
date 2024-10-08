@@ -17,21 +17,21 @@ final class ErrorFactory
     private Error $error;
 
     /**
-     * Initialize a new Error instance and set its properties.
+     * Makes a new Error instance with provided details.
      *
-     * @param int     $noticerId             The ID of the noticer
-     * @param int     $responsibleEmployeeId The ID of the responsible employee
-     * @param int     $rollId                The ID of the roll
-     * @param Process $process               The process associated with the error
+     * @param int     $printedProductId      The ID of the printed product related to the Error
+     * @param Process $process               The process associated with the Error
+     * @param int     $responsibleEmployeeId The ID of the responsible employee for the Error
+     * @param int     $noticerId             The ID of the user who noticed the Error
      *
-     * @return self Returns the current instance of the class for method chaining
+     * @return self Returns the instance of the class for method chaining
      */
-    public function make(int $noticerId, int $responsibleEmployeeId, int $rollId, Process $process): self
+    public function make(int $printedProductId, Process $process, int $responsibleEmployeeId, int $noticerId): self
     {
         $this->error = new Error(
             noticerId: $noticerId,
             responsibleEmployeeId: $responsibleEmployeeId,
-            rollId: $rollId,
+            printedProductId: $printedProductId,
             process: $process
         );
 
@@ -41,13 +41,15 @@ final class ErrorFactory
     /**
      * Set a custom message for the Error factory.
      *
-     * @param string $message The custom message to be set
+     * @param ?string $message The custom message to be set
      *
      * @return ErrorFactory Returns the ErrorFactory instance for method chaining
      */
-    public function withMessage(string $message): ErrorFactory
+    public function withMessage(?string $message): ErrorFactory
     {
         $this->error->setMessage($message);
+
+        return $this;
     }
 
     /**

@@ -1,21 +1,17 @@
-# This file is the entry point to configure your own services.
-# Files in the packages/ subdirectory configure your dependencies.
-
-# Put parameters here that don't need to change on each machine where the app is deployed
-# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
-parameters:
-    app.site_url: '%env(string:APP_URL)%'
-
 services:
-    App\ProductionProcess\Domain\Repository\RollRepositoryInterface:
-        class: App\ProductionProcess\Infrastructure\Repository\InMemory\RollRepository
-        public: true
-    App\ProductionProcess\Domain\Repository\HistoryRepositoryInterface:
-        class: App\ProductionProcess\Infrastructure\Repository\InMemory\HistoryRepository
-        public: true
-    App\ProductionProcess\Domain\Repository\PrintedProductRepositoryInterface:
-        class: App\ProductionProcess\Infrastructure\Repository\InMemory\PrintedProductRepositoryInterface
-        public: true
-    App\ProductionProcess\Domain\Repository\ErrorRepositoryInterface:
-        class: App\ProductionProcess\Infrastructure\Repository\InMemory\ErrorRepository
-        public: true
+  _defaults:
+    autowire: true
+
+  App\Tests\Resource\Fixture\:
+    resource: '%kernel.project_dir%/tests/Resource/Fixture/*'
+    tags:
+      - { "name": "doctrine.fixture.orm" }
+
+  App\Shared\Infrastructure\Bus\CommandBus:
+    public: true
+
+  App\Shared\Infrastructure\Bus\QueryBus:
+    public: true
+
+  App\Shared\Infrastructure\Bus\EventBus:
+    public: true

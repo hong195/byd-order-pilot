@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Tests\Unit\ProductionProcess\Domain\Repository;
+namespace App\Tests\Functional\ProductionProcess\Infrastructure\Repository;
 
 use App\ProductionProcess\Domain\Aggregate\Error;
 use App\ProductionProcess\Domain\Factory\ErrorFactory;
 use App\ProductionProcess\Domain\Repository\ErrorRepositoryInterface;
 use App\ProductionProcess\Domain\ValueObject\Process;
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use App\Tests\Functional\AbstractTestCase;
 
-class ErrorRepositoryTest extends KernelTestCase
+class ErrorRepositoryTest extends AbstractTestCase
 {
     private const FAKE_NOTICER_ID = 1;
     private const FAKE_RESPONSIBLE_EMPLOYEE_ID = 2;
-    private const FAKE_ROLL_ID = 1;
+    private const FAKE_PRINTED_PRODUCT_ID = 1;
     private ErrorRepositoryInterface $repository;
 
     private Error $error1;
@@ -25,7 +25,6 @@ class ErrorRepositoryTest extends KernelTestCase
      */
     protected function setUp(): void
     {
-        self::bootKernel();
         parent::setUp();
 
         $this->initErrors();
@@ -71,18 +70,18 @@ class ErrorRepositoryTest extends KernelTestCase
     private function initErrors(): void
     {
         $this->error1 = (new ErrorFactory())->make(
-            noticerId: self::FAKE_NOTICER_ID,
+            printedProductId: self::FAKE_PRINTED_PRODUCT_ID,
+            process: Process::PRINTING_CHECK_IN,
             responsibleEmployeeId: self::FAKE_RESPONSIBLE_EMPLOYEE_ID,
-            rollId: self::FAKE_ROLL_ID,
-            process: Process::PRINTING_CHECK_IN
+            noticerId: self::FAKE_NOTICER_ID
         )
             ->build();
 
         $this->error2 = (new ErrorFactory())->make(
-            noticerId: self::FAKE_NOTICER_ID,
+            printedProductId: self::FAKE_PRINTED_PRODUCT_ID,
+            process: Process::CUTTING_CHECK_IN,
             responsibleEmployeeId: self::FAKE_RESPONSIBLE_EMPLOYEE_ID,
-            rollId: self::FAKE_ROLL_ID,
-            process: Process::CUTTING_CHECK_IN
+            noticerId: self::FAKE_NOTICER_ID
         )
             ->build();
     }

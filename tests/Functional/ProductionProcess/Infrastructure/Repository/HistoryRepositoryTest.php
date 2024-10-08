@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Tests\Unit\ProductionProcess\Domain\Repository;
+namespace App\Tests\Functional\ProductionProcess\Infrastructure\Repository;
 
 use App\ProductionProcess\Domain\Aggregate\Roll\History\Type;
 use App\ProductionProcess\Domain\Factory\HistoryFactory;
 use App\ProductionProcess\Domain\Repository\HistoryRepositoryInterface;
 use App\ProductionProcess\Domain\ValueObject\Process;
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use App\Tests\Functional\AbstractTestCase;
 
-class HistoryRepositoryTest extends KernelTestCase
+class HistoryRepositoryTest extends AbstractTestCase
 {
     public const FAKE_EMPLOYEE_ID = 1;
     public const FAKE_ROLL_ID = 1;
@@ -21,7 +21,6 @@ class HistoryRepositoryTest extends KernelTestCase
      */
     protected function setUp(): void
     {
-        self::bootKernel();
         parent::setUp();
 
         $this->repository = $this->getContainer()->get(HistoryRepositoryInterface::class);
@@ -39,8 +38,8 @@ class HistoryRepositoryTest extends KernelTestCase
 
         $this->repository->add($history);
 
-        $addedHistory = $this->repository->findByRollId(self::FAKE_ROLL_ID)[0];
+        $histories = $this->repository->findByRollId(self::FAKE_ROLL_ID);
 
-        $this->assertSame($history, $addedHistory);
+        $this->assertContains($history, $histories);
     }
 }

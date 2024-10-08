@@ -1,6 +1,6 @@
 <?php
 
-namespace App\ProductionProcess\Infrastructure\Repository\Doctrine;
+namespace App\ProductionProcess\Infrastructure\Repository;
 
 use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;

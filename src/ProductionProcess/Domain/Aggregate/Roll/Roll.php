@@ -8,6 +8,7 @@ use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use App\ProductionProcess\Domain\Aggregate\Printer;
 use App\ProductionProcess\Domain\Events\RollProcessWasUpdatedEvent;
 use App\ProductionProcess\Domain\ValueObject\Process;
+use App\ProductionProcess\Domain\ValueObject\Status;
 use App\Shared\Domain\Aggregate\Aggregate;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -212,6 +213,7 @@ class Roll extends Aggregate
     {
         return $this->parentRoll;
     }
+
     /**
      * Clone the object.
      */
@@ -263,7 +265,8 @@ class Roll extends Aggregate
      */
     public function addPrintedProduct(PrintedProduct $printedProduct): void
     {
-		$printedProduct->setRoll($this);
+        $printedProduct->setRoll($this);
+        $printedProduct->changeStatus(Status::ASSIGNED);
         $this->printedProducts->add($printedProduct);
     }
 
@@ -276,6 +279,7 @@ class Roll extends Aggregate
     {
         return $this->printedProducts->reduce(fn (float|int $carry, PrintedProduct $printedProduct) => $carry + $printedProduct->getLength(), 0);
     }
+
     /**
      * Remove all printedProducts.
      */
@@ -284,8 +288,8 @@ class Roll extends Aggregate
         $this->printedProducts->clear();
     }
 
-	public function getPrintedProductsWithPriority(): int
-	{
-		return $this->printedProducts->filter(fn (PrintedProduct $printedProduct) => $printedProduct->hasPriority() === true)->count();
-	}
+    public function getPrintedProductsWithPriority(): int
+    {
+        return $this->printedProducts->filter(fn (PrintedProduct $printedProduct) => true === $printedProduct->hasPriority())->count();
+    }
 }
