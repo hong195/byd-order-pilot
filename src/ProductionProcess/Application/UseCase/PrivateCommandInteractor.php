@@ -181,9 +181,9 @@ readonly class PrivateCommandInteractor
      *
      * @param int $printedProductId The ID of the printed product to be reprinted
      */
-    public function reprintPrintedProduct(int $printedProductId): void
+    public function reprintPrintedProduct(ReprintPrintedProductCommand $command): void
     {
-        $this->commandBus->execute(new ReprintPrintedProductCommand($printedProductId));
+        $this->commandBus->execute($command);
     }
 
     /**

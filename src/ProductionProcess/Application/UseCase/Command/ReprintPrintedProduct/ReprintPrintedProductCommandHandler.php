@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Application\UseCase\Command\ReprintPrintedProduct;
 
 use App\ProductionProcess\Domain\Service\PrintedProduct\ReprintPrintedProduct;
+use App\ProductionProcess\Domain\ValueObject\Process;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Command\CommandHandlerInterface;
 use App\Shared\Domain\Service\AssertService;
@@ -35,6 +36,10 @@ readonly class ReprintPrintedProductCommandHandler implements CommandHandlerInte
     public function __invoke(ReprintPrintedProductCommand $command): void
     {
         AssertService::true($this->accessControlService->isGranted(), 'No access to handle the command');
-        $this->reprintPrintedProduct->handle($command->printedProductId);
+        $this->reprintPrintedProduct->handle(
+            printedProductId: $command->printedProductId,
+            process: Process::from($command->process),
+            reason: $command->reason
+        );
     }
 }

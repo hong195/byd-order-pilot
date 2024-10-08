@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Rename message to reason.">
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/ReprintRollService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ReprintRoll/ReprintRollCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ReprintRoll/ReprintRollCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ReprintRoll/ReprintRollCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ReprintRoll/ReprintRollCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateCommandInteractor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Error.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Error.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Factory/ErrorFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Factory/ErrorFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/Error/ErrorManagementService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/Error/ErrorManagementService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/Rolls/ReprintRollAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/Rolls/ReprintRollAction.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated reprint commands.">
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/ReprintPrintedProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/ReprintPrintedProduct.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/Error/ErrorManagementService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/Error/ErrorManagementService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/ReprintRollService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/ReprintRollService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/Error/ErrorManagementServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/Error/ErrorManagementServiceTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -244,11 +240,11 @@
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/InMemory" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct" />
       <recent name="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository" />
       <recent name="$PROJECT_DIR$/tests/Resources" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess" />
-      <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Roll" />
     </key>
   </component>
   <component name="RunManager" selected="PHPUnit.Main">
@@ -352,23 +348,7 @@
       <workItem from="1727956453901" duration="155000" />
       <workItem from="1727956617347" duration="21509000" />
       <workItem from="1728238464282" duration="24399000" />
-      <workItem from="1728378940929" duration="18582000" />
-    </task>
-    <task id="LOCAL-00325" summary="Added history event types.">
-      <option name="closed" value="true" />
-      <created>1726222179138</created>
-      <option name="number" value="00325" />
-      <option name="presentableId" value="LOCAL-00325" />
-      <option name="project" value="LOCAL" />
-      <updated>1726222179138</updated>
-    </task>
-    <task id="LOCAL-00326" summary="Added history event types.">
-      <option name="closed" value="true" />
-      <created>1726222214860</created>
-      <option name="number" value="00326" />
-      <option name="presentableId" value="LOCAL-00326" />
-      <option name="project" value="LOCAL" />
-      <updated>1726222214860</updated>
+      <workItem from="1728378940929" duration="19426000" />
     </task>
     <task id="LOCAL-00327" summary="Added history event types.">
       <option name="closed" value="true" />
@@ -746,7 +726,23 @@
       <option name="project" value="LOCAL" />
       <updated>1728406930941</updated>
     </task>
-    <option name="localTasksCounter" value="374" />
+    <task id="LOCAL-00374" summary="Small refactor.">
+      <option name="closed" value="true" />
+      <created>1728407696839</created>
+      <option name="number" value="00374" />
+      <option name="presentableId" value="LOCAL-00374" />
+      <option name="project" value="LOCAL" />
+      <updated>1728407696839</updated>
+    </task>
+    <task id="LOCAL-00375" summary="Updated reprint commands.">
+      <option name="closed" value="true" />
+      <created>1728408031020</created>
+      <option name="number" value="00375" />
+      <option name="presentableId" value="LOCAL-00375" />
+      <option name="project" value="LOCAL" />
+      <updated>1728408031020</updated>
+    </task>
+    <option name="localTasksCounter" value="376" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -781,8 +777,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added films events." />
-    <MESSAGE value="Added inventory history entity." />
     <MESSAGE value="Added new event triggered when film is used to print." />
     <MESSAGE value="Added event handler when film is deleted." />
     <MESSAGE value="Added film history." />
@@ -806,7 +800,9 @@
     <MESSAGE value="Updated tests:&#10;&#10;- replace unit test with functional one&#10;- remove in memory implementations&#10;- added Error entity mapping&#10;- added orm fixture packages" />
     <MESSAGE value="Updated history tests." />
     <MESSAGE value="Rename message to reason." />
-    <option name="LAST_COMMIT_MESSAGE" value="Rename message to reason." />
+    <MESSAGE value="Small refactor." />
+    <MESSAGE value="Updated reprint commands." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated reprint commands." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

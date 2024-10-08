@@ -5,7 +5,10 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Domain\Service\PrintedProduct;
 
 use App\ProductionProcess\Domain\Repository\PrintedProductRepositoryInterface;
+use App\ProductionProcess\Domain\Service\PrintedProduct\Error\ErrorManagementService;
 use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\PrintedProductsCheckInService;
+use App\ProductionProcess\Domain\ValueObject\Process;
+use App\Shared\Infrastructure\Security\UserFetcher;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -21,7 +24,7 @@ final readonly class ReprintPrintedProduct
      * @param PrintedProductRepositoryInterface $printedProductRepository the printed product repository
      * @param PrintedProductsCheckInService     $checkInService           the check-in service for printed products
      */
-    public function __construct(private PrintedProductRepositoryInterface $printedProductRepository, private PrintedProductsCheckInService $checkInService)
+    public function __construct(private PrintedProductRepositoryInterface $printedProductRepository, private PrintedProductsCheckInService $checkInService, private ErrorManagementService $errorManagementService, private UserFetcher $userFetcher)
     {
     }
 
@@ -33,7 +36,7 @@ final readonly class ReprintPrintedProduct
      * @throws NotFoundHttpException If the printed product is not found
      * @throws \Exception
      */
-    public function handle(int $printedProductId): void
+    public function handle(int $printedProductId, Process $process, ?string $reason = null): void
     {
         $printedProduct = $this->printedProductRepository->findById($printedProductId);
 
@@ -41,10 +44,17 @@ final readonly class ReprintPrintedProduct
             throw new NotFoundHttpException('Printed product not found');
         }
 
-        $printedProduct->reprint();
+		$this->errorManagementService->recordError(
+			printedProductId: $printedProduct->getId(),
+			process: $process,
+			noticerId: $this->userFetcher->requiredUserId(),
+			reason: $reason
+		);
 
-        $this->printedProductRepository->save($printedProduct);
+		$printedProduct->reprint();
 
-        $this->checkInService->checkIn();
+		$this->printedProductRepository->save($printedProduct);
+
+		$this->checkInService->checkIn();
     }
 }

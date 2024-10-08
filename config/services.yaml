@@ -59,7 +59,7 @@ services:
         class: App\ProductionProcess\Infrastructure\Repository\ErrorRepository
         public: true
 
-    App\ProductionProcess\Domain\Service\Roll\Error\ErrorManagementService:
+    App\ProductionProcess\Domain\Service\PrintedProduct\Error\ErrorManagementService:
         public: true
 
     Symfony\Component\Serializer\Normalizer\ObjectNormalizer: ~

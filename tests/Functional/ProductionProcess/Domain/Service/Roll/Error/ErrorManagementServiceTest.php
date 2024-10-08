@@ -11,7 +11,7 @@ use App\ProductionProcess\Domain\Exceptions\RollErrorManagementException;
 use App\ProductionProcess\Domain\Factory\HistoryFactory;
 use App\ProductionProcess\Domain\Repository\ErrorRepositoryInterface;
 use App\ProductionProcess\Domain\Repository\HistoryRepositoryInterface;
-use App\ProductionProcess\Domain\Service\Roll\Error\ErrorManagementService;
+use App\ProductionProcess\Domain\Service\PrintedProduct\Error\ErrorManagementService;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use App\Tests\Functional\AbstractTestCase;
 use App\Tests\Tools\FixtureTools;
@@ -73,7 +73,7 @@ class ErrorManagementServiceTest extends AbstractTestCase
             printedProductId: $this->printedProduct->getId(),
             process: $history->process,
             noticerId: $this->noticer->getId(),
-            message: 'This is a test error message'
+            reason: 'This is a test error message'
         );
 
         $errors = $this->errorRepository->findByResponsibleEmployeeId($this->responsibleEmployee->getId());

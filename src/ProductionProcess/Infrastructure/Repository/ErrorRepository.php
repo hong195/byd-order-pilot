@@ -49,7 +49,7 @@ class ErrorRepository extends ServiceEntityRepository implements ErrorRepository
 
         $query->where('e.responsibleEmployeeId = :responsibleEmployeeId')
             ->setParameter('responsibleEmployeeId', $responsibleEmployeeId)
-            ->orderBy('e.happenedAt', 'ASC');
+            ->orderBy('e.createdAt', 'ASC');
 
         return $query->getQuery()->getResult();
     }
@@ -67,7 +67,7 @@ class ErrorRepository extends ServiceEntityRepository implements ErrorRepository
 
         $query->where('e.process = :process')
             ->setParameter('process', $process)
-            ->orderBy('e.happenedAt', 'ASC');
+            ->orderBy('e.createdAt', 'ASC');
 
         return $query->getQuery()->getResult();
     }

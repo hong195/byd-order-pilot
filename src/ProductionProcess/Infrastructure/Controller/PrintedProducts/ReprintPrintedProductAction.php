@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Infrastructure\Controller\PrintedProducts;
 
+use App\ProductionProcess\Application\UseCase\Command\ReprintPrintedProduct\ReprintPrintedProductCommand;
 use App\ProductionProcess\Application\UseCase\PrivateCommandInteractor;
-use App\Orders\Domain\Exceptions\OrderReprintException;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Attribute\Route;
@@ -25,15 +26,22 @@ final readonly class ReprintPrintedProductAction
     {
     }
 
-	/**
-	 * Invokes the command to reprint a printed product.
-	 *
-	 * @param int $printedProductId The ID of the printed product.
-	 * @return JsonResponse A JSON response indicating the success of the operation.
-	 */
-    public function __invoke(int $printedProductId): JsonResponse
+    /**
+     * Invokes the command to reprint a printed product.
+     *
+     * @param int $printedProductId the ID of the printed product
+     *
+     * @return JsonResponse a JSON response indicating the success of the operation
+     */
+    public function __invoke(int $printedProductId, Request $request): JsonResponse
     {
-        $this->privateCommandInteractor->reprintPrintedProduct($printedProductId);
+        $command = new ReprintPrintedProductCommand(
+            printedProductId: $printedProductId,
+            process: $request->get('process'),
+            reason: $request->get('reason')
+        );
+
+        $this->privateCommandInteractor->reprintPrintedProduct($command);
 
         return new JsonResponse(['message' => 'Success'], Response::HTTP_OK);
     }

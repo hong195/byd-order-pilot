@@ -47,7 +47,7 @@ final class ErrorFactory
      */
     public function withReason(?string $reason): ErrorFactory
     {
-        $this->error->setMessage($reason);
+        $this->error->setReason($reason);
 
         return $this;
     }

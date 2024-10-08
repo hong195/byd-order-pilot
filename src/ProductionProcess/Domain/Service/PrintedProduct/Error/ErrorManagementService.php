@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\ProductionProcess\Domain\Service\Roll\Error;
+namespace App\ProductionProcess\Domain\Service\PrintedProduct\Error;
 
 use App\ProductionProcess\Domain\Aggregate\Roll\History\History;
 use App\ProductionProcess\Domain\Aggregate\Roll\History\Type;
@@ -32,14 +32,15 @@ final readonly class ErrorManagementService
     }
 
     /**
-     * Record an error for a printed product within a certain process.
+     * Records an error for a specific printed product and process, assigning it to the responsible employee.
      *
-     * @param int         $printedProductId the ID of the printed product
-     * @param Process     $process          the process associated with the error
-     * @param int         $noticerId        the ID of the user who noticed the error
-     * @param string|null $reason          (Optional) Additional message describing the error
+     * @param int     $printedProductId The ID of the printed product
+     * @param Process $process          The process associated with the error
+     * @param int     $noticerId        The ID of the employee who noticed the error
+     * @param string  $reason           (Optional) The reason or details of the error
      *
-     * @throws RollErrorManagementException
+     * @throws NotFoundHttpException        If the roll for the printed product does not exist
+     * @throws RollErrorManagementException If there are issues with roll history or process data
      */
     public function recordError(int $printedProductId, Process $process, int $noticerId, ?string $reason = null): void
     {
