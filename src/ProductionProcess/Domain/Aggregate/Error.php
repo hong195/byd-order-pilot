@@ -12,8 +12,8 @@ class Error
      * @phpstan-ignore-next-line
      */
     private ?int $id;
-    private ?string $message = null;
-    private \DateTimeInterface $happenedAt;
+    private ?string $reason = null;
+    private \DateTimeInterface $createdAt;
 
     /**
      * Constructor for creating a new instance of the specified class.
@@ -25,7 +25,7 @@ class Error
      */
     public function __construct(public readonly int $noticerId, public readonly int $responsibleEmployeeId, public readonly int $printedProductId, public readonly Process $process)
     {
-        $this->happenedAt = new \DateTimeImmutable();
+        $this->createdAt = new \DateTimeImmutable();
     }
 
     /**
@@ -53,18 +53,18 @@ class Error
      *
      * @return string The message value
      */
-    public function getMessage(): string
+    public function getReason(): string
     {
-        return $this->message;
+        return $this->reason;
     }
 
     /**
      * Set the message property.
      *
-     * @param string $message The message to set
+     * @param string $reason The message to set
      */
-    public function setMessage(string $message): void
+    public function setReason(string $reason): void
     {
-        $this->message = $message;
+        $this->reason = $reason;
     }
 }

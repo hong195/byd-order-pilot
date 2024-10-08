@@ -103,9 +103,9 @@ readonly class PrivateCommandInteractor
      *
      * @throws NotFoundHttpException
      */
-    public function reprintRoll(int $rollId): void
+    public function reprintRoll(int $rollId, ?string $reason = null): void
     {
-        $this->commandBus->execute(new ReprintRollCommand($rollId));
+        $this->commandBus->execute(new ReprintRollCommand(rollId: $rollId, reason: $reason));
     }
 
     /**
@@ -189,14 +189,14 @@ readonly class PrivateCommandInteractor
         $this->commandBus->execute(new ReprintPrintedProductCommand($printedProductId));
     }
 
-	/**
-	 * Changes the sort order of an order.
-	 *
-	 * @param SortData $orderData The data containing the roll ID, order ID, and sort order
-	 */
-	public function changeSortOrder(SortData $orderData): void
-	{
-		$command = new ChangePrintedProductSortCommand(rollId: $orderData->rollId, group: $orderData->group, sortOrders: $orderData->sortOrders);
-		$this->commandBus->execute($command);
-	}
+    /**
+     * Changes the sort order of an order.
+     *
+     * @param SortData $orderData The data containing the roll ID, order ID, and sort order
+     */
+    public function changeSortOrder(SortData $orderData): void
+    {
+        $command = new ChangePrintedProductSortCommand(rollId: $orderData->rollId, group: $orderData->group, sortOrders: $orderData->sortOrders);
+        $this->commandBus->execute($command);
+    }
 }

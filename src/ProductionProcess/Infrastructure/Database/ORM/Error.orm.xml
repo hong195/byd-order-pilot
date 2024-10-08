@@ -14,7 +14,7 @@
         <field name="process" column="process" length="255"/>
         <field name="responsibleEmployeeId" column="responsible_employee_id" type="integer"/>
         <field name="noticerId" column="noticer_id" type="integer"/>
-        <field name="message" column="message" type="text" nullable="true"/>
+        <field name="reason" column="reason" type="text" nullable="true"/>
         <field name="happenedAt" column="happened_at" type="datetime_immutable"/>
 
         <indexes>

@@ -7,6 +7,7 @@ namespace App\ProductionProcess\Infrastructure\Controller\Rolls;
 use App\ProductionProcess\Application\UseCase\PrivateCommandInteractor;
 use App\ProductionProcess\Domain\Exceptions\OrderReprintException;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Attribute\Route;
@@ -32,9 +33,9 @@ final readonly class ReprintRollAction
      *
      * @throws OrderReprintException
      */
-    public function __invoke(int $rollId): JsonResponse
+    public function __invoke(int $rollId, Request $request): JsonResponse
     {
-        $this->privateCommandInteractor->reprintRoll($rollId);
+        $this->privateCommandInteractor->reprintRoll(rollId: $rollId, reason: $request->get('reason'));
 
         return new JsonResponse(['message' => 'Success'], Response::HTTP_OK);
     }

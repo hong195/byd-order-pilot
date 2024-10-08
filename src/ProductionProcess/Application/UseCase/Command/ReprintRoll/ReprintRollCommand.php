@@ -16,7 +16,7 @@ readonly class ReprintRollCommand implements CommandInterface
      *
      * @param int $rollId the ID of the roll
      */
-    public function __construct(public int $rollId)
+    public function __construct(public int $rollId, public ?string $reason = null)
     {
     }
 }

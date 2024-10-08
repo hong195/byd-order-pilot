@@ -41,13 +41,13 @@ final class ErrorFactory
     /**
      * Set a custom message for the Error factory.
      *
-     * @param ?string $message The custom message to be set
+     * @param ?string $reason The custom message to be set
      *
      * @return ErrorFactory Returns the ErrorFactory instance for method chaining
      */
-    public function withMessage(?string $message): ErrorFactory
+    public function withReason(?string $reason): ErrorFactory
     {
-        $this->error->setMessage($message);
+        $this->error->setReason($reason);
 
         return $this;
     }

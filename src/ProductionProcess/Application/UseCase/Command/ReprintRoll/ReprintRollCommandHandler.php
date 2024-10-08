@@ -44,7 +44,12 @@ readonly class ReprintRollCommandHandler implements CommandHandlerInterface
         }
 
         foreach ($roll->getPrintedProducts() as $printedProduct) {
-            $this->errorManagementService->recordError($printedProduct->getId(), $roll->getProcess(), $this->userFetcher->requiredUserId());
+            $this->errorManagementService->recordError(
+				printedProductId: $printedProduct->getId(),
+				process: $roll->getProcess(),
+				noticerId: $this->userFetcher->requiredUserId(),
+				reason: $command->reason
+			);
         }
     }
 }
