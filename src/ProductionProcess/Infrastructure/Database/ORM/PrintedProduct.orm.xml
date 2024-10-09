@@ -45,6 +45,12 @@
             </options>
         </field>
 
+        <field name="isReprint" column="is_reprint" type="boolean">
+            <options>
+                <option name="default">0</option>
+            </options>
+        </field>
+
         <field name="dateAdded" type="datetime_immutable" column="date_added"/>
     </entity>
 </doctrine-mapping>
