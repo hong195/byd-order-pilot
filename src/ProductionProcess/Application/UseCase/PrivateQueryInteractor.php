@@ -6,6 +6,8 @@ namespace App\ProductionProcess\Application\UseCase;
 
 use App\ProductionProcess\Application\UseCase\Query\FindARoll\FindARollQuery;
 use App\ProductionProcess\Application\UseCase\Query\FindARoll\FindARollResult;
+use App\ProductionProcess\Application\UseCase\Query\FindErrors\FindErrorsQuery;
+use App\ProductionProcess\Application\UseCase\Query\FindErrors\FindErrorsResult;
 use App\ProductionProcess\Application\UseCase\Query\FindPrintedProducts\FindPrintedProductsQuery;
 use App\ProductionProcess\Application\UseCase\Query\FindPrintedProducts\FindPrintedProductsQueryResult;
 use App\ProductionProcess\Application\UseCase\Query\FindPrinters\FindPrintersQuery;
@@ -88,17 +90,29 @@ readonly class PrivateQueryInteractor
         return $this->queryBus->execute(new FindRollHistoryQuery($rollId));
     }
 
-	public function findPrintedProductByRollId(int $rollId): FindPrintedProductsQueryResult
-	{
-		$query = new FindPrintedProductsQuery(rollId: $rollId);
+    public function findPrintedProductByRollId(int $rollId): FindPrintedProductsQueryResult
+    {
+        $query = new FindPrintedProductsQuery(rollId: $rollId);
 
-		return $this->queryBus->execute($query);
-	}
+        return $this->queryBus->execute($query);
+    }
 
-	public function findUnassignedPrintedProducts(): FindPrintedProductsQueryResult
-	{
-		$query = new FindPrintedProductsQuery(unassigned: true);
+    public function findUnassignedPrintedProducts(): FindPrintedProductsQueryResult
+    {
+        $query = new FindPrintedProductsQuery(unassigned: true);
 
-		return $this->queryBus->execute($query);
-	}
+        return $this->queryBus->execute($query);
+    }
+
+    /**
+     * Finds errors by executing the given FindErrorsQuery.
+     *
+     * @param FindErrorsQuery $query the query object containing the search criteria
+     *
+     * @return FindErrorsResult the result of executing the query
+     */
+    public function findErrors(FindErrorsQuery $query): FindErrorsResult
+    {
+        return $this->queryBus->execute($query);
+    }
 }

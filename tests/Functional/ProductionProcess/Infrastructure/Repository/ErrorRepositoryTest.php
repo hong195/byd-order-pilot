@@ -4,6 +4,7 @@ namespace App\Tests\Functional\ProductionProcess\Infrastructure\Repository;
 
 use App\ProductionProcess\Domain\Aggregate\Error;
 use App\ProductionProcess\Domain\Factory\ErrorFactory;
+use App\ProductionProcess\Domain\Repository\ErrorFilter;
 use App\ProductionProcess\Domain\Repository\ErrorRepositoryInterface;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use App\Tests\Functional\AbstractTestCase;
@@ -61,6 +62,51 @@ class ErrorRepositoryTest extends AbstractTestCase
 
         foreach ($foundErrors as $error) {
             $this->assertSame($this->error1->process, $error->process);
+        }
+    }
+
+    /**
+     * Test that errors can be found by applying a filter.
+     */
+    public function test_errors_can_be_found_by_filter(): void
+    {
+        $this->repository->add($this->error1);
+
+        $queryResult = $this->repository->findByFilter(
+            new ErrorFilter(
+                process: $this->error1->process->value
+            )
+        );
+
+        $this->assertSame($this->error1, $queryResult[0]);
+
+        $queryResult2 = $this->repository->findByFilter(
+            new ErrorFilter(
+                noticerId: $this->error1->noticerId
+            )
+        );
+
+        $this->assertSame($this->error1, $queryResult2[0]);
+
+        $queryResult3 = $this->repository->findByFilter(
+            new ErrorFilter(
+                noticerId: $this->error1->noticerId,
+                process: $this->error1->process->value
+            )
+        );
+
+        $this->assertSame($this->error1, $queryResult3[0]);
+    }
+
+    public function test_error_can_be_found_by_responsible_employee_id(): void
+    {
+        $this->repository->add($this->error1);
+        $this->repository->add($this->error2);
+
+        $errors = $this->repository->findByResponsibleEmployeeId(self::FAKE_RESPONSIBLE_EMPLOYEE_ID);
+
+        foreach ($errors as $error) {
+            $this->assertSame($this->error1->responsibleEmployeeId, $error->responsibleEmployeeId);
         }
     }
 

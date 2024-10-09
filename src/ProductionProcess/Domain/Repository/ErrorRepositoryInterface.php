@@ -3,7 +3,6 @@
 namespace App\ProductionProcess\Domain\Repository;
 
 use App\ProductionProcess\Domain\Aggregate\Error;
-use App\ProductionProcess\Domain\ValueObject\Process;
 
 /**
  * Interface ErrorRepositoryInterface.
@@ -25,11 +24,11 @@ interface ErrorRepositoryInterface
     public function findByResponsibleEmployeeId(int $responsibleEmployeeId): array;
 
     /**
-     * Finds process by given object of type Process.
+     * Find entities by the provided error filter.
      *
-     * @param Process $process the process object to search for
+     * @param ErrorFilter $filter The filter object to apply when searching for entities
      *
-     * @return array<Error> an array of process objects that match the given Process
+     * @return array<Error> An array of entities that match the provided error filter
      */
-    public function findByProcess(Process $process): array;
+    public function findByFilter(ErrorFilter $filter): array;
 }
