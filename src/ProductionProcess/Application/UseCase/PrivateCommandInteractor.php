@@ -178,8 +178,6 @@ readonly class PrivateCommandInteractor
 
     /**
      * Reprints a printed product.
-     *
-     * @param int $printedProductId The ID of the printed product to be reprinted
      */
     public function reprintPrintedProduct(ReprintPrintedProductCommand $command): void
     {

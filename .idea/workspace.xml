@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated reprint commands.">
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateCommandInteractor.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/ReprintPrintedProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/ReprintPrintedProduct.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/Error/ErrorManagementService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/Error/ErrorManagementService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/ReprintRollService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/ReprintRollService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/Error/ErrorManagementServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/Error/ErrorManagementServiceTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -348,15 +346,7 @@
       <workItem from="1727956453901" duration="155000" />
       <workItem from="1727956617347" duration="21509000" />
       <workItem from="1728238464282" duration="24399000" />
-      <workItem from="1728378940929" duration="19426000" />
-    </task>
-    <task id="LOCAL-00327" summary="Added history event types.">
-      <option name="closed" value="true" />
-      <created>1726222315758</created>
-      <option name="number" value="00327" />
-      <option name="presentableId" value="LOCAL-00327" />
-      <option name="project" value="LOCAL" />
-      <updated>1726222315758</updated>
+      <workItem from="1728378940929" duration="21918000" />
     </task>
     <task id="LOCAL-00328" summary="Updated history data.">
       <option name="closed" value="true" />
@@ -742,7 +732,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728408031020</updated>
     </task>
-    <option name="localTasksCounter" value="376" />
+    <task id="LOCAL-00376" summary="Updated reprint commands.">
+      <option name="closed" value="true" />
+      <created>1728408816194</created>
+      <option name="number" value="00376" />
+      <option name="presentableId" value="LOCAL-00376" />
+      <option name="project" value="LOCAL" />
+      <updated>1728408816194</updated>
+    </task>
+    <option name="localTasksCounter" value="377" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

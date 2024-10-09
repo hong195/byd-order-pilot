@@ -18,13 +18,10 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
  */
 final readonly class ReprintPrintedProduct
 {
-    /**
-     * Class constructor.
-     *
-     * @param PrintedProductRepositoryInterface $printedProductRepository the printed product repository
-     * @param PrintedProductsCheckInService     $checkInService           the check-in service for printed products
-     */
-    public function __construct(private PrintedProductRepositoryInterface $printedProductRepository, private PrintedProductsCheckInService $checkInService, private ErrorManagementService $errorManagementService, private UserFetcher $userFetcher)
+	/**
+	 *
+	 */
+    public function __construct(private PrintedProductRepositoryInterface $printedProductRepository, private ErrorManagementService $errorManagementService, private UserFetcher $userFetcher)
     {
     }
 
@@ -44,17 +41,15 @@ final readonly class ReprintPrintedProduct
             throw new NotFoundHttpException('Printed product not found');
         }
 
-		$this->errorManagementService->recordError(
-			printedProductId: $printedProduct->getId(),
-			process: $process,
-			noticerId: $this->userFetcher->requiredUserId(),
-			reason: $reason
-		);
+        $this->errorManagementService->recordError(
+            printedProductId: $printedProduct->getId(),
+            process: $process,
+            noticerId: $this->userFetcher->requiredUserId(),
+            reason: $reason
+        );
 
-		$printedProduct->reprint();
+        $printedProduct->reprint();
 
-		$this->printedProductRepository->save($printedProduct);
-
-		$this->checkInService->checkIn();
+        $this->printedProductRepository->save($printedProduct);
     }
 }

@@ -41,7 +41,5 @@ final readonly class ReprintRollService
 
             $this->printedProductRepository->save($printedProduct);
         }
-
-        $this->rollRepository->remove($roll);
     }
 }
