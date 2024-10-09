@@ -4,10 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated reprint commands.">
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateCommandInteractor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/ReprintPrintedProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/ReprintPrintedProduct.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/ReprintRollService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/ReprintRollService.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated reprint services.">
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/Error/ErrorData.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/Error/ErrorDataTransformer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindErrors/FindErrorsHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindErrors/FindErrorsQuery.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindErrors/FindErrorsResult.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/ErrorFilter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/Error/FindErrorsAction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateQueryInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateQueryInteractor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/ErrorRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/ErrorRepositoryInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/ErrorRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/ErrorRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Repository/ErrorRepositoryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Repository/ErrorRepositoryTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +36,7 @@
     <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitRewordedCommitMessages">
-    <option name="onto" value="a1c2584157c0b13533df74e01fc5a8bf2aec59fb" />
+    <option name="onto" value="98d66a5342423557557a7e732e409db8f0c0f45f" />
   </component>
   <component name="PHPCodeSnifferProjectConfiguration">
     <option name="selectedConfigurationId" value="2b84c86e-c887-410d-9d1e-1bcb0d9bafa7" />
@@ -193,6 +201,8 @@
     "PHPUnit.ErrorManagementServiceTest.test_roll_must_exists.executor": "Run",
     "PHPUnit.ErrorManagementServiceTest.test_roll_must_have_history_in_order_to_record_error.executor": "Run",
     "PHPUnit.ErrorRepositoryTest.test_add.executor": "Run",
+    "PHPUnit.ErrorRepositoryTest.test_error_can_be_found_by_responsible_employee_id.executor": "Run",
+    "PHPUnit.ErrorRepositoryTest.test_errors_can_be_found_by_filter.executor": "Run",
     "PHPUnit.ErrorRepositoryTest.test_find_by_process.executor": "Run",
     "PHPUnit.HistoryRepositoryTest.executor": "Run",
     "PHPUnit.HistoryRepositoryTest.test_add.executor": "Run",
@@ -209,7 +219,7 @@
     "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm": "Docker",
     "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm": "Docker",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/tests",
+    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/src/ProductionProcess/Application/UseCase/Query/FindErrors",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -231,25 +241,21 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindErrors" />
+      <recent name="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query" />
       <recent name="$PROJECT_DIR$/tests" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM" />
       <recent name="$PROJECT_DIR$/config/packages/test" />
-      <recent name="$PROJECT_DIR$/config" />
-      <recent name="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/InMemory" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct" />
       <recent name="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository" />
       <recent name="$PROJECT_DIR$/tests/Resources" />
-      <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.Main">
-    <configuration name="ErrorManagementServiceTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Unit\ProductionProcess\Domain\Service\Roll\Error\ErrorManagementServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/Error/ErrorManagementServiceTest.php" scope="Class" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="PHPUnit.ErrorRepositoryTest.test_error_can_be_found_by_responsible_employee_id">
     <configuration name="ErrorManagementServiceTest.test_can_be_recorded_successfully" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="App\Tests\Unit\ProductionProcess\Domain\Service\Roll\Error\ErrorManagementServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/Error/ErrorManagementServiceTest.php" method="test_can_be_recorded_successfully" scope="Method" />
       <method v="2" />
@@ -262,21 +268,25 @@
       <TestRunner class="App\Tests\Unit\ProductionProcess\Domain\Service\Roll\Error\ErrorManagementServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/Error/ErrorManagementServiceTest.php" method="test_roll_must_exists" scope="Method" />
       <method v="2" />
     </configuration>
+    <configuration name="ErrorRepositoryTest.test_error_can_be_found_by_responsible_employee_id" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Infrastructure\Repository\ErrorRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Repository/ErrorRepositoryTest.php" method="test_error_can_be_found_by_responsible_employee_id" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ErrorRepositoryTest.test_errors_can_be_found_by_filter" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Infrastructure\Repository\ErrorRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Repository/ErrorRepositoryTest.php" method="test_errors_can_be_found_by_filter" scope="Method" />
+      <method v="2" />
+    </configuration>
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
       <method v="2" />
     </configuration>
-    <configuration name="ReprintRollTest.test_cannot_reprint_not_existing_roll" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Application\UseCase\Command\ReprintRollTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Application/UseCase/Command/ReprintRollTest.php" method="test_cannot_reprint_not_existing_roll" scope="Method" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.ErrorRepositoryTest.test_error_can_be_found_by_responsible_employee_id" />
+        <item itemvalue="PHPUnit.ErrorRepositoryTest.test_errors_can_be_found_by_filter" />
         <item itemvalue="PHPUnit.ErrorManagementServiceTest.test_roll_must_exists" />
         <item itemvalue="PHPUnit.ErrorManagementServiceTest.test_error_can_be_record_on_existing_process" />
         <item itemvalue="PHPUnit.ErrorManagementServiceTest.test_can_be_recorded_successfully" />
-        <item itemvalue="PHPUnit.ErrorManagementServiceTest" />
-        <item itemvalue="PHPUnit.ReprintRollTest.test_cannot_reprint_not_existing_roll" />
       </list>
     </recent_temporary>
   </component>
@@ -346,23 +356,7 @@
       <workItem from="1727956453901" duration="155000" />
       <workItem from="1727956617347" duration="21509000" />
       <workItem from="1728238464282" duration="24399000" />
-      <workItem from="1728378940929" duration="21918000" />
-    </task>
-    <task id="LOCAL-00328" summary="Updated history data.">
-      <option name="closed" value="true" />
-      <created>1726222442532</created>
-      <option name="number" value="00328" />
-      <option name="presentableId" value="LOCAL-00328" />
-      <option name="project" value="LOCAL" />
-      <updated>1726222442532</updated>
-    </task>
-    <task id="LOCAL-00329" summary="Updated history has parent roll id.">
-      <option name="closed" value="true" />
-      <created>1726246297496</created>
-      <option name="number" value="00329" />
-      <option name="presentableId" value="LOCAL-00329" />
-      <option name="project" value="LOCAL" />
-      <updated>1726246297496</updated>
+      <workItem from="1728378940929" duration="26820000" />
     </task>
     <task id="LOCAL-00330" summary="Updated history has parent roll id.">
       <option name="closed" value="true" />
@@ -740,7 +734,23 @@
       <option name="project" value="LOCAL" />
       <updated>1728408816194</updated>
     </task>
-    <option name="localTasksCounter" value="377" />
+    <task id="LOCAL-00377" summary="Updated reprint services.">
+      <option name="closed" value="true" />
+      <created>1728459908136</created>
+      <option name="number" value="00377" />
+      <option name="presentableId" value="LOCAL-00377" />
+      <option name="project" value="LOCAL" />
+      <updated>1728459908137</updated>
+    </task>
+    <task id="LOCAL-00378" summary="Updated reprint services.">
+      <option name="closed" value="true" />
+      <created>1728459910255</created>
+      <option name="number" value="00378" />
+      <option name="presentableId" value="LOCAL-00378" />
+      <option name="project" value="LOCAL" />
+      <updated>1728459910255</updated>
+    </task>
+    <option name="localTasksCounter" value="379" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -775,7 +785,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added new event triggered when film is used to print." />
     <MESSAGE value="Added event handler when film is deleted." />
     <MESSAGE value="Added film history." />
     <MESSAGE value="Bug fix." />
@@ -800,7 +809,8 @@
     <MESSAGE value="Rename message to reason." />
     <MESSAGE value="Small refactor." />
     <MESSAGE value="Updated reprint commands." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated reprint commands." />
+    <MESSAGE value="Updated reprint services." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated reprint services." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
