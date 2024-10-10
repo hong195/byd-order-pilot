@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orders\Application\DTO\Product;
 
-use App\Orders\Application\Service\AssetUrlServiceInterface;
+use App\Shared\Application\Service\AssetUrlServiceInterface;
 use App\Orders\Domain\Aggregate\Product;
 
 /**

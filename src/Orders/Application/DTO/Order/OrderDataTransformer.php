@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Orders\Application\DTO\Order;
 
-use App\Orders\Application\Service\AssetUrlServiceInterface;
 use App\Orders\Domain\Aggregate\Order;
 
 /**
@@ -12,15 +11,6 @@ use App\Orders\Domain\Aggregate\Order;
  */
 final readonly class OrderDataTransformer
 {
-    /**
-     * Class constructor.
-     *
-     * @param AssetUrlServiceInterface $assetUrlService the AssetUrlService object
-     */
-    public function __construct(public AssetUrlServiceInterface $assetUrlService)
-    {
-    }
-
     /**
      * Converts an array of Orders entities into an array of OrderData instances.
      *

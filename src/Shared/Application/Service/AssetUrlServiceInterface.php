@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Orders\Application\Service;
+namespace App\Shared\Application\Service;
 
 /**
  * Interface AssetUrlServiceInterface.

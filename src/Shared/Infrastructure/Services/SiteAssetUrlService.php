@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Infrastructure\Service;
+namespace App\Shared\Infrastructure\Services;
 
-use App\Orders\Application\Service\AssetUrlServiceInterface;
+use App\Shared\Application\Service\AssetUrlServiceInterface;
 
 /**
  * Class SiteAssetUrlService.
