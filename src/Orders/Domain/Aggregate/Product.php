@@ -64,6 +64,10 @@ class Product
      */
     public function setPrintFile(MediaFile $printFile): void
     {
+		$printFile->setOwnerId($this->getId());
+		$printFile->setType(self::PRINT_FILE);
+		$printFile->setOwnerType(self::class);
+
         $this->printFile = $printFile;
     }
 
@@ -74,6 +78,10 @@ class Product
      */
     public function setCutFile(MediaFile $cutFile): void
     {
+		$cutFile->setOwnerId($this->getId());
+		$cutFile->setType(self::CUT_FILE);
+		$cutFile->setOwnerType(self::class);
+
         $this->cutFile = $cutFile;
     }
 

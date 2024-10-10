@@ -24,6 +24,8 @@ readonly class ManuallyAddOrderCommand implements CommandInterface
         public string $shippingAddress,
         public ?string $customerNotes = null,
         public ?string $packagingInstructions = null,
+		public ?int $cutFileId = null,
+		public ?int $printFileId = null,
     ) {
     }
 }
