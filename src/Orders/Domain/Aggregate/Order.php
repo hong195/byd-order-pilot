@@ -36,7 +36,7 @@ class Order extends Aggregate
      *
      * @param Customer $customer the customer object
      */
-    public function __construct(public readonly Customer $customer)
+    public function __construct(public readonly Customer $customer, public readonly string $shippingAddress)
     {
         $this->dateAdded = new \DateTimeImmutable();
         $this->extras = new ArrayCollection([]);

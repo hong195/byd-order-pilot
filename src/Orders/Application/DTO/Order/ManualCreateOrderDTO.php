@@ -10,14 +10,16 @@ namespace App\Orders\Application\DTO\Order;
 final readonly class ManualCreateOrderDTO
 {
     /**
-     * Constructor for the class.
+     * Constructor for initializing a new instance of MyClass.
      *
-     * @param string      $customerName          the customer's name
-     * @param string|null $customerNotes         Any notes from the customer. (Optional)
-     * @param string|null $packagingInstructions The packaging instructions for the order. (Optional)
+     * @param string      $customerName          The name of the customer
+     * @param string      $shippingAddress       The shipping address for the customer
+     * @param string|null $customerNotes         Additional notes for the customer (nullable)
+     * @param string|null $packagingInstructions Packaging instructions for the shipment (nullable)
      */
     public function __construct(
         public string $customerName,
+        public string $shippingAddress,
         public ?string $customerNotes = null,
         public ?string $packagingInstructions = null,
     ) {
