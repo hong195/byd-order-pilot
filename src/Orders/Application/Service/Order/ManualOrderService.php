@@ -42,7 +42,7 @@ final readonly class ManualOrderService
         $this->orderFactory->withPackagingInstructions($orderData->packagingInstructions);
 
         $order = $this->orderFactory->make(
-            customer: new Customer(name: $orderData->customerName, notes: $orderData->customerNotes)
+            customer: new Customer(name: $orderData->customerName, notes: $orderData->customerNotes), shippingAddress: $orderData->shippingAddress
         );
 
         $this->orderRepository->save($order);

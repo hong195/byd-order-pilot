@@ -52,6 +52,7 @@ final readonly class OrderDataTransformer
             id: $order->getId(),
             customerName: $order->customer->name,
             type: $order->getOrderType()->value,
+            shippingAddress: $order->shippingAddress,
             orderNumber: $order->getOrderNumber(),
             addedAt: $order->getDateAdded(),
             customerNotes: $order->customer->notes,
