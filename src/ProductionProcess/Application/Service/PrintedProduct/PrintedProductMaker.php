@@ -27,7 +27,7 @@ final readonly class PrintedProductMaker
     public function make(CreatedPrintedProductData $dto): PrintedProduct
     {
         $job = new PrintedProduct(
-            productId: $dto->productId,
+            relatedProductId: $dto->productId,
             orderNumber: $dto->orderNumber,
             filmType: $dto->filmType,
             length: $dto->length

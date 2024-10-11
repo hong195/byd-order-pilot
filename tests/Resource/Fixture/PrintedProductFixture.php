@@ -33,7 +33,7 @@ final class PrintedProductFixture extends Fixture
     public function load(ObjectManager $manager): void
     {
         $printedProduct = new PrintedProduct(
-            productId: $this->getFaker()->randomDigit(),
+            relatedProductId: $this->getFaker()->randomDigit(),
             orderNumber: $this->getFaker()->word(),
             filmType: $this->getFaker()->word(),
             length: $this->getFaker()->randomDigit()

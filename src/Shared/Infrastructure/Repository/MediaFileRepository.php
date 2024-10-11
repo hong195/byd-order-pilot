@@ -53,4 +53,21 @@ class MediaFileRepository extends ServiceEntityRepository implements MediaFileRe
     {
         return $this->find($id);
     }
+
+    /**
+     * Find media files by their owner IDs.
+     *
+     * @param array $ids an array of owner IDs
+     *
+     * @return array an array of media files that belong to the specified owner IDs
+     */
+    public function findByOwnerIds(array $ids): array
+    {
+        $qb = $this->createQueryBuilder('m')
+			->where('m.ownerId IN (:ids)')
+			->setParameter('ids', $ids)
+			->getQuery();
+
+		return $qb->getResult();
+    }
 }

@@ -24,6 +24,8 @@
                length="255"
         />
 
+        <field name="relatedProductId" type="integer" column="related_product_id" nullable="true"/>
+
         <field name="length" type="decimal" column="length" nullable="true" precision="15" scale="2"/>
 
         <field name="orderNumber" column="order_number" length="255" nullable="true"/>

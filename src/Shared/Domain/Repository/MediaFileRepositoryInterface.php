@@ -33,4 +33,13 @@ interface MediaFileRepositoryInterface
      * @return MediaFile|null the media file object if found, or null if not found
      */
     public function findById(int $id): ?MediaFile;
+
+    /**
+     * Finds media files by their owner IDs.
+     *
+     * @param int[] $ids an array of owner IDs
+     *
+     * @return MediaFile[] an array of media file objects that belong to the specified owner IDs
+     */
+    public function findByOwnerIds(array $ids): array;
 }
