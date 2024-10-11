@@ -24,6 +24,7 @@ final readonly class PrintedProductProcessDataTransformer
             relatedProductId: $printedProduct->relatedProductId,
             rollId: $printedProduct->getRoll()->getId(),
             process: $printedProduct->getRoll()->getProcess()->value,
+            isFinished: $printedProduct->getRoll()->isFinished(),
             isReprint: $printedProduct->isReprint(),
         );
     }

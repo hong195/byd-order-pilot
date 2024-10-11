@@ -43,6 +43,14 @@ services:
         class: App\ProductionProcess\Infrastructure\Adapter\InventoryApiAdapter
         public: true
 
+    App\Orders\Application\Service\Product\ProductProcessServiceInterface:
+        class: App\Orders\Infrastructure\Service\ProductProcessService
+        public: true
+
+    App\Orders\Domain\Service\Order\Product\CheckProductProcessInterface:
+        class: App\Orders\Infrastructure\Service\ProductProcessService
+        public: true
+
     App\ProductionProcess\Domain\Repository\RollRepositoryInterface:
         class: App\ProductionProcess\Infrastructure\Repository\RollRepository
         public: true

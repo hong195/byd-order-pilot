@@ -4,20 +4,12 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Application\UseCase\Query\FindRolls;
 
-use App\ProductionProcess\Application\DTO\RollDataTransformer;
 use App\ProductionProcess\Application\Service\Roll\RollListService;
-use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Query\QueryHandlerInterface;
 use App\Shared\Domain\Service\AssertService;
 
-/**
- * FindRollsHandler constructor.
- *
- * @param RollRepositoryInterface $rollRepository
- * @param RollDataTransformer     $rollDataTransformer
- */
 final readonly class FindRollsHandler implements QueryHandlerInterface
 {
     /**
@@ -31,18 +23,18 @@ final readonly class FindRollsHandler implements QueryHandlerInterface
     }
 
     /**
-     * Executes the GetPrintedProductsProcessDetailQuery and returns the result.
+     * Invokes the class to find rolls data based on a query and returns the printed products process detail result.
      *
-     * @param GetPrintedProductsProcessDetailQuery $rollQuery the query object used to find rolls
+     * @param FindRollsQuery $query the query for finding rolls
      *
-     * @return GetPrintedProductsProcessDetailResult the result object containing the rolls data
+     * @return FindRollsResult the result containing the detail of printed products process
      */
-    public function __invoke(GetPrintedProductsProcessDetailQuery $rollQuery): GetPrintedProductsProcessDetailResult
+    public function __invoke(FindRollsQuery $query): FindRollsResult
     {
         AssertService::true($this->accessControlService->isGranted(), 'Access denied');
 
-        $rollDataList = $this->rollListService->getList(Process::from($rollQuery->process));
+        $rollDataList = $this->rollListService->getList(Process::from($query->process));
 
-        return new GetPrintedProductsProcessDetailResult($rollDataList);
+        return new FindRollsResult($rollDataList);
     }
 }

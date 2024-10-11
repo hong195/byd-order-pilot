@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Orders\Application\DTO\Product;
 
-use App\Shared\Application\Service\AssetUrlServiceInterface;
 use App\Orders\Domain\Aggregate\Product;
+use App\Shared\Application\Service\AssetUrlServiceInterface;
 
 /**
  * OrderData class represents product data.
@@ -38,6 +38,7 @@ final readonly class ProductDataTransformer
 
         return $productData;
     }
+
     /**
      * Converts an Orders entity to an OrderData object.
      *

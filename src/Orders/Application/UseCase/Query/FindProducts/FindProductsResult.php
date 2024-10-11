@@ -17,9 +17,9 @@ final readonly class FindProductsResult
      *
      * This class represents a MyClass object.
      *
-     * @param array<ProductData[]> $items the items to include in the result
+     * @param array<ProductData> $items the items to include in the result
      */
-    public function __construct(public array $items = [], public int $total = 0)
+    public function __construct(public array $items = [])
     {
     }
 }
