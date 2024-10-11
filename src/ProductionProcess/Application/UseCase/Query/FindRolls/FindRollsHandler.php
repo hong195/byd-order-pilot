@@ -31,18 +31,18 @@ final readonly class FindRollsHandler implements QueryHandlerInterface
     }
 
     /**
-     * Executes the FindRollsQuery and returns the result.
+     * Executes the GetPrintedProductsProcessDetailQuery and returns the result.
      *
-     * @param FindRollsQuery $rollQuery the query object used to find rolls
+     * @param GetPrintedProductsProcessDetailQuery $rollQuery the query object used to find rolls
      *
-     * @return FindRollsResult the result object containing the rolls data
+     * @return GetPrintedProductsProcessDetailResult the result object containing the rolls data
      */
-    public function __invoke(FindRollsQuery $rollQuery): FindRollsResult
+    public function __invoke(GetPrintedProductsProcessDetailQuery $rollQuery): GetPrintedProductsProcessDetailResult
     {
         AssertService::true($this->accessControlService->isGranted(), 'Access denied');
 
         $rollDataList = $this->rollListService->getList(Process::from($rollQuery->process));
 
-        return new FindRollsResult($rollDataList);
+        return new GetPrintedProductsProcessDetailResult($rollDataList);
     }
 }

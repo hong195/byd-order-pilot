@@ -33,7 +33,7 @@ final readonly class GetOptionsQueryHandler implements QueryHandlerInterface
     /**
      * Invokes the class.
      *
-     * @param GetOptionsQuery $optionsQuery the FindRollsQuery instance
+     * @param GetOptionsQuery $optionsQuery the GetPrintedProductsProcessDetailQuery instance
      *
      * @return GetOptionsQueryResult the GetOptionsQueryResult instance
      *

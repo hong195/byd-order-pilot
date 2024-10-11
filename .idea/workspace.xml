@@ -4,21 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Moved AssetUrlServiceInterface to shared domain.">
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/Service/PrintedProduct/PrintedProductListService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_02_10_24,_16_36_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_02_10_24__16_36__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/PrintedProduct/PrintedProductData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/PrintedProduct/PrintedProductData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/PrintedProduct/PrintedProductDataTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/PrintedProduct/PrintedProductDataTransformer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/Service/PrintedProduct/PrintedProductMaker.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/Service/PrintedProduct/PrintedProductMaker.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrintedProducts/FindPrintedProductsQueryHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrintedProducts/FindPrintedProductsQueryHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/PrintedProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/PrintedProduct.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/PrinterFilter.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/PrintedProduct.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/PrintedProduct.orm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Domain/Repository/MediaFileRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Domain/Repository/MediaFileRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Repository/MediaFileRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Repository/MediaFileRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Resource/Fixture/PrintedProductFixture.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Resource/Fixture/PrintedProductFixture.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added files for reading printed products.">
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/PrintedProduct/PrintedProductProcessData.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/PrintedProduct/PrintedProductProcessDataTransformer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/GetPrintedProductsProcessDetail/GetPrintedProductsProcessDetailHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/GetPrintedProductsProcessDetail/GetPrintedProductsProcessDetailQuery.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/GetPrintedProductsProcessDetail/GetPrintedProductsProcessDetailResult.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Factory/PrintedProductFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Repository/PrintedProductRepositoryTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/GetOptions/GetOptionsQueryHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/GetOptions/GetOptionsQueryHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateQueryInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateQueryInteractor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindErrors/FindErrorsQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindErrors/FindErrorsQuery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindRolls/FindRollsHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindRolls/FindRollsHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindRolls/FindRollsQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindRolls/FindRollsQuery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/PrintedProductRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/PrintedProductRepositoryInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/PrintedProductRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/PrintedProductRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,6 +214,9 @@
     "PHPUnit.HistoryRepositoryTest.test_add.executor": "Run",
     "PHPUnit.HistoryRepositoryTest.test_true.executor": "Run",
     "PHPUnit.Main.executor": "Run",
+    "PHPUnit.PrintedProductRepositoryTest.test_add.executor": "Run",
+    "PHPUnit.PrintedProductRepositoryTest.test_can_find_by_filter.executor": "Run",
+    "PHPUnit.PrintedProductRepositoryTest.test_can_find_by_multiple_related_product_ids.executor": "Run",
     "PHPUnit.ReprintRollTest.test_cannot_reprint_not_existing_roll.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
@@ -225,7 +228,7 @@
     "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm": "Docker",
     "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm": "Docker",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/src/ProductionProcess/Application/UseCase/Query/FindErrors",
+    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/src/ProductionProcess/Application/UseCase/Query/GetPrintedProductsProcessDetail",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -247,11 +250,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/GetPrintedProductsProcessDetail" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindErrors" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query" />
       <recent name="$PROJECT_DIR$/tests" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM" />
-      <recent name="$PROJECT_DIR$/config/packages/test" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/Shared/Infrastructure/Services" />
@@ -261,19 +264,7 @@
       <recent name="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.ErrorRepositoryTest.test_error_can_be_found_by_responsible_employee_id">
-    <configuration name="ErrorManagementServiceTest.test_can_be_recorded_successfully" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Unit\ProductionProcess\Domain\Service\Roll\Error\ErrorManagementServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/Error/ErrorManagementServiceTest.php" method="test_can_be_recorded_successfully" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="ErrorManagementServiceTest.test_error_can_be_record_on_existing_process" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Unit\ProductionProcess\Domain\Service\Roll\Error\ErrorManagementServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/Error/ErrorManagementServiceTest.php" method="test_error_can_be_record_on_existing_process" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="ErrorManagementServiceTest.test_roll_must_exists" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Unit\ProductionProcess\Domain\Service\Roll\Error\ErrorManagementServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/Error/ErrorManagementServiceTest.php" method="test_roll_must_exists" scope="Method" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="PHPUnit.Main">
     <configuration name="ErrorRepositoryTest.test_error_can_be_found_by_responsible_employee_id" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="App\Tests\Functional\ProductionProcess\Infrastructure\Repository\ErrorRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Repository/ErrorRepositoryTest.php" method="test_error_can_be_found_by_responsible_employee_id" scope="Method" />
       <method v="2" />
@@ -286,13 +277,25 @@
       <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
       <method v="2" />
     </configuration>
+    <configuration name="PrintedProductRepositoryTest.test_add" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Infrastructure\Repository\PrintedProductRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Repository/PrintedProductRepositoryTest.php" method="test_add" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="PrintedProductRepositoryTest.test_can_find_by_filter" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Infrastructure\Repository\PrintedProductRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Repository/PrintedProductRepositoryTest.php" method="test_can_find_by_filter" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="PrintedProductRepositoryTest.test_can_find_by_multiple_related_product_ids" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Infrastructure\Repository\PrintedProductRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Repository/PrintedProductRepositoryTest.php" method="test_can_find_by_multiple_related_product_ids" scope="Method" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.PrintedProductRepositoryTest.test_can_find_by_multiple_related_product_ids" />
+        <item itemvalue="PHPUnit.PrintedProductRepositoryTest.test_can_find_by_filter" />
+        <item itemvalue="PHPUnit.PrintedProductRepositoryTest.test_add" />
         <item itemvalue="PHPUnit.ErrorRepositoryTest.test_error_can_be_found_by_responsible_employee_id" />
         <item itemvalue="PHPUnit.ErrorRepositoryTest.test_errors_can_be_found_by_filter" />
-        <item itemvalue="PHPUnit.ErrorManagementServiceTest.test_roll_must_exists" />
-        <item itemvalue="PHPUnit.ErrorManagementServiceTest.test_error_can_be_record_on_existing_process" />
-        <item itemvalue="PHPUnit.ErrorManagementServiceTest.test_can_be_recorded_successfully" />
       </list>
     </recent_temporary>
   </component>
@@ -363,23 +366,7 @@
       <workItem from="1727956617347" duration="21509000" />
       <workItem from="1728238464282" duration="24399000" />
       <workItem from="1728378940929" duration="26820000" />
-      <workItem from="1728573826141" duration="9719000" />
-    </task>
-    <task id="LOCAL-00334" summary="Added inventory history entity.">
-      <option name="closed" value="true" />
-      <created>1726484504668</created>
-      <option name="number" value="00334" />
-      <option name="presentableId" value="LOCAL-00334" />
-      <option name="project" value="LOCAL" />
-      <updated>1726484504668</updated>
-    </task>
-    <task id="LOCAL-00335" summary="Added inventory history entity.">
-      <option name="closed" value="true" />
-      <created>1726484508580</created>
-      <option name="number" value="00335" />
-      <option name="presentableId" value="LOCAL-00335" />
-      <option name="project" value="LOCAL" />
-      <updated>1726484508580</updated>
+      <workItem from="1728573826141" duration="14825000" />
     </task>
     <task id="LOCAL-00336" summary="Added film history.">
       <option name="closed" value="true" />
@@ -757,7 +744,23 @@
       <option name="project" value="LOCAL" />
       <updated>1728573502458</updated>
     </task>
-    <option name="localTasksCounter" value="383" />
+    <task id="LOCAL-00383" summary="Added files for reading printed products.">
+      <option name="closed" value="true" />
+      <created>1728633229875</created>
+      <option name="number" value="00383" />
+      <option name="presentableId" value="LOCAL-00383" />
+      <option name="project" value="LOCAL" />
+      <updated>1728633229876</updated>
+    </task>
+    <task id="LOCAL-00384" summary="Added files for reading printed products.">
+      <option name="closed" value="true" />
+      <created>1728633234667</created>
+      <option name="number" value="00384" />
+      <option name="presentableId" value="LOCAL-00384" />
+      <option name="project" value="LOCAL" />
+      <updated>1728633234667</updated>
+    </task>
+    <option name="localTasksCounter" value="385" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -792,7 +795,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added created at fild." />
     <MESSAGE value="Updated db structure namespaces" />
     <MESSAGE value="Added new domain &quot;Production process&quot;" />
     <MESSAGE value="Updated models." />
@@ -817,7 +819,8 @@
     <MESSAGE value="Added shippingAddress to api response." />
     <MESSAGE value="Fixed cut, print files are uploaded." />
     <MESSAGE value="Moved AssetUrlServiceInterface to shared domain." />
-    <option name="LAST_COMMIT_MESSAGE" value="Moved AssetUrlServiceInterface to shared domain." />
+    <MESSAGE value="Added files for reading printed products." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added files for reading printed products." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -4,20 +4,12 @@ namespace App\ProductionProcess\Domain\Repository;
 
 use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use App\ProductionProcess\Domain\ValueObject\Status;
-use App\Shared\Domain\Repository\PaginationResult;
 
 /**
  * This interface represents a Job repository.
  */
 interface PrintedProductRepositoryInterface
 {
-    /**
-     * Adds a job.
-     *
-     * @param PrintedProduct $job the job to be added
-     */
-    public function add(PrintedProduct $job): void;
-
     /**
      * Finds a Job by its ID.
      *
@@ -49,4 +41,13 @@ interface PrintedProductRepositoryInterface
      * @return PrintedProduct[] the result of the pagination
      */
     public function findByFilter(PrintedProductFilter $filter): array;
+
+    /**
+     * Finds an array of Jobs by their IDs.
+     *
+     * @param iterable<int> $relatedProductsIds The array of IDs to find Jobs for
+     *
+     * @return PrintedProduct[] An array of Job objects corresponding to the provided IDs
+     */
+    public function findByRelatedProductIds(iterable $relatedProductsIds): array;
 }
