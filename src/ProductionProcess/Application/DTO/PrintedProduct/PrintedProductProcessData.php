@@ -20,8 +20,8 @@ final readonly class PrintedProductProcessData
      */
     public function __construct(
         public int $relatedProductId,
-        public int $rollId,
-        public string $process,
+        public ?int $rollId,
+        public ?string $process,
         public bool $isFinished = false,
         public bool $isReprint = false,
     ) {

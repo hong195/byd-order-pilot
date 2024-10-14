@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Application\DTO\PrintedProduct;
 
 use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
+use App\ProductionProcess\Domain\ValueObject\Process;
 
 /**
  * OrderData class represents order data.
@@ -22,9 +23,9 @@ final readonly class PrintedProductProcessDataTransformer
     {
         return new PrintedProductProcessData(
             relatedProductId: $printedProduct->relatedProductId,
-            rollId: $printedProduct->getRoll()->getId(),
-            process: $printedProduct->getRoll()->getProcess()->value,
-            isFinished: $printedProduct->getRoll()->isFinished(),
+            rollId: $printedProduct->getRoll()?->getId(),
+            process: $printedProduct->getRoll()?->getProcess()->value ?? Process::ORDER_CHECK_IN->value,
+            isFinished: (bool) $printedProduct->getRoll()?->isFinished(),
             isReprint: $printedProduct->isReprint(),
         );
     }

@@ -36,7 +36,7 @@ final readonly class GetPrintedProductsProcessDetailHandler implements QueryHand
 
         $result = $this->printedProductRepository->findByRelatedProductIds($query->relatedProductIds);
 
-		$resultData = $this->transformer->fromPrintedProductList($result);
+        $resultData = $this->transformer->fromPrintedProductList($result);
 
         return new GetPrintedProductsProcessDetailResult($resultData);
     }
