@@ -17,7 +17,7 @@ interface ProductRepositoryInterface
      *
      * @param Product $product The product to be added
      */
-    public function add(Product $product): void;
+    public function save(Product $product): void;
 
     /**
      * Finds records by order ID.

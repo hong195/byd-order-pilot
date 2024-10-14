@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace App\Orders\Application\UseCase;
 
-use App\Orders\Application\DTO\Order\SortData;
 use App\Orders\Application\UseCase\Command\AddProduct\AddProductCommand;
 use App\Orders\Application\UseCase\Command\CreateExtra\CreateExtraCommand;
 use App\Orders\Application\UseCase\Command\PackExtra\PackExtraCommand;
-use App\Orders\Application\UseCase\Command\PackMainProduct\PackMainProductCommand;
+use App\Orders\Application\UseCase\Command\PackProduct\PackProductCommand;
 use App\Orders\Application\UseCase\Command\UnPackExtra\UnPackExtraCommand;
-use App\Orders\Application\UseCase\Command\UnPackMainProduct\UnPackMainProductCommand;
+use App\Orders\Application\UseCase\Command\UnPackMainProduct\UnPackProductCommand;
 use App\Shared\Application\Command\CommandBusInterface;
 
 /**
@@ -24,6 +23,7 @@ readonly class PrivateCommandInteractor
     public function __construct(private CommandBusInterface $commandBus)
     {
     }
+
     /**
      * Creates an extra.
      *
@@ -35,25 +35,25 @@ readonly class PrivateCommandInteractor
     }
 
     /**
-     * Packs the main product of an order.
+     * Packs a product into an order.
      *
-     * @param int $rollId  The ID of the roll to be packed
-     * @param int $orderId The ID of the order to which the roll belongs
+     * @param int $orderId   The ID of the order to pack the product into
+     * @param int $productId The ID of the product to pack into the order
      */
-    public function packMainProduct(int $rollId, int $orderId): void
+    public function packProduct(int $orderId, int $productId): void
     {
-        $this->commandBus->execute(new PackMainProductCommand($rollId, $orderId));
+        $this->commandBus->execute(new PackProductCommand(orderId: $orderId, productId: $productId));
     }
 
     /**
-     * Unpacks the main product from a roll for an order.
+     * Unpacks the main product for a given order and product.
      *
-     * @param int $rollId  The ID of the roll containing the main product
-     * @param int $orderId The ID of the order
+     * @param int $orderId   The ID of the order to unpack the product for
+     * @param int $productId The ID of the product to unpack
      */
-    public function unpackMainProduct(int $rollId, int $orderId): void
+    public function unpackProduct(int $orderId, int $productId): void
     {
-        $this->commandBus->execute(new UnPackMainProductCommand($rollId, $orderId));
+        $this->commandBus->execute(new UnPackProductCommand(orderId: $orderId, productId: $productId));
     }
 
     /**

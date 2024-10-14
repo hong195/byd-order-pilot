@@ -24,7 +24,7 @@ readonly class ReprintRollCommandHandler implements CommandHandlerInterface
     }
 
     /**
-     * Handles a PackMainProductCommand.
+     * Handles a PackProductCommand.
      *
      * @param ReprintRollCommand $command The command to handle
      *

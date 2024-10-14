@@ -2,10 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Orders\Infrastructure\Controller\Rolls;
+namespace App\Orders\Infrastructure\Controller\Orders\Products;
 
 use App\Orders\Application\UseCase\PrivateCommandInteractor;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Attribute\Route;
@@ -14,8 +15,8 @@ use Symfony\Component\Routing\Attribute\Route;
  * This class handles the change-sort-order API endpoint.
  */
 #[AsController]
-#[Route('/api/rolls/{rollId}/unpack/orders/{orderId}', name: 'unpack-main-product', requirements: ['rollId' => '^\d+$', 'orderId' => '^\d+$'], methods: ['POST'])]
-final readonly class UnPackMainProductAction
+#[Route('/api/orders/{orderId}/pack', name: 'pack-product', requirements: ['orderId' => '^\d+$'], methods: ['POST'])]
+final readonly class PackMainProductAction
 {
     /**
      * Class constructor.
@@ -29,9 +30,9 @@ final readonly class UnPackMainProductAction
      *
      * @return JsonResponse the JSON response
      */
-    public function __invoke(int $rollId, int $orderId): JsonResponse
+    public function __invoke(int $orderId, Request $request): JsonResponse
     {
-        $this->privateCommandInteractor->unpackMainProduct($rollId, $orderId);
+        $this->privateCommandInteractor->packProduct(orderId: $orderId, productId: (int) $request->get('productId'));
 
         return new JsonResponse(['message' => 'Success'], Response::HTTP_OK);
     }

@@ -17,9 +17,9 @@ interface ProductProcessServiceInterface
      *
      * @param int $id The product ID to process
      *
-     * @return ProcessDTO The processed data in a Data Transfer Object
+     * @return ?ProcessDTO The processed data in a Data Transfer Object
      */
-    public function processByProductId(int $id): ProcessDTO;
+    public function processByProductId(int $id): ?ProcessDTO;
 
     /**
      * Processes the given product IDs.

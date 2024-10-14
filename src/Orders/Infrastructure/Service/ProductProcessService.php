@@ -32,12 +32,16 @@ final readonly class ProductProcessService implements ProductProcessServiceInter
      *
      * @param int $id The product ID to lookup process information for
      *
-     * @return ProcessDTO The DTO containing the process information
+     * @return ProcessDTO|null The DTO containing the process information
      */
-    public function processByProductId(int $id): ProcessDTO
+    public function processByProductId(int $id): ?ProcessDTO
     {
-        /** @var PrintedProductProcessData $result */
+        /** @var bool|PrintedProductProcessData $result */
         $result = $this->printedProductProcessAdapter->getProductsProcessByIds([$id])->first();
+
+        if (!$result) {
+            return null;
+        }
 
         return new ProcessDTO(
             productId: $result->relatedProductId,
@@ -81,6 +85,6 @@ final readonly class ProductProcessService implements ProductProcessServiceInter
     {
         $process = $this->processByProductId($productId);
 
-        return $process->isReadyForPacking;
+        return !$process ? false : $process->isReadyForPacking;
     }
 }
