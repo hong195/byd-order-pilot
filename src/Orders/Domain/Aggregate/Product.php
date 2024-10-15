@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace App\Orders\Domain\Aggregate;
 
-use App\Orders\Domain\ValueObject\FilmType;
-use App\Orders\Domain\ValueObject\LaminationType;
 use App\Shared\Domain\Entity\MediaFile;
 
 /**
@@ -19,7 +17,7 @@ class Product
      * @phpstan-ignore-next-line
      */
     private ?int $id;
-    private ?LaminationType $laminationType = null;
+    private ?string $laminationType = null;
     private ?MediaFile $cutFile = null;
     private ?MediaFile $printFile = null;
     private ?Order $order = null;
@@ -29,10 +27,10 @@ class Product
     /**
      * Initializes a new instance of the class.
      *
-     * @param FilmType  $filmType the film type
+     * @param string    $filmType the film type
      * @param int|float $length   the length
      */
-    public function __construct(public FilmType $filmType, public readonly int|float $length)
+    public function __construct(public readonly string $filmType, public readonly int|float $length)
     {
         $this->dateAdded = new \DateTimeImmutable();
     }
@@ -108,29 +106,19 @@ class Product
     /**
      * Returns the roll type.
      *
-     * @return FilmType the roll type
+     * @return string the roll type
      */
-    public function getFilmType(): FilmType
+    public function getFilmType(): string
     {
         return $this->filmType;
     }
 
     /**
-     * Sets the roll type.
-     *
-     * @param FilmType $filmType the roll type to set
-     */
-    public function setFilmType(FilmType $filmType): void
-    {
-        $this->filmType = $filmType;
-    }
-
-    /**
      * Returns the lamination type.
      *
-     * @return ?LaminationType the lamination type
+     * @return ?string the lamination type
      */
-    public function getLaminationType(): ?LaminationType
+    public function getLaminationType(): ?string
     {
         return $this->laminationType;
     }
@@ -138,9 +126,9 @@ class Product
     /**
      * Sets the lamination type.
      *
-     * @param LaminationType $laminationType the lamination type to set
+     * @param string $laminationType the lamination type to set
      */
-    public function setLaminationType(LaminationType $laminationType): void
+    public function setLaminationType(string $laminationType): void
     {
         $this->laminationType = $laminationType;
     }

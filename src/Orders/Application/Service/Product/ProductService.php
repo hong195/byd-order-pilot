@@ -37,9 +37,9 @@ final readonly class ProductService
         }
 
         $product = $this->productFactory->make(
-            filmType: FilmType::from($dto->filmType),
+            filmType: $dto->filmType,
             length: $dto->length,
-            laminationType: $dto->laminationType ? LaminationType::from($dto->laminationType) : null
+            laminationType: $dto->laminationType
         );
 
         $cutFile = $dto->cutFileId ? $this->mediaFileRepository->findById($dto->cutFileId) : null;

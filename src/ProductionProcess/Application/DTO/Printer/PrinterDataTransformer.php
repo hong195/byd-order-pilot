@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Application\DTO\Printer;
 
 use App\ProductionProcess\Domain\Aggregate\Printer;
-use App\ProductionProcess\Domain\ValueObject\FilmType;
-use App\ProductionProcess\Domain\ValueObject\LaminationType;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
@@ -26,16 +24,16 @@ final readonly class PrinterDataTransformer
      */
     public function fromEntityList(iterable $entities): Collection
     {
-        $dtos = new ArrayCollection();
+        $data = new ArrayCollection();
         foreach ($entities as $entity) {
-            $dtos[] = new PrinterData(
+            $data->add(new PrinterData(
                 id: $entity->getId(),
                 name: $entity->getName(),
                 filmTypes: $entity->getFilmTypes(),
                 laminations: $entity->getLaminationTypes()
-            );
+            ));
         }
 
-        return $dtos;
+        return $data;
     }
 }

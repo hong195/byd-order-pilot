@@ -4,8 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added pack/unpack products.">
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added docker-compose.staging.yml file.">
+      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Event/ProductPackedEvent.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/Product/PackProductTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Resource/Fixture/Orders/OrderFixture.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Resource/Fixture/Orders/ProductFixture.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/Product/ProductData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/Product/ProductData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/Product/ProductDataTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/Product/ProductDataTransformer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/Service/Product/ProductService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/Service/Product/ProductService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Factory/ProductFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Factory/ProductFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Product/PackProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Product/PackProduct.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Product.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Product.orm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/Printer/PrinterDataTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/Printer/PrinterDataTransformer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrinters/FindPrintersHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrinters/FindPrintersHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrinters/FindPrintersResult.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrinters/FindPrintersResult.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Tools/FixtureTools.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Tools/FixtureTools.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,60 +196,61 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Makefile Target.restart.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ErrorManagementServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ErrorManagementServiceTest.test_can_be_created.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ErrorManagementServiceTest.test_can_be_recorded.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ErrorManagementServiceTest.test_can_be_recorded_successfully.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ErrorManagementServiceTest.test_error_can_be_record_on_current_or_previous_process.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ErrorManagementServiceTest.test_error_can_be_record_on_existing_process.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ErrorManagementServiceTest.test_product_must_be_in_progress.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ErrorManagementServiceTest.test_roll_must_exists.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ErrorManagementServiceTest.test_roll_must_have_history_in_order_to_record_error.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ErrorRepositoryTest.test_add.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ErrorRepositoryTest.test_error_can_be_found_by_responsible_employee_id.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ErrorRepositoryTest.test_errors_can_be_found_by_filter.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ErrorRepositoryTest.test_find_by_process.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.HistoryRepositoryTest.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.HistoryRepositoryTest.test_add.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.HistoryRepositoryTest.test_true.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.Main.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.PrintedProductRepositoryTest.test_add.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.PrintedProductRepositoryTest.test_can_find_by_filter.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.PrintedProductRepositoryTest.test_can_find_by_multiple_related_product_ids.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ReprintRollTest.test_cannot_reprint_not_existing_roll.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
-    &quot;com.jetbrains.php.phpunit.codeGeneration.PhpNewTestDialog.defaultLibrary&quot;: &quot;PHPUnit&quot;,
-    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm&quot;: &quot;Docker&quot;,
-    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm&quot;: &quot;Docker&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/aleksejem/Sites/order-pilot/src/ProductionProcess/Application/UseCase/Query/GetPrintedProductsProcessDetail&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;php.add.doc.comment.for.fields.panel.add.php.doc.for.all.properties&quot;: &quot;true&quot;,
-    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.php.quality.tools.php.code.sniffer&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Makefile Target.restart.executor": "Run",
+    "PHPUnit.ErrorManagementServiceTest.executor": "Run",
+    "PHPUnit.ErrorManagementServiceTest.test_can_be_created.executor": "Run",
+    "PHPUnit.ErrorManagementServiceTest.test_can_be_recorded.executor": "Run",
+    "PHPUnit.ErrorManagementServiceTest.test_can_be_recorded_successfully.executor": "Run",
+    "PHPUnit.ErrorManagementServiceTest.test_error_can_be_record_on_current_or_previous_process.executor": "Run",
+    "PHPUnit.ErrorManagementServiceTest.test_error_can_be_record_on_existing_process.executor": "Run",
+    "PHPUnit.ErrorManagementServiceTest.test_product_must_be_in_progress.executor": "Run",
+    "PHPUnit.ErrorManagementServiceTest.test_roll_must_exists.executor": "Run",
+    "PHPUnit.ErrorManagementServiceTest.test_roll_must_have_history_in_order_to_record_error.executor": "Run",
+    "PHPUnit.ErrorRepositoryTest.test_add.executor": "Run",
+    "PHPUnit.ErrorRepositoryTest.test_error_can_be_found_by_responsible_employee_id.executor": "Run",
+    "PHPUnit.ErrorRepositoryTest.test_errors_can_be_found_by_filter.executor": "Run",
+    "PHPUnit.ErrorRepositoryTest.test_find_by_process.executor": "Run",
+    "PHPUnit.HistoryRepositoryTest.executor": "Run",
+    "PHPUnit.HistoryRepositoryTest.test_add.executor": "Run",
+    "PHPUnit.HistoryRepositoryTest.test_true.executor": "Run",
+    "PHPUnit.Main.executor": "Run",
+    "PHPUnit.PackProductTest.test_can_successfully_pack_product.executor": "Run",
+    "PHPUnit.PrintedProductRepositoryTest.test_add.executor": "Run",
+    "PHPUnit.PrintedProductRepositoryTest.test_can_find_by_filter.executor": "Run",
+    "PHPUnit.PrintedProductRepositoryTest.test_can_find_by_multiple_related_product_ids.executor": "Run",
+    "PHPUnit.ReprintRollTest.test_cannot_reprint_not_existing_roll.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
+    "WebServerToolWindowPanel.toolwindow.show.date": "false",
+    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
+    "WebServerToolWindowPanel.toolwindow.show.size": "false",
+    "com.jetbrains.php.phpunit.codeGeneration.PhpNewTestDialog.defaultLibrary": "PHPUnit",
+    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm": "Docker",
+    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm": "Docker",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/src/ProductionProcess/Application/UseCase/Query/GetPrintedProductsProcessDetail",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "php.add.doc.comment.for.fields.panel.add.php.doc.for.all.properties": "true",
+    "php.override.implement.member.chooser.php.doc": "NONE",
+    "settings.editor.selected.configurable": "settings.php.quality.tools.php.code.sniffer",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;ChangesTree.GroupingKeys&quot;: [
-      &quot;directory&quot;
+  "keyToStringList": {
+    "ChangesTree.GroupingKeys": [
+      "directory"
     ],
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/GetPrintedProductsProcessDetail" />
@@ -251,17 +267,17 @@
       <recent name="$PROJECT_DIR$/src/Shared/Infrastructure/Services" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.Main">
-    <configuration name="ErrorRepositoryTest.test_error_can_be_found_by_responsible_employee_id" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Infrastructure\Repository\ErrorRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Repository/ErrorRepositoryTest.php" method="test_error_can_be_found_by_responsible_employee_id" scope="Method" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="PHPUnit.PackProductTest.test_can_successfully_pack_product">
     <configuration name="ErrorRepositoryTest.test_errors_can_be_found_by_filter" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="App\Tests\Functional\ProductionProcess\Infrastructure\Repository\ErrorRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Repository/ErrorRepositoryTest.php" method="test_errors_can_be_found_by_filter" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
+      <method v="2" />
+    </configuration>
+    <configuration name="PackProductTest.test_can_successfully_pack_product" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\Orders\Domain\Service\Order\Product\PackProductTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/Product/PackProductTest.php" method="test_can_successfully_pack_product" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="PrintedProductRepositoryTest.test_add" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -278,11 +294,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.PackProductTest.test_can_successfully_pack_product" />
         <item itemvalue="PHPUnit.PrintedProductRepositoryTest.test_can_find_by_multiple_related_product_ids" />
         <item itemvalue="PHPUnit.PrintedProductRepositoryTest.test_can_find_by_filter" />
         <item itemvalue="PHPUnit.PrintedProductRepositoryTest.test_add" />
         <item itemvalue="PHPUnit.ErrorRepositoryTest.test_errors_can_be_found_by_filter" />
-        <item itemvalue="PHPUnit.ErrorRepositoryTest.test_error_can_be_found_by_responsible_employee_id" />
       </list>
     </recent_temporary>
   </component>
@@ -354,14 +370,6 @@
       <workItem from="1728238464282" duration="24399000" />
       <workItem from="1728378940929" duration="26820000" />
       <workItem from="1728573826141" duration="14825000" />
-    </task>
-    <task id="LOCAL-00339" summary="Added film history.">
-      <option name="closed" value="true" />
-      <created>1726664402428</created>
-      <option name="number" value="00339" />
-      <option name="presentableId" value="LOCAL-00339" />
-      <option name="project" value="LOCAL" />
-      <updated>1726664402428</updated>
     </task>
     <task id="LOCAL-00340" summary="Added film history.">
       <option name="closed" value="true" />
@@ -747,7 +755,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728917189955</updated>
     </task>
-    <option name="localTasksCounter" value="388" />
+    <task id="LOCAL-00388" summary="Added docker-compose.staging.yml file.">
+      <option name="closed" value="true" />
+      <created>1728976894639</created>
+      <option name="number" value="00388" />
+      <option name="presentableId" value="LOCAL-00388" />
+      <option name="project" value="LOCAL" />
+      <updated>1728976894639</updated>
+    </task>
+    <option name="localTasksCounter" value="389" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -782,7 +798,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated models." />
     <MESSAGE value="Clean up commit." />
     <MESSAGE value="Added product routes." />
     <MESSAGE value="Code adjustments." />
@@ -807,7 +822,8 @@
     <MESSAGE value="Added files for reading printed products." />
     <MESSAGE value="Added product process details." />
     <MESSAGE value="Added pack/unpack products." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added pack/unpack products." />
+    <MESSAGE value="Added docker-compose.staging.yml file." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added docker-compose.staging.yml file." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

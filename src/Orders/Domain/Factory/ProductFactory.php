@@ -5,21 +5,19 @@ declare(strict_types=1);
 namespace App\Orders\Domain\Factory;
 
 use App\Orders\Domain\Aggregate\Product;
-use App\Orders\Domain\ValueObject\FilmType;
-use App\Orders\Domain\ValueObject\LaminationType;
 
 final readonly class ProductFactory
 {
     /**
-     * Create a new Product instance.
+     * Creates a new Product object with the given film type and length.
      *
-     * @param FilmType            $filmType       the film type for the product
-     * @param int                 $length         the length of the product
-     * @param LaminationType|null $laminationType the lamination type for the product (optional)
+     * @param string      $filmType       The type of film for the product
+     * @param int         $length         The length of the product
+     * @param string|null $laminationType The type of lamination for the product (optional)
      *
-     * @return Product the created Product instance
+     * @return Product The newly created product object
      */
-    public function make(FilmType $filmType, int $length, ?LaminationType $laminationType = null): Product
+    public function make(string $filmType, int $length, ?string $laminationType = null): Product
     {
         $product = new Product($filmType, $length);
 
