@@ -14,6 +14,7 @@ use App\Orders\Domain\Service\Order\Product\PackProduct;
 use App\Tests\Functional\AbstractTestCase;
 use App\Tests\Tools\FixtureTools;
 use Symfony\Component\EventDispatcher\EventDispatcher;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 final class PackProductTest extends AbstractTestCase
 {
@@ -28,9 +29,6 @@ final class PackProductTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-
-        // disable the entity listener to avoid the event listener
-        $this->entityManager->getConfiguration()->getEntityListenerResolver()->clear();
 
         $this->packProductService = self::getContainer()->get(PackProduct::class);
         $this->orderRepository = self::getContainer()->get(OrderRepositoryInterface::class);
@@ -58,6 +56,18 @@ final class PackProductTest extends AbstractTestCase
 
         $this->assertTrue($product->isPacked());
     }
+
+	public function test_cant_pack_product_if_order_product_do_not_exist(): void
+	{
+		$FAKE_ORDER_ID = 999;
+		$FAKE_PRODUCT_ID = 999;
+
+		$packService = self::getContainer()->get(PackProduct::class);
+
+		$this->expectException(NotFoundHttpException::class);
+
+		$packService->handle(orderId: $FAKE_ORDER_ID, productId: $FAKE_PRODUCT_ID);
+	}
 
     /**
      * @throws CantPackMainProductException
