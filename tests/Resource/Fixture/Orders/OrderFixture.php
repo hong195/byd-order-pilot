@@ -35,11 +35,11 @@ final class OrderFixture extends Fixture
     {
         $order = $this->factory->make(
             customer: new Customer(
-                name: $this->getFaker()->name,
-                notes: $this->getFaker()->optional()->text
+                name: $this->getFaker()->name(),
+                notes: $this->getFaker()->optional()->text()
             ),
-            shippingAddress: $this->getFaker()->address,
-            orderNumber: $this->getFaker()->word
+            shippingAddress: $this->getFaker()->address(),
+            orderNumber: $this->getFaker()->word()
         );
 
         $manager->persist($order);

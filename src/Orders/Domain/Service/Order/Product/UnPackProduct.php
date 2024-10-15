@@ -14,7 +14,7 @@ final readonly class UnPackProduct
     /**
      * Constructor for initializing OrderService.
      */
-    public function __construct(private OrderRepositoryInterface $orderRepository, private ProductRepositoryInterface $productRepository, private CheckProductProcessInterface $checkProductProcess)
+    public function __construct(private OrderRepositoryInterface $orderRepository, private ProductRepositoryInterface $productRepository)
     {
     }
 
@@ -39,10 +39,6 @@ final readonly class UnPackProduct
 
         if (!$product) {
             throw new NotFoundHttpException('Product not found');
-        }
-
-        if (!$this->checkProductProcess->canPack($productId)) {
-            throw new CantPackMainProductException('Product cannot be un-packed');
         }
 
         if (!$product->isPacked()) {

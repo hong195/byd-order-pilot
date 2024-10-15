@@ -4,23 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added docker-compose.staging.yml file.">
-      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Event/ProductPackedEvent.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/Product/PackProductTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Resource/Fixture/Orders/OrderFixture.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Resource/Fixture/Orders/ProductFixture.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fixed printers.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/Product/ProductData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/Product/ProductData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/Product/ProductDataTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/Product/ProductDataTransformer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/Service/Product/ProductService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/Service/Product/ProductService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Factory/ProductFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Factory/ProductFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Product/PackProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Product/PackProduct.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Product.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Product.orm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/Printer/PrinterDataTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/Printer/PrinterDataTransformer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrinters/FindPrintersHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrinters/FindPrintersHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrinters/FindPrintersResult.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrinters/FindPrintersResult.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Tools/FixtureTools.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Tools/FixtureTools.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Product/UnPackProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Product/UnPackProduct.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/Product/PackProductTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/Product/PackProductTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Resource/Fixture/Orders/OrderFixture.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Resource/Fixture/Orders/OrderFixture.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Resource/Fixture/Orders/ProductFixture.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Resource/Fixture/Orders/ProductFixture.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,7 +205,11 @@
     "PHPUnit.HistoryRepositoryTest.test_add.executor": "Run",
     "PHPUnit.HistoryRepositoryTest.test_true.executor": "Run",
     "PHPUnit.Main.executor": "Run",
+    "PHPUnit.PackProductTest.executor": "Run",
     "PHPUnit.PackProductTest.test_can_successfully_pack_product.executor": "Run",
+    "PHPUnit.PackProductTest.test_cant_pack_product_if_its_already_packed.executor": "Run",
+    "PHPUnit.PackProductTest.test_cant_pack_product_if_its_not_ready_for_packing.executor": "Run",
+    "PHPUnit.PackProductTest.test_if_product_packed_product_pack_event_dispatched.executor": "Run",
     "PHPUnit.PrintedProductRepositoryTest.test_add.executor": "Run",
     "PHPUnit.PrintedProductRepositoryTest.test_can_find_by_filter.executor": "Run",
     "PHPUnit.PrintedProductRepositoryTest.test_can_find_by_multiple_related_product_ids.executor": "Run",
@@ -267,38 +260,38 @@
       <recent name="$PROJECT_DIR$/src/Shared/Infrastructure/Services" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.PackProductTest.test_can_successfully_pack_product">
-    <configuration name="ErrorRepositoryTest.test_errors_can_be_found_by_filter" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Infrastructure\Repository\ErrorRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Repository/ErrorRepositoryTest.php" method="test_errors_can_be_found_by_filter" scope="Method" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="PHPUnit.Main">
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
+      <method v="2" />
+    </configuration>
+    <configuration name="PackProductTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\Orders\Domain\Service\Order\Product\PackProductTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/Product/PackProductTest.php" scope="Class" />
       <method v="2" />
     </configuration>
     <configuration name="PackProductTest.test_can_successfully_pack_product" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="App\Tests\Functional\Orders\Domain\Service\Order\Product\PackProductTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/Product/PackProductTest.php" method="test_can_successfully_pack_product" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="PrintedProductRepositoryTest.test_add" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Infrastructure\Repository\PrintedProductRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Repository/PrintedProductRepositoryTest.php" method="test_add" scope="Method" />
+    <configuration name="PackProductTest.test_cant_pack_product_if_its_already_packed" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\Orders\Domain\Service\Order\Product\PackProductTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/Product/PackProductTest.php" method="test_cant_pack_product_if_its_already_packed" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="PrintedProductRepositoryTest.test_can_find_by_filter" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Infrastructure\Repository\PrintedProductRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Repository/PrintedProductRepositoryTest.php" method="test_can_find_by_filter" scope="Method" />
+    <configuration name="PackProductTest.test_cant_pack_product_if_its_not_ready_for_packing" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\Orders\Domain\Service\Order\Product\PackProductTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/Product/PackProductTest.php" method="test_cant_pack_product_if_its_not_ready_for_packing" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="PrintedProductRepositoryTest.test_can_find_by_multiple_related_product_ids" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Infrastructure\Repository\PrintedProductRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Repository/PrintedProductRepositoryTest.php" method="test_can_find_by_multiple_related_product_ids" scope="Method" />
+    <configuration name="PackProductTest.test_if_product_packed_product_pack_event_dispatched" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\Orders\Domain\Service\Order\Product\PackProductTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/Product/PackProductTest.php" method="test_if_product_packed_product_pack_event_dispatched" scope="Method" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.PackProductTest.test_if_product_packed_product_pack_event_dispatched" />
+        <item itemvalue="PHPUnit.PackProductTest.test_cant_pack_product_if_its_not_ready_for_packing" />
+        <item itemvalue="PHPUnit.PackProductTest" />
         <item itemvalue="PHPUnit.PackProductTest.test_can_successfully_pack_product" />
-        <item itemvalue="PHPUnit.PrintedProductRepositoryTest.test_can_find_by_multiple_related_product_ids" />
-        <item itemvalue="PHPUnit.PrintedProductRepositoryTest.test_can_find_by_filter" />
-        <item itemvalue="PHPUnit.PrintedProductRepositoryTest.test_add" />
-        <item itemvalue="PHPUnit.ErrorRepositoryTest.test_errors_can_be_found_by_filter" />
+        <item itemvalue="PHPUnit.PackProductTest.test_cant_pack_product_if_its_already_packed" />
       </list>
     </recent_temporary>
   </component>
@@ -370,14 +363,6 @@
       <workItem from="1728238464282" duration="24399000" />
       <workItem from="1728378940929" duration="26820000" />
       <workItem from="1728573826141" duration="14825000" />
-    </task>
-    <task id="LOCAL-00340" summary="Added film history.">
-      <option name="closed" value="true" />
-      <created>1726664463494</created>
-      <option name="number" value="00340" />
-      <option name="presentableId" value="LOCAL-00340" />
-      <option name="project" value="LOCAL" />
-      <updated>1726664463494</updated>
     </task>
     <task id="LOCAL-00341" summary="Bug fix.">
       <option name="closed" value="true" />
@@ -763,7 +748,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728976894639</updated>
     </task>
-    <option name="localTasksCounter" value="389" />
+    <task id="LOCAL-00389" summary="Fixed printers.">
+      <option name="closed" value="true" />
+      <created>1728997156575</created>
+      <option name="number" value="00389" />
+      <option name="presentableId" value="LOCAL-00389" />
+      <option name="project" value="LOCAL" />
+      <updated>1728997156575</updated>
+    </task>
+    <option name="localTasksCounter" value="390" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -798,7 +791,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Clean up commit." />
     <MESSAGE value="Added product routes." />
     <MESSAGE value="Code adjustments." />
     <MESSAGE value="Added printed product creator." />
@@ -823,7 +815,8 @@
     <MESSAGE value="Added product process details." />
     <MESSAGE value="Added pack/unpack products." />
     <MESSAGE value="Added docker-compose.staging.yml file." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added docker-compose.staging.yml file." />
+    <MESSAGE value="Fixed printers." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed printers." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -836,6 +829,11 @@
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/src/Orders/Domain/ValueObject/Customer.php</url>
           <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/vendor/doctrine/orm/src/EntityManagerInterface.php</url>
+          <line>185</line>
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -33,9 +33,9 @@ final class ProductFixture extends Fixture
     public function load(ObjectManager $manager): void
     {
         $product = $this->factory->make(
-            filmType: $this->getFaker()->word,
+            filmType: $this->getFaker()->word(),
             length: $this->getFaker()->numberBetween(1, 100),
-            laminationType: $this->getFaker()->optional()->word
+            laminationType: $this->getFaker()->optional()->word()
         );
 
         $manager->persist($product);
