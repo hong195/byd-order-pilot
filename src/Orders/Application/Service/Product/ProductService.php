@@ -9,8 +9,6 @@ use App\Orders\Domain\Aggregate\Product;
 use App\Orders\Domain\Event\ProductCreatedEvent;
 use App\Orders\Domain\Factory\ProductFactory;
 use App\Orders\Domain\Repository\ProductRepositoryInterface;
-use App\Orders\Domain\ValueObject\FilmType;
-use App\Orders\Domain\ValueObject\LaminationType;
 use App\Orders\Infrastructure\Repository\OrderRepository;
 use App\Shared\Infrastructure\Repository\MediaFileRepository;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -45,9 +43,9 @@ final readonly class ProductService
         $cutFile = $dto->cutFileId ? $this->mediaFileRepository->findById($dto->cutFileId) : null;
         $printFile = $dto->printFileId ? $this->mediaFileRepository->findById($dto->printFileId) : null;
 
-		$this->productRepository->save($product);
+        $this->productRepository->save($product);
 
-		if ($cutFile) {
+        if ($cutFile) {
             $product->setCutFile($cutFile);
         }
 

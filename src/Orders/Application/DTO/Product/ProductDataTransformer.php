@@ -57,7 +57,7 @@ final readonly class ProductDataTransformer
             printFile: $product->getPrintFile() ? $this->assetUrlService->getLink($product->getPrintFile()->getPath()) : null,
             addedAt: $product->getDateAdded(),
             orderId: $product->getOrder()?->getId(),
-            laminationType: $product->getLaminationType()?->value,
+            laminationType: $product->getLaminationType(),
         );
     }
 }

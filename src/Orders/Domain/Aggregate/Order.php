@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Orders\Domain\Aggregate;
 
-use App\Orders\Domain\Event\ProductCreatedEvent;
 use App\Orders\Domain\ValueObject\OrderType;
 use App\Shared\Domain\Aggregate\Aggregate;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -30,6 +29,8 @@ class Order extends Aggregate
      */
     private Collection $products;
     private readonly \DateTimeInterface $dateAdded;
+
+    private Status $status;
 
     /**
      * Initializes a new instance of the class.
