@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Orders\Domain\Service\Order\Product;
 
 use App\Orders\Domain\Event\ProductPackedEvent;
-use App\Orders\Domain\Exceptions\CantPackMainProductException;
+use App\Orders\Domain\Exceptions\ProductPackException;
 use App\Orders\Domain\Repository\OrderRepositoryInterface;
 use App\Orders\Domain\Repository\ProductRepositoryInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -36,7 +36,7 @@ final readonly class PackProduct
      * @param int $productId The ID of the product to pack
      *
      * @throws NotFoundHttpException        When the order or product is not found
-     * @throws CantPackMainProductException When the product is already packed
+     * @throws ProductPackException When the product is already packed
      */
     public function handle(int $orderId, int $productId): void
     {
@@ -53,11 +53,11 @@ final readonly class PackProduct
         }
 
         if (!$this->checkProductProcess->canPack($productId)) {
-            throw new CantPackMainProductException('Product cannot be packed');
+            throw new ProductPackException('Product cannot be packed');
         }
 
         if ($product->isPacked()) {
-            throw new CantPackMainProductException('Product already packed');
+            throw new ProductPackException('Product already packed');
         }
 
         $product->pack();

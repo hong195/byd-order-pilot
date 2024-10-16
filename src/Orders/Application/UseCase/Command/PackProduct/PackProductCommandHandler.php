@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orders\Application\UseCase\Command\PackProduct;
 
-use App\Orders\Domain\Exceptions\CantPackMainProductException;
+use App\Orders\Domain\Exceptions\ProductPackException;
 use App\Orders\Domain\Service\Order\Product\PackProduct;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Command\CommandHandlerInterface;
@@ -31,7 +31,7 @@ readonly class PackProductCommandHandler implements CommandHandlerInterface
      * @param PackProductCommand $command the pack product command to handle
      *
      * @throws \RuntimeException            when access control service denies access
-     * @throws CantPackMainProductException
+     * @throws ProductPackException
      */
     public function __invoke(PackProductCommand $command): void
     {

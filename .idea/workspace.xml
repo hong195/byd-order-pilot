@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fixed enum reference.">
-      <change beforePath="$PROJECT_DIR$/.env.dev" beforeDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added printed product check in.">
+      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Event/ProductUnPackedEvent.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Exceptions/ProductUnPackException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/PackOrderTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/Product/UnPackProductTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/Service/Product/ProductListService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/Service/Product/ProductListService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/UnassignPrintedProduct/UnassignPrintedProductHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/UnassignPrintedProduct/UnassignPrintedProductHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/PrintedProductsCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/PrintedProductsCheckInService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/PackProduct/PackProductCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/PackProduct/PackProductCommandHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UnPackMainProduct/UnPackProductCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UnPackMainProduct/UnPackProductCommandHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Exceptions/CantPackMainProductException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Exceptions/ProductPackException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Product/PackProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Product/PackProduct.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Product/UnPackProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Product/UnPackProduct.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/Product/PackProductTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/Product/PackProductTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,6 +221,10 @@
     "PHPUnit.PrintedProductRepositoryTest.test_can_find_by_filter.executor": "Run",
     "PHPUnit.PrintedProductRepositoryTest.test_can_find_by_multiple_related_product_ids.executor": "Run",
     "PHPUnit.ReprintRollTest.test_cannot_reprint_not_existing_roll.executor": "Run",
+    "PHPUnit.UnPackProductTest.executor": "Run",
+    "PHPUnit.UnPackProductTest.test_can_successfully_unpack_product.executor": "Run",
+    "PHPUnit.UnPackProductTest.test_cannot_unpack_product_if_its_already_unpacked.executor": "Run",
+    "PHPUnit.UnPackProductTest.test_if_product_packed_product_pack_event_dispatched.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
     "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
@@ -261,38 +271,38 @@
       <recent name="$PROJECT_DIR$/src/Shared/Infrastructure/Services" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.PackProductTest.test_cant_pack_product_if_order_product_do_not_exist">
+  <component name="RunManager" selected="PHPUnit.Main">
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
-      <method v="2" />
-    </configuration>
-    <configuration name="PackProductTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\Orders\Domain\Service\Order\Product\PackProductTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/Product/PackProductTest.php" scope="Class" />
-      <method v="2" />
-    </configuration>
-    <configuration name="PackProductTest.test_can_successfully_pack_product" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\Orders\Domain\Service\Order\Product\PackProductTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/Product/PackProductTest.php" method="test_can_successfully_pack_product" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="PackProductTest.test_cant_pack_product_if_its_not_ready_for_packing" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\Orders\Domain\Service\Order\Product\PackProductTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/Product/PackProductTest.php" method="test_cant_pack_product_if_its_not_ready_for_packing" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="PackProductTest.test_cant_pack_product_if_order_product_do_not_exist" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="App\Tests\Functional\Orders\Domain\Service\Order\Product\PackProductTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/Product/PackProductTest.php" method="test_cant_pack_product_if_order_product_do_not_exist" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="PackProductTest.test_if_product_packed_product_pack_event_dispatched" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\Orders\Domain\Service\Order\Product\PackProductTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/Product/PackProductTest.php" method="test_if_product_packed_product_pack_event_dispatched" scope="Method" />
+    <configuration name="UnPackProductTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\Orders\Domain\Service\Order\Product\UnPackProductTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/Product/UnPackProductTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
+    <configuration name="UnPackProductTest.test_can_successfully_unpack_product" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\Orders\Domain\Service\Order\Product\UnPackProductTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/Product/UnPackProductTest.php" method="test_can_successfully_unpack_product" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="UnPackProductTest.test_cannot_unpack_product_if_its_already_unpacked" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\Orders\Domain\Service\Order\Product\UnPackProductTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/Product/UnPackProductTest.php" method="test_cannot_unpack_product_if_its_already_unpacked" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="UnPackProductTest.test_if_product_packed_product_pack_event_dispatched" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\Orders\Domain\Service\Order\Product\UnPackProductTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/Product/UnPackProductTest.php" method="test_if_product_packed_product_pack_event_dispatched" scope="Method" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.UnPackProductTest.test_cannot_unpack_product_if_its_already_unpacked" />
+        <item itemvalue="PHPUnit.UnPackProductTest.test_if_product_packed_product_pack_event_dispatched" />
+        <item itemvalue="PHPUnit.UnPackProductTest.test_can_successfully_unpack_product" />
+        <item itemvalue="PHPUnit.UnPackProductTest" />
         <item itemvalue="PHPUnit.PackProductTest.test_cant_pack_product_if_order_product_do_not_exist" />
-        <item itemvalue="PHPUnit.PackProductTest.test_if_product_packed_product_pack_event_dispatched" />
-        <item itemvalue="PHPUnit.PackProductTest.test_cant_pack_product_if_its_not_ready_for_packing" />
-        <item itemvalue="PHPUnit.PackProductTest" />
-        <item itemvalue="PHPUnit.PackProductTest.test_can_successfully_pack_product" />
       </list>
     </recent_temporary>
   </component>
@@ -364,14 +374,6 @@
       <workItem from="1728238464282" duration="24399000" />
       <workItem from="1728378940929" duration="26820000" />
       <workItem from="1728573826141" duration="14825000" />
-    </task>
-    <task id="LOCAL-00344" summary="Updated db structure namespaces">
-      <option name="closed" value="true" />
-      <created>1727092228474</created>
-      <option name="number" value="00344" />
-      <option name="presentableId" value="LOCAL-00344" />
-      <option name="project" value="LOCAL" />
-      <updated>1727092228474</updated>
     </task>
     <task id="LOCAL-00345" summary="Added new domain &quot;Production process&quot;">
       <option name="closed" value="true" />
@@ -757,7 +759,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729008163366</updated>
     </task>
-    <option name="localTasksCounter" value="393" />
+    <task id="LOCAL-00393" summary="Added printed product check in.">
+      <option name="closed" value="true" />
+      <created>1729091463844</created>
+      <option name="number" value="00393" />
+      <option name="presentableId" value="LOCAL-00393" />
+      <option name="project" value="LOCAL" />
+      <updated>1729091463844</updated>
+    </task>
+    <option name="localTasksCounter" value="394" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -792,7 +802,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Rename commands." />
     <MESSAGE value="Commands update." />
     <MESSAGE value="Added printed products api routes." />
     <MESSAGE value="Fixed null on getId()" />
@@ -817,7 +826,8 @@
     <MESSAGE value="Added test for product pack service." />
     <MESSAGE value="Updated pack product service tests." />
     <MESSAGE value="Fixed enum reference." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed enum reference." />
+    <MESSAGE value="Added printed product check in." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added printed product check in." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

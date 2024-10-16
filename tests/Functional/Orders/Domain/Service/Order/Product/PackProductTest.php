@@ -6,7 +6,7 @@ namespace App\Tests\Functional\Orders\Domain\Service\Order\Product;
 
 use App\Orders\Domain\Aggregate\Product;
 use App\Orders\Domain\Event\ProductPackedEvent;
-use App\Orders\Domain\Exceptions\CantPackMainProductException;
+use App\Orders\Domain\Exceptions\ProductPackException;
 use App\Orders\Domain\Repository\OrderRepositoryInterface;
 use App\Orders\Domain\Repository\ProductRepositoryInterface;
 use App\Orders\Domain\Service\Order\Product\CheckProductProcessInterface;
@@ -42,7 +42,7 @@ final class PackProductTest extends AbstractTestCase
     }
 
     /**
-     * @throws CantPackMainProductException
+     * @throws ProductPackException
      */
     public function test_can_successfully_pack_product(): void
     {
@@ -70,7 +70,7 @@ final class PackProductTest extends AbstractTestCase
 	}
 
     /**
-     * @throws CantPackMainProductException
+     * @throws ProductPackException
      */
     public function test_cant_pack_product_if_its_already_packed(): void
     {
@@ -84,13 +84,13 @@ final class PackProductTest extends AbstractTestCase
 
         $this->assertTrue($product->isPacked());
 
-        $this->expectException(CantPackMainProductException::class);
+        $this->expectException(ProductPackException::class);
 
         $packService->handle(orderId: $product->getOrder()->getId(), productId: $product->getId());
     }
 
     /**
-     * @throws CantPackMainProductException
+     * @throws ProductPackException
      */
     public function test_cant_pack_product_if_its_not_ready_for_packing(): void
     {
@@ -101,13 +101,13 @@ final class PackProductTest extends AbstractTestCase
         $packService = $this->get_pack_service($checkProductProcess);
         $product = $this->prepare_product_for_testing();
 
-        $this->expectException(CantPackMainProductException::class);
+        $this->expectException(ProductPackException::class);
 
         $packService->handle(orderId: $product->getOrder()->getId(), productId: $product->getId());
     }
 
     /**
-     * @throws CantPackMainProductException
+     * @throws ProductPackException
      */
     public function test_if_product_packed_product_pack_event_dispatched(): void
     {

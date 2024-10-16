@@ -4,6 +4,6 @@ declare(strict_types=1);
 
 namespace App\Orders\Domain\Exceptions;
 
-final class CantPackMainProductException extends \Exception
+final class ProductUnPackException extends \Exception
 {
 }
