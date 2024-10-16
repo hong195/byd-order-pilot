@@ -57,17 +57,17 @@ final class PackProductTest extends AbstractTestCase
         $this->assertTrue($product->isPacked());
     }
 
-	public function test_cant_pack_product_if_order_product_do_not_exist(): void
-	{
-		$FAKE_ORDER_ID = 999;
-		$FAKE_PRODUCT_ID = 999;
+    public function test_cant_pack_product_if_order_product_do_not_exist(): void
+    {
+        $FAKE_ORDER_ID = 999;
+        $FAKE_PRODUCT_ID = 999;
 
-		$packService = self::getContainer()->get(PackProduct::class);
+        $packService = self::getContainer()->get(PackProduct::class);
 
-		$this->expectException(NotFoundHttpException::class);
+        $this->expectException(NotFoundHttpException::class);
 
-		$packService->handle(orderId: $FAKE_ORDER_ID, productId: $FAKE_PRODUCT_ID);
-	}
+        $packService->handle(orderId: $FAKE_ORDER_ID, productId: $FAKE_PRODUCT_ID);
+    }
 
     /**
      * @throws ProductPackException

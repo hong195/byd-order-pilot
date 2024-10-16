@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added printed product check in.">
-      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Event/ProductUnPackedEvent.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Exceptions/ProductUnPackException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/PackOrderTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/Product/UnPackProductTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/PackProduct/PackProductCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/PackProduct/PackProductCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UnPackMainProduct/UnPackProductCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UnPackMainProduct/UnPackProductCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Exceptions/CantPackMainProductException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Exceptions/ProductPackException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Product/PackProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Product/PackProduct.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Product/UnPackProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Product/UnPackProduct.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated product unpack/pack test.">
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/PackOrderService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/PackOrderTest.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/Product/PackProductTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/Product/PackProductTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -374,14 +366,6 @@
       <workItem from="1728238464282" duration="24399000" />
       <workItem from="1728378940929" duration="26820000" />
       <workItem from="1728573826141" duration="14825000" />
-    </task>
-    <task id="LOCAL-00345" summary="Added new domain &quot;Production process&quot;">
-      <option name="closed" value="true" />
-      <created>1727093856421</created>
-      <option name="number" value="00345" />
-      <option name="presentableId" value="LOCAL-00345" />
-      <option name="project" value="LOCAL" />
-      <updated>1727093856421</updated>
     </task>
     <task id="LOCAL-00346" summary="Added new domain &quot;Production process&quot;">
       <option name="closed" value="true" />
@@ -767,7 +751,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729091463844</updated>
     </task>
-    <option name="localTasksCounter" value="394" />
+    <task id="LOCAL-00394" summary="Updated product unpack/pack test.">
+      <option name="closed" value="true" />
+      <created>1729093908434</created>
+      <option name="number" value="00394" />
+      <option name="presentableId" value="LOCAL-00394" />
+      <option name="project" value="LOCAL" />
+      <updated>1729093908434</updated>
+    </task>
+    <option name="localTasksCounter" value="395" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -802,7 +794,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Commands update." />
     <MESSAGE value="Added printed products api routes." />
     <MESSAGE value="Fixed null on getId()" />
     <MESSAGE value="Added change sort order api." />
@@ -827,7 +818,8 @@
     <MESSAGE value="Updated pack product service tests." />
     <MESSAGE value="Fixed enum reference." />
     <MESSAGE value="Added printed product check in." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added printed product check in." />
+    <MESSAGE value="Updated product unpack/pack test." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated product unpack/pack test." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
