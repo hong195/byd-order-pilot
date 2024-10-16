@@ -31,7 +31,7 @@ final class PrintedProductsCheckInService implements PrintedProductCheckInInterf
      * Class constructor.
      *
      * @param PrintedProductSortService     $sortPrintedProductsService The sort jobs service
-     * @param RollRepositoryInterface                $rollRepository             The roll repository
+     * @param RollRepositoryInterface       $rollRepository             The roll repository
      * @param AvailableFilmServiceInterface $availableFilmService       The available film service
      * @param RollMaker                     $rollMaker                  The roll maker
      */
@@ -121,9 +121,9 @@ final class PrintedProductsCheckInService implements PrintedProductCheckInInterf
     /**
      * Finds or makes a roll based on the given parameters.
      *
-     * @param string   $name     The name of the roll
-     * @param int|null $filmId   The ID of the film associated with the roll (optional)
-     * @param string   $filmType The roll type associated with the roll (optional)
+     * @param string      $name     The name of the roll
+     * @param int|null    $filmId   The ID of the film associated with the roll (optional)
+     * @param string|null $filmType The roll type associated with the roll (optional)
      *
      * @return Roll The found or newly created roll
      */

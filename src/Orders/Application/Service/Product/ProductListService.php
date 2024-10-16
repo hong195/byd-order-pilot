@@ -59,16 +59,16 @@ final readonly class ProductListService
 
             $processData = $process ? new ProcessDTO(
                 productId: $process->productId,
-                rollId: $process->rollId,
-                process: $process->process,
-                isReprint: $process->isReprint,
-                isReadyForPacking: $process->isReadyForPacking,
+				process: $process->process,
+				rollId: $process->rollId,
+				isReprint: $process->isReprint,
+				isReadyForPacking: $process->isReadyForPacking,
             ) : null;
 
             $result[] = new ProductData(
                 id: $product->getId(),
                 length: $product->getLength(),
-                filmType: $product->filmType->value,
+                filmType: $product->filmType,
                 orderNumber: $product->getOrderNumber(),
                 cutFile: $product->getCutFile() ? $this->assetUrlService->getLink($product->getCutFile()->getPath()) : null,
                 printFile: $product->getPrintFile() ? $this->assetUrlService->getLink($product->getPrintFile()->getPath()) : null,

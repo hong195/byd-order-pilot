@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Application\UseCase\Command\UnassignPrintedProduct;
 
 use App\ProductionProcess\Domain\Service\PrintedProduct\UnAssignPrintedProduct;
+use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\PrintedProductsCheckInService;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Command\CommandHandlerInterface;
 use App\Shared\Domain\Service\AssertService;
@@ -17,17 +18,20 @@ readonly class UnassignPrintedProductHandler implements CommandHandlerInterface
     /**
      * Class MyClass.
      */
-    public function __construct(private UnAssignPrintedProduct $unAssignPrintedProduct, private AccessControlService $accessControlService)
+    public function __construct(private UnAssignPrintedProduct $unAssignPrintedProduct, private AccessControlService $accessControlService, private PrintedProductsCheckInService $checkInService)
     {
     }
 
-    /**
-     * Class ClassName.
-     */
+	/**
+	 * @param UnassignPrintedProductCommand $command
+	 * @throws \Exception
+	 */
     public function __invoke(UnassignPrintedProductCommand $command): void
     {
         AssertService::true($this->accessControlService->isGranted(), 'Not change priority.');
 
         $this->unAssignPrintedProduct->handle($command->id);
+
+		$this->checkInService->checkIn();
     }
 }

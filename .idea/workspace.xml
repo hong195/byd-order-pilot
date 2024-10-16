@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated pack product service tests.">
-      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/PackOrderService.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fixed enum reference.">
+      <change beforePath="$PROJECT_DIR$/.env.dev" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/Service/Product/ProductListService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/Service/Product/ProductListService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/UnassignPrintedProduct/UnassignPrintedProductHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/UnassignPrintedProduct/UnassignPrintedProductHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/PrintedProductsCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/PrintedProductsCheckInService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -362,14 +364,6 @@
       <workItem from="1728238464282" duration="24399000" />
       <workItem from="1728378940929" duration="26820000" />
       <workItem from="1728573826141" duration="14825000" />
-    </task>
-    <task id="LOCAL-00343" summary="Added created at fild.">
-      <option name="closed" value="true" />
-      <created>1726812349315</created>
-      <option name="number" value="00343" />
-      <option name="presentableId" value="LOCAL-00343" />
-      <option name="project" value="LOCAL" />
-      <updated>1726812349315</updated>
     </task>
     <task id="LOCAL-00344" summary="Updated db structure namespaces">
       <option name="closed" value="true" />
@@ -755,7 +749,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729004738212</updated>
     </task>
-    <option name="localTasksCounter" value="392" />
+    <task id="LOCAL-00392" summary="Fixed enum reference.">
+      <option name="closed" value="true" />
+      <created>1729008163366</created>
+      <option name="number" value="00392" />
+      <option name="presentableId" value="LOCAL-00392" />
+      <option name="project" value="LOCAL" />
+      <updated>1729008163366</updated>
+    </task>
+    <option name="localTasksCounter" value="393" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -790,7 +792,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added printed product creator." />
     <MESSAGE value="Rename commands." />
     <MESSAGE value="Commands update." />
     <MESSAGE value="Added printed products api routes." />
@@ -815,7 +816,8 @@
     <MESSAGE value="Fixed printers." />
     <MESSAGE value="Added test for product pack service." />
     <MESSAGE value="Updated pack product service tests." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated pack product service tests." />
+    <MESSAGE value="Fixed enum reference." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed enum reference." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
