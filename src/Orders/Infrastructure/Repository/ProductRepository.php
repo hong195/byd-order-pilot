@@ -38,23 +38,6 @@ final class ProductRepository extends ServiceEntityRepository implements Product
     }
 
     /**
-     * Returns an array of entities filtered by the given orderId.
-     *
-     * @param int $orderId the orderId to filter the entities
-     *
-     * @return Product[] an array of entities filtered by the orderId
-     */
-    public function findByOrderId(int $orderId): array
-    {
-        $qb = $this->createQueryBuilder('p');
-
-        $qb->setParameter('orderId', $orderId);
-        $qb->where('p.order = :orderId');
-
-        return $qb->getQuery()->getResult();
-    }
-
-    /**
      * Returns a single entity by the given productId.
      *
      * @param int $productId the productId to filter the entity

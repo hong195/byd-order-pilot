@@ -5,19 +5,24 @@ declare(strict_types=1);
 namespace App\Orders\Domain\Service\Order\Extra;
 
 use App\Orders\Domain\Aggregate\Extra;
-use App\Orders\Domain\Exceptions\CantPackExtraException;
+use App\Orders\Domain\Repository\ExtraRepositoryInterface;
 use App\Orders\Domain\Repository\OrderRepositoryInterface;
-use App\Orders\Domain\ValueObject\Status;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-final readonly class SetPackExtra
+final readonly class SetExtraPackStatusService
 {
-    public function __construct(private OrderRepositoryInterface $orderRepository)
+    public function __construct(private OrderRepositoryInterface $orderRepository, private ExtraRepositoryInterface $extraRepository)
     {
     }
 
     /**
-     * @throws CantPackExtraException
+     * Handles packing status of an extra for a specific order.
+     *
+     * @param int  $orderId  The ID of the order
+     * @param int  $extraId  The ID of the extra item
+     * @param bool $isPacked The new packing status for the extra
+     *
+     * @throws NotFoundHttpException if order or extra is not found
      */
     public function handle(int $orderId, int $extraId, bool $isPacked): void
     {
@@ -27,9 +32,6 @@ final readonly class SetPackExtra
             throw new NotFoundHttpException('Order not found');
         }
 
-        if (!$order->getStatus()->equals(Status::SHIP_AND_COLLECT)) {
-            throw new CantPackExtraException('Order has invalid status');
-        }
         /** @var Extra $extra */
         $extra = $order->getExtras()->filter(fn ($extra) => $extra->getId() === $extraId)->first();
 
@@ -38,5 +40,7 @@ final readonly class SetPackExtra
         }
 
         $extra->setIsPacked($isPacked);
+
+        $this->orderRepository->save($order);
     }
 }

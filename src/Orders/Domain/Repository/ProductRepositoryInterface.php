@@ -18,16 +18,6 @@ interface ProductRepositoryInterface
      * @param Product $product The product to be added
      */
     public function save(Product $product): void;
-
-    /**
-     * Finds records by order ID.
-     *
-     * @param int $orderId the order ID
-     *
-     * @return Product[] the records matching the order ID
-     */
-    public function findByOrderId(int $orderId): array;
-
     /**
      * Finds a product by its ID.
      *
