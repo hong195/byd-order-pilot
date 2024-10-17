@@ -4,18 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added test for packing extra.">
-      <change afterPath="$PROJECT_DIR$/tests/Functional/Orders/Infrastructure/Repository/OrderRepositoryTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/phpspec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpspec.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Repository/OrderRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Repository/OrderRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/OrderRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/OrderRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Functional/AbstractTestCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/AbstractTestCase.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added order repository tests.">
+      <change afterPath="$PROJECT_DIR$/tests/Functional/Orders/Infrastructure/Repository/ExtraRepositoryTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,11 +198,13 @@
     "PHPUnit.ErrorRepositoryTest.test_errors_can_be_found_by_filter.executor": "Run",
     "PHPUnit.ErrorRepositoryTest.test_find_by_process.executor": "Run",
     "PHPUnit.ExtraMakerTest.test_can_successfully_make_extra.executor": "Run",
+    "PHPUnit.ExtraRepositoryTest.test_can_successfully_save.executor": "Run",
     "PHPUnit.HistoryRepositoryTest.executor": "Run",
     "PHPUnit.HistoryRepositoryTest.test_add.executor": "Run",
     "PHPUnit.HistoryRepositoryTest.test_true.executor": "Run",
     "PHPUnit.Main.executor": "Run",
     "PHPUnit.OrderRepositoryTest.executor": "Run",
+    "PHPUnit.OrderRepositoryTest.test_can_find_only_with_extras.executor": "Run",
     "PHPUnit.OrderRepositoryTest.test_can_find_partially_packed.executor": "Run",
     "PHPUnit.OrderRepositoryTest.test_can_find_ready_for_packing.executor": "Run",
     "PHPUnit.OrderRepositoryTest.test_can_successfully_add.executor": "Run",
@@ -278,7 +270,11 @@
       <recent name="$PROJECT_DIR$/src/Shared/Infrastructure/Services" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.OrderRepositoryTest.test_can_find_only_with_extras">
+  <component name="RunManager" selected="PHPUnit.ProductRepositoryTest.test_can_successfully_save">
+    <configuration name="ExtraRepositoryTest.test_can_successfully_save" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\Orders\Infrastructure\Repository\ExtraRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/Orders/Infrastructure/Repository/ExtraRepositoryTest.php" method="test_can_successfully_save" scope="Method" />
+      <method v="2" />
+    </configuration>
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
       <method v="2" />
@@ -295,21 +291,17 @@
       <TestRunner class="App\Tests\Functional\Orders\Infrastructure\Repository\OrderRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/Orders/Infrastructure/Repository/OrderRepositoryTest.php" method="test_can_find_partially_packed" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="OrderRepositoryTest.test_can_find_ready_for_packing" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\Orders\Infrastructure\Repository\OrderRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/Orders/Infrastructure/Repository/OrderRepositoryTest.php" method="test_can_find_ready_for_packing" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="OrderRepositoryTest.test_can_successfully_save" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\Orders\Infrastructure\Repository\OrderRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/Orders/Infrastructure/Repository/OrderRepositoryTest.php" method="test_can_successfully_save" scope="Method" />
+    <configuration name="ProductRepositoryTest.test_can_successfully_save" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\Orders\Infrastructure\Repository\ProductRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/Orders/Infrastructure/Repository/ProductRepositoryTest.php" method="test_can_successfully_save" scope="Method" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.ProductRepositoryTest.test_can_successfully_save" />
+        <item itemvalue="PHPUnit.ExtraRepositoryTest.test_can_successfully_save" />
         <item itemvalue="PHPUnit.OrderRepositoryTest.test_can_find_only_with_extras" />
         <item itemvalue="PHPUnit.OrderRepositoryTest" />
         <item itemvalue="PHPUnit.OrderRepositoryTest.test_can_find_partially_packed" />
-        <item itemvalue="PHPUnit.OrderRepositoryTest.test_can_find_ready_for_packing" />
-        <item itemvalue="PHPUnit.OrderRepositoryTest.test_can_successfully_save" />
       </list>
     </recent_temporary>
   </component>
@@ -381,14 +373,6 @@
       <workItem from="1728238464282" duration="24399000" />
       <workItem from="1728378940929" duration="26820000" />
       <workItem from="1728573826141" duration="14825000" />
-    </task>
-    <task id="LOCAL-00348" summary="Clean up commit.">
-      <option name="closed" value="true" />
-      <created>1727094129581</created>
-      <option name="number" value="00348" />
-      <option name="presentableId" value="LOCAL-00348" />
-      <option name="project" value="LOCAL" />
-      <updated>1727094129581</updated>
     </task>
     <task id="LOCAL-00349" summary="Updated models.">
       <option name="closed" value="true" />
@@ -774,7 +758,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729095901279</updated>
     </task>
-    <option name="localTasksCounter" value="397" />
+    <task id="LOCAL-00397" summary="Added order repository tests.">
+      <option name="closed" value="true" />
+      <created>1729168629900</created>
+      <option name="number" value="00397" />
+      <option name="presentableId" value="LOCAL-00397" />
+      <option name="project" value="LOCAL" />
+      <updated>1729168629900</updated>
+    </task>
+    <option name="localTasksCounter" value="398" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -809,7 +801,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed null on getId()" />
     <MESSAGE value="Added change sort order api." />
     <MESSAGE value="Added RollWasSentToCutCheckInEvent." />
     <MESSAGE value="Added tests for production process repositories (error, history)" />
@@ -834,7 +825,8 @@
     <MESSAGE value="Added printed product check in." />
     <MESSAGE value="Updated product unpack/pack test." />
     <MESSAGE value="Added test for packing extra." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added test for packing extra." />
+    <MESSAGE value="Added order repository tests." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added order repository tests." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
