@@ -37,7 +37,7 @@ final class OrderRepository extends ServiceEntityRepository implements OrderRepo
     public function save(Order $order): void
     {
         $this->getEntityManager()->persist($order);
-		$this->getEntityManager()->flush();
+        $this->getEntityManager()->flush();
     }
 
     /**
@@ -74,5 +74,52 @@ final class OrderRepository extends ServiceEntityRepository implements OrderRepo
         $paginator = new Paginator($query);
 
         return new PaginationResult($query->getResult(), $paginator->count());
+    }
+
+    /**
+     * Finds Orders ready for packing.
+     *
+     * @return array An array of Orders entities that are ready for packing
+     */
+    public function findReadyForPacking(): array
+    {
+        return $this->createQueryBuilder('o')
+            ->innerJoin('o.products', 'p')
+            ->where('p.isPacked = true')
+            ->groupBy('o.id')
+            ->having('COUNT(p.id) = SUM(CASE WHEN p.isPacked = true THEN 1 ELSE 0 END)')
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * Finds Orders that are partially or not packed.
+     *
+     * @return array An array of Orders entities that are partially or not packed
+     */
+    public function findPartiallyPacked(): array
+    {
+        return $this->createQueryBuilder('o')
+            ->innerJoin('o.products', 'p')
+            ->where('p.isPacked = false')
+            ->groupBy('o.id')
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * Finds entities only with extras.
+     *
+     * @return array An array of entities that have extras
+     */
+    public function findOnlyWithExtras(): array
+    {
+        $qb = $this->createQueryBuilder('o')
+            ->leftJoin('o.products', 'p')    // Присоединяем обычные продукты
+            ->leftJoin('o.extras', 'e')      // Присоединяем экстра-продукты
+            ->where('p.id IS NULL')          // Убеждаемся, что продуктов нет
+            ->andWhere('e.id IS NOT NULL');  // Убеждаемся, что экстра-продукты есть
+
+        return $qb->getQuery()->getResult();
     }
 }

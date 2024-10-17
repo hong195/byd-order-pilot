@@ -159,4 +159,14 @@ class Order extends Aggregate
         $product->setOrder($this);
         $this->products->add($product);
     }
+
+	/**
+	 * Checks if all products are packed.
+	 *
+	 * @return bool true if all products are packed, false otherwise
+	 */
+	public function isPacked(): bool
+	{
+		return $this->products->forAll(fn(int $index, Product $product) => $product->isPacked());
+	}
 }

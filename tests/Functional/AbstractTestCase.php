@@ -57,5 +57,5 @@ class AbstractTestCase extends KernelTestCase
         parent::tearDown();
         $this->entityManager->close();
         $this->entityManager = null;
-    }
+	}
 }
