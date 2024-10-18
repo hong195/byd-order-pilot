@@ -36,6 +36,6 @@ readonly class PackProductCommandHandler implements CommandHandlerInterface
     public function __invoke(PackProductCommand $command): void
     {
         AssertService::true($this->accessControlService->isGranted(), 'No access to handle the command');
-        $this->packMainProduct->handle(orderId: $command->orderId, productId: $command->productId);
+        $this->packMainProduct->handle(productId: $command->productId);
     }
 }

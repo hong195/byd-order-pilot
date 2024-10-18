@@ -11,12 +11,12 @@ use App\Shared\Application\Command\CommandInterface;
  */
 readonly class PackProductCommand implements CommandInterface
 {
-    /**
-     * Class constructor.
-     *
-     * @param int $orderId the order ID
-     */
-    public function __construct(public int $orderId, public int $productId)
+	/**
+	 * Class constructor
+	 *
+	 * @param int $productId The product ID
+	 */
+    public function __construct(public int $productId)
     {
     }
 }

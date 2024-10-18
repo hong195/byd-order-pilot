@@ -20,31 +20,23 @@ final readonly class PackProduct
     /**
      * Class constructor.
      *
-     * @param OrderRepositoryInterface   $orderRepository   the OrderRepositoryInterface instance
      * @param ProductRepositoryInterface $productRepository the ProductRepositoryInterface instance
      */
-    public function __construct(private OrderRepositoryInterface $orderRepository, private ProductRepositoryInterface $productRepository, private CheckProductProcessInterface $checkProductProcess)
+    public function __construct(private ProductRepositoryInterface $productRepository, private CheckProductProcessInterface $checkProductProcess)
     {
     }
 
     /**
      * Handle logic for packing a product in an order.
      *
-     * @param int $orderId   The ID of the order to pack the product in
      * @param int $productId The ID of the product to pack
      *
      * @throws NotFoundHttpException When the order or product is not found
      * @throws ProductPackException  When the product is already packed
      */
-    public function handle(int $orderId, int $productId): void
+    public function handle(int $productId): void
     {
-        $order = $this->orderRepository->findById($orderId);
-
-        if (!$order) {
-            throw new NotFoundHttpException('Order not found');
-        }
-
-        $product = $order->getProducts()->filter(fn ($product) => $product->getId() === $productId)->first();
+        $product = $this->productRepository->find($productId);
 
         if (!$product) {
             throw new NotFoundHttpException('Product not found');

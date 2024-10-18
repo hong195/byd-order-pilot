@@ -45,21 +45,20 @@ final class PackProductTest extends AbstractTestCase
         $packService = $this->get_pack_service($checkProductProcess);
         $product = $this->prepare_product_for_testing();
 
-        $packService->handle(orderId: $product->getOrder()->getId(), productId: $product->getId());
+        $packService->handle(productId: $product->getId());
 
         $this->assertTrue($product->isPacked());
     }
 
-    public function test_cant_pack_product_if_order_product_do_not_exist(): void
+    public function test_cant_pack_product_if_product_does_not_exist(): void
     {
-        $FAKE_ORDER_ID = 999;
         $FAKE_PRODUCT_ID = 999;
 
         $packService = self::getContainer()->get(PackProduct::class);
 
         $this->expectException(NotFoundHttpException::class);
 
-        $packService->handle(orderId: $FAKE_ORDER_ID, productId: $FAKE_PRODUCT_ID);
+        $packService->handle(productId: $FAKE_PRODUCT_ID);
     }
 
     /**
@@ -73,13 +72,13 @@ final class PackProductTest extends AbstractTestCase
         $packService = $this->get_pack_service($checkProductProcess);
         $product = $this->prepare_product_for_testing();
 
-        $packService->handle(orderId: $product->getOrder()->getId(), productId: $product->getId());
+        $packService->handle(productId: $product->getId());
 
         $this->assertTrue($product->isPacked());
 
         $this->expectException(ProductPackException::class);
 
-        $packService->handle(orderId: $product->getOrder()->getId(), productId: $product->getId());
+        $packService->handle(productId: $product->getId());
     }
 
     /**
@@ -96,7 +95,7 @@ final class PackProductTest extends AbstractTestCase
 
         $this->expectException(ProductPackException::class);
 
-        $packService->handle(orderId: $product->getOrder()->getId(), productId: $product->getId());
+        $packService->handle(productId: $product->getId());
     }
 
     private function prepare_product_for_testing(): Product
@@ -112,7 +111,6 @@ final class PackProductTest extends AbstractTestCase
     private function get_pack_service(CheckProductProcessInterface $checkProductProcess): PackProduct
     {
         return $this->packProductService = new PackProduct(
-            orderRepository: $this->orderRepository,
             productRepository: $this->productRepository,
             checkProductProcess: $checkProductProcess
         );

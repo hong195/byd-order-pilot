@@ -23,7 +23,7 @@ interface ProductRepositoryInterface
      *
      * @param int $productId The product ID
      *
-     * @return Product The product matching the ID
+     * @return ?Product The product matching the ID
      */
-    public function findById(int $productId): Product;
+    public function findById(int $productId): ?Product;
 }

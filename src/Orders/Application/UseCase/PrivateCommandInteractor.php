@@ -37,23 +37,21 @@ readonly class PrivateCommandInteractor
     /**
      * Packs a product into an order.
      *
-     * @param int $orderId   The ID of the order to pack the product into
      * @param int $productId The ID of the product to pack into the order
      */
-    public function packProduct(int $orderId, int $productId): void
+    public function packProduct(int $productId): void
     {
-        $this->commandBus->execute(new PackProductCommand(orderId: $orderId, productId: $productId));
+        $this->commandBus->execute(new PackProductCommand(productId: $productId));
     }
 
     /**
      * Unpacks the main product for a given order and product.
      *
-     * @param int $orderId   The ID of the order to unpack the product for
      * @param int $productId The ID of the product to unpack
      */
-    public function unpackProduct(int $orderId, int $productId): void
+    public function unpackProduct(int $productId): void
     {
-        $this->commandBus->execute(new UnPackProductCommand(orderId: $orderId, productId: $productId));
+        $this->commandBus->execute(new UnPackProductCommand(productId: $productId));
     }
 
     /**

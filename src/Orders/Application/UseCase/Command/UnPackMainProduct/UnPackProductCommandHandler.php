@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Orders\Application\UseCase\Command\UnPackMainProduct;
 
 use App\Orders\Domain\Exceptions\ProductPackException;
+use App\Orders\Domain\Exceptions\ProductUnPackException;
 use App\Orders\Domain\Service\Order\Product\UnPackProduct;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Command\CommandHandlerInterface;
@@ -25,17 +26,18 @@ readonly class UnPackProductCommandHandler implements CommandHandlerInterface
     {
     }
 
-    /**
-     * Handles a PackProductCommand.
-     *
-     * @param UnPackProductCommand $command The command to handle
-     *
-     * @throws NotFoundHttpException
-     * @throws ProductPackException
-     */
+	/**
+	 * Handles a PackProductCommand.
+	 *
+	 * @param UnPackProductCommand $command The command to handle
+	 *
+	 * @throws NotFoundHttpException
+	 * @throws ProductPackException
+	 * @throws ProductUnPackException
+	 */
     public function __invoke(UnPackProductCommand $command): void
     {
         AssertService::true($this->accessControlService->isGranted(), 'No access to handle the command');
-        $this->unPackMainProduct->handle(orderId: $command->orderId, productId: $command->productId);
+        $this->unPackMainProduct->handle(productId: $command->productId);
     }
 }

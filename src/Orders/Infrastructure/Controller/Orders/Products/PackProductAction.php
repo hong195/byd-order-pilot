@@ -15,8 +15,8 @@ use Symfony\Component\Routing\Attribute\Route;
  * This class handles the change-sort-order API endpoint.
  */
 #[AsController]
-#[Route('/api/orders/{orderId}/unpack', name: 'unpack-product', requirements: ['orderId' => '^\d+$'], methods: ['POST'])]
-final readonly class UnPackMainProductAction
+#[Route('/api/products/{productId}/pack', name: 'pack-product', requirements: ['productId' => '^\d+$'], methods: ['POST'])]
+final readonly class PackProductAction
 {
     /**
      * Class constructor.
@@ -30,9 +30,9 @@ final readonly class UnPackMainProductAction
      *
      * @return JsonResponse the JSON response
      */
-    public function __invoke(int $orderId, Request $request): JsonResponse
+    public function __invoke(int $productId, Request $request): JsonResponse
     {
-        $this->privateCommandInteractor->unpackProduct(orderId: $orderId, productId: (int) $request->get('productId'));
+        $this->privateCommandInteractor->packProduct(productId: $productId);
 
         return new JsonResponse(['message' => 'Success'], Response::HTTP_OK);
     }

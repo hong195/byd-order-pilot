@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Tests\Functional\Orders\Domain\Service\Order\Product;
 
 use App\Orders\Domain\Aggregate\Product;
-use App\Orders\Domain\Exceptions\ProductPackException;
 use App\Orders\Domain\Exceptions\ProductUnPackException;
 use App\Orders\Domain\Repository\OrderRepositoryInterface;
 use App\Orders\Domain\Repository\ProductRepositoryInterface;
@@ -35,17 +34,16 @@ final class UnPackProductTest extends AbstractTestCase
     }
 
     /**
-     * @throws ProductPackException
+     * @throws ProductUnPackException
      */
-    public function test_can_successfully_unpack_product(): void
+    public function test_cant_unpack_not_existing_product(): void
     {
         $unpackService = $this->get_unpack_service();
-        $FAKE_ORDER_ID = 999;
         $FAKE_PRODUCT_ID = 999;
 
         $this->expectException(NotFoundHttpException::class);
 
-        $unpackService->handle(orderId: $FAKE_ORDER_ID, productId: $FAKE_PRODUCT_ID);
+        $unpackService->handle(productId: $FAKE_PRODUCT_ID);
     }
 
     /**
@@ -56,7 +54,7 @@ final class UnPackProductTest extends AbstractTestCase
         $unpackService = $this->get_unpack_service();
         $product = $this->get_product_for_testing();
 
-        $unpackService->handle(orderId: $product->getOrder()->getId(), productId: $product->getId());
+        $unpackService->handle(productId: $product->getId());
 
         $this->assertFalse($product->isPacked());
     }
@@ -69,11 +67,11 @@ final class UnPackProductTest extends AbstractTestCase
         $unpackService = $this->get_unpack_service();
         $product = $this->get_product_for_testing();
 
-        $unpackService->handle(orderId: $product->getOrder()->getId(), productId: $product->getId());
+        $unpackService->handle(productId: $product->getId());
 
         $this->expectException(ProductUnPackException::class);
 
-        $unpackService->handle(orderId: $product->getOrder()->getId(), productId: $product->getId());
+        $unpackService->handle(productId: $product->getId());
     }
 
     private function get_product_for_testing(): Product
@@ -93,9 +91,6 @@ final class UnPackProductTest extends AbstractTestCase
 
     private function get_unpack_service(): UnPackProduct
     {
-        return $this->unpackProductService = new UnPackProduct(
-            orderRepository: $this->orderRepository,
-            productRepository: $this->productRepository,
-        );
+        return $this->unpackProductService = new UnPackProduct(productRepository: $this->productRepository);
     }
 }
