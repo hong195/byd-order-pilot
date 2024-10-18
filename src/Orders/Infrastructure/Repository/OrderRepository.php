@@ -74,7 +74,7 @@ final class OrderRepository extends ServiceEntityRepository implements OrderRepo
         return $this->createQueryBuilder('o')
             ->innerJoin('o.products', 'p')
 			->where('p.id IS NOT NULL')
-			->having('SUM(CASE WHEN p.isPacked = false THEN 1 ELSE 0 END) > 0')
+			->andWhere('p.isPacked = false')
             ->groupBy('o.id')
             ->getQuery()
             ->getResult();
