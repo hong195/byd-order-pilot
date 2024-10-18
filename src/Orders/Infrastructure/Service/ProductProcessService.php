@@ -83,7 +83,6 @@ final readonly class ProductProcessService implements ProductProcessServiceInter
      */
     public function canPack(int $productId): bool
     {
-		return true;
         $process = $this->processByProductId($productId);
 
         return !$process ? false : $process->isReadyForPacking;
