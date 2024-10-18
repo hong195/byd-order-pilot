@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Tests\Functional\Orders\Domain\Service\Order\Product;
 
 use App\Orders\Domain\Aggregate\Product;
-use App\Orders\Domain\Event\ProductUnPackedEvent;
 use App\Orders\Domain\Exceptions\ProductPackException;
 use App\Orders\Domain\Exceptions\ProductUnPackException;
 use App\Orders\Domain\Repository\OrderRepositoryInterface;
@@ -33,12 +32,6 @@ final class UnPackProductTest extends AbstractTestCase
         $this->unpackProductService = self::getContainer()->get(UnPackProduct::class);
         $this->orderRepository = self::getContainer()->get(OrderRepositoryInterface::class);
         $this->productRepository = self::getContainer()->get(ProductRepositoryInterface::class);
-        $this->eventDispatcherMock = $this->createMock(EventDispatcher::class);
-
-        $this->eventDispatcherMock->method('dispatch')->willReturnCallback(
-            function ($event) {
-                return $event;
-            });
     }
 
     /**
@@ -80,22 +73,6 @@ final class UnPackProductTest extends AbstractTestCase
 
         $this->expectException(ProductUnPackException::class);
 
-		$unpackService->handle(orderId: $product->getOrder()->getId(), productId: $product->getId());
-    }
-
-    /**
-     * @throws ProductUnPackException
-     */
-    public function test_if_product_packed_product_pack_event_dispatched(): void
-    {
-        $unpackService = $this->get_unpack_service();
-        $product = $this->get_product_for_testing();
-
-        $this->eventDispatcherMock
-            ->expects($this->once())
-            ->method('dispatch')
-            ->with($this->isInstanceOf(ProductUnPackedEvent::class));
-
         $unpackService->handle(orderId: $product->getOrder()->getId(), productId: $product->getId());
     }
 
@@ -119,7 +96,6 @@ final class UnPackProductTest extends AbstractTestCase
         return $this->unpackProductService = new UnPackProduct(
             orderRepository: $this->orderRepository,
             productRepository: $this->productRepository,
-            eventDispatcher: $this->eventDispatcherMock
         );
     }
 }

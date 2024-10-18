@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Tests\Functional\Orders\Domain\Service\Order\Product;
 
 use App\Orders\Domain\Aggregate\Product;
-use App\Orders\Domain\Event\ProductPackedEvent;
 use App\Orders\Domain\Exceptions\ProductPackException;
 use App\Orders\Domain\Repository\OrderRepositoryInterface;
 use App\Orders\Domain\Repository\ProductRepositoryInterface;
@@ -33,12 +32,6 @@ final class PackProductTest extends AbstractTestCase
         $this->packProductService = self::getContainer()->get(PackProduct::class);
         $this->orderRepository = self::getContainer()->get(OrderRepositoryInterface::class);
         $this->productRepository = self::getContainer()->get(ProductRepositoryInterface::class);
-        $this->eventDispatcherMock = $this->createMock(EventDispatcher::class);
-
-        $this->eventDispatcherMock->method('dispatch')->willReturnCallback(
-            function ($event) {
-                return $event;
-            });
     }
 
     /**
@@ -106,25 +99,6 @@ final class PackProductTest extends AbstractTestCase
         $packService->handle(orderId: $product->getOrder()->getId(), productId: $product->getId());
     }
 
-    /**
-     * @throws ProductPackException
-     */
-    public function test_if_product_packed_product_pack_event_dispatched(): void
-    {
-        $checkProductProcess = $this->createMock(CheckProductProcessInterface::class);
-        $checkProductProcess->method('canPack')->willReturn(true);
-
-        $packService = $this->get_pack_service($checkProductProcess);
-        $product = $this->prepare_product_for_testing();
-
-        $this->eventDispatcherMock
-            ->expects($this->once())
-            ->method('dispatch')
-            ->with($this->isInstanceOf(ProductPackedEvent::class));
-
-        $packService->handle(orderId: $product->getOrder()->getId(), productId: $product->getId());
-    }
-
     private function prepare_product_for_testing(): Product
     {
         $product = $this->loadProduct();
@@ -140,8 +114,7 @@ final class PackProductTest extends AbstractTestCase
         return $this->packProductService = new PackProduct(
             orderRepository: $this->orderRepository,
             productRepository: $this->productRepository,
-            checkProductProcess: $checkProductProcess,
-            eventDispatcher: $this->eventDispatcherMock
+            checkProductProcess: $checkProductProcess
         );
     }
 }

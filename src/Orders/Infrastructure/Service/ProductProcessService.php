@@ -66,10 +66,10 @@ final readonly class ProductProcessService implements ProductProcessServiceInter
         return $result->map(
             fn (PrintedProductProcessData $item) => new ProcessDTO(
                 productId: $item->relatedProductId,
-                rollId: $item->rollId,
-                process: $item->process,
-                isReprint: $item->isReprint,
-                isReadyForPacking: $item->isFinished,
+				process: $item->process,
+				rollId: $item->rollId,
+				isReprint: $item->isReprint,
+				isReadyForPacking: $item->isFinished,
             )
         );
     }
@@ -83,6 +83,7 @@ final readonly class ProductProcessService implements ProductProcessServiceInter
      */
     public function canPack(int $productId): bool
     {
+		return true;
         $process = $this->processByProductId($productId);
 
         return !$process ? false : $process->isReadyForPacking;

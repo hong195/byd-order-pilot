@@ -4,11 +4,9 @@ declare(strict_types=1);
 
 namespace App\Orders\Domain\Service\Order\Product;
 
-use App\Orders\Domain\Event\ProductUnPackedEvent;
 use App\Orders\Domain\Exceptions\ProductUnPackException;
 use App\Orders\Domain\Repository\OrderRepositoryInterface;
 use App\Orders\Domain\Repository\ProductRepositoryInterface;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 final readonly class UnPackProduct
@@ -16,7 +14,7 @@ final readonly class UnPackProduct
     /**
      * Constructor for initializing OrderService.
      */
-    public function __construct(private OrderRepositoryInterface $orderRepository, private ProductRepositoryInterface $productRepository, private EventDispatcherInterface $eventDispatcher)
+    public function __construct(private OrderRepositoryInterface $orderRepository, private ProductRepositoryInterface $productRepository)
     {
     }
 
@@ -26,7 +24,7 @@ final readonly class UnPackProduct
      * @param int $orderId   The ID of the order
      * @param int $productId The ID of the product to be un-packed
      *
-     * @throws NotFoundHttpException      If the order or product is not found
+     * @throws NotFoundHttpException  If the order or product is not found
      * @throws ProductUnPackException
      */
     public function handle(int $orderId, int $productId): void
@@ -50,7 +48,5 @@ final readonly class UnPackProduct
         $product->unpack();
 
         $this->productRepository->save($product);
-
-        $this->eventDispatcher->dispatch(new ProductUnPackedEvent(productId: $productId));
     }
 }

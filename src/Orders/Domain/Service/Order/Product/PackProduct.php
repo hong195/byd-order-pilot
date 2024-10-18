@@ -4,11 +4,9 @@ declare(strict_types=1);
 
 namespace App\Orders\Domain\Service\Order\Product;
 
-use App\Orders\Domain\Event\ProductPackedEvent;
 use App\Orders\Domain\Exceptions\ProductPackException;
 use App\Orders\Domain\Repository\OrderRepositoryInterface;
 use App\Orders\Domain\Repository\ProductRepositoryInterface;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -25,7 +23,7 @@ final readonly class PackProduct
      * @param OrderRepositoryInterface   $orderRepository   the OrderRepositoryInterface instance
      * @param ProductRepositoryInterface $productRepository the ProductRepositoryInterface instance
      */
-    public function __construct(private OrderRepositoryInterface $orderRepository, private ProductRepositoryInterface $productRepository, private CheckProductProcessInterface $checkProductProcess, private EventDispatcherInterface $eventDispatcher)
+    public function __construct(private OrderRepositoryInterface $orderRepository, private ProductRepositoryInterface $productRepository, private CheckProductProcessInterface $checkProductProcess)
     {
     }
 
@@ -35,8 +33,8 @@ final readonly class PackProduct
      * @param int $orderId   The ID of the order to pack the product in
      * @param int $productId The ID of the product to pack
      *
-     * @throws NotFoundHttpException        When the order or product is not found
-     * @throws ProductPackException When the product is already packed
+     * @throws NotFoundHttpException When the order or product is not found
+     * @throws ProductPackException  When the product is already packed
      */
     public function handle(int $orderId, int $productId): void
     {
@@ -63,7 +61,5 @@ final readonly class PackProduct
         $product->pack();
 
         $this->productRepository->save($product);
-
-        $this->eventDispatcher->dispatch(new ProductPackedEvent(productId: $productId));
     }
 }
