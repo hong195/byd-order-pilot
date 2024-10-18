@@ -5,13 +5,20 @@ declare(strict_types=1);
 namespace App\Orders\Domain\Service\Order\Extra;
 
 use App\Orders\Domain\Aggregate\Extra;
-use App\Orders\Domain\Repository\ExtraRepositoryInterface;
 use App\Orders\Domain\Repository\OrderRepositoryInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Class SetExtraPackStatusService.
+ */
 final readonly class SetExtraPackStatusService
 {
-    public function __construct(private OrderRepositoryInterface $orderRepository, private ExtraRepositoryInterface $extraRepository)
+    /**
+     * Constructor method.
+     *
+     * @param OrderRepositoryInterface $orderRepository the order repository interface object
+     */
+    public function __construct(private OrderRepositoryInterface $orderRepository)
     {
     }
 
