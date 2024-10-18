@@ -4,30 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added product test.">
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindOrdersWithExtras/FindOrdersWithExtrasHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindOrdersWithExtras/FindOrdersWithExtrasQuery.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindOrdersWithExtras/FindOrdersWithExtrasResult.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindPackedOrders/FindPackedOrdersQuery.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindPartiallyPackedOrders/FindPartiallyPackedOrdersHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindPartiallyPackedOrders/FindPartiallyPackedOrdersResult.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/FindOrdersWithExtrasOnly.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/FindPartiallyPackedOrders.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated order repository test &amp; added orders queries (packed, partially packed, only with extras)">
       <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/Order/OrderData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/Order/OrderData.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/Order/OrderDataTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/Order/OrderDataTransformer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateQueryInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateQueryInteractor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindAProduct/FindAProductHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindAProduct/FindAProductHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindAProduct/FindAProductQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindAProduct/FindAProductQuery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindOrders/FindOrdersHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindPackedOrders/FindPackedOrdersHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindOrders/FindOrdersQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindPartiallyPackedOrders/FindPartiallyPackedOrdersQuery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindOrders/FindOrdersResult.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindPackedOrders/FindPackedOrdersResult.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindProducts/FindProductsHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindProducts/FindProductsHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindProducts/FindProductsQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindProducts/FindProductsQuery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Repository/OrderRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Repository/OrderRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/FindOrders.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/FindReadyForPackingOrders.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/OrderRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/OrderRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Functional/Orders/Infrastructure/Repository/OrderRepositoryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/Orders/Infrastructure/Repository/OrderRepositoryTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -397,14 +376,6 @@
       <workItem from="1728238464282" duration="24399000" />
       <workItem from="1728378940929" duration="26820000" />
       <workItem from="1728573826141" duration="14825000" />
-    </task>
-    <task id="LOCAL-00351" summary="Clean up commit.">
-      <option name="closed" value="true" />
-      <created>1727167120706</created>
-      <option name="number" value="00351" />
-      <option name="presentableId" value="LOCAL-00351" />
-      <option name="project" value="LOCAL" />
-      <updated>1727167120706</updated>
     </task>
     <task id="LOCAL-00352" summary="Clean up commit.">
       <option name="closed" value="true" />
@@ -790,7 +761,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729169097224</updated>
     </task>
-    <option name="localTasksCounter" value="400" />
+    <task id="LOCAL-00400" summary="Updated order repository test &amp; added orders queries (packed, partially packed, only with extras)">
+      <option name="closed" value="true" />
+      <created>1729266704130</created>
+      <option name="number" value="00400" />
+      <option name="presentableId" value="LOCAL-00400" />
+      <option name="project" value="LOCAL" />
+      <updated>1729266704130</updated>
+    </task>
+    <option name="localTasksCounter" value="401" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -825,7 +804,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added tests for production process repositories (error, history)" />
     <MESSAGE value="Updated tests:&#10;&#10;- replace unit test with functional one&#10;- remove in memory implementations&#10;- added Error entity mapping&#10;- added orm fixture packages" />
     <MESSAGE value="Updated history tests." />
     <MESSAGE value="Rename message to reason." />
@@ -850,7 +828,8 @@
     <MESSAGE value="Added order repository tests." />
     <MESSAGE value="Added extra tests." />
     <MESSAGE value="Added product test." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added product test." />
+    <MESSAGE value="Updated order repository test &amp; added orders queries (packed, partially packed, only with extras)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated order repository test &amp; added orders queries (packed, partially packed, only with extras)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

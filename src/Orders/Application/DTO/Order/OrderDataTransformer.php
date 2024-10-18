@@ -44,7 +44,6 @@ final readonly class OrderDataTransformer
 			type: $order->getOrderType()->value,
 			shippingAddress: $order->shippingAddress,
 			orderNumber: $order->getOrderNumber(),
-			isPacked: $order->isPacked(),
 			addedAt: $order->getDateAdded(),
 			customerNotes: $order->customer->notes,
 			packagingInstructions: $order->getPackagingInstructions(),

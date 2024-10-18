@@ -27,7 +27,6 @@ final readonly class OrderData
         public string $type,
         public string $shippingAddress,
         public ?string $orderNumber,
-		public bool $isPacked,
         public \DateTimeInterface $addedAt,
         public ?string $customerNotes = null,
         public ?string $packagingInstructions = null,
