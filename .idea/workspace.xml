@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated order data structure (removed is packed)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/OrderRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/OrderRepository.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Simplify order repository findPartiallyPacked method.">
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/Service/Product/ProductService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/Service/Product/ProductService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Event/ProductPackedEvent.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Event/ProductUnPackedEvent.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Product/PackProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Product/PackProduct.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Product/UnPackProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Product/UnPackProduct.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Service/ProductProcessService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Service/ProductProcessService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/Product/PackProductTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/Product/PackProductTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/Product/UnPackProductTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/Product/UnPackProductTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -273,11 +279,7 @@
       <recent name="$PROJECT_DIR$/src/Orders/Application/Service/Product" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.Main">
-    <configuration name="ExtraRepositoryTest.test_can_successfully_save" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\Orders\Infrastructure\Repository\ExtraRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/Orders/Infrastructure/Repository/ExtraRepositoryTest.php" method="test_can_successfully_save" scope="Method" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="PHPUnit.UnPackProductTest">
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
       <method v="2" />
@@ -294,17 +296,21 @@
       <TestRunner class="App\Tests\Functional\Orders\Infrastructure\Repository\OrderRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/Orders/Infrastructure/Repository/OrderRepositoryTest.php" method="test_can_find_partially_packed" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="ProductRepositoryTest.test_can_successfully_save" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\Orders\Infrastructure\Repository\ProductRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/Orders/Infrastructure/Repository/ProductRepositoryTest.php" method="test_can_successfully_save" scope="Method" />
+    <configuration name="PackProductTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\Orders\Domain\Service\Order\Product\PackProductTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/Product/PackProductTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
+    <configuration name="UnPackProductTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\Orders\Domain\Service\Order\Product\UnPackProductTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/Product/UnPackProductTest.php" scope="Class" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.UnPackProductTest" />
+        <item itemvalue="PHPUnit.PackProductTest" />
         <item itemvalue="PHPUnit.OrderRepositoryTest.test_can_find_only_with_extras" />
         <item itemvalue="PHPUnit.OrderRepositoryTest.test_can_find_partially_packed" />
         <item itemvalue="PHPUnit.OrderRepositoryTest.test_can_find_packed" />
-        <item itemvalue="PHPUnit.ProductRepositoryTest.test_can_successfully_save" />
-        <item itemvalue="PHPUnit.ExtraRepositoryTest.test_can_successfully_save" />
       </list>
     </recent_temporary>
   </component>
@@ -376,14 +382,6 @@
       <workItem from="1728238464282" duration="24399000" />
       <workItem from="1728378940929" duration="26820000" />
       <workItem from="1728573826141" duration="14825000" />
-    </task>
-    <task id="LOCAL-00353" summary="Clean up commit.">
-      <option name="closed" value="true" />
-      <created>1727167330443</created>
-      <option name="number" value="00353" />
-      <option name="presentableId" value="LOCAL-00353" />
-      <option name="project" value="LOCAL" />
-      <updated>1727167330443</updated>
     </task>
     <task id="LOCAL-00354" summary="Clean up commit.">
       <option name="closed" value="true" />
@@ -769,7 +767,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729266773618</updated>
     </task>
-    <option name="localTasksCounter" value="402" />
+    <task id="LOCAL-00402" summary="Simplify order repository findPartiallyPacked method.">
+      <option name="closed" value="true" />
+      <created>1729267615763</created>
+      <option name="number" value="00402" />
+      <option name="presentableId" value="LOCAL-00402" />
+      <option name="project" value="LOCAL" />
+      <updated>1729267615763</updated>
+    </task>
+    <option name="localTasksCounter" value="403" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -804,7 +810,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated history tests." />
     <MESSAGE value="Rename message to reason." />
     <MESSAGE value="Small refactor." />
     <MESSAGE value="Updated reprint commands." />
@@ -829,7 +834,8 @@
     <MESSAGE value="Added product test." />
     <MESSAGE value="Updated order repository test &amp; added orders queries (packed, partially packed, only with extras)" />
     <MESSAGE value="Updated order data structure (removed is packed)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated order data structure (removed is packed)" />
+    <MESSAGE value="Simplify order repository findPartiallyPacked method." />
+    <option name="LAST_COMMIT_MESSAGE" value="Simplify order repository findPartiallyPacked method." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
