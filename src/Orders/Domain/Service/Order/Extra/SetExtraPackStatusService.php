@@ -39,7 +39,7 @@ final readonly class SetExtraPackStatusService
             throw new NotFoundHttpException('Order not found');
         }
 
-        /** @var Extra $extra */
+        /** @var ?Extra $extra */
         $extra = $order->getExtras()->filter(fn ($extra) => $extra->getId() === $extraId)->first();
 
         if (!$extra) {
