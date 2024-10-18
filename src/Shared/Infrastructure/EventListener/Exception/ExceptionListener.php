@@ -22,24 +22,19 @@ class ExceptionListener
     #[AsEventListener(event: 'kernel.exception', priority: 190)]
     public function onKernelException(ExceptionEvent $event): void
     {
-        // Получаем MIME тип из заголовка Accept
-        $acceptHeader = $event->getRequest()->headers->get('Accept');
+        $exception = $event->getThrowable();
+        $response = new JsonResponse();
+        $response->setData($this->exceptionToArray($exception));
 
-        if (self::MIME_JSON === $acceptHeader) {
-            $exception = $event->getThrowable();
-            $response = new JsonResponse();
-            $response->setData($this->exceptionToArray($exception));
-
-            // HttpException содержит информацию о заголовках и статусе, испольузем это
-            if ($exception instanceof HttpExceptionInterface) {
-                $response->setStatusCode($exception->getStatusCode());
-                $response->headers->replace($exception->getHeaders());
-            } else {
-                $response->setStatusCode(Response::HTTP_INTERNAL_SERVER_ERROR);
-            }
-
-            $event->setResponse($response);
+        // HttpException содержит информацию о заголовках и статусе, испольузем это
+        if ($exception instanceof HttpExceptionInterface) {
+            $response->setStatusCode($exception->getStatusCode());
+            $response->headers->replace($exception->getHeaders());
+        } else {
+            $response->setStatusCode(Response::HTTP_INTERNAL_SERVER_ERROR);
         }
+
+        $event->setResponse($response);
     }
 
     /**
