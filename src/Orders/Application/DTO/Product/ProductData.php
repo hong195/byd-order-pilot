@@ -32,10 +32,10 @@ final readonly class ProductData
         public ?string $orderNumber,
         public ?string $cutFile,
         public ?string $printFile,
+        public bool $isPacked,
         public \DateTimeInterface $addedAt,
         public ?int $orderId = null,
         public ?string $laminationType = null,
-        public bool $isPacked = false,
         public ?ProcessDTO $process = null,
     ) {
     }
