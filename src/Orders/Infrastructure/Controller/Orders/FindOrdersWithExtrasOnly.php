@@ -14,8 +14,8 @@ use Symfony\Component\Serializer\Exception\ExceptionInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 #[AsController]
-#[Route('/api/orders', name: 'find_orders', methods: ['GET'])]
-final readonly class FindOrders
+#[Route('/api/orders/with-extras-only', name: 'find_orders_only_with_extras', methods: ['GET'])]
+final readonly class FindOrdersWithExtrasOnly
 {
     public function __construct(private PrivateQueryInteractor $privateQueryInteractor, private NormalizerInterface $normalizer)
     {
@@ -30,10 +30,7 @@ final readonly class FindOrders
      */
     public function __invoke(Request $request): JsonResponse
     {
-        $orders = $this->privateQueryInteractor->findOrders(
-            rollId: (int) $request->get('rollId'),
-            status: $request->get('status')
-        );
+        $orders = $this->privateQueryInteractor->findOrderOnlyWithExtras();
 
         $res = $this->normalizer->normalize($orders);
 

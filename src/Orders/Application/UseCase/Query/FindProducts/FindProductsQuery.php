@@ -7,7 +7,7 @@ namespace App\Orders\Application\UseCase\Query\FindProducts;
 use App\Shared\Application\Query\Query;
 
 /**
- * Class FindOrdersQuery.
+ * Class FindOrdersWithExtrasQuery.
  *
  * @readonly
  */

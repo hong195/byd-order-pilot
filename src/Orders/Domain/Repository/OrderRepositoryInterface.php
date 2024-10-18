@@ -28,7 +28,7 @@ interface OrderRepositoryInterface
      *
      * @return Order[] an array of orders that are ready for packing
      */
-    public function findReadyForPacking(): array;
+    public function findPacked(): array;
 
     /**
      * Finds orders that are either partially packed or not packed at all.
@@ -43,11 +43,4 @@ interface OrderRepositoryInterface
      * @return Order[] an array of orders with extras included
      */
     public function findOnlyWithExtras(): array;
-
-    /**
-     * Finds queried records.
-     *
-     * @return PaginationResult the result of the queried records
-     */
-    public function findByFilter(OrderFilter $filter): PaginationResult;
 }

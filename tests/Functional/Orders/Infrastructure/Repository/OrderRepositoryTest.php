@@ -48,46 +48,46 @@ class OrderRepositoryTest extends AbstractTestCase
         $this->assertNotNull($order->getId());
     }
 
-    public function test_can_find_ready_for_packing(): void
+    public function test_can_find_packed(): void
     {
-        $readyForPackOrder1 = $this->get_ready_for_pack_order();
-        $readyForPackOrder2 = $this->get_ready_for_pack_order();
+        $readyForPackOrder = $this->get_ready_for_pack_order();
+        $partiallyPacked = $this->get_partially_packed_order();
         $notReadyForPackOrder = $this->get_not_ready_for_pack_order();
 
-        $results = $this->orderRepository->findReadyForPacking();
+        $results = $this->orderRepository->findPacked();
 
-        $this->assertCount(count([$readyForPackOrder1, $readyForPackOrder2]), $results);
-        $this->assertContains($readyForPackOrder1->getId(), array_map(fn ($order) => $order->getId(), $results));
-        $this->assertContains($readyForPackOrder2->getId(), array_map(fn ($order) => $order->getId(), $results));
+        $this->assertCount(count([$readyForPackOrder]), $results);
+        $this->assertContains($readyForPackOrder->getId(), array_map(fn ($order) => $order->getId(), $results));
+        $this->assertNotContains($partiallyPacked->getId(), array_map(fn ($order) => $order->getId(), $results));
         $this->assertNotContains($notReadyForPackOrder->getId(), array_map(fn ($order) => $order->getId(), $results));
     }
 
     public function test_can_find_partially_packed(): void
     {
-        $notReadyForPackOrder1 = $this->get_not_ready_for_pack_order();
-        $notReadyForPackOrder2 = $this->get_not_ready_for_pack_order();
-        $readyForPackOrder = $this->get_ready_for_pack_order();
+		$readyForPackOrder = $this->get_ready_for_pack_order();
+		$partiallyPacked = $this->get_partially_packed_order();
+		$notReadyForPackOrder = $this->get_not_ready_for_pack_order();
 
         $results = $this->orderRepository->findPartiallyPacked();
 
-        $this->assertCount(count([$notReadyForPackOrder1, $notReadyForPackOrder2]), $results);
-        $this->assertContains($notReadyForPackOrder1->getId(), array_map(fn (Order $order) => $order->getId(), $results));
-        $this->assertContains($notReadyForPackOrder2->getId(), array_map(fn (Order $order) => $order->getId(), $results));
+        $this->assertCount(count([$partiallyPacked, $notReadyForPackOrder]), $results);
+        $this->assertContains($partiallyPacked->getId(), array_map(fn (Order $order) => $order->getId(), $results));
+        $this->assertContains($notReadyForPackOrder->getId(), array_map(fn (Order $order) => $order->getId(), $results));
         $this->assertNotContains($readyForPackOrder->getId(), array_map(fn (Order $order) => $order->getId(), $results));
     }
 
     public function test_can_find_only_with_extras(): void
     {
-        $orderWithExtras1 = $this->get_product_with_extras();
-        $orderWithExtras2 = $this->get_product_with_extras();
-        $orderWithoutExtras = $this->get_ready_for_pack_order();
+        $orderWithExtras = $this->get_product_with_extras();
+        $partiallyPackedOrder = $this->get_partially_packed_order();
+        $packedOrder = $this->get_ready_for_pack_order();
 
         $results = $this->orderRepository->findOnlyWithExtras();
 
-        $this->assertCount(count([$orderWithExtras1, $orderWithExtras2]), $results);
-        $this->assertContains($orderWithExtras1->getId(), array_map(fn (Order $order) => $order->getId(), $results));
-        $this->assertContains($orderWithExtras2->getId(), array_map(fn (Order $order) => $order->getId(), $results));
-        $this->assertNotContains($orderWithoutExtras->getId(), array_map(fn (Order $order) => $order->getId(), $results));
+        $this->assertCount(count([$orderWithExtras]), $results);
+        $this->assertContains($orderWithExtras->getId(), array_map(fn (Order $order) => $order->getId(), $results));
+        $this->assertNotContains($partiallyPackedOrder->getId(), array_map(fn (Order $order) => $order->getId(), $results));
+        $this->assertNotContains($packedOrder->getId(), array_map(fn (Order $order) => $order->getId(), $results));
     }
 
     public function get_product_with_extras(): Order
@@ -150,4 +150,22 @@ class OrderRepositoryTest extends AbstractTestCase
 
         return $order;
     }
+
+	private function get_partially_packed_order(): Order
+	{
+		$order = $this->loadOrder();
+
+		$product = $this->loadProduct();
+		$product1 = $this->loadProduct();
+
+		$product->pack();
+
+		$order->addProduct($product);
+		$order->addProduct($product1);
+
+		$this->entityManager->persist($order);
+		$this->entityManager->flush();
+
+		return $order;
+	}
 }

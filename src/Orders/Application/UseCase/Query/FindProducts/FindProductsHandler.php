@@ -10,7 +10,7 @@ use App\Shared\Application\Query\QueryHandlerInterface;
 use App\Shared\Domain\Service\AssertService;
 
 /**
- * Class FindOrdersHandler.
+ * Class FindPackedOrdersHandler.
  */
 final readonly class FindProductsHandler implements QueryHandlerInterface
 {

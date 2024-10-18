@@ -5,11 +5,8 @@ declare(strict_types=1);
 namespace App\Orders\Infrastructure\Repository;
 
 use App\Orders\Domain\Aggregate\Order;
-use App\Orders\Domain\Repository\OrderFilter;
 use App\Orders\Domain\Repository\OrderRepositoryInterface;
-use App\Shared\Domain\Repository\PaginationResult;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\ORM\Tools\Pagination\Paginator;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -53,39 +50,14 @@ final class OrderRepository extends ServiceEntityRepository implements OrderRepo
     }
 
     /**
-     * Finds paginated results.
-     *
-     * @return PaginationResult the paginated results
-     */
-    public function findByFilter(OrderFilter $filter): PaginationResult
-    {
-        $qb = $this->createQueryBuilder('o');
-
-        if ($filter->perPage) {
-            $qb->setMaxResults($filter->perPage);
-        }
-
-        if ($filter->page) {
-            $qb->setFirstResult($filter->perPage * ($filter->page - 1));
-        }
-
-        $query = $qb->getQuery();
-
-        $paginator = new Paginator($query);
-
-        return new PaginationResult($query->getResult(), $paginator->count());
-    }
-
-    /**
      * Finds Orders ready for packing.
      *
      * @return array An array of Orders entities that are ready for packing
      */
-    public function findReadyForPacking(): array
+    public function findPacked(): array
     {
         return $this->createQueryBuilder('o')
             ->innerJoin('o.products', 'p')
-            ->where('p.isPacked = true')
             ->groupBy('o.id')
             ->having('COUNT(p.id) = SUM(CASE WHEN p.isPacked = true THEN 1 ELSE 0 END)')
             ->getQuery()
@@ -101,7 +73,8 @@ final class OrderRepository extends ServiceEntityRepository implements OrderRepo
     {
         return $this->createQueryBuilder('o')
             ->innerJoin('o.products', 'p')
-            ->where('p.isPacked = false')
+			->where('p.id IS NOT NULL')
+			->having('SUM(CASE WHEN p.isPacked = false THEN 1 ELSE 0 END) > 0')
             ->groupBy('o.id')
             ->getQuery()
             ->getResult();

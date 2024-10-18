@@ -40,13 +40,14 @@ final readonly class OrderDataTransformer
     {
         return new OrderData(
             id: $order->getId(),
-            customerName: $order->customer->name,
-            type: $order->getOrderType()->value,
-            shippingAddress: $order->shippingAddress,
-            orderNumber: $order->getOrderNumber(),
-            addedAt: $order->getDateAdded(),
-            customerNotes: $order->customer->notes,
-            packagingInstructions: $order->getPackagingInstructions(),
+			customerName: $order->customer->name,
+			type: $order->getOrderType()->value,
+			shippingAddress: $order->shippingAddress,
+			orderNumber: $order->getOrderNumber(),
+			isPacked: $order->isPacked(),
+			addedAt: $order->getDateAdded(),
+			customerNotes: $order->customer->notes,
+			packagingInstructions: $order->getPackagingInstructions(),
         );
     }
 }
