@@ -34,4 +34,21 @@ final readonly class OrdersApi implements OrderApiInterface
 
         return $product->productData;
     }
+
+	/**
+	 * Finds a product by its ID.
+	 *
+	 * @param int[] $productIds the ID of the product
+	 *
+	 * @return \App\Orders\Application\DTO\Product\ProductData[] the product data
+	 */
+	public function findProductByIds(array $productIds): array
+	{
+		$products = [];
+		foreach ($productIds as $productId) {
+			$products[] = $this->findProductById($productId);
+		}
+
+		return $products;
+	}
 }

@@ -34,7 +34,7 @@ final readonly class FindProductsHandler implements QueryHandlerInterface
     {
         AssertService::true($this->accessControlService->isGranted(), 'Access denied');
 
-        $result = $this->productListService->getListByOrderId($query->orderId);
+        $result = $this->productListService->getList(orderId: $query->orderId, productIds: $query->productIds);
 
         return new FindProductsResult($result);
     }

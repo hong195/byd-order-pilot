@@ -14,12 +14,12 @@ use App\Orders\Application\UseCase\Query\FindOrders\FindOrdersQuery;
 use App\Orders\Application\UseCase\Query\FindOrders\FindOrdersResult;
 use App\Orders\Application\UseCase\Query\FindOrdersWithExtras\FindOrdersWithExtrasQuery;
 use App\Orders\Application\UseCase\Query\FindOrdersWithExtras\FindOrdersWithExtrasResult;
+use App\Orders\Application\UseCase\Query\FindPackedOrders\FindPackedOrdersQuery;
+use App\Orders\Application\UseCase\Query\FindPackedOrders\FindPackedOrdersResult;
 use App\Orders\Application\UseCase\Query\FindPartiallyPackedOrders\FindPartiallyPackedOrdersQuery;
 use App\Orders\Application\UseCase\Query\FindPartiallyPackedOrders\FindPartiallyPackedOrdersResult;
 use App\Orders\Application\UseCase\Query\FindProducts\FindProductsQuery;
 use App\Orders\Application\UseCase\Query\FindProducts\FindProductsResult;
-use App\Orders\Application\UseCase\Query\FindPackedOrders\FindPackedOrdersQuery;
-use App\Orders\Application\UseCase\Query\FindPackedOrders\FindPackedOrdersResult;
 use App\Orders\Application\UseCase\Query\GetOptions\GetOptionsQuery;
 use App\Shared\Application\Query\QueryBusInterface;
 
@@ -48,26 +48,6 @@ readonly class PrivateQueryInteractor
     }
 
     /**
-     * @method FindOrdersResult findOrders()
-     */
-    public function findOrders(?int $rollId = null, ?string $status = null): FindOrdersResult
-    {
-        $query = new FindOrdersQuery(rollId: $rollId, status: $status);
-
-        return $this->queryBus->execute($query);
-    }
-
-    /**
-     * Retrieves the options by executing the GetOptionsQuery.
-     *
-     * @return GetOptionsQueryResult the result of executing the GetOptionsQuery
-     */
-    public function getOptions(): GetOptionsQueryResult
-    {
-        return $this->queryBus->execute(new GetOptionsQuery());
-    }
-
-    /**
      * Finds the extras by executing the FindExtrasQuery.
      *
      * @param int $order the order ID
@@ -80,15 +60,15 @@ readonly class PrivateQueryInteractor
     }
 
     /**
-     * Finds products for a given order ID.
+     * Finds products based on the provided query.
      *
-     * @param int $orderId the ID of the order to find products for
+     * @param FindProductsQuery $query The query object containing criteria for finding products
      *
-     * @return FindProductsResult the result of the find products operation
+     * @return FindProductsResult The result of finding products based on the query
      */
-    public function findProducts(int $orderId): FindProductsResult
+    public function findProducts(FindProductsQuery $query): FindProductsResult
     {
-        return $this->queryBus->execute(new FindProductsQuery($orderId));
+        return $this->queryBus->execute($query);
     }
 
     /**

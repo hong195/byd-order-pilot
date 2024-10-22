@@ -2,8 +2,8 @@
 
 namespace App\Orders\Domain\Repository;
 
-use App\Orders\Domain\Aggregate\Extra;
 use App\Orders\Domain\Aggregate\Product;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * Interface ExtraRepositoryInterface.
@@ -18,6 +18,7 @@ interface ProductRepositoryInterface
      * @param Product $product The product to be added
      */
     public function save(Product $product): void;
+
     /**
      * Finds a product by its ID.
      *
@@ -26,4 +27,11 @@ interface ProductRepositoryInterface
      * @return ?Product The product matching the ID
      */
     public function findById(int $productId): ?Product;
+
+    /**
+     * Finds products based on a filter.
+     *
+     * @param ProductFilter $filter The filter object containing criteria for product search
+     */
+    public function findByFilter(ProductFilter $filter): Collection;
 }

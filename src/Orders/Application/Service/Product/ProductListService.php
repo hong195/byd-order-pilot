@@ -7,9 +7,10 @@ namespace App\Orders\Application\Service\Product;
 use App\Orders\Application\DTO\Product\ProductData;
 use App\Orders\Domain\Aggregate\Product;
 use App\Orders\Domain\DTO\ProcessDTO;
+use App\Orders\Domain\Repository\ProductFilter;
+use App\Orders\Domain\Repository\ProductRepositoryInterface;
 use App\Orders\Infrastructure\Repository\OrderRepository;
 use App\Shared\Application\Service\AssetUrlServiceInterface;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class ProductListService.
@@ -23,29 +24,25 @@ final readonly class ProductListService
     /**
      * Class constructor.
      *
-     * @param OrderRepository                $orderRepository       Instance of order repository
      * @param ProductProcessServiceInterface $productProcessService Instance of product process service
      */
-    public function __construct(private OrderRepository $orderRepository, private ProductProcessServiceInterface $productProcessService, private AssetUrlServiceInterface $assetUrlService)
+    public function __construct(private ProductRepositoryInterface $productRepository, private ProductProcessServiceInterface $productProcessService, private AssetUrlServiceInterface $assetUrlService)
     {
     }
 
     /**
-     * Get the list of products for a given order ID.
+     * Get the list of products for a given order ID and product IDs.
      *
-     * @param int $orderId The ID of the order
+     * @param int   $orderId    The ID of the order
+     * @param int[] $productIds Array of product IDs
      *
-     * @return ProductData[] List of ProductData objects representing the products in the order
+     * @return array Array of ProductData objects representing the products
      */
-    public function getListByOrderId(int $orderId): array
+    public function getList(int $orderId, array $productIds): array
     {
-        $order = $this->orderRepository->findById($orderId);
-
-        if (!$order) {
-            throw new NotFoundHttpException('Order not found');
-        }
-
-        $products = $order->getProducts();
+        $products = $this->productRepository->findByFilter(
+            new ProductFilter(orderId: $orderId, productIds: $productIds)
+        );
 
         if ($products->isEmpty()) {
             return [];

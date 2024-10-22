@@ -21,4 +21,6 @@ final readonly class OrdersAdapter
     {
         return $this->adapter->findProductById($productId);
     }
+
+
 }
