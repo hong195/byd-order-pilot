@@ -33,12 +33,12 @@ final readonly class ProductListService
     /**
      * Get the list of products for a given order ID and product IDs.
      *
-     * @param int   $orderId    The ID of the order
+     * @param ?int   $orderId    The ID of the order
      * @param int[] $productIds Array of product IDs
      *
      * @return array Array of ProductData objects representing the products
      */
-    public function getList(int $orderId, array $productIds): array
+    public function getList(?int $orderId = null, array $productIds = []): array
     {
         $products = $this->productRepository->findByFilter(
             new ProductFilter(orderId: $orderId, productIds: $productIds)

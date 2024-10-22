@@ -38,6 +38,7 @@ final readonly class PrintedProductData
         public ?\DateTimeInterface $addedAt = null,
         public ?string $cutFile = null,
         public ?string $printFile = null,
+		public bool $isPacked = false,
     ) {
     }
 }

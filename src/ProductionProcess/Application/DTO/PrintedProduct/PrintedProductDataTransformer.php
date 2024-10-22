@@ -55,7 +55,7 @@ final readonly class PrintedProductDataTransformer
      *
      * @return PrintedProductData the converted PrintedProductData object
      */
-    public function fromEntity(PrintedProduct $product, ?string $cutFileUrl = null, ?string $printFileUrl = null): PrintedProductData
+    public function fromEntity(PrintedProduct $product, ?string $cutFileUrl = null, ?string $printFileUrl = null, bool $isPacked = false): PrintedProductData
     {
         return new PrintedProductData(
             id: $product->getId(),
@@ -70,6 +70,7 @@ final readonly class PrintedProductDataTransformer
             addedAt: $product->getDateAdded(),
             cutFile: $cutFileUrl,
             printFile: $printFileUrl,
+			isPacked: $isPacked
         );
     }
 }

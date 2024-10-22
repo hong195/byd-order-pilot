@@ -33,8 +33,9 @@ final readonly class PrintedProductListService
      */
     public function __construct(
         private MediaFileRepository $mediaFileRepository, private GroupService $groupService,
-        private PrintedProductDataTransformer $productDataTransformer, private PrintedProductRepositoryInterface $productRepository, private AssetUrlServiceInterface $assetUrlService)
-    {
+        private PrintedProductDataTransformer $productDataTransformer, private PrintedProductRepositoryInterface $productRepository, private AssetUrlServiceInterface $assetUrlService,
+        private RelatedProductsInterface $relatedProducts,
+    ) {
     }
 
     /**
@@ -57,6 +58,7 @@ final readonly class PrintedProductListService
         $mediaFiles = $this->mediaFileRepository->findByOwnerIds(array_map(fn (PrintedProduct $product) => $product->relatedProductId, $printedProducts));
 
         $groups = $this->groupService->handle(new ArrayCollection($printedProducts));
+        $relatedProducts = new ArrayCollection($this->relatedProducts->findProductsByIds(array_map(fn (PrintedProduct $product) => $product->relatedProductId, $printedProducts)));
 
         foreach ($groups as $group => $items) {
             /** @var PrintedProduct $item */
@@ -66,10 +68,13 @@ final readonly class PrintedProductListService
                 /** @var MediaFile|null $printFile */
                 $printFile = (new ArrayCollection($mediaFiles))->filter(fn (MediaFile $mediaFile) => $mediaFile->getOwnerId() === $item->relatedProductId && 'print_file' === $mediaFile->getType())->first();
 
+                $isPacked = $relatedProducts->findFirst(fn (int $index, $relatedProduct) => $relatedProduct->id === $item->relatedProductId)->isPacked;
+
                 $result[$group][] = $this->productDataTransformer->fromEntity(
                     product: $item,
                     cutFileUrl: $cutFile ? $this->assetUrlService->getLink($cutFile?->getPath()) : null,
-                    printFileUrl: $printFile ? $this->assetUrlService->getLink($printFile?->getPath()) : null
+                    printFileUrl: $printFile ? $this->assetUrlService->getLink($printFile?->getPath()) : null,
+                    isPacked: $isPacked,
                 );
             }
         }
