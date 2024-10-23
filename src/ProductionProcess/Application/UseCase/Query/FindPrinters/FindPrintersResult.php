@@ -18,7 +18,7 @@ final readonly class FindPrintersResult
      *
      * @param PrinterData[] $items the printers data
      */
-    public function __construct(public array $items)
+    public function __construct(public iterable $items)
     {
     }
 }

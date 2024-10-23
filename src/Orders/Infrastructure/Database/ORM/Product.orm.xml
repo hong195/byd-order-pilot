@@ -19,7 +19,6 @@
         </many-to-one>
 
         <field name="laminationType"
-               enum-type="App\Orders\Domain\ValueObject\LaminationType"
                column="lamination_type"
                length="255"
                nullable="true"
@@ -28,7 +27,6 @@
         <field name="length" type="bigint" column="length"/>
 
         <field name="filmType"
-               enum-type="App\Orders\Domain\ValueObject\FilmType"
                column="film_type"
                length="255"
                nullable="true"

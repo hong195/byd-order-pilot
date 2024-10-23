@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Orders\Domain\Aggregate;
 
-use App\Orders\Domain\Event\ProductCreatedEvent;
 use App\Orders\Domain\ValueObject\OrderType;
 use App\Shared\Domain\Aggregate\Aggregate;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -31,12 +30,14 @@ class Order extends Aggregate
     private Collection $products;
     private readonly \DateTimeInterface $dateAdded;
 
+    private Status $status;
+
     /**
      * Initializes a new instance of the class.
      *
      * @param Customer $customer the customer object
      */
-    public function __construct(public readonly Customer $customer)
+    public function __construct(public readonly Customer $customer, public readonly string $shippingAddress)
     {
         $this->dateAdded = new \DateTimeImmutable();
         $this->extras = new ArrayCollection([]);
@@ -158,4 +159,14 @@ class Order extends Aggregate
         $product->setOrder($this);
         $this->products->add($product);
     }
+
+	/**
+	 * Checks if all products are packed.
+	 *
+	 * @return bool true if all products are packed, false otherwise
+	 */
+	public function isPacked(): bool
+	{
+		return $this->products->forAll(fn(int $index, Product $product) => $product->isPacked());
+	}
 }

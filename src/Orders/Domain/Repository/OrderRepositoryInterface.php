@@ -22,10 +22,25 @@ interface OrderRepositoryInterface
      * @return Order|null the found order if exists, otherwise null
      */
     public function findById(int $id): ?Order;
+
     /**
-     * Finds queried records.
+     * Finds all orders that are ready for packing.
      *
-     * @return PaginationResult the result of the queried records
+     * @return Order[] an array of orders that are ready for packing
      */
-    public function findByFilter(OrderFilter $filter): PaginationResult;
+    public function findPacked(): array;
+
+    /**
+     * Finds orders that are either partially packed or not packed at all.
+     *
+     * @return Order[] an array of orders that are partially packed or not packed at all
+     */
+    public function findPartiallyPacked(): array;
+
+    /**
+     * Finds all orders with extras included.
+     *
+     * @return Order[] an array of orders with extras included
+     */
+    public function findOnlyWithExtras(): array;
 }

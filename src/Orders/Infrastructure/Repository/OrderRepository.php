@@ -5,11 +5,8 @@ declare(strict_types=1);
 namespace App\Orders\Infrastructure\Repository;
 
 use App\Orders\Domain\Aggregate\Order;
-use App\Orders\Domain\Repository\OrderFilter;
 use App\Orders\Domain\Repository\OrderRepositoryInterface;
-use App\Shared\Domain\Repository\PaginationResult;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\ORM\Tools\Pagination\Paginator;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -37,7 +34,7 @@ final class OrderRepository extends ServiceEntityRepository implements OrderRepo
     public function save(Order $order): void
     {
         $this->getEntityManager()->persist($order);
-		$this->getEntityManager()->flush();
+        $this->getEntityManager()->flush();
     }
 
     /**
@@ -53,26 +50,49 @@ final class OrderRepository extends ServiceEntityRepository implements OrderRepo
     }
 
     /**
-     * Finds paginated results.
+     * Finds Orders ready for packing.
      *
-     * @return PaginationResult the paginated results
+     * @return array An array of Orders entities that are ready for packing
      */
-    public function findByFilter(OrderFilter $filter): PaginationResult
+    public function findPacked(): array
     {
-        $qb = $this->createQueryBuilder('o');
+        return $this->createQueryBuilder('o')
+            ->innerJoin('o.products', 'p')
+            ->groupBy('o.id')
+            ->having('COUNT(p.id) = SUM(CASE WHEN p.isPacked = true THEN 1 ELSE 0 END)')
+            ->getQuery()
+            ->getResult();
+    }
 
-        if ($filter->perPage) {
-            $qb->setMaxResults($filter->perPage);
-        }
+    /**
+     * Finds Orders that are partially or not packed.
+     *
+     * @return array An array of Orders entities that are partially or not packed
+     */
+    public function findPartiallyPacked(): array
+    {
+        return $this->createQueryBuilder('o')
+            ->innerJoin('o.products', 'p')
+			->where('p.id IS NOT NULL')
+			->andWhere('p.isPacked = false')
+            ->groupBy('o.id')
+            ->getQuery()
+            ->getResult();
+    }
 
-        if ($filter->page) {
-            $qb->setFirstResult($filter->perPage * ($filter->page - 1));
-        }
+    /**
+     * Finds entities only with extras.
+     *
+     * @return array An array of entities that have extras
+     */
+    public function findOnlyWithExtras(): array
+    {
+        $qb = $this->createQueryBuilder('o')
+            ->leftJoin('o.products', 'p')    // Присоединяем обычные продукты
+            ->leftJoin('o.extras', 'e')      // Присоединяем экстра-продукты
+            ->where('p.id IS NULL')          // Убеждаемся, что продуктов нет
+            ->andWhere('e.id IS NOT NULL');  // Убеждаемся, что экстра-продукты есть
 
-        $query = $qb->getQuery();
-
-        $paginator = new Paginator($query);
-
-        return new PaginationResult($query->getResult(), $paginator->count());
+        return $qb->getQuery()->getResult();
     }
 }

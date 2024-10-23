@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated reprint services.">
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/Error/ErrorData.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/Error/ErrorDataTransformer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindErrors/FindErrorsHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindErrors/FindErrorsQuery.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindErrors/FindErrorsResult.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/ErrorFilter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/Error/FindErrorsAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateQueryInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateQueryInteractor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/ErrorRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/ErrorRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/ErrorRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/ErrorRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Repository/ErrorRepositoryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Repository/ErrorRepositoryTest.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added product search by filter.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/Service/Product/ProductListService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/Service/Product/ProductListService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateQueryInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateQueryInteractor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindProducts/FindProductsQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindProducts/FindProductsQuery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/Products/FindProducts.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/Products/FindProducts.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="dev" />
+        <entry key="$PROJECT_DIR$" value="staging" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -50,49 +44,19 @@
       </server>
     </servers>
   </component>
+  <component name="PhpStanProjectConfiguration">
+    <option name="selectedConfigurationId" value="2b84c86e-c887-410d-9d1e-1bcb0d9bafa7" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="order-pilot-php-fpm:latest">
     <include_path>
-      <path value="$PROJECT_DIR$/vendor/psr/log" />
-      <path value="$PROJECT_DIR$/vendor/psr/container" />
-      <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
-      <path value="$PROJECT_DIR$/vendor/psr/cache" />
-      <path value="$PROJECT_DIR$/vendor/lexik/jwt-authentication-bundle" />
-      <path value="$PROJECT_DIR$/vendor/fidry/cpu-core-counter" />
-      <path value="$PROJECT_DIR$/vendor/clue/ndjson-react" />
-      <path value="$PROJECT_DIR$/vendor/psr/clock" />
-      <path value="$PROJECT_DIR$/vendor/composer" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-invoker" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
-      <path value="$PROJECT_DIR$/vendor/symfony/cache" />
-      <path value="$PROJECT_DIR$/vendor/symfony/dotenv" />
-      <path value="$PROJECT_DIR$/vendor/symfony/serializer" />
-      <path value="$PROJECT_DIR$/vendor/symfony/framework-bundle" />
-      <path value="$PROJECT_DIR$/vendor/symfony/config" />
-      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
-      <path value="$PROJECT_DIR$/vendor/symfony/security-bundle" />
-      <path value="$PROJECT_DIR$/vendor/symfony/browser-kit" />
-      <path value="$PROJECT_DIR$/vendor/symfony/phpunit-bridge" />
-      <path value="$PROJECT_DIR$/vendor/symfony/runtime" />
-      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
-      <path value="$PROJECT_DIR$/vendor/symfony/security-http" />
-      <path value="$PROJECT_DIR$/vendor/react/stream" />
-      <path value="$PROJECT_DIR$/vendor/react/cache" />
-      <path value="$PROJECT_DIR$/vendor/react/event-loop" />
-      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
-      <path value="$PROJECT_DIR$/vendor/react/child-process" />
-      <path value="$PROJECT_DIR$/vendor/react/socket" />
-      <path value="$PROJECT_DIR$/vendor/react/dns" />
-      <path value="$PROJECT_DIR$/vendor/react/promise" />
-      <path value="$PROJECT_DIR$/vendor/phar-io/version" />
-      <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
-      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
-      <path value="$PROJECT_DIR$/vendor/nelmio/cors-bundle" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
-      <path value="$PROJECT_DIR$/vendor/phpstan/phpstan-symfony" />
-      <path value="$PROJECT_DIR$/vendor/phpstan/phpstan" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/migrations" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-migrations-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/routing" />
       <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/security-core" />
@@ -109,6 +73,73 @@
       <path value="$PROJECT_DIR$/vendor/symfony/clock" />
       <path value="$PROJECT_DIR$/vendor/symfony/dependency-injection" />
       <path value="$PROJECT_DIR$/vendor/symfony/cache-contracts" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/vendor/evenement/evenement" />
+      <path value="$PROJECT_DIR$/vendor/lcobucci/clock" />
+      <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/complexity" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/lines-of-code" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/cli-parser" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/persistence" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/sql-formatter" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/vendor/gesdinet/jwt-refresh-token-bundle" />
+      <path value="$PROJECT_DIR$/vendor/fakerphp/faker" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/vendor/squizlabs/php_codesniffer" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/vendor/escapestudios/symfony2-coding-standard" />
+      <path value="$PROJECT_DIR$/vendor/friendsofphp/php-cs-fixer" />
+      <path value="$PROJECT_DIR$/vendor/masterminds/html5" />
+      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/martin-georgiev/postgresql-for-doctrine" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/react/stream" />
+      <path value="$PROJECT_DIR$/vendor/react/cache" />
+      <path value="$PROJECT_DIR$/vendor/react/event-loop" />
+      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/vendor/react/child-process" />
+      <path value="$PROJECT_DIR$/vendor/react/socket" />
+      <path value="$PROJECT_DIR$/vendor/react/dns" />
+      <path value="$PROJECT_DIR$/vendor/react/promise" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/vendor/nelmio/cors-bundle" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/vendor/phpstan/phpstan-symfony" />
+      <path value="$PROJECT_DIR$/vendor/phpstan/phpstan" />
+      <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/psr/clock" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/lexik/jwt-authentication-bundle" />
+      <path value="$PROJECT_DIR$/vendor/fidry/cpu-core-counter" />
+      <path value="$PROJECT_DIR$/vendor/liip/test-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/vendor/clue/ndjson-react" />
       <path value="$PROJECT_DIR$/vendor/symfony/security-csrf" />
       <path value="$PROJECT_DIR$/vendor/symfony/options-resolver" />
       <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
@@ -125,56 +156,22 @@
       <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
       <path value="$PROJECT_DIR$/vendor/symfony/stopwatch" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php83" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
-      <path value="$PROJECT_DIR$/vendor/symfony/console" />
-      <path value="$PROJECT_DIR$/vendor/symfony/process" />
-      <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/sql-formatter" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/collections" />
-      <path value="$PROJECT_DIR$/vendor/evenement/evenement" />
-      <path value="$PROJECT_DIR$/vendor/lcobucci/clock" />
-      <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
-      <path value="$PROJECT_DIR$/vendor/gesdinet/jwt-refresh-token-bundle" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/complexity" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/migrations" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-migrations-bundle" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/persistence" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/orm" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/cli-parser" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/version" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/type" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/lines-of-code" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit" />
-      <path value="$PROJECT_DIR$/vendor/friendsofphp/php-cs-fixer" />
-      <path value="$PROJECT_DIR$/vendor/masterminds/html5" />
-      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
-      <path value="$PROJECT_DIR$/vendor/squizlabs/php_codesniffer" />
-      <path value="$PROJECT_DIR$/vendor/martin-georgiev/postgresql-for-doctrine" />
-      <path value="$PROJECT_DIR$/vendor/escapestudios/symfony2-coding-standard" />
-      <path value="$PROJECT_DIR$/vendor/fakerphp/faker" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/common" />
-      <path value="$PROJECT_DIR$/vendor/liip/test-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-invoker" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/vendor/symfony/cache" />
+      <path value="$PROJECT_DIR$/vendor/symfony/dotenv" />
+      <path value="$PROJECT_DIR$/vendor/symfony/serializer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/framework-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/browser-kit" />
+      <path value="$PROJECT_DIR$/vendor/symfony/phpunit-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/runtime" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-http" />
     </include_path>
   </component>
   <component name="ProblemsViewState">
@@ -204,11 +201,37 @@
     "PHPUnit.ErrorRepositoryTest.test_error_can_be_found_by_responsible_employee_id.executor": "Run",
     "PHPUnit.ErrorRepositoryTest.test_errors_can_be_found_by_filter.executor": "Run",
     "PHPUnit.ErrorRepositoryTest.test_find_by_process.executor": "Run",
+    "PHPUnit.ExtraMakerTest.test_can_successfully_make_extra.executor": "Run",
+    "PHPUnit.ExtraRepositoryTest.test_can_successfully_save.executor": "Run",
     "PHPUnit.HistoryRepositoryTest.executor": "Run",
     "PHPUnit.HistoryRepositoryTest.test_add.executor": "Run",
     "PHPUnit.HistoryRepositoryTest.test_true.executor": "Run",
     "PHPUnit.Main.executor": "Run",
+    "PHPUnit.OrderRepositoryTest.executor": "Run",
+    "PHPUnit.OrderRepositoryTest.test_can_find_only_with_extras.executor": "Run",
+    "PHPUnit.OrderRepositoryTest.test_can_find_packed.executor": "Run",
+    "PHPUnit.OrderRepositoryTest.test_can_find_partially_packed.executor": "Run",
+    "PHPUnit.OrderRepositoryTest.test_can_find_ready_for_packing.executor": "Run",
+    "PHPUnit.OrderRepositoryTest.test_can_successfully_add.executor": "Run",
+    "PHPUnit.OrderRepositoryTest.test_can_successfully_save.executor": "Run",
+    "PHPUnit.PackProductTest.executor": "Run",
+    "PHPUnit.PackProductTest.test_can_successfully_pack_product.executor": "Run",
+    "PHPUnit.PackProductTest.test_cant_pack_product_if_its_already_packed.executor": "Run",
+    "PHPUnit.PackProductTest.test_cant_pack_product_if_its_not_ready_for_packing.executor": "Run",
+    "PHPUnit.PackProductTest.test_cant_pack_product_if_order_product_do_not_exist.executor": "Run",
+    "PHPUnit.PackProductTest.test_if_product_packed_product_pack_event_dispatched.executor": "Run",
+    "PHPUnit.PrintedProductRepositoryTest.test_add.executor": "Run",
+    "PHPUnit.PrintedProductRepositoryTest.test_can_find_by_filter.executor": "Run",
+    "PHPUnit.PrintedProductRepositoryTest.test_can_find_by_multiple_related_product_ids.executor": "Run",
+    "PHPUnit.ProductRepositoryTest.test_can_find_by_filter.executor": "Run",
+    "PHPUnit.ProductRepositoryTest.test_can_successfully_save.executor": "Run",
     "PHPUnit.ReprintRollTest.test_cannot_reprint_not_existing_roll.executor": "Run",
+    "PHPUnit.SetExtraPackStatusServiceTest.test_can_successfully_pack_extra_status.executor": "Run",
+    "PHPUnit.UnPackProductTest.executor": "Run",
+    "PHPUnit.UnPackProductTest.test_can_successfully_unpack_product.executor": "Run",
+    "PHPUnit.UnPackProductTest.test_cannot_unpack_product_if_its_already_unpacked.executor": "Run",
+    "PHPUnit.UnPackProductTest.test_cant_unpack_not_existing_product.executor": "Run",
+    "PHPUnit.UnPackProductTest.test_if_product_packed_product_pack_event_dispatched.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
     "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
@@ -219,7 +242,7 @@
     "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm": "Docker",
     "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm": "Docker",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/src/ProductionProcess/Application/UseCase/Query/FindErrors",
+    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/src/Orders/Application/UseCase/Query",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -227,7 +250,7 @@
     "nodejs_package_manager_path": "npm",
     "php.add.doc.comment.for.fields.panel.add.php.doc.for.all.properties": "true",
     "php.override.implement.member.chooser.php.doc": "NONE",
-    "settings.editor.selected.configurable": "settings.php.quality.tools.phpstan",
+    "settings.editor.selected.configurable": "settings.php.quality.tools.php.code.sniffer",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -241,52 +264,52 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Query" />
+      <recent name="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/GetPrintedProductsProcessDetail" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindErrors" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query" />
       <recent name="$PROJECT_DIR$/tests" />
-      <recent name="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM" />
-      <recent name="$PROJECT_DIR$/config/packages/test" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller" />
-      <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct" />
-      <recent name="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain" />
-      <recent name="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository" />
-      <recent name="$PROJECT_DIR$/tests/Resources" />
+      <recent name="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders" />
+      <recent name="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/Products" />
+      <recent name="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Product" />
+      <recent name="$PROJECT_DIR$/src/Orders/Application/DTO/Product" />
+      <recent name="$PROJECT_DIR$/src/Orders/Application/Service/Product" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.ErrorRepositoryTest.test_error_can_be_found_by_responsible_employee_id">
-    <configuration name="ErrorManagementServiceTest.test_can_be_recorded_successfully" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Unit\ProductionProcess\Domain\Service\Roll\Error\ErrorManagementServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/Error/ErrorManagementServiceTest.php" method="test_can_be_recorded_successfully" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="ErrorManagementServiceTest.test_error_can_be_record_on_existing_process" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Unit\ProductionProcess\Domain\Service\Roll\Error\ErrorManagementServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/Error/ErrorManagementServiceTest.php" method="test_error_can_be_record_on_existing_process" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="ErrorManagementServiceTest.test_roll_must_exists" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Unit\ProductionProcess\Domain\Service\Roll\Error\ErrorManagementServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/Error/ErrorManagementServiceTest.php" method="test_roll_must_exists" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="ErrorRepositoryTest.test_error_can_be_found_by_responsible_employee_id" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Infrastructure\Repository\ErrorRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Repository/ErrorRepositoryTest.php" method="test_error_can_be_found_by_responsible_employee_id" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="ErrorRepositoryTest.test_errors_can_be_found_by_filter" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Infrastructure\Repository\ErrorRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Repository/ErrorRepositoryTest.php" method="test_errors_can_be_found_by_filter" scope="Method" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="PHPUnit.ProductRepositoryTest.test_can_find_by_filter">
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
       <method v="2" />
     </configuration>
+    <configuration name="PackProductTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\Orders\Domain\Service\Order\Product\PackProductTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/Product/PackProductTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ProductRepositoryTest.test_can_find_by_filter" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\Orders\Infrastructure\Repository\ProductRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/Orders/Infrastructure/Repository/ProductRepositoryTest.php" method="test_can_find_by_filter" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ProductRepositoryTest.test_can_successfully_save" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\Orders\Infrastructure\Repository\ProductRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/Orders/Infrastructure/Repository/ProductRepositoryTest.php" method="test_can_successfully_save" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="UnPackProductTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\Orders\Domain\Service\Order\Product\UnPackProductTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/Product/UnPackProductTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
+    <configuration name="UnPackProductTest.test_cant_unpack_not_existing_product" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\Orders\Domain\Service\Order\Product\UnPackProductTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/Orders/Domain/Service/Order/Product/UnPackProductTest.php" method="test_cant_unpack_not_existing_product" scope="Method" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.ErrorRepositoryTest.test_error_can_be_found_by_responsible_employee_id" />
-        <item itemvalue="PHPUnit.ErrorRepositoryTest.test_errors_can_be_found_by_filter" />
-        <item itemvalue="PHPUnit.ErrorManagementServiceTest.test_roll_must_exists" />
-        <item itemvalue="PHPUnit.ErrorManagementServiceTest.test_error_can_be_record_on_existing_process" />
-        <item itemvalue="PHPUnit.ErrorManagementServiceTest.test_can_be_recorded_successfully" />
+        <item itemvalue="PHPUnit.ProductRepositoryTest.test_can_find_by_filter" />
+        <item itemvalue="PHPUnit.ProductRepositoryTest.test_can_successfully_save" />
+        <item itemvalue="PHPUnit.UnPackProductTest" />
+        <item itemvalue="PHPUnit.UnPackProductTest.test_cant_unpack_not_existing_product" />
+        <item itemvalue="PHPUnit.PackProductTest" />
       </list>
     </recent_temporary>
   </component>
@@ -357,222 +380,7 @@
       <workItem from="1727956617347" duration="21509000" />
       <workItem from="1728238464282" duration="24399000" />
       <workItem from="1728378940929" duration="26820000" />
-    </task>
-    <task id="LOCAL-00330" summary="Updated history has parent roll id.">
-      <option name="closed" value="true" />
-      <created>1726246301723</created>
-      <option name="number" value="00330" />
-      <option name="presentableId" value="LOCAL-00330" />
-      <option name="project" value="LOCAL" />
-      <updated>1726246301723</updated>
-    </task>
-    <task id="LOCAL-00331" summary="Added films events.">
-      <option name="closed" value="true" />
-      <created>1726477364165</created>
-      <option name="number" value="00331" />
-      <option name="presentableId" value="LOCAL-00331" />
-      <option name="project" value="LOCAL" />
-      <updated>1726477364165</updated>
-    </task>
-    <task id="LOCAL-00332" summary="Added films events.">
-      <option name="closed" value="true" />
-      <created>1726477445476</created>
-      <option name="number" value="00332" />
-      <option name="presentableId" value="LOCAL-00332" />
-      <option name="project" value="LOCAL" />
-      <updated>1726477445476</updated>
-    </task>
-    <task id="LOCAL-00333" summary="Added inventory history entity.">
-      <option name="closed" value="true" />
-      <created>1726484490407</created>
-      <option name="number" value="00333" />
-      <option name="presentableId" value="LOCAL-00333" />
-      <option name="project" value="LOCAL" />
-      <updated>1726484490407</updated>
-    </task>
-    <task id="LOCAL-00334" summary="Added inventory history entity.">
-      <option name="closed" value="true" />
-      <created>1726484504668</created>
-      <option name="number" value="00334" />
-      <option name="presentableId" value="LOCAL-00334" />
-      <option name="project" value="LOCAL" />
-      <updated>1726484504668</updated>
-    </task>
-    <task id="LOCAL-00335" summary="Added inventory history entity.">
-      <option name="closed" value="true" />
-      <created>1726484508580</created>
-      <option name="number" value="00335" />
-      <option name="presentableId" value="LOCAL-00335" />
-      <option name="project" value="LOCAL" />
-      <updated>1726484508580</updated>
-    </task>
-    <task id="LOCAL-00336" summary="Added film history.">
-      <option name="closed" value="true" />
-      <created>1726579497483</created>
-      <option name="number" value="00336" />
-      <option name="presentableId" value="LOCAL-00336" />
-      <option name="project" value="LOCAL" />
-      <updated>1726579497483</updated>
-    </task>
-    <task id="LOCAL-00337" summary="Added new event triggered when film is used to print.">
-      <option name="closed" value="true" />
-      <created>1726585203971</created>
-      <option name="number" value="00337" />
-      <option name="presentableId" value="LOCAL-00337" />
-      <option name="project" value="LOCAL" />
-      <updated>1726585203971</updated>
-    </task>
-    <task id="LOCAL-00338" summary="Added event handler when film is deleted.">
-      <option name="closed" value="true" />
-      <created>1726589947610</created>
-      <option name="number" value="00338" />
-      <option name="presentableId" value="LOCAL-00338" />
-      <option name="project" value="LOCAL" />
-      <updated>1726589947610</updated>
-    </task>
-    <task id="LOCAL-00339" summary="Added film history.">
-      <option name="closed" value="true" />
-      <created>1726664402428</created>
-      <option name="number" value="00339" />
-      <option name="presentableId" value="LOCAL-00339" />
-      <option name="project" value="LOCAL" />
-      <updated>1726664402428</updated>
-    </task>
-    <task id="LOCAL-00340" summary="Added film history.">
-      <option name="closed" value="true" />
-      <created>1726664463494</created>
-      <option name="number" value="00340" />
-      <option name="presentableId" value="LOCAL-00340" />
-      <option name="project" value="LOCAL" />
-      <updated>1726664463494</updated>
-    </task>
-    <task id="LOCAL-00341" summary="Bug fix.">
-      <option name="closed" value="true" />
-      <created>1726733058255</created>
-      <option name="number" value="00341" />
-      <option name="presentableId" value="LOCAL-00341" />
-      <option name="project" value="LOCAL" />
-      <updated>1726733058255</updated>
-    </task>
-    <task id="LOCAL-00342" summary="Fix query.">
-      <option name="closed" value="true" />
-      <created>1726738781292</created>
-      <option name="number" value="00342" />
-      <option name="presentableId" value="LOCAL-00342" />
-      <option name="project" value="LOCAL" />
-      <updated>1726738781292</updated>
-    </task>
-    <task id="LOCAL-00343" summary="Added created at fild.">
-      <option name="closed" value="true" />
-      <created>1726812349315</created>
-      <option name="number" value="00343" />
-      <option name="presentableId" value="LOCAL-00343" />
-      <option name="project" value="LOCAL" />
-      <updated>1726812349315</updated>
-    </task>
-    <task id="LOCAL-00344" summary="Updated db structure namespaces">
-      <option name="closed" value="true" />
-      <created>1727092228474</created>
-      <option name="number" value="00344" />
-      <option name="presentableId" value="LOCAL-00344" />
-      <option name="project" value="LOCAL" />
-      <updated>1727092228474</updated>
-    </task>
-    <task id="LOCAL-00345" summary="Added new domain &quot;Production process&quot;">
-      <option name="closed" value="true" />
-      <created>1727093856421</created>
-      <option name="number" value="00345" />
-      <option name="presentableId" value="LOCAL-00345" />
-      <option name="project" value="LOCAL" />
-      <updated>1727093856421</updated>
-    </task>
-    <task id="LOCAL-00346" summary="Added new domain &quot;Production process&quot;">
-      <option name="closed" value="true" />
-      <created>1727093918266</created>
-      <option name="number" value="00346" />
-      <option name="presentableId" value="LOCAL-00346" />
-      <option name="project" value="LOCAL" />
-      <updated>1727093918266</updated>
-    </task>
-    <task id="LOCAL-00347" summary="Clean up commit.">
-      <option name="closed" value="true" />
-      <created>1727094089749</created>
-      <option name="number" value="00347" />
-      <option name="presentableId" value="LOCAL-00347" />
-      <option name="project" value="LOCAL" />
-      <updated>1727094089749</updated>
-    </task>
-    <task id="LOCAL-00348" summary="Clean up commit.">
-      <option name="closed" value="true" />
-      <created>1727094129581</created>
-      <option name="number" value="00348" />
-      <option name="presentableId" value="LOCAL-00348" />
-      <option name="project" value="LOCAL" />
-      <updated>1727094129581</updated>
-    </task>
-    <task id="LOCAL-00349" summary="Updated models.">
-      <option name="closed" value="true" />
-      <created>1727105758640</created>
-      <option name="number" value="00349" />
-      <option name="presentableId" value="LOCAL-00349" />
-      <option name="project" value="LOCAL" />
-      <updated>1727105758640</updated>
-    </task>
-    <task id="LOCAL-00350" summary="Clean up commit.">
-      <option name="closed" value="true" />
-      <created>1727165780267</created>
-      <option name="number" value="00350" />
-      <option name="presentableId" value="LOCAL-00350" />
-      <option name="project" value="LOCAL" />
-      <updated>1727165780267</updated>
-    </task>
-    <task id="LOCAL-00351" summary="Clean up commit.">
-      <option name="closed" value="true" />
-      <created>1727167120706</created>
-      <option name="number" value="00351" />
-      <option name="presentableId" value="LOCAL-00351" />
-      <option name="project" value="LOCAL" />
-      <updated>1727167120706</updated>
-    </task>
-    <task id="LOCAL-00352" summary="Clean up commit.">
-      <option name="closed" value="true" />
-      <created>1727167197486</created>
-      <option name="number" value="00352" />
-      <option name="presentableId" value="LOCAL-00352" />
-      <option name="project" value="LOCAL" />
-      <updated>1727167197486</updated>
-    </task>
-    <task id="LOCAL-00353" summary="Clean up commit.">
-      <option name="closed" value="true" />
-      <created>1727167330443</created>
-      <option name="number" value="00353" />
-      <option name="presentableId" value="LOCAL-00353" />
-      <option name="project" value="LOCAL" />
-      <updated>1727167330443</updated>
-    </task>
-    <task id="LOCAL-00354" summary="Clean up commit.">
-      <option name="closed" value="true" />
-      <created>1727167551725</created>
-      <option name="number" value="00354" />
-      <option name="presentableId" value="LOCAL-00354" />
-      <option name="project" value="LOCAL" />
-      <updated>1727167551725</updated>
-    </task>
-    <task id="LOCAL-00355" summary="Added product routes.">
-      <option name="closed" value="true" />
-      <created>1727178630820</created>
-      <option name="number" value="00355" />
-      <option name="presentableId" value="LOCAL-00355" />
-      <option name="project" value="LOCAL" />
-      <updated>1727178630820</updated>
-    </task>
-    <task id="LOCAL-00356" summary="Code adjustments.">
-      <option name="closed" value="true" />
-      <created>1727272957978</created>
-      <option name="number" value="00356" />
-      <option name="presentableId" value="LOCAL-00356" />
-      <option name="project" value="LOCAL" />
-      <updated>1727272957978</updated>
+      <workItem from="1728573826141" duration="14825000" />
     </task>
     <task id="LOCAL-00357" summary="Added printed product creator.">
       <option name="closed" value="true" />
@@ -750,7 +558,223 @@
       <option name="project" value="LOCAL" />
       <updated>1728459910255</updated>
     </task>
-    <option name="localTasksCounter" value="379" />
+    <task id="LOCAL-00379" summary="Added shipping address field.">
+      <option name="closed" value="true" />
+      <created>1728568442296</created>
+      <option name="number" value="00379" />
+      <option name="presentableId" value="LOCAL-00379" />
+      <option name="project" value="LOCAL" />
+      <updated>1728568442296</updated>
+    </task>
+    <task id="LOCAL-00380" summary="Added shippingAddress to api response.">
+      <option name="closed" value="true" />
+      <created>1728568634802</created>
+      <option name="number" value="00380" />
+      <option name="presentableId" value="LOCAL-00380" />
+      <option name="project" value="LOCAL" />
+      <updated>1728568634802</updated>
+    </task>
+    <task id="LOCAL-00381" summary="Fixed cut, print files are uploaded.">
+      <option name="closed" value="true" />
+      <created>1728572762906</created>
+      <option name="number" value="00381" />
+      <option name="presentableId" value="LOCAL-00381" />
+      <option name="project" value="LOCAL" />
+      <updated>1728572762906</updated>
+    </task>
+    <task id="LOCAL-00382" summary="Moved AssetUrlServiceInterface to shared domain.">
+      <option name="closed" value="true" />
+      <created>1728573502458</created>
+      <option name="number" value="00382" />
+      <option name="presentableId" value="LOCAL-00382" />
+      <option name="project" value="LOCAL" />
+      <updated>1728573502458</updated>
+    </task>
+    <task id="LOCAL-00383" summary="Added files for reading printed products.">
+      <option name="closed" value="true" />
+      <created>1728633229875</created>
+      <option name="number" value="00383" />
+      <option name="presentableId" value="LOCAL-00383" />
+      <option name="project" value="LOCAL" />
+      <updated>1728633229876</updated>
+    </task>
+    <task id="LOCAL-00384" summary="Added files for reading printed products.">
+      <option name="closed" value="true" />
+      <created>1728633234667</created>
+      <option name="number" value="00384" />
+      <option name="presentableId" value="LOCAL-00384" />
+      <option name="project" value="LOCAL" />
+      <updated>1728633234667</updated>
+    </task>
+    <task id="LOCAL-00385" summary="Added product process details.">
+      <option name="closed" value="true" />
+      <created>1728664745517</created>
+      <option name="number" value="00385" />
+      <option name="presentableId" value="LOCAL-00385" />
+      <option name="project" value="LOCAL" />
+      <updated>1728664745517</updated>
+    </task>
+    <task id="LOCAL-00386" summary="Added product process details.">
+      <option name="closed" value="true" />
+      <created>1728664749791</created>
+      <option name="number" value="00386" />
+      <option name="presentableId" value="LOCAL-00386" />
+      <option name="project" value="LOCAL" />
+      <updated>1728664749791</updated>
+    </task>
+    <task id="LOCAL-00387" summary="Added pack/unpack products.">
+      <option name="closed" value="true" />
+      <created>1728917189954</created>
+      <option name="number" value="00387" />
+      <option name="presentableId" value="LOCAL-00387" />
+      <option name="project" value="LOCAL" />
+      <updated>1728917189955</updated>
+    </task>
+    <task id="LOCAL-00388" summary="Added docker-compose.staging.yml file.">
+      <option name="closed" value="true" />
+      <created>1728976894639</created>
+      <option name="number" value="00388" />
+      <option name="presentableId" value="LOCAL-00388" />
+      <option name="project" value="LOCAL" />
+      <updated>1728976894639</updated>
+    </task>
+    <task id="LOCAL-00389" summary="Fixed printers.">
+      <option name="closed" value="true" />
+      <created>1728997156575</created>
+      <option name="number" value="00389" />
+      <option name="presentableId" value="LOCAL-00389" />
+      <option name="project" value="LOCAL" />
+      <updated>1728997156575</updated>
+    </task>
+    <task id="LOCAL-00390" summary="Added test for product pack service.">
+      <option name="closed" value="true" />
+      <created>1729004406714</created>
+      <option name="number" value="00390" />
+      <option name="presentableId" value="LOCAL-00390" />
+      <option name="project" value="LOCAL" />
+      <updated>1729004406715</updated>
+    </task>
+    <task id="LOCAL-00391" summary="Updated pack product service tests.">
+      <option name="closed" value="true" />
+      <created>1729004738212</created>
+      <option name="number" value="00391" />
+      <option name="presentableId" value="LOCAL-00391" />
+      <option name="project" value="LOCAL" />
+      <updated>1729004738212</updated>
+    </task>
+    <task id="LOCAL-00392" summary="Fixed enum reference.">
+      <option name="closed" value="true" />
+      <created>1729008163366</created>
+      <option name="number" value="00392" />
+      <option name="presentableId" value="LOCAL-00392" />
+      <option name="project" value="LOCAL" />
+      <updated>1729008163366</updated>
+    </task>
+    <task id="LOCAL-00393" summary="Added printed product check in.">
+      <option name="closed" value="true" />
+      <created>1729091463844</created>
+      <option name="number" value="00393" />
+      <option name="presentableId" value="LOCAL-00393" />
+      <option name="project" value="LOCAL" />
+      <updated>1729091463844</updated>
+    </task>
+    <task id="LOCAL-00394" summary="Updated product unpack/pack test.">
+      <option name="closed" value="true" />
+      <created>1729093908434</created>
+      <option name="number" value="00394" />
+      <option name="presentableId" value="LOCAL-00394" />
+      <option name="project" value="LOCAL" />
+      <updated>1729093908434</updated>
+    </task>
+    <task id="LOCAL-00395" summary="Added test for packing extra.">
+      <option name="closed" value="true" />
+      <created>1729095897539</created>
+      <option name="number" value="00395" />
+      <option name="presentableId" value="LOCAL-00395" />
+      <option name="project" value="LOCAL" />
+      <updated>1729095897539</updated>
+    </task>
+    <task id="LOCAL-00396" summary="Added test for packing extra.">
+      <option name="closed" value="true" />
+      <created>1729095901279</created>
+      <option name="number" value="00396" />
+      <option name="presentableId" value="LOCAL-00396" />
+      <option name="project" value="LOCAL" />
+      <updated>1729095901279</updated>
+    </task>
+    <task id="LOCAL-00397" summary="Added order repository tests.">
+      <option name="closed" value="true" />
+      <created>1729168629900</created>
+      <option name="number" value="00397" />
+      <option name="presentableId" value="LOCAL-00397" />
+      <option name="project" value="LOCAL" />
+      <updated>1729168629900</updated>
+    </task>
+    <task id="LOCAL-00398" summary="Added extra tests.">
+      <option name="closed" value="true" />
+      <created>1729168908890</created>
+      <option name="number" value="00398" />
+      <option name="presentableId" value="LOCAL-00398" />
+      <option name="project" value="LOCAL" />
+      <updated>1729168908890</updated>
+    </task>
+    <task id="LOCAL-00399" summary="Added product test.">
+      <option name="closed" value="true" />
+      <created>1729169097224</created>
+      <option name="number" value="00399" />
+      <option name="presentableId" value="LOCAL-00399" />
+      <option name="project" value="LOCAL" />
+      <updated>1729169097224</updated>
+    </task>
+    <task id="LOCAL-00400" summary="Updated order repository test &amp; added orders queries (packed, partially packed, only with extras)">
+      <option name="closed" value="true" />
+      <created>1729266704130</created>
+      <option name="number" value="00400" />
+      <option name="presentableId" value="LOCAL-00400" />
+      <option name="project" value="LOCAL" />
+      <updated>1729266704130</updated>
+    </task>
+    <task id="LOCAL-00401" summary="Updated order data structure (removed is packed)">
+      <option name="closed" value="true" />
+      <created>1729266773618</created>
+      <option name="number" value="00401" />
+      <option name="presentableId" value="LOCAL-00401" />
+      <option name="project" value="LOCAL" />
+      <updated>1729266773618</updated>
+    </task>
+    <task id="LOCAL-00402" summary="Simplify order repository findPartiallyPacked method.">
+      <option name="closed" value="true" />
+      <created>1729267615763</created>
+      <option name="number" value="00402" />
+      <option name="presentableId" value="LOCAL-00402" />
+      <option name="project" value="LOCAL" />
+      <updated>1729267615763</updated>
+    </task>
+    <task id="LOCAL-00403" summary="Remove debug code.">
+      <option name="closed" value="true" />
+      <created>1729268629996</created>
+      <option name="number" value="00403" />
+      <option name="presentableId" value="LOCAL-00403" />
+      <option name="project" value="LOCAL" />
+      <updated>1729268629996</updated>
+    </task>
+    <task id="LOCAL-00404" summary="Updated exception return in json format.">
+      <option name="closed" value="true" />
+      <created>1729269394892</created>
+      <option name="number" value="00404" />
+      <option name="presentableId" value="LOCAL-00404" />
+      <option name="project" value="LOCAL" />
+      <updated>1729269394892</updated>
+    </task>
+    <task id="LOCAL-00405" summary="Added product search by filter.">
+      <option name="closed" value="true" />
+      <created>1729595617771</created>
+      <option name="number" value="00405" />
+      <option name="presentableId" value="LOCAL-00405" />
+      <option name="project" value="LOCAL" />
+      <updated>1729595617771</updated>
+    </task>
+    <option name="localTasksCounter" value="406" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -785,32 +809,32 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added event handler when film is deleted." />
-    <MESSAGE value="Added film history." />
-    <MESSAGE value="Bug fix." />
-    <MESSAGE value="Fix query." />
-    <MESSAGE value="Added created at fild." />
-    <MESSAGE value="Updated db structure namespaces" />
-    <MESSAGE value="Added new domain &quot;Production process&quot;" />
-    <MESSAGE value="Updated models." />
-    <MESSAGE value="Clean up commit." />
-    <MESSAGE value="Added product routes." />
-    <MESSAGE value="Code adjustments." />
-    <MESSAGE value="Added printed product creator." />
-    <MESSAGE value="Rename commands." />
-    <MESSAGE value="Commands update." />
-    <MESSAGE value="Added printed products api routes." />
-    <MESSAGE value="Fixed null on getId()" />
-    <MESSAGE value="Added change sort order api." />
-    <MESSAGE value="Added RollWasSentToCutCheckInEvent." />
-    <MESSAGE value="Added tests for production process repositories (error, history)" />
-    <MESSAGE value="Updated tests:&#10;&#10;- replace unit test with functional one&#10;- remove in memory implementations&#10;- added Error entity mapping&#10;- added orm fixture packages" />
-    <MESSAGE value="Updated history tests." />
-    <MESSAGE value="Rename message to reason." />
-    <MESSAGE value="Small refactor." />
-    <MESSAGE value="Updated reprint commands." />
     <MESSAGE value="Updated reprint services." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated reprint services." />
+    <MESSAGE value="Added shipping address field." />
+    <MESSAGE value="Added shippingAddress to api response." />
+    <MESSAGE value="Fixed cut, print files are uploaded." />
+    <MESSAGE value="Moved AssetUrlServiceInterface to shared domain." />
+    <MESSAGE value="Added files for reading printed products." />
+    <MESSAGE value="Added product process details." />
+    <MESSAGE value="Added pack/unpack products." />
+    <MESSAGE value="Added docker-compose.staging.yml file." />
+    <MESSAGE value="Fixed printers." />
+    <MESSAGE value="Added test for product pack service." />
+    <MESSAGE value="Updated pack product service tests." />
+    <MESSAGE value="Fixed enum reference." />
+    <MESSAGE value="Added printed product check in." />
+    <MESSAGE value="Updated product unpack/pack test." />
+    <MESSAGE value="Added test for packing extra." />
+    <MESSAGE value="Added order repository tests." />
+    <MESSAGE value="Added extra tests." />
+    <MESSAGE value="Added product test." />
+    <MESSAGE value="Updated order repository test &amp; added orders queries (packed, partially packed, only with extras)" />
+    <MESSAGE value="Updated order data structure (removed is packed)" />
+    <MESSAGE value="Simplify order repository findPartiallyPacked method." />
+    <MESSAGE value="Remove debug code." />
+    <MESSAGE value="Updated exception return in json format." />
+    <MESSAGE value="Added product search by filter." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added product search by filter." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -825,9 +849,9 @@
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrintedProducts/FindPrintedProductsQueryHandler.php</url>
-          <line>44</line>
-          <option name="timeStamp" value="21" />
+          <url>file://$PROJECT_DIR$/vendor/doctrine/orm/src/EntityManagerInterface.php</url>
+          <line>185</line>
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

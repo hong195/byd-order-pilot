@@ -31,17 +31,12 @@ enum Process: string
     }
 
     /**
-     * Generates an array representing the workflow chain in order.
+     * Check if the current status is equal to the constant CUT to determine if the process is finished.
      *
-     * @return array the array representing the workflow chain with key-value pairs in order
+     * @return bool returns true if the process is finished, otherwise false
      */
-    private function chain(): array
+    public function isFinished(): bool
     {
-        return [
-            self::ORDER_CHECK_IN->value => self::PRINTING_CHECK_IN,
-            self::PRINTING_CHECK_IN->value => self::GLOW_CHECK_IN,
-            self::GLOW_CHECK_IN->value => self::CUTTING_CHECK_IN,
-            self::CUTTING_CHECK_IN->value => self::CUT,
-        ];
+        return self::CUTTING_CHECK_IN === $this;
     }
 }

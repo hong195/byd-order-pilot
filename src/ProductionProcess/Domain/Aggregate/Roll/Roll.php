@@ -288,8 +288,23 @@ class Roll extends Aggregate
         $this->printedProducts->clear();
     }
 
+    /**
+     * Gets the number of printed products with priority.
+     *
+     * @return int returns the number of printed products with priority
+     */
     public function getPrintedProductsWithPriority(): int
     {
         return $this->printedProducts->filter(fn (PrintedProduct $printedProduct) => true === $printedProduct->hasPriority())->count();
+    }
+
+    /**
+     * Determines if the process is finished.
+     *
+     * @return bool returns true if the process is finished, false otherwise
+     */
+    public function isFinished(): bool
+    {
+        return $this->process->isFinished();
     }
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Orders\Infrastructure\Api;
 
 use App\Orders\Application\UseCase\PrivateQueryInteractor;
+use App\Orders\Application\UseCase\Query\FindProducts\FindProductsQuery;
 use App\ProductionProcess\Infrastructure\Adapter\Order\OrderApiInterface;
 
 /**
@@ -34,4 +35,18 @@ final readonly class OrdersApi implements OrderApiInterface
 
         return $product->productData;
     }
+
+	/**
+	 * Finds products by their IDs.
+	 *
+	 * @param array $productIds An array of product IDs
+	 *
+	 * @return array An array of products
+	 */
+	public function findProductByIds(array $productIds): array
+	{
+		$products = $this->privateQueryInteractor->findProducts(new FindProductsQuery(productIds: $productIds));
+
+		return $products->items;
+	}
 }

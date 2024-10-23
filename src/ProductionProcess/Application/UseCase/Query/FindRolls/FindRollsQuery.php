@@ -7,7 +7,7 @@ namespace App\ProductionProcess\Application\UseCase\Query\FindRolls;
 use App\Shared\Application\Query\Query;
 
 /**
- * Class FindRollsQuery.
+ * Class GetPrintedProductsProcessDetailQuery.
  *
  * This class represents a query to find rolls.
  */

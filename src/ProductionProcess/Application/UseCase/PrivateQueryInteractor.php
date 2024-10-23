@@ -18,6 +18,8 @@ use App\ProductionProcess\Application\UseCase\Query\FindRolls\FindRollsQuery;
 use App\ProductionProcess\Application\UseCase\Query\FindRolls\FindRollsResult;
 use App\ProductionProcess\Application\UseCase\Query\GetOptions\GetOptionsQuery;
 use App\ProductionProcess\Application\UseCase\Query\GetOptions\GetOptionsQueryResult;
+use App\ProductionProcess\Application\UseCase\Query\GetPrintedProductsProcessDetail\GetPrintedProductsProcessDetailQuery;
+use App\ProductionProcess\Application\UseCase\Query\GetPrintedProductsProcessDetail\GetPrintedProductsProcessDetailResult;
 use App\Shared\Application\Query\QueryBusInterface;
 
 /**
@@ -114,5 +116,17 @@ readonly class PrivateQueryInteractor
     public function findErrors(FindErrorsQuery $query): FindErrorsResult
     {
         return $this->queryBus->execute($query);
+    }
+
+    /**
+     * Retrieves the printed product process detail by executing the GetPrintedProductsProcessDetailQuery.
+     *
+     * @param int[] $relatedProductsIds An array of related product IDs
+     *
+     * @return GetPrintedProductsProcessDetailResult the result of executing the GetPrintedProductsProcessDetailQuery
+     */
+    public function getPrintedProductProcessDetail(array $relatedProductsIds): GetPrintedProductsProcessDetailResult
+    {
+        return $this->queryBus->execute(new GetPrintedProductsProcessDetailQuery($relatedProductsIds));
     }
 }

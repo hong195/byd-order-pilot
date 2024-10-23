@@ -4,14 +4,11 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Application\UseCase\Query\FindPrintedProducts;
 
-use App\ProductionProcess\Application\DTO\PrintedProduct\PrintedProductDataTransformer;
+use App\ProductionProcess\Application\Service\PrintedProduct\PrintedProductListService;
 use App\ProductionProcess\Domain\Repository\PrintedProductFilter;
-use App\ProductionProcess\Domain\Repository\PrintedProductRepositoryInterface;
-use App\ProductionProcess\Domain\Service\PrintedProduct\GroupService;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Query\QueryHandlerInterface;
 use App\Shared\Domain\Service\AssertService;
-use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Handler class for finding printed products.
@@ -21,11 +18,9 @@ final readonly class FindPrintedProductsQueryHandler implements QueryHandlerInte
     /**
      * Class constructor.
      *
-     * @param AccessControlService              $accessControlService     the access control service instance
-     * @param PrintedProductRepositoryInterface $printedProductRepository the printed product repository instance
-     * @param PrintedProductDataTransformer     $productDataTransformer   the product data transformer instance
+     * @param AccessControlService $accessControlService the access control service instance
      */
-    public function __construct(private AccessControlService $accessControlService, private PrintedProductRepositoryInterface $printedProductRepository, private PrintedProductDataTransformer $productDataTransformer, private GroupService $groupService)
+    public function __construct(private AccessControlService $accessControlService, private PrintedProductListService $printedProductListService)
     {
     }
 
@@ -44,11 +39,7 @@ final readonly class FindPrintedProductsQueryHandler implements QueryHandlerInte
 
         $filter = new PrintedProductFilter($query->unassigned, $query->rollId);
 
-        $list = $this->printedProductRepository->findByFilter($filter);
-
-		$list = $this->groupService->handle(new ArrayCollection($list));
-
-		$listData = $this->productDataTransformer->fromLaminationGroup($list);
+        $listData = $this->printedProductListService->getList($filter);
 
         return new FindPrintedProductsQueryResult($listData);
     }

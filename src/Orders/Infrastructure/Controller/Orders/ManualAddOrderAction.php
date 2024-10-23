@@ -38,8 +38,7 @@ final readonly class ManualAddOrderAction
     {
         $manuallyAddCommand = new ManuallyAddOrderCommand(
             customerName: $request->get('customerName'),
-            filmType: $request->get('filmType'),
-            laminationType: $request->get('laminationType'),
+            shippingAddress: $request->get('shippingAddress'),
             customerNotes: $request->get('customerNotes'),
             packagingInstructions: $request->get('packagingInstructions'),
         );

@@ -10,24 +10,35 @@ namespace App\ProductionProcess\Application\DTO\PrintedProduct;
 final readonly class PrintedProductData
 {
     /**
-     * Class Constructor.
+     * Constructor for the Symfony application.
      *
-     * @param int         $id             the ID of the object
-     * @param bool        $hasPriority    whether the object has priority or not
-     * @param float       $length         the length of the object
-     * @param string      $filmType       the type of the film for the object
-     * @param string|null $laminationType the type of lamination for the object (optional)
-     * @param string|null $orderNumber    the order number for the object (optional)
+     * @param int                     $id               the ID of the object
+     * @param int                     $relatedProductId the ID of the related product
+     * @param bool                    $hasPriority      flag indicating priority status
+     * @param float                   $length           the length of the object
+     * @param string                  $filmType         the type of film
+     * @param string|null             $orderNumber      the order number, nullable
+     * @param bool                    $isReprint        flag indicating reprint status, default is false
+     * @param int|null                $rollId           the roll ID, nullable
+     * @param string|null             $laminationType   the type of lamination, nullable
+     * @param \DateTimeInterface|null $addedAt          the date when added, nullable
+     * @param string|null             $cutFile          the cut file name, nullable
+     * @param string|null             $printFile        the print file name, nullable
      */
     public function __construct(
         public int $id,
+        public int $relatedProductId,
         public bool $hasPriority,
         public float $length,
         public string $filmType,
         public ?string $orderNumber,
+        public bool $isReprint = false,
         public ?int $rollId = null,
         public ?string $laminationType = null,
-		public ?\DateTimeInterface $addedAt = null,
+        public ?\DateTimeInterface $addedAt = null,
+        public ?string $cutFile = null,
+        public ?string $printFile = null,
+		public bool $isPacked = false,
     ) {
     }
 }

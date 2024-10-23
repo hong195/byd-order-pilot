@@ -4,8 +4,12 @@ declare(strict_types=1);
 
 namespace App\Tests\Tools;
 
+use App\Orders\Domain\Aggregate\Order;
+use App\Orders\Domain\Aggregate\Product;
 use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
+use App\Tests\Resource\Fixture\Orders\OrderFixture;
+use App\Tests\Resource\Fixture\Orders\ProductFixture;
 use App\Tests\Resource\Fixture\PrintedProductFixture;
 use App\Tests\Resource\Fixture\RollFixture;
 use App\Tests\Resource\Fixture\UserFixture;
@@ -58,5 +62,23 @@ trait FixtureTools
         $printedProduct = $executor->getReferenceRepository()->getReference(PrintedProductFixture::REFERENCE, PrintedProduct::class);
 
         return $printedProduct;
+    }
+
+    public function loadProduct(): Product
+    {
+        $executor = $this->getDatabaseTools()->loadFixtures([ProductFixture::class], true);
+        /** @var Product $product */
+        $product = $executor->getReferenceRepository()->getReference(ProductFixture::REFERENCE, Product::class);
+
+        return $product;
+    }
+
+    public function loadOrder(): Order
+    {
+        $executor = $this->getDatabaseTools()->loadFixtures([OrderFixture::class], true);
+        /** @var Order $order */
+        $order = $executor->getReferenceRepository()->getReference(OrderFixture::REFERENCE, Order::class);
+
+        return $order;
     }
 }

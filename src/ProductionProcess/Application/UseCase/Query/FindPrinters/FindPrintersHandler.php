@@ -38,7 +38,7 @@ final readonly class FindPrintersHandler implements QueryHandlerInterface
     {
         AssertService::true($this->accessControlService->isGranted(), 'Access denied');
 
-        $printers = $this->printerRepository->findAll();
+        $printers = $this->printerRepository->all();
 
         $printersData = $this->printerDataTransformer->fromEntityList($printers);
 

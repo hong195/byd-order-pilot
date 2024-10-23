@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Orders\Application\UseCase\Command\PackExtra;
 
 use App\Orders\Domain\Exceptions\CantPackExtraException;
-use App\Orders\Domain\Service\Order\Extra\SetPackExtra;
+use App\Orders\Domain\Service\Order\Extra\SetExtraPackStatusService;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Command\CommandHandlerInterface;
 use App\Shared\Domain\Service\AssertService;
@@ -13,7 +13,7 @@ use App\Shared\Domain\Service\AssertService;
 /**
  * Class PackExtraCommandHandler.
  *
- * Handles the PackExtraCommand by invoking the SetPackExtra service.
+ * Handles the PackExtraCommand by invoking the SetExtraPackStatusService service.
  */
 final class PackExtraCommandHandler implements CommandHandlerInterface
 {
@@ -22,7 +22,7 @@ final class PackExtraCommandHandler implements CommandHandlerInterface
      *
      * @param AccessControlService $accessControlService the access control service
      */
-    public function __construct(private SetPackExtra $setPackExtra, private AccessControlService $accessControlService)
+    public function __construct(private SetExtraPackStatusService $setPackExtra, private AccessControlService $accessControlService)
     {
     }
 

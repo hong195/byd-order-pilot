@@ -7,13 +7,19 @@ namespace App\Orders\Application\UseCase\Query\FindProducts;
 use App\Shared\Application\Query\Query;
 
 /**
- * Class FindOrdersQuery.
+ * Class FindOrdersWithExtrasQuery.
  *
  * @readonly
  */
 final readonly class FindProductsQuery extends Query
 {
-    public function __construct(public ?int $orderId = null)
+    /**
+     * Constructor for the Symfony application.
+     *
+     * @param int|null $orderId    Order ID representing the id of the order
+     * @param int[]    $productIds An array of product IDs
+     */
+    public function __construct(public ?int $orderId = null, public array $productIds = [])
     {
     }
 }

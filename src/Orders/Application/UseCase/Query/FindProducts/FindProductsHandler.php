@@ -4,30 +4,22 @@ declare(strict_types=1);
 
 namespace App\Orders\Application\UseCase\Query\FindProducts;
 
-use App\Orders\Application\DTO\Order\OrderDataTransformer;
-use App\Orders\Application\DTO\Product\ProductDataTransformer;
-use App\Orders\Domain\Repository\OrderFilter;
-use App\Orders\Domain\Repository\ProductRepositoryInterface;
-use App\Orders\Infrastructure\Repository\OrderRepository;
+use App\Orders\Application\Service\Product\ProductListService;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Query\QueryHandlerInterface;
 use App\Shared\Domain\Service\AssertService;
 
 /**
- * Class FindOrdersHandler.
+ * Class FindPackedOrdersHandler.
  */
 final readonly class FindProductsHandler implements QueryHandlerInterface
 {
     /**
-     * Constructs a new instance of the class.
-     *
-     * @param OrderRepository      $orderRepository      the order repository instance
-     * @param AccessControlService $accessControlService the access control service instance
+     * Class constructor.
      */
     public function __construct(
-		private ProductRepositoryInterface $productRepository,
         private AccessControlService $accessControlService,
-        private ProductDataTransformer $productDataTransformer,
+        private ProductListService $productListService,
     ) {
     }
 
@@ -42,10 +34,8 @@ final readonly class FindProductsHandler implements QueryHandlerInterface
     {
         AssertService::true($this->accessControlService->isGranted(), 'Access denied');
 
-        $result = $this->productRepository->findByOrderId($query->orderId);
+        $result = $this->productListService->getList(orderId: $query->orderId, productIds: $query->productIds);
 
-        $productsData = $this->productDataTransformer->fromProductsEntityList($result);
-
-        return new FindProductsResult($productsData);
+        return new FindProductsResult($result);
     }
 }

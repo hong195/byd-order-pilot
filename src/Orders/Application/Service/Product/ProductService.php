@@ -9,8 +9,6 @@ use App\Orders\Domain\Aggregate\Product;
 use App\Orders\Domain\Event\ProductCreatedEvent;
 use App\Orders\Domain\Factory\ProductFactory;
 use App\Orders\Domain\Repository\ProductRepositoryInterface;
-use App\Orders\Domain\ValueObject\FilmType;
-use App\Orders\Domain\ValueObject\LaminationType;
 use App\Orders\Infrastructure\Repository\OrderRepository;
 use App\Shared\Infrastructure\Repository\MediaFileRepository;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -24,7 +22,7 @@ final readonly class ProductService
      * @param OrderRepository     $orderRepository     the order repository instance
      * @param MediaFileRepository $mediaFileRepository the media file repository instance
      */
-    public function __construct(private OrderRepository $orderRepository, private ProductFactory $productFactory, private ProductRepositoryInterface $productRepository, private MediaFileRepository $mediaFileRepository, private EventDispatcherInterface $eventDispatcher)
+    public function __construct(private OrderRepository $orderRepository, private ProductFactory $productFactory, private ProductRepositoryInterface $productRepository, private MediaFileRepository $mediaFileRepository)
     {
     }
 
@@ -37,13 +35,15 @@ final readonly class ProductService
         }
 
         $product = $this->productFactory->make(
-            filmType: FilmType::from($dto->filmType),
+            filmType: $dto->filmType,
             length: $dto->length,
-            laminationType: $dto->laminationType ? LaminationType::from($dto->laminationType) : null
+            laminationType: $dto->laminationType
         );
 
         $cutFile = $dto->cutFileId ? $this->mediaFileRepository->findById($dto->cutFileId) : null;
         $printFile = $dto->printFileId ? $this->mediaFileRepository->findById($dto->printFileId) : null;
+
+        $this->productRepository->save($product);
 
         if ($cutFile) {
             $product->setCutFile($cutFile);
@@ -53,13 +53,9 @@ final readonly class ProductService
             $product->setPrintFile($printFile);
         }
 
-        $this->productRepository->add($product);
-
         $order->addProduct($product);
 
         $this->orderRepository->save($order);
-
-        $this->eventDispatcher->dispatch(new ProductCreatedEvent($product->getId()));
 
         return $product;
     }

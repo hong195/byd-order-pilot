@@ -27,12 +27,12 @@ class PrintedProduct
     /**
      * Constructs a new instance of the class.
      *
-     * @param int       $productId   the product id
+     * @param int       $relatedProductId   the product id
      * @param string    $orderNumber the order number
      * @param string    $filmType    the film type
      * @param int|float $length      the length
      */
-    public function __construct(public readonly int $productId, public readonly string $orderNumber, public readonly string $filmType, public readonly int|float $length)
+    public function __construct(public readonly int $relatedProductId, public readonly string $orderNumber, public readonly string $filmType, public readonly int|float $length)
     {
         $this->dateAdded = new \DateTimeImmutable();
     }

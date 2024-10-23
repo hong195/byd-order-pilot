@@ -3,7 +3,6 @@
 namespace App\ProductionProcess\Infrastructure\Repository;
 
 use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
-use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
 use App\ProductionProcess\Domain\Repository\PrintedProductFilter;
 use App\ProductionProcess\Domain\Repository\PrintedProductRepositoryInterface;
 use App\ProductionProcess\Domain\ValueObject\Status;
@@ -63,7 +62,7 @@ class PrintedProductRepository extends ServiceEntityRepository implements Printe
     /**
      * Finds rolls by roll type.
      *
-     * @return Roll[] an array of rolls matching the roll type
+     * @return PrintedProduct[] an array of rolls matching the roll type
      */
     public function findByStatus(Status $status): array
     {
@@ -82,7 +81,7 @@ class PrintedProductRepository extends ServiceEntityRepository implements Printe
     /**
      * Finds PrintedProducts by Roll ID.
      *
-     * @return array an array of PrintedProduct objects matching the Roll ID
+     * @return PrintedProduct[] an array of PrintedProduct objects matching the Roll ID
      */
     public function findByFilter(PrintedProductFilter $filter): array
     {
@@ -97,6 +96,23 @@ class PrintedProductRepository extends ServiceEntityRepository implements Printe
         if ($filter->unassigned) {
             $qb->andWhere('p.roll IS NULL');
         }
+
+        return $qb->getQuery()->getResult();
+    }
+
+    /**
+     * Finds an array of PrintedProducts by their IDs.
+     *
+     * @param iterable<int> $relatedProductsIds The array of IDs to find PrintedProducts for
+     *
+     * @return PrintedProduct[] An array of PrintedProduct objects corresponding to the provided IDs
+     */
+    public function findByRelatedProductIds(iterable $relatedProductsIds): array
+    {
+        $qb = $this->createQueryBuilder('p');
+
+        $qb->where('p.relatedProductId IN (:ids)')
+            ->setParameter('ids', $relatedProductsIds);
 
         return $qb->getQuery()->getResult();
     }

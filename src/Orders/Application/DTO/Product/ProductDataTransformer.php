@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Orders\Application\DTO\Product;
 
-use App\Orders\Application\Service\AssetUrlServiceInterface;
 use App\Orders\Domain\Aggregate\Product;
+use App\Shared\Application\Service\AssetUrlServiceInterface;
 
 /**
  * OrderData class represents product data.
@@ -38,6 +38,7 @@ final readonly class ProductDataTransformer
 
         return $productData;
     }
+
     /**
      * Converts an Orders entity to an OrderData object.
      *
@@ -50,12 +51,13 @@ final readonly class ProductDataTransformer
         return new ProductData(
             id: $product->getId(),
             length: $product->getLength(),
-            filmType: $product->getFilmType()->value,
+            filmType: $product->getFilmType(),
             orderNumber: $product->getOrderNumber(),
             cutFile: $product->getCutFile() ? $this->assetUrlService->getLink($product->getCutFile()->getPath()) : null,
             printFile: $product->getPrintFile() ? $this->assetUrlService->getLink($product->getPrintFile()->getPath()) : null,
             addedAt: $product->getDateAdded(),
-            laminationType: $product->getLaminationType()?->value,
+            orderId: $product->getOrder()?->getId(),
+            laminationType: $product->getLaminationType(),
         );
     }
 }

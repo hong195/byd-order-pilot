@@ -14,6 +14,8 @@
 
         <field name="orderNumber" type="string" column="order_number" nullable="true"/>
 
+        <field name="shippingAddress" type="text" column="shipping_address" nullable="true"/>
+
         <field name="packagingInstructions" type="text" column="packaging_instructions" nullable="true"/>
 
         <one-to-many field="extras" target-entity="App\Orders\Domain\Aggregate\Extra" mapped-by="order"

@@ -40,8 +40,9 @@ final readonly class ManuallyAddOrderCommandHandler implements CommandHandlerInt
 
         $orderData = new ManualCreateOrderDTO(
             customerName: $command->customerName,
-            customerNotes: $command->customerNotes,
-            packagingInstructions: $command->packagingInstructions,
+			shippingAddress: $command->shippingAddress,
+			customerNotes: $command->customerNotes,
+			packagingInstructions: $command->packagingInstructions,
         );
 
         $order = $this->manuallyAddOrderService->create($orderData);

@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Orders\Infrastructure\Controller\Orders\Products;
 
 use App\Orders\Application\UseCase\PrivateQueryInteractor;
+use App\Orders\Application\UseCase\Query\FindProducts\FindProductsQuery;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Attribute\Route;
@@ -30,7 +30,7 @@ final readonly class FindProducts
      */
     public function __invoke(int $orderId): JsonResponse
     {
-        $products = $this->privateQueryInteractor->findProducts($orderId);
+        $products = $this->privateQueryInteractor->findProducts(new FindProductsQuery(orderId: $orderId));
 
         $res = $this->normalizer->normalize($products);
 

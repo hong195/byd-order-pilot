@@ -12,20 +12,20 @@ use App\Shared\Application\Command\CommandInterface;
 readonly class ManuallyAddOrderCommand implements CommandInterface
 {
     /**
-     * Class constructor.
+     * Constructor for initializing customer information and shipping details.
      *
-     * @param string      $customerName          the name of the customer
-     * @param string|null $filmType              the type of film
-     * @param string|null $laminationType        the type of lamination
-     * @param string|null $customerNotes         any notes provided by the customer
-     * @param string|null $packagingInstructions the packaging instructions
+     * @param string      $customerName          The name of the customer
+     * @param string      $shippingAddress       The shipping address of the customer
+     * @param string|null $customerNotes         Additional notes provided by the customer (optional)
+     * @param string|null $packagingInstructions Special packaging instructions (optional)
      */
     public function __construct(
         public string $customerName,
-        public ?string $filmType,
-        public ?string $laminationType = null,
+        public string $shippingAddress,
         public ?string $customerNotes = null,
         public ?string $packagingInstructions = null,
+		public ?int $cutFileId = null,
+		public ?int $printFileId = null,
     ) {
     }
 }

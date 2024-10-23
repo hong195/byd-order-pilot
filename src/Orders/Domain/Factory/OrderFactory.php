@@ -25,10 +25,11 @@ final class OrderFactory
      *
      * @return Order The created order
      */
-    public function make(Customer $customer, string $orderNumber = null): Order
+    public function make(Customer $customer, string $shippingAddress, string $orderNumber = null): Order
     {
         $order = new Order(
             customer: $customer,
+			shippingAddress: $shippingAddress
         );
 
         if ($orderNumber) {
