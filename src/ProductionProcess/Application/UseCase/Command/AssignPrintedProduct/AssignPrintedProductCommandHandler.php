@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Application\UseCase\Command\AssignPrintedProduct;
 
-use App\ProductionProcess\Domain\Service\PrintedProduct\ChangeStatus;
 use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\PrintedProductsCheckInService;
-use App\ProductionProcess\Domain\ValueObject\Status;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Command\CommandHandlerInterface;
 use App\Shared\Domain\Service\AssertService;
@@ -20,24 +18,22 @@ readonly class AssignPrintedProductCommandHandler implements CommandHandlerInter
     /**
      * Class MyClass.
      */
-    public function __construct(private ChangeStatus $changeStatus, private AccessControlService $accessControlService, private PrintedProductsCheckInService $checkInService)
+    public function __construct(private AccessControlService $accessControlService, private PrintedProductsCheckInService $checkInService)
     {
     }
 
-	/**
-	 * Invokes the command to change the order priority.
-	 *
-	 * @param AssignPrintedProductCommand $command the change order priority command instance
-	 *
-	 * @throws NotFoundHttpException if the roll is not found
-	 * @throws \Exception
-	 */
+    /**
+     * Invokes the command to change the order priority.
+     *
+     * @param AssignPrintedProductCommand $command the change order priority command instance
+     *
+     * @throws NotFoundHttpException if the roll is not found
+     * @throws \Exception
+     */
     public function __invoke(AssignPrintedProductCommand $command): void
     {
         AssertService::true($this->accessControlService->isGranted(), 'Not change priority.');
 
-        $this->changeStatus->handle($command->id, Status::ASSIGNABLE);
-
-		$this->checkInService->checkIn();
+        $this->checkInService->checkIn();
     }
 }

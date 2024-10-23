@@ -14,7 +14,6 @@ use App\ProductionProcess\Domain\Service\Inventory\AvailableFilmServiceInterface
 use App\ProductionProcess\Domain\Service\PrintedProduct\SortService as PrintedProductSortService;
 use App\ProductionProcess\Domain\Service\Roll\RollMaker;
 use App\ProductionProcess\Domain\ValueObject\Process;
-use App\ProductionProcess\Domain\ValueObject\Status;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
@@ -206,7 +205,7 @@ final class PrintedProductsCheckInService implements PrintedProductCheckInInterf
     private function initPrintedProducts(): void
     {
         $this->printedProducts = new ArrayCollection();
-        $assignablePrintedProducts = $this->printedProductRepository->findByStatus(Status::ASSIGNABLE);
+        $assignablePrintedProducts = $this->printedProductRepository->findUnassign();
 
         foreach ($assignablePrintedProducts as $printedProduct) {
             $this->printedProducts->add($printedProduct);

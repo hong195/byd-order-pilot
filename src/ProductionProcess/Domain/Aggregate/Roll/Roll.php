@@ -8,7 +8,6 @@ use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use App\ProductionProcess\Domain\Aggregate\Printer;
 use App\ProductionProcess\Domain\Events\RollProcessWasUpdatedEvent;
 use App\ProductionProcess\Domain\ValueObject\Process;
-use App\ProductionProcess\Domain\ValueObject\Status;
 use App\Shared\Domain\Aggregate\Aggregate;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -266,7 +265,6 @@ class Roll extends Aggregate
     public function addPrintedProduct(PrintedProduct $printedProduct): void
     {
         $printedProduct->setRoll($this);
-        $printedProduct->changeStatus(Status::ASSIGNED);
         $this->printedProducts->add($printedProduct);
     }
 

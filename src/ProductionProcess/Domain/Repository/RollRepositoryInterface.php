@@ -3,7 +3,6 @@
 namespace App\ProductionProcess\Domain\Repository;
 
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
-use App\ProductionProcess\Domain\ValueObject\Status;
 
 /**
  * This interface represents a Roll repository.
