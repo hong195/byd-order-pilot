@@ -26,7 +26,7 @@ class HistoryRepository extends ServiceEntityRepository implements HistoryReposi
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, History::class);
-    }kbcjv m,
+    }
 
     /**
      * Saves a History entity.
