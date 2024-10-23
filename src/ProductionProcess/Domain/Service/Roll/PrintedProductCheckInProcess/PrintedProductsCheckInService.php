@@ -48,7 +48,7 @@ final class PrintedProductsCheckInService implements PrintedProductCheckInInterf
      *
      * @throws \Exception if an error occurs during the check-in process
      */
-    public function checkIn(): void
+    public function checkIn(array $productIds = []): void
     {
         $this->initData();
 
