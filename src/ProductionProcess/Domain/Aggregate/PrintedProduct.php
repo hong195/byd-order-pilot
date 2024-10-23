@@ -19,8 +19,8 @@ class PrintedProduct
     private ?Roll $roll = null;
     private ?int $sortOrder = null;
     private bool $hasPriority = false;
-    private readonly \DateTimeInterface $dateAdded;
     private bool $isReprint = false;
+    private readonly \DateTimeInterface $dateAdded;
 
     /**
      * Constructs a new instance of the class.
@@ -75,11 +75,15 @@ class PrintedProduct
         return $this->hasPriority;
     }
 
+    /**
+     * Unassigns the roll.
+     */
     public function unassign(): void
     {
         $this->roll = null;
         $this->sortOrder = null;
     }
+
     /**
      * Returns the roll type.
      *
@@ -159,6 +163,7 @@ class PrintedProduct
     {
         $this->roll = $roll;
     }
+
     /**
      * Checks if the item is a reprint.
      *

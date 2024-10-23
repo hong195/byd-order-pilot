@@ -50,14 +50,15 @@ final readonly class ProductDataTransformer
     {
         return new ProductData(
             id: $product->getId(),
-            length: $product->getLength(),
-            filmType: $product->getFilmType(),
-            orderNumber: $product->getOrderNumber(),
-            cutFile: $product->getCutFile() ? $this->assetUrlService->getLink($product->getCutFile()->getPath()) : null,
-            printFile: $product->getPrintFile() ? $this->assetUrlService->getLink($product->getPrintFile()->getPath()) : null,
-            addedAt: $product->getDateAdded(),
-            orderId: $product->getOrder()?->getId(),
-            laminationType: $product->getLaminationType(),
+			length: $product->getLength(),
+			filmType: $product->getFilmType(),
+			orderNumber: $product->getOrderNumber(),
+			cutFile: $product->getCutFile() ? $this->assetUrlService->getLink($product->getCutFile()->getPath()) : null,
+			printFile: $product->getPrintFile() ? $this->assetUrlService->getLink($product->getPrintFile()->getPath()) : null,
+			isPacked: $product->isPacked(),
+			addedAt: $product->getDateAdded(),
+			orderId: $product->getOrder()?->getId(),
+			laminationType: $product->getLaminationType(),
         );
     }
 }

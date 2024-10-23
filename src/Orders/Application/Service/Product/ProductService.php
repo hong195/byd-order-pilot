@@ -22,7 +22,7 @@ final readonly class ProductService
      * @param OrderRepository     $orderRepository     the order repository instance
      * @param MediaFileRepository $mediaFileRepository the media file repository instance
      */
-    public function __construct(private OrderRepository $orderRepository, private ProductFactory $productFactory, private ProductRepositoryInterface $productRepository, private MediaFileRepository $mediaFileRepository)
+    public function __construct(private OrderRepository $orderRepository, private ProductFactory $productFactory, private ProductRepositoryInterface $productRepository, private MediaFileRepository $mediaFileRepository, private EventDispatcherInterface $eventDispatcher)
     {
     }
 
@@ -56,6 +56,8 @@ final readonly class ProductService
         $order->addProduct($product);
 
         $this->orderRepository->save($order);
+
+        $this->eventDispatcher->dispatch(new ProductCreatedEvent(productId: $product->getId()));
 
         return $product;
     }
