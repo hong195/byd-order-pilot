@@ -8,7 +8,8 @@
 
 namespace App\ProductionProcess\Application\UseCase\Query\RollHistoryStatistics;
 
-use App\ProductionProcess\Application\UseCase\Query\Repository\RollHistoryStatisticsRepositoryInterface;
+use App\ProductionProcess\Domain\Aggregate\Roll\History\History;
+use App\ProductionProcess\Domain\Repository\RollHistoryStatisticsRepositoryInterface;
 
 /**
  *
@@ -25,12 +26,10 @@ final readonly class FetchRollHistoryStatisticsQueryHandler
     /**
      * @param FetchRollHistoryStatisticsQuery $query
      *
-     * @return RollHistoryStatisticsResult
+     * @return History[]
      */
-    public function __invoke(FetchRollHistoryStatisticsQuery $query): RollHistoryStatisticsResult
+    public function __invoke(FetchRollHistoryStatisticsQuery $query): array
     {
-        $data = $this->repository->findByCriteria($query->getCriteria());
-
-        return new RollHistoryStatisticsResult($data);
+        return $this->repository->findByCriteria($query->getCriteria());
     }
 }

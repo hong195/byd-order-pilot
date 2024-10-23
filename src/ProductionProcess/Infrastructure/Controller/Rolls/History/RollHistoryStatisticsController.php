@@ -59,6 +59,7 @@ readonly class RollHistoryStatisticsController
         $query = new FetchRollHistoryStatisticsQuery($criteria);
         $result = $this->handler->__invoke($query);
 
-        return new JsonResponse($result->toArray());
+
+        return new JsonResponse($result);
     }
 }

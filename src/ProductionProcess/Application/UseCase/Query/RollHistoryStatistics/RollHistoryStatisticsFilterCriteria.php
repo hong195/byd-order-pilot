@@ -23,10 +23,10 @@ final readonly class RollHistoryStatisticsFilterCriteria
      * @param \DateTimeImmutable|null $to
      */
     public function __construct(
-        private ?int $employeeId = null,
-        private ?Process $process = null,
-        private ?\DateTimeImmutable $from = null,
-        private ?\DateTimeImmutable $to = null
+        public ?int $employeeId = null,
+        public ?Process $process = null,
+        public ?\DateTimeImmutable $from = null,
+        public ?\DateTimeImmutable $to = null
     ) {
     }
 

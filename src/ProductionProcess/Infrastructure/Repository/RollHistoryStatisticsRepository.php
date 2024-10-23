@@ -6,36 +6,37 @@
 
 namespace App\ProductionProcess\Infrastructure\Repository;
 
-use App\ProductionProcess\Application\UseCase\Query\Repository\RollHistoryStatisticsRepositoryInterface;
 use App\ProductionProcess\Application\UseCase\Query\RollHistoryStatistics\RollHistoryStatisticsFilterCriteria;
 use App\ProductionProcess\Domain\Aggregate\Roll\History\History;
 use App\ProductionProcess\Domain\Aggregate\Roll\History\Type;
-use App\ProductionProcess\Domain\DTO\RollHistoryStatistics;
-use Doctrine\ORM\EntityManagerInterface;
+use App\ProductionProcess\Domain\Repository\RollHistoryStatisticsRepositoryInterface;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * Repository implementation for Roll History Statistics using Doctrine ORM.
+ * Handles the retrieval of Roll History Statistics based on specified criteria.
  */
-readonly class DoctrineRollHistoryStatisticsRepository implements RollHistoryStatisticsRepositoryInterface
+class RollHistoryStatisticsRepository extends ServiceEntityRepository implements RollHistoryStatisticsRepositoryInterface
 {
     /**
-     * @param EntityManagerInterface $em
+     * @param ManagerRegistry $registry
      */
-    public function __construct(private EntityManagerInterface $em)
+    public function __construct(ManagerRegistry $registry)
     {
+        parent::__construct($registry, History::class);
     }
 
     /**
      * @param RollHistoryStatisticsFilterCriteria $criteria
      *
-     * @return RollHistoryStatistics[]
+     * @return History[]
      */
     public function findByCriteria(RollHistoryStatisticsFilterCriteria $criteria): array
     {
-        $qb = $this->em->createQueryBuilder();
-        $qb->select('h')
-            ->from(History::class, 'h')
-            ->where('h.type = :type')->setParameter('type', Type::PROCESS_CHANGED->value);
+        $qb = $this->createQueryBuilder('h')
+            ->select('h')
+            ->where('h.type = :type')
+            ->setParameter('type', Type::PROCESS_CHANGED->value);
 
         if ($criteria->getEmployeeId()) {
             $qb->andWhere('h.employeeId = :employeeId')
@@ -57,15 +58,6 @@ readonly class DoctrineRollHistoryStatisticsRepository implements RollHistorySta
                 ->setParameter('to', $criteria->getTo());
         }
 
-        $results = $qb->getQuery()->getArrayResult();
-
-        return array_map(function ($result) {
-            return new RollHistoryStatistics(
-                $result['rollId'],
-                $result['process'],
-                $result['type']->value,
-                $result['happenedAt']
-            );
-        }, $results);
+        return $qb->getQuery()->getResult();
     }
 }

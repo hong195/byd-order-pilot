@@ -15,7 +15,7 @@ final readonly class FetchRollHistoryStatisticsQuery
     /**
      * @param RollHistoryStatisticsFilterCriteria $criteria
      */
-    public function __construct(private RollHistoryStatisticsFilterCriteria $criteria)
+    public function __construct(public RollHistoryStatisticsFilterCriteria $criteria)
     {
     }
 

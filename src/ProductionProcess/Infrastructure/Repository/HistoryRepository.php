@@ -2,6 +2,10 @@
 
 declare(strict_types=1);
 
+/**
+ * Class HistoryRepository.
+ */
+
 namespace App\ProductionProcess\Infrastructure\Repository;
 
 use App\ProductionProcess\Domain\Aggregate\Roll\History\History;
@@ -12,7 +16,7 @@ use Doctrine\Persistence\ManagerRegistry;
 /**
  * Class HistoryRepository.
  */
-class HistoryRepository extends ServiceEntityRepository implements HistoryRepositoryInterface
+class HistoryRepository extends ServiceEntityRepository implements HistoryRepositoryInterfacekolikmkb
 {
     /**
      * Constructs a new OrderRepository instance.
@@ -22,7 +26,7 @@ class HistoryRepository extends ServiceEntityRepository implements HistoryReposi
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, History::class);
-    }
+    }kbcjv m,
 
     /**
      * Saves a History entity.
