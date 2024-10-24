@@ -34,6 +34,6 @@ readonly class AssignPrintedProductCommandHandler implements CommandHandlerInter
     {
         AssertService::true($this->accessControlService->isGranted(), 'Not change priority.');
 
-        $this->checkInService->checkIn();
+        $this->checkInService->arrange();
     }
 }

@@ -49,5 +49,5 @@ interface PrinterRepositoryInterface
      *
      * @return ?Printer an array of Printer objects matching the given filmType
      */
-    public function findByfilmType(string $filmType): ?Printer;
+    public function findByFilmType(string $filmType): ?Printer;
 }

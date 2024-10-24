@@ -71,13 +71,18 @@ final class PrinterRepository extends ServiceEntityRepository implements Printer
      *
      * @return Printer|null the found Printer entity or null if not found
      */
-    public function findByfilmType(string $filmType): ?Printer
+    public function findByFilmType(string $filmType): ?Printer
     {
         $queryBuilder = $this->createQueryBuilder('p');
 
-        $queryBuilder->where('JSONB_CONTAINS(p.filmTypes, :filmType) = true')
-            ->setParameter('filmType', json_encode($filmType));
+        $printers = $queryBuilder->getQuery()->getResult();
 
-        return $queryBuilder->getQuery()->getOneOrNullResult();
+        foreach ($printers as $printer) {
+            if (in_array($filmType, $printer->getFilmTypes())) {
+                return $printer;
+            }
+        }
+
+        return null;
     }
 }
