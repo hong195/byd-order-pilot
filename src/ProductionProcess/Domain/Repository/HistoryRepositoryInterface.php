@@ -2,6 +2,7 @@
 
 namespace App\ProductionProcess\Domain\Repository;
 
+use App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics\RollHistoryStatisticsFilterCriteria;
 use App\ProductionProcess\Domain\Aggregate\Roll\History\History;
 
 /**
@@ -22,4 +23,11 @@ interface HistoryRepositoryInterface
      * @return History[] the found history record or null if no record is found
      */
     public function findByRollId(int $rollId): array;
+
+    /**
+     * @param RollHistoryStatisticsFilterCriteria $criteria
+     *
+     * @return History[]
+     */
+    public function findByCriteria(RollHistoryStatisticsFilterCriteria $criteria): array;
 }

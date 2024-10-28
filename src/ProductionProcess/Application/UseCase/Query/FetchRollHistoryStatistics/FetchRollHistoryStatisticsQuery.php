@@ -5,12 +5,14 @@
  * required to fetch the roll history statistics within the production process context.
  */
 
-namespace App\ProductionProcess\Application\UseCase\Query\RollHistoryStatistics;
+namespace App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics;
+
+use App\Shared\Application\Query\Query;
 
 /**
  *
  */
-final readonly class FetchRollHistoryStatisticsQuery
+final readonly class FetchRollHistoryStatisticsQuery extends Query
 {
     /**
      * @param RollHistoryStatisticsFilterCriteria $criteria

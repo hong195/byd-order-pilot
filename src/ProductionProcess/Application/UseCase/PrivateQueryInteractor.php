@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Application\UseCase;
 
+use App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics\FetchRollHistoryStatisticsQuery;
+use App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics\RollHistoryStatisticsFilterCriteria;
 use App\ProductionProcess\Application\UseCase\Query\FindARoll\FindARollQuery;
 use App\ProductionProcess\Application\UseCase\Query\FindARoll\FindARollResult;
 use App\ProductionProcess\Application\UseCase\Query\FindErrors\FindErrorsQuery;
@@ -20,6 +22,7 @@ use App\ProductionProcess\Application\UseCase\Query\GetOptions\GetOptionsQuery;
 use App\ProductionProcess\Application\UseCase\Query\GetOptions\GetOptionsQueryResult;
 use App\ProductionProcess\Application\UseCase\Query\GetPrintedProductsProcessDetail\GetPrintedProductsProcessDetailQuery;
 use App\ProductionProcess\Application\UseCase\Query\GetPrintedProductsProcessDetail\GetPrintedProductsProcessDetailResult;
+use App\ProductionProcess\Domain\Aggregate\Roll\History\History;
 use App\Shared\Application\Query\QueryBusInterface;
 
 /**
@@ -128,5 +131,16 @@ readonly class PrivateQueryInteractor
     public function getPrintedProductProcessDetail(array $relatedProductsIds): GetPrintedProductsProcessDetailResult
     {
         return $this->queryBus->execute(new GetPrintedProductsProcessDetailQuery($relatedProductsIds));
+    }
+
+    /**
+     * @param RollHistoryStatisticsFilterCriteria $criteria
+     * @return History[]
+     */
+    public function fetchRollHistoryStatistics(RollHistoryStatisticsFilterCriteria $criteria): array
+    {
+        $query = new FetchRollHistoryStatisticsQuery($criteria);
+
+        return $this->queryBus->execute($query);
     }
 }

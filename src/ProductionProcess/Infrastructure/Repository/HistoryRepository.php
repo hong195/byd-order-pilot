@@ -8,7 +8,9 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Infrastructure\Repository;
 
+use App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics\RollHistoryStatisticsFilterCriteria;
 use App\ProductionProcess\Domain\Aggregate\Roll\History\History;
+use App\ProductionProcess\Domain\Aggregate\Roll\History\Type;
 use App\ProductionProcess\Domain\Repository\HistoryRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -16,7 +18,7 @@ use Doctrine\Persistence\ManagerRegistry;
 /**
  * Class HistoryRepository.
  */
-class HistoryRepository extends ServiceEntityRepository implements HistoryRepositoryInterfacekolikmkb
+class HistoryRepository extends ServiceEntityRepository implements HistoryRepositoryInterface
 {
     /**
      * Constructs a new OrderRepository instance.
@@ -57,5 +59,40 @@ class HistoryRepository extends ServiceEntityRepository implements HistoryReposi
             ->orderBy('h.happenedAt', 'ASC');
 
         return $query->getQuery()->getResult();
+    }
+
+    /**
+     * @param RollHistoryStatisticsFilterCriteria $criteria
+     *
+     * @return History[]
+     */
+    public function findByCriteria(RollHistoryStatisticsFilterCriteria $criteria): array
+    {
+        $qb = $this->createQueryBuilder('h')
+            ->select('h')
+            ->where('h.type = :type')
+            ->setParameter('type', Type::PROCESS_CHANGED->value);
+
+        if ($criteria->getEmployeeId()) {
+            $qb->andWhere('h.employeeId = :employeeId')
+                ->setParameter('employeeId', $criteria->getEmployeeId());
+        }
+
+        if ($criteria->getProcess()) {
+            $qb->andWhere('h.process = :process')
+                ->setParameter('process', $criteria->getProcess());
+        }
+
+        if ($criteria->getFrom()) {
+            $qb->andWhere('h.happenedAt >= :from')
+                ->setParameter('from', $criteria->getFrom());
+        }
+
+        if ($criteria->getTo()) {
+            $qb->andWhere('h.happenedAt <= :to')
+                ->setParameter('to', $criteria->getTo());
+        }
+
+        return $qb->getQuery()->getResult();
     }
 }

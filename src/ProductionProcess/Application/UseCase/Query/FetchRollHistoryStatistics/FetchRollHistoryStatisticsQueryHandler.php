@@ -6,20 +6,21 @@
  * and return the result.
  */
 
-namespace App\ProductionProcess\Application\UseCase\Query\RollHistoryStatistics;
+namespace App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics;
 
 use App\ProductionProcess\Domain\Aggregate\Roll\History\History;
-use App\ProductionProcess\Domain\Repository\RollHistoryStatisticsRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\HistoryRepositoryInterface;
+use App\Shared\Application\Query\QueryHandlerInterface;
 
 /**
  *
  */
-final readonly class FetchRollHistoryStatisticsQueryHandler
+final readonly class FetchRollHistoryStatisticsQueryHandler implements QueryHandlerInterface
 {
     /**
-     * @param RollHistoryStatisticsRepositoryInterface $repository
+     * @param HistoryRepositoryInterface $repository
      */
-    public function __construct(private RollHistoryStatisticsRepositoryInterface $repository)
+    public function __construct(private HistoryRepositoryInterface $repository)
     {
     }
 
