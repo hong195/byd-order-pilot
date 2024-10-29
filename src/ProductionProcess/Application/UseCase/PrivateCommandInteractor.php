@@ -21,6 +21,7 @@ use App\ProductionProcess\Application\UseCase\Command\ReprintPrintedProduct\Repr
 use App\ProductionProcess\Application\UseCase\Command\ReprintRoll\ReprintRollCommand;
 use App\ProductionProcess\Application\UseCase\Command\UnAssignEmployeeFromRoll\UnAssignEmployeeFromRollCommand;
 use App\ProductionProcess\Application\UseCase\Command\UnassignPrintedProduct\UnassignPrintedProductCommand;
+use App\ProductionProcess\Domain\ValueObject\Process;
 use App\Shared\Application\Command\CommandBusInterface;
 
 /**
@@ -132,9 +133,9 @@ readonly class PrivateCommandInteractor
      *
      * @param int $rollId The ID of the roll
      */
-    public function recoredRollProcessUpdate(int $rollId): void
+    public function recoredRollProcessUpdate(int $rollId, string $process): void
     {
-        $this->commandBus->execute(new RecordRollHistoryCommand($rollId));
+        $this->commandBus->execute(new RecordRollHistoryCommand(rollId: $rollId, process: Process::from($process)));
     }
 
     /**

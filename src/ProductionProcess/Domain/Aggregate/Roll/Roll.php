@@ -128,9 +128,11 @@ class Roll extends Aggregate
      */
     public function updateProcess(Process $process): void
     {
+		$oldProcess = $this->process;
+
         $this->process = $process;
 
-        $this->raise(new RollProcessWasUpdatedEvent($this->id));
+        $this->raise(new RollProcessWasUpdatedEvent(rollId: $this->id, process: $oldProcess->value));
     }
 
     /**

@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated if after reprint roll is empty its deleted.">
-      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Adapter/PrintedProductAdapterInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Event/PrintedProductReprintedEventHandler.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated after reprint order product isPack set to false.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrintedProduct/FindPrintedProductQueryResult.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrintedProduct/FindPrintedProductQueryResult.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Api/PrintedProductApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Api/PrintedProductApi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/AssignEmployeeToRoll/AssignEmployeeToRollCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/AssignEmployeeToRoll/AssignEmployeeToRollCommandHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/RecordRollHistory/RecordRollHistoryCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/RecordRollHistory/RecordRollHistoryCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/RecordRollHistory/RecordRollHistoryCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/RecordRollHistory/RecordRollHistoryCommandHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateCommandInteractor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Roll/Roll.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Roll/Roll.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Events/RollProcessWasUpdatedEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Events/RollProcessWasUpdatedEvent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/History/HistorySyncService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/History/HistorySyncService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/EventHandler/RollProcessWasUpdatedEventHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/EventHandler/RollProcessWasUpdatedEventHandler.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -392,15 +396,7 @@
       <workItem from="1729683693028" duration="12702000" />
       <workItem from="1729762961174" duration="9883000" />
       <workItem from="1729850134593" duration="19374000" />
-      <workItem from="1730131000423" duration="25845000" />
-    </task>
-    <task id="LOCAL-00367" summary="Added RollWasSentToCutCheckInEvent.">
-      <option name="closed" value="true" />
-      <created>1727873650312</created>
-      <option name="number" value="00367" />
-      <option name="presentableId" value="LOCAL-00367" />
-      <option name="project" value="LOCAL" />
-      <updated>1727873650312</updated>
+      <workItem from="1730131000423" duration="26732000" />
     </task>
     <task id="LOCAL-00368" summary="Added RollWasSentToCutCheckInEvent.">
       <option name="closed" value="true" />
@@ -786,7 +782,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730209755393</updated>
     </task>
-    <option name="localTasksCounter" value="416" />
+    <task id="LOCAL-00416" summary="Updated after reprint order product isPack set to false.">
+      <option name="closed" value="true" />
+      <created>1730211995167</created>
+      <option name="number" value="00416" />
+      <option name="presentableId" value="LOCAL-00416" />
+      <option name="project" value="LOCAL" />
+      <updated>1730211995168</updated>
+    </task>
+    <option name="localTasksCounter" value="417" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -821,7 +825,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added pack/unpack products." />
     <MESSAGE value="Added docker-compose.staging.yml file." />
     <MESSAGE value="Fixed printers." />
     <MESSAGE value="Added test for product pack service." />
@@ -846,7 +849,8 @@
     <MESSAGE value="Added printed product assigment." />
     <MESSAGE value="Updated assign action runs with printed product id." />
     <MESSAGE value="Updated if after reprint roll is empty its deleted." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated if after reprint roll is empty its deleted." />
+    <MESSAGE value="Updated after reprint order product isPack set to false." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated after reprint order product isPack set to false." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

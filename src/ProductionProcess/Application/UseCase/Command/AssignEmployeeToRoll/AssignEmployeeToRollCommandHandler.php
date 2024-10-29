@@ -49,6 +49,6 @@ readonly class AssignEmployeeToRollCommandHandler implements CommandHandlerInter
         $this->rollRepository->save($roll);
 
         // Add a new history record for the roll
-        $this->historySyncService->record($roll->getId(), Type::EMPLOYEE_ASSIGNED);
+        $this->historySyncService->record(rollId: $roll->getId(), process: $roll->getProcess(), type: Type::EMPLOYEE_ASSIGNED);
     }
 }

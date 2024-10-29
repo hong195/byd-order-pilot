@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Application\UseCase\Command\RecordRollHistory;
 
 use App\ProductionProcess\Domain\Aggregate\Roll\History\Type;
+use App\ProductionProcess\Domain\ValueObject\Process;
 use App\Shared\Application\Command\CommandInterface;
 
 /**
@@ -21,7 +22,7 @@ class RecordRollHistoryCommand implements CommandInterface
      *
      * @param int $rollId - The ID of the roll
      */
-    public function __construct(public readonly int $rollId)
+    public function __construct(public readonly int $rollId, public readonly Process $process)
     {
         $this->type = Type::PROCESS_CHANGED;
     }
