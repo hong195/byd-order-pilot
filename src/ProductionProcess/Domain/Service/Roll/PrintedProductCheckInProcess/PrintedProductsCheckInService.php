@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess;
 
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
+use App\ProductionProcess\Domain\Repository\PrintedProductFilter;
 use App\ProductionProcess\Domain\Repository\PrintedProductRepositoryInterface;
 use App\ProductionProcess\Domain\Repository\RollFilter;
 use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
@@ -40,7 +41,7 @@ final class PrintedProductsCheckInService implements PrintedProductCheckInInterf
      */
     public function arrange(array $printedProductIds = []): void
     {
-        $this->initData();
+        $this->initPrintedProducts($printedProductIds);
 
         $groups = $this->groupByOrderNumberService->group($this->printedProducts);
 
@@ -62,16 +63,6 @@ final class PrintedProductsCheckInService implements PrintedProductCheckInInterf
     }
 
     /**
-     * Initializes the data for the printedProducts check in, uses latest rolls and printedProducts to do that.
-     */
-    private function initData(): void
-    {
-        $this->rolls = new ArrayCollection($this->rollRepository->findByFilter(new RollFilter(process: Process::ORDER_CHECK_IN)));
-
-        $this->initPrintedProducts();
-    }
-
-    /**
      * Initializes the printedProducts in the application.
      *
      * This method retrieves the printedProducts with status "assignable" from the printedProduct repository,
@@ -79,17 +70,22 @@ final class PrintedProductsCheckInService implements PrintedProductCheckInInterf
      * roll in the $rolls collection to the $printedProducts collection. Finally, it sorts the
      * $printedProducts collection using the SortPrintedProductsService.
      */
-    private function initPrintedProducts(): void
+    private function initPrintedProducts(array $printedProducts): void
     {
+        $rolls = new ArrayCollection($this->rollRepository->findByFilter(new RollFilter(process: Process::ORDER_CHECK_IN)));
+
         $this->printedProducts = new ArrayCollection();
-        $assignablePrintedProducts = $this->printedProductRepository->findUnassign();
+
+        $assignablePrintedProducts = $this->printedProductRepository->findByFilter(
+            new PrintedProductFilter(ids: $printedProducts)
+        );
 
         foreach ($assignablePrintedProducts as $printedProduct) {
             $this->printedProducts->add($printedProduct);
         }
 
         /** @var Roll $roll */
-        foreach ($this->rolls as $roll) {
+        foreach ($rolls as $roll) {
             foreach ($roll->getPrintedProducts() as $printedProduct) {
                 $this->printedProducts->add($printedProduct);
             }

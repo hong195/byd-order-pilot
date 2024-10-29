@@ -89,6 +89,11 @@ class PrintedProductRepository extends ServiceEntityRepository implements Printe
                 ->setParameter('rollId', $filter->rollId);
         }
 
+		if (!empty($filter->ids)) {
+			$qb->andWhere('p.id IN (:ids)')
+				->setParameter('ids', $filter->ids);
+		}
+
         if ($filter->unassigned) {
             $qb->andWhere('p.roll IS NULL');
         }
