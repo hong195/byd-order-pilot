@@ -32,6 +32,6 @@ readonly class UnassignPrintedProductHandler implements CommandHandlerInterface
 
         $this->unAssignPrintedProduct->handle($command->id);
 
-		$this->checkInService->checkIn();
+		$this->checkInService->arrange();
     }
 }

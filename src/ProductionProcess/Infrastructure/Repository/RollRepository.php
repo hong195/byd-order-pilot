@@ -23,6 +23,7 @@ class RollRepository extends ServiceEntityRepository implements RollRepositoryIn
     {
         parent::__construct($registry, Roll::class);
     }
+
     /**
      * Finds a roll by its ID.
      *

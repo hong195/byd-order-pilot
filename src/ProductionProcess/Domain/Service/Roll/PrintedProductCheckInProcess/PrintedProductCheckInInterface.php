@@ -10,5 +10,5 @@ interface PrintedProductCheckInInterface
     /**
      * Arranges the orders rolls.
      */
-    public function checkIn(): void;
+    public function arrange(): void;
 }

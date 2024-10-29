@@ -269,6 +269,18 @@ class Roll extends Aggregate
     }
 
     /**
+     * Adds printed products to the entity.
+     *
+     * @param iterable<PrintedProduct> $printedProducts An iterable collection of printed products to add
+     */
+    public function addPrintedProducts(iterable $printedProducts): void
+    {
+        foreach ($printedProducts as $printedProduct) {
+            $this->addPrintedProduct($printedProduct);
+        }
+    }
+
+    /**
      * Get the total length of printedProducts.
      *
      * @return float|int the total length of printedProducts as a float or integer
@@ -283,6 +295,8 @@ class Roll extends Aggregate
      */
     public function removePrintedProducts(): void
     {
+		$this->printedProducts->map(fn (PrintedProduct $printedProduct) => $printedProduct->unassign());
+
         $this->printedProducts->clear();
     }
 
