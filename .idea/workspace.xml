@@ -5,25 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated if after reprint roll is empty its deleted.">
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/CheckRemainingProducts/CheckRemainingProductsCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/CheckRemainingProducts/CheckRemainingProductsCommandHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrintedProduct/FindPrintedProductQuery.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrintedProduct/FindPrintedProductQueryHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrintedProduct/FindPrintedProductQueryResult.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/CheckRemainingProductsService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/EventHandler/PrintedProductReprintedEventHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/CheckRemainingProductsServiceTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Adapter/PrintedProductAdapterInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Event/PrintedProductReprintedEventHandler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/UnassignPrintedProduct/UnassignPrintedProductHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/UnassignPrintedProduct/UnassignPrintedProductHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateCommandInteractor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateQueryInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateQueryInteractor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/PrintedProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/PrintedProduct.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/ReprintPrintedProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/ReprintPrintedProduct.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/PrintedProductsCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/PrintedProductsCheckInService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckinTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckinTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrintedProduct/FindPrintedProductQueryResult.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrintedProduct/FindPrintedProductQueryResult.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Api/PrintedProductApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Api/PrintedProductApi.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -406,15 +392,7 @@
       <workItem from="1729683693028" duration="12702000" />
       <workItem from="1729762961174" duration="9883000" />
       <workItem from="1729850134593" duration="19374000" />
-      <workItem from="1730131000423" duration="23711000" />
-    </task>
-    <task id="LOCAL-00366" summary="Added change sort order api.">
-      <option name="closed" value="true" />
-      <created>1727771621596</created>
-      <option name="number" value="00366" />
-      <option name="presentableId" value="LOCAL-00366" />
-      <option name="project" value="LOCAL" />
-      <updated>1727771621597</updated>
+      <workItem from="1730131000423" duration="25845000" />
     </task>
     <task id="LOCAL-00367" summary="Added RollWasSentToCutCheckInEvent.">
       <option name="closed" value="true" />
@@ -800,7 +778,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730197350482</updated>
     </task>
-    <option name="localTasksCounter" value="415" />
+    <task id="LOCAL-00415" summary="Updated if after reprint roll is empty its deleted.">
+      <option name="closed" value="true" />
+      <created>1730209755393</created>
+      <option name="number" value="00415" />
+      <option name="presentableId" value="LOCAL-00415" />
+      <option name="project" value="LOCAL" />
+      <updated>1730209755393</updated>
+    </task>
+    <option name="localTasksCounter" value="416" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

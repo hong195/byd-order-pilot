@@ -11,7 +11,7 @@ use App\ProductionProcess\Application\DTO\PrintedProduct\PrintedProductData;
  */
 final readonly class FindPrintedProductQueryResult
 {
-    public function __construct(public PrintedProductData $printedProduct)
+    public function __construct(public ?PrintedProductData $printedProduct = null)
     {
     }
 }

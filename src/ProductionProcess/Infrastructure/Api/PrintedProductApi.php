@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Infrastructure\Api;
 
+use App\Orders\Infrastructure\Adapter\PrintedProductAdapterInterface;
 use App\Orders\Infrastructure\Adapter\PrintedProductProcessAdapterInterface;
+use App\ProductionProcess\Application\DTO\PrintedProduct\PrintedProductData;
 use App\ProductionProcess\Application\DTO\PrintedProduct\PrintedProductProcessData;
 use App\ProductionProcess\Application\UseCase\PrivateQueryInteractor;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -13,7 +15,7 @@ use Doctrine\Common\Collections\Collection;
 /**
  * Represents a PrintedProductApi class that implements the PrintedProductProcessAdapterInterface.
  */
-final readonly class PrintedProductApi implements PrintedProductProcessAdapterInterface
+final readonly class PrintedProductApi implements PrintedProductProcessAdapterInterface, PrintedProductAdapterInterface
 {
     /**
      * Class constructor.
@@ -37,4 +39,15 @@ final readonly class PrintedProductApi implements PrintedProductProcessAdapterIn
 
         return new ArrayCollection($result->items);
     }
+
+	public function findByPrintedProductId(int $productId): ?PrintedProductData
+	{
+		$printedProductData = $this->privateQueryInteractor->findPrintedProduct($productId)->printedProduct;
+
+		if ($printedProductData === null) {
+			return null;
+		}
+
+		return $printedProductData;
+	}
 }
