@@ -18,7 +18,7 @@ readonly class UnassignPrintedProductHandler implements CommandHandlerInterface
     /**
      * Class MyClass.
      */
-    public function __construct(private UnAssignPrintedProduct $unAssignPrintedProduct, private AccessControlService $accessControlService, private PrintedProductsCheckInService $checkInService)
+    public function __construct(private UnAssignPrintedProduct $unAssignPrintedProduct, private AccessControlService $accessControlService)
     {
     }
 
@@ -31,7 +31,5 @@ readonly class UnassignPrintedProductHandler implements CommandHandlerInterface
         AssertService::true($this->accessControlService->isGranted(), 'Not change priority.');
 
         $this->unAssignPrintedProduct->handle($command->id);
-
-		$this->checkInService->arrange();
     }
 }

@@ -91,8 +91,8 @@ final class PrintedProductsCheckInService implements PrintedProductCheckInInterf
             }
 
             $roll->removePrintedProducts();
-        }
 
-        $this->rollRepository->remove($roll);
+			$this->rollRepository->remove($roll);
+		}
     }
 }

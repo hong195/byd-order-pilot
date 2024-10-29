@@ -8,6 +8,8 @@ use App\ProductionProcess\Application\UseCase\Query\FindARoll\FindARollQuery;
 use App\ProductionProcess\Application\UseCase\Query\FindARoll\FindARollResult;
 use App\ProductionProcess\Application\UseCase\Query\FindErrors\FindErrorsQuery;
 use App\ProductionProcess\Application\UseCase\Query\FindErrors\FindErrorsResult;
+use App\ProductionProcess\Application\UseCase\Query\FindPrintedProduct\FindPrintedProductQuery;
+use App\ProductionProcess\Application\UseCase\Query\FindPrintedProduct\FindPrintedProductQueryResult;
 use App\ProductionProcess\Application\UseCase\Query\FindPrintedProducts\FindPrintedProductsQuery;
 use App\ProductionProcess\Application\UseCase\Query\FindPrintedProducts\FindPrintedProductsQueryResult;
 use App\ProductionProcess\Application\UseCase\Query\FindPrinters\FindPrintersQuery;
@@ -128,5 +130,17 @@ readonly class PrivateQueryInteractor
     public function getPrintedProductProcessDetail(array $relatedProductsIds): GetPrintedProductsProcessDetailResult
     {
         return $this->queryBus->execute(new GetPrintedProductsProcessDetailQuery($relatedProductsIds));
+    }
+
+    /**
+     * Finds a printed product by executing the FindPrintedProductQuery with the provided printed product ID.
+     *
+     * @param int $printedProductId The ID of the printed product to find
+     *
+     * @return FindPrintedProductQueryResult The result of executing the FindPrintedProductQuery
+     */
+    public function findPrintedProduct(int $printedProductId): FindPrintedProductQueryResult
+    {
+        return $this->queryBus->execute(new FindPrintedProductQuery($printedProductId));
     }
 }

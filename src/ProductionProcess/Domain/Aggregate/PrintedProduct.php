@@ -5,11 +5,13 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Domain\Aggregate;
 
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
+use App\ProductionProcess\Domain\Events\PrintedProductReprintedEvent;
+use App\Shared\Domain\Aggregate\Aggregate;
 
 /**
  * Class Job.
  */
-class PrintedProduct
+class PrintedProduct extends Aggregate
 {
     /**
      * @phpstan-ignore-next-line
@@ -183,7 +185,8 @@ class PrintedProduct
     {
         $this->hasPriority = true;
         $this->isReprint = true;
-        $this->roll = null;
         $this->sortOrder = null;
+
+		$this->raise(new PrintedProductReprintedEvent(printedProductId: $this->id));
     }
 }

@@ -69,7 +69,7 @@ final class PrintedProductCheckinTest extends AbstractTestCase
 
         $this->entityManager->flush();
 
-        $this->printedProductCheckIn->checkIn();
+        $this->printedProductCheckIn->arrange();
 
         $roll = $this->rollRepository->findByFilter(new RollFilter(process: Process::ORDER_CHECK_IN));
 
