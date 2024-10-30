@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Domain\Service\Roll;
 
+use App\ProductionProcess\Domain\Repository\PrinterRepositoryInterface;
 use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -14,7 +15,7 @@ final readonly class CheckRemainingProductsService
      *
      * @param RollRepositoryInterface $rollRepository The roll repository interface instance
      */
-    public function __construct(private RollRepositoryInterface $rollRepository)
+    public function __construct(private RollRepositoryInterface $rollRepository, private PrinterRepositoryInterface $printerRepository)
     {
     }
 
@@ -33,8 +34,15 @@ final readonly class CheckRemainingProductsService
             throw new NotFoundHttpException('Roll not found');
         }
 
-        if ($roll->getPrintedProducts()->isEmpty()) {
-            $this->rollRepository->remove($roll);
+        if (!$roll->getPrintedProducts()->isEmpty()) {
+            return;
         }
+
+		$this->rollRepository->remove($roll);
+
+		if ($printer = $roll->getPrinter()) {
+			$printer->changeAvailability(true);
+			$this->printerRepository->save($printer);
+		}
     }
 }

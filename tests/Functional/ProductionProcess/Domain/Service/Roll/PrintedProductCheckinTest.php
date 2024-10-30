@@ -29,16 +29,6 @@ final class PrintedProductCheckinTest extends AbstractTestCase
 
         $this->printedProductCheckIn = self::getContainer()->get(PrintedProductsCheckInService::class);
         $this->rollRepository = self::getContainer()->get(RollRepositoryInterface::class);
-
-        $this->initPrinters();
-    }
-
-    private function initPrinters(): void
-    {
-        /** @var InitPrintersService $initPrintersService */
-        $initPrintersService = self::getContainer()->get(InitPrintersService::class);
-
-        $initPrintersService->init();
     }
 
     /**

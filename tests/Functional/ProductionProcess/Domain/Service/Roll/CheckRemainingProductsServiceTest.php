@@ -37,6 +37,11 @@ final class CheckRemainingProductsServiceTest extends AbstractTestCase
         self::assertNull($result);
     }
 
+	public function test_printer_is_available_if_last_element_was_removed()
+	{
+		///TO DO test printer availability
+	}
+
 	public function test_it_throws_exception_if_roll_does_not_exists()
 	{
 		$roll = $this->loadRoll();

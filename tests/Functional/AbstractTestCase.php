@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Tests\Functional;
 
+use App\ProductionProcess\Domain\Service\Printer\InitPrintersService;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Tools\SchemaTool;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
@@ -46,6 +47,8 @@ class AbstractTestCase extends KernelTestCase
 
         $schemaTool = new SchemaTool($entityManager);
         $schemaTool->updateSchema($metaData);
+
+		$this->initPrinters();
     }
 
     /**
@@ -57,5 +60,14 @@ class AbstractTestCase extends KernelTestCase
         parent::tearDown();
         $this->entityManager->close();
         $this->entityManager = null;
+	}
+
+
+	private function initPrinters(): void
+	{
+		/** @var InitPrintersService $initPrintersService */
+		$initPrintersService = self::getContainer()->get(InitPrintersService::class);
+
+		$initPrintersService->init();
 	}
 }
