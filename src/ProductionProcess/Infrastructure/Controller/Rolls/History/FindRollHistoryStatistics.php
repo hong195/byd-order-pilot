@@ -29,7 +29,7 @@ use Symfony\Component\Routing\Annotation\Route;
  * @throws \DateMalformedStringException if the provided date strings are malformed
  */
 #[AsController]
-#[Route('/api/rolls/history-statistics-sss', name: 'fetch_history_statistics', methods: ['GET'])]
+#[Route('/api/rolls/history-statistics', name: 'fetch_history_statistics', methods: ['GET'])]
 readonly class FindRollHistoryStatistics
 {
     public function __construct(private PrivateQueryInteractor $privateQueryInteractor)
