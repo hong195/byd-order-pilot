@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess;
 
+use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
+use App\ProductionProcess\Domain\Exceptions\UnassignedPrintedProductsException;
 use App\ProductionProcess\Domain\Repository\PrintedProductFilter;
 use App\ProductionProcess\Domain\Repository\PrintedProductRepositoryInterface;
 use App\ProductionProcess\Domain\Repository\RollFilter;
@@ -19,8 +21,9 @@ use Doctrine\Common\Collections\Collection;
  */
 final class PrintedProductsCheckInService implements PrintedProductCheckInInterface
 {
-    private Collection $rolls;
     private Collection $printedProducts;
+
+    private Collection $unassignedPrintedProducts;
 
     /**
      * Constructor for initializing dependencies.
@@ -34,11 +37,12 @@ final class PrintedProductsCheckInService implements PrintedProductCheckInInterf
     ) {
     }
 
-    /**
-     * Arranges printed products into rolls based on film type and suitable film availability.
-     *
-     * @param int[] $printedProductIds An array of printed product IDs to arrange (optional)
-     */
+	/**
+	 * Arranges printed products into rolls based on film type and suitable film availability.
+	 *
+	 * @param int[] $printedProductIds An array of printed product IDs to arrange (optional)
+	 * @throws UnassignedPrintedProductsException
+	 */
     public function arrange(array $printedProductIds = []): void
     {
         $this->initPrintedProducts($printedProductIds);
@@ -49,6 +53,7 @@ final class PrintedProductsCheckInService implements PrintedProductCheckInInterf
 
         foreach ($filmGroups as $filmGroup) {
             if (!$filmGroup->filmId) {
+                array_map(fn (PrintedProduct $printedProduct) => $this->unassignedPrintedProducts->add($printedProduct), $filmGroup->getPrintedProducts());
                 continue;
             }
 
@@ -60,6 +65,11 @@ final class PrintedProductsCheckInService implements PrintedProductCheckInInterf
 
             $this->rollRepository->save($roll);
         }
+
+		if (!$this->unassignedPrintedProducts->isEmpty()) {
+			UnassignedPrintedProductsException::because('Could not assign printed products',
+				$this->unassignedPrintedProducts->map(fn (PrintedProduct $printedProduct) => $printedProduct->getId())->toArray());
+		}
     }
 
     /**
@@ -75,6 +85,7 @@ final class PrintedProductsCheckInService implements PrintedProductCheckInInterf
         $rolls = new ArrayCollection($this->rollRepository->findByFilter(new RollFilter(process: Process::ORDER_CHECK_IN)));
 
         $this->printedProducts = new ArrayCollection();
+        $this->unassignedPrintedProducts = new ArrayCollection();
 
         $assignablePrintedProducts = $this->printedProductRepository->findByFilter(
             new PrintedProductFilter(ids: $printedProducts)
@@ -92,7 +103,7 @@ final class PrintedProductsCheckInService implements PrintedProductCheckInInterf
 
             $roll->removePrintedProducts();
 
-			$this->rollRepository->remove($roll);
-		}
+            $this->rollRepository->remove($roll);
+        }
     }
 }

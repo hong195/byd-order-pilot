@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Infrastructure\Controller\PrintedProducts;
 
 use App\ProductionProcess\Application\UseCase\PrivateCommandInteractor;
+use App\ProductionProcess\Domain\Exceptions\UnassignedPrintedProductsException;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\AsController;
@@ -33,8 +34,12 @@ final readonly class AssignPrintedProductAction
 	 */
     public function __invoke(int $printedProduct): JsonResponse
     {
-        $this->privateCommandInteractor->assignPrintedProduct($printedProduct);
+		try {
+        	$this->privateCommandInteractor->assignPrintedProduct($printedProduct);
 
-        return new JsonResponse(['message' => 'Success'], Response::HTTP_OK);
+			return new JsonResponse(['message' => 'Success', 'unassigned' => []], Response::HTTP_OK);
+		}catch (UnassignedPrintedProductsException $e) {
+			return new JsonResponse(['message' => 'Failed', 'unassigned' => $e->unassignedPrintedProductIds()],  Response::HTTP_UNPROCESSABLE_ENTITY);
+		}
     }
 }
