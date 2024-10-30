@@ -45,7 +45,7 @@ final readonly class ProductService
 
         $this->productRepository->save($product);
 
-        if ($cutFile) {
+		if ($cutFile) {
             $product->setCutFile($cutFile);
         }
 

@@ -5,7 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fixed after reprint if product unpacked it wont be unpack again.">
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/EventHandler/PrintedProductReprintedEventHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/EventHandler/PrintedProductReprintedEventHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/Product/ProductCreateDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/Product/ProductCreateDTO.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/Service/Product/ProductService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/Service/Product/ProductService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AddProduct/AddProductCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AddProduct/AddProductCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Factory/ProductFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Factory/ProductFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/Products/AddProductAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/Products/AddProductAction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Product.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/ORM/Product.orm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240819160525.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20240819160525.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/EventListener/Exception/ExceptionListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/EventListener/Exception/ExceptionListener.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,90 +190,90 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Makefile Target.restart.executor": "Run",
-    "PHPUnit.CheckRemainingProductsServiceTest.test_it_remove_roll_if_there_are_no_printed_product_left.executor": "Run",
-    "PHPUnit.CheckRemainingProductsServiceTest.test_it_throws_exception_if_roll_does_not_exists.executor": "Run",
-    "PHPUnit.ErrorManagementServiceTest.executor": "Run",
-    "PHPUnit.ErrorManagementServiceTest.test_can_be_created.executor": "Run",
-    "PHPUnit.ErrorManagementServiceTest.test_can_be_recorded.executor": "Run",
-    "PHPUnit.ErrorManagementServiceTest.test_can_be_recorded_successfully.executor": "Run",
-    "PHPUnit.ErrorManagementServiceTest.test_error_can_be_record_on_current_or_previous_process.executor": "Run",
-    "PHPUnit.ErrorManagementServiceTest.test_error_can_be_record_on_existing_process.executor": "Run",
-    "PHPUnit.ErrorManagementServiceTest.test_product_must_be_in_progress.executor": "Run",
-    "PHPUnit.ErrorManagementServiceTest.test_roll_must_exists.executor": "Run",
-    "PHPUnit.ErrorManagementServiceTest.test_roll_must_have_history_in_order_to_record_error.executor": "Run",
-    "PHPUnit.ErrorRepositoryTest.test_add.executor": "Run",
-    "PHPUnit.ErrorRepositoryTest.test_error_can_be_found_by_responsible_employee_id.executor": "Run",
-    "PHPUnit.ErrorRepositoryTest.test_errors_can_be_found_by_filter.executor": "Run",
-    "PHPUnit.ErrorRepositoryTest.test_find_by_process.executor": "Run",
-    "PHPUnit.ExtraMakerTest.test_can_successfully_make_extra.executor": "Run",
-    "PHPUnit.ExtraRepositoryTest.test_can_successfully_save.executor": "Run",
-    "PHPUnit.HistoryRepositoryTest.executor": "Run",
-    "PHPUnit.HistoryRepositoryTest.test_add.executor": "Run",
-    "PHPUnit.HistoryRepositoryTest.test_true.executor": "Run",
-    "PHPUnit.Main.executor": "Run",
-    "PHPUnit.OrderRepositoryTest.executor": "Run",
-    "PHPUnit.OrderRepositoryTest.test_can_find_only_with_extras.executor": "Run",
-    "PHPUnit.OrderRepositoryTest.test_can_find_packed.executor": "Run",
-    "PHPUnit.OrderRepositoryTest.test_can_find_partially_packed.executor": "Run",
-    "PHPUnit.OrderRepositoryTest.test_can_find_ready_for_packing.executor": "Run",
-    "PHPUnit.OrderRepositoryTest.test_can_successfully_add.executor": "Run",
-    "PHPUnit.OrderRepositoryTest.test_can_successfully_save.executor": "Run",
-    "PHPUnit.PackProductTest.executor": "Run",
-    "PHPUnit.PackProductTest.test_can_successfully_pack_product.executor": "Run",
-    "PHPUnit.PackProductTest.test_cant_pack_product_if_its_already_packed.executor": "Run",
-    "PHPUnit.PackProductTest.test_cant_pack_product_if_its_not_ready_for_packing.executor": "Run",
-    "PHPUnit.PackProductTest.test_cant_pack_product_if_order_product_do_not_exist.executor": "Run",
-    "PHPUnit.PackProductTest.test_if_product_packed_product_pack_event_dispatched.executor": "Run",
-    "PHPUnit.PrintedProductCheckinTest.test_can_allocate_group_of_printed_products_on_one_roll.executor": "Run",
-    "PHPUnit.PrintedProductRepositoryTest.test_add.executor": "Run",
-    "PHPUnit.PrintedProductRepositoryTest.test_can_find_by_filter.executor": "Run",
-    "PHPUnit.PrintedProductRepositoryTest.test_can_find_by_multiple_related_product_ids.executor": "Run",
-    "PHPUnit.ProductRepositoryTest.test_can_find_by_filter.executor": "Run",
-    "PHPUnit.ProductRepositoryTest.test_can_successfully_save.executor": "Run",
-    "PHPUnit.ReprintRollTest.test_cannot_reprint_not_existing_roll.executor": "Run",
-    "PHPUnit.RollRepositoryTest.test_can_find_by_filter.executor": "Run",
-    "PHPUnit.RollRepositoryTest.test_can_remove.executor": "Run",
-    "PHPUnit.RollRepositoryTest.test_can_save_successfully.executor": "Run",
-    "PHPUnit.RollRepositoryTest.test_it_can_find_by_film_id.executor": "Run",
-    "PHPUnit.SetExtraPackStatusServiceTest.test_can_successfully_pack_extra_status.executor": "Run",
-    "PHPUnit.UnPackProductTest.executor": "Run",
-    "PHPUnit.UnPackProductTest.test_can_successfully_unpack_product.executor": "Run",
-    "PHPUnit.UnPackProductTest.test_cannot_unpack_product_if_its_already_unpacked.executor": "Run",
-    "PHPUnit.UnPackProductTest.test_cant_unpack_not_existing_product.executor": "Run",
-    "PHPUnit.UnPackProductTest.test_if_product_packed_product_pack_event_dispatched.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
-    "WebServerToolWindowPanel.toolwindow.show.date": "false",
-    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
-    "WebServerToolWindowPanel.toolwindow.show.size": "false",
-    "com.jetbrains.php.phpunit.codeGeneration.PhpNewTestDialog.defaultLibrary": "PHPUnit",
-    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm": "Docker",
-    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm": "Docker",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/src/ProductionProcess/Application/UseCase/Command",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "php.add.doc.comment.for.fields.panel.add.php.doc.for.all.properties": "true",
-    "php.override.implement.member.chooser.php.doc": "NONE",
-    "settings.editor.selected.configurable": "project.propVCSSupport.Confirmation",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Makefile Target.restart.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.CheckRemainingProductsServiceTest.test_it_remove_roll_if_there_are_no_printed_product_left.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.CheckRemainingProductsServiceTest.test_it_throws_exception_if_roll_does_not_exists.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ErrorManagementServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ErrorManagementServiceTest.test_can_be_created.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ErrorManagementServiceTest.test_can_be_recorded.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ErrorManagementServiceTest.test_can_be_recorded_successfully.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ErrorManagementServiceTest.test_error_can_be_record_on_current_or_previous_process.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ErrorManagementServiceTest.test_error_can_be_record_on_existing_process.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ErrorManagementServiceTest.test_product_must_be_in_progress.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ErrorManagementServiceTest.test_roll_must_exists.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ErrorManagementServiceTest.test_roll_must_have_history_in_order_to_record_error.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ErrorRepositoryTest.test_add.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ErrorRepositoryTest.test_error_can_be_found_by_responsible_employee_id.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ErrorRepositoryTest.test_errors_can_be_found_by_filter.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ErrorRepositoryTest.test_find_by_process.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ExtraMakerTest.test_can_successfully_make_extra.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ExtraRepositoryTest.test_can_successfully_save.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.HistoryRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.HistoryRepositoryTest.test_add.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.HistoryRepositoryTest.test_true.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.Main.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.OrderRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.OrderRepositoryTest.test_can_find_only_with_extras.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.OrderRepositoryTest.test_can_find_packed.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.OrderRepositoryTest.test_can_find_partially_packed.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.OrderRepositoryTest.test_can_find_ready_for_packing.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.OrderRepositoryTest.test_can_successfully_add.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.OrderRepositoryTest.test_can_successfully_save.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.PackProductTest.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.PackProductTest.test_can_successfully_pack_product.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.PackProductTest.test_cant_pack_product_if_its_already_packed.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.PackProductTest.test_cant_pack_product_if_its_not_ready_for_packing.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.PackProductTest.test_cant_pack_product_if_order_product_do_not_exist.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.PackProductTest.test_if_product_packed_product_pack_event_dispatched.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.PrintedProductCheckinTest.test_can_allocate_group_of_printed_products_on_one_roll.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.PrintedProductRepositoryTest.test_add.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.PrintedProductRepositoryTest.test_can_find_by_filter.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.PrintedProductRepositoryTest.test_can_find_by_multiple_related_product_ids.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ProductRepositoryTest.test_can_find_by_filter.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ProductRepositoryTest.test_can_successfully_save.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ReprintRollTest.test_cannot_reprint_not_existing_roll.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.RollRepositoryTest.test_can_find_by_filter.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.RollRepositoryTest.test_can_remove.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.RollRepositoryTest.test_can_save_successfully.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.RollRepositoryTest.test_it_can_find_by_film_id.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.SetExtraPackStatusServiceTest.test_can_successfully_pack_extra_status.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.UnPackProductTest.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.UnPackProductTest.test_can_successfully_unpack_product.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.UnPackProductTest.test_cannot_unpack_product_if_its_already_unpacked.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.UnPackProductTest.test_cant_unpack_not_existing_product.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.UnPackProductTest.test_if_product_packed_product_pack_event_dispatched.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
+    &quot;com.jetbrains.php.phpunit.codeGeneration.PhpNewTestDialog.defaultLibrary&quot;: &quot;PHPUnit&quot;,
+    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm&quot;: &quot;Docker&quot;,
+    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm&quot;: &quot;Docker&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/aleksejem/Sites/order-pilot/src/ProductionProcess/Application/UseCase/Command&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;php.add.doc.comment.for.fields.panel.add.php.doc.for.all.properties&quot;: &quot;true&quot;,
+    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Confirmation&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "ChangesTree.GroupingKeys": [
-      "directory"
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;
     ],
-    "DatabaseDriversLRU": [
-      "postgresql"
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command" />

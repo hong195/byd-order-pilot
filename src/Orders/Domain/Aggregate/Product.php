@@ -27,10 +27,10 @@ class Product
     /**
      * Initializes a new instance of the class.
      *
-     * @param string    $filmType the film type
-     * @param int|float $length   the length
+     * @param string $filmType the film type
+     * @param float  $length   the length
      */
-    public function __construct(public readonly string $filmType, public readonly int|float $length)
+    public function __construct(public readonly string $filmType, public readonly float $length)
     {
         $this->dateAdded = new \DateTimeImmutable();
     }

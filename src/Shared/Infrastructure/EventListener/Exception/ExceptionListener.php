@@ -47,7 +47,7 @@ class ExceptionListener
     public function exceptionToArray(\Throwable $exception): array
     {
         $data = [
-            'message' => $exception->getPrevious()->getMessage(),
+            'message' => $exception->getPrevious()?->getMessage(),
         ];
         if ($this->containerBag->get('kernel.debug')) {
             $data = array_merge(
