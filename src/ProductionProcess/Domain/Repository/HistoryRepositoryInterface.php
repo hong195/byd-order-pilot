@@ -1,8 +1,12 @@
 <?php
 
+/**
+ * Interface HistoryRepositoryInterface.
+ */
+
 namespace App\ProductionProcess\Domain\Repository;
 
-use App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics\RollHistoryStatisticsFilterCriteria;
+use App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics\RollHistoryStatisticsFilter;
 use App\ProductionProcess\Domain\Aggregate\Roll\History\History;
 
 /**
@@ -12,6 +16,7 @@ interface HistoryRepositoryInterface
 {
     /**
      * Saves a history record.
+     * @param History $history
      */
     public function add(History $history): void;
 
@@ -25,9 +30,9 @@ interface HistoryRepositoryInterface
     public function findByRollId(int $rollId): array;
 
     /**
-     * @param RollHistoryStatisticsFilterCriteria $criteria
+     * @param RollHistoryStatisticsFilter $criteria
      *
      * @return History[]
      */
-    public function findByCriteria(RollHistoryStatisticsFilterCriteria $criteria): array;
+    public function findByCriteria(RollHistoryStatisticsFilter $criteria): array;
 }

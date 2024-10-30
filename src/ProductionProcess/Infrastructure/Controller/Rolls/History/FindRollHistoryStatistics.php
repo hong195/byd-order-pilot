@@ -12,7 +12,7 @@
 namespace App\ProductionProcess\Infrastructure\Controller\Rolls\History;
 
 use App\ProductionProcess\Application\UseCase\PrivateQueryInteractor;
-use App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics\RollHistoryStatisticsFilterCriteria;
+use App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics\RollHistoryStatisticsFilter;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -32,10 +32,20 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/api/rolls/history-statistics', name: 'fetch_history_statistics', methods: ['GET'])]
 readonly class FindRollHistoryStatistics
 {
+    /**
+     * @param PrivateQueryInteractor $privateQueryInteractor
+     */
     public function __construct(private PrivateQueryInteractor $privateQueryInteractor)
     {
     }
 
+    /**
+     * @param Request $request
+     *
+     * @return JsonResponse
+     *
+     * @throws \DateMalformedStringException
+     */
     public function __invoke(Request $request): JsonResponse
     {
         $employeeId = $request->query->get('employeeId');
@@ -43,7 +53,7 @@ readonly class FindRollHistoryStatistics
         $to = $request->query->get('to') ? new \DateTimeImmutable($request->query->get('to')) : null;
         $process = $request->query->get('process');
 
-        $criteria = new RollHistoryStatisticsFilterCriteria(
+        $criteria = new RollHistoryStatisticsFilter(
             employeeId: $employeeId,
             process: $process ? Process::from($process) : null,
             from: $from,

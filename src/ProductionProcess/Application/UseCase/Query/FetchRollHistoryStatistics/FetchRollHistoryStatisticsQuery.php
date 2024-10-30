@@ -15,16 +15,16 @@ use App\Shared\Application\Query\Query;
 final readonly class FetchRollHistoryStatisticsQuery extends Query
 {
     /**
-     * @param RollHistoryStatisticsFilterCriteria $criteria
+     * @param RollHistoryStatisticsFilter $criteria
      */
-    public function __construct(public RollHistoryStatisticsFilterCriteria $criteria)
+    public function __construct(public RollHistoryStatisticsFilter $criteria)
     {
     }
 
     /**
-     * @return RollHistoryStatisticsFilterCriteria
+     * @return RollHistoryStatisticsFilter
      */
-    public function getCriteria(): RollHistoryStatisticsFilterCriteria
+    public function getCriteria(): RollHistoryStatisticsFilter
     {
         return $this->criteria;
     }

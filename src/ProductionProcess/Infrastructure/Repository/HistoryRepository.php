@@ -8,10 +8,10 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Infrastructure\Repository;
 
-use App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics\RollHistoryStatisticsFilterCriteria;
 use App\ProductionProcess\Domain\Aggregate\Roll\History\History;
 use App\ProductionProcess\Domain\Aggregate\Roll\History\Type;
 use App\ProductionProcess\Domain\Repository\HistoryRepositoryInterface;
+use App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics\RollHistoryStatisticsFilter;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -62,11 +62,11 @@ class HistoryRepository extends ServiceEntityRepository implements HistoryReposi
     }
 
     /**
-     * @param RollHistoryStatisticsFilterCriteria $criteria
+     * @param RollHistoryStatisticsFilter $criteria
      *
      * @return History[]
      */
-    public function findByCriteria(RollHistoryStatisticsFilterCriteria $criteria): array
+    public function findByCriteria(RollHistoryStatisticsFilter $criteria): array
     {
         $qb = $this->createQueryBuilder('h')
             ->select('h')

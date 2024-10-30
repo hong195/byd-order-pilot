@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Application\UseCase;
 
 use App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics\FetchRollHistoryStatisticsQuery;
-use App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics\RollHistoryStatisticsFilterCriteria;
+use App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics\RollHistoryStatisticsFilter;
 use App\ProductionProcess\Application\UseCase\Query\FindARoll\FindARollQuery;
 use App\ProductionProcess\Application\UseCase\Query\FindARoll\FindARollResult;
 use App\ProductionProcess\Application\UseCase\Query\FindErrors\FindErrorsQuery;
@@ -134,10 +134,11 @@ readonly class PrivateQueryInteractor
     }
 
     /**
-     * @param RollHistoryStatisticsFilterCriteria $criteria
+     * @param RollHistoryStatisticsFilter $criteria
+     *
      * @return History[]
      */
-    public function fetchRollHistoryStatistics(RollHistoryStatisticsFilterCriteria $criteria): array
+    public function fetchRollHistoryStatistics(RollHistoryStatisticsFilter $criteria): array
     {
         $query = new FetchRollHistoryStatisticsQuery($criteria);
 
