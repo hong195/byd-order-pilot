@@ -21,7 +21,9 @@ final readonly class PrintedProductReprintedEventHandler implements EventHandler
     {
         $printedProduct = $this->privateQueryInteractor->findPrintedProduct(printedProductId: $event->printedProductId)->printedProduct;
 
-        $this->privateCommandInteractor->unassignPrintedProduct(id: $event->printedProductId);
+		if ($printedProduct->isPacked) {
+			$this->privateCommandInteractor->unassignPrintedProduct(id: $event->printedProductId);
+		}
 
         $this->privateCommandInteractor->checkRemainingProducts(rollId: $printedProduct->rollId);
     }
