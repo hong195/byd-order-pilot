@@ -32,10 +32,12 @@ final readonly class UnAssignPrintedProduct
             throw new NotFoundHttpException('Printed product not found');
         }
 
+		$roll = $printedProduct->getRoll();
+
         $printedProduct->unassign();
 
         $this->printedProductRepository->save($printedProduct);
 
-        $this->checkRemainingProductsService->check($printedProduct->getRoll()->getId());
+        $this->checkRemainingProductsService->check($roll->getId());
     }
 }
