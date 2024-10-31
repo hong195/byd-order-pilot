@@ -41,5 +41,5 @@ final readonly class UnPackProduct
         $product->unpack();
 
         $this->productRepository->save($product);
-    }
+	}
 }

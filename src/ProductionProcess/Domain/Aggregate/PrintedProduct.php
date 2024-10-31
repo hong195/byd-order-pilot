@@ -187,6 +187,6 @@ class PrintedProduct extends Aggregate
         $this->isReprint = true;
         $this->sortOrder = null;
 
-		$this->raise(new PrintedProductReprintedEvent(printedProductId: $this->id));
+        $this->raise(new PrintedProductReprintedEvent(printedProductId: $this->id));
     }
 }

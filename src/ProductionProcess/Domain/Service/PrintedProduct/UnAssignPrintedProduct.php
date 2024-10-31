@@ -38,6 +38,8 @@ final readonly class UnAssignPrintedProduct
 
         $this->printedProductRepository->save($printedProduct);
 
-        $this->checkRemainingProductsService->check($roll->getId());
+		if ($roll) {
+			$this->checkRemainingProductsService->check($roll->getId());
+		}
     }
 }
