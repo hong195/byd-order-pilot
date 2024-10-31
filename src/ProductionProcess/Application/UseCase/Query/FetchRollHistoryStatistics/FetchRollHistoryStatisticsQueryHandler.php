@@ -8,6 +8,7 @@
 
 namespace App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics;
 
+use App\ProductionProcess\Application\Service\Roll\History\HistoryStatisticsListService;
 use App\ProductionProcess\Domain\Repository\HistoryRepositoryInterface;
 use App\Shared\Application\Query\QueryHandlerInterface;
 
@@ -32,6 +33,10 @@ final readonly class FetchRollHistoryStatisticsQueryHandler implements QueryHand
     {
         $result = $this->repository->findByCriteria($query->getCriteria());
 
-        return new FetchRollHistoryStatisticsResult($result);
+        $historyStatisticsListService = new HistoryStatisticsListService($result);
+
+        $historyDataArray = $historyStatisticsListService();
+
+        return new FetchRollHistoryStatisticsResult($historyDataArray);
     }
 }

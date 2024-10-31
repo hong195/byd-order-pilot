@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Application\UseCase;
 
+use App\Orders\Application\UseCase\Query\GetOptions\GetOptionsQuery;
+use App\ProductionProcess\Application\DTO\HistoryData;
 use App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics\FetchRollHistoryStatisticsQuery;
+use App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics\FetchRollHistoryStatisticsResult;
 use App\ProductionProcess\Application\UseCase\Query\FindARoll\FindARollQuery;
 use App\ProductionProcess\Application\UseCase\Query\FindARoll\FindARollResult;
 use App\ProductionProcess\Application\UseCase\Query\FindErrors\FindErrorsQuery;
@@ -17,11 +20,10 @@ use App\ProductionProcess\Application\UseCase\Query\FindRollHistory\FindRollHist
 use App\ProductionProcess\Application\UseCase\Query\FindRollHistory\FindRollHistoryResult;
 use App\ProductionProcess\Application\UseCase\Query\FindRolls\FindRollsQuery;
 use App\ProductionProcess\Application\UseCase\Query\FindRolls\FindRollsResult;
-use App\ProductionProcess\Application\UseCase\Query\GetOptions\GetOptionsQuery;
+//use App\ProductionProcess\Application\UseCase\Query\GetOptions\GetOptionsQuery;
 use App\ProductionProcess\Application\UseCase\Query\GetOptions\GetOptionsQueryResult;
 use App\ProductionProcess\Application\UseCase\Query\GetPrintedProductsProcessDetail\GetPrintedProductsProcessDetailQuery;
 use App\ProductionProcess\Application\UseCase\Query\GetPrintedProductsProcessDetail\GetPrintedProductsProcessDetailResult;
-use App\ProductionProcess\Domain\Aggregate\Roll\History\History;
 use App\ProductionProcess\Domain\Repository\FetchRollHistoryStatisticsFilter;
 use App\Shared\Application\Query\QueryBusInterface;
 
@@ -134,13 +136,13 @@ readonly class PrivateQueryInteractor
     }
 
     /**
-     * @param FetchRollHistoryStatisticsFilter $criteria
+     * @param FetchRollHistoryStatisticsFilter $filter
      *
-     * @return History[]
+     * @return FetchRollHistoryStatisticsResult
      */
-    public function fetchRollHistoryStatistics(FetchRollHistoryStatisticsFilter $criteria): array
+    public function fetchRollHistoryStatistics(FetchRollHistoryStatisticsFilter $filter): FetchRollHistoryStatisticsResult
     {
-        $query = new FetchRollHistoryStatisticsQuery($criteria);
+        $query = new FetchRollHistoryStatisticsQuery($filter);
 
         return $this->queryBus->execute($query);
     }

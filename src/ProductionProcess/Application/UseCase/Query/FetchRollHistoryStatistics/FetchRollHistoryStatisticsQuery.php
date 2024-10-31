@@ -16,9 +16,9 @@ use App\Shared\Application\Query\Query;
 final readonly class FetchRollHistoryStatisticsQuery extends Query
 {
     /**
-     * @param FetchRollHistoryStatisticsFilter $criteria
+     * @param FetchRollHistoryStatisticsFilter $filter
      */
-    public function __construct(public FetchRollHistoryStatisticsFilter $criteria)
+    public function __construct(public FetchRollHistoryStatisticsFilter $filter)
     {
     }
 
@@ -27,6 +27,6 @@ final readonly class FetchRollHistoryStatisticsQuery extends Query
      */
     public function getCriteria(): FetchRollHistoryStatisticsFilter
     {
-        return $this->criteria;
+        return $this->filter;
     }
 }

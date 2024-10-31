@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics;
 
-use App\ProductionProcess\Domain\Aggregate\Roll\History\History;
+use App\ProductionProcess\Application\DTO\HistoryData;
 
 /**
  * Represents the result of finding a roll.
@@ -16,9 +16,7 @@ use App\ProductionProcess\Domain\Aggregate\Roll\History\History;
 final readonly class FetchRollHistoryStatisticsResult
 {
     /**
-     * @param History[] $rollHistoryData the roll data object
-     *
-     * @return void
+     * @param HistoryData[] $rollHistoryData the roll data object
      */
     public function __construct(public array $rollHistoryData)
     {

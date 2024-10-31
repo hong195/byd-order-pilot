@@ -6,6 +6,7 @@
 
 namespace App\ProductionProcess\Domain\Repository;
 
+use App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics\FetchRollHistoryStatisticsResult;
 use App\ProductionProcess\Domain\Aggregate\Roll\History\History;
 
 /**

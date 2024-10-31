@@ -18,6 +18,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 /**
  * Handles the request to fetch history statistics based on provided filter criteria.
@@ -34,8 +35,10 @@ readonly class FindRollHistoryStatistics
 {
     /**
      * @param PrivateQueryInteractor $privateQueryInteractor
+     *
+     * @param NormalizerInterface $normalizer
      */
-    public function __construct(private PrivateQueryInteractor $privateQueryInteractor)
+    public function __construct(private PrivateQueryInteractor $privateQueryInteractor, private NormalizerInterface $normalizer)
     {
     }
 
@@ -53,15 +56,17 @@ readonly class FindRollHistoryStatistics
         $to = $request->query->get('to') ? new \DateTimeImmutable($request->query->get('to')) : null;
         $process = $request->query->get('process');
 
-        $criteria = new FetchRollHistoryStatisticsFilter(
+        $filter = new FetchRollHistoryStatisticsFilter(
             employeeId: $employeeId,
             process: $process ? Process::from($process) : null,
             from: $from,
             to: $to
         );
 
-        $result = $this->privateQueryInteractor->fetchRollHistoryStatistics($criteria);
+        $result = $this->privateQueryInteractor->fetchRollHistoryStatistics($filter);
 
-        return new JsonResponse($result);
+        $normalizedResult = $this->normalizer->normalize($result);
+
+        return new JsonResponse($normalizedResult);
     }
 }
