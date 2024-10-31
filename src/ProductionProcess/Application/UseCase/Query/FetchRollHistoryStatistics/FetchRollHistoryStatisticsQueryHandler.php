@@ -8,12 +8,11 @@
 
 namespace App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics;
 
-use App\ProductionProcess\Domain\Aggregate\Roll\History\History;
 use App\ProductionProcess\Domain\Repository\HistoryRepositoryInterface;
 use App\Shared\Application\Query\QueryHandlerInterface;
 
 /**
- *
+ * Class FetchRollHistoryStatisticsQueryHandler.
  */
 final readonly class FetchRollHistoryStatisticsQueryHandler implements QueryHandlerInterface
 {
@@ -27,10 +26,12 @@ final readonly class FetchRollHistoryStatisticsQueryHandler implements QueryHand
     /**
      * @param FetchRollHistoryStatisticsQuery $query
      *
-     * @return History[]
+     * @return FetchRollHistoryStatisticsResult
      */
-    public function __invoke(FetchRollHistoryStatisticsQuery $query): array
+    public function __invoke(FetchRollHistoryStatisticsQuery $query): FetchRollHistoryStatisticsResult
     {
-        return $this->repository->findByCriteria($query->getCriteria());
+        $result = $this->repository->findByCriteria($query->getCriteria());
+
+        return new FetchRollHistoryStatisticsResult($result);
     }
 }

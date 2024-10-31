@@ -12,7 +12,7 @@
 namespace App\ProductionProcess\Infrastructure\Controller\Rolls\History;
 
 use App\ProductionProcess\Application\UseCase\PrivateQueryInteractor;
-use App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics\RollHistoryStatisticsFilter;
+use App\ProductionProcess\Domain\Repository\FetchRollHistoryStatisticsFilter;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -53,7 +53,7 @@ readonly class FindRollHistoryStatistics
         $to = $request->query->get('to') ? new \DateTimeImmutable($request->query->get('to')) : null;
         $process = $request->query->get('process');
 
-        $criteria = new RollHistoryStatisticsFilter(
+        $criteria = new FetchRollHistoryStatisticsFilter(
             employeeId: $employeeId,
             process: $process ? Process::from($process) : null,
             from: $from,

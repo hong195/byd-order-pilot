@@ -10,8 +10,8 @@ namespace App\ProductionProcess\Infrastructure\Repository;
 
 use App\ProductionProcess\Domain\Aggregate\Roll\History\History;
 use App\ProductionProcess\Domain\Aggregate\Roll\History\Type;
+use App\ProductionProcess\Domain\Repository\FetchRollHistoryStatisticsFilter;
 use App\ProductionProcess\Domain\Repository\HistoryRepositoryInterface;
-use App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics\RollHistoryStatisticsFilter;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -62,35 +62,35 @@ class HistoryRepository extends ServiceEntityRepository implements HistoryReposi
     }
 
     /**
-     * @param RollHistoryStatisticsFilter $criteria
+     * @param FetchRollHistoryStatisticsFilter $filter
      *
      * @return History[]
      */
-    public function findByCriteria(RollHistoryStatisticsFilter $criteria): array
+    public function findByCriteria(FetchRollHistoryStatisticsFilter $filter): array
     {
         $qb = $this->createQueryBuilder('h')
             ->select('h')
             ->where('h.type = :type')
             ->setParameter('type', Type::PROCESS_CHANGED->value);
 
-        if ($criteria->getEmployeeId()) {
+        if ($filter->getEmployeeId()) {
             $qb->andWhere('h.employeeId = :employeeId')
-                ->setParameter('employeeId', $criteria->getEmployeeId());
+                ->setParameter('employeeId', $filter->getEmployeeId());
         }
 
-        if ($criteria->getProcess()) {
+        if ($filter->getProcess()) {
             $qb->andWhere('h.process = :process')
-                ->setParameter('process', $criteria->getProcess());
+                ->setParameter('process', $filter->getProcess());
         }
 
-        if ($criteria->getFrom()) {
+        if ($filter->getFrom()) {
             $qb->andWhere('h.happenedAt >= :from')
-                ->setParameter('from', $criteria->getFrom());
+                ->setParameter('from', $filter->getFrom());
         }
 
-        if ($criteria->getTo()) {
+        if ($filter->getTo()) {
             $qb->andWhere('h.happenedAt <= :to')
-                ->setParameter('to', $criteria->getTo());
+                ->setParameter('to', $filter->getTo());
         }
 
         return $qb->getQuery()->getResult();

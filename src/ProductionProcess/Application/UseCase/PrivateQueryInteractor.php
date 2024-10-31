@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Application\UseCase;
 
 use App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics\FetchRollHistoryStatisticsQuery;
-use App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics\RollHistoryStatisticsFilter;
 use App\ProductionProcess\Application\UseCase\Query\FindARoll\FindARollQuery;
 use App\ProductionProcess\Application\UseCase\Query\FindARoll\FindARollResult;
 use App\ProductionProcess\Application\UseCase\Query\FindErrors\FindErrorsQuery;
@@ -23,6 +22,7 @@ use App\ProductionProcess\Application\UseCase\Query\GetOptions\GetOptionsQueryRe
 use App\ProductionProcess\Application\UseCase\Query\GetPrintedProductsProcessDetail\GetPrintedProductsProcessDetailQuery;
 use App\ProductionProcess\Application\UseCase\Query\GetPrintedProductsProcessDetail\GetPrintedProductsProcessDetailResult;
 use App\ProductionProcess\Domain\Aggregate\Roll\History\History;
+use App\ProductionProcess\Domain\Repository\FetchRollHistoryStatisticsFilter;
 use App\Shared\Application\Query\QueryBusInterface;
 
 /**
@@ -134,11 +134,11 @@ readonly class PrivateQueryInteractor
     }
 
     /**
-     * @param RollHistoryStatisticsFilter $criteria
+     * @param FetchRollHistoryStatisticsFilter $criteria
      *
      * @return History[]
      */
-    public function fetchRollHistoryStatistics(RollHistoryStatisticsFilter $criteria): array
+    public function fetchRollHistoryStatistics(FetchRollHistoryStatisticsFilter $criteria): array
     {
         $query = new FetchRollHistoryStatisticsQuery($criteria);
 

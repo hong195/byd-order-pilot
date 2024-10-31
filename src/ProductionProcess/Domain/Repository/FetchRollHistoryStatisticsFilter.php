@@ -7,7 +7,7 @@
  * @param \DateTimeImmutable|null $to         the ending date of the filter range
  */
 
-namespace App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics;
+namespace App\ProductionProcess\Domain\Repository;
 
 use App\ProductionProcess\Domain\ValueObject\Process;
 
@@ -17,7 +17,7 @@ use App\ProductionProcess\Domain\ValueObject\Process;
  * Represents a filter for roll history statistics, allowing optional filtering
  * by employee ID, process, and date range.
  */
-final readonly class RollHistoryStatisticsFilter
+final readonly class FetchRollHistoryStatisticsFilter
 {
     /**
      * @param int|null                $employeeId
