@@ -8,6 +8,7 @@ use App\ProductionProcess\Domain\Aggregate\Roll\History\Type;
 use App\ProductionProcess\Domain\Factory\HistoryFactory;
 use App\ProductionProcess\Domain\Repository\HistoryRepositoryInterface;
 use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
+use App\ProductionProcess\Domain\ValueObject\Process;
 
 /**
  * Class HistorySyncService.
@@ -35,13 +36,13 @@ final readonly class HistorySyncService
      *
      * @param int $rollId the ID of the roll to sync the history for
      */
-    public function record(int $rollId, Type $type): void
+    public function record(int $rollId, Process $process, Type $type): void
     {
         $roll = $this->rollRepository->findById($rollId);
 
         $history = $this->historyFactory->make(
 			rollId: $rollId,
-			process: $roll->getProcess(),
+			process: $process,
 			happenedAt: new \DateTimeImmutable(),
 			type: $type,
 			parentRollId: $roll->getParentRoll()?->getId(),

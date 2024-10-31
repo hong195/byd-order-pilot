@@ -3,7 +3,6 @@
 namespace App\ProductionProcess\Domain\Repository;
 
 use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
-use App\ProductionProcess\Domain\ValueObject\Status;
 
 /**
  * This interface represents a Job repository.
@@ -31,7 +30,7 @@ interface PrintedProductRepositoryInterface
      *
      * @return PrintedProduct[] an array of records matching the roll type
      */
-    public function findByStatus(Status $status): array;
+    public function findUnassign(): array;
 
     /**
      * Finds PrintedProducts based on a specified filter.

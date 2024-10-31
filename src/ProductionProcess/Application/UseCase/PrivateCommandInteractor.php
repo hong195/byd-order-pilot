@@ -10,6 +10,7 @@ use App\ProductionProcess\Application\UseCase\Command\AssignPrintedProduct\Assig
 use App\ProductionProcess\Application\UseCase\Command\ChangePrintedProductPriority\ChangePrintedProductPriorityCommand;
 use App\ProductionProcess\Application\UseCase\Command\ChangePrintedProductSort\ChangePrintedProductSortCommand;
 use App\ProductionProcess\Application\UseCase\Command\ChangePrinterAvailability\ChangePrinterAvailabilityCommand;
+use App\ProductionProcess\Application\UseCase\Command\CheckRemainingProducts\CheckRemainingProductsCommand;
 use App\ProductionProcess\Application\UseCase\Command\CreatePrintedProduct\CreatePrintedProductCommand;
 use App\ProductionProcess\Application\UseCase\Command\CreatePrinters\CreatePrintersCommand;
 use App\ProductionProcess\Application\UseCase\Command\CuttingCheckIn\CuttingCheckIntCommand;
@@ -20,6 +21,7 @@ use App\ProductionProcess\Application\UseCase\Command\ReprintPrintedProduct\Repr
 use App\ProductionProcess\Application\UseCase\Command\ReprintRoll\ReprintRollCommand;
 use App\ProductionProcess\Application\UseCase\Command\UnAssignEmployeeFromRoll\UnAssignEmployeeFromRollCommand;
 use App\ProductionProcess\Application\UseCase\Command\UnassignPrintedProduct\UnassignPrintedProductCommand;
+use App\ProductionProcess\Domain\ValueObject\Process;
 use App\Shared\Application\Command\CommandBusInterface;
 
 /**
@@ -131,9 +133,9 @@ readonly class PrivateCommandInteractor
      *
      * @param int $rollId The ID of the roll
      */
-    public function recoredRollProcessUpdate(int $rollId): void
+    public function recoredRollProcessUpdate(int $rollId, string $process): void
     {
-        $this->commandBus->execute(new RecordRollHistoryCommand($rollId));
+        $this->commandBus->execute(new RecordRollHistoryCommand(rollId: $rollId, process: Process::from($process)));
     }
 
     /**
@@ -193,5 +195,15 @@ readonly class PrivateCommandInteractor
     {
         $command = new ChangePrintedProductSortCommand(rollId: $orderData->rollId, group: $orderData->group, sortOrders: $orderData->sortOrders);
         $this->commandBus->execute($command);
+    }
+
+    /**
+     * Checks the remaining products for a given roll.
+     *
+     * @param int $rollId The ID of the roll to check remaining products for
+     */
+    public function checkRemainingProducts(int $rollId): void
+    {
+        $this->commandBus->execute(new CheckRemainingProductsCommand($rollId));
     }
 }

@@ -44,6 +44,6 @@ readonly class UnAssignEmployeeFromRollCommandHandler implements CommandHandlerI
 
         $this->rollRepository->save($roll);
 
-        $this->historyListService->record($roll->getId(), Type::EMPLOYEE_UNASSIGNED);
+        $this->historyListService->record(rollId: $roll->getId(), process: $roll->getProcess(), type: Type::EMPLOYEE_UNASSIGNED);
     }
 }

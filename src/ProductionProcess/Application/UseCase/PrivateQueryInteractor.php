@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Application\UseCase;
 
-use App\Orders\Application\UseCase\Query\GetOptions\GetOptionsQuery;
-use App\ProductionProcess\Application\DTO\HistoryData;
 use App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics\FetchRollHistoryStatisticsQuery;
 use App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics\FetchRollHistoryStatisticsResult;
 use App\ProductionProcess\Application\UseCase\Query\FindARoll\FindARollQuery;
 use App\ProductionProcess\Application\UseCase\Query\FindARoll\FindARollResult;
 use App\ProductionProcess\Application\UseCase\Query\FindErrors\FindErrorsQuery;
 use App\ProductionProcess\Application\UseCase\Query\FindErrors\FindErrorsResult;
+use App\ProductionProcess\Application\UseCase\Query\FindPrintedProduct\FindPrintedProductQuery;
+use App\ProductionProcess\Application\UseCase\Query\FindPrintedProduct\FindPrintedProductQueryResult;
 use App\ProductionProcess\Application\UseCase\Query\FindPrintedProducts\FindPrintedProductsQuery;
 use App\ProductionProcess\Application\UseCase\Query\FindPrintedProducts\FindPrintedProductsQueryResult;
 use App\ProductionProcess\Application\UseCase\Query\FindPrinters\FindPrintersQuery;
@@ -21,7 +21,7 @@ use App\ProductionProcess\Application\UseCase\Query\FindRollHistory\FindRollHist
 use App\ProductionProcess\Application\UseCase\Query\FindRolls\FindRollsQuery;
 use App\ProductionProcess\Application\UseCase\Query\FindRolls\FindRollsResult;
 //use App\ProductionProcess\Application\UseCase\Query\GetOptions\GetOptionsQuery;
-use App\ProductionProcess\Application\UseCase\Query\GetOptions\GetOptionsQueryResult;
+//use App\ProductionProcess\Application\UseCase\Query\GetOptions\GetOptionsQueryResult;
 use App\ProductionProcess\Application\UseCase\Query\GetPrintedProductsProcessDetail\GetPrintedProductsProcessDetailQuery;
 use App\ProductionProcess\Application\UseCase\Query\GetPrintedProductsProcessDetail\GetPrintedProductsProcessDetailResult;
 use App\ProductionProcess\Domain\Repository\FetchRollHistoryStatisticsFilter;
@@ -75,15 +75,15 @@ readonly class PrivateQueryInteractor
         return $this->queryBus->execute(new FindPrintersQuery());
     }
 
-    /**
-     * Retrieves the options by executing the GetOptionsQuery.
-     *
-     * @return GetOptionsQueryResult the result of executing the GetOptionsQuery
-     */
-    public function getOptions(): GetOptionsQueryResult
-    {
-        return $this->queryBus->execute(new GetOptionsQuery());
-    }
+//    /**
+//     * Retrieves the options by executing the GetOptionsQuery.
+//     *
+//     * @return GetOptionsQueryResult the result of executing the GetOptionsQuery
+//     */
+//    public function getOptions(): GetOptionsQueryResult
+//    {
+//        return $this->queryBus->execute(new GetOptionsQuery());
+//    }
 
     /**
      * Retrieves the roll history by executing the FindRollHistoryQuery.
@@ -133,6 +133,18 @@ readonly class PrivateQueryInteractor
     public function getPrintedProductProcessDetail(array $relatedProductsIds): GetPrintedProductsProcessDetailResult
     {
         return $this->queryBus->execute(new GetPrintedProductsProcessDetailQuery($relatedProductsIds));
+    }
+
+    /**
+     * Finds a printed product by executing the FindPrintedProductQuery with the provided printed product ID.
+     *
+     * @param int $printedProductId The ID of the printed product to find
+     *
+     * @return FindPrintedProductQueryResult The result of executing the FindPrintedProductQuery
+     */
+    public function findPrintedProduct(int $printedProductId): FindPrintedProductQueryResult
+    {
+        return $this->queryBus->execute(new FindPrintedProductQuery($printedProductId));
     }
 
     /**

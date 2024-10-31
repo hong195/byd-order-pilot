@@ -3,20 +3,12 @@
 namespace App\ProductionProcess\Domain\Repository;
 
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
-use App\ProductionProcess\Domain\ValueObject\Status;
 
 /**
  * This interface represents a Roll repository.
  */
 interface RollRepositoryInterface
 {
-    /**
-     * Adds a new Roll record.
-     *
-     * @param Roll $roll the Roll record to add
-     */
-    public function add(Roll $roll): void;
-
     /**
      * Finds a record by id.
      *
@@ -48,20 +40,4 @@ interface RollRepositoryInterface
      * @return Roll[] an array of matching records
      */
     public function findByFilter(RollFilter $rollFilter): array;
-
-    /**
-     * Finds a record by film id.
-     *
-     * @param int $filmId the film id of the record to find
-     *
-     * @return Roll|null the found record or null if not found
-     */
-    public function findByFilmId(int $filmId): ?Roll;
-
-    /**
-     * Saves a collection of rolls to the database.
-     *
-     * @param iterable<Roll> $rolls the collection of rolls to save
-     */
-    public function saveRolls(iterable $rolls): void;
 }

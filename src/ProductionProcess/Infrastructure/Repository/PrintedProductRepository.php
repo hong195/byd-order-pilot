@@ -5,7 +5,6 @@ namespace App\ProductionProcess\Infrastructure\Repository;
 use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use App\ProductionProcess\Domain\Repository\PrintedProductFilter;
 use App\ProductionProcess\Domain\Repository\PrintedProductRepositoryInterface;
-use App\ProductionProcess\Domain\ValueObject\Status;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -64,16 +63,13 @@ class PrintedProductRepository extends ServiceEntityRepository implements Printe
      *
      * @return PrintedProduct[] an array of rolls matching the roll type
      */
-    public function findByStatus(Status $status): array
+    public function findUnassign(): array
     {
         $qb = $this->createQueryBuilder('r');
 
-        $qb->where('r.status = :status');
-        $qb->setParameter('status', $status->value);
+        $qb->where('r.roll IS NULL');
 
         $query = $qb->getQuery();
-
-        $query->setMaxResults(10);
 
         return $query->getResult();
     }
@@ -92,6 +88,11 @@ class PrintedProductRepository extends ServiceEntityRepository implements Printe
             $qb->andWhere('r.id = :rollId')
                 ->setParameter('rollId', $filter->rollId);
         }
+
+		if (!empty($filter->ids)) {
+			$qb->andWhere('p.id IN (:ids)')
+				->setParameter('ids', $filter->ids);
+		}
 
         if ($filter->unassigned) {
             $qb->andWhere('p.roll IS NULL');

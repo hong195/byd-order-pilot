@@ -52,7 +52,7 @@ final readonly class AddProductAction
 
 		$productDTO = new AddProductCommand(
 			orderId: $orderId,
-			length: (int) $request->get('length'),
+			length: (float) $request->get('length'),
             filmType: $request->get('filmType'),
             laminationType: $request->get('laminationType'),
             cutFileId: $cutFileId,

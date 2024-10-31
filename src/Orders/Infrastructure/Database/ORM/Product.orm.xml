@@ -24,7 +24,7 @@
                nullable="true"
         />
 
-        <field name="length" type="bigint" column="length"/>
+        <field name="length" type="decimal" column="length" precision="15" scale="2"/>
 
         <field name="filmType"
                column="film_type"

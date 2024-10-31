@@ -8,7 +8,6 @@ use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use App\ProductionProcess\Domain\Aggregate\Printer;
 use App\ProductionProcess\Domain\Events\RollProcessWasUpdatedEvent;
 use App\ProductionProcess\Domain\ValueObject\Process;
-use App\ProductionProcess\Domain\ValueObject\Status;
 use App\Shared\Domain\Aggregate\Aggregate;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -129,9 +128,11 @@ class Roll extends Aggregate
      */
     public function updateProcess(Process $process): void
     {
+		$oldProcess = $this->process;
+
         $this->process = $process;
 
-        $this->raise(new RollProcessWasUpdatedEvent($this->id));
+        $this->raise(new RollProcessWasUpdatedEvent(rollId: $this->id, process: $oldProcess->value));
     }
 
     /**
@@ -266,8 +267,19 @@ class Roll extends Aggregate
     public function addPrintedProduct(PrintedProduct $printedProduct): void
     {
         $printedProduct->setRoll($this);
-        $printedProduct->changeStatus(Status::ASSIGNED);
         $this->printedProducts->add($printedProduct);
+    }
+
+    /**
+     * Adds printed products to the entity.
+     *
+     * @param iterable<PrintedProduct> $printedProducts An iterable collection of printed products to add
+     */
+    public function addPrintedProducts(iterable $printedProducts): void
+    {
+        foreach ($printedProducts as $printedProduct) {
+            $this->addPrintedProduct($printedProduct);
+        }
     }
 
     /**
@@ -285,6 +297,8 @@ class Roll extends Aggregate
      */
     public function removePrintedProducts(): void
     {
+		$this->printedProducts->map(fn (PrintedProduct $printedProduct) => $printedProduct->unassign());
+
         $this->printedProducts->clear();
     }
 

@@ -15,3 +15,7 @@ services:
 
   App\Shared\Infrastructure\Bus\EventBus:
     public: true
+
+  App\ProductionProcess\Domain\Service\Inventory\AvailableFilmServiceInterface:
+    class: App\ProductionProcess\Domain\Service\Inventory\InMemoryAvailableFilmService
+    public: true

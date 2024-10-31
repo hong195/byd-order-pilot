@@ -22,7 +22,7 @@ readonly class AddProductCommand implements CommandInterface
      */
     public function __construct(
         public int $orderId,
-        public int $length,
+        public float $length,
         public ?string $filmType,
         public ?string $laminationType = null,
         public ?int $cutFileId = null,

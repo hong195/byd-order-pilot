@@ -18,7 +18,7 @@ final readonly class RollProcessWasUpdatedEvent implements EventInterface
      *
      * @param int $rollId the IDs of the roll
      */
-    public function __construct(public int $rollId)
+    public function __construct(public int $rollId, public string $process)
     {
     }
 }

@@ -5,12 +5,13 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Domain\Aggregate;
 
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
-use App\ProductionProcess\Domain\ValueObject\Status;
+use App\ProductionProcess\Domain\Events\PrintedProductReprintedEvent;
+use App\Shared\Domain\Aggregate\Aggregate;
 
 /**
  * Class Job.
  */
-class PrintedProduct
+class PrintedProduct extends Aggregate
 {
     /**
      * @phpstan-ignore-next-line
@@ -20,17 +21,16 @@ class PrintedProduct
     private ?Roll $roll = null;
     private ?int $sortOrder = null;
     private bool $hasPriority = false;
-    private readonly \DateTimeInterface $dateAdded;
-    private Status $status = Status::UNASSIGNED;
     private bool $isReprint = false;
+    private readonly \DateTimeInterface $dateAdded;
 
     /**
      * Constructs a new instance of the class.
      *
-     * @param int       $relatedProductId   the product id
-     * @param string    $orderNumber the order number
-     * @param string    $filmType    the film type
-     * @param int|float $length      the length
+     * @param int       $relatedProductId the product id
+     * @param string    $orderNumber      the order number
+     * @param string    $filmType         the film type
+     * @param int|float $length           the length
      */
     public function __construct(public readonly int $relatedProductId, public readonly string $orderNumber, public readonly string $filmType, public readonly int|float $length)
     {
@@ -78,23 +78,12 @@ class PrintedProduct
     }
 
     /**
-     * Returns the status.
-     *
-     * @return Status the status
+     * Unassigns the roll.
      */
-    public function getStatus(): Status
+    public function unassign(): void
     {
-        return $this->status;
-    }
-
-    /**
-     * Changes the status of the object.
-     *
-     * @param Status $status the new status
-     */
-    public function changeStatus(Status $status): void
-    {
-        $this->status = $status;
+        $this->roll = null;
+        $this->sortOrder = null;
     }
 
     /**
@@ -178,14 +167,6 @@ class PrintedProduct
     }
 
     /**
-     * Removes the roll.
-     */
-    public function removeRoll(): void
-    {
-        $this->roll = null;
-    }
-
-    /**
      * Checks if the item is a reprint.
      *
      * @return bool true if the item is a reprint, false otherwise
@@ -202,10 +183,10 @@ class PrintedProduct
      */
     public function reprint(): void
     {
-        $this->status = Status::ASSIGNABLE;
         $this->hasPriority = true;
         $this->isReprint = true;
-        $this->roll = null;
         $this->sortOrder = null;
+
+		$this->raise(new PrintedProductReprintedEvent(printedProductId: $this->id));
     }
 }

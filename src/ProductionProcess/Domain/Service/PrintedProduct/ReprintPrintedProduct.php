@@ -6,7 +6,6 @@ namespace App\ProductionProcess\Domain\Service\PrintedProduct;
 
 use App\ProductionProcess\Domain\Repository\PrintedProductRepositoryInterface;
 use App\ProductionProcess\Domain\Service\PrintedProduct\Error\ErrorManagementService;
-use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\PrintedProductsCheckInService;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use App\Shared\Infrastructure\Security\UserFetcher;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -18,9 +17,6 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
  */
 final readonly class ReprintPrintedProduct
 {
-	/**
-	 *
-	 */
     public function __construct(private PrintedProductRepositoryInterface $printedProductRepository, private ErrorManagementService $errorManagementService, private UserFetcher $userFetcher)
     {
     }
@@ -41,12 +37,12 @@ final readonly class ReprintPrintedProduct
             throw new NotFoundHttpException('Printed product not found');
         }
 
-        $this->errorManagementService->recordError(
-            printedProductId: $printedProduct->getId(),
-            process: $process,
-            noticerId: $this->userFetcher->requiredUserId(),
-            reason: $reason
-        );
+//        $this->errorManagementService->recordError(
+//            printedProductId: $printedProduct->getId(),
+//            process: $process,
+//            noticerId: $this->userFetcher->requiredUserId(),
+//            reason: $reason
+//        );
 
         $printedProduct->reprint();
 

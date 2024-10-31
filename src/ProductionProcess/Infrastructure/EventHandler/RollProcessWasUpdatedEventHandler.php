@@ -33,6 +33,6 @@ final readonly class RollProcessWasUpdatedEventHandler implements EventHandlerIn
      */
     public function __invoke(RollProcessWasUpdatedEvent $event): void
     {
-        $this->privateCommandInteractor->recoredRollProcessUpdate($event->rollId);
+        $this->privateCommandInteractor->recoredRollProcessUpdate(rollId: $event->rollId, process: $event->process);
     }
 }

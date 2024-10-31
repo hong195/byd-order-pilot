@@ -27,6 +27,6 @@ readonly class RecordRollHistoryCommandHandler implements CommandHandlerInterfac
      */
     public function __invoke(RecordRollHistoryCommand $command): void
     {
-        $this->historySyncService->record($command->rollId, $command->getType());
+        $this->historySyncService->record(rollId: $command->rollId, process: $command->process, type: $command->getType());
     }
 }

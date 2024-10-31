@@ -46,7 +46,7 @@ final readonly class ChangeSortOrder
 		$printedProductsGroupedByLamination = $this->groupService->handle($roll->getPrintedProducts());
 
 		if (!isset($printedProductsGroupedByLamination[$group])) {
-			throw new NotFoundHttpException('Group not found');
+			throw new NotFoundHttpException('ProductGroup not found');
 		}
 
 		$groupOrders = $printedProductsGroupedByLamination[$group];

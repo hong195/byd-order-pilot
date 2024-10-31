@@ -25,17 +25,6 @@ class RollRepository extends ServiceEntityRepository implements RollRepositoryIn
     }
 
     /**
-     * Add a roll to the database.
-     *
-     * @param Roll $roll the roll to add
-     */
-    public function add(Roll $roll): void
-    {
-        $this->getEntityManager()->persist($roll);
-        $this->getEntityManager()->flush();
-    }
-
-    /**
      * Finds a roll by its ID.
      *
      * @param int $id the ID of the roll to find
@@ -82,15 +71,8 @@ class RollRepository extends ServiceEntityRepository implements RollRepositoryIn
         $qb = $this->createQueryBuilder('r');
 
         if (!empty($rollFilter->filmIds)) {
-            $qb->where('r.filmId IN (:filmIds)');
+            $qb->andWhere('r.filmId IN (:filmIds)');
             $qb->setParameter('filmIds', $rollFilter->filmIds);
-        }
-
-        if ($rollFilter->filmType) {
-            $qb->join('r.printer', 'p')
-                ->andWhere('JSONB_CONTAINS(p.filmTypes, :filmType) = true')
-                ->setParameter('filmType', json_encode($rollFilter->filmType))
-            ;
         }
 
         if ($rollFilter->process) {
@@ -101,34 +83,5 @@ class RollRepository extends ServiceEntityRepository implements RollRepositoryIn
         $query = $qb->getQuery();
 
         return $query->getResult();
-    }
-
-    /**
-     * Finds a roll by its film ID.
-     *
-     * If a film ID is provided, it will return the first roll that matches the film ID.
-     * If the film ID is not provided or the roll is not found, it will return null.
-     *
-     * @param int|null $filmId the ID of the film to search for
-     *
-     * @return Roll|null the found roll, or null if no roll was found
-     */
-    public function findByFilmId(?int $filmId = null): ?Roll
-    {
-        return $this->findBy(['filmId' => $filmId])[0] ?? null;
-    }
-
-    /**
-     * Saves multiple rolls.
-     *
-     * @param iterable<Roll> $rolls the rolls to save
-     */
-    public function saveRolls(iterable $rolls): void
-    {
-        foreach ($rolls as $roll) {
-            $this->getEntityManager()->persist($roll);
-        }
-
-        $this->getEntityManager()->flush();
     }
 }

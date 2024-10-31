@@ -70,6 +70,9 @@ services:
     App\ProductionProcess\Domain\Service\PrintedProduct\Error\ErrorManagementService:
         public: true
 
+    App\ProductionProcess\Domain\Service\Roll\CheckRemainingProductsService:
+        public: true
+
     Symfony\Component\Serializer\Normalizer\ObjectNormalizer: ~
     Symfony\Component\Serializer\Normalizer\ArrayDenormalizer: ~
     Symfony\Component\Serializer\Encoder\JsonEncoder: ~
