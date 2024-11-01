@@ -9,7 +9,9 @@ use App\Orders\Application\UseCase\PrivateQueryInteractor;
 use App\Orders\Infrastructure\Adapter\PrintedProductAdapterInterface;
 use App\ProductionProcess\Domain\Events\PrintedProductReprintedEvent;
 use App\Shared\Application\Event\EventHandlerInterface;
+use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 
+#[AsEventListener(event: PrintedProductReprintedEvent::class, method: '__invoke')]
 final readonly class PrintedProductReprintedEventHandler implements EventHandlerInterface
 {
     public function __construct(private PrivateCommandInteractor $privateCommandInteractor, private PrivateQueryInteractor $privateQueryInteractor, private PrintedProductAdapterInterface $productAdapter)
