@@ -37,7 +37,7 @@ final readonly class ReprintPrintedProduct
             throw new NotFoundHttpException('Printed product not found');
         }
 
-		$printedProduct->reprint();
+        $printedProduct->reprint();
 
         $this->errorManagementService->recordError(
             printedProductId: $printedProduct->getId(),
@@ -46,6 +46,6 @@ final readonly class ReprintPrintedProduct
             reason: $reason
         );
 
-		$this->printedProductRepository->save($printedProduct);
-	}
+        $this->printedProductRepository->save($printedProduct);
+    }
 }

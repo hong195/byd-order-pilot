@@ -18,7 +18,6 @@ final readonly class PrintedProductReprintedEventHandler implements EventHandler
 
     public function __invoke(PrintedProductReprintedEvent $event): void
     {
-		dd($event);
         $this->privateCommandInteractor->unassignPrintedProduct(id: $event->printedProductId);
     }
 }

@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fixed packed product becomes unpacked after reprint.">
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Event/PrintedProductReprintedEventHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Event/PrintedProductReprintedEventHandler.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Bug fix reprint.">
       <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/ReprintPrintedProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/ReprintPrintedProduct.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/EventHandler/PrintedProductReprintedEventHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/EventHandler/PrintedProductReprintedEventHandler.php" afterDir="false" />
     </list>
@@ -394,22 +393,6 @@
       <workItem from="1730359623262" duration="9000" />
       <workItem from="1730362553719" duration="4894000" />
     </task>
-    <task id="LOCAL-00373" summary="Rename message to reason.">
-      <option name="closed" value="true" />
-      <created>1728406930941</created>
-      <option name="number" value="00373" />
-      <option name="presentableId" value="LOCAL-00373" />
-      <option name="project" value="LOCAL" />
-      <updated>1728406930941</updated>
-    </task>
-    <task id="LOCAL-00374" summary="Small refactor.">
-      <option name="closed" value="true" />
-      <created>1728407696839</created>
-      <option name="number" value="00374" />
-      <option name="presentableId" value="LOCAL-00374" />
-      <option name="project" value="LOCAL" />
-      <updated>1728407696839</updated>
-    </task>
     <task id="LOCAL-00375" summary="Updated reprint commands.">
       <option name="closed" value="true" />
       <created>1728408031020</created>
@@ -786,7 +769,23 @@
       <option name="project" value="LOCAL" />
       <updated>1730387813747</updated>
     </task>
-    <option name="localTasksCounter" value="422" />
+    <task id="LOCAL-00422" summary="Bug fix reprint.">
+      <option name="closed" value="true" />
+      <created>1730466778579</created>
+      <option name="number" value="00422" />
+      <option name="presentableId" value="LOCAL-00422" />
+      <option name="project" value="LOCAL" />
+      <updated>1730466778579</updated>
+    </task>
+    <task id="LOCAL-00423" summary="Bug fix reprint.">
+      <option name="closed" value="true" />
+      <created>1730466781122</created>
+      <option name="number" value="00423" />
+      <option name="presentableId" value="LOCAL-00423" />
+      <option name="project" value="LOCAL" />
+      <updated>1730466781122</updated>
+    </task>
+    <option name="localTasksCounter" value="424" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -821,7 +820,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added printed product check in." />
     <MESSAGE value="Updated product unpack/pack test." />
     <MESSAGE value="Added test for packing extra." />
     <MESSAGE value="Added order repository tests." />
@@ -846,7 +844,8 @@
     <MESSAGE value="Added information about unassigned products." />
     <MESSAGE value=" Added checking remainings products left on the roll #2." />
     <MESSAGE value="Fixed packed product becomes unpacked after reprint." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed packed product becomes unpacked after reprint." />
+    <MESSAGE value="Bug fix reprint." />
+    <option name="LAST_COMMIT_MESSAGE" value="Bug fix reprint." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
