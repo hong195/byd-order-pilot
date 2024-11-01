@@ -30,7 +30,7 @@ final readonly class HistoryListService
      */
     public function __invoke(int $rollId): array
     {
-        $histories = $this->historyRepository->findByRollId($rollId);
+        $histories = $this->historyRepository->findFullHistory($rollId);
 		$historyIds = array_unique(array_filter(array_map(fn ($history) => $history->getEmployeeId(), $histories)));
         $employees = $this->employeeFetcher->getByIds($historyIds);
 

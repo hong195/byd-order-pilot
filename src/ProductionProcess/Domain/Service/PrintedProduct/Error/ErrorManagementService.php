@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Domain\Service\PrintedProduct\Error;
 
 use App\ProductionProcess\Domain\Aggregate\Roll\History\History;
-use App\ProductionProcess\Domain\Aggregate\Roll\History\Type;
 use App\ProductionProcess\Domain\Exceptions\RollErrorManagementException;
 use App\ProductionProcess\Domain\Factory\ErrorFactory;
 use App\ProductionProcess\Domain\Repository\ErrorRepositoryInterface;
@@ -32,15 +31,15 @@ final readonly class ErrorManagementService
     }
 
     /**
-     * Records an error for a specific printed product and process, assigning it to the responsible employee.
+     * Records an error for a specific printed product and process.
      *
-     * @param int     $printedProductId The ID of the printed product
-     * @param Process $process          The process associated with the error
-     * @param int     $noticerId        The ID of the employee who noticed the error
-     * @param string  $reason           (Optional) The reason or details of the error
+     * @param int         $printedProductId The ID of the printed product
+     * @param Process     $process          The process related to the error
+     * @param int         $noticerId        The employee ID who noticed the error
+     * @param string|null $reason           The reason for the error (optional)
      *
      * @throws NotFoundHttpException        If the roll for the printed product does not exist
-     * @throws RollErrorManagementException If there are issues with roll history or process data
+     * @throws RollErrorManagementException
      */
     public function recordError(int $printedProductId, Process $process, int $noticerId, ?string $reason = null): void
     {
@@ -77,20 +76,21 @@ final readonly class ErrorManagementService
     {
         $printedProduct = $this->productRepository->findById($printedProductId);
 
-        if (!$printedProduct || !$printedProduct->getRoll()) {
+        if (!$printedProduct || !$roll = $printedProduct->getRoll()) {
             throw new NotFoundHttpException('Roll does not exist');
         }
 
-        $rollId = $printedProduct->getRoll()->getId();
-        $rollHistories = $this->historyRepository->findByRollId($rollId);
+		if (!$roll->getEmployeeId()) {
+			RollErrorManagementException::because('Roll does not have an employee assigned');
+		}
+
+        $rollHistories = $this->historyRepository->findFullHistory($roll->getId());
 
         if (empty($rollHistories)) {
-            throw new RollErrorManagementException('Roll history does not contain the process');
+            RollErrorManagementException::because('Roll history does not contain the process');
         }
 
-        usort($rollHistories, fn (History $a, History $b) => $a->happenedAt <=> $b->happenedAt);
-
-        $histories = array_filter($rollHistories, fn (History $history) => $history->process === $process && Type::PROCESS_CHANGED === $history->type);
+        $histories = array_filter($rollHistories, fn (History $history) => $history->process === $process);
 
         if (empty($histories)) {
             RollErrorManagementException::because('Roll history does not contain the process');

@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Bug fix reprint.">
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/ReprintPrintedProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/ReprintPrintedProduct.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Bug fix reprint #2.">
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/Service/Roll/History/HistoryListService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/Service/Roll/History/HistoryListService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/HistoryRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/HistoryRepositoryInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/Error/ErrorManagementService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/Error/ErrorManagementService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/EventHandler/PrintedProductReprintedEventHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/EventHandler/PrintedProductReprintedEventHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/HistoryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/HistoryRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Repository/HistoryRepositoryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Repository/HistoryRepositoryTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +31,7 @@
     <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitRewordedCommitMessages">
-    <option name="onto" value="98d66a5342423557557a7e732e409db8f0c0f45f" />
+    <option name="onto" value="ac5ebf205acfef7f85538ca8a84b699556215c62" />
   </component>
   <component name="PHPCodeSnifferProjectConfiguration">
     <option name="selectedConfigurationId" value="2b84c86e-c887-410d-9d1e-1bcb0d9bafa7" />
@@ -282,13 +286,17 @@
       <recent name="$PROJECT_DIR$/src/Orders/Application/Service/Product" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.PrintedProductCheckinTest.test_can_allocate_group_of_printed_products_on_one_roll">
+  <component name="RunManager" selected="PHPUnit.HistoryRepositoryTest.test_add">
     <configuration name="CheckRemainingProductsServiceTest.test_it_remove_roll_if_there_are_no_printed_product_left" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\CheckRemainingProductsServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/CheckRemainingProductsServiceTest.php" method="test_it_remove_roll_if_there_are_no_printed_product_left" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="CheckRemainingProductsServiceTest.test_it_throws_exception_if_roll_does_not_exists" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\CheckRemainingProductsServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/CheckRemainingProductsServiceTest.php" method="test_it_throws_exception_if_roll_does_not_exists" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="HistoryRepositoryTest.test_add" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Infrastructure\Repository\HistoryRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Repository/HistoryRepositoryTest.php" method="test_add" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -299,21 +307,17 @@
       <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintedProductCheckinTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckinTest.php" method="test_can_allocate_group_of_printed_products_on_one_roll" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="RollRepositoryTest.test_can_find_by_filter" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Infrastructure\Repository\RollRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Repository/RollRepositoryTest.php" method="test_can_find_by_filter" scope="Method" />
-      <method v="2" />
-    </configuration>
     <configuration name="RollRepositoryTest.test_it_can_find_by_film_id" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="App\Tests\Functional\ProductionProcess\Infrastructure\Repository\RollRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Repository/RollRepositoryTest.php" method="test_it_can_find_by_film_id" scope="Method" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.HistoryRepositoryTest.test_add" />
         <item itemvalue="PHPUnit.PrintedProductCheckinTest.test_can_allocate_group_of_printed_products_on_one_roll" />
         <item itemvalue="PHPUnit.CheckRemainingProductsServiceTest.test_it_throws_exception_if_roll_does_not_exists" />
         <item itemvalue="PHPUnit.CheckRemainingProductsServiceTest.test_it_remove_roll_if_there_are_no_printed_product_left" />
         <item itemvalue="PHPUnit.RollRepositoryTest.test_it_can_find_by_film_id" />
-        <item itemvalue="PHPUnit.RollRepositoryTest.test_can_find_by_filter" />
       </list>
     </recent_temporary>
   </component>
@@ -392,22 +396,6 @@
       <workItem from="1730131000423" duration="30730000" />
       <workItem from="1730359623262" duration="9000" />
       <workItem from="1730362553719" duration="4894000" />
-    </task>
-    <task id="LOCAL-00375" summary="Updated reprint commands.">
-      <option name="closed" value="true" />
-      <created>1728408031020</created>
-      <option name="number" value="00375" />
-      <option name="presentableId" value="LOCAL-00375" />
-      <option name="project" value="LOCAL" />
-      <updated>1728408031020</updated>
-    </task>
-    <task id="LOCAL-00376" summary="Updated reprint commands.">
-      <option name="closed" value="true" />
-      <created>1728408816194</created>
-      <option name="number" value="00376" />
-      <option name="presentableId" value="LOCAL-00376" />
-      <option name="project" value="LOCAL" />
-      <updated>1728408816194</updated>
     </task>
     <task id="LOCAL-00377" summary="Updated reprint services.">
       <option name="closed" value="true" />
@@ -785,7 +773,23 @@
       <option name="project" value="LOCAL" />
       <updated>1730466781122</updated>
     </task>
-    <option name="localTasksCounter" value="424" />
+    <task id="LOCAL-00424" summary="Bug fix reprint #2.">
+      <option name="closed" value="true" />
+      <created>1730467186410</created>
+      <option name="number" value="00424" />
+      <option name="presentableId" value="LOCAL-00424" />
+      <option name="project" value="LOCAL" />
+      <updated>1730467186410</updated>
+    </task>
+    <task id="LOCAL-00425" summary="Bug fix reprint #2.">
+      <option name="closed" value="true" />
+      <created>1730467197747</created>
+      <option name="number" value="00425" />
+      <option name="presentableId" value="LOCAL-00425" />
+      <option name="project" value="LOCAL" />
+      <updated>1730467197747</updated>
+    </task>
+    <option name="localTasksCounter" value="426" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -820,7 +824,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated product unpack/pack test." />
     <MESSAGE value="Added test for packing extra." />
     <MESSAGE value="Added order repository tests." />
     <MESSAGE value="Added extra tests." />
@@ -845,7 +848,8 @@
     <MESSAGE value=" Added checking remainings products left on the roll #2." />
     <MESSAGE value="Fixed packed product becomes unpacked after reprint." />
     <MESSAGE value="Bug fix reprint." />
-    <option name="LAST_COMMIT_MESSAGE" value="Bug fix reprint." />
+    <MESSAGE value="Bug fix reprint #2." />
+    <option name="LAST_COMMIT_MESSAGE" value="Bug fix reprint #2." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

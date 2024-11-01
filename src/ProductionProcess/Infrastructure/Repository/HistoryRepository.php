@@ -14,6 +14,8 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class HistoryRepository extends ServiceEntityRepository implements HistoryRepositoryInterface
 {
+    private array $history = [];
+
     /**
      * Constructs a new OrderRepository instance.
      *
@@ -36,22 +38,32 @@ class HistoryRepository extends ServiceEntityRepository implements HistoryReposi
     }
 
     /**
-     * Finds a History entity by a rollId.
+     * Finds the full history for a given roll ID recursively.
      *
-     * @param int $rollId the rollId to search for
+     * @param int $rollId the roll ID to search for
      *
-     * @return History[] the found History entity or null if no History entity was found
-     *
-     * @throws \Doctrine\ORM\NonUniqueResultException
+     * @return array the full history matching the roll ID
      */
-    public function findByRollId(int $rollId): array
+    public function findFullHistory(int $rollId): array
     {
-        $query = $this->createQueryBuilder('h');
+        $history = [];
 
-        $query->where('h.rollId = :rollId')
-            ->setParameter('rollId', $rollId)
-            ->orderBy('h.happenedAt', 'ASC');
+        $fetchHistory = function (int $rollId) use (&$fetchHistory, &$history) {
+            $currentHistory = $this->findBy(['rollId' => $rollId]);
 
-        return $query->getQuery()->getResult();
+            $history = array_merge($history, $currentHistory);
+
+            foreach ($currentHistory as $record) {
+                if ($record->getParentRollId()) {
+                    $fetchHistory($record->getParentRollId());
+                }
+            }
+        };
+
+        $fetchHistory($rollId);
+
+        usort($history, fn ($a, $b) => $a->happenedAt <=> $b->happenedAt);
+
+        return $history;
     }
 }

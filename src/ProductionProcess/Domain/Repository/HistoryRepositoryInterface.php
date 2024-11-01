@@ -21,5 +21,5 @@ interface HistoryRepositoryInterface
      *
      * @return History[] the found history record or null if no record is found
      */
-    public function findByRollId(int $rollId): array;
+    public function findFullHistory(int $rollId): array;
 }

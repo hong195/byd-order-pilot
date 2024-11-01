@@ -38,7 +38,7 @@ class HistoryRepositoryTest extends AbstractTestCase
 
         $this->repository->add($history);
 
-        $histories = $this->repository->findByRollId(self::FAKE_ROLL_ID);
+        $histories = $this->repository->findFullHistory(self::FAKE_ROLL_ID);
 
         $this->assertContains($history, $histories);
     }
