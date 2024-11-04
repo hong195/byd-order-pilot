@@ -4,19 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated tests.">
-      <change afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/CuttingCheckinTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/GeneralProcessValidationTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintCheckinTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Resource/Fixture/Inventory/FilmFixture.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added cutting check in tests.">
+      <change afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/RollMakerTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Aggregate/LaminationFilm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Domain/Aggregate/LaminationFilm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Aggregate/RollFilm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Domain/Aggregate/RollFilm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Factory/FilmFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Domain/Factory/FilmFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Exceptions/RollCantBeSentToCuttingException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Exceptions/RollCantBeSentToCuttingException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/CuttingCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/CuttingCheckInService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/GeneralProcessValidation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/GeneralProcessValidation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Tools/FixtureTools.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Tools/FixtureTools.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Events/RollWasCreatedEvent.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/RollMaker.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/RollMaker.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,6 +220,12 @@
     "PHPUnit.GeneralProcessValidationTest.executor": "Run",
     "PHPUnit.GeneralProcessValidationTest.test_it_throws_exception_when_no_orders_found.executor": "Run",
     "PHPUnit.GeneralProcessValidationTest.test_it_throws_exception_when_roll_is_empty.executor": "Run",
+    "PHPUnit.GlowCheckinTest.executor": "Run",
+    "PHPUnit.GlowCheckinTest.test_can_successfully_send_to_glow_checkin_process.executor": "Run",
+    "PHPUnit.GlowCheckinTest.test_it_dispatches_event_after_sending_to_cutting_check_in.executor": "Debug",
+    "PHPUnit.GlowCheckinTest.test_it_dispatches_event_after_sending_to_glow_check_in.executor": "Run",
+    "PHPUnit.GlowCheckinTest.test_roll_can_be_send_directly_to_cutting_check_in_if_there_is_no_glow.executor": "Run",
+    "PHPUnit.GlowCheckinTest.test_roll_creation_match_lamination_types.executor": "Run",
     "PHPUnit.HistoryRepositoryTest.executor": "Run",
     "PHPUnit.HistoryRepositoryTest.test_add.executor": "Run",
     "PHPUnit.HistoryRepositoryTest.test_true.executor": "Run",
@@ -257,6 +255,7 @@
     "PHPUnit.ProductRepositoryTest.test_can_find_by_filter.executor": "Run",
     "PHPUnit.ProductRepositoryTest.test_can_successfully_save.executor": "Run",
     "PHPUnit.ReprintRollTest.test_cannot_reprint_not_existing_roll.executor": "Run",
+    "PHPUnit.RollMakerTest.test_it_can_make_roll.executor": "Run",
     "PHPUnit.RollRepositoryTest.test_can_find_by_filter.executor": "Run",
     "PHPUnit.RollRepositoryTest.test_can_remove.executor": "Run",
     "PHPUnit.RollRepositoryTest.test_can_save_successfully.executor": "Run",
@@ -313,38 +312,38 @@
       <recent name="$PROJECT_DIR$/src/Orders/Application/Service/Product" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.Main">
+  <component name="RunManager" selected="PHPUnit.RollMakerTest.test_it_can_make_roll">
+    <configuration name="GlowCheckinTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\GlowCheckinTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/GlowCheckinTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
+    <configuration name="GlowCheckinTest.test_can_successfully_send_to_glow_checkin_process" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\GlowCheckinTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/GlowCheckinTest.php" method="test_can_successfully_send_to_glow_checkin_process" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="GlowCheckinTest.test_roll_can_be_send_directly_to_cutting_check_in_if_there_is_no_glow" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\GlowCheckinTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/GlowCheckinTest.php" method="test_roll_can_be_send_directly_to_cutting_check_in_if_there_is_no_glow" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="GlowCheckinTest.test_roll_creation_match_lamination_types" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\GlowCheckinTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/GlowCheckinTest.php" method="test_roll_creation_match_lamination_types" scope="Method" />
+      <method v="2" />
+    </configuration>
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
       <method v="2" />
     </configuration>
-    <configuration name="PrintCheckinTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintCheckinTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintCheckinTest.php" scope="Class" />
-      <method v="2" />
-    </configuration>
-    <configuration name="PrintCheckinTest.test_can_successfully_send_to_print_check_in" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintCheckinTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintCheckinTest.php" method="test_can_successfully_send_to_print_check_in" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="PrintCheckinTest.test_it_dispatches_event_after_sending_to_cutting_check_in" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintCheckinTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintCheckinTest.php" method="test_it_dispatches_event_after_sending_to_cutting_check_in" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="PrintCheckinTest.test_it_throws_exception_when_there_are_no_orders_on_the_roll" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintCheckinTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintCheckinTest.php" method="test_it_throws_exception_when_there_are_no_orders_on_the_roll" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="PrintCheckinTest.test_it_throws_exception_when_there_is_no_employee_assigned" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintCheckinTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintCheckinTest.php" method="test_it_throws_exception_when_there_is_no_employee_assigned" scope="Method" />
+    <configuration name="RollMakerTest.test_it_can_make_roll" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\RollMakerTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/RollMakerTest.php" method="test_it_can_make_roll" scope="Method" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.PrintCheckinTest" />
-        <item itemvalue="PHPUnit.PrintCheckinTest.test_it_dispatches_event_after_sending_to_cutting_check_in" />
-        <item itemvalue="PHPUnit.PrintCheckinTest.test_it_throws_exception_when_there_are_no_orders_on_the_roll" />
-        <item itemvalue="PHPUnit.PrintCheckinTest.test_it_throws_exception_when_there_is_no_employee_assigned" />
-        <item itemvalue="PHPUnit.PrintCheckinTest.test_can_successfully_send_to_print_check_in" />
+        <item itemvalue="PHPUnit.RollMakerTest.test_it_can_make_roll" />
+        <item itemvalue="PHPUnit.GlowCheckinTest.test_roll_can_be_send_directly_to_cutting_check_in_if_there_is_no_glow" />
+        <item itemvalue="PHPUnit.GlowCheckinTest" />
+        <item itemvalue="PHPUnit.GlowCheckinTest.test_roll_creation_match_lamination_types" />
+        <item itemvalue="PHPUnit.GlowCheckinTest.test_can_successfully_send_to_glow_checkin_process" />
       </list>
     </recent_temporary>
   </component>
@@ -423,23 +422,7 @@
       <workItem from="1730131000423" duration="30730000" />
       <workItem from="1730359623262" duration="9000" />
       <workItem from="1730362553719" duration="4894000" />
-      <workItem from="1730652675071" duration="16284000" />
-    </task>
-    <task id="LOCAL-00380" summary="Added shippingAddress to api response.">
-      <option name="closed" value="true" />
-      <created>1728568634802</created>
-      <option name="number" value="00380" />
-      <option name="presentableId" value="LOCAL-00380" />
-      <option name="project" value="LOCAL" />
-      <updated>1728568634802</updated>
-    </task>
-    <task id="LOCAL-00381" summary="Fixed cut, print files are uploaded.">
-      <option name="closed" value="true" />
-      <created>1728572762906</created>
-      <option name="number" value="00381" />
-      <option name="presentableId" value="LOCAL-00381" />
-      <option name="project" value="LOCAL" />
-      <updated>1728572762906</updated>
+      <workItem from="1730652675071" duration="19197000" />
     </task>
     <task id="LOCAL-00382" summary="Moved AssetUrlServiceInterface to shared domain.">
       <option name="closed" value="true" />
@@ -817,7 +800,23 @@
       <option name="project" value="LOCAL" />
       <updated>1730717762524</updated>
     </task>
-    <option name="localTasksCounter" value="429" />
+    <task id="LOCAL-00429" summary="Added print &amp; cut check in tests.">
+      <option name="closed" value="true" />
+      <created>1730735118075</created>
+      <option name="number" value="00429" />
+      <option name="presentableId" value="LOCAL-00429" />
+      <option name="project" value="LOCAL" />
+      <updated>1730735118075</updated>
+    </task>
+    <task id="LOCAL-00430" summary="Added cutting check in tests.">
+      <option name="closed" value="true" />
+      <created>1730737547622</created>
+      <option name="number" value="00430" />
+      <option name="presentableId" value="LOCAL-00430" />
+      <option name="project" value="LOCAL" />
+      <updated>1730737547622</updated>
+    </task>
+    <option name="localTasksCounter" value="431" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -852,8 +851,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added product test." />
-    <MESSAGE value="Updated order repository test &amp; added orders queries (packed, partially packed, only with extras)" />
     <MESSAGE value="Updated order data structure (removed is packed)" />
     <MESSAGE value="Simplify order repository findPartiallyPacked method." />
     <MESSAGE value="Remove debug code." />
@@ -877,7 +874,9 @@
     <MESSAGE value="Fixed errors can be record on previous and current processes." />
     <MESSAGE value="Fixed errors can be record on previous and current processes #2." />
     <MESSAGE value="Updated tests." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated tests." />
+    <MESSAGE value="Added print &amp; cut check in tests." />
+    <MESSAGE value="Added cutting check in tests." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added cutting check in tests." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
