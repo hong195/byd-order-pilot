@@ -6,4 +6,11 @@ namespace App\ProductionProcess\Domain\Exceptions;
 
 final class RollCantBeSentToCuttingException extends \Exception
 {
+    /**
+     * @throws RollCantBeSentToCuttingException
+     */
+    public static function because(string $reason): void
+    {
+        throw new self($reason);
+    }
 }

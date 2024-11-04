@@ -7,6 +7,6 @@ namespace App\Inventory\Domain\Aggregate;
 /**
  * Represents a RollFilm extending the AbstractFilm class.
  */
-final class RollFilm extends AbstractFilm
+class RollFilm extends AbstractFilm
 {
 }

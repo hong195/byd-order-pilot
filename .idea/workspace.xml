@@ -4,13 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fixed errors can be record on previous and current processes #2.">
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated tests.">
+      <change afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/CuttingCheckinTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/GeneralProcessValidationTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintCheckinTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Resource/Fixture/Inventory/FilmFixture.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/ChangeSortOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/ChangeSortOrder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/Error/ErrorManagementService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/Error/ErrorManagementService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/CheckRemainingProductsServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/CheckRemainingProductsServiceTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/Error/ErrorManagementServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/Error/ErrorManagementServiceTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckinTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckinTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Aggregate/LaminationFilm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Domain/Aggregate/LaminationFilm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Aggregate/RollFilm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Domain/Aggregate/RollFilm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Factory/FilmFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Domain/Factory/FilmFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Exceptions/RollCantBeSentToCuttingException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Exceptions/RollCantBeSentToCuttingException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/CuttingCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/CuttingCheckInService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/GeneralProcessValidation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/GeneralProcessValidation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Tools/FixtureTools.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Tools/FixtureTools.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,6 +205,11 @@
     "PHPUnit.CheckRemainingProductsServiceTest.test_it_remove_roll_if_there_are_no_printed_product_left.executor": "Run",
     "PHPUnit.CheckRemainingProductsServiceTest.test_it_throws_exception_if_roll_does_not_exists.executor": "Run",
     "PHPUnit.CheckRemainingProductsServiceTest.test_printer_become_available_if_last_element_was_removed.executor": "Run",
+    "PHPUnit.CuttingCheckinTest.executor": "Run",
+    "PHPUnit.CuttingCheckinTest.test_can_successfully_send_to_cutting_check_in_process.executor": "Run",
+    "PHPUnit.CuttingCheckinTest.test_can_successfully_send_to_cutting_checkin_process.executor": "Run",
+    "PHPUnit.CuttingCheckinTest.test_it_cant_send_to_cutting_checkin_process_from_incorrect_process.executor": "Run",
+    "PHPUnit.CuttingCheckinTest.test_it_dispatchs_event_after_sending_to_cutting_check_in.executor": "Run",
     "PHPUnit.ErrorManagementServiceTest.executor": "Run",
     "PHPUnit.ErrorManagementServiceTest.test_can_be_created.executor": "Run",
     "PHPUnit.ErrorManagementServiceTest.test_can_be_recorded.executor": "Run",
@@ -214,6 +225,9 @@
     "PHPUnit.ErrorRepositoryTest.test_find_by_process.executor": "Run",
     "PHPUnit.ExtraMakerTest.test_can_successfully_make_extra.executor": "Run",
     "PHPUnit.ExtraRepositoryTest.test_can_successfully_save.executor": "Run",
+    "PHPUnit.GeneralProcessValidationTest.executor": "Run",
+    "PHPUnit.GeneralProcessValidationTest.test_it_throws_exception_when_no_orders_found.executor": "Run",
+    "PHPUnit.GeneralProcessValidationTest.test_it_throws_exception_when_roll_is_empty.executor": "Run",
     "PHPUnit.HistoryRepositoryTest.executor": "Run",
     "PHPUnit.HistoryRepositoryTest.test_add.executor": "Run",
     "PHPUnit.HistoryRepositoryTest.test_true.executor": "Run",
@@ -231,6 +245,11 @@
     "PHPUnit.PackProductTest.test_cant_pack_product_if_its_not_ready_for_packing.executor": "Run",
     "PHPUnit.PackProductTest.test_cant_pack_product_if_order_product_do_not_exist.executor": "Run",
     "PHPUnit.PackProductTest.test_if_product_packed_product_pack_event_dispatched.executor": "Run",
+    "PHPUnit.PrintCheckinTest.executor": "Run",
+    "PHPUnit.PrintCheckinTest.test_can_successfully_send_to_print_check_in.executor": "Run",
+    "PHPUnit.PrintCheckinTest.test_it_dispatches_event_after_sending_to_cutting_check_in.executor": "Run",
+    "PHPUnit.PrintCheckinTest.test_it_throws_exception_when_there_are_no_orders_on_the_roll.executor": "Run",
+    "PHPUnit.PrintCheckinTest.test_it_throws_exception_when_there_is_no_employee_assigned.executor": "Run",
     "PHPUnit.PrintedProductCheckinTest.test_can_allocate_group_of_printed_products_on_one_roll.executor": "Run",
     "PHPUnit.PrintedProductRepositoryTest.test_add.executor": "Run",
     "PHPUnit.PrintedProductRepositoryTest.test_can_find_by_filter.executor": "Run",
@@ -295,37 +314,37 @@
     </key>
   </component>
   <component name="RunManager" selected="PHPUnit.Main">
-    <configuration name="CheckRemainingProductsServiceTest.test_it_remove_roll_if_there_are_no_printed_product_left" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\CheckRemainingProductsServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/CheckRemainingProductsServiceTest.php" method="test_it_remove_roll_if_there_are_no_printed_product_left" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="CheckRemainingProductsServiceTest.test_it_throws_exception_if_roll_does_not_exists" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\CheckRemainingProductsServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/CheckRemainingProductsServiceTest.php" method="test_it_throws_exception_if_roll_does_not_exists" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="CheckRemainingProductsServiceTest.test_printer_become_available_if_last_element_was_removed" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\CheckRemainingProductsServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/CheckRemainingProductsServiceTest.php" method="test_printer_become_available_if_last_element_was_removed" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="HistoryRepositoryTest.test_add" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Infrastructure\Repository\HistoryRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Repository/HistoryRepositoryTest.php" method="test_add" scope="Method" />
-      <method v="2" />
-    </configuration>
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
       <method v="2" />
     </configuration>
-    <configuration name="PrintedProductCheckinTest.test_can_allocate_group_of_printed_products_on_one_roll" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintedProductCheckinTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckinTest.php" method="test_can_allocate_group_of_printed_products_on_one_roll" scope="Method" />
+    <configuration name="PrintCheckinTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintCheckinTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintCheckinTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
+    <configuration name="PrintCheckinTest.test_can_successfully_send_to_print_check_in" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintCheckinTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintCheckinTest.php" method="test_can_successfully_send_to_print_check_in" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="PrintCheckinTest.test_it_dispatches_event_after_sending_to_cutting_check_in" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintCheckinTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintCheckinTest.php" method="test_it_dispatches_event_after_sending_to_cutting_check_in" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="PrintCheckinTest.test_it_throws_exception_when_there_are_no_orders_on_the_roll" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintCheckinTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintCheckinTest.php" method="test_it_throws_exception_when_there_are_no_orders_on_the_roll" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="PrintCheckinTest.test_it_throws_exception_when_there_is_no_employee_assigned" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintCheckinTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintCheckinTest.php" method="test_it_throws_exception_when_there_is_no_employee_assigned" scope="Method" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.CheckRemainingProductsServiceTest.test_printer_become_available_if_last_element_was_removed" />
-        <item itemvalue="PHPUnit.HistoryRepositoryTest.test_add" />
-        <item itemvalue="PHPUnit.PrintedProductCheckinTest.test_can_allocate_group_of_printed_products_on_one_roll" />
-        <item itemvalue="PHPUnit.CheckRemainingProductsServiceTest.test_it_throws_exception_if_roll_does_not_exists" />
-        <item itemvalue="PHPUnit.CheckRemainingProductsServiceTest.test_it_remove_roll_if_there_are_no_printed_product_left" />
+        <item itemvalue="PHPUnit.PrintCheckinTest" />
+        <item itemvalue="PHPUnit.PrintCheckinTest.test_it_dispatches_event_after_sending_to_cutting_check_in" />
+        <item itemvalue="PHPUnit.PrintCheckinTest.test_it_throws_exception_when_there_are_no_orders_on_the_roll" />
+        <item itemvalue="PHPUnit.PrintCheckinTest.test_it_throws_exception_when_there_is_no_employee_assigned" />
+        <item itemvalue="PHPUnit.PrintCheckinTest.test_can_successfully_send_to_print_check_in" />
       </list>
     </recent_temporary>
   </component>
@@ -404,15 +423,7 @@
       <workItem from="1730131000423" duration="30730000" />
       <workItem from="1730359623262" duration="9000" />
       <workItem from="1730362553719" duration="4894000" />
-      <workItem from="1730652675071" duration="3034000" />
-    </task>
-    <task id="LOCAL-00379" summary="Added shipping address field.">
-      <option name="closed" value="true" />
-      <created>1728568442296</created>
-      <option name="number" value="00379" />
-      <option name="presentableId" value="LOCAL-00379" />
-      <option name="project" value="LOCAL" />
-      <updated>1728568442296</updated>
+      <workItem from="1730652675071" duration="16284000" />
     </task>
     <task id="LOCAL-00380" summary="Added shippingAddress to api response.">
       <option name="closed" value="true" />
@@ -798,7 +809,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730481101103</updated>
     </task>
-    <option name="localTasksCounter" value="428" />
+    <task id="LOCAL-00428" summary="Updated tests.">
+      <option name="closed" value="true" />
+      <created>1730717762524</created>
+      <option name="number" value="00428" />
+      <option name="presentableId" value="LOCAL-00428" />
+      <option name="project" value="LOCAL" />
+      <updated>1730717762524</updated>
+    </task>
+    <option name="localTasksCounter" value="429" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -833,7 +852,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added extra tests." />
     <MESSAGE value="Added product test." />
     <MESSAGE value="Updated order repository test &amp; added orders queries (packed, partially packed, only with extras)" />
     <MESSAGE value="Updated order data structure (removed is packed)" />
@@ -858,7 +876,8 @@
     <MESSAGE value="Bug fix reprint #2." />
     <MESSAGE value="Fixed errors can be record on previous and current processes." />
     <MESSAGE value="Fixed errors can be record on previous and current processes #2." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed errors can be record on previous and current processes #2." />
+    <MESSAGE value="Updated tests." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated tests." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

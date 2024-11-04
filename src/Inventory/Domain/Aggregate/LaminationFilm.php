@@ -9,6 +9,6 @@ namespace App\Inventory\Domain\Aggregate;
  *
  * This class represents a lamination film, extending the AbstractFilm class.
  */
-final class LaminationFilm extends AbstractFilm
+class LaminationFilm extends AbstractFilm
 {
 }
