@@ -80,9 +80,9 @@ final readonly class ErrorManagementService
             throw new NotFoundHttpException('Roll does not exist');
         }
 
-		if (!$roll->getEmployeeId()) {
-			RollErrorManagementException::because('Roll does not have an employee assigned');
-		}
+        if (!$roll->getEmployeeId()) {
+            RollErrorManagementException::because('Roll does not have an employee assigned');
+        }
 
         $rollHistories = $this->historyRepository->findFullHistory($roll->getId());
 
