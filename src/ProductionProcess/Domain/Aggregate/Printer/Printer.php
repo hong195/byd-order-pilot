@@ -33,7 +33,7 @@ class Printer
      *
      * @param string $name the name of the printer
      */
-    public function __construct(private readonly string $name, public readonly bool $default = false)
+    public function __construct(private readonly string $name, public readonly bool $isDefault = false)
     {
         $this->conditions = new ArrayCollection([]);
         $this->dateAdded = new \DateTimeImmutable();

@@ -12,9 +12,13 @@
 
         <field name="name" column="name" length="255"/>
 
-        <field name="isAvailable" column="is_available" type="boolean"/>
+        <field name="isAvailable" column="is_available" type="boolean">
+            <options>
+                <option name="default">true</option>
+            </options>
+        </field>
 
-        <field name="default" column="default" type="boolean">
+        <field name="isDefault" column="is_default" type="boolean">
             <options>
                 <option name="default">false</option>
             </options>
