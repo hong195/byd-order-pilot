@@ -3,6 +3,10 @@
 declare(strict_types=1);
 
 namespace App\ProductionProcess\Domain\Aggregate\Printer;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+
 /**
  * Class Printer.
  *
@@ -15,21 +19,23 @@ class Printer
      */
     private int $id;
 
-    private ?string $color = null;
-
     private \DateTimeImmutable $dateAdded;
 
     private bool $isAvailable = true;
 
     /**
+     * @var Collection<Condition>
+     */
+    private Collection $conditions;
+
+    /**
      * Printer constructor.
      *
-     * @param string           $name            the name of the printer
-     * @param string[]       $filmTypes       an array of roll types
-     * @param string[] $laminationTypes an array of lamination types
+     * @param string $name the name of the printer
      */
-    public function __construct(private readonly string $name, private array $filmTypes = [], private array $laminationTypes = [])
+    public function __construct(private readonly string $name, public readonly bool $default = false)
     {
+        $this->conditions = new ArrayCollection([]);
         $this->dateAdded = new \DateTimeImmutable();
     }
 
@@ -54,26 +60,6 @@ class Printer
     }
 
     /**
-     * Sets the color of the object.
-     *
-     * @param string $color the color value to set
-     */
-    public function setColor(string $color): void
-    {
-        $this->color = $color;
-    }
-
-    /**
-     * Returns the color of the object.
-     *
-     * @return string|null the color of the object or null if no color is set
-     */
-    public function getColor(): ?string
-    {
-        return $this->color;
-    }
-
-    /**
      * Returns the date when the item was added.
      *
      * @return \DateTimeImmutable the date when the item was added
@@ -81,26 +67,6 @@ class Printer
     public function getDateAdded(): \DateTimeImmutable
     {
         return $this->dateAdded;
-    }
-
-    /**
-     * Returns the available roll types.
-     *
-     * @return string[] the array of roll types
-     */
-    public function getFilmTypes(): array
-    {
-        return $this->filmTypes;
-    }
-
-    /**
-     * Returns the available lamination types.
-     *
-     * @return string[] the array of lamination types
-     */
-    public function getLaminationTypes(): array
-    {
-        return $this->laminationTypes;
     }
 
     /**
@@ -121,5 +87,15 @@ class Printer
     public function changeAvailability(bool $isAvailable): void
     {
         $this->isAvailable = $isAvailable;
+    }
+
+    /**
+     * Get the conditions of the object.
+     *
+     * @return Collection<Condition> The conditions of the object
+     */
+    public function getConditions(): Collection
+    {
+        return $this->conditions;
     }
 }

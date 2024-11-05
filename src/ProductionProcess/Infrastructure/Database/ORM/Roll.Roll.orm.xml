@@ -20,7 +20,7 @@
 
         <field name="process" enum-type="App\ProductionProcess\Domain\ValueObject\Process" column="process" length="255" nullable="true"/>
 
-        <many-to-one field="printer" target-entity="App\ProductionProcess\Domain\Aggregate\Printer" fetch="EXTRA_LAZY" />
+        <many-to-one field="printer" target-entity="App\ProductionProcess\Domain\Aggregate\Printer\Printer" fetch="EXTRA_LAZY" />
 
         <one-to-many field="printedProducts" target-entity="App\ProductionProcess\Domain\Aggregate\PrintedProduct" mapped-by="roll" fetch="EXTRA_LAZY" >
             <cascade>

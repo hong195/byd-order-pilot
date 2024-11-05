@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+        https://doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
+>
+
+    <entity name="App\ProductionProcess\Domain\Aggregate\Printer\Condition" table="prod_process_printer_condition">
+        <id name="id" type="integer">
+            <generator />
+        </id>
+
+        <many-to-one field="printer" target-entity="App\ProductionProcess\Domain\Aggregate\Printer\Printer" inversed-by="conditions">
+            <join-column name="printer_id" referenced-column-name="id" nullable="false"/>
+        </many-to-one>
+
+        <field name="filmType" type="string" column="film_type" length="50" nullable="true"/>
+
+        <field name="laminationType" type="string" column="lamination_type" length="50" nullable="true"/>
+
+        <field name="laminationRequired" type="boolean" column="lamination_required" nullable="true"/>
+
+        <!-- Indexes -->
+        <indexes>
+            <index name="idx_film_type" columns="film_type"/>
+            <index name="idx_lamination_type" columns="lamination_type"/>
+            <index name="idx_lamination_required" columns="lamination_required"/>
+        </indexes>
+    </entity>
+</doctrine-mapping>

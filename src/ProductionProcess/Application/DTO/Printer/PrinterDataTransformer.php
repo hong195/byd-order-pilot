@@ -29,8 +29,6 @@ final readonly class PrinterDataTransformer
             $data->add(new PrinterData(
                 id: $entity->getId(),
                 name: $entity->getName(),
-                filmTypes: $entity->getFilmTypes(),
-                laminations: $entity->getLaminationTypes()
             ));
         }
 
