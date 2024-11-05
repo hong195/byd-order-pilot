@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\ProductionProcess\Domain\Aggregate;
+namespace App\ProductionProcess\Domain\Aggregate\Printer;
 /**
  * Class Printer.
  *
