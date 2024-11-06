@@ -2,6 +2,10 @@
 
 declare(strict_types=1);
 
+/**
+ * Represents the result of finding errors in the production process.
+ */
+
 namespace App\ProductionProcess\Application\UseCase\Query\FindErrors;
 
 use App\ProductionProcess\Application\DTO\Error\ErrorData;

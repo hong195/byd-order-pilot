@@ -10,12 +10,17 @@ use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Query\QueryHandlerInterface;
 use App\Shared\Domain\Service\AssertService;
 
+/**
+ * Handler for finding errors based on a query.
+ */
 final readonly class FindErrorsHandler implements QueryHandlerInterface
 {
     /**
      * Constructor for the class.
      *
      * @param AccessControlService $accessControlService the access control service dependency
+     * @param ErrorRepository      $repository
+     * @param ErrorDataTransformer $transformer
      */
     public function __construct(private AccessControlService $accessControlService, private ErrorRepository $repository, private ErrorDataTransformer $transformer)
     {
