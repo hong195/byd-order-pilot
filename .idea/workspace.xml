@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added domain middleware exception.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Command/RecordInventoryUpdating/RecordInventoryUpdatingCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Command/RecordInventoryUpdating/RecordInventoryUpdatingCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/DTO/FilmDataTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/DTO/FilmDataTransformer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/DTO/FilmHistoryDataTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/DTO/FilmHistoryDataTransformer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/Product/ProductDataTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/Product/ProductDataTransformer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Api/RollApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Api/RollApi.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fixed long float for orders and production entities.">
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/CheckInPrintedProducts/CheckInPrintedProductsCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/CheckInPrintedProducts/CheckInPrintedProductsCommandHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/Rolls/CheckInPrintedProductsAction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateCommandInteractor.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -393,15 +391,7 @@
       <workItem from="1729850134593" duration="19374000" />
       <workItem from="1730131000423" duration="30730000" />
       <workItem from="1730978112889" duration="27000" />
-      <workItem from="1730978144587" duration="5576000" />
-    </task>
-    <task id="LOCAL-00371" summary="Updated history tests.">
-      <option name="closed" value="true" />
-      <created>1728406363300</created>
-      <option name="number" value="00371" />
-      <option name="presentableId" value="LOCAL-00371" />
-      <option name="project" value="LOCAL" />
-      <updated>1728406363300</updated>
+      <workItem from="1730978144587" duration="6182000" />
     </task>
     <task id="LOCAL-00372" summary="Updated history tests.">
       <option name="closed" value="true" />
@@ -787,7 +777,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730984302784</updated>
     </task>
-    <option name="localTasksCounter" value="420" />
+    <task id="LOCAL-00420" summary="Fixed long float for orders and production entities.">
+      <option name="closed" value="true" />
+      <created>1730985176663</created>
+      <option name="number" value="00420" />
+      <option name="presentableId" value="LOCAL-00420" />
+      <option name="project" value="LOCAL" />
+      <updated>1730985176663</updated>
+    </task>
+    <option name="localTasksCounter" value="421" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -822,7 +820,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added printed product check in." />
     <MESSAGE value="Updated product unpack/pack test." />
     <MESSAGE value="Added test for packing extra." />
     <MESSAGE value="Added order repository tests." />
@@ -847,7 +844,8 @@
     <MESSAGE value="Add normalization to roll history statistics response&#10;&#10;Integrated NormalizerInterface to standardize the roll history statistics results before returning them as a JsonResponse. Introduced the HistoryStatisticsListService to encapsulate the transformation logic for History entities to data transfer objects." />
     <MESSAGE value="Remove legacy printed product code and outdated migrations&#10;&#10;Deleted unused PrintedProduct service, Status value object, and multiple obsolete database migration files to clean up the codebase and reduce technical debt. This simplifies maintenance and focuses on current business logic." />
     <MESSAGE value="Added domain middleware exception." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added domain middleware exception." />
+    <MESSAGE value="Fixed long float for orders and production entities." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed long float for orders and production entities." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

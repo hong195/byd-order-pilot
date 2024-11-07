@@ -10,6 +10,7 @@ use App\ProductionProcess\Application\UseCase\Command\AssignPrintedProduct\Assig
 use App\ProductionProcess\Application\UseCase\Command\ChangePrintedProductPriority\ChangePrintedProductPriorityCommand;
 use App\ProductionProcess\Application\UseCase\Command\ChangePrintedProductSort\ChangePrintedProductSortCommand;
 use App\ProductionProcess\Application\UseCase\Command\ChangePrinterAvailability\ChangePrinterAvailabilityCommand;
+use App\ProductionProcess\Application\UseCase\Command\CheckInPrintedProducts\CheckInPrintedProductsCommand;
 use App\ProductionProcess\Application\UseCase\Command\CheckRemainingProducts\CheckRemainingProductsCommand;
 use App\ProductionProcess\Application\UseCase\Command\CreatePrintedProduct\CreatePrintedProductCommand;
 use App\ProductionProcess\Application\UseCase\Command\CreatePrinters\CreatePrintersCommand;
@@ -117,6 +118,16 @@ readonly class PrivateCommandInteractor
     public function assignEmployeeToARoll(int $rollId, int $employeeId): void
     {
         $this->commandBus->execute(new AssignEmployeeToRollCommand(rollId: $rollId, employeeId: $employeeId));
+    }
+
+	/**
+	 * Checks in printed products.
+	 *
+	 * @param array $printedProducts The array of printed products to be checked in
+	 */
+	public function checkInPrintedProducts(array $printedProducts = []): void
+    {
+        $this->commandBus->execute(new CheckInPrintedProductsCommand(printedProductIds: $printedProducts));
     }
 
     /**
