@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fixed long float for orders and production entities.">
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/CheckInPrintedProducts/CheckInPrintedProductsCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/CheckInPrintedProducts/CheckInPrintedProductsCommandHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/Rolls/CheckInPrintedProductsAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateCommandInteractor.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fixed removing roll relation when order is unassign.">
+      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Console/ResetConsoleCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5916b34a-be41-48d5-ab32-895d9f6eb3ec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5916b34a-be41-48d5-ab32-895d9f6eb3ec.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +22,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="products" />
+        <entry key="$PROJECT_DIR$" value="a9426d167b36f6a5b444c5446c87561a4e312848" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -283,7 +283,7 @@
       <recent name="$PROJECT_DIR$/src/Orders/Application/DTO/Product" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.PrintedProductCheckinTest.test_can_allocate_group_of_printed_products_on_one_roll">
+  <component name="RunManager" selected="PHPUnit.Main">
     <configuration name="CheckRemainingProductsServiceTest.test_it_remove_roll_if_there_are_no_printed_product_left" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\CheckRemainingProductsServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/CheckRemainingProductsServiceTest.php" method="test_it_remove_roll_if_there_are_no_printed_product_left" scope="Method" />
       <method v="2" />
@@ -392,6 +392,7 @@
       <workItem from="1730131000423" duration="30730000" />
       <workItem from="1730978112889" duration="27000" />
       <workItem from="1730978144587" duration="6182000" />
+      <workItem from="1730987686115" duration="751000" />
     </task>
     <task id="LOCAL-00372" summary="Updated history tests.">
       <option name="closed" value="true" />
@@ -846,31 +847,6 @@
     <MESSAGE value="Added domain middleware exception." />
     <MESSAGE value="Fixed long float for orders and production entities." />
     <option name="LAST_COMMIT_MESSAGE" value="Fixed long float for orders and production entities." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/Order/Domain/Aggregate/OrderStack/OrderStack.php</url>
-          <line>210</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/Orders/Domain/ValueObject/Customer.php</url>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/vendor/doctrine/orm/src/EntityManagerInterface.php</url>
-          <line>185</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/PrinterRepositoryInterface.php</url>
-          <line>26</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
