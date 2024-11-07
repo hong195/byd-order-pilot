@@ -93,6 +93,11 @@ final class ResetConsoleCommand extends Command
         ));
         $io->success('Admin user has been successfully created.');
 
+        $io->success('Creating printers....');
+        $migrateProcess = new Process(['php', 'bin/console', 'app:create-printers', '--no-interaction']);
+        $migrateProcess->run();
+        $io->success('Printers has been successfully created.');
+
         return Command::SUCCESS;
     }
 }
