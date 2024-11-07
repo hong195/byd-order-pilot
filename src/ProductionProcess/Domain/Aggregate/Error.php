@@ -51,9 +51,9 @@ class Error
     /**
      * Get the message property.
      *
-     * @return string The message value
+     * @return string|null The message value
      */
-    public function getReason(): string
+    public function getReason(): ?string
     {
         return $this->reason;
     }

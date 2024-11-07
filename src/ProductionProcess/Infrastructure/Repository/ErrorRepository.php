@@ -2,6 +2,10 @@
 
 declare(strict_types=1);
 
+/**
+ * Class ErrorRepository.
+ */
+
 namespace App\ProductionProcess\Infrastructure\Repository;
 
 use App\ProductionProcess\Domain\Aggregate\Error;
@@ -97,6 +101,16 @@ class ErrorRepository extends ServiceEntityRepository implements ErrorRepository
         if ($filter->responsibleEmployeeId) {
             $qb->andWhere('e.responsibleEmployeeId = :responsibleEmployeeId')
                 ->setParameter('responsibleEmployeeId', $filter->responsibleEmployeeId);
+        }
+
+        if ($filter->from) {
+            $qb->andWhere('e.createdAt >= :from')
+                ->setParameter('from', $filter->from);
+        }
+
+        if ($filter->to) {
+            $qb->andWhere('e.createdAt <= :to')
+                ->setParameter('to', $filter->to);
         }
 
         return $qb->getQuery()->getResult();
