@@ -24,7 +24,7 @@
             </options>
         </field>
 
-        <one-to-many field="conditions" target-entity="App\ProductionProcess\Domain\Aggregate\Printer\Condition" mapped-by="printer" fetch="EAGER" >
+        <one-to-many field="conditions" target-entity="App\ProductionProcess\Domain\Aggregate\Printer\Condition" mapped-by="printer" fetch="EXTRA_LAZY" >
             <cascade>
                 <cascade-persist/>
             </cascade>

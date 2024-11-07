@@ -33,23 +33,28 @@ final class PrintedProductsCheckInService implements PrintedProductCheckInInterf
         private readonly RollRepositoryInterface $rollRepository,
         private readonly RollMaker $rollMaker,
         private readonly GroupByOrderNumberService $groupByOrderNumberService,
-        private readonly FilmAssignmentService $findSuitableRollForArrangement,
+        private readonly FilmAssignmentService $filmAssignmentService,
+        private readonly GroupPrinterService $groupPrinterService,
     ) {
     }
 
-	/**
-	 * Arranges printed products into rolls based on film type and suitable film availability.
-	 *
-	 * @param int[] $printedProductIds An array of printed product IDs to arrange (optional)
-	 * @throws UnassignedPrintedProductsException
-	 */
+    /**
+     * Arranges printed products into rolls based on film type and suitable film availability.
+     *
+     * @param int[] $printedProductIds An array of printed product IDs to arrange (optional)
+     *
+     * @throws UnassignedPrintedProductsException
+     */
     public function arrange(array $printedProductIds = []): void
     {
+        // TODO move to a separate service
         $this->initPrintedProducts($printedProductIds);
 
-        $groups = $this->groupByOrderNumberService->group($this->printedProducts);
+        $printerGroups = $this->groupPrinterService->group($this->printedProducts);
 
-        $filmGroups = $this->findSuitableRollForArrangement->assignFilmToProductGroups($groups);
+        $groupedByOrderNumber = $this->groupByOrderNumberService->group($printerGroups);
+
+        $filmGroups = $this->filmAssignmentService->assignFilmToProductGroups($groupedByOrderNumber);
 
         foreach ($filmGroups as $filmGroup) {
             if (!$filmGroup->filmId) {
@@ -57,19 +62,37 @@ final class PrintedProductsCheckInService implements PrintedProductCheckInInterf
                 continue;
             }
 
-            $roll = $this->rollMaker->make(name: "Roll {$filmGroup->filmType}", filmId: $filmGroup->filmId, filmType: $filmGroup->filmType);
-
-            $roll->removePrintedProducts();
-
-            $roll->addPrintedProducts($filmGroup->getPrintedProducts());
-
-            $this->rollRepository->save($roll);
+            foreach ($filmGroup->getGroups() as $group) {
+                $roll = $this->findOrMakeRoll(filmId: $filmGroup->filmId, filmType: $filmGroup->filmType);
+                $roll->addPrintedProducts($filmGroup->getPrintedProducts());
+                $roll->assignPrinter($group->getPrinter());
+                $this->rollRepository->save($roll);
+            }
         }
 
-		if (!$this->unassignedPrintedProducts->isEmpty()) {
-			UnassignedPrintedProductsException::because('Could not assign printed products',
-				$this->unassignedPrintedProducts->map(fn (PrintedProduct $printedProduct) => $printedProduct->getId())->toArray());
-		}
+        if (!$this->unassignedPrintedProducts->isEmpty()) {
+            UnassignedPrintedProductsException::because('Could not assign printed products',
+                $this->unassignedPrintedProducts->map(fn (PrintedProduct $printedProduct) => $printedProduct->getId())->toArray());
+        }
+    }
+
+    /**
+     * Find an existing Roll by filmId or create a new Roll if not found.
+     *
+     * @param string $filmType The film type
+     * @param int    $filmId   The film ID
+     *
+     * @return Roll The found or newly created Roll object
+     */
+    private function findOrMakeRoll(int $filmId, string $filmType): Roll
+    {
+        $roll = $this->rollRepository->findByFilmId($filmId);
+
+        if (null === $roll) {
+            $roll = $this->rollMaker->make(name: "Roll {$filmType}", filmId: $filmId);
+        }
+
+        return $roll;
     }
 
     /**
@@ -80,15 +103,20 @@ final class PrintedProductsCheckInService implements PrintedProductCheckInInterf
      * roll in the $rolls collection to the $printedProducts collection. Finally, it sorts the
      * $printedProducts collection using the SortPrintedProductsService.
      */
-    private function initPrintedProducts(array $printedProducts): void
+    private function initPrintedProducts(array $printedProductsIds): void
     {
         $rolls = new ArrayCollection($this->rollRepository->findByFilter(new RollFilter(process: Process::ORDER_CHECK_IN)));
 
         $this->printedProducts = new ArrayCollection();
         $this->unassignedPrintedProducts = new ArrayCollection();
 
+        $printedProductsIds = array_merge(
+            $printedProductsIds,
+            ...$rolls->map(fn (Roll $roll) => $roll->getPrintedProducts()->map(fn (PrintedProduct $product) => $product->getId())->toArray())->toArray()
+        );
+
         $assignablePrintedProducts = $this->printedProductRepository->findByFilter(
-            new PrintedProductFilter(ids: $printedProducts)
+            new PrintedProductFilter(ids: $printedProductsIds)
         );
 
         foreach ($assignablePrintedProducts as $printedProduct) {
@@ -97,12 +125,7 @@ final class PrintedProductsCheckInService implements PrintedProductCheckInInterf
 
         /** @var Roll $roll */
         foreach ($rolls as $roll) {
-            foreach ($roll->getPrintedProducts() as $printedProduct) {
-                $this->printedProducts->add($printedProduct);
-            }
-
             $roll->removePrintedProducts();
-
             $this->rollRepository->remove($roll);
         }
     }

@@ -8,7 +8,10 @@ use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 
 final class GroupByFilmTypeService
 {
-    private array $groups;
+    /**
+     * @var array<string, PrintedProduct[]>
+     */
+    private array $groups = [];
 
     /**
      * Groups by order number the given printed products.

@@ -6,6 +6,8 @@ namespace App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess
 
 use App\ProductionProcess\Domain\DTO\FilmData;
 use App\ProductionProcess\Domain\Service\Inventory\AvailableFilmServiceInterface;
+use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Groups\FilmGroup;
+use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Groups\ProductGroup;
 use Doctrine\Common\Collections\Collection;
 
 final class FilmAssignmentService
@@ -15,6 +17,12 @@ final class FilmAssignmentService
      */
     public array $filmGroups = [];
 
+    /**
+     * Constructor method for the class.
+     *
+     * @param AvailableFilmServiceInterface $availableFilmService An object of AvailableFilmServiceInterface
+     * @param FilmGroup                     $filmGroup            An object of FilmGroup
+     */
     public function __construct(private AvailableFilmServiceInterface $availableFilmService, private FilmGroup $filmGroup)
     {
     }
@@ -38,7 +46,13 @@ final class FilmAssignmentService
 
             foreach ($availableFilms as $film) {
                 if (!isset($this->filmGroups[$film->id])) {
-                    $this->filmGroups[$film->id] = $this->filmGroup->make($film->id, $film->filmType, [$group]);
+                    $this->filmGroups[$film->id] =
+                        $this->filmGroup->make(
+                            filmId: $film->id,
+                            filmType: $film->filmType,
+                            groups: [$group]
+                        );
+
                     continue;
                 }
 
@@ -46,7 +60,10 @@ final class FilmAssignmentService
 
                 if ($filmGroup->getTotalLength() + $group->getLength() <= $film->length) {
                     $filmGroup->addProductGroup($group);
+                    continue;
                 }
+
+                $this->handleNoAvailableFilms($group);
             }
         }
 
@@ -70,12 +87,17 @@ final class FilmAssignmentService
         });
     }
 
-	private function handleNoAvailableFilms($group): void
-	{
-		if (!isset($this->filmGroups[null])) {
-			$this->filmGroups[null] = $this->filmGroup->make(null, null, [$group]);
-		} else {
-			$this->filmGroups[null]->addProductGroup($group);
-		}
-	}
+    /**
+     * Handles the case when no available films are found for a specific film group.
+     *
+     * @param mixed $group The film group which does not have any available films
+     */
+    private function handleNoAvailableFilms($group): void
+    {
+        if (!isset($this->filmGroups[null])) {
+            $this->filmGroups[null] = $this->filmGroup->make(null, null, [$group]);
+        } else {
+            $this->filmGroups[null]->addProductGroup($group);
+        }
+    }
 }

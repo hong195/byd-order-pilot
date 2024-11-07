@@ -81,7 +81,7 @@ final readonly class InitPrintersService
         foreach ($printers as $printerData) {
             $printer = $this->printerFactory->make(
                 name: $printerData['name'],
-				isDefault: $printerData['default']
+                isDefault: $printerData['default']
             );
 
             $this->entityManager->persist($printer);
@@ -91,7 +91,6 @@ final readonly class InitPrintersService
                     printer: $printer,
                     filmType: $conditionData['film_type'],
                     laminationType: $conditionData['lamination_type'],
-                    laminationRequired: $conditionData['lamination_required']
                 );
 
                 $this->entityManager->persist($condition);

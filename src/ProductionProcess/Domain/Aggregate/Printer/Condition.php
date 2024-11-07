@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Domain\Aggregate\Printer;
 
-/**
- *
- */
 final class Condition
 {
     /**
@@ -17,14 +14,14 @@ final class Condition
     private \DateTimeImmutable $dateAdded;
 
     /**
-     * Class constructor for creating a new instance.
+     * Class constructor.
      *
-     * @param Printer     $printer            the printer object to be injected into the instance
-     * @param string      $filmType           the type of film used by the instance
-     * @param string|null $laminationType     the type of lamination for the instance, or null if not applicable
-     * @param bool|null   $laminationRequired whether lamination is required for the instance, false by default
+     * @param Printer     $printer        the printer object
+     * @param string      $filmType       the type of film
+     * @param string|null $laminationType the type of lamination (optional)
+     * @param string|null $color          the color (optional)
      */
-    public function __construct(public readonly Printer $printer, public string $filmType, public readonly ?string $laminationType = null, public readonly ?bool $laminationRequired = false, public readonly ?string $color = null)
+    public function __construct(public readonly Printer $printer, public string $filmType, public readonly ?string $laminationType = null, public readonly ?string $color = null)
     {
         $this->dateAdded = new \DateTimeImmutable();
     }
@@ -45,5 +42,26 @@ final class Condition
     public function getId(): int
     {
         return $this->id;
+    }
+
+    /**
+     * Checks if the instance is satisfied by a given film type and lamination type.
+     *
+     * @param string      $filmType       the film type to compare against
+     * @param string|null $laminationType the lamination type to compare against, or null if not applicable
+     *
+     * @return bool true if the instance is satisfied by the given film type and lamination type, false otherwise
+     */
+    public function isSatisfiedBy(string $filmType, ?string $laminationType = null): bool
+    {
+        if ($this->filmType !== $filmType) {
+            return false;
+        }
+
+        if ($laminationType && $this->laminationType !== $laminationType) {
+            return false;
+        }
+
+        return true;
     }
 }

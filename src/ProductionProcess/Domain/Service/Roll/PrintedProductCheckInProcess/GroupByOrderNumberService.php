@@ -4,10 +4,14 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess;
 
-use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
+use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Groups\PrinterGroup;
+use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Groups\ProductGroup;
 
 final class GroupByOrderNumberService
 {
+    /**
+     * @var ProductGroup[]
+     */
     private array $groups = [];
 
     public function __construct(private readonly GroupByFilmTypeService $groupByFilmTypeService, private readonly ProductGroup $group)
@@ -17,28 +21,39 @@ final class GroupByOrderNumberService
     /**
      * Groups the printed products by film type.
      *
-     * @param iterable<PrintedProduct> $printedProducts the list of printed products to group
+     * @param iterable<PrinterGroup> $printerGroups the list of printed products to group
      *
      * @return ProductGroup[] the grouped printed products where keys are film types
      */
-    public function group(iterable $printedProducts): array
+    public function group(iterable $printerGroups): array
     {
-        $groupedByFilmType = $this->groupByFilmTypeService->group($printedProducts);
+        foreach ($printerGroups as $group) {
+            $printedProducts = $group->getProducts();
 
-        foreach ($groupedByFilmType as $filmType => $printedProducts) {
-            $group = [];
-
-            foreach ($printedProducts as $printedProduct) {
-                $group[$filmType][$printedProduct->orderNumber][] = $printedProduct;
+            if (empty($printedProducts)) {
+                continue;
             }
 
-            foreach ($group[$filmType] as $orderNumber => $printedProducts2) {
-                $this->groups[] = $this->group->make($filmType, $orderNumber, $printedProducts2);
-            }
+            $groupedByFilmType = $this->groupByFilmTypeService->group($printedProducts);
+            $printer = $group->printer;
 
-            usort($this->groups, function (ProductGroup $a, ProductGroup $b) {
-                return $b->getLength() <=> $a->getLength();
-            });
+            foreach ($groupedByFilmType as $filmType => $printedProducts) {
+                $group = [];
+
+                foreach ($printedProducts as $printedProduct) {
+                    $group[$filmType][$printedProduct->orderNumber][] = $printedProduct;
+                }
+
+                foreach ($group[$filmType] as $orderNumber => $printedProducts2) {
+                    $group = $this->group->make($filmType, $orderNumber, $printedProducts2);
+                    $group->assignPrinter($printer);
+                    $this->groups[] = $group;
+                }
+
+                usort($this->groups, function (ProductGroup $a, ProductGroup $b) {
+                    return $b->getLength() <=> $a->getLength();
+                });
+            }
         }
 
         return $this->groups;

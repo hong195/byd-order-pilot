@@ -7,10 +7,11 @@
 
     <entity name="App\ProductionProcess\Domain\Aggregate\Printer\Condition" table="prod_process_printer_condition">
         <id name="id" type="integer">
-            <generator />
+            <generator/>
         </id>
 
-        <many-to-one field="printer" target-entity="App\ProductionProcess\Domain\Aggregate\Printer\Printer" inversed-by="conditions">
+        <many-to-one field="printer" target-entity="App\ProductionProcess\Domain\Aggregate\Printer\Printer"
+                     inversed-by="conditions">
             <join-column name="printer_id" referenced-column-name="id" nullable="false"/>
         </many-to-one>
 
@@ -18,13 +19,10 @@
 
         <field name="laminationType" type="string" column="lamination_type" length="50" nullable="true"/>
 
-        <field name="laminationRequired" type="boolean" column="lamination_required" nullable="true"/>
-
         <!-- Indexes -->
         <indexes>
             <index name="idx_film_type" columns="film_type"/>
             <index name="idx_lamination_type" columns="lamination_type"/>
-            <index name="idx_lamination_required" columns="lamination_required"/>
         </indexes>
     </entity>
 </doctrine-mapping>

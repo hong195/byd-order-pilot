@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Domain\Aggregate\Printer;
 
+use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
@@ -29,11 +30,12 @@ class Printer
     private Collection $conditions;
 
     /**
-     * Printer constructor.
+     * Constructor for initializing a new instance of the class.
      *
-     * @param string $name the name of the printer
+     * @param string $name      the name of the instance
+     * @param bool   $isDefault A boolean flag indicating if the instance is default or not. Default is false.
      */
-    public function __construct(private readonly string $name, public readonly bool $isDefault = false)
+    public function __construct(public readonly string $name, public readonly bool $isDefault = false)
     {
         $this->conditions = new ArrayCollection([]);
         $this->dateAdded = new \DateTimeImmutable();
@@ -47,16 +49,6 @@ class Printer
     public function getId(): int
     {
         return $this->id;
-    }
-
-    /**
-     * Get the name property.
-     *
-     * @return string the name property
-     */
-    public function getName(): string
-    {
-        return $this->name;
     }
 
     /**
@@ -90,12 +82,20 @@ class Printer
     }
 
     /**
-     * Get the conditions of the object.
+     * Check if the printer can print the given PrintedProduct based on its conditions.
      *
-     * @return Collection<Condition> The conditions of the object
+     * @param PrintedProduct $printedProduct The PrintedProduct to check if it can be printed
+     *
+     * @return bool True if the printer can print the PrintedProduct, false otherwise
      */
-    public function getConditions(): Collection
+    public function canPrintProduct(PrintedProduct $printedProduct): bool
     {
-        return $this->conditions;
+        foreach ($this->conditions as $condition) {
+            if ($condition->isSatisfiedBy($printedProduct->filmType, $printedProduct->getLaminationType())) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

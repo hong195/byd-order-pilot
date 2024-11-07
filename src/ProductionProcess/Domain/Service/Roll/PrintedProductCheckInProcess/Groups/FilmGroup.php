@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess;
+namespace App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Groups;
 
 use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 
@@ -19,16 +19,35 @@ final class FilmGroup
     {
     }
 
+    /**
+     * Creates a new instance of the current class with the provided film details and groups.
+     *
+     * @param int|null       $filmId   The ID of the film (optional)
+     * @param string|null    $filmType The type of the film (optional)
+     * @param ProductGroup[] $groups   An array of groups associated with the film
+     *
+     * @return self A new instance of the current class with the provided film details and groups
+     */
     public function make(?int $filmId, ?string $filmType, array $groups = []): self
     {
         return new self($filmId, $filmType, $groups);
     }
 
+    /**
+     * Get the total length of all groups associated with the film.
+     *
+     * @return float|int The total length of all groups associated with the film
+     */
     public function getTotalLength(): float|int
     {
         return array_sum(array_map(fn ($group) => $group->getLength(), $this->groups));
     }
 
+    /**
+     * Add a ProductGroup to the array of groups associated with the Film object.
+     *
+     * @param ProductGroup $group The ProductGroup object to add to the groups array
+     */
     public function addProductGroup(ProductGroup $group): void
     {
         $this->groups[] = $group;
@@ -37,7 +56,7 @@ final class FilmGroup
     /**
      * Get the groups associated with the film.
      *
-     * @return array The array of groups associated with the film
+     * @return ProductGroup[] An array of groups associated with the film
      */
     public function getGroups(): array
     {
@@ -45,9 +64,9 @@ final class FilmGroup
     }
 
     /**
-     * Retrieves all printed products associated with the film.
+     * Get an array of all printed products associated with the film.
      *
-     * @return PrintedProduct[] an array containing all printed products related to the film
+     * @return PrintedProduct[] An array of printed products
      */
     public function getPrintedProducts(): array
     {

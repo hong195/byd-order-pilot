@@ -4,16 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Moved printer to printer directory.">
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Printer/Condition.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/Printer.Condition.orm.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20241105150456.php" afterDir="false" />
+    <list default="true" id="9163c399-29e5-4dc7-8a80-7e3e3fa0bfa5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_11_5_24__8_39_PM.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/5916b34a-be41-48d5-ab32-895d9f6eb3ec.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/5916b34a-be41-48d5-ab32-895d9f6eb3ec/storage_v2/_src_/database/symfony.mw8XmA.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/5916b34a-be41-48d5-ab32-895d9f6eb3ec/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/order-pilot.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/GroupPrinterService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Groups/PrinterGroup.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Groups/ProductGroup.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20241106105143.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/Printer/PrinterData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/Printer/PrinterData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/Printer/PrinterDataTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/Printer/PrinterDataTransformer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Printer/Condition.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Printer/Condition.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Printer/Printer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Printer/Printer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/Printer.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/Printer.Printer.orm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/Roll.Roll.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/Roll.Roll.orm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/RollRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/RollRepositoryInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Printer/InitPrintersService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Printer/InitPrintersService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/FilmAssignmentService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/FilmAssignmentService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/FilmGroup.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Groups/FilmGroup.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/GroupByFilmTypeService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/GroupByFilmTypeService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/GroupByOrderNumberService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/GroupByOrderNumberService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/PrintedProductsCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/PrintedProductsCheckInService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/ProductGroup.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/RollMaker.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/RollMaker.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/Printer.Condition.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/Printer.Condition.orm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/Printer.Printer.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/Printer.Printer.orm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/RollRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/RollRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,23 +46,8 @@
     <execution />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="staging" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
-  </component>
-  <component name="GitRewordedCommitMessages">
-    <option name="commitMessagesMapping">
-      <RewordedCommitMessageMapping>
-        <option name="originalMessage" value="Fixed errors can be record on previous and current processes." />
-        <option name="rewordedMessage" value="Fixed errors can be record on previous and current processes.&#10;&#10;&#10;Fixed errors can be record on previous and current processes #2." />
-      </RewordedCommitMessageMapping>
-    </option>
-    <option name="currentCommit" value="1" />
-    <option name="onto" value="de9a853e9cf2de1edd7cb0a16128e3b057596f43" />
   </component>
   <component name="PhpServers">
     <servers>
@@ -52,7 +58,7 @@
       </server>
     </servers>
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="order-pilot-php-fpm:latest">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/opt/homebrew/Cellar/php/8.2.4/bin/php">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/react/socket" />
@@ -179,172 +185,42 @@
       <path value="$PROJECT_DIR$/vendor/friendsofphp/php-cs-fixer" />
     </include_path>
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
   <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 4
 }</component>
-  <component name="ProjectId" id="2j69rF3RqBX7DG2k3M20zOQBGzS" />
+  <component name="ProjectId" id="2oR8k6qr5YmiuW5BnvSlSvDyuvP" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Makefile Target.restart.executor": "Run",
-    "PHPUnit.CheckRemainingProductsServiceTest.test_it_remove_roll_if_there_are_no_printed_product_left.executor": "Run",
-    "PHPUnit.CheckRemainingProductsServiceTest.test_it_throws_exception_if_roll_does_not_exists.executor": "Run",
-    "PHPUnit.CheckRemainingProductsServiceTest.test_printer_become_available_if_last_element_was_removed.executor": "Run",
-    "PHPUnit.CuttingCheckinTest.executor": "Run",
-    "PHPUnit.CuttingCheckinTest.test_can_successfully_send_to_cutting_check_in_process.executor": "Run",
-    "PHPUnit.CuttingCheckinTest.test_can_successfully_send_to_cutting_checkin_process.executor": "Run",
-    "PHPUnit.CuttingCheckinTest.test_it_cant_send_to_cutting_checkin_process_from_incorrect_process.executor": "Run",
-    "PHPUnit.CuttingCheckinTest.test_it_dispatchs_event_after_sending_to_cutting_check_in.executor": "Run",
-    "PHPUnit.ErrorManagementServiceTest.executor": "Run",
-    "PHPUnit.ErrorManagementServiceTest.test_can_be_created.executor": "Run",
-    "PHPUnit.ErrorManagementServiceTest.test_can_be_recorded.executor": "Run",
-    "PHPUnit.ErrorManagementServiceTest.test_can_be_recorded_successfully.executor": "Run",
-    "PHPUnit.ErrorManagementServiceTest.test_error_can_be_record_on_current_or_previous_process.executor": "Run",
-    "PHPUnit.ErrorManagementServiceTest.test_error_can_be_record_on_existing_process.executor": "Run",
-    "PHPUnit.ErrorManagementServiceTest.test_product_must_be_in_progress.executor": "Run",
-    "PHPUnit.ErrorManagementServiceTest.test_roll_must_exists.executor": "Run",
-    "PHPUnit.ErrorManagementServiceTest.test_roll_must_have_history_in_order_to_record_error.executor": "Run",
-    "PHPUnit.ErrorRepositoryTest.test_add.executor": "Run",
-    "PHPUnit.ErrorRepositoryTest.test_error_can_be_found_by_responsible_employee_id.executor": "Run",
-    "PHPUnit.ErrorRepositoryTest.test_errors_can_be_found_by_filter.executor": "Run",
-    "PHPUnit.ErrorRepositoryTest.test_find_by_process.executor": "Run",
-    "PHPUnit.ExtraMakerTest.test_can_successfully_make_extra.executor": "Run",
-    "PHPUnit.ExtraRepositoryTest.test_can_successfully_save.executor": "Run",
-    "PHPUnit.GeneralProcessValidationTest.executor": "Run",
-    "PHPUnit.GeneralProcessValidationTest.test_it_throws_exception_when_no_orders_found.executor": "Run",
-    "PHPUnit.GeneralProcessValidationTest.test_it_throws_exception_when_roll_is_empty.executor": "Run",
-    "PHPUnit.GlowCheckinTest.executor": "Run",
-    "PHPUnit.GlowCheckinTest.test_can_successfully_send_to_glow_checkin_process.executor": "Run",
-    "PHPUnit.GlowCheckinTest.test_it_dispatches_event_after_sending_to_cutting_check_in.executor": "Debug",
-    "PHPUnit.GlowCheckinTest.test_it_dispatches_event_after_sending_to_glow_check_in.executor": "Run",
-    "PHPUnit.GlowCheckinTest.test_roll_can_be_send_directly_to_cutting_check_in_if_there_is_no_glow.executor": "Run",
-    "PHPUnit.GlowCheckinTest.test_roll_creation_match_lamination_types.executor": "Run",
-    "PHPUnit.HistoryRepositoryTest.executor": "Run",
-    "PHPUnit.HistoryRepositoryTest.test_add.executor": "Run",
-    "PHPUnit.HistoryRepositoryTest.test_true.executor": "Run",
     "PHPUnit.Main.executor": "Run",
-    "PHPUnit.OrderRepositoryTest.executor": "Run",
-    "PHPUnit.OrderRepositoryTest.test_can_find_only_with_extras.executor": "Run",
-    "PHPUnit.OrderRepositoryTest.test_can_find_packed.executor": "Run",
-    "PHPUnit.OrderRepositoryTest.test_can_find_partially_packed.executor": "Run",
-    "PHPUnit.OrderRepositoryTest.test_can_find_ready_for_packing.executor": "Run",
-    "PHPUnit.OrderRepositoryTest.test_can_successfully_add.executor": "Run",
-    "PHPUnit.OrderRepositoryTest.test_can_successfully_save.executor": "Run",
-    "PHPUnit.PackProductTest.executor": "Run",
-    "PHPUnit.PackProductTest.test_can_successfully_pack_product.executor": "Run",
-    "PHPUnit.PackProductTest.test_cant_pack_product_if_its_already_packed.executor": "Run",
-    "PHPUnit.PackProductTest.test_cant_pack_product_if_its_not_ready_for_packing.executor": "Run",
-    "PHPUnit.PackProductTest.test_cant_pack_product_if_order_product_do_not_exist.executor": "Run",
-    "PHPUnit.PackProductTest.test_if_product_packed_product_pack_event_dispatched.executor": "Run",
-    "PHPUnit.PrintCheckinTest.executor": "Run",
-    "PHPUnit.PrintCheckinTest.test_can_successfully_send_to_print_check_in.executor": "Run",
-    "PHPUnit.PrintCheckinTest.test_it_dispatches_event_after_sending_to_cutting_check_in.executor": "Run",
-    "PHPUnit.PrintCheckinTest.test_it_throws_exception_when_there_are_no_orders_on_the_roll.executor": "Run",
-    "PHPUnit.PrintCheckinTest.test_it_throws_exception_when_there_is_no_employee_assigned.executor": "Run",
-    "PHPUnit.PrintedProductCheckinTest.test_can_allocate_group_of_printed_products_on_one_roll.executor": "Run",
-    "PHPUnit.PrintedProductRepositoryTest.test_add.executor": "Run",
-    "PHPUnit.PrintedProductRepositoryTest.test_can_find_by_filter.executor": "Run",
-    "PHPUnit.PrintedProductRepositoryTest.test_can_find_by_multiple_related_product_ids.executor": "Run",
-    "PHPUnit.ProductRepositoryTest.test_can_find_by_filter.executor": "Run",
-    "PHPUnit.ProductRepositoryTest.test_can_successfully_save.executor": "Run",
-    "PHPUnit.ReprintRollTest.test_cannot_reprint_not_existing_roll.executor": "Run",
-    "PHPUnit.RollMakerTest.test_it_can_make_roll.executor": "Run",
-    "PHPUnit.RollRepositoryTest.test_can_find_by_filter.executor": "Run",
-    "PHPUnit.RollRepositoryTest.test_can_remove.executor": "Run",
-    "PHPUnit.RollRepositoryTest.test_can_save_successfully.executor": "Run",
-    "PHPUnit.RollRepositoryTest.test_it_can_find_by_film_id.executor": "Run",
-    "PHPUnit.SetExtraPackStatusServiceTest.test_can_successfully_pack_extra_status.executor": "Run",
-    "PHPUnit.UnPackProductTest.executor": "Run",
-    "PHPUnit.UnPackProductTest.test_can_successfully_unpack_product.executor": "Run",
-    "PHPUnit.UnPackProductTest.test_cannot_unpack_product_if_its_already_unpacked.executor": "Run",
-    "PHPUnit.UnPackProductTest.test_cant_unpack_not_existing_product.executor": "Run",
-    "PHPUnit.UnPackProductTest.test_if_product_packed_product_pack_event_dispatched.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
-    "WebServerToolWindowPanel.toolwindow.show.date": "false",
-    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
-    "WebServerToolWindowPanel.toolwindow.show.size": "false",
-    "com.jetbrains.php.phpunit.codeGeneration.PhpNewTestDialog.defaultLibrary": "PHPUnit",
-    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm": "Docker",
-    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm": "Docker",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/src/ProductionProcess/Infrastructure/Database/ORM",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "php.add.doc.comment.for.fields.panel.add.php.doc.for.all.properties": "true",
-    "php.override.implement.member.chooser.php.doc": "NONE",
-    "settings.editor.selected.configurable": "settings.php.quality.tools.php.code.sniffer",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
-    "ChangesTree.GroupingKeys": [
-      "directory"
-    ],
     "DatabaseDriversLRU": [
       "postgresql"
     ]
   }
 }]]></component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM" />
-      <recent name="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command" />
-      <recent name="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrintedProduct" />
-      <recent name="$PROJECT_DIR$/src/Orders/Application/UseCase/Query" />
-      <recent name="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/GetPrintedProductsProcessDetail" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Printer" />
-      <recent name="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders" />
-      <recent name="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/Products" />
-      <recent name="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Product" />
-      <recent name="$PROJECT_DIR$/src/Orders/Application/DTO/Product" />
+      <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Groups" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.Main">
-    <configuration name="GlowCheckinTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\GlowCheckinTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/GlowCheckinTest.php" scope="Class" />
-      <method v="2" />
-    </configuration>
-    <configuration name="GlowCheckinTest.test_can_successfully_send_to_glow_checkin_process" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\GlowCheckinTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/GlowCheckinTest.php" method="test_can_successfully_send_to_glow_checkin_process" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="GlowCheckinTest.test_roll_can_be_send_directly_to_cutting_check_in_if_there_is_no_glow" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\GlowCheckinTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/GlowCheckinTest.php" method="test_roll_can_be_send_directly_to_cutting_check_in_if_there_is_no_glow" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="GlowCheckinTest.test_roll_creation_match_lamination_types" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\GlowCheckinTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/GlowCheckinTest.php" method="test_roll_creation_match_lamination_types" scope="Method" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager">
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
       <method v="2" />
     </configuration>
-    <configuration name="RollMakerTest.test_it_can_make_roll" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\RollMakerTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/RollMakerTest.php" method="test_it_can_make_roll" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="PHPUnit.RollMakerTest.test_it_can_make_roll" />
-        <item itemvalue="PHPUnit.GlowCheckinTest.test_roll_can_be_send_directly_to_cutting_check_in_if_there_is_no_glow" />
-        <item itemvalue="PHPUnit.GlowCheckinTest" />
-        <item itemvalue="PHPUnit.GlowCheckinTest.test_roll_creation_match_lamination_types" />
-        <item itemvalue="PHPUnit.GlowCheckinTest.test_can_successfully_send_to_glow_checkin_process" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -357,483 +233,19 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="" />
-      <created>1720696856081</created>
+      <changelist id="9163c399-29e5-4dc7-8a80-7e3e3fa0bfa5" name="Changes" comment="" />
+      <created>1730821168356</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1720696856081</updated>
-      <workItem from="1720696857143" duration="8606000" />
-      <workItem from="1720772978534" duration="3788000" />
-      <workItem from="1720782063742" duration="2153000" />
-      <workItem from="1720784751358" duration="1365000" />
-      <workItem from="1720786126699" duration="206000" />
-      <workItem from="1720786342621" duration="147000" />
-      <workItem from="1720786502177" duration="8149000" />
-      <workItem from="1720982694717" duration="599000" />
-      <workItem from="1721028595886" duration="2957000" />
-      <workItem from="1721032782221" duration="25977000" />
-      <workItem from="1721136393792" duration="4369000" />
-      <workItem from="1721140808967" duration="1336000" />
-      <workItem from="1721142650970" duration="3678000" />
-      <workItem from="1721216657027" duration="2458000" />
-      <workItem from="1721222639974" duration="2315000" />
-      <workItem from="1721225016901" duration="8441000" />
-      <workItem from="1721294379794" duration="15835000" />
-      <workItem from="1721382280729" duration="17149000" />
-      <workItem from="1721634614094" duration="22226000" />
-      <workItem from="1721725456066" duration="9458000" />
-      <workItem from="1721740266957" duration="24074000" />
-      <workItem from="1721899988809" duration="6655000" />
-      <workItem from="1721987295660" duration="11992000" />
-      <workItem from="1722241296438" duration="2030000" />
-      <workItem from="1722243371012" duration="6239000" />
-      <workItem from="1722250990432" duration="6363000" />
-      <workItem from="1722260045979" duration="4026000" />
-      <workItem from="1722265765874" duration="9540000" />
-      <workItem from="1722334548628" duration="18386000" />
-      <workItem from="1722419366106" duration="4922000" />
-      <workItem from="1722424859725" duration="48202000" />
-      <workItem from="1722861301714" duration="26311000" />
-      <workItem from="1723025220942" duration="6037000" />
-      <workItem from="1723126559039" duration="16852000" />
-      <workItem from="1723390311692" duration="26395000" />
-      <workItem from="1724051941853" duration="6737000" />
-      <workItem from="1724163360669" duration="1936000" />
-      <workItem from="1724656479377" duration="18521000" />
-      <workItem from="1725260306393" duration="214000" />
-      <workItem from="1725613898092" duration="85000" />
-      <workItem from="1725613992573" duration="8817000" />
-      <workItem from="1725629652154" duration="26411000" />
-      <workItem from="1726063769562" duration="34578000" />
-      <workItem from="1726470299712" duration="17482000" />
-      <workItem from="1726574611729" duration="15256000" />
-      <workItem from="1726657747853" duration="103839000" />
-      <workItem from="1727955867881" duration="575000" />
-      <workItem from="1727956453901" duration="155000" />
-      <workItem from="1727956617347" duration="21509000" />
-      <workItem from="1728238464282" duration="24399000" />
-      <workItem from="1728378940929" duration="26820000" />
-      <workItem from="1728573826141" duration="14825000" />
-      <workItem from="1729682619226" duration="769000" />
-      <workItem from="1729683693028" duration="12702000" />
-      <workItem from="1729762961174" duration="9883000" />
-      <workItem from="1729850134593" duration="19374000" />
-      <workItem from="1730131000423" duration="30730000" />
-      <workItem from="1730359623262" duration="9000" />
-      <workItem from="1730362553719" duration="4894000" />
-      <workItem from="1730652675071" duration="28459000" />
-      <workItem from="1730812603018" duration="863000" />
-      <workItem from="1730814016523" duration="545000" />
-      <workItem from="1730817362090" duration="1890000" />
+      <updated>1730821168356</updated>
+      <workItem from="1730821170180" duration="357000" />
+      <workItem from="1730821540280" duration="132000" />
+      <workItem from="1730822693844" duration="26087000" />
     </task>
-    <task id="LOCAL-00384" summary="Added files for reading printed products.">
-      <option name="closed" value="true" />
-      <created>1728633234667</created>
-      <option name="number" value="00384" />
-      <option name="presentableId" value="LOCAL-00384" />
-      <option name="project" value="LOCAL" />
-      <updated>1728633234667</updated>
-    </task>
-    <task id="LOCAL-00385" summary="Added product process details.">
-      <option name="closed" value="true" />
-      <created>1728664745517</created>
-      <option name="number" value="00385" />
-      <option name="presentableId" value="LOCAL-00385" />
-      <option name="project" value="LOCAL" />
-      <updated>1728664745517</updated>
-    </task>
-    <task id="LOCAL-00386" summary="Added product process details.">
-      <option name="closed" value="true" />
-      <created>1728664749791</created>
-      <option name="number" value="00386" />
-      <option name="presentableId" value="LOCAL-00386" />
-      <option name="project" value="LOCAL" />
-      <updated>1728664749791</updated>
-    </task>
-    <task id="LOCAL-00387" summary="Added pack/unpack products.">
-      <option name="closed" value="true" />
-      <created>1728917189954</created>
-      <option name="number" value="00387" />
-      <option name="presentableId" value="LOCAL-00387" />
-      <option name="project" value="LOCAL" />
-      <updated>1728917189955</updated>
-    </task>
-    <task id="LOCAL-00388" summary="Added docker-compose.staging.yml file.">
-      <option name="closed" value="true" />
-      <created>1728976894639</created>
-      <option name="number" value="00388" />
-      <option name="presentableId" value="LOCAL-00388" />
-      <option name="project" value="LOCAL" />
-      <updated>1728976894639</updated>
-    </task>
-    <task id="LOCAL-00389" summary="Fixed printers.">
-      <option name="closed" value="true" />
-      <created>1728997156575</created>
-      <option name="number" value="00389" />
-      <option name="presentableId" value="LOCAL-00389" />
-      <option name="project" value="LOCAL" />
-      <updated>1728997156575</updated>
-    </task>
-    <task id="LOCAL-00390" summary="Added test for product pack service.">
-      <option name="closed" value="true" />
-      <created>1729004406714</created>
-      <option name="number" value="00390" />
-      <option name="presentableId" value="LOCAL-00390" />
-      <option name="project" value="LOCAL" />
-      <updated>1729004406715</updated>
-    </task>
-    <task id="LOCAL-00391" summary="Updated pack product service tests.">
-      <option name="closed" value="true" />
-      <created>1729004738212</created>
-      <option name="number" value="00391" />
-      <option name="presentableId" value="LOCAL-00391" />
-      <option name="project" value="LOCAL" />
-      <updated>1729004738212</updated>
-    </task>
-    <task id="LOCAL-00392" summary="Fixed enum reference.">
-      <option name="closed" value="true" />
-      <created>1729008163366</created>
-      <option name="number" value="00392" />
-      <option name="presentableId" value="LOCAL-00392" />
-      <option name="project" value="LOCAL" />
-      <updated>1729008163366</updated>
-    </task>
-    <task id="LOCAL-00393" summary="Added printed product check in.">
-      <option name="closed" value="true" />
-      <created>1729091463844</created>
-      <option name="number" value="00393" />
-      <option name="presentableId" value="LOCAL-00393" />
-      <option name="project" value="LOCAL" />
-      <updated>1729091463844</updated>
-    </task>
-    <task id="LOCAL-00394" summary="Updated product unpack/pack test.">
-      <option name="closed" value="true" />
-      <created>1729093908434</created>
-      <option name="number" value="00394" />
-      <option name="presentableId" value="LOCAL-00394" />
-      <option name="project" value="LOCAL" />
-      <updated>1729093908434</updated>
-    </task>
-    <task id="LOCAL-00395" summary="Added test for packing extra.">
-      <option name="closed" value="true" />
-      <created>1729095897539</created>
-      <option name="number" value="00395" />
-      <option name="presentableId" value="LOCAL-00395" />
-      <option name="project" value="LOCAL" />
-      <updated>1729095897539</updated>
-    </task>
-    <task id="LOCAL-00396" summary="Added test for packing extra.">
-      <option name="closed" value="true" />
-      <created>1729095901279</created>
-      <option name="number" value="00396" />
-      <option name="presentableId" value="LOCAL-00396" />
-      <option name="project" value="LOCAL" />
-      <updated>1729095901279</updated>
-    </task>
-    <task id="LOCAL-00397" summary="Added order repository tests.">
-      <option name="closed" value="true" />
-      <created>1729168629900</created>
-      <option name="number" value="00397" />
-      <option name="presentableId" value="LOCAL-00397" />
-      <option name="project" value="LOCAL" />
-      <updated>1729168629900</updated>
-    </task>
-    <task id="LOCAL-00398" summary="Added extra tests.">
-      <option name="closed" value="true" />
-      <created>1729168908890</created>
-      <option name="number" value="00398" />
-      <option name="presentableId" value="LOCAL-00398" />
-      <option name="project" value="LOCAL" />
-      <updated>1729168908890</updated>
-    </task>
-    <task id="LOCAL-00399" summary="Added product test.">
-      <option name="closed" value="true" />
-      <created>1729169097224</created>
-      <option name="number" value="00399" />
-      <option name="presentableId" value="LOCAL-00399" />
-      <option name="project" value="LOCAL" />
-      <updated>1729169097224</updated>
-    </task>
-    <task id="LOCAL-00400" summary="Updated order repository test &amp; added orders queries (packed, partially packed, only with extras)">
-      <option name="closed" value="true" />
-      <created>1729266704130</created>
-      <option name="number" value="00400" />
-      <option name="presentableId" value="LOCAL-00400" />
-      <option name="project" value="LOCAL" />
-      <updated>1729266704130</updated>
-    </task>
-    <task id="LOCAL-00401" summary="Updated order data structure (removed is packed)">
-      <option name="closed" value="true" />
-      <created>1729266773618</created>
-      <option name="number" value="00401" />
-      <option name="presentableId" value="LOCAL-00401" />
-      <option name="project" value="LOCAL" />
-      <updated>1729266773618</updated>
-    </task>
-    <task id="LOCAL-00402" summary="Simplify order repository findPartiallyPacked method.">
-      <option name="closed" value="true" />
-      <created>1729267615763</created>
-      <option name="number" value="00402" />
-      <option name="presentableId" value="LOCAL-00402" />
-      <option name="project" value="LOCAL" />
-      <updated>1729267615763</updated>
-    </task>
-    <task id="LOCAL-00403" summary="Remove debug code.">
-      <option name="closed" value="true" />
-      <created>1729268629996</created>
-      <option name="number" value="00403" />
-      <option name="presentableId" value="LOCAL-00403" />
-      <option name="project" value="LOCAL" />
-      <updated>1729268629996</updated>
-    </task>
-    <task id="LOCAL-00404" summary="Updated exception return in json format.">
-      <option name="closed" value="true" />
-      <created>1729269394892</created>
-      <option name="number" value="00404" />
-      <option name="presentableId" value="LOCAL-00404" />
-      <option name="project" value="LOCAL" />
-      <updated>1729269394892</updated>
-    </task>
-    <task id="LOCAL-00405" summary="Added product search by filter.">
-      <option name="closed" value="true" />
-      <created>1729595617771</created>
-      <option name="number" value="00405" />
-      <option name="presentableId" value="LOCAL-00405" />
-      <option name="project" value="LOCAL" />
-      <updated>1729595617771</updated>
-    </task>
-    <task id="LOCAL-00406" summary="Removed printed product status reference.">
-      <option name="closed" value="true" />
-      <created>1729682688215</created>
-      <option name="number" value="00406" />
-      <option name="presentableId" value="LOCAL-00406" />
-      <option name="project" value="LOCAL" />
-      <updated>1729682688215</updated>
-    </task>
-    <task id="LOCAL-00407" summary="Fixed sync order product with printed products.">
-      <option name="closed" value="true" />
-      <created>1729684316358</created>
-      <option name="number" value="00407" />
-      <option name="presentableId" value="LOCAL-00407" />
-      <option name="project" value="LOCAL" />
-      <updated>1729684316358</updated>
-    </task>
-    <task id="LOCAL-00408" summary="Added roll repository test.">
-      <option name="closed" value="true" />
-      <created>1729695205065</created>
-      <option name="number" value="00408" />
-      <option name="presentableId" value="LOCAL-00408" />
-      <option name="project" value="LOCAL" />
-      <updated>1729695205065</updated>
-    </task>
-    <task id="LOCAL-00409" summary="Moved printers creation into domain layer.">
-      <option name="closed" value="true" />
-      <created>1729771619117</created>
-      <option name="number" value="00409" />
-      <option name="presentableId" value="LOCAL-00409" />
-      <option name="project" value="LOCAL" />
-      <updated>1729771619117</updated>
-    </task>
-    <task id="LOCAL-00410" summary="Moved printers creation into domain layer.">
-      <option name="closed" value="true" />
-      <created>1729771658317</created>
-      <option name="number" value="00410" />
-      <option name="presentableId" value="LOCAL-00410" />
-      <option name="project" value="LOCAL" />
-      <updated>1729771658317</updated>
-    </task>
-    <task id="LOCAL-00411" summary="Moved printers creation into domain layer.">
-      <option name="closed" value="true" />
-      <created>1729772121567</created>
-      <option name="number" value="00411" />
-      <option name="presentableId" value="LOCAL-00411" />
-      <option name="project" value="LOCAL" />
-      <updated>1729772121567</updated>
-    </task>
-    <task id="LOCAL-00412" summary="Added printed product assigment.">
-      <option name="closed" value="true" />
-      <created>1730185610441</created>
-      <option name="number" value="00412" />
-      <option name="presentableId" value="LOCAL-00412" />
-      <option name="project" value="LOCAL" />
-      <updated>1730185610442</updated>
-    </task>
-    <task id="LOCAL-00413" summary="Updated assign action runs with printed product id.">
-      <option name="closed" value="true" />
-      <created>1730193236636</created>
-      <option name="number" value="00413" />
-      <option name="presentableId" value="LOCAL-00413" />
-      <option name="project" value="LOCAL" />
-      <updated>1730193236636</updated>
-    </task>
-    <task id="LOCAL-00414" summary="Updated if after reprint roll is empty its deleted.">
-      <option name="closed" value="true" />
-      <created>1730197350482</created>
-      <option name="number" value="00414" />
-      <option name="presentableId" value="LOCAL-00414" />
-      <option name="project" value="LOCAL" />
-      <updated>1730197350482</updated>
-    </task>
-    <task id="LOCAL-00415" summary="Updated if after reprint roll is empty its deleted.">
-      <option name="closed" value="true" />
-      <created>1730209755393</created>
-      <option name="number" value="00415" />
-      <option name="presentableId" value="LOCAL-00415" />
-      <option name="project" value="LOCAL" />
-      <updated>1730209755393</updated>
-    </task>
-    <task id="LOCAL-00416" summary="Updated after reprint order product isPack set to false.">
-      <option name="closed" value="true" />
-      <created>1730211995167</created>
-      <option name="number" value="00416" />
-      <option name="presentableId" value="LOCAL-00416" />
-      <option name="project" value="LOCAL" />
-      <updated>1730211995168</updated>
-    </task>
-    <task id="LOCAL-00417" summary="Update process changed records current roll process.">
-      <option name="closed" value="true" />
-      <created>1730213032414</created>
-      <option name="number" value="00417" />
-      <option name="presentableId" value="LOCAL-00417" />
-      <option name="project" value="LOCAL" />
-      <updated>1730213032415</updated>
-    </task>
-    <task id="LOCAL-00418" summary="Fixed after reprint if product unpacked it wont be unpack again.">
-      <option name="closed" value="true" />
-      <created>1730278910429</created>
-      <option name="number" value="00418" />
-      <option name="presentableId" value="LOCAL-00418" />
-      <option name="project" value="LOCAL" />
-      <updated>1730278910429</updated>
-    </task>
-    <task id="LOCAL-00419" summary="Added information about unassigned products.">
-      <option name="closed" value="true" />
-      <created>1730300458787</created>
-      <option name="number" value="00419" />
-      <option name="presentableId" value="LOCAL-00419" />
-      <option name="project" value="LOCAL" />
-      <updated>1730300458787</updated>
-    </task>
-    <task id="LOCAL-00420" summary=" Added checking remainings products left on the roll #2.">
-      <option name="closed" value="true" />
-      <created>1730376783026</created>
-      <option name="number" value="00420" />
-      <option name="presentableId" value="LOCAL-00420" />
-      <option name="project" value="LOCAL" />
-      <updated>1730376783026</updated>
-    </task>
-    <task id="LOCAL-00421" summary="Fixed packed product becomes unpacked after reprint.">
-      <option name="closed" value="true" />
-      <created>1730387813747</created>
-      <option name="number" value="00421" />
-      <option name="presentableId" value="LOCAL-00421" />
-      <option name="project" value="LOCAL" />
-      <updated>1730387813747</updated>
-    </task>
-    <task id="LOCAL-00422" summary="Bug fix reprint.">
-      <option name="closed" value="true" />
-      <created>1730466778579</created>
-      <option name="number" value="00422" />
-      <option name="presentableId" value="LOCAL-00422" />
-      <option name="project" value="LOCAL" />
-      <updated>1730466778579</updated>
-    </task>
-    <task id="LOCAL-00423" summary="Bug fix reprint.">
-      <option name="closed" value="true" />
-      <created>1730466781122</created>
-      <option name="number" value="00423" />
-      <option name="presentableId" value="LOCAL-00423" />
-      <option name="project" value="LOCAL" />
-      <updated>1730466781122</updated>
-    </task>
-    <task id="LOCAL-00424" summary="Bug fix reprint #2.">
-      <option name="closed" value="true" />
-      <created>1730467186410</created>
-      <option name="number" value="00424" />
-      <option name="presentableId" value="LOCAL-00424" />
-      <option name="project" value="LOCAL" />
-      <updated>1730467186410</updated>
-    </task>
-    <task id="LOCAL-00425" summary="Bug fix reprint #2.">
-      <option name="closed" value="true" />
-      <created>1730467197747</created>
-      <option name="number" value="00425" />
-      <option name="presentableId" value="LOCAL-00425" />
-      <option name="project" value="LOCAL" />
-      <updated>1730467197747</updated>
-    </task>
-    <task id="LOCAL-00426" summary="Fixed errors can be record on previous and current processes.">
-      <option name="closed" value="true" />
-      <created>1730481028209</created>
-      <option name="number" value="00426" />
-      <option name="presentableId" value="LOCAL-00426" />
-      <option name="project" value="LOCAL" />
-      <updated>1730481028210</updated>
-    </task>
-    <task id="LOCAL-00427" summary="Fixed errors can be record on previous and current processes #2.">
-      <option name="closed" value="true" />
-      <created>1730481101103</created>
-      <option name="number" value="00427" />
-      <option name="presentableId" value="LOCAL-00427" />
-      <option name="project" value="LOCAL" />
-      <updated>1730481101103</updated>
-    </task>
-    <task id="LOCAL-00428" summary="Updated tests.">
-      <option name="closed" value="true" />
-      <created>1730717762524</created>
-      <option name="number" value="00428" />
-      <option name="presentableId" value="LOCAL-00428" />
-      <option name="project" value="LOCAL" />
-      <updated>1730717762524</updated>
-    </task>
-    <task id="LOCAL-00429" summary="Added print &amp; cut check in tests.">
-      <option name="closed" value="true" />
-      <created>1730735118075</created>
-      <option name="number" value="00429" />
-      <option name="presentableId" value="LOCAL-00429" />
-      <option name="project" value="LOCAL" />
-      <updated>1730735118075</updated>
-    </task>
-    <task id="LOCAL-00430" summary="Added cutting check in tests.">
-      <option name="closed" value="true" />
-      <created>1730737547622</created>
-      <option name="number" value="00430" />
-      <option name="presentableId" value="LOCAL-00430" />
-      <option name="project" value="LOCAL" />
-      <updated>1730737547622</updated>
-    </task>
-    <task id="LOCAL-00431" summary="Added roll maker test.">
-      <option name="closed" value="true" />
-      <created>1730738028685</created>
-      <option name="number" value="00431" />
-      <option name="presentableId" value="LOCAL-00431" />
-      <option name="project" value="LOCAL" />
-      <updated>1730738028685</updated>
-    </task>
-    <task id="LOCAL-00432" summary="Moved printer to printer directory.">
-      <option name="closed" value="true" />
-      <created>1730808967154</created>
-      <option name="number" value="00432" />
-      <option name="presentableId" value="LOCAL-00432" />
-      <option name="project" value="LOCAL" />
-      <updated>1730808967154</updated>
-    </task>
-    <option name="localTasksCounter" value="433" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.History.Properties">
-    <option name="COLUMN_ID_ORDER">
-      <list>
-        <option value="Default.Root" />
-        <option value="Default.Author" />
-        <option value="Default.Date" />
-        <option value="Default.Subject" />
-        <option value="GitHub.CommitStatus" />
-      </list>
-    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -851,60 +263,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Remove debug code." />
-    <MESSAGE value="Updated exception return in json format." />
-    <MESSAGE value="Added product search by filter." />
-    <MESSAGE value="Removed printed product status reference." />
-    <MESSAGE value="Fixed sync order product with printed products." />
-    <MESSAGE value="Added roll repository test." />
-    <MESSAGE value="Moved printers creation into domain layer." />
-    <MESSAGE value="Added printed product assigment." />
-    <MESSAGE value="Updated assign action runs with printed product id." />
-    <MESSAGE value="Updated if after reprint roll is empty its deleted." />
-    <MESSAGE value="Updated after reprint order product isPack set to false." />
-    <MESSAGE value="Update process changed records current roll process." />
-    <MESSAGE value="Fixed after reprint if product unpacked it wont be unpack again." />
-    <MESSAGE value="Added information about unassigned products." />
-    <MESSAGE value=" Added checking remainings products left on the roll #2." />
-    <MESSAGE value="Fixed packed product becomes unpacked after reprint." />
-    <MESSAGE value="Bug fix reprint." />
-    <MESSAGE value="Bug fix reprint #2." />
-    <MESSAGE value="Fixed errors can be record on previous and current processes." />
-    <MESSAGE value="Fixed errors can be record on previous and current processes #2." />
-    <MESSAGE value="Updated tests." />
-    <MESSAGE value="Added print &amp; cut check in tests." />
-    <MESSAGE value="Added cutting check in tests." />
-    <MESSAGE value="Added roll maker test." />
-    <MESSAGE value="Moved printer to printer directory." />
-    <option name="LAST_COMMIT_MESSAGE" value="Moved printer to printer directory." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/Order/Domain/Aggregate/OrderStack/OrderStack.php</url>
-          <line>210</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/Orders/Domain/ValueObject/Customer.php</url>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/vendor/doctrine/orm/src/EntityManagerInterface.php</url>
-          <line>185</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/order_pilot@Main.xml" NAME="Main Coverage Results" MODIFIED="1722340863994" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
