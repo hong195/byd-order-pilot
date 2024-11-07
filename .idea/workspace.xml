@@ -4,38 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9163c399-29e5-4dc7-8a80-7e3e3fa0bfa5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_11_5_24__8_39_PM.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/5916b34a-be41-48d5-ab32-895d9f6eb3ec.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/5916b34a-be41-48d5-ab32-895d9f6eb3ec/storage_v2/_src_/database/symfony.mw8XmA.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/5916b34a-be41-48d5-ab32-895d9f6eb3ec/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/order-pilot.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/GroupPrinterService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Groups/PrinterGroup.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Groups/ProductGroup.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20241106105143.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0f99504-b43e-4dc1-b16e-0cc0cf09b6ba/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Printer/Condition.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Printer/Condition.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Printer/Printer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Printer/Printer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/RollRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/RollRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Printer/InitPrintersService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Printer/InitPrintersService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/FilmAssignmentService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/FilmAssignmentService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/FilmGroup.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Groups/FilmGroup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/GroupByFilmTypeService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/GroupByFilmTypeService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/GroupByOrderNumberService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/GroupByOrderNumberService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/PrintedProductsCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/PrintedProductsCheckInService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/ProductGroup.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/RollMaker.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/RollMaker.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/Printer.Condition.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/Printer.Condition.orm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/Printer.Printer.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/Printer.Printer.orm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/RollRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/RollRepository.php" afterDir="false" />
-    </list>
+    <list default="true" id="9163c399-29e5-4dc7-8a80-7e3e3fa0bfa5" name="Changes" comment="Remove legacy printed product code and outdated migrations&#10;&#10;Deleted unused PrintedProduct service, Status value object, and multiple obsolete database migration files to clean up the codebase and reduce technical debt. This simplifies maintenance and focuses on current business logic." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,6 +22,7 @@
     <servers>
       <server host="127.0.0.1" id="7d2728ca-5a64-4d37-9fe8-0e9275687d69" name="Docker" port="888" use_path_mappings="true">
         <path_mappings>
+          <mapping local-root="$PROJECT_DIR$" remote-root="/var/www" />
           <mapping local-root="$PROJECT_DIR$" remote-root="/var/www" />
         </path_mappings>
       </server>
@@ -190,27 +160,30 @@
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="2oR8k6qr5YmiuW5BnvSlSvDyuvP" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "PHPUnit.Main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;PHPUnit.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Groups" />
@@ -263,5 +236,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Remove legacy printed product code and outdated migrations&#10;&#10;Deleted unused PrintedProduct service, Status value object, and multiple obsolete database migration files to clean up the codebase and reduce technical debt. This simplifies maintenance and focuses on current business logic." />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove legacy printed product code and outdated migrations&#10;&#10;Deleted unused PrintedProduct service, Status value object, and multiple obsolete database migration files to clean up the codebase and reduce technical debt. This simplifies maintenance and focuses on current business logic." />
   </component>
 </project>

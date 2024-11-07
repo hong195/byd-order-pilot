@@ -219,11 +219,7 @@
   </component>
   <component name="PhpProjectServersManager">
     <servers>
-      <server host="127.0.0.1" id="7d2728ca-5a64-4d37-9fe8-0e9275687d69" name="Docker" port="888" use_path_mappings="true">
-        <path_mappings>
-          <mapping local-root="$PROJECT_DIR$" remote-root="/var/www" />
-        </path_mappings>
-      </server>
+      <server host="127.0.0.1" id="7d2728ca-5a64-4d37-9fe8-0e9275687d69" name="Docker" port="888" use_path_mappings="true" />
     </servers>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />
