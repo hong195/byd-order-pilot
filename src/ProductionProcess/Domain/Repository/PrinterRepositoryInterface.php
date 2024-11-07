@@ -2,7 +2,7 @@
 
 namespace App\ProductionProcess\Domain\Repository;
 
-use App\ProductionProcess\Domain\Aggregate\Printer;
+use App\ProductionProcess\Domain\Aggregate\Printer\Printer;
 use Doctrine\Common\Collections\Collection;
 
 /**

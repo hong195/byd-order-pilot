@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Application\UseCase;
 
+use App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics\FetchRollHistoryStatisticsQuery;
+use App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics\FetchRollHistoryStatisticsResult;
 use App\ProductionProcess\Application\UseCase\Query\FindARoll\FindARollQuery;
 use App\ProductionProcess\Application\UseCase\Query\FindARoll\FindARollResult;
 use App\ProductionProcess\Application\UseCase\Query\FindErrors\FindErrorsQuery;
@@ -18,10 +20,11 @@ use App\ProductionProcess\Application\UseCase\Query\FindRollHistory\FindRollHist
 use App\ProductionProcess\Application\UseCase\Query\FindRollHistory\FindRollHistoryResult;
 use App\ProductionProcess\Application\UseCase\Query\FindRolls\FindRollsQuery;
 use App\ProductionProcess\Application\UseCase\Query\FindRolls\FindRollsResult;
-use App\ProductionProcess\Application\UseCase\Query\GetOptions\GetOptionsQuery;
-use App\ProductionProcess\Application\UseCase\Query\GetOptions\GetOptionsQueryResult;
+//use App\ProductionProcess\Application\UseCase\Query\GetOptions\GetOptionsQuery;
+//use App\ProductionProcess\Application\UseCase\Query\GetOptions\GetOptionsQueryResult;
 use App\ProductionProcess\Application\UseCase\Query\GetPrintedProductsProcessDetail\GetPrintedProductsProcessDetailQuery;
 use App\ProductionProcess\Application\UseCase\Query\GetPrintedProductsProcessDetail\GetPrintedProductsProcessDetailResult;
+use App\ProductionProcess\Domain\Repository\FetchRollHistoryStatisticsFilter;
 use App\Shared\Application\Query\QueryBusInterface;
 
 /**
@@ -72,15 +75,15 @@ readonly class PrivateQueryInteractor
         return $this->queryBus->execute(new FindPrintersQuery());
     }
 
-    /**
-     * Retrieves the options by executing the GetOptionsQuery.
-     *
-     * @return GetOptionsQueryResult the result of executing the GetOptionsQuery
-     */
-    public function getOptions(): GetOptionsQueryResult
-    {
-        return $this->queryBus->execute(new GetOptionsQuery());
-    }
+//    /**
+//     * Retrieves the options by executing the GetOptionsQuery.
+//     *
+//     * @return GetOptionsQueryResult the result of executing the GetOptionsQuery
+//     */
+//    public function getOptions(): GetOptionsQueryResult
+//    {
+//        return $this->queryBus->execute(new GetOptionsQuery());
+//    }
 
     /**
      * Retrieves the roll history by executing the FindRollHistoryQuery.
@@ -142,5 +145,17 @@ readonly class PrivateQueryInteractor
     public function findPrintedProduct(int $printedProductId): FindPrintedProductQueryResult
     {
         return $this->queryBus->execute(new FindPrintedProductQuery($printedProductId));
+    }
+
+    /**
+     * @param FetchRollHistoryStatisticsFilter $filter
+     *
+     * @return FetchRollHistoryStatisticsResult
+     */
+    public function fetchRollHistoryStatistics(FetchRollHistoryStatisticsFilter $filter): FetchRollHistoryStatisticsResult
+    {
+        $query = new FetchRollHistoryStatisticsQuery($filter);
+
+        return $this->queryBus->execute($query);
     }
 }

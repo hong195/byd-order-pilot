@@ -37,6 +37,18 @@ class RollRepository extends ServiceEntityRepository implements RollRepositoryIn
     }
 
     /**
+     * Finds a roll by its film ID.
+     *
+     * @param int $filmId the film ID of the roll to find
+     *
+     * @return Roll|null the found roll, or null if no roll was found
+     */
+    public function findByFilmId(int $filmId): ?Roll
+    {
+        return $this->findOneBy(['filmId' => $filmId]);
+    }
+
+    /**
      * Saves a Roll entity.
      *
      * @param Roll $roll The Roll entity to save

@@ -7,7 +7,6 @@ namespace App\Tests\Functional\ProductionProcess\Domain\Service\Roll;
 use App\ProductionProcess\Domain\Factory\PrintedProductFactory;
 use App\ProductionProcess\Domain\Repository\RollFilter;
 use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
-use App\ProductionProcess\Domain\Service\Printer\InitPrintersService;
 use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\PrintedProductsCheckInService;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use App\Tests\Functional\AbstractTestCase;
@@ -36,6 +35,7 @@ final class PrintedProductCheckinTest extends AbstractTestCase
      */
     public function test_can_allocate_group_of_printed_products_on_one_roll(): void
     {
+        // TODO cover test cases
         $orderNumber = $this->getFaker()->word();
 
         $printedProduct1 = (new PrintedProductFactory())

@@ -2,9 +2,15 @@
 
 declare(strict_types=1);
 
+/**
+ * Class HistoryRepository.
+ */
+
 namespace App\ProductionProcess\Infrastructure\Repository;
 
 use App\ProductionProcess\Domain\Aggregate\Roll\History\History;
+use App\ProductionProcess\Domain\Aggregate\Roll\History\Type;
+use App\ProductionProcess\Domain\Repository\FetchRollHistoryStatisticsFilter;
 use App\ProductionProcess\Domain\Repository\HistoryRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -65,5 +71,40 @@ class HistoryRepository extends ServiceEntityRepository implements HistoryReposi
         usort($history, fn ($a, $b) => $a->happenedAt <=> $b->happenedAt);
 
         return $history;
+    }
+
+    /**
+     * @param FetchRollHistoryStatisticsFilter $filter
+     *
+     * @return History[]
+     */
+    public function findByCriteria(FetchRollHistoryStatisticsFilter $filter): array
+    {
+        $qb = $this->createQueryBuilder('h')
+            ->select('h')
+            ->where('h.type = :type')
+            ->setParameter('type', Type::PROCESS_CHANGED->value);
+
+        if ($filter->getEmployeeId()) {
+            $qb->andWhere('h.employeeId = :employeeId')
+                ->setParameter('employeeId', $filter->getEmployeeId());
+        }
+
+        if ($filter->getProcess()) {
+            $qb->andWhere('h.process = :process')
+                ->setParameter('process', $filter->getProcess());
+        }
+
+        if ($filter->getFrom()) {
+            $qb->andWhere('h.happenedAt >= :from')
+                ->setParameter('from', $filter->getFrom());
+        }
+
+        if ($filter->getTo()) {
+            $qb->andWhere('h.happenedAt <= :to')
+                ->setParameter('to', $filter->getTo());
+        }
+
+        return $qb->getQuery()->getResult();
     }
 }

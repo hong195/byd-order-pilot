@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Domain\Service\Roll;
 
 use App\ProductionProcess\Domain\Events\RollWasSentToCutCheckInEvent;
+use App\ProductionProcess\Domain\Exceptions\RollCantBeSentToCuttingException;
 use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
@@ -16,27 +17,32 @@ use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
  */
 final readonly class CuttingCheckInService
 {
-	/**
-	 * Class constructor.
-	 *
-	 * @param RollRepositoryInterface $rollRepository The roll repository.
-	 * @param GeneralProcessValidation $generalProcessValidator The general process validator.
-	 */
+    /**
+     * Class constructor.
+     *
+     * @param RollRepositoryInterface  $rollRepository          the roll repository
+     * @param GeneralProcessValidation $generalProcessValidator the general process validator
+     */
     public function __construct(private RollRepositoryInterface $rollRepository, private GeneralProcessValidation $generalProcessValidator, private EventDispatcherInterface $eventDispatcher)
     {
     }
 
-	/**
-	 * Handle the roll.
-	 *
-	 * @param int $rollId the ID of the roll
-	 * @return void
-	 */
+    /**
+     * Handle the roll.
+     *
+     * @param int $rollId the ID of the roll
+     *
+     * @throws RollCantBeSentToCuttingException
+     */
     public function handle(int $rollId): void
     {
         $roll = $this->rollRepository->findById($rollId);
 
         $this->generalProcessValidator->validate($roll);
+
+        if (!in_array($roll->getProcess(), [Process::PRINTING_CHECK_IN, Process::GLOW_CHECK_IN])) {
+            RollCantBeSentToCuttingException::because('Roll can not be sent to cutting');
+        }
 
         $roll->updateProcess(Process::CUTTING_CHECK_IN);
 

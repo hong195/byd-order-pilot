@@ -54,6 +54,7 @@ class ErrorManagementServiceTest extends AbstractTestCase
         $this->printedProduct = $this->loadPrintedProduct();
         $this->roll = $this->loadRoll();
 
+        $this->roll->setEmployeeId($this->responsibleEmployee->getId());
         $this->roll->addPrintedProduct($this->printedProduct);
 
         $this->entityManager->persist($this->roll);
@@ -89,25 +90,25 @@ class ErrorManagementServiceTest extends AbstractTestCase
         }
     }
 
-	/**
-	 * @throws RollErrorManagementException
-	 */
-	public function test_roll_must_exists(): void
-	{
-		$printedProduct = $this->loadPrintedProduct();
+    /**
+     * @throws RollErrorManagementException
+     */
+    public function test_roll_must_exists(): void
+    {
+        $printedProduct = $this->loadPrintedProduct();
 
-		$this->expectException(NotFoundHttpException::class);
+        $this->expectException(NotFoundHttpException::class);
 
-		$this->errorManagementService->recordError(
-			printedProductId: $printedProduct->getId(),
-			process: Process::CUTTING_CHECK_IN,
-			noticerId: $this->noticer->getId(),
-		);
+        $this->errorManagementService->recordError(
+            printedProductId: $printedProduct->getId(),
+            process: Process::CUTTING_CHECK_IN,
+            noticerId: $this->noticer->getId(),
+        );
 
-		$this->assertFalse($printedProduct->getRoll());
-	}
+        $this->assertFalse($printedProduct->getRoll());
+    }
 
-	/**
+    /**
      * Test that an error can only be recorded for a roll with existing history.
      */
     public function test_roll_must_have_history_in_order_to_record_error(): void

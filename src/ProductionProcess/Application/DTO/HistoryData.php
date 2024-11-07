@@ -16,11 +16,13 @@ final class HistoryData
     private ?EmployeeData $employee = null;
 
     /**
-     * Class constructor.
+     * Constructor for the class.
      *
-     * @param int|null                $id         The ID of the object. Default is null.
-     * @param int|null                $rollId     The roll ID of the object. Default is null.
-     * @param \DateTimeInterface|null $happenedAt The happened at date and time of the object. Default is null.
+     * @param int|null                $id         The unique identifier, or null if not assigned
+     * @param int|null                $rollId     The associated roll ID, or null if not assigned
+     * @param string|null             $type       The type, or null if not specified
+     * @param string|null             $process    The process name, or null if not specified
+     * @param \DateTimeInterface|null $happenedAt The date and time when the event happened, or null if not available
      */
     public function __construct(public readonly ?int $id = null, public readonly ?int $rollId = null, public ?string $type = null, public ?string $process = null, public readonly ?\DateTimeInterface $happenedAt = null)
     {
@@ -38,8 +40,8 @@ final class HistoryData
         return new self(
             id: $history->getId(),
             rollId: $history->rollId,
-			type: $history->type->value,
-			process: $history->process->value,
+            type: $history->type->value,
+            process: $history->process->value,
             happenedAt: $history->happenedAt,
         );
     }
