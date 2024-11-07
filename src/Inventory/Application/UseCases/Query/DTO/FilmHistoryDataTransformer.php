@@ -44,8 +44,8 @@ final readonly class FilmHistoryDataTransformer
             filmType: $history->filmType,
             event: $history->eventType,
             createdAt: $history->getCreatedAt()->format('Y-m-d H:i:s'),
-            newSize: $history->newSize,
-            oldSize: $history->oldSize
+            newSize: round($history->newSize, 2),
+            oldSize: round($history->oldSize, 2),
         );
     }
 }

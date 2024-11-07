@@ -50,7 +50,7 @@ final readonly class ProductDataTransformer
     {
         return new ProductData(
             id: $product->getId(),
-			length: $product->getLength(),
+			length: round($product->getLength(), 2),
 			filmType: $product->getFilmType(),
 			orderNumber: $product->getOrderNumber(),
 			cutFile: $product->getCutFile() ? $this->assetUrlService->getLink($product->getCutFile()->getPath()) : null,

@@ -36,6 +36,6 @@ final readonly class RollApi implements RollsApiInterface
     {
         $roll = $this->privateQueryInteractor->findARoll($rollId)->rollData;
 
-        return new RollData(id: $roll->id, length: $roll->length, filmId: $roll->filmId);
+        return new RollData(id: $roll->id, length: round($roll->length, 2), filmId: $roll->filmId);
     }
 }

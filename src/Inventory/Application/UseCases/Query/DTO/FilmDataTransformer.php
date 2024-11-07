@@ -17,7 +17,12 @@ final readonly class FilmDataTransformer
      */
     public function makeFromEntity(AbstractFilm $film): FilmData
     {
-        return new FilmData($film->getId(), $film->getName(), $film->getLength(), $film->getType());
+        return new FilmData(
+            id: $film->getId(),
+            name: $film->getName(),
+            length: round($film->getLength(), 2),
+            type: $film->getType()
+        );
     }
 
     /**
