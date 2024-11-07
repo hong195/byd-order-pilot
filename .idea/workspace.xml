@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fixed removing roll relation when order is unassign.">
-      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Console/ResetConsoleCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added system reset command.">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/5916b34a-be41-48d5-ab32-895d9f6eb3ec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5916b34a-be41-48d5-ab32-895d9f6eb3ec.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5916b34a-be41-48d5-ab32-895d9f6eb3ec/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5916b34a-be41-48d5-ab32-895d9f6eb3ec/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Console/ResetConsoleCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Console/ResetConsoleCommand.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -392,15 +392,7 @@
       <workItem from="1730131000423" duration="30730000" />
       <workItem from="1730978112889" duration="27000" />
       <workItem from="1730978144587" duration="6182000" />
-      <workItem from="1730987686115" duration="751000" />
-    </task>
-    <task id="LOCAL-00372" summary="Updated history tests.">
-      <option name="closed" value="true" />
-      <created>1728406658677</created>
-      <option name="number" value="00372" />
-      <option name="presentableId" value="LOCAL-00372" />
-      <option name="project" value="LOCAL" />
-      <updated>1728406658677</updated>
+      <workItem from="1730987686115" duration="2200000" />
     </task>
     <task id="LOCAL-00373" summary="Rename message to reason.">
       <option name="closed" value="true" />
@@ -786,7 +778,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730985176663</updated>
     </task>
-    <option name="localTasksCounter" value="421" />
+    <task id="LOCAL-00421" summary="Added system reset command.">
+      <option name="closed" value="true" />
+      <created>1730988688388</created>
+      <option name="number" value="00421" />
+      <option name="presentableId" value="LOCAL-00421" />
+      <option name="project" value="LOCAL" />
+      <updated>1730988688388</updated>
+    </task>
+    <option name="localTasksCounter" value="422" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -821,7 +821,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated product unpack/pack test." />
     <MESSAGE value="Added test for packing extra." />
     <MESSAGE value="Added order repository tests." />
     <MESSAGE value="Added extra tests." />
@@ -846,7 +845,8 @@
     <MESSAGE value="Remove legacy printed product code and outdated migrations&#10;&#10;Deleted unused PrintedProduct service, Status value object, and multiple obsolete database migration files to clean up the codebase and reduce technical debt. This simplifies maintenance and focuses on current business logic." />
     <MESSAGE value="Added domain middleware exception." />
     <MESSAGE value="Fixed long float for orders and production entities." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed long float for orders and production entities." />
+    <MESSAGE value="Added system reset command." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added system reset command." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
