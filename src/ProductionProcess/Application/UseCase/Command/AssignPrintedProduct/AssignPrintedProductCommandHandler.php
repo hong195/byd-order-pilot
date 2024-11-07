@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Application\UseCase\Command\AssignPrintedProduct;
 
+use App\ProductionProcess\Domain\Exceptions\UnassignedPrintedProductsException;
 use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\PrintedProductsCheckInService;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Command\CommandHandlerInterface;
@@ -22,14 +23,14 @@ readonly class AssignPrintedProductCommandHandler implements CommandHandlerInter
     {
     }
 
-    /**
-     * Invokes the command to change the order priority.
-     *
-     * @param AssignPrintedProductCommand $command the change order priority command instance
-     *
-     * @throws NotFoundHttpException if the roll is not found
-     * @throws \Exception
-     */
+	/**
+	 * Invokes the command to change the order priority.
+	 *
+	 * @param AssignPrintedProductCommand $command the change order priority command instance
+	 *
+	 * @throws NotFoundHttpException if the roll is not found
+	 * @throws UnassignedPrintedProductsException
+	 */
     public function __invoke(AssignPrintedProductCommand $command): void
     {
         AssertService::true($this->accessControlService->isGranted(), 'Not change priority.');

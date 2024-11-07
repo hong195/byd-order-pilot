@@ -21,6 +21,7 @@ use App\ProductionProcess\Application\UseCase\Command\ReprintPrintedProduct\Repr
 use App\ProductionProcess\Application\UseCase\Command\ReprintRoll\ReprintRollCommand;
 use App\ProductionProcess\Application\UseCase\Command\UnAssignEmployeeFromRoll\UnAssignEmployeeFromRollCommand;
 use App\ProductionProcess\Application\UseCase\Command\UnassignPrintedProduct\UnassignPrintedProductCommand;
+use App\ProductionProcess\Domain\Exceptions\UnassignedPrintedProductsException;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use App\Shared\Application\Command\CommandBusInterface;
 
@@ -172,6 +173,8 @@ readonly class PrivateCommandInteractor
      * Assigns an order. Triggers the check-in process.
      *
      * @param int $id The id of the order to assign
+     *
+     * @throws UnassignedPrintedProductsException
      */
     public function assignPrintedProduct(int $id): void
     {

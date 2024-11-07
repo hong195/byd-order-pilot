@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Domain\Exceptions;
 
-final class PrinterIsNotAvailableException extends \Exception
+use App\Shared\Domain\Exception\DomainException;
+
+final class PrinterIsNotAvailableException extends DomainException
 {
 }

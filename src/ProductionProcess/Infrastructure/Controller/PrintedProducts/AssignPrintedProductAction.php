@@ -25,21 +25,21 @@ final readonly class AssignPrintedProductAction
     {
     }
 
-	/**
-	 * Invokes the command.
-	 *
-	 * @param int $printedProduct The printed product ID.
-	 *
-	 * @return JsonResponse The JSON response indicating the success.
-	 */
+    /**
+     * Invokes the command.
+     *
+     * @param int $printedProduct the printed product ID
+     *
+     * @return JsonResponse the JSON response indicating the success
+     */
     public function __invoke(int $printedProduct): JsonResponse
     {
-		try {
-        	$this->privateCommandInteractor->assignPrintedProduct($printedProduct);
+        try {
+            $this->privateCommandInteractor->assignPrintedProduct($printedProduct);
 
-			return new JsonResponse(['message' => 'Success', 'unassigned' => []], Response::HTTP_OK);
-		}catch (UnassignedPrintedProductsException $e) {
-			return new JsonResponse(['message' => 'Failed', 'unassigned' => $e->unassignedPrintedProductIds()],  Response::HTTP_UNPROCESSABLE_ENTITY);
-		}
+            return new JsonResponse(['message' => 'Success', 'unassigned' => []], Response::HTTP_OK);
+        } catch (UnassignedPrintedProductsException $e) {
+            return new JsonResponse(['message' => 'Failed', 'unassigned' => $e->unassignedPrintedProductIds()], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
     }
 }

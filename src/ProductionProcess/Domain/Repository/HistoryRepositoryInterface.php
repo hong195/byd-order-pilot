@@ -15,7 +15,6 @@ interface HistoryRepositoryInterface
 {
     /**
      * Saves a history record.
-     * @param History $history
      */
     public function add(History $history): void;
 
@@ -29,8 +28,6 @@ interface HistoryRepositoryInterface
     public function findFullHistory(int $rollId): array;
 
     /**
-     * @param History[] $filter
-     *
      * @return History[]
      */
     public function findByCriteria(FetchRollHistoryStatisticsFilter $filter): array;

@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Domain\Exceptions;
 
-final class UnassignedPrintedProductsException extends \Exception
+use App\Shared\Domain\Exception\DomainException;
+
+final class UnassignedPrintedProductsException extends DomainException
 {
     /**
      * @var int[]
@@ -22,7 +24,7 @@ final class UnassignedPrintedProductsException extends \Exception
      */
     public static function because(string $reason, array $unassignedPrintedProductIds = []): void
     {
-        $exception = throw new self($unassignedPrintedProductIds, $reason);
+        throw new UnassignedPrintedProductsException($unassignedPrintedProductIds, $reason);
     }
 
     /**
