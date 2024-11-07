@@ -19,6 +19,15 @@ interface RollRepositoryInterface
     public function findById(int $id): ?Roll;
 
     /**
+     * Finds a record by film id.
+     *
+     * @param int $filmId the film id of the record to find
+     *
+     * @return Roll|null the found record or null if not found
+     */
+    public function findByFilmId(int $filmId): ?Roll;
+
+    /**
      * Saves a Roll object to the database.
      *
      * @param Roll $roll the Roll object to be saved

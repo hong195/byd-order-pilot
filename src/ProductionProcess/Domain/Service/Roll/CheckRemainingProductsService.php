@@ -34,15 +34,15 @@ final readonly class CheckRemainingProductsService
             throw new NotFoundHttpException('Roll not found');
         }
 
-        if (!$roll->getPrintedProducts()->isEmpty()) {
+		if (!$roll->getPrintedProducts()->isEmpty()) {
             return;
         }
 
-		$this->rollRepository->remove($roll);
+        if ($printer = $roll->getPrinter()) {
+            $printer->changeAvailability(true);
+            $this->printerRepository->save($printer);
+        }
 
-		if ($printer = $roll->getPrinter()) {
-			$printer->changeAvailability(true);
-			$this->printerRepository->save($printer);
-		}
-    }
+		$this->rollRepository->remove($roll);
+	}
 }

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Domain\Aggregate\Roll;
 
 use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
-use App\ProductionProcess\Domain\Aggregate\Printer;
+use App\ProductionProcess\Domain\Aggregate\Printer\Printer;
 use App\ProductionProcess\Domain\Events\RollProcessWasUpdatedEvent;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use App\Shared\Domain\Aggregate\Aggregate;

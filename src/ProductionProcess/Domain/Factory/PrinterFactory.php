@@ -4,19 +4,20 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Domain\Factory;
 
-use App\ProductionProcess\Domain\Aggregate\Printer;
+use App\ProductionProcess\Domain\Aggregate\Printer\Printer;
 
 final readonly class PrinterFactory
 {
     /**
-     * Makes a new item.
+     * Creates a new instance of the Printer class.
      *
-     * @param string           $name            the name of the item
-     * @param string[]       $filmTypes       the roll types of the item
-     * @param string[] $laminationTypes The lamination types of the item. (optional)
+     * @param string $name    the name for the Printer instance
+     * @param bool   $isDefault the default value for the Printer instance (optional, default is false)
+     *
+     * @return Printer a new instance of the Printer class with the specified name and default value
      */
-    public function make(string $name, array $filmTypes = [], array $laminationTypes = []): Printer
+    public function make(string $name, bool $isDefault = false): Printer
     {
-        return new Printer($name, $filmTypes, $laminationTypes);
+        return new Printer($name, $isDefault);
     }
 }

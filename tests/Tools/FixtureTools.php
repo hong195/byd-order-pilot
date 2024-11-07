@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace App\Tests\Tools;
 
+use App\Inventory\Domain\Aggregate\AbstractFilm;
+use App\Inventory\Domain\Aggregate\RollFilm;
 use App\Orders\Domain\Aggregate\Order;
 use App\Orders\Domain\Aggregate\Product;
 use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
+use App\Tests\Resource\Fixture\Inventory\FilmFixture;
 use App\Tests\Resource\Fixture\Orders\OrderFixture;
 use App\Tests\Resource\Fixture\Orders\ProductFixture;
 use App\Tests\Resource\Fixture\PrintedProductFixture;
@@ -80,5 +83,12 @@ trait FixtureTools
         $order = $executor->getReferenceRepository()->getReference(OrderFixture::REFERENCE, Order::class);
 
         return $order;
+    }
+
+    public function loadInventoryFilm(): RollFilm
+    {
+        return $this->getDatabaseTools()->loadFixtures([FilmFixture::class], true)
+            ->getReferenceRepository()
+            ->getReference(FilmFixture::REFERENCE, RollFilm::class);
     }
 }

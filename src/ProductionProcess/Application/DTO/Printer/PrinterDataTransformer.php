@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Application\DTO\Printer;
 
-use App\ProductionProcess\Domain\Aggregate\Printer;
+use App\ProductionProcess\Domain\Aggregate\Printer\Printer;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
@@ -29,8 +29,6 @@ final readonly class PrinterDataTransformer
             $data->add(new PrinterData(
                 id: $entity->getId(),
                 name: $entity->getName(),
-                filmTypes: $entity->getFilmTypes(),
-                laminations: $entity->getLaminationTypes()
             ));
         }
 

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Infrastructure\Repository;
 
-use App\ProductionProcess\Domain\Aggregate\Printer;
+use App\ProductionProcess\Domain\Aggregate\Printer\Printer;
 use App\ProductionProcess\Domain\Repository\PrinterRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Collections\ArrayCollection;

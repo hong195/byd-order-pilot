@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Domain\Service\Printer;
 
+use App\ProductionProcess\Domain\Aggregate\Printer\Condition;
 use App\ProductionProcess\Domain\Factory\PrinterFactory;
-use App\ProductionProcess\Domain\Repository\PrinterRepositoryInterface;
+use Doctrine\ORM\EntityManagerInterface;
 
 final readonly class InitPrintersService
 {
     /**
-     * Constructor.
+     * Constructor for the class.
      *
-     * @param PrinterRepositoryInterface $printerRepository the printer repository
-     * @param PrinterFactory             $printerFactory    the printer factory
+     * @param PrinterFactory         $printerFactory an instance of PrinterFactory
+     * @param EntityManagerInterface $entityManager  an instance of EntityManagerInterface
      */
-    public function __construct(private PrinterRepositoryInterface $printerRepository, private PrinterFactory $printerFactory)
+    public function __construct(private PrinterFactory $printerFactory, private EntityManagerInterface $entityManager)
     {
     }
 
@@ -24,24 +25,78 @@ final readonly class InitPrintersService
         $printers = [
             [
                 'name' => 'Roland UV Printer',
-                'filmTypes' => ['white'],
-                'laminationTypes' => ['gold_flakes', 'holo_flakes', 'matt', 'glossy'],
+                'default' => false,
+                'conditions' => [
+                    [
+                        'film_type' => 'white',      // Тип плёнки
+                        'lamination_type' => 'matte', // Тип ламинации
+                        'lamination_required' => true, // Ламинация обязательна
+                    ],
+                    [
+                        'film_type' => 'white',
+                        'lamination_type' => 'glossy',
+                        'lamination_required' => true,
+                    ],
+                    [
+                        'film_type' => 'white',
+                        'lamination_type' => 'holo_flakes',
+                        'lamination_required' => true,
+                    ],
+                    [
+                        'film_type' => 'white',
+                        'lamination_type' => 'gold_flakes',
+                        'lamination_required' => true,
+                    ],
+                ],
             ],
             [
                 'name' => 'Mimaki UV Printer',
-                'filmTypes' => ['chrome', 'neon', 'clear'],
-                'laminationTypes' => ['gold_flakes', 'holo_flakes', 'matt', 'glossy'],
+                'default' => false,
+                'conditions' => [
+                    [
+                        'film_type' => 'chrome',
+                        'lamination_type' => null,    // Тип ламинации не важен
+                        'lamination_required' => null, // Ламинация не обязательна
+                    ],
+                    [
+                        'film_type' => 'neon',
+                        'lamination_type' => null,
+                        'lamination_required' => null,
+                    ],
+                    [
+                        'film_type' => 'clear',
+                        'lamination_type' => null,
+                        'lamination_required' => null,
+                    ],
+                ],
             ],
             [
                 'name' => 'Roland Normal Printer',
-                'filmTypes' => ['eco'],
-                'laminationTypes' => [],
+                'default' => true,
+                'conditions' => [
+                ],
             ],
         ];
 
         foreach ($printers as $printerData) {
-            $printer = $this->printerFactory->make($printerData['name'], $printerData['filmTypes'], $printerData['laminationTypes']);
-            $this->printerRepository->save($printer);
+            $printer = $this->printerFactory->make(
+                name: $printerData['name'],
+                isDefault: $printerData['default']
+            );
+
+            $this->entityManager->persist($printer);
+
+            foreach ($printerData['conditions'] as $conditionData) {
+                $condition = new Condition(
+                    printer: $printer,
+                    filmType: $conditionData['film_type'],
+                    laminationType: $conditionData['lamination_type'],
+                );
+
+                $this->entityManager->persist($condition);
+            }
+
+            $this->entityManager->flush();
         }
     }
 }

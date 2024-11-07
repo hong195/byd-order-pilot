@@ -1,0 +1,28 @@
+Index: src/ProductionProcess/Domain/Service/PrintedProduct/ReprintPrintedProduct.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\n\ndeclare(strict_types=1);\n\nnamespace App\\ProductionProcess\\Domain\\Service\\PrintedProduct;\n\nuse App\\ProductionProcess\\Domain\\Repository\\PrintedProductRepositoryInterface;\nuse App\\ProductionProcess\\Domain\\Service\\PrintedProduct\\Error\\ErrorManagementService;\nuse App\\ProductionProcess\\Domain\\ValueObject\\Process;\nuse App\\Shared\\Infrastructure\\Security\\UserFetcher;\nuse Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException;\n\n/**\n * Class ReprintPrintedProduct.\n *\n * This class handles the printing of orders.\n */\nfinal readonly class ReprintPrintedProduct\n{\n    public function __construct(private PrintedProductRepositoryInterface $printedProductRepository, private ErrorManagementService $errorManagementService, private UserFetcher $userFetcher)\n    {\n    }\n\n    /**\n     * Handle the printing of a specific printed product.\n     *\n     * @param int $printedProductId The ID of the printed product to handle\n     *\n     * @throws NotFoundHttpException If the printed product is not found\n     * @throws \\Exception\n     */\n    public function handle(int $printedProductId, Process $process, ?string $reason = null): void\n    {\n        $printedProduct = $this->printedProductRepository->findById($printedProductId);\n\n        if (!$printedProduct) {\n            throw new NotFoundHttpException('Printed product not found');\n        }\n\n\t\t$printedProduct->reprint();\n\n        $this->errorManagementService->recordError(\n            printedProductId: $printedProduct->getId(),\n            process: $process,\n            noticerId: $this->userFetcher->requiredUserId(),\n            reason: $reason\n        );\n\n\t\t$this->printedProductRepository->save($printedProduct);\n\t}\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/ProductionProcess/Domain/Service/PrintedProduct/ReprintPrintedProduct.php b/src/ProductionProcess/Domain/Service/PrintedProduct/ReprintPrintedProduct.php
+--- a/src/ProductionProcess/Domain/Service/PrintedProduct/ReprintPrintedProduct.php	(revision 853226e01e1d321dec7daa1d135eece964af37c0)
++++ b/src/ProductionProcess/Domain/Service/PrintedProduct/ReprintPrintedProduct.php	(date 1730466930401)
+@@ -37,7 +37,7 @@
+             throw new NotFoundHttpException('Printed product not found');
+         }
+ 
+-		$printedProduct->reprint();
++        $printedProduct->reprint();
+ 
+         $this->errorManagementService->recordError(
+             printedProductId: $printedProduct->getId(),
+@@ -46,6 +46,6 @@
+             reason: $reason
+         );
+ 
+-		$this->printedProductRepository->save($printedProduct);
+-	}
++        $this->printedProductRepository->save($printedProduct);
++    }
+ }
