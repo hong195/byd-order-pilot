@@ -88,7 +88,7 @@ final class PrintedProductsCheckInService implements PrintedProductCheckInInterf
     {
         $roll = $this->rollRepository->findByFilmId($filmId);
 
-        if (null === $roll) {
+        if (null === $roll || !$roll->getProcess()->equals(Process::ORDER_CHECK_IN)) {
             $roll = $this->rollMaker->make(name: "Roll {$filmType}", filmId: $filmId);
         }
 
