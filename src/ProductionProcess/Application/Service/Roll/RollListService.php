@@ -44,12 +44,13 @@ final readonly class RollListService
 
         foreach ($rolls as $roll) {
             $employee = $employees->filter(fn (EmployeeData $employee) => $employee->id === $roll->getEmployeeId())->first();
-            $printer = $printers->filter(fn (Printer $printer) => $printer->getId() === $roll->getPrinter()?->getId())->first();
+			/** @var Printer $printer */
+			$printer = $printers->filter(fn (Printer $printer) => $printer->getId() === $roll->getPrinter()?->getId())->first();
 
             if ($printer) {
                 $printer = new PrinterData(
                     id: $printer->getId(),
-                    name: $printer->getName(),
+                    name: $printer->name,
                 );
             }
 
