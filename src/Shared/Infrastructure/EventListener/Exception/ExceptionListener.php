@@ -13,8 +13,6 @@ use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 
 class ExceptionListener
 {
-    public const MIME_JSON = 'application/json';
-
     public function __construct(private ContainerBagInterface $containerBag)
     {
     }
@@ -47,8 +45,9 @@ class ExceptionListener
     public function exceptionToArray(\Throwable $exception): array
     {
         $data = [
-            'message' => $exception->getPrevious()?->getMessage(),
+            'message' => $exception->getMessage(),
         ];
+
         if ($this->containerBag->get('kernel.debug')) {
             $data = array_merge(
                 $data,
