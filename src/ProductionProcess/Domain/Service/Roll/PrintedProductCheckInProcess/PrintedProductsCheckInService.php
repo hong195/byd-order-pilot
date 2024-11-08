@@ -63,10 +63,10 @@ final class PrintedProductsCheckInService implements PrintedProductCheckInInterf
             }
 
             foreach ($filmGroup->getGroups() as $group) {
-                $roll = $this->findOrMakeRoll(filmId: $filmGroup->filmId, filmType: $filmGroup->filmType);
-                $roll->addPrintedProducts($filmGroup->getPrintedProducts());
+                $roll = $this->rollMaker->make(name: "Roll {$filmGroup->filmType}", filmId: $filmGroup->filmId);
+                $roll->addPrintedProducts($group->getPrintedProducts());
                 $roll->assignPrinter($group->getPrinter());
-				$this->rollRepository->save($roll);
+                $this->rollRepository->save($roll);
             }
         }
 
@@ -74,25 +74,6 @@ final class PrintedProductsCheckInService implements PrintedProductCheckInInterf
             UnassignedPrintedProductsException::because('Could not assign printed products',
                 $this->unassignedPrintedProducts->map(fn (PrintedProduct $printedProduct) => $printedProduct->getId())->toArray());
         }
-    }
-
-    /**
-     * Find an existing Roll by filmId or create a new Roll if not found.
-     *
-     * @param string $filmType The film type
-     * @param int    $filmId   The film ID
-     *
-     * @return Roll The found or newly created Roll object
-     */
-    private function findOrMakeRoll(int $filmId, string $filmType): Roll
-    {
-        $roll = $this->rollRepository->findByFilmId($filmId);
-
-        if (null === $roll || !$roll->getProcess()->equals(Process::ORDER_CHECK_IN)) {
-            $roll = $this->rollMaker->make(name: "Roll {$filmType}", filmId: $filmId);
-        }
-
-        return $roll;
     }
 
     /**

@@ -8,6 +8,7 @@ use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
 use App\ProductionProcess\Domain\DTO\FilmData;
 use App\ProductionProcess\Domain\Events\RollWasSentToPrintCheckInEvent;
+use App\ProductionProcess\Domain\Exceptions\InventoryFilmIsNotAvailableException;
 use App\ProductionProcess\Domain\Exceptions\NotEnoughFilmLengthToPrintTheRollException;
 use App\ProductionProcess\Domain\Exceptions\PrinterIsNotAvailableException;
 use App\ProductionProcess\Domain\Exceptions\RollCantBeSentToPrintException;
@@ -154,6 +155,31 @@ final class PrintCheckinTest extends AbstractTestCase
         $this->entityManager->flush();
 
         return $product;
+    }
+
+    /**
+     * @throws PrinterIsNotAvailableException
+     * @throws RollCantBeSentToPrintException
+     * @throws NotEnoughFilmLengthToPrintTheRollException
+     * @throws InventoryFilmIsNotAvailableException
+     */
+    public function test_it_throws_exception_when_film_is_already_in_use()
+    {
+		//TODO describe the test
+        $roll1 = $this->loadPreparedRoll();
+        $roll1->updateProcess(Process::PRINTING_CHECK_IN);
+        $this->rollRepository->save($roll1);
+
+        $roll2 = clone $roll1;
+
+        $checkInService = $this->getPrintCheckinService(
+            $this->getAvailableServiceMock($roll1, $roll1->getPrintedProductsLength()),
+            self::createMock(EventDispatcherInterface::class)
+        );
+
+        $this->expectException(InventoryFilmIsNotAvailableException::class);
+
+        $checkInService->handle($roll1->getId());
     }
 
     private function getPrintCheckinService(AvailableFilmServiceInterface $availableFilmService, EventDispatcherInterface $eventDispatcher): PrintCheckInService

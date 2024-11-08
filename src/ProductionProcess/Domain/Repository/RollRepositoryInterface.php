@@ -3,6 +3,7 @@
 namespace App\ProductionProcess\Domain\Repository;
 
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * This interface represents a Roll repository.
@@ -23,9 +24,9 @@ interface RollRepositoryInterface
      *
      * @param int $filmId the film id of the record to find
      *
-     * @return Roll|null the found record or null if not found
+     * @return Collection<Roll> the found record or null if not found
      */
-    public function findByFilmId(int $filmId): ?Roll;
+    public function findByFilmId(int $filmId): Collection;
 
     /**
      * Saves a Roll object to the database.

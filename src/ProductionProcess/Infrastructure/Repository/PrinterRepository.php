@@ -63,26 +63,4 @@ final class PrinterRepository extends ServiceEntityRepository implements Printer
     {
         return $this->findBy(['name' => $names]);
     }
-
-    /**
-     * Finds a Printer entity by filmType.
-     *
-     * @param string $filmType the filmType entity to search for in Printer entities
-     *
-     * @return Printer|null the found Printer entity or null if not found
-     */
-    public function findByFilmType(string $filmType): ?Printer
-    {
-        $queryBuilder = $this->createQueryBuilder('p');
-
-        $printers = $queryBuilder->getQuery()->getResult();
-
-        foreach ($printers as $printer) {
-            if (in_array($filmType, $printer->getFilmTypes())) {
-                return $printer;
-            }
-        }
-
-        return null;
-    }
 }

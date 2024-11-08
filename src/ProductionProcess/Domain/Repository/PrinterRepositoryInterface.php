@@ -41,13 +41,4 @@ interface PrinterRepositoryInterface
      * @return Printer[] an array of records found in the database
      */
     public function findByNames(array $names): array;
-
-    /**
-     * Finds Printer objects by the given filmType.
-     *
-     * @param string $filmType the filmType object to search by
-     *
-     * @return ?Printer an array of Printer objects matching the given filmType
-     */
-    public function findByFilmType(string $filmType): ?Printer;
 }

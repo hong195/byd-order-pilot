@@ -91,7 +91,10 @@ class Printer
     public function canPrintProduct(PrintedProduct $printedProduct): bool
     {
         foreach ($this->conditions as $condition) {
-            if ($condition->isSatisfiedBy($printedProduct->filmType, $printedProduct->getLaminationType())) {
+            if ($condition->isSatisfiedBy(
+                filmType: $printedProduct->filmType,
+                laminationRequired: (bool) $printedProduct->getLaminationType(),
+                laminationType: $printedProduct->getLaminationType())) {
                 return true;
             }
         }

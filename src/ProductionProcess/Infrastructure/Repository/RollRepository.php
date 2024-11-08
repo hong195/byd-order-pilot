@@ -6,6 +6,8 @@ use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
 use App\ProductionProcess\Domain\Repository\RollFilter;
 use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -41,11 +43,11 @@ class RollRepository extends ServiceEntityRepository implements RollRepositoryIn
      *
      * @param int $filmId the film ID of the roll to find
      *
-     * @return Roll|null the found roll, or null if no roll was found
+     * @return Collection<Roll> the found roll, or null if no roll was found
      */
-    public function findByFilmId(int $filmId): ?Roll
+    public function findByFilmId(int $filmId): Collection
     {
-        return $this->findOneBy(['filmId' => $filmId]);
+        return new ArrayCollection($this->findBy(['filmId' => $filmId]));
     }
 
     /**

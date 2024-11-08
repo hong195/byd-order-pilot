@@ -74,6 +74,11 @@ final readonly class InitPrintersService
                 'name' => 'Roland Normal Printer',
                 'default' => true,
                 'conditions' => [
+					[
+						'film_type' => 'white',      // Тип плёнки
+						'lamination_type' => null, // Тип ламинации
+						'lamination_required' => false, // Ламинация обязательна
+					],
                 ],
             ],
         ];
