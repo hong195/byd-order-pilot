@@ -28,6 +28,8 @@ final class ExceptionMiddleware implements MiddlewareInterface
                     throw $exception;
                 }
             }
+
+			throw $e;
         }
     }
 }
