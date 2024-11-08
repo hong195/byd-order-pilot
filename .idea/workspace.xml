@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated reset system command added printer creation.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/EventListener/Exception/ExceptionListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/EventListener/Exception/ExceptionListener.php" afterDir="false" />
-    </list>
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated exception listener message." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -390,15 +387,7 @@
       <workItem from="1730131000423" duration="30730000" />
       <workItem from="1730978112889" duration="27000" />
       <workItem from="1730978144587" duration="6182000" />
-      <workItem from="1730987686115" duration="4598000" />
-    </task>
-    <task id="LOCAL-00376" summary="Updated reprint commands.">
-      <option name="closed" value="true" />
-      <created>1728408816194</created>
-      <option name="number" value="00376" />
-      <option name="presentableId" value="LOCAL-00376" />
-      <option name="project" value="LOCAL" />
-      <updated>1728408816194</updated>
+      <workItem from="1730987686115" duration="4910000" />
     </task>
     <task id="LOCAL-00377" summary="Updated reprint services.">
       <option name="closed" value="true" />
@@ -784,7 +773,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730990508010</updated>
     </task>
-    <option name="localTasksCounter" value="425" />
+    <task id="LOCAL-00425" summary="Updated exception listener message.">
+      <option name="closed" value="true" />
+      <created>1731056750118</created>
+      <option name="number" value="00425" />
+      <option name="presentableId" value="LOCAL-00425" />
+      <option name="project" value="LOCAL" />
+      <updated>1731056750118</updated>
+    </task>
+    <option name="localTasksCounter" value="426" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -819,7 +816,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added product test." />
     <MESSAGE value="Updated order repository test &amp; added orders queries (packed, partially packed, only with extras)" />
     <MESSAGE value="Updated order data structure (removed is packed)" />
     <MESSAGE value="Simplify order repository findPartiallyPacked method." />
@@ -844,7 +840,8 @@
     <MESSAGE value="Updated reset command." />
     <MESSAGE value="Renamed default to is_default for printers." />
     <MESSAGE value="Updated reset system command added printer creation." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated reset system command added printer creation." />
+    <MESSAGE value="Updated exception listener message." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated exception listener message." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

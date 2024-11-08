@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Orders\Domain\Exceptions;
 
-final class ProductUnPackException extends \Exception
+use App\Shared\Domain\Exception\DomainException;
+
+final class ProductUnPackException extends DomainException
 {
 }
