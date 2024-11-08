@@ -56,17 +56,17 @@ final readonly class InitPrintersService
                     [
                         'film_type' => 'chrome',
                         'lamination_type' => null,    // Тип ламинации не важен
-                        'lamination_required' => null, // Ламинация не обязательна
+                        'lamination_required' => false, // Ламинация не обязательна
                     ],
                     [
                         'film_type' => 'neon',
                         'lamination_type' => null,
-                        'lamination_required' => null,
+                        'lamination_required' => false,
                     ],
                     [
                         'film_type' => 'clear',
                         'lamination_type' => null,
-                        'lamination_required' => null,
+                        'lamination_required' => false,
                     ],
                 ],
             ],
@@ -91,6 +91,7 @@ final readonly class InitPrintersService
                     printer: $printer,
                     filmType: $conditionData['film_type'],
                     laminationType: $conditionData['lamination_type'],
+					laminationRequired: $conditionData['lamination_required']
                 );
 
                 $this->entityManager->persist($condition);

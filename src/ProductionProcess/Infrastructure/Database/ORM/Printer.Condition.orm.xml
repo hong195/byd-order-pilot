@@ -19,6 +19,12 @@
 
         <field name="laminationType" type="string" column="lamination_type" length="50" nullable="true"/>
 
+        <field name="laminationRequired" type="boolean" column="lamination_required" nullable="true">
+            <options>
+                <option name="default">false</option>
+            </options>
+        </field>
+
         <!-- Indexes -->
         <indexes>
             <index name="idx_film_type" columns="film_type"/>

@@ -43,10 +43,11 @@ final class GroupPrinterService
         $defaultGroup = $this->groups->filter(fn (PrinterGroup $printerGroup) => $printerGroup->printer->isDefault)->first();
 
         foreach ($printedProducts as $printedProduct) {
-            $printer = $printers->filter(fn (Printer $printer) => $printer->canPrintProduct($printedProduct))->first();
-            $currentGroup = $this->groups->filter(fn (PrinterGroup $printerGroup) => $printerGroup->printer->getId() === $printer->getId())->first();
+			/** @var Printer|bool $printer */
+			$printer = $printers->filter(fn (Printer $printer) => $printer->canPrintProduct($printedProduct))->first();
 
-            if ($printer->canPrintProduct($printedProduct)) {
+            if ($printer && $printer->canPrintProduct($printedProduct)) {
+				$currentGroup = $this->groups->filter(fn (PrinterGroup $printerGroup) => $printerGroup->printer->getId() === $printer->getId())->first();
                 $currentGroup->addProductTo($printedProduct);
                 continue;
             }

@@ -21,7 +21,7 @@ final class Condition
      * @param string|null $laminationType the type of lamination (optional)
      * @param string|null $color          the color (optional)
      */
-    public function __construct(public readonly Printer $printer, public string $filmType, public readonly ?string $laminationType = null, public readonly ?string $color = null)
+    public function __construct(public readonly Printer $printer, public string $filmType, public readonly ?string $laminationType = null, public $laminationRequired = false, public readonly ?string $color = null)
     {
         $this->dateAdded = new \DateTimeImmutable();
     }
@@ -56,6 +56,10 @@ final class Condition
     {
         if ($this->filmType !== $filmType) {
             return false;
+        }
+
+        if (!$this->laminationRequired) {
+            return true;
         }
 
         if ($laminationType && $this->laminationType !== $laminationType) {

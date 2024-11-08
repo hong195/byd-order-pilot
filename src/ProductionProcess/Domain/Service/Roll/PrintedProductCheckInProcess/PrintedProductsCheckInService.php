@@ -66,7 +66,7 @@ final class PrintedProductsCheckInService implements PrintedProductCheckInInterf
                 $roll = $this->findOrMakeRoll(filmId: $filmGroup->filmId, filmType: $filmGroup->filmType);
                 $roll->addPrintedProducts($filmGroup->getPrintedProducts());
                 $roll->assignPrinter($group->getPrinter());
-                $this->rollRepository->save($roll);
+				$this->rollRepository->save($roll);
             }
         }
 

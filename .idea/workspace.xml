@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Update all domain exceptions inherit from DomainException." />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fixed ExceptionMiddleware return error.">
+      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20241108094131.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Printer/Condition.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Printer/Condition.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Printer/InitPrintersService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Printer/InitPrintersService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/GroupPrinterService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/GroupPrinterService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/PrintedProductsCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/PrintedProductsCheckInService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/Printer.Condition.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/Printer.Condition.orm.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -387,15 +395,7 @@
       <workItem from="1730131000423" duration="30730000" />
       <workItem from="1730978112889" duration="27000" />
       <workItem from="1730978144587" duration="6182000" />
-      <workItem from="1730987686115" duration="5693000" />
-    </task>
-    <task id="LOCAL-00378" summary="Updated reprint services.">
-      <option name="closed" value="true" />
-      <created>1728459910255</created>
-      <option name="number" value="00378" />
-      <option name="presentableId" value="LOCAL-00378" />
-      <option name="project" value="LOCAL" />
-      <updated>1728459910255</updated>
+      <workItem from="1730987686115" duration="7484000" />
     </task>
     <task id="LOCAL-00379" summary="Added shipping address field.">
       <option name="closed" value="true" />
@@ -781,7 +781,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731057087322</updated>
     </task>
-    <option name="localTasksCounter" value="427" />
+    <task id="LOCAL-00427" summary="Fixed ExceptionMiddleware return error.">
+      <option name="closed" value="true" />
+      <created>1731057874150</created>
+      <option name="number" value="00427" />
+      <option name="presentableId" value="LOCAL-00427" />
+      <option name="project" value="LOCAL" />
+      <updated>1731057874150</updated>
+    </task>
+    <option name="localTasksCounter" value="428" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -816,7 +824,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated order data structure (removed is packed)" />
     <MESSAGE value="Simplify order repository findPartiallyPacked method." />
     <MESSAGE value="Remove debug code." />
     <MESSAGE value="Updated exception return in json format." />
@@ -841,7 +848,8 @@
     <MESSAGE value="Updated reset system command added printer creation." />
     <MESSAGE value="Updated exception listener message." />
     <MESSAGE value="Update all domain exceptions inherit from DomainException." />
-    <option name="LAST_COMMIT_MESSAGE" value="Update all domain exceptions inherit from DomainException." />
+    <MESSAGE value="Fixed ExceptionMiddleware return error." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed ExceptionMiddleware return error." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
