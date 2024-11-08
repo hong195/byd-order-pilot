@@ -87,7 +87,7 @@ final readonly class RollListService
         if ($printer) {
             $data->withPrinter(new PrinterData(
                 id: $printer->getId(),
-                name: $printer->getName(),
+                name: $printer->name,
             ));
         }
 

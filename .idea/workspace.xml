@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fixed ExceptionMiddleware return error.">
-      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20241108094131.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fixed printer name property.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Printer/Condition.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Printer/Condition.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Printer/InitPrintersService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Printer/InitPrintersService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/GroupPrinterService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/GroupPrinterService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/PrintedProductsCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/PrintedProductsCheckInService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/Printer.Condition.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/Printer.Condition.orm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/Service/Roll/RollListService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/Service/Roll/RollListService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -395,23 +390,7 @@
       <workItem from="1730131000423" duration="30730000" />
       <workItem from="1730978112889" duration="27000" />
       <workItem from="1730978144587" duration="6182000" />
-      <workItem from="1730987686115" duration="7484000" />
-    </task>
-    <task id="LOCAL-00379" summary="Added shipping address field.">
-      <option name="closed" value="true" />
-      <created>1728568442296</created>
-      <option name="number" value="00379" />
-      <option name="presentableId" value="LOCAL-00379" />
-      <option name="project" value="LOCAL" />
-      <updated>1728568442296</updated>
-    </task>
-    <task id="LOCAL-00380" summary="Added shippingAddress to api response.">
-      <option name="closed" value="true" />
-      <created>1728568634802</created>
-      <option name="number" value="00380" />
-      <option name="presentableId" value="LOCAL-00380" />
-      <option name="project" value="LOCAL" />
-      <updated>1728568634802</updated>
+      <workItem from="1730987686115" duration="10865000" />
     </task>
     <task id="LOCAL-00381" summary="Fixed cut, print files are uploaded.">
       <option name="closed" value="true" />
@@ -789,7 +768,23 @@
       <option name="project" value="LOCAL" />
       <updated>1731057874150</updated>
     </task>
-    <option name="localTasksCounter" value="428" />
+    <task id="LOCAL-00428" summary="Fixed printer assigment.">
+      <option name="closed" value="true" />
+      <created>1731059707534</created>
+      <option name="number" value="00428" />
+      <option name="presentableId" value="LOCAL-00428" />
+      <option name="project" value="LOCAL" />
+      <updated>1731059707534</updated>
+    </task>
+    <task id="LOCAL-00429" summary="Fixed printer name property.">
+      <option name="closed" value="true" />
+      <created>1731060967625</created>
+      <option name="number" value="00429" />
+      <option name="presentableId" value="LOCAL-00429" />
+      <option name="project" value="LOCAL" />
+      <updated>1731060967625</updated>
+    </task>
+    <option name="localTasksCounter" value="430" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -824,8 +819,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Simplify order repository findPartiallyPacked method." />
-    <MESSAGE value="Remove debug code." />
     <MESSAGE value="Updated exception return in json format." />
     <MESSAGE value="Added product search by filter." />
     <MESSAGE value="Removed printed product status reference." />
@@ -849,7 +842,9 @@
     <MESSAGE value="Updated exception listener message." />
     <MESSAGE value="Update all domain exceptions inherit from DomainException." />
     <MESSAGE value="Fixed ExceptionMiddleware return error." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed ExceptionMiddleware return error." />
+    <MESSAGE value="Fixed printer assigment." />
+    <MESSAGE value="Fixed printer name property." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed printer name property." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
