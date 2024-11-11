@@ -11,6 +11,7 @@ use App\ProductionProcess\Application\UseCase\Command\ChangePrintedProductPriori
 use App\ProductionProcess\Application\UseCase\Command\ChangePrintedProductSort\ChangePrintedProductSortCommand;
 use App\ProductionProcess\Application\UseCase\Command\ChangePrinterAvailability\ChangePrinterAvailabilityCommand;
 use App\ProductionProcess\Application\UseCase\Command\CheckInPrintedProducts\CheckInPrintedProductsCommand;
+use App\ProductionProcess\Application\UseCase\Command\CheckInPrintedProducts\CheckInPrintedProductsCommandResult;
 use App\ProductionProcess\Application\UseCase\Command\CheckRemainingProducts\CheckRemainingProductsCommand;
 use App\ProductionProcess\Application\UseCase\Command\CreatePrintedProduct\CreatePrintedProductCommand;
 use App\ProductionProcess\Application\UseCase\Command\CreatePrinters\CreatePrintersCommand;
@@ -120,14 +121,16 @@ readonly class PrivateCommandInteractor
         $this->commandBus->execute(new AssignEmployeeToRollCommand(rollId: $rollId, employeeId: $employeeId));
     }
 
-	/**
-	 * Checks in printed products.
-	 *
-	 * @param array $printedProducts The array of printed products to be checked in
-	 */
-	public function checkInPrintedProducts(array $printedProducts = []): void
+    /**
+     * Checks in printed products based on the provided printed product IDs.
+     *
+     * @param array $printedProducts An array containing the IDs of printed products to check in
+     *
+     * @return CheckInPrintedProductsCommandResult The result of the check-in operation
+     */
+    public function checkInPrintedProducts(array $printedProducts = []): CheckInPrintedProductsCommandResult
     {
-        $this->commandBus->execute(new CheckInPrintedProductsCommand(printedProductIds: $printedProducts));
+        return $this->commandBus->execute(new CheckInPrintedProductsCommand(printedProductIds: $printedProducts));
     }
 
     /**

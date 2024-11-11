@@ -6,7 +6,6 @@ namespace App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess
 
 use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
-use App\ProductionProcess\Domain\Exceptions\UnassignedPrintedProductsException;
 use App\ProductionProcess\Domain\Repository\PrintedProductFilter;
 use App\ProductionProcess\Domain\Repository\PrintedProductRepositoryInterface;
 use App\ProductionProcess\Domain\Repository\RollFilter;
@@ -16,10 +15,7 @@ use App\ProductionProcess\Domain\ValueObject\Process;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
-/**
- * Class MaxMinReArrangePrintedProductService.
- */
-final class PrintedProductsCheckInService implements PrintedProductCheckInInterface
+final class PrintedProductsCheckInService
 {
     private Collection $printedProducts;
 
@@ -43,9 +39,9 @@ final class PrintedProductsCheckInService implements PrintedProductCheckInInterf
      *
      * @param int[] $printedProductIds An array of printed product IDs to arrange (optional)
      *
-     * @throws UnassignedPrintedProductsException
+     * @return int[] An array of printed product IDs that could not be assigned to a roll
      */
-    public function arrange(array $printedProductIds = []): void
+    public function arrange(array $printedProductIds = []): array
     {
         // TODO move to a separate service
         $this->initPrintedProducts($printedProductIds);
@@ -70,10 +66,7 @@ final class PrintedProductsCheckInService implements PrintedProductCheckInInterf
             }
         }
 
-        if (!$this->unassignedPrintedProducts->isEmpty()) {
-            UnassignedPrintedProductsException::because('Could not assign printed products',
-                $this->unassignedPrintedProducts->map(fn (PrintedProduct $printedProduct) => $printedProduct->getId())->toArray());
-        }
+        return $this->unassignedPrintedProducts->map(fn (PrintedProduct $printedProduct) => $printedProduct->getId())->toArray();
     }
 
     /**

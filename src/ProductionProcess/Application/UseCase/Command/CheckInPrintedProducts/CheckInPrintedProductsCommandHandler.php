@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Application\UseCase\Command\CheckInPrintedProducts;
 
-use App\ProductionProcess\Domain\Exceptions\UnassignedPrintedProductsException;
 use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\PrintedProductsCheckInService;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Command\CommandHandlerInterface;
@@ -25,16 +24,16 @@ readonly class CheckInPrintedProductsCommandHandler implements CommandHandlerInt
     }
 
     /**
-     * Invokes the AssignEmployeeToRollCommand.
+     * Class constructor.
      *
-     * @param CheckInPrintedProductsCommand $command the assign employee to roll command
+     * @param CheckInPrintedProductsCommand $command the command to check in printed products
      *
-     * @throws UnassignedPrintedProductsException
+     * @return CheckInPrintedProductsCommandResult the result of checking in printed products
      */
-    public function __invoke(CheckInPrintedProductsCommand $command): void
+    public function __invoke(CheckInPrintedProductsCommand $command): CheckInPrintedProductsCommandResult
     {
         AssertService::true($this->accessControlService->isGranted(), 'No access to handle the command');
 
-        $this->checkInService->arrange(printedProductIds: $command->printedProductIds);
+        return new CheckInPrintedProductsCommandResult($this->checkInService->arrange(printedProductIds: $command->printedProductIds));
     }
 }
