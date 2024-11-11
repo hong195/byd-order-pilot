@@ -35,7 +35,7 @@ final readonly class CheckInPrintedProductsAction
         $ids = array_map('intval', $request->get('printedProductsIds'));
         $unassignedPrintedProductIds = $this->privateCommandInteractor->checkInPrintedProducts(printedProducts: $ids)->unassignedPrintedProductIds;
 
-        if (!empty($unassignedPrintedProductIds)) {
+        if (empty($unassignedPrintedProductIds)) {
             return new JsonResponse(['message' => 'Success'], Response::HTTP_OK);
         }
 
