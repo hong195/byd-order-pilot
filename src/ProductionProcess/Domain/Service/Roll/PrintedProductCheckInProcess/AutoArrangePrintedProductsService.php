@@ -8,14 +8,12 @@ use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
 use App\ProductionProcess\Domain\Repository\PrintedProductFilter;
 use App\ProductionProcess\Domain\Repository\PrintedProductRepositoryInterface;
-use App\ProductionProcess\Domain\Repository\RollFilter;
 use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
 use App\ProductionProcess\Domain\Service\Roll\RollMaker;
-use App\ProductionProcess\Domain\ValueObject\Process;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
-final class PrintedProductsCheckInService
+final class AutoArrangePrintedProductsService
 {
     private Collection $printedProducts;
 
@@ -79,7 +77,7 @@ final class PrintedProductsCheckInService
      */
     private function initPrintedProducts(array $printedProductsIds): void
     {
-        $rolls = new ArrayCollection($this->rollRepository->findByFilter(new RollFilter(process: Process::ORDER_CHECK_IN)));
+        $rolls = $this->rollRepository->findForAutoArrange();
 
         $this->printedProducts = new ArrayCollection();
         $this->unassignedPrintedProducts = new ArrayCollection();

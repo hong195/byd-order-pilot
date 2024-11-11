@@ -50,4 +50,11 @@ interface RollRepositoryInterface
      * @return Roll[] an array of matching records
      */
     public function findByFilter(RollFilter $rollFilter): array;
+
+	/**
+	 * Finds all product check-ins.
+	 *
+	 * @return Collection<Roll> a collection of product check-in records
+	 */
+	public function findForAutoArrange(): Collection;
 }

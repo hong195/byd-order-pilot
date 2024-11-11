@@ -5,6 +5,7 @@ namespace App\ProductionProcess\Infrastructure\Repository;
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
 use App\ProductionProcess\Domain\Repository\RollFilter;
 use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
+use App\ProductionProcess\Domain\ValueObject\Process;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -97,5 +98,25 @@ class RollRepository extends ServiceEntityRepository implements RollRepositoryIn
         $query = $qb->getQuery();
 
         return $query->getResult();
+    }
+
+    /**
+     * Finds product check-ins.
+     *
+     * @return Collection<Roll> the collection of product check-ins
+     */
+    public function findForAutoArrange(): Collection
+    {
+        $qb = $this->createQueryBuilder('r');
+
+        $qb->andWhere('r.process = :process');
+        $qb->setParameter('process', Process::ORDER_CHECK_IN);
+
+        $qb->andWhere('r.isLocked = :isLocked')
+            ->setParameter('isLocked', false);
+
+        $query = $qb->getQuery();
+
+        return new ArrayCollection($query->getResult());
     }
 }

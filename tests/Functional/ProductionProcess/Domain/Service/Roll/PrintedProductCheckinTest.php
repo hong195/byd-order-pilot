@@ -7,7 +7,7 @@ namespace App\Tests\Functional\ProductionProcess\Domain\Service\Roll;
 use App\ProductionProcess\Domain\Factory\PrintedProductFactory;
 use App\ProductionProcess\Domain\Repository\RollFilter;
 use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
-use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\PrintedProductsCheckInService;
+use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\AutoArrangePrintedProductsService;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use App\Tests\Functional\AbstractTestCase;
 use App\Tests\Tools\FakerTools;
@@ -19,14 +19,14 @@ final class PrintedProductCheckinTest extends AbstractTestCase
     use FixtureTools;
 
     public const FILM_TYPE = 'chrome';
-    private PrintedProductsCheckInService $printedProductCheckIn;
+    private AutoArrangePrintedProductsService $printedProductCheckIn;
     private RollRepositoryInterface $rollRepository;
 
     public function setUp(): void
     {
         parent::setUp();
 
-        $this->printedProductCheckIn = self::getContainer()->get(PrintedProductsCheckInService::class);
+        $this->printedProductCheckIn = self::getContainer()->get(AutoArrangePrintedProductsService::class);
         $this->rollRepository = self::getContainer()->get(RollRepositoryInterface::class);
     }
 
