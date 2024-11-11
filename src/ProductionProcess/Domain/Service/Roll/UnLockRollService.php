@@ -6,6 +6,7 @@ namespace App\ProductionProcess\Domain\Service\Roll;
 
 use App\ProductionProcess\Domain\Exceptions\LockingRollException;
 use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 final readonly class UnLockRollService
 {
@@ -19,6 +20,14 @@ final readonly class UnLockRollService
     public function unlock(int $rollId): void
     {
         $roll = $this->rollRepository->findById($rollId);
+
+        if (!$roll) {
+            throw new NotFoundHttpException('Roll not found');
+        }
+
+        if (!$roll->getEmployeeId()) {
+            LockingRollException::because('Roll is not assigned to any employee');
+        }
 
         if (!$roll->isLocked) {
             LockingRollException::because('Roll is already unlocked');

@@ -10,6 +10,7 @@ use App\ProductionProcess\Domain\Service\Roll\LockRollService;
 use App\Tests\Functional\AbstractTestCase;
 use App\Tests\Tools\FakerTools;
 use App\Tests\Tools\FixtureTools;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 final class LockRollServiceTest extends AbstractTestCase
 {
@@ -32,11 +33,13 @@ final class LockRollServiceTest extends AbstractTestCase
     public function test_it_locks_roll(): void
     {
         $roll = $this->loadRoll();
-        $rollId = $roll->getId();
+        $roll->setEmployeeId($this->loadUserFixture()->getId());
 
-        $this->lockRollService->lock($rollId);
+        $this->rollRepository->save($roll);
 
-        $result = $this->rollRepository->findById($rollId);
+        $this->lockRollService->lock($roll->getId());
+
+        $result = $this->rollRepository->findById($roll->getId());
 
         $this->assertTrue($result->isLocked());
     }
@@ -47,12 +50,38 @@ final class LockRollServiceTest extends AbstractTestCase
     public function test_it_throws_exception_when_try_to_lock_already_locked_roll(): void
     {
         $roll = $this->loadRoll();
-        $rollId = $roll->getId();
+        $roll->setEmployeeId($this->loadUserFixture()->getId());
+        $this->rollRepository->save($roll);
 
-        $this->lockRollService->lock($rollId);
+        $this->lockRollService->lock($roll->getId());
+
+        $this->expectException(LockingRollException::class);
+
+        $this->lockRollService->lock($roll->getId());
+    }
+
+    /**
+     * @throws LockingRollException
+     */
+    public function test_it_throws_exception_when_no_employee_assigned(): void
+    {
+        $roll = $this->loadRoll();
+        $rollId = $roll->getId();
 
         $this->expectException(LockingRollException::class);
 
         $this->lockRollService->lock($rollId);
+    }
+
+    /**
+     * @throws LockingRollException
+     */
+    public function test_cant_lock_not_existing_roll(): void
+    {
+        $notExistingRollId = $this->getFaker()->randomNumber();
+
+        $this->expectException(NotFoundHttpException::class);
+
+        $this->lockRollService->lock($notExistingRollId);
     }
 }
