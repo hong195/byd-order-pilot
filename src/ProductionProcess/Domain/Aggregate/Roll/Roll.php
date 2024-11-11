@@ -339,4 +339,9 @@ class Roll extends Aggregate
     {
         $this->isLocked = false;
     }
+
+    public function isLocked(): bool
+    {
+        return $this->isLocked;
+    }
 }
