@@ -47,9 +47,9 @@ interface RollRepositoryInterface
      *
      * @param RollFilter $rollFilter the filter to query records
      *
-     * @return Roll[] an array of matching records
+     * @return Collection<Roll> an array of matching records
      */
-    public function findByFilter(RollFilter $rollFilter): array;
+    public function findByFilter(RollFilter $rollFilter): Collection;
 
 	/**
 	 * Finds all product check-ins.

@@ -6,6 +6,8 @@ use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use App\ProductionProcess\Domain\Repository\PrintedProductFilter;
 use App\ProductionProcess\Domain\Repository\PrintedProductRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -77,9 +79,9 @@ class PrintedProductRepository extends ServiceEntityRepository implements Printe
     /**
      * Finds PrintedProducts by Roll ID.
      *
-     * @return PrintedProduct[] an array of PrintedProduct objects matching the Roll ID
+	 * @return Collection<PrintedProduct> the result of the pagination
      */
-    public function findByFilter(PrintedProductFilter $filter): array
+    public function findByFilter(PrintedProductFilter $filter): Collection
     {
         $qb = $this->createQueryBuilder('p');
 
@@ -98,7 +100,7 @@ class PrintedProductRepository extends ServiceEntityRepository implements Printe
             $qb->andWhere('p.roll IS NULL');
         }
 
-        return $qb->getQuery()->getResult();
+        return new ArrayCollection($qb->getQuery()->getResult());
     }
 
     /**

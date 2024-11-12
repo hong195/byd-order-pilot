@@ -82,6 +82,9 @@ services:
     App\ProductionProcess\Domain\Service\Printer\InitPrintersService:
         public: true
 
+    App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Manual\ManualProductsArrangeService:
+        public: true
+
     Symfony\Component\Serializer\Normalizer\ObjectNormalizer: ~
     Symfony\Component\Serializer\Normalizer\ArrayDenormalizer: ~
     Symfony\Component\Serializer\Encoder\JsonEncoder: ~

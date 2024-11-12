@@ -3,6 +3,7 @@
 namespace App\ProductionProcess\Domain\Repository;
 
 use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * This interface represents a Job repository.
@@ -37,9 +38,9 @@ interface PrintedProductRepositoryInterface
      *
      * @param PrintedProductFilter $filter the filter to apply on the PrintedProducts
      *
-     * @return PrintedProduct[] the result of the pagination
+     * @return Collection<PrintedProduct> the result of the pagination
      */
-    public function findByFilter(PrintedProductFilter $filter): array;
+    public function findByFilter(PrintedProductFilter $filter): Collection;
 
     /**
      * Finds an array of Jobs by their IDs.

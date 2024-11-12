@@ -2,7 +2,7 @@
 
 namespace App\ProductionProcess\Infrastructure\Adapter;
 
-use App\ProductionProcess\Domain\DTO\FilmData;
+use App\Inventory\Application\UseCases\Query\DTO\FilmData;
 
 /**
  * @interface InventoryApiInterface
@@ -15,4 +15,6 @@ interface InventoryApiInterface
      * @return array<FilmData> an array of available films
      */
     public function getAvailableFilms(): array;
+
+    public function getById(int $filmId): FilmData;
 }

@@ -79,9 +79,9 @@ class RollRepository extends ServiceEntityRepository implements RollRepositoryIn
      *
      * @param RollFilter $rollFilter the filter for rolls
      *
-     * @return Roll[] the array of rolls found
+     * @return ArrayCollection<Roll> the array of rolls found
      */
-    public function findByFilter(RollFilter $rollFilter): array
+    public function findByFilter(RollFilter $rollFilter): ArrayCollection
     {
         $qb = $this->createQueryBuilder('r');
 
@@ -97,7 +97,7 @@ class RollRepository extends ServiceEntityRepository implements RollRepositoryIn
 
         $query = $qb->getQuery();
 
-        return $query->getResult();
+        return new ArrayCollection($query->getResult());
     }
 
     /**
