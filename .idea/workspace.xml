@@ -4,21 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added lock/unlock tests.">
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/LockRoll/LockRollCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/LockRoll/LockRollCommandHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/UnLockRoll/UnLockRollCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/UnLockRoll/UnLockRollCommandHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/Rolls/LockRollAction.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/Rolls/UnLockRollAction.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated roll lock/unlock tests.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/CheckInPrintedProducts/CheckInPrintedProductsCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/CheckInPrintedProducts/CheckInPrintedProductsCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/UnassignPrintedProduct/UnassignPrintedProductHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/UnassignPrintedProduct/UnassignPrintedProductHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateCommandInteractor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/RollRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/RollRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/PrintedProductsCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/AutoArrangePrintedProductsService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/RollRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/RollRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintCheckInService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Functional/AbstractTestCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/AbstractTestCase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/CheckRemainingProductsServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/CheckRemainingProductsServiceTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/GlowCheckinTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/GlowCheckinTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintCheckinTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintCheckinTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckinTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckinTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/RollMakerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/RollMakerTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,8 +191,11 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Makefile Target.restart.executor": "Run",
+    "PHPUnit.CheckRemainingProductsServiceTest.executor": "Run",
     "PHPUnit.CheckRemainingProductsServiceTest.test_it_remove_roll_if_there_are_no_printed_product_left.executor": "Run",
+    "PHPUnit.CheckRemainingProductsServiceTest.test_it_removes_roll_if_there_are_no_printed_product_left.executor": "Run",
     "PHPUnit.CheckRemainingProductsServiceTest.test_it_throws_exception_if_roll_does_not_exists.executor": "Run",
+    "PHPUnit.CheckRemainingProductsServiceTest.test_printer_become_available_if_last_element_was_removed.executor": "Run",
     "PHPUnit.ErrorManagementServiceTest.executor": "Run",
     "PHPUnit.ErrorManagementServiceTest.test_can_be_created.executor": "Run",
     "PHPUnit.ErrorManagementServiceTest.test_can_be_recorded.executor": "Run",
@@ -213,9 +211,12 @@
     "PHPUnit.ErrorRepositoryTest.test_find_by_process.executor": "Run",
     "PHPUnit.ExtraMakerTest.test_can_successfully_make_extra.executor": "Run",
     "PHPUnit.ExtraRepositoryTest.test_can_successfully_save.executor": "Run",
+    "PHPUnit.GlowCheckinTest.executor": "Run",
     "PHPUnit.HistoryRepositoryTest.executor": "Run",
     "PHPUnit.HistoryRepositoryTest.test_add.executor": "Run",
     "PHPUnit.HistoryRepositoryTest.test_true.executor": "Run",
+    "PHPUnit.LockRollServiceTest.executor": "Run",
+    "PHPUnit.LockRollServiceTest.test_cant_lock_not_existing_roll.executor": "Run",
     "PHPUnit.LockRollServiceTest.test_it_locks_roll.executor": "Run",
     "PHPUnit.LockRollServiceTest.test_it_throws_exception_when_try_to_lock_already_locked_roll.executor": "Run",
     "PHPUnit.Main.executor": "Run",
@@ -232,6 +233,8 @@
     "PHPUnit.PackProductTest.test_cant_pack_product_if_its_not_ready_for_packing.executor": "Run",
     "PHPUnit.PackProductTest.test_cant_pack_product_if_order_product_do_not_exist.executor": "Run",
     "PHPUnit.PackProductTest.test_if_product_packed_product_pack_event_dispatched.executor": "Run",
+    "PHPUnit.PrintCheckinTest.executor": "Run",
+    "PHPUnit.PrintCheckinTest.test_can_successfully_send_to_print_check_in.executor": "Run",
     "PHPUnit.PrintCheckinTest.test_it_throws_exception_when_film_is_already_in_use.executor": "Run",
     "PHPUnit.PrintedProductCheckinTest.test_can_allocate_group_of_printed_products_on_one_roll.executor": "Run",
     "PHPUnit.PrintedProductRepositoryTest.test_add.executor": "Run",
@@ -240,11 +243,14 @@
     "PHPUnit.ProductRepositoryTest.test_can_find_by_filter.executor": "Run",
     "PHPUnit.ProductRepositoryTest.test_can_successfully_save.executor": "Run",
     "PHPUnit.ReprintRollTest.test_cannot_reprint_not_existing_roll.executor": "Run",
+    "PHPUnit.RollMakerTest.executor": "Run",
+    "PHPUnit.RollMakerTest.test_it_can_make_roll.executor": "Run",
     "PHPUnit.RollRepositoryTest.test_can_find_by_filter.executor": "Run",
     "PHPUnit.RollRepositoryTest.test_can_remove.executor": "Run",
     "PHPUnit.RollRepositoryTest.test_can_save_successfully.executor": "Run",
     "PHPUnit.RollRepositoryTest.test_it_can_find_by_film_id.executor": "Run",
     "PHPUnit.SetExtraPackStatusServiceTest.test_can_successfully_pack_extra_status.executor": "Run",
+    "PHPUnit.UnLockRollServiceTest.executor": "Run",
     "PHPUnit.UnLockRollServiceTest.test_it_throws_exception_when_try_to_unlock_already_unlocked_roll.executor": "Run",
     "PHPUnit.UnLockRollServiceTest.test_it_unlocks_roll.executor": "Run",
     "PHPUnit.UnPackProductTest.executor": "Run",
@@ -298,17 +304,25 @@
       <recent name="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/Products" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.UnLockRollServiceTest.test_it_throws_exception_when_try_to_unlock_already_unlocked_roll">
-    <configuration name="LockRollServiceTest.test_it_locks_roll" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\LockRollServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/LockRollServiceTest.php" method="test_it_locks_roll" scope="Method" />
+  <component name="RunManager" selected="PHPUnit.Main">
+    <configuration name="CheckRemainingProductsServiceTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\CheckRemainingProductsServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/CheckRemainingProductsServiceTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="LockRollServiceTest.test_it_throws_exception_when_try_to_lock_already_locked_roll" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\LockRollServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/LockRollServiceTest.php" method="test_it_throws_exception_when_try_to_lock_already_locked_roll" scope="Method" />
+    <configuration name="GlowCheckinTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\GlowCheckinTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/GlowCheckinTest.php" scope="Class" />
       <method v="2" />
     </configuration>
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
+      <method v="2" />
+    </configuration>
+    <configuration name="PrintCheckinTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintCheckinTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintCheckinTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
+    <configuration name="PrintCheckinTest.test_can_successfully_send_to_print_check_in" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintCheckinTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintCheckinTest.php" method="test_can_successfully_send_to_print_check_in" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="PrintCheckinTest.test_it_throws_exception_when_film_is_already_in_use" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -319,21 +333,13 @@
       <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintedProductCheckinTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckinTest.php" method="test_can_allocate_group_of_printed_products_on_one_roll" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="UnLockRollServiceTest.test_it_throws_exception_when_try_to_unlock_already_unlocked_roll" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\UnLockRollServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/UnLockRollServiceTest.php" method="test_it_throws_exception_when_try_to_unlock_already_unlocked_roll" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="UnLockRollServiceTest.test_it_unlocks_roll" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\UnLockRollServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/UnLockRollServiceTest.php" method="test_it_unlocks_roll" scope="Method" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.UnLockRollServiceTest.test_it_throws_exception_when_try_to_unlock_already_unlocked_roll" />
-        <item itemvalue="PHPUnit.UnLockRollServiceTest.test_it_unlocks_roll" />
-        <item itemvalue="PHPUnit.LockRollServiceTest.test_it_throws_exception_when_try_to_lock_already_locked_roll" />
-        <item itemvalue="PHPUnit.LockRollServiceTest.test_it_locks_roll" />
+        <item itemvalue="PHPUnit.GlowCheckinTest" />
+        <item itemvalue="PHPUnit.PrintCheckinTest" />
         <item itemvalue="PHPUnit.PrintCheckinTest.test_it_throws_exception_when_film_is_already_in_use" />
+        <item itemvalue="PHPUnit.PrintCheckinTest.test_can_successfully_send_to_print_check_in" />
+        <item itemvalue="PHPUnit.CheckRemainingProductsServiceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -413,23 +419,8 @@
       <workItem from="1730978112889" duration="27000" />
       <workItem from="1730978144587" duration="6182000" />
       <workItem from="1730987686115" duration="21161000" />
-      <workItem from="1731308149509" duration="14136000" />
-    </task>
-    <task id="LOCAL-00389" summary="Fixed printers.">
-      <option name="closed" value="true" />
-      <created>1728997156575</created>
-      <option name="number" value="00389" />
-      <option name="presentableId" value="LOCAL-00389" />
-      <option name="project" value="LOCAL" />
-      <updated>1728997156575</updated>
-    </task>
-    <task id="LOCAL-00390" summary="Added test for product pack service.">
-      <option name="closed" value="true" />
-      <created>1729004406714</created>
-      <option name="number" value="00390" />
-      <option name="presentableId" value="LOCAL-00390" />
-      <option name="project" value="LOCAL" />
-      <updated>1729004406715</updated>
+      <workItem from="1731308149509" duration="15979000" />
+      <workItem from="1731402921880" duration="2473000" />
     </task>
     <task id="LOCAL-00391" summary="Updated pack product service tests.">
       <option name="closed" value="true" />
@@ -807,7 +798,23 @@
       <option name="project" value="LOCAL" />
       <updated>1731322127628</updated>
     </task>
-    <option name="localTasksCounter" value="438" />
+    <task id="LOCAL-00438" summary="Added roll lock/unlock api.">
+      <option name="closed" value="true" />
+      <created>1731327872613</created>
+      <option name="number" value="00438" />
+      <option name="presentableId" value="LOCAL-00438" />
+      <option name="project" value="LOCAL" />
+      <updated>1731327872613</updated>
+    </task>
+    <task id="LOCAL-00439" summary="Updated roll lock/unlock tests.">
+      <option name="closed" value="true" />
+      <created>1731328456008</created>
+      <option name="number" value="00439" />
+      <option name="presentableId" value="LOCAL-00439" />
+      <option name="project" value="LOCAL" />
+      <updated>1731328456008</updated>
+    </task>
+    <option name="localTasksCounter" value="440" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -842,8 +849,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated assign action runs with printed product id." />
-    <MESSAGE value="Updated if after reprint roll is empty its deleted." />
     <MESSAGE value="Updated after reprint order product isPack set to false." />
     <MESSAGE value="Update process changed records current roll process." />
     <MESSAGE value="Fixed after reprint if product unpacked it wont be unpack again." />
@@ -867,7 +872,9 @@
     <MESSAGE value="Fixed saving rolls if some product failed to arrange. #2" />
     <MESSAGE value="Added roll isLocked field." />
     <MESSAGE value="Added lock/unlock tests." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added lock/unlock tests." />
+    <MESSAGE value="Added roll lock/unlock api." />
+    <MESSAGE value="Updated roll lock/unlock tests." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated roll lock/unlock tests." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

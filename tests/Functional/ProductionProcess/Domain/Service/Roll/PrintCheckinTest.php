@@ -134,7 +134,7 @@ final class PrintCheckinTest extends AbstractTestCase
         $roll->addPrintedProduct($this->loadPreparedProduct('chrome'));
         $roll->setEmployeeId($this->loadUserFixture()->getId());
         $roll->updateProcess(Process::ORDER_CHECK_IN);
-        $roll->assignPrinter($printerRepository->findByFilmType('chrome'));
+        $roll->assignPrinter($printerRepository->all()->first());
 
         $this->entityManager->persist($roll);
         $this->entityManager->flush();
@@ -165,21 +165,23 @@ final class PrintCheckinTest extends AbstractTestCase
      */
     public function test_it_throws_exception_when_film_is_already_in_use()
     {
-		//TODO describe the test
-        $roll1 = $this->loadPreparedRoll();
-        $roll1->updateProcess(Process::PRINTING_CHECK_IN);
-        $this->rollRepository->save($roll1);
+        $roll = $this->loadPreparedRoll();
+        $roll->updateProcess(Process::ORDER_CHECK_IN);
+        $this->rollRepository->save($roll);
 
-        $roll2 = clone $roll1;
+        $rollWithOccupiedFilm = $this->loadPreparedRoll();
+        $rollWithOccupiedFilm->updateProcess(Process::PRINTING_CHECK_IN);
+        $rollWithOccupiedFilm->setFilmId($roll->getFilmId());
+        $this->rollRepository->save($rollWithOccupiedFilm);
 
         $checkInService = $this->getPrintCheckinService(
-            $this->getAvailableServiceMock($roll1, $roll1->getPrintedProductsLength()),
+            $this->getAvailableServiceMock($roll, $roll->getPrintedProductsLength()),
             self::createMock(EventDispatcherInterface::class)
         );
 
         $this->expectException(InventoryFilmIsNotAvailableException::class);
 
-        $checkInService->handle($roll1->getId());
+        $checkInService->handle($roll->getId());
     }
 
     private function getPrintCheckinService(AvailableFilmServiceInterface $availableFilmService, EventDispatcherInterface $eventDispatcher): PrintCheckInService

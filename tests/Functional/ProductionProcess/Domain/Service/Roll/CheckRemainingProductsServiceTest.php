@@ -46,7 +46,7 @@ final class CheckRemainingProductsServiceTest extends AbstractTestCase
         $roll = $this->loadRoll();
         $roll->addPrintedProduct($this->loadPrintedProduct());
         $rollId = $roll->getId();
-        $printer = $this->printerRepository->findByFilmType('chrome');
+        $printer = $this->printerRepository->all()->first();
         $roll->assignPrinter($printer);
         $this->rollRepository->save($roll);
 

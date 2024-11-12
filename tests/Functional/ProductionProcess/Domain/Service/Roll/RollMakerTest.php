@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Tests\Functional\ProductionProcess\Domain\Service\Roll;
 
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
-use App\ProductionProcess\Domain\Repository\PrinterRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
 use App\ProductionProcess\Domain\Service\Roll\RollMaker;
 use App\Tests\Functional\AbstractTestCase;
 use App\Tests\Tools\FakerTools;
@@ -17,28 +17,26 @@ final class RollMakerTest extends AbstractTestCase
     use FixtureTools;
 
     private RollMaker $rollMaker;
+    private RollRepositoryInterface $rollRepository;
 
     public function setUp(): void
     {
         parent::setUp();
 
         $this->rollMaker = self::getContainer()->get(RollMaker::class);
+        $this->rollRepository = self::getContainer()->get(RollRepositoryInterface::class);
     }
 
-    /**
-     * @throws \Exception
-     */
     public function test_it_can_make_roll(): void
     {
-        $filmType = 'chrome';
         $roll = $this->rollMaker->make(
             name: $this->getFaker()->name(),
             filmId: $this->getFaker()->randomNumber(),
-            filmType: $filmType
         );
-        $printer = self::getContainer()->get(PrinterRepositoryInterface::class)->findByFilmType($filmType);
+
+        $madeRoll = $this->rollRepository->findById($roll->getId());
 
         $this->assertInstanceOf(Roll::class, $roll);
-        $this->assertEquals($roll->getPrinter()->getId(), $printer->getId());
+        $this->assertSame($madeRoll->getId(), $roll->getId());
     }
 }
