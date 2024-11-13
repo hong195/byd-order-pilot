@@ -8,7 +8,9 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Infrastructure\Repository;
 
+use App\ProductionProcess\Application\DTO\Error\EmployerErrorData;
 use App\ProductionProcess\Domain\Aggregate\Error;
+use App\ProductionProcess\Domain\Repository\DateRangeFilter;
 use App\ProductionProcess\Domain\Repository\ErrorFilter;
 use App\ProductionProcess\Domain\Repository\ErrorRepositoryInterface;
 use App\ProductionProcess\Domain\ValueObject\Process;
@@ -102,6 +104,46 @@ class ErrorRepository extends ServiceEntityRepository implements ErrorRepository
             $qb->andWhere('e.responsibleEmployeeId = :responsibleEmployeeId')
                 ->setParameter('responsibleEmployeeId', $filter->responsibleEmployeeId);
         }
+
+        if ($filter->from) {
+            $qb->andWhere('e.createdAt >= :from')
+                ->setParameter('from', $filter->from);
+        }
+
+        if ($filter->to) {
+            $qb->andWhere('e.createdAt <= :to')
+                ->setParameter('to', $filter->to);
+        }
+
+        return $qb->getQuery()->getResult();
+    }
+
+    /**
+     * Find entities by the provided error filter.
+     *
+     * @param DateRangeFilter $filter The filter object to apply when searching for entities
+     *
+     * @return EmployerErrorData[] An array of entities that match the provided error filter
+     */
+    public function findEmployerErrorsByFilter(DateRangeFilter $filter): array
+    {
+        $qb = $this->createQueryBuilder('e')
+            ->select(
+                'e.responsibleEmployeeId',
+                'COUNT(e) AS total',
+                'SUM(CASE WHEN e.process = :orderCheckIn THEN 1 ELSE 0 END) AS order_check_in',
+                'SUM(CASE WHEN e.process = :printingCheckIn THEN 1 ELSE 0 END) AS printing_check_in',
+                'SUM(CASE WHEN e.process = :glowCheckIn THEN 1 ELSE 0 END) AS glow_check_in',
+                'SUM(CASE WHEN e.process = :cuttingCheckIn THEN 1 ELSE 0 END) AS cutting_check_in'
+            )
+            ->groupBy('e.responsibleEmployeeId');
+
+        // Setting the process type parameters using enum values
+        $qb->setParameter('orderCheckIn', Process::ORDER_CHECK_IN->value)
+            ->setParameter('printingCheckIn', Process::PRINTING_CHECK_IN->value)
+            ->setParameter('glowCheckIn', Process::GLOW_CHECK_IN->value)
+            ->setParameter('cuttingCheckIn', Process::CUTTING_CHECK_IN->value);
+
 
         if ($filter->from) {
             $qb->andWhere('e.createdAt >= :from')

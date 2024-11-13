@@ -10,6 +10,8 @@ use App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics\F
 use App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics\FetchRollHistoryStatisticsResult;
 use App\ProductionProcess\Application\UseCase\Query\FindARoll\FindARollQuery;
 use App\ProductionProcess\Application\UseCase\Query\FindARoll\FindARollResult;
+use App\ProductionProcess\Application\UseCase\Query\FindEmployerErrors\FindEmployerErrorsQuery;
+use App\ProductionProcess\Application\UseCase\Query\FindEmployerErrors\FindEmployerErrorsResult;
 use App\ProductionProcess\Application\UseCase\Query\FindErrors\FindErrorsQuery;
 use App\ProductionProcess\Application\UseCase\Query\FindErrors\FindErrorsResult;
 use App\ProductionProcess\Application\UseCase\Query\FindPrintedProduct\FindPrintedProductQuery;
@@ -121,6 +123,18 @@ readonly class PrivateQueryInteractor
      * @return FindErrorsResult the result of executing the query
      */
     public function findErrors(FindErrorsQuery $query): FindErrorsResult
+    {
+        return $this->queryBus->execute($query);
+    }
+
+    /**
+     * Finds errors by executing the given FindErrorsQuery.
+     *
+     * @param FindEmployerErrorsQuery $query the query object containing the search criteria
+     *
+     * @return FindEmployerErrorsResult the result of executing the query
+     */
+    public function findEmployerErrors(FindEmployerErrorsQuery $query): FindEmployerErrorsResult
     {
         return $this->queryBus->execute($query);
     }

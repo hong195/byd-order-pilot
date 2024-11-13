@@ -2,6 +2,7 @@
 
 namespace App\ProductionProcess\Domain\Repository;
 
+use App\ProductionProcess\Application\DTO\Error\EmployerErrorData;
 use App\ProductionProcess\Domain\Aggregate\Error;
 
 /**
@@ -31,4 +32,13 @@ interface ErrorRepositoryInterface
      * @return array<Error> An array of entities that match the provided error filter
      */
     public function findByFilter(ErrorFilter $filter): array;
+
+    /**
+     * Find entities by the provided error filter.
+     *
+     * @param DateRangeFilter $filter The filter object to apply when searching for entities
+     *
+     * @return EmployerErrorData[] An array of entities that match the provided error filter
+     */
+    public function findEmployerErrorsByFilter(DateRangeFilter $filter): array;
 }
