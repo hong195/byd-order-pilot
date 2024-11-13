@@ -36,7 +36,7 @@ final readonly class RollListService
         $filter = new RollFilter(process : $process);
 
         $rolls = $this->rollRepository->findByFilter($filter);
-        $rollsIds = array_unique(array_filter(array_map(fn ($roll) => $roll->getEmployeeId(), $rolls)));
+        $rollsIds = array_unique(array_filter(array_map(fn ($roll) => $roll->getEmployeeId(), $rolls->toArray())));
         $employees = $this->employeeFetcher->getByIds($rollsIds);
         $printers = $this->printerRepository->all();
 
@@ -44,8 +44,8 @@ final readonly class RollListService
 
         foreach ($rolls as $roll) {
             $employee = $employees->filter(fn (EmployeeData $employee) => $employee->id === $roll->getEmployeeId())->first();
-			/** @var Printer $printer */
-			$printer = $printers->filter(fn (Printer $printer) => $printer->getId() === $roll->getPrinter()?->getId())->first();
+            /** @var bool|Printer $printer */
+            $printer = $printers->filter(fn (Printer $printer) => $printer->getId() === $roll->getPrinter()?->getId())->first();
 
             if ($printer) {
                 $printer = new PrinterData(
@@ -76,9 +76,9 @@ final readonly class RollListService
     {
         $roll = $this->rollRepository->findById($id);
 
-		if (!$roll) {
-			throw new NotFoundHttpException('Roll not found');
-		}
+        if (!$roll) {
+            throw new NotFoundHttpException('Roll not found');
+        }
 
         $data = $this->rollDataTransformer->fromEntity($roll);
 

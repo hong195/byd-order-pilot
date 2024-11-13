@@ -33,15 +33,15 @@ final class RollData
      */
     public function __construct(
         public readonly int $id,
-        public readonly string $name,
-        public readonly int|float $length,
+//        public readonly string $name,
+//        public readonly int|float $length,
         public readonly int $count,
-        public readonly array $films,
-        public readonly ?string $process = null,
-        public readonly int $priorityCount = 0,
-        public readonly array $laminations = [],
-        public readonly ?int $filmId = null,
-        public readonly ?\DateTimeInterface $dateAdded = null,
+//        public readonly array $films,
+//        public readonly ?string $process = null,
+//        public readonly int $priorityCount = 0,
+//        public readonly array $laminations = [],
+//        public readonly ?int $filmId = null,
+//        public readonly ?\DateTimeInterface $dateAdded = null,
     ) {
     }
 
