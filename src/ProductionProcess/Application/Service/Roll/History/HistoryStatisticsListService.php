@@ -12,7 +12,7 @@ use App\ProductionProcess\Application\DTO\HistoryData;
 use App\ProductionProcess\Domain\Aggregate\Roll\History\History;
 
 /**
- * Class HistoryListService.
+ * Class HistoryStatisticsListService.
  */
 final readonly class HistoryStatisticsListService
 {

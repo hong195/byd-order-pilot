@@ -8,10 +8,13 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Infrastructure\Repository;
 
+use App\ProductionProcess\Application\DTO\EmployerRollCountData;
 use App\ProductionProcess\Domain\Aggregate\Roll\History\History;
 use App\ProductionProcess\Domain\Aggregate\Roll\History\Type;
+use App\ProductionProcess\Domain\Repository\DateRangeFilter;
 use App\ProductionProcess\Domain\Repository\FetchRollHistoryStatisticsFilter;
 use App\ProductionProcess\Domain\Repository\HistoryRepositoryInterface;
+use App\ProductionProcess\Domain\ValueObject\Process;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -95,6 +98,46 @@ class HistoryRepository extends ServiceEntityRepository implements HistoryReposi
                 ->setParameter('process', $filter->getProcess());
         }
 
+        if ($filter->getFrom()) {
+            $qb->andWhere('h.happenedAt >= :from')
+                ->setParameter('from', $filter->getFrom());
+        }
+
+        if ($filter->getTo()) {
+            $qb->andWhere('h.happenedAt <= :to')
+                ->setParameter('to', $filter->getTo());
+        }
+
+        return $qb->getQuery()->getResult();
+    }
+
+    /**
+     * @param DateRangeFilter $filter
+     *
+     * @return EmployerRollCountData[]
+     */
+    public function findByCriteriaForEmployers(DateRangeFilter $filter): array
+    {
+        $qb = $this->createQueryBuilder('h')
+            ->select(
+                'h.employeeId',
+                'COUNT(h) AS total',
+                'SUM(CASE WHEN h.process = :orderCheckIn THEN 1 ELSE 0 END) AS order_check_in',
+                'SUM(CASE WHEN h.process = :printingCheckIn THEN 1 ELSE 0 END) AS print_check_in',
+                'SUM(CASE WHEN h.process = :glowCheckIn THEN 1 ELSE 0 END) AS glow_check_in',
+                'SUM(CASE WHEN h.process = :cuttingCheckIn THEN 1 ELSE 0 END) AS cut_check_in'
+            )
+            ->where('h.type = :type')
+            ->setParameter('type', Type::PROCESS_CHANGED->value)
+            ->groupBy('h.employeeId');
+
+        // Set parameters for the specific processes
+        $qb->setParameter('orderCheckIn', Process::ORDER_CHECK_IN->value)
+            ->setParameter('printingCheckIn', Process::PRINTING_CHECK_IN->value)
+            ->setParameter('glowCheckIn', Process::GLOW_CHECK_IN->value)
+            ->setParameter('cuttingCheckIn', Process::CUTTING_CHECK_IN->value);
+
+        // Apply date filters if present
         if ($filter->getFrom()) {
             $qb->andWhere('h.happenedAt >= :from')
                 ->setParameter('from', $filter->getFrom());

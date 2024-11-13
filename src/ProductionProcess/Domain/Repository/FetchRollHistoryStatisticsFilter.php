@@ -17,20 +17,18 @@ use App\ProductionProcess\Domain\ValueObject\Process;
  * Represents a filter for roll history statistics, allowing optional filtering
  * by employee ID, process, and date range.
  */
-final readonly class FetchRollHistoryStatisticsFilter
+final class FetchRollHistoryStatisticsFilter extends DateRangeFilter
 {
     /**
-     * @param int|null                $employeeId
-     * @param Process|null            $process
-     * @param \DateTimeImmutable|null $from
-     * @param \DateTimeImmutable|null $to
+     *
      */
     public function __construct(
         public ?int $employeeId = null,
         public ?Process $process = null,
-        public ?\DateTimeImmutable $from = null,
-        public ?\DateTimeImmutable $to = null,
+        ?\DateTimeImmutable $from = null,
+        ?\DateTimeImmutable $to = null,
     ) {
+        parent::__construct($from, $to);
     }
 
     /**
@@ -47,21 +45,5 @@ final readonly class FetchRollHistoryStatisticsFilter
     public function getProcess(): ?Process
     {
         return $this->process;
-    }
-
-    /**
-     * @return \DateTimeImmutable|null
-     */
-    public function getFrom(): ?\DateTimeImmutable
-    {
-        return $this->from;
-    }
-
-    /**
-     * @return \DateTimeImmutable|null
-     */
-    public function getTo(): ?\DateTimeImmutable
-    {
-        return $this->to;
     }
 }

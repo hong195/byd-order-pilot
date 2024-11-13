@@ -6,6 +6,7 @@
 
 namespace App\ProductionProcess\Domain\Repository;
 
+use App\ProductionProcess\Application\DTO\EmployerRollCountData;
 use App\ProductionProcess\Domain\Aggregate\Roll\History\History;
 
 /**
@@ -31,4 +32,11 @@ interface HistoryRepositoryInterface
      * @return History[]
      */
     public function findByCriteria(FetchRollHistoryStatisticsFilter $filter): array;
+
+    /**
+     * @param DateRangeFilter $filter
+     *
+     * @return EmployerRollCountData[]
+     */
+    public function findByCriteriaForEmployers(DateRangeFilter $filter): array;
 }

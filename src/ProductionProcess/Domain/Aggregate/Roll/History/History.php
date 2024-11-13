@@ -16,7 +16,6 @@ final class History
     /**@phpstan-ignore-next-line */
     private ?int $id;
     private ?int $employeeId = null;
-
     private ?int $parentRollId = null;
 
     /**
@@ -60,9 +59,9 @@ final class History
     }
 
     /**
-     * Returns the value of the startedAt property.
+     * Returns the value of the happenedAt property.
      *
-     * @return \DateTimeImmutable the value of the startedAt property
+     * @return \DateTimeImmutable the value of the happenedAt property
      */
     public function getHappenedAt(): \DateTimeImmutable
     {
