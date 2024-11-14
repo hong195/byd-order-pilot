@@ -15,14 +15,15 @@ namespace App\ProductionProcess\Application\DTO\Error;
 final readonly class EmployerErrorData
 {
     /**
-     * @param int|null $responsibleEmployee
-     * @param int|null $total
-     * @param int|null $orderCheckIn
-     * @param int|null $printingCheckIn
-     * @param int|null $glowCheckIn
-     * @param int|null $cuttingCheckIn
+     * @param int|null    $responsibleEmployeeId
+     * @param string|null $responsibleEmployeeName
+     * @param int|null    $total
+     * @param int|null    $orderCheckIn
+     * @param int|null    $printingCheckIn
+     * @param int|null    $glowCheckIn
+     * @param int|null    $cuttingCheckIn
      */
-    public function __construct(public ?int $responsibleEmployee = null, public ?int $total = null, public ?int $orderCheckIn = null, public ?int $printingCheckIn = null, public ?int $glowCheckIn = null, public ?int $cuttingCheckIn = null)
+    public function __construct(public ?int $responsibleEmployeeId = null, public ?string $responsibleEmployeeName = null, public ?int $total = null, public ?int $orderCheckIn = null, public ?int $printingCheckIn = null, public ?int $glowCheckIn = null, public ?int $cuttingCheckIn = null)
     {
     }
 }

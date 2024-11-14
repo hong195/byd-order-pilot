@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Application\UseCase\Query\FindEmployerErrors;
 
+use App\ProductionProcess\Application\Service\Roll\Error\EmployerErrorCountListService;
 use App\ProductionProcess\Infrastructure\Repository\ErrorRepository;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Query\QueryHandlerInterface;
@@ -22,9 +23,8 @@ final readonly class FindEmployerErrorsHandler implements QueryHandlerInterface
      * Constructor for the class.
      *
      * @param AccessControlService $accessControlService the access control service dependency
-     * @param ErrorRepository      $repository
      */
-    public function __construct(private AccessControlService $accessControlService, private ErrorRepository $repository)
+    public function __construct(private AccessControlService $accessControlService, private ErrorRepository $repository, private EmployerErrorCountListService $employerErrorCountListService)
     {
     }
 
@@ -40,6 +40,8 @@ final readonly class FindEmployerErrorsHandler implements QueryHandlerInterface
         AssertService::true($this->accessControlService->isGranted(), 'No access to handle the query');
 
         $result = $this->repository->findEmployerErrorsByFilter($query->getErrorFilter());
+
+        $result = ($this->employerErrorCountListService)($result);
 
         return new FindEmployerErrorsResult($result);
     }
