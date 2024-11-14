@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess;
 
+use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
 use App\ProductionProcess\Domain\Exceptions\ManualArrangeException;
 use App\ProductionProcess\Domain\Repository\RollFilter;
@@ -11,6 +12,8 @@ use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
 use App\ProductionProcess\Domain\Service\Inventory\AvailableFilmServiceInterface;
 use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Groups\FilmGroup;
 use App\ProductionProcess\Domain\ValueObject\Process;
+use App\Shared\Domain\Exception\DomainException;
+use Doctrine\Common\Collections\Collection;
 
 final readonly class FilmAvailabilityValidator
 {
@@ -25,14 +28,15 @@ final readonly class FilmAvailabilityValidator
     ) {
     }
 
-    /**
-     * Method to check if there is enough film to arrange the printed products manually.
-     *
-     * @param FilmGroup $filmGroup The FilmGroup object containing film information
-     *
-     * @throws ManualArrangeException if there is not enough film available for arranging the printed products
-     */
-    public function validate(FilmGroup $filmGroup): void
+	/**
+	 * Method to check if there is enough film to arrange the printed products manually.
+	 *
+	 * @param Collection<PrintedProduct> The FilmGroup object containing film information
+	 *
+	 * @throws ManualArrangeException if there is not enough film available for arranging the printed products
+	 * @throws DomainException
+	 */
+    public function validate(Collection $printedProducts): void
     {
         if (!$filmGroup->filmId) {
             ManualArrangeException::because('Not found film');

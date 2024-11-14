@@ -6,6 +6,8 @@ namespace App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess
 
 use App\ProductionProcess\Domain\Exceptions\ManualArrangeException;
 use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\GroupPrinterService;
+use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Groups\PrinterGroup;
+use App\Shared\Domain\Exception\DomainException;
 use Doctrine\Common\Collections\Collection;
 
 /**
@@ -21,12 +23,14 @@ final readonly class PrinterValidator
      * Validates the printed products by checking if they have the same printer.
      *
      * @param Collection $printedProducts The collection of printed products to validate
+     *
+     * @throws DomainException
      */
     public function validate(Collection $printedProducts): void
     {
-        $printers = $this->groupPrinterService->group($printedProducts)->map(fn ($group) => $group->printer);
+        $printersGroup = $this->groupPrinterService->group($printedProducts)->filter(fn (PrinterGroup $group) => count($group->getProducts()) > 1);
 
-        if ($printers->count() > 1) {
+        if ($printersGroup->count() > 1) {
             ManualArrangeException::because('Given printed products have different printers');
         }
     }
