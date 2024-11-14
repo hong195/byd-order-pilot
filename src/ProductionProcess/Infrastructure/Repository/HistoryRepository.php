@@ -123,9 +123,9 @@ class HistoryRepository extends ServiceEntityRepository implements HistoryReposi
                 'h.employeeId',
                 'COUNT(h) AS total',
                 'SUM(CASE WHEN h.process = :orderCheckIn THEN 1 ELSE 0 END) AS order_check_in',
-                'SUM(CASE WHEN h.process = :printingCheckIn THEN 1 ELSE 0 END) AS print_check_in',
+                'SUM(CASE WHEN h.process = :printingCheckIn THEN 1 ELSE 0 END) AS printing_check_in',
                 'SUM(CASE WHEN h.process = :glowCheckIn THEN 1 ELSE 0 END) AS glow_check_in',
-                'SUM(CASE WHEN h.process = :cuttingCheckIn THEN 1 ELSE 0 END) AS cut_check_in'
+                'SUM(CASE WHEN h.process = :cuttingCheckIn THEN 1 ELSE 0 END) AS cutting_check_in'
             )
             ->where('h.type = :type')
             ->setParameter('type', Type::PROCESS_CHANGED->value)
