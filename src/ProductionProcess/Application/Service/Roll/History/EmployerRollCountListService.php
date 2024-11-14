@@ -10,6 +10,7 @@ namespace App\ProductionProcess\Application\Service\Roll\History;
 
 use App\ProductionProcess\Application\DTO\EmployerRollCountData;
 use App\ProductionProcess\Application\Service\Employee\EmployeeFetcher;
+use App\ProductionProcess\Domain\ValueObject\Process;
 
 /**
  * Class EmployerRollCountListService.
@@ -39,10 +40,10 @@ final readonly class EmployerRollCountListService
                 employeeId: $employerCount['employeeId'],
                 employerName: $employerName,
                 total: $employerCount['total'],
-                orderCheckIn: $employerCount['order_check_in'],
-                printingCheckIn: $employerCount['print_check_in'],
-                glowCheckIn: $employerCount['glow_check_in'],
-                cuttingCheckIn: $employerCount['cut_check_in']
+                orderCheckIn: $employerCount[Process::ORDER_CHECK_IN->value],
+                printingCheckIn: $employerCount[Process::PRINTING_CHECK_IN->value],
+                glowCheckIn: $employerCount[Process::GLOW_CHECK_IN->value],
+                cuttingCheckIn: $employerCount[Process::CUTTING_CHECK_IN->value]
             );
         }
 
