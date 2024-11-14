@@ -4,26 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated manual arrangement service.">
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Exceptions/PrinterMatchException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/ConditionRepositoryInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Printer/ProductPrinterMatcher.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/ManualArrangementValidator.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/ConditionRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Printer/InitPrintersServiceTest.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated ManualProductsArrangeService exception related to film.">
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ManualProductsArrangement/ManualProductsArrangementQuery.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ManualProductsArrangement/ManualProductsArrangementQueryHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/Rolls/ManualArrangementAction.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/Service/PrintedProduct/PrintedProductListService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/Service/PrintedProduct/PrintedProductListService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateCommandInteractor.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Printer/Condition.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Printer/Condition.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Inventory/AvailableFilmServiceInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Inventory/AvailableFilmServiceInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Inventory/InMemoryAvailableFilmService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Inventory/InMemoryAvailableFilmService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Printer/InitPrintersService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Printer/InitPrintersService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintCheckInService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/FilmAvailabilityValidator.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/ManualProductsArrangeService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/ManualProductsArrangeService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/PrinterValidator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/PrinterValidator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Adapter/InventoryApiAdapter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Adapter/InventoryApiAdapter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/Printer.Printer.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/Printer.Printer.orm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintCheckinTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintCheckinTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/ManualProductsArrangeServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/ManualProductsArrangeServiceTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -324,7 +313,7 @@
       <recent name="$PROJECT_DIR$/src/Shared/Domain" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.Main">
+  <component name="RunManager" selected="PHPUnit.ManualProductsArrangeServiceTest">
     <configuration name="InitPrintersServiceTest.test_it_creates_printers" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Printer\InitPrintersServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Printer/InitPrintersServiceTest.php" method="test_it_creates_printers" scope="Method" />
       <method v="2" />
@@ -355,8 +344,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.ManualProductsArrangeServiceTest.test_it_throws_exception_when_existing_roll_ready_for_print_check_in_takes_" />
         <item itemvalue="PHPUnit.ManualProductsArrangeServiceTest" />
+        <item itemvalue="PHPUnit.ManualProductsArrangeServiceTest.test_it_throws_exception_when_existing_roll_ready_for_print_check_in_takes_" />
         <item itemvalue="PHPUnit.ManualProductsArrangeServiceTest.test_service_take_into_consideration_the_existing_rolls_ready_for_printing" />
         <item itemvalue="PHPUnit.ManualProductsArrangeServiceTest.test_it_successfully_manually_arrange_printed_products_on_locked_roll" />
         <item itemvalue="PHPUnit.InitPrintersServiceTest.test_it_creates_printers" />
@@ -441,23 +430,7 @@
       <workItem from="1730987686115" duration="21161000" />
       <workItem from="1731308149509" duration="15979000" />
       <workItem from="1731402921880" duration="15402000" />
-      <workItem from="1731484448115" duration="35091000" />
-    </task>
-    <task id="LOCAL-00397" summary="Added order repository tests.">
-      <option name="closed" value="true" />
-      <created>1729168629900</created>
-      <option name="number" value="00397" />
-      <option name="presentableId" value="LOCAL-00397" />
-      <option name="project" value="LOCAL" />
-      <updated>1729168629900</updated>
-    </task>
-    <task id="LOCAL-00398" summary="Added extra tests.">
-      <option name="closed" value="true" />
-      <created>1729168908890</created>
-      <option name="number" value="00398" />
-      <option name="presentableId" value="LOCAL-00398" />
-      <option name="project" value="LOCAL" />
-      <updated>1729168908890</updated>
+      <workItem from="1731484448115" duration="37142000" />
     </task>
     <task id="LOCAL-00399" summary="Added product test.">
       <option name="closed" value="true" />
@@ -835,7 +808,23 @@
       <option name="project" value="LOCAL" />
       <updated>1731571658491</updated>
     </task>
-    <option name="localTasksCounter" value="446" />
+    <task id="LOCAL-00446" summary="Updated manual arrange service code &amp; tests.">
+      <option name="closed" value="true" />
+      <created>1731594689283</created>
+      <option name="number" value="00446" />
+      <option name="presentableId" value="LOCAL-00446" />
+      <option name="project" value="LOCAL" />
+      <updated>1731594689283</updated>
+    </task>
+    <task id="LOCAL-00447" summary="Updated ManualProductsArrangeService exception related to film.">
+      <option name="closed" value="true" />
+      <created>1731595258355</created>
+      <option name="number" value="00447" />
+      <option name="presentableId" value="LOCAL-00447" />
+      <option name="project" value="LOCAL" />
+      <updated>1731595258355</updated>
+    </task>
+    <option name="localTasksCounter" value="448" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -870,8 +859,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added domain middleware exception." />
-    <MESSAGE value="Fixed long float for orders and production entities." />
     <MESSAGE value="Added system reset command." />
     <MESSAGE value="Updated reset command." />
     <MESSAGE value="Renamed default to is_default for printers." />
@@ -895,7 +882,9 @@
     <MESSAGE value="Fixed empty roll not created after auto arrangement." />
     <MESSAGE value="Updated some tests &amp; fixed exception throwing." />
     <MESSAGE value="Updated manual arrangement service." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated manual arrangement service." />
+    <MESSAGE value="Updated manual arrange service code &amp; tests." />
+    <MESSAGE value="Updated ManualProductsArrangeService exception related to film." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated ManualProductsArrangeService exception related to film." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

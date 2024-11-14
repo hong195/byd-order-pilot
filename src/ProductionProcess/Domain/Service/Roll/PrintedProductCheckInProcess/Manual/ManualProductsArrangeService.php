@@ -67,11 +67,11 @@ final readonly class ManualProductsArrangeService
      *
      * @param Collection $printedProducts A collection of printed products
      *
-     * @return ?FilmGroup The FilmGroup instance representing the assigned film group
+     * @return FilmGroup The FilmGroup instance representing the assigned film group
      *
      * @throws DomainException
      */
-    public function getFilmGroup(Collection $printedProducts): ?FilmGroup
+    public function getFilmGroup(Collection $printedProducts): FilmGroup
     {
         $printedProductsLength = array_sum($printedProducts->map(fn (PrintedProduct $pp) => $pp->getLength())->toArray());
         $filmType = $printedProducts->first()->getFilmType();
@@ -79,7 +79,7 @@ final readonly class ManualProductsArrangeService
         $availableFilms = $this->availableFilmService->getAvailableFilms(filmType: $filmType, minSize: $printedProductsLength);
 
         if ($availableFilms->isEmpty()) {
-			InventoryFilmIsNotAvailableException::because('Not found film');
+            InventoryFilmIsNotAvailableException::because('Not found film');
         }
 
         $filmIds = $availableFilms->map(fn (FilmData $film) => $film->id)->toArray();

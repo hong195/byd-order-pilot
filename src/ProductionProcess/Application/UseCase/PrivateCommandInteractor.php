@@ -18,6 +18,7 @@ use App\ProductionProcess\Application\UseCase\Command\CreatePrinters\CreatePrint
 use App\ProductionProcess\Application\UseCase\Command\CuttingCheckIn\CuttingCheckIntCommand;
 use App\ProductionProcess\Application\UseCase\Command\GlowCheckIn\GlowCheckInCommand;
 use App\ProductionProcess\Application\UseCase\Command\LockRoll\LockRollCommand;
+use App\ProductionProcess\Application\UseCase\Command\ManualProductsArrangement\ManualProductsArrangementQuery;
 use App\ProductionProcess\Application\UseCase\Command\PrintCheckIn\PrintCheckIntCommand;
 use App\ProductionProcess\Application\UseCase\Command\RecordRollHistory\RecordRollHistoryCommand;
 use App\ProductionProcess\Application\UseCase\Command\ReprintPrintedProduct\ReprintPrintedProductCommand;
@@ -244,5 +245,15 @@ readonly class PrivateCommandInteractor
     public function unLockRoll(int $rollId): void
     {
         $this->commandBus->execute(new UnLockRollCommand($rollId));
+    }
+
+    /**
+     * Manually arranges the printed products based on given IDs.
+     *
+     * @param int[] $printedProductsIds An array of IDs of the printed products to be arranged manually
+     */
+    public function manualArrangement(array $printedProductsIds): void
+    {
+        $this->commandBus->execute(new ManualProductsArrangementQuery($printedProductsIds));
     }
 }
