@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Manual;
 
 use App\ProductionProcess\Domain\Exceptions\ManualArrangeException;
-use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\GroupPrinterService;
-use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Groups\PrinterGroup;
+use App\ProductionProcess\Domain\Service\Printer\ProductPrinterMatcher;
 use App\Shared\Domain\Exception\DomainException;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
 /**
@@ -15,7 +15,7 @@ use Doctrine\Common\Collections\Collection;
  */
 final readonly class PrinterValidator
 {
-    public function __construct(private GroupPrinterService $groupPrinterService)
+    public function __construct(private ProductPrinterMatcher $productPrinterMatcher)
     {
     }
 
@@ -28,9 +28,15 @@ final readonly class PrinterValidator
      */
     public function validate(Collection $printedProducts): void
     {
-        $printersGroup = $this->groupPrinterService->group($printedProducts)->filter(fn (PrinterGroup $group) => count($group->getProducts()) > 1);
+        $printers = new ArrayCollection([]);
 
-        if ($printersGroup->count() > 1) {
+        foreach ($printedProducts as $printedProduct) {
+            if (!$printers->contains($this->productPrinterMatcher->match($printedProduct))) {
+                $printers->add($this->productPrinterMatcher->match($printedProduct));
+            }
+        }
+
+        if (count($printers) > 1) {
             ManualArrangeException::because('Given printed products have different printers');
         }
     }

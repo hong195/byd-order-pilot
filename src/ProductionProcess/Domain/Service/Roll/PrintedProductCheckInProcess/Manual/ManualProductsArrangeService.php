@@ -13,9 +13,9 @@ use App\ProductionProcess\Domain\Repository\PrintedProductRepositoryInterface;
 use App\ProductionProcess\Domain\Repository\RollFilter;
 use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
 use App\ProductionProcess\Domain\Service\Inventory\AvailableFilmServiceInterface;
-use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\FilmAssignmentService;
-use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\FilmAvailabilityValidator;
+use App\ProductionProcess\Domain\Service\Printer\ProductPrinterMatcher;
 use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Groups\FilmGroup;
+use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Groups\ProductGroup;
 use App\ProductionProcess\Domain\Service\Roll\RollMaker;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use App\Shared\Domain\Exception\DomainException;
@@ -23,7 +23,7 @@ use Doctrine\Common\Collections\Collection;
 
 final readonly class ManualProductsArrangeService
 {
-	/**
+    /**
      * Constructor method for the ManualProductsArrangeService class.
      *
      * @param RollRepositoryInterface           $rollRepository           The Roll Repository Interface being injected
@@ -34,37 +34,28 @@ final readonly class ManualProductsArrangeService
         private RollRepositoryInterface $rollRepository,
         private PrintedProductRepositoryInterface $printedProductRepository,
         private RollMaker $rollMaker,
-        private FilmAvailabilityValidator $filmAvailabilityValidator,
-        private PrinterValidator $printerValidator,
-        private FilmTypeValidator $filmValidator,
-		private AvailableFilmServiceInterface $availableFilmService
+        private ManualArrangementValidator $arrangementValidator,
+        private ProductPrinterMatcher $productPrinterMatcher,
+        private AvailableFilmServiceInterface $availableFilmService,
     ) {
     }
 
     /**
      * @throws ManualArrangeException
-	 * @throws DomainException
-	 */
+     * @throws DomainException
+     */
     public function arrange(array $printedProductIds = []): void
     {
         $printedProducts = $this->printedProductRepository->findByFilter(new PrintedProductFilter(ids: $printedProductIds));
 
-        $this->filmValidator->validate($printedProducts);
-        $this->printerValidator->validate($printedProducts);
-        $this->filmAvailabilityValidator->validate($printedProducts);
+        $this->arrangementValidator->validate($printedProducts);
 
-        $this->createLockedRollFromFilmGroup($filmGroup);
-    }
+        $printer = $this->productPrinterMatcher->match($printedProducts[0]);
+        $filmGroup = $this->getFilmGroup($printedProducts);
 
-    /**
-     * Creates a locked roll for a given FilmGroup.
-     *
-     * @param FilmGroup $filmGroup The FilmGroup for which the locked roll needs to be created
-     */
-    private function createLockedRollFromFilmGroup(FilmGroup $filmGroup): void
-    {
         $roll = $this->rollMaker->make(name: "Manual Roll {$filmGroup->filmType}", filmId: $filmGroup->filmId);
         $roll->lock();
+        $roll->assignPrinter($printer);
         $roll->addPrintedProducts($filmGroup->getPrintedProducts());
 
         $this->rollRepository->save($roll);
@@ -76,60 +67,47 @@ final readonly class ManualProductsArrangeService
      * @param Collection $printedProducts A collection of printed products
      *
      * @return ?FilmGroup The FilmGroup instance representing the assigned film group
+     *
+     * @throws DomainException
      */
     public function getFilmGroup(Collection $printedProducts): ?FilmGroup
     {
-        $length = array_sum($printedProducts->map(fn (PrintedProduct $pp) => $pp->getLength())->toArray());
-		$filmType = $printedProducts->first()->getFilmType();
+        $printedProductsLength = array_sum($printedProducts->map(fn (PrintedProduct $pp) => $pp->getLength())->toArray());
+        $filmType = $printedProducts->first()->getFilmType();
 
-        $availableFilms = $this->getAvailableFilms(filmType: $filmType, minLength:  $length);
-		$rollInArrangeProcess = $this->fetchRolls($availableFilms->map(fn (FilmData $film) => $film->id)->toArray());
+        $availableFilms = $this->availableFilmService->getAvailableFilms(filmType: $filmType, minSize: $printedProductsLength);
 
-		if (!$availableFilms->isEmpty()) {
-			foreach ($availableFilms as $film) {
-				$roll = $rollInArrangeProcess->filter(fn (Roll $roll) => $roll->getFilmId() === $film->id)->first();
+        if ($availableFilms->isEmpty()) {
+            ManualArrangeException::because('Not found film');
+        }
 
+        $filmIds = $availableFilms->map(fn (FilmData $film) => $film->id)->toArray();
+        $rollInArrangeProcess = $this->getRollsLength($filmIds);
 
+        foreach ($availableFilms as $film) {
+            if ($film->length >= $printedProductsLength + $rollInArrangeProcess) {
+                $filmGroup = new FilmGroup(filmId: $film->id, filmType: $filmType);
 
-			}
-		}
+                $filmGroup->addProductGroup(new ProductGroup(printedProducts: $printedProducts->toArray()));
 
+                return $filmGroup;
+            }
 
-		$totalLength = $filmGroup->getTotalLength();
-
-		if (!$rollInArrangeProcess->isEmpty()) {
-			$totalLength += array_sum(array_map(fn (Roll $roll) => $roll->getTotalLength(), $rollInArrangeProcess->toArray()));
-		}
-
-		if ($film->length < $totalLength) {
-			ManualArrangeException::because('No enough film to manually arrange the printed products');
-		}
-
-
-        return $filmGroups[0];
+            throw ManualArrangeException::because('Not enough film');
+        }
     }
 
-	/**
-	 *
-	 */
-	private function fetchRolls(array $ids): Collection
-	{
-		return $this->rollRepository->findByFilter(new RollFilter(process: Process::ORDER_CHECK_IN, filmIds: [$ids]));
-	}
-	/**
-	 * Retrieves an available film based on the given film type and minimum length.
-	 *
-	 * @param string $filmType  The type of the film to search for
-	 * @param float  $minLength The minimum length required for the film
-	 *
-	 * @return Collection<FilmData> The available FilmData object matching the criteria, or null if none found
-	 */
-	private function getAvailableFilms(string $filmType, float $minLength): Collection
-	{
-		$films = $this->availableFilmService->getAvailableFilms();
+    /**
+     * Retrieves the total length of rolls for a given film ID.
+     *
+     * @param int[] $filmIds The ID of the film for which the rolls length needs to be calculated
+     *
+     * @return float The total length of rolls for the specified film ID
+     */
+    private function getRollsLength(array $filmIds): float
+    {
+        $rolls = $this->rollRepository->findByFilter(new RollFilter(process: Process::ORDER_CHECK_IN, filmIds: $filmIds));
 
-		return $films->filter(function (FilmData $film) use ($filmType, $minLength) {
-			return $film->filmType === $filmType && $film->length >= $minLength;
-		});
-	}
+        return array_sum($rolls->map(fn (Roll $roll) => $roll->getPrintedProductsLength())->toArray());
+    }
 }

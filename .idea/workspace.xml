@@ -4,11 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated some tests &amp; fixed exception throwing.">
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated manual arrangement service.">
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Exceptions/PrinterMatchException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/ConditionRepositoryInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Printer/ProductPrinterMatcher.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/ManualArrangementValidator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/ConditionRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Printer/InitPrintersServiceTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/FilmAvailabilityValidator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/FilmAvailabilityValidator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Printer/Condition.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Printer/Condition.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Inventory/AvailableFilmServiceInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Inventory/AvailableFilmServiceInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Inventory/InMemoryAvailableFilmService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Inventory/InMemoryAvailableFilmService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Printer/InitPrintersService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Printer/InitPrintersService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintCheckInService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/FilmAvailabilityValidator.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/ManualProductsArrangeService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/ManualProductsArrangeService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/PrinterValidator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/PrinterValidator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Adapter/InventoryApiAdapter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Adapter/InventoryApiAdapter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/Printer.Printer.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/Printer.Printer.orm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintCheckinTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintCheckinTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/ManualProductsArrangeServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/ManualProductsArrangeServiceTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -211,14 +225,19 @@
     "PHPUnit.HistoryRepositoryTest.executor": "Run",
     "PHPUnit.HistoryRepositoryTest.test_add.executor": "Run",
     "PHPUnit.HistoryRepositoryTest.test_true.executor": "Run",
+    "PHPUnit.InitPrintersServiceTest.test_it_creates_printers.executor": "Run",
+    "PHPUnit.InitPrintersServiceTest.test_it_creates_printers_with_conditions.executor": "Run",
     "PHPUnit.LockRollServiceTest.executor": "Run",
     "PHPUnit.LockRollServiceTest.test_cant_lock_not_existing_roll.executor": "Run",
     "PHPUnit.LockRollServiceTest.test_it_locks_roll.executor": "Run",
     "PHPUnit.LockRollServiceTest.test_it_throws_exception_when_try_to_lock_already_locked_roll.executor": "Run",
     "PHPUnit.Main.executor": "Run",
+    "PHPUnit.ManualProductsArrangeServiceTest.executor": "Run",
     "PHPUnit.ManualProductsArrangeServiceTest.test_it_successfully_manually_arrange_printed_products_on_locked_roll.executor": "Run",
+    "PHPUnit.ManualProductsArrangeServiceTest.test_it_throws_exception_when_existing_roll_ready_for_print_check_in_takes_.executor": "Run",
     "PHPUnit.ManualProductsArrangeServiceTest.test_it_throws_exception_when_printed_products_handled_by_different_printers.executor": "Run",
     "PHPUnit.ManualProductsArrangeServiceTest.test_it_throws_exception_when_printed_products_have_different_film_type.executor": "Run",
+    "PHPUnit.ManualProductsArrangeServiceTest.test_service_take_into_consideration_the_existing_rolls_ready_for_printing.executor": "Run",
     "PHPUnit.OrderRepositoryTest.executor": "Run",
     "PHPUnit.OrderRepositoryTest.test_can_find_only_with_extras.executor": "Run",
     "PHPUnit.OrderRepositoryTest.test_can_find_packed.executor": "Run",
@@ -234,6 +253,7 @@
     "PHPUnit.PackProductTest.test_if_product_packed_product_pack_event_dispatched.executor": "Run",
     "PHPUnit.PrintCheckinTest.executor": "Run",
     "PHPUnit.PrintCheckinTest.test_can_successfully_send_to_print_check_in.executor": "Run",
+    "PHPUnit.PrintCheckinTest.test_it_dispatches_event_after_sending_to_cutting_check_in.executor": "Run",
     "PHPUnit.PrintCheckinTest.test_it_throws_exception_when_film_is_already_in_use.executor": "Run",
     "PHPUnit.PrintedProductCheckinTest.test_can_allocate_group_of_printed_products_on_one_roll.executor": "Run",
     "PHPUnit.PrintedProductRepositoryTest.test_add.executor": "Run",
@@ -304,42 +324,42 @@
       <recent name="$PROJECT_DIR$/src/Shared/Domain" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.ManualProductsArrangeServiceTest.test_it_throws_exception_when_printed_products_handled_by_different_printers">
-    <configuration name="ErrorManagementServiceTest.test_roll_must_have_history_in_order_to_record_error" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Unit\ProductionProcess\Domain\Service\Roll\Error\ErrorManagementServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/Error/ErrorManagementServiceTest.php" method="test_roll_must_have_history_in_order_to_record_error" scope="Method" />
+  <component name="RunManager" selected="PHPUnit.Main">
+    <configuration name="InitPrintersServiceTest.test_it_creates_printers" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Printer\InitPrintersServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Printer/InitPrintersServiceTest.php" method="test_it_creates_printers" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
       <method v="2" />
     </configuration>
+    <configuration name="ManualProductsArrangeServiceTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Manual\ManualProductsArrangeServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/ManualProductsArrangeServiceTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
     <configuration name="ManualProductsArrangeServiceTest.test_it_successfully_manually_arrange_printed_products_on_locked_roll" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Manual\ManualProductsArrangeServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/ManualProductsArrangeServiceTest.php" method="test_it_successfully_manually_arrange_printed_products_on_locked_roll" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="ManualProductsArrangeServiceTest.test_it_throws_exception_when_printed_products_handled_by_different_printers" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Manual\ManualProductsArrangeServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/ManualProductsArrangeServiceTest.php" method="test_it_throws_exception_when_printed_products_handled_by_different_printers" scope="Method" />
+    <configuration name="ManualProductsArrangeServiceTest.test_it_throws_exception_when_existing_roll_ready_for_print_check_in_takes_" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Manual\ManualProductsArrangeServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/ManualProductsArrangeServiceTest.php" method="test_it_throws_exception_when_existing_roll_ready_for_print_check_in_takes_" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="ManualProductsArrangeServiceTest.test_it_throws_exception_when_printed_products_have_different_film_type" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Manual\ManualProductsArrangeServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/ManualProductsArrangeServiceTest.php" method="test_it_throws_exception_when_printed_products_have_different_film_type" scope="Method" />
+    <configuration name="ManualProductsArrangeServiceTest.test_service_take_into_consideration_the_existing_rolls_ready_for_printing" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Manual\ManualProductsArrangeServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/ManualProductsArrangeServiceTest.php" method="test_service_take_into_consideration_the_existing_rolls_ready_for_printing" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="PrintedProductCheckinTest.test_can_allocate_group_of_printed_products_on_one_roll" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintedProductCheckinTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckinTest.php" method="test_can_allocate_group_of_printed_products_on_one_roll" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="UnLockRollServiceTest.test_it_throws_exception_when_no_employee_assigned" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\UnLockRollServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/UnLockRollServiceTest.php" method="test_it_throws_exception_when_no_employee_assigned" scope="Method" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.ManualProductsArrangeServiceTest.test_it_throws_exception_when_printed_products_handled_by_different_printers" />
+        <item itemvalue="PHPUnit.ManualProductsArrangeServiceTest.test_it_throws_exception_when_existing_roll_ready_for_print_check_in_takes_" />
+        <item itemvalue="PHPUnit.ManualProductsArrangeServiceTest" />
+        <item itemvalue="PHPUnit.ManualProductsArrangeServiceTest.test_service_take_into_consideration_the_existing_rolls_ready_for_printing" />
         <item itemvalue="PHPUnit.ManualProductsArrangeServiceTest.test_it_successfully_manually_arrange_printed_products_on_locked_roll" />
-        <item itemvalue="PHPUnit.ManualProductsArrangeServiceTest.test_it_throws_exception_when_printed_products_have_different_film_type" />
-        <item itemvalue="PHPUnit.UnLockRollServiceTest.test_it_throws_exception_when_no_employee_assigned" />
-        <item itemvalue="PHPUnit.ErrorManagementServiceTest.test_roll_must_have_history_in_order_to_record_error" />
+        <item itemvalue="PHPUnit.InitPrintersServiceTest.test_it_creates_printers" />
       </list>
     </recent_temporary>
   </component>
@@ -421,15 +441,7 @@
       <workItem from="1730987686115" duration="21161000" />
       <workItem from="1731308149509" duration="15979000" />
       <workItem from="1731402921880" duration="15402000" />
-      <workItem from="1731484448115" duration="19710000" />
-    </task>
-    <task id="LOCAL-00396" summary="Added test for packing extra.">
-      <option name="closed" value="true" />
-      <created>1729095901279</created>
-      <option name="number" value="00396" />
-      <option name="presentableId" value="LOCAL-00396" />
-      <option name="project" value="LOCAL" />
-      <updated>1729095901279</updated>
+      <workItem from="1731484448115" duration="35091000" />
     </task>
     <task id="LOCAL-00397" summary="Added order repository tests.">
       <option name="closed" value="true" />
@@ -815,7 +827,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731502650343</updated>
     </task>
-    <option name="localTasksCounter" value="445" />
+    <task id="LOCAL-00445" summary="Updated manual arrangement service.">
+      <option name="closed" value="true" />
+      <created>1731571658491</created>
+      <option name="number" value="00445" />
+      <option name="presentableId" value="LOCAL-00445" />
+      <option name="project" value="LOCAL" />
+      <updated>1731571658491</updated>
+    </task>
+    <option name="localTasksCounter" value="446" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -850,7 +870,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Remove legacy printed product code and outdated migrations&#10;&#10;Deleted unused PrintedProduct service, Status value object, and multiple obsolete database migration files to clean up the codebase and reduce technical debt. This simplifies maintenance and focuses on current business logic." />
     <MESSAGE value="Added domain middleware exception." />
     <MESSAGE value="Fixed long float for orders and production entities." />
     <MESSAGE value="Added system reset command." />
@@ -875,7 +894,8 @@
     <MESSAGE value="Added raw version of manual printed products arrangement." />
     <MESSAGE value="Fixed empty roll not created after auto arrangement." />
     <MESSAGE value="Updated some tests &amp; fixed exception throwing." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated some tests &amp; fixed exception throwing." />
+    <MESSAGE value="Updated manual arrangement service." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated manual arrangement service." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

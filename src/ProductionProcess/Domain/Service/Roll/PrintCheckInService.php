@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Domain\Service\Roll;
 
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
-use App\ProductionProcess\Domain\DTO\FilmData;
 use App\ProductionProcess\Domain\Events\RollWasSentToPrintCheckInEvent;
 use App\ProductionProcess\Domain\Exceptions\InventoryFilmIsNotAvailableException;
 use App\ProductionProcess\Domain\Exceptions\NotEnoughFilmLengthToPrintTheRollException;
@@ -60,7 +59,7 @@ final readonly class PrintCheckInService
             throw new PrinterIsNotAvailableException('Printer is not available');
         }
 
-        $availableFilm = $this->getByFilmType($roll->getFilmId());
+        $availableFilm = $this->availableFilmService->getByFilmId($roll->getFilmId());
 
         if (!$availableFilm || $availableFilm->length < $roll->getPrintedProductsLength()) {
             throw new NotEnoughFilmLengthToPrintTheRollException('Not enough film to print');
@@ -88,26 +87,5 @@ final readonly class PrintCheckInService
         ;
 
         return !$rollsWithFilm->isEmpty();
-    }
-
-    /**
-     * Retrieves a film by its type.
-     *
-     * If a specific film ID is provided, it filters the available film list
-     * and returns the first film matching the ID. If no film ID is provided,
-     * it returns null.
-     *
-     * @param int|null $filmId The ID of the film to retrieve. (optional)
-     *
-     * @return FilmData|null the film object matching the provided ID, or null if not found
-     */
-    private function getByFilmType(?int $filmId = null): ?FilmData
-    {
-        $result = $this->availableFilmService->getAvailableFilms()->filter(function (FilmData $filmData) use ($filmId) {
-            return $filmData->id === $filmId;
-        })
-            ->first();
-
-        return $result ?: null;
     }
 }

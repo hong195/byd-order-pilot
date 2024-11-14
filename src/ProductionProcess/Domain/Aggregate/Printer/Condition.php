@@ -58,13 +58,13 @@ final class Condition
             return false;
         }
 
-		if ($this->laminationRequired !== $laminationRequired) {
-			return false;
-		}
+        if ($this->laminationRequired !== $laminationRequired) {
+            return false;
+        }
 
         if ($laminationType && $this->laminationType !== $laminationType) {
-			return false;
-		}
+            return false;
+        }
 
         return true;
     }
