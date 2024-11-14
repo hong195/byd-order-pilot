@@ -39,11 +39,12 @@ final class PrintCheckinTest extends AbstractTestCase
         $this->rollRepository = self::getContainer()->get(RollRepositoryInterface::class);
     }
 
-    /**
-     * @throws NotEnoughFilmLengthToPrintTheRollException
-     * @throws PrinterIsNotAvailableException
-     * @throws RollCantBeSentToPrintException
-     */
+	/**
+	 * @throws NotEnoughFilmLengthToPrintTheRollException
+	 * @throws PrinterIsNotAvailableException
+	 * @throws RollCantBeSentToPrintException
+	 * @throws InventoryFilmIsNotAvailableException
+	 */
     public function test_can_successfully_send_to_print_check_in(): void
     {
         $roll = $this->loadPreparedRoll();

@@ -7,6 +7,7 @@ namespace App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess
 use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
 use App\ProductionProcess\Domain\DTO\FilmData;
+use App\ProductionProcess\Domain\Exceptions\InventoryFilmIsNotAvailableException;
 use App\ProductionProcess\Domain\Exceptions\ManualArrangeException;
 use App\ProductionProcess\Domain\Repository\PrintedProductFilter;
 use App\ProductionProcess\Domain\Repository\PrintedProductRepositoryInterface;
@@ -78,7 +79,7 @@ final readonly class ManualProductsArrangeService
         $availableFilms = $this->availableFilmService->getAvailableFilms(filmType: $filmType, minSize: $printedProductsLength);
 
         if ($availableFilms->isEmpty()) {
-            ManualArrangeException::because('Not found film');
+			InventoryFilmIsNotAvailableException::because('Not found film');
         }
 
         $filmIds = $availableFilms->map(fn (FilmData $film) => $film->id)->toArray();
@@ -93,7 +94,7 @@ final readonly class ManualProductsArrangeService
                 return $filmGroup;
             }
 
-            throw ManualArrangeException::because('Not enough film');
+            throw InventoryFilmIsNotAvailableException::because('Not enough film');
         }
     }
 

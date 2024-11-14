@@ -7,6 +7,7 @@ namespace App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintedProd
 use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
 use App\ProductionProcess\Domain\DTO\FilmData;
+use App\ProductionProcess\Domain\Exceptions\InventoryFilmIsNotAvailableException;
 use App\ProductionProcess\Domain\Exceptions\ManualArrangeException;
 use App\ProductionProcess\Domain\Repository\PrintedProductRepositoryInterface;
 use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
@@ -76,7 +77,7 @@ class ManualProductsArrangeServiceTest extends AbstractTestCase
         $pp1 = $this->prepareProduct($firstAvailableFilm->filmType, $firstAvailableFilm->length * 2);
         $pp2 = $this->prepareProduct($firstAvailableFilm->filmType, $firstAvailableFilm->length * 2);
 
-        $this->expectException(ManualArrangeException::class);
+        $this->expectException(InventoryFilmIsNotAvailableException::class);
 
         $this->manualProductsArrangeService->arrange([$pp1->getId(), $pp2->getId()]);
     }
@@ -144,7 +145,7 @@ class ManualProductsArrangeServiceTest extends AbstractTestCase
         $pp1 = $this->prepareProduct($firstAvailableFilm->filmType, $availableFilmLength / 3);
         $pp2 = $this->prepareProduct($firstAvailableFilm->filmType, $availableFilmLength / 3);
 
-        $this->expectException(ManualArrangeException::class);
+        $this->expectException(InventoryFilmIsNotAvailableException::class);
 
         $this->manualProductsArrangeService->arrange([$pp1->getId(), $pp2->getId()]);
 
