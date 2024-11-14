@@ -66,7 +66,7 @@ final readonly class PrintCheckInService
             throw new NotEnoughFilmLengthToPrintTheRollException('Not enough film to print');
         }
 
-        if (!$this->isFilmInUsage($roll->getFilmId(), $rollId)) {
+        if ($this->isFilmInUsage($roll->getFilmId(), $rollId)) {
             InventoryFilmIsNotAvailableException::because('Current film is already in use');
         }
 
@@ -87,7 +87,7 @@ final readonly class PrintCheckInService
             })
         ;
 
-        return $rollsWithFilm->isEmpty();
+        return !$rollsWithFilm->isEmpty();
     }
 
     /**

@@ -16,4 +16,13 @@ interface AvailableFilmServiceInterface
      * @return Collection<FilmData> The available films
      */
     public function getAvailableFilms(): Collection;
+
+    /**
+     * This method retrieves a film by its ID.
+     *
+     * @param int $filmId The ID of the film to retrieve
+     *
+     * @return FilmData The film data
+     */
+    public function getByFilmId(int $filmId): FilmData;
 }

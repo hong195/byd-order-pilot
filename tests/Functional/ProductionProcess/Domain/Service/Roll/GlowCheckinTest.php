@@ -115,7 +115,7 @@ final class GlowCheckinTest extends AbstractTestCase
     {
         $printerRepo = self::getContainer()->get(PrinterRepositoryInterface::class);
         $roll = $this->loadRoll();
-        $printer = $printerRepo->findByFilmType('chrome');
+        $printer = $printerRepo->all()->first();
         $roll->assignPrinter($printer);
         $roll->updateProcess(Process::PRINTING_CHECK_IN);
         $roll->setEmployeeId($this->loadUserFixture()->getId());

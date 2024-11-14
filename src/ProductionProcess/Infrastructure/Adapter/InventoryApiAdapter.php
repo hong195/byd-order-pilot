@@ -46,4 +46,27 @@ final readonly class InventoryApiAdapter implements AvailableFilmServiceInterfac
 
         return new ArrayCollection($this->dataTransformer->fromArrayList($films));
     }
+
+    /**
+     * Retrieves a film by its ID.
+     *
+     * @param int $filmId The ID of the film to retrieve
+     *
+     * @return FilmData The film data
+     *
+     * @throws ExceptionInterface
+     */
+    public function getByFilmId(int $filmId): FilmData
+    {
+        $film = $this->inventoryApi->getById($filmId);
+
+        $filmArray = $this->normalizer->normalize($film);
+
+        return $this->dataTransformer->fromArray(
+            id: $filmArray['id'],
+            name: $filmArray['name'],
+            length: $filmArray['length'],
+            type: $filmArray['type']
+        );
+    }
 }

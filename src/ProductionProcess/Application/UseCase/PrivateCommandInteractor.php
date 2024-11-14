@@ -17,12 +17,14 @@ use App\ProductionProcess\Application\UseCase\Command\CreatePrintedProduct\Creat
 use App\ProductionProcess\Application\UseCase\Command\CreatePrinters\CreatePrintersCommand;
 use App\ProductionProcess\Application\UseCase\Command\CuttingCheckIn\CuttingCheckIntCommand;
 use App\ProductionProcess\Application\UseCase\Command\GlowCheckIn\GlowCheckInCommand;
+use App\ProductionProcess\Application\UseCase\Command\LockRoll\LockRollCommand;
 use App\ProductionProcess\Application\UseCase\Command\PrintCheckIn\PrintCheckIntCommand;
 use App\ProductionProcess\Application\UseCase\Command\RecordRollHistory\RecordRollHistoryCommand;
 use App\ProductionProcess\Application\UseCase\Command\ReprintPrintedProduct\ReprintPrintedProductCommand;
 use App\ProductionProcess\Application\UseCase\Command\ReprintRoll\ReprintRollCommand;
 use App\ProductionProcess\Application\UseCase\Command\UnAssignEmployeeFromRoll\UnAssignEmployeeFromRollCommand;
 use App\ProductionProcess\Application\UseCase\Command\UnassignPrintedProduct\UnassignPrintedProductCommand;
+use App\ProductionProcess\Application\UseCase\Command\UnLockRoll\UnLockRollCommand;
 use App\ProductionProcess\Domain\Exceptions\UnassignedPrintedProductsException;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use App\Shared\Application\Command\CommandBusInterface;
@@ -222,5 +224,25 @@ readonly class PrivateCommandInteractor
     public function checkRemainingProducts(int $rollId): void
     {
         $this->commandBus->execute(new CheckRemainingProductsCommand($rollId));
+    }
+
+    /**
+     * Locks a roll in the system.
+     *
+     * @param int $rollId The ID of the roll to be locked
+     */
+    public function lockRoll(int $rollId): void
+    {
+        $this->commandBus->execute(new LockRollCommand($rollId));
+    }
+
+    /**
+     * Unlocks a roll.
+     *
+     * @param int $rollId The ID of the roll to unlock
+     */
+    public function unLockRoll(int $rollId): void
+    {
+        $this->commandBus->execute(new UnLockRollCommand($rollId));
     }
 }

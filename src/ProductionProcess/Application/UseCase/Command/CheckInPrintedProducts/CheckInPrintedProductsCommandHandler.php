@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Application\UseCase\Command\CheckInPrintedProducts;
 
-use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\PrintedProductsCheckInService;
+use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\AutoArrangePrintedProductsService;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Command\CommandHandlerInterface;
 use App\Shared\Domain\Service\AssertService;
@@ -19,7 +19,7 @@ readonly class CheckInPrintedProductsCommandHandler implements CommandHandlerInt
      *
      * @param AccessControlService $accessControlService the access control service
      */
-    public function __construct(private AccessControlService $accessControlService, private PrintedProductsCheckInService $checkInService)
+    public function __construct(private AccessControlService $accessControlService, private AutoArrangePrintedProductsService $checkInService)
     {
     }
 

@@ -8,6 +8,7 @@ use App\ProductionProcess\Domain\DTO\FilmData;
 use App\ProductionProcess\Domain\Service\Inventory\AvailableFilmServiceInterface;
 use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Groups\FilmGroup;
 use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Groups\ProductGroup;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
 final class FilmAssignmentService
@@ -46,28 +47,26 @@ final class FilmAssignmentService
 
             foreach ($availableFilms as $film) {
                 if (!isset($this->filmGroups[$film->id])) {
-                    $this->filmGroups[$film->id] =
-                        $this->filmGroup->make(
-                            filmId: $film->id,
-                            filmType: $film->filmType,
-                            groups: [$group]
-                        );
+                    $this->filmGroups[$film->id] = $this->filmGroup->make(
+                        filmId: $film->id,
+                        filmType: $film->filmType,
+                        groups: [$group]
+                    );
 
-                    continue;
+                    break;
                 }
 
                 $filmGroup = $this->filmGroups[$film->id];
-
                 if ($filmGroup->getTotalLength() + $group->getLength() <= $film->length) {
                     $filmGroup->addProductGroup($group);
-                    continue;
+                    break;
                 }
 
                 $this->handleNoAvailableFilms($group);
             }
         }
 
-        return array_values($this->filmGroups);
+        return $this->optimizeGroups($this->filmGroups);
     }
 
     /**
@@ -99,5 +98,42 @@ final class FilmAssignmentService
         } else {
             $this->filmGroups[null]->addProductGroup($group);
         }
+    }
+
+    /**
+     * Optimizes the groups and returns an array.
+     *
+     * @param FilmGroup[] $filmGroups
+     *
+     * @return FilmGroup[]
+     */
+    private function optimizeGroups(array $filmGroups): array
+    {
+        foreach ($filmGroups as $key => $filmGroup) {
+            if (count($filmGroup->getGroups()) <= 1) {
+                continue;
+            }
+
+            $groups = new ArrayCollection($filmGroup->getGroups());
+            $filmType = $groups->first()->filmType;
+            $printer = $groups->first()->getPrinter();
+
+            $sameFilmType = $groups->forAll(fn (int $index, ProductGroup $group) => $group->filmType === $filmType);
+            $samePrinter = $groups->forAll(fn (int $index, ProductGroup $group) => $group->getPrinter()->getId() === $printer->getId());
+
+            if ($sameFilmType && $samePrinter) {
+                $products = array_merge(...$groups->map(fn (ProductGroup $group) => $group->getPrintedProducts())->toArray());
+                $group = new ProductGroup('', $products, $filmType);
+                $group->assignPrinter($printer);
+
+                $filmGroups[$key] = $this->filmGroup->make(
+                    filmId: $filmGroup->filmId,
+                    filmType: $filmGroup->filmType,
+                    groups: [$group]
+                );
+            }
+        }
+
+        return $filmGroups;
     }
 }

@@ -6,9 +6,6 @@ namespace App\ProductionProcess\Domain\Exceptions;
 
 use App\Shared\Domain\Exception\DomainException;
 
-/**
- * Represents an exception thrown when the roll history is empty.
- */
-final class RollErrorManagementException extends DomainException
+final class LockingRollException extends DomainException
 {
 }

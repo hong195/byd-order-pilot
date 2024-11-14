@@ -34,6 +34,8 @@ class Roll extends Aggregate
 
     private ?self $parentRoll = null;
 
+    public bool $isLocked = false;
+
     /**
      * Constructs a new object with the given name, roll type, and lamination types.
      *
@@ -128,7 +130,7 @@ class Roll extends Aggregate
      */
     public function updateProcess(Process $process): void
     {
-		$oldProcess = $this->process;
+        $oldProcess = $this->process;
 
         $this->process = $process;
 
@@ -297,7 +299,7 @@ class Roll extends Aggregate
      */
     public function removePrintedProducts(): void
     {
-		$this->printedProducts->map(fn (PrintedProduct $printedProduct) => $printedProduct->unassign());
+        $this->printedProducts->map(fn (PrintedProduct $printedProduct) => $printedProduct->unassign());
 
         $this->printedProducts->clear();
     }
@@ -320,5 +322,26 @@ class Roll extends Aggregate
     public function isFinished(): bool
     {
         return $this->process->isFinished();
+    }
+
+    /**
+     * Locks the resource.
+     */
+    public function lock(): void
+    {
+        $this->isLocked = true;
+    }
+
+    /**
+     * Unlocks the item.
+     */
+    public function unlock(): void
+    {
+        $this->isLocked = false;
+    }
+
+    public function isLocked(): bool
+    {
+        return $this->isLocked;
     }
 }

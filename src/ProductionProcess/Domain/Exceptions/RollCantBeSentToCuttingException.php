@@ -8,11 +8,4 @@ use App\Shared\Domain\Exception\DomainException;
 
 final class RollCantBeSentToCuttingException extends DomainException
 {
-    /**
-     * @throws RollCantBeSentToCuttingException
-     */
-    public static function because(string $reason): void
-    {
-        throw new self($reason);
-    }
 }
