@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess;
 
-use App\ProductionProcess\Domain\DTO\FilmData;
 use App\ProductionProcess\Domain\Service\Inventory\AvailableFilmServiceInterface;
 use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Groups\FilmGroup;
 use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Groups\ProductGroup;
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 
 final class FilmAssignmentService
 {
@@ -38,7 +36,7 @@ final class FilmAssignmentService
     public function assignFilmToProductGroups(array $groups): array
     {
         foreach ($groups as $group) {
-            $availableFilms = $this->getAvailableFilms($group->filmType, $group->getLength());
+            $availableFilms = $this->availableFilmService->getAvailableFilms(filmType: $group->filmType, minSize: $group->getLength());
 
             if ($availableFilms->isEmpty()) {
                 $this->handleNoAvailableFilms($group);
@@ -70,23 +68,6 @@ final class FilmAssignmentService
     }
 
     /**
-     * Retrieves an available film based on the given film type and minimum length.
-     *
-     * @param string $filmType  The type of the film to search for
-     * @param float  $minLength The minimum length required for the film
-     *
-     * @return Collection<FilmData> The available FilmData object matching the criteria, or null if none found
-     */
-    private function getAvailableFilms(string $filmType, float $minLength): Collection
-    {
-        $films = $this->availableFilmService->getAvailableFilms();
-
-        return $films->filter(function (FilmData $film) use ($filmType, $minLength) {
-            return $film->filmType === $filmType && $film->length >= $minLength;
-        });
-    }
-
-    /**
      * Handles the case when no available films are found for a specific film group.
      *
      * @param mixed $group The film group which does not have any available films
@@ -110,7 +91,7 @@ final class FilmAssignmentService
     private function optimizeGroups(array $filmGroups): array
     {
         foreach ($filmGroups as $key => $filmGroup) {
-            if (count($filmGroup->getGroups()) <= 1) {
+            if (count($filmGroup->getGroups()) <= 1 || !$filmGroup->filmId) {
                 continue;
             }
 

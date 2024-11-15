@@ -93,7 +93,6 @@ class Printer
         foreach ($this->conditions as $condition) {
             if ($condition->isSatisfiedBy(
                 filmType: $printedProduct->filmType,
-                laminationRequired: (bool) $printedProduct->getLaminationType(),
                 laminationType: $printedProduct->getLaminationType())) {
                 return true;
             }

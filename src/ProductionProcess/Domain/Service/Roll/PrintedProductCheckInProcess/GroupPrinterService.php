@@ -6,7 +6,9 @@ namespace App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess
 
 use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use App\ProductionProcess\Domain\Aggregate\Printer\Printer;
+use App\ProductionProcess\Domain\Exceptions\PrinterMatchException;
 use App\ProductionProcess\Domain\Repository\PrinterRepositoryInterface;
+use App\ProductionProcess\Domain\Service\Printer\ProductPrinterMatcher;
 use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Groups\PrinterGroup;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -23,7 +25,7 @@ final class GroupPrinterService
      *
      * @param PrinterRepositoryInterface $printerRepository The printer repository to fetch printers from
      */
-    public function __construct(private readonly PrinterRepositoryInterface $printerRepository)
+    public function __construct(private readonly PrinterRepositoryInterface $printerRepository, private ProductPrinterMatcher $printerMatcher)
     {
         $this->groups = new ArrayCollection([]);
     }
@@ -43,16 +45,15 @@ final class GroupPrinterService
         $defaultGroup = $this->groups->filter(fn (PrinterGroup $printerGroup) => $printerGroup->printer->isDefault)->first();
 
         foreach ($printedProducts as $printedProduct) {
-            /** @var Printer|bool $printer */
-            $printer = $printers->filter(fn (Printer $printer) => $printer->canPrintProduct($printedProduct))->first();
+            /* @var Printer|bool $printer */
 
-            if ($printer && $printer->canPrintProduct($printedProduct)) {
+            try {
+                $printer = $this->printerMatcher->match($printedProduct);
                 $currentGroup = $this->groups->filter(fn (PrinterGroup $printerGroup) => $printerGroup->printer->getId() === $printer->getId())->first();
                 $currentGroup->addProductTo($printedProduct);
-                continue;
+            } catch (PrinterMatchException $e) {
+                $defaultGroup->addProductTo($printedProduct);
             }
-
-            $defaultGroup->addProductTo($printedProduct);
         }
 
         return $this->groups;

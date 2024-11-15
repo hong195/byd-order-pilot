@@ -45,9 +45,7 @@ final class AutoArrangePrintedProductsService
         $this->initPrintedProducts($printedProductIds);
 
         $printerGroups = $this->groupPrinterService->group($this->printedProducts);
-
         $groupedByOrderNumber = $this->groupByOrderNumberService->group($printerGroups);
-
         $filmGroups = $this->filmAssignmentService->assignFilmToProductGroups($groupedByOrderNumber);
 
         foreach ($filmGroups as $filmGroup) {
@@ -68,12 +66,9 @@ final class AutoArrangePrintedProductsService
     }
 
     /**
-     * Initializes the printedProducts in the application.
+     * Initialize printed products based on given printed product IDs.
      *
-     * This method retrieves the printedProducts with status "assignable" from the printedProduct repository,
-     * adds them to the $printedProducts collection, and then adds the printedProducts associated with each
-     * roll in the $rolls collection to the $printedProducts collection. Finally, it sorts the
-     * $printedProducts collection using the SortPrintedProductsService.
+     * @param int[] $printedProductsIds Array of printed product IDs
      */
     private function initPrintedProducts(array $printedProductsIds): void
     {
