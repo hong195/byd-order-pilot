@@ -21,19 +21,9 @@ use App\Shared\Domain\Repository\DateRangeFilter;
 final readonly class FindEmployerErrorsQuery extends Query
 {
     /**
-     * @param DateRangeFilter $filter
+     * @param DateRangeFilter $dateRangeFilter
      */
-    public function __construct(public DateRangeFilter $filter)
+    public function __construct(public DateRangeFilter $dateRangeFilter)
     {
-    }
-
-    /**
-     * Get the error filter instance based on responsible employee id, noticer id, and process.
-     *
-     * @return DateRangeFilter the error filter instance created with the provided parameters
-     */
-    public function getErrorFilter(): DateRangeFilter
-    {
-        return $this->filter;
     }
 }

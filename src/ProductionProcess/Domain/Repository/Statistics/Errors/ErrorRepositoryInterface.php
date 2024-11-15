@@ -37,9 +37,9 @@ interface ErrorRepositoryInterface
     /**
      * Find entities by the provided error filter.
      *
-     * @param DateRangeFilter $filter The filter object to apply when searching for entities
+     * @param DateRangeFilter $dateRangeFilter The filter object to apply when searching for entities
      *
      * @return EmployeeErrorData[] An array of entities that match the provided error filter
      */
-    public function findEmployerErrorsByDateRangeFilter(DateRangeFilter $filter): array;
+    public function findEmployerErrorsByDateRangeFilter(DateRangeFilter $dateRangeFilter): array;
 }

@@ -121,11 +121,11 @@ class ErrorRepository extends ServiceEntityRepository implements ErrorRepository
     /**
      * Find entities by the provided error filter.
      *
-     * @param DateRangeFilter $filter The filter object to apply when searching for entities
+     * @param DateRangeFilter $dateRangeFilter The filter object to apply when searching for entities
      *
      * @return EmployeeErrorData[] An array of entities that match the provided error filter
      */
-    public function findEmployerErrorsByDateRangeFilter(DateRangeFilter $filter): array
+    public function findEmployerErrorsByDateRangeFilter(DateRangeFilter $dateRangeFilter): array
     {
         $qb = $this->createQueryBuilder('e')
             ->select(
@@ -144,14 +144,14 @@ class ErrorRepository extends ServiceEntityRepository implements ErrorRepository
             ->setParameter('glowCheckIn', Process::GLOW_CHECK_IN)
             ->setParameter('cuttingCheckIn', Process::CUTTING_CHECK_IN);
 
-        if ($filter->from) {
+        if ($dateRangeFilter->from) {
             $qb->andWhere('e.createdAt >= :from')
-                ->setParameter('from', $filter->from);
+                ->setParameter('from', $dateRangeFilter->from);
         }
 
-        if ($filter->to) {
+        if ($dateRangeFilter->to) {
             $qb->andWhere('e.createdAt <= :to')
-                ->setParameter('to', $filter->to);
+                ->setParameter('to', $dateRangeFilter->to);
         }
 
         $result = $qb->getQuery()->getResult();

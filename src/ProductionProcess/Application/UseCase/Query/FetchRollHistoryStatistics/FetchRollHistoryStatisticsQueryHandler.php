@@ -31,7 +31,7 @@ final readonly class FetchRollHistoryStatisticsQueryHandler implements QueryHand
      */
     public function __invoke(FetchRollHistoryStatisticsQuery $query): FetchRollHistoryStatisticsResult
     {
-        $result = $this->repository->findByFilter($query->getFilter());
+        $result = $this->repository->findByFilter($query->filter);
 
         $historyStatisticsListService = new HistoryStatisticsListService($result);
 

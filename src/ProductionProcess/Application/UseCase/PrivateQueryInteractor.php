@@ -132,13 +132,13 @@ readonly class PrivateQueryInteractor
     /**
      * Finds errors by executing the given FindErrorsQuery.
      *
-     * @param DateRangeFilter $filter the query object containing the date range filter
+     * @param DateRangeFilter $dateRangeFilter the query object containing the date range filter
      *
      * @return FindEmployerErrorsResult the result of executing the query
      */
-    public function findEmployerErrors(DateRangeFilter $filter): FindEmployerErrorsResult
+    public function findEmployerErrors(DateRangeFilter $dateRangeFilter): FindEmployerErrorsResult
     {
-        $query = new FindEmployerErrorsQuery($filter);
+        $query = new FindEmployerErrorsQuery(dateRangeFilter: $dateRangeFilter);
 
         return $this->queryBus->execute($query);
     }
@@ -180,13 +180,13 @@ readonly class PrivateQueryInteractor
     }
 
     /**
-     * @param DateRangeFilter $filter
+     * @param DateRangeFilter $dateRangeFilter
      *
      * @return FetchEmployerRollCountStatisticsResult
      */
-    public function fetchEmployerRollCountStatistics(DateRangeFilter $filter): FetchEmployerRollCountStatisticsResult
+    public function fetchEmployerRollCountStatistics(DateRangeFilter $dateRangeFilter): FetchEmployerRollCountStatisticsResult
     {
-        $query = new FetchEmployerRollCountStatisticsQuery(filter: $filter);
+        $query = new FetchEmployerRollCountStatisticsQuery(dateRangeFilter: $dateRangeFilter);
 
         return $this->queryBus->execute($query);
     }

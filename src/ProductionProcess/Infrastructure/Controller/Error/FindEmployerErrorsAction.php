@@ -54,13 +54,12 @@ final class FindEmployerErrorsAction extends BaseController
         $from = $request->query->get('from') ? new \DateTimeImmutable($request->query->get('from')) : null;
         $to = $request->query->get('to') ? new \DateTimeImmutable($request->query->get('to')) : null;
 
-        $filter = new DateRangeFilter(
+        $dateRangeFilter = new DateRangeFilter(
             from: $from,
             to: $to
         );
 
-
-        $result = $this->privateQueryInteractor->findEmployerErrors($filter);
+        $result = $this->privateQueryInteractor->findEmployerErrors($dateRangeFilter);
 
         $result = $this->normalizer->normalize($result);
 

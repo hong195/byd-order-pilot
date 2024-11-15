@@ -32,7 +32,7 @@ final readonly class FetchEmployerRollCountStatisticsQueryHandler implements Que
      */
     public function __invoke(FetchEmployerRollCountStatisticsQuery $query): FetchEmployerRollCountStatisticsResult
     {
-        $result = $this->repository->findByDateRangeForEmployers($query->getDateRangeFilter());
+        $result = $this->repository->findByDateRangeForEmployers($query->dateRangeFilter);
 
         $employerService = $this->employerRollCountListService;
 

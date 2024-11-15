@@ -16,17 +16,9 @@ use App\Shared\Domain\Repository\DateRangeFilter;
 final readonly class FetchEmployerRollCountStatisticsQuery extends Query
 {
     /**
-     * @param DateRangeFilter $filter
+     * @param DateRangeFilter $dateRangeFilter
      */
-    public function __construct(public DateRangeFilter $filter)
+    public function __construct(public DateRangeFilter $dateRangeFilter)
     {
-    }
-
-    /**
-     * @return DateRangeFilter
-     */
-    public function getDateRangeFilter(): DateRangeFilter
-    {
-        return $this->filter;
     }
 }

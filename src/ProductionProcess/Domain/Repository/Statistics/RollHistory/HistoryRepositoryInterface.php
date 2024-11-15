@@ -17,6 +17,8 @@ interface HistoryRepositoryInterface
 {
     /**
      * Saves a history record.
+     *
+     * @param History $history
      */
     public function add(History $history): void;
 
@@ -30,14 +32,16 @@ interface HistoryRepositoryInterface
     public function findFullHistory(int $rollId): array;
 
     /**
+     * @param FetchRollHistoryStatisticsFilter $filter
+     *
      * @return History[]
      */
     public function findByFilter(FetchRollHistoryStatisticsFilter $filter): array;
 
     /**
-     * @param DateRangeFilter $filter
+     * @param DateRangeFilter $dateRangeFilter
      *
      * @return EmployerRollCountData[]
      */
-    public function findByDateRangeForEmployers(DateRangeFilter $filter): array;
+    public function findByDateRangeForEmployers(DateRangeFilter $dateRangeFilter): array;
 }

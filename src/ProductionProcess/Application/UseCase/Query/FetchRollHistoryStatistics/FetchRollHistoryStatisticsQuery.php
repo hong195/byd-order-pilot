@@ -21,12 +21,4 @@ final readonly class FetchRollHistoryStatisticsQuery extends Query
     public function __construct(public FetchRollHistoryStatisticsFilter $filter)
     {
     }
-
-    /**
-     * @return FetchRollHistoryStatisticsFilter
-     */
-    public function getFilter(): FetchRollHistoryStatisticsFilter
-    {
-        return $this->filter;
-    }
 }
