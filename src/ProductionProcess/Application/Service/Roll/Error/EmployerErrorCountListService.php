@@ -8,13 +8,14 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Application\Service\Roll\Error;
 
-use App\ProductionProcess\Application\DTO\Error\EmployerErrorData;
+use App\ProductionProcess\Application\DTO\Error\EmployeeErrorData;
 use App\ProductionProcess\Application\DTO\Error\EmployerErrorDataTransformer;
 use App\ProductionProcess\Application\Service\Employee\EmployeeFetcher;
-use App\ProductionProcess\Domain\ValueObject\Process;
 
 /**
  * Class EmployerRollCountListService.
+ *
+ * The purpose of this service is to add responsible employee name to EmployeeErrorData
  */
 final readonly class EmployerErrorCountListService
 {
@@ -27,25 +28,49 @@ final readonly class EmployerErrorCountListService
     }
 
     /**
-     * @param EmployerErrorData[] $employerErrorCountData
+     * Purpose is to add responsible employee name to EmployeeErrorData.
      *
-     * @return EmployerErrorData[]
+     * @param EmployeeErrorData[] $employeeErrorCountData
+     *
+     * @return EmployeeErrorData[]
      */
-    public function __invoke(array $employerErrorCountData): array
+    public function __invoke(array $employeeErrorCountData): array
     {
         $data = [];
 
-        foreach ($employerErrorCountData as $employerCount) {
-            $responsibleEmployerName = isset($employerCount['responsibleEmployeeId']) ? $this->employeeFetcher->getById($employerCount['responsibleEmployeeId'])->name : null;
+        $responsibleEmployeeIds = [];
+        $employees = [];
 
-            $data[] = new EmployerErrorData(
-                responsibleEmployeeId: $employerCount['responsibleEmployeeId'],
-                responsibleEmployeeName: $responsibleEmployerName,
-                total: $employerCount['total'],
-                orderCheckIn: $employerCount[Process::PRINTING_CHECK_IN->value],
-                printingCheckIn: $employerCount[Process::PRINTING_CHECK_IN->value],
-                glowCheckIn: $employerCount[Process::GLOW_CHECK_IN->value],
-                cuttingCheckIn: $employerCount[Process::CUTTING_CHECK_IN->value],
+        foreach ($employeeErrorCountData as $employeeCount) {
+            if (isset($employeeCount->responsibleEmployeeId)) {
+                $responsibleEmployeeIds[] = $employeeCount->responsibleEmployeeId;
+            }
+        }
+
+        if (count($responsibleEmployeeIds)) {
+            $employeeArray = $this->employeeFetcher->getByIds(array_unique($responsibleEmployeeIds));
+
+            foreach ($employeeArray as $employee) {
+                $employees[$employee->id] = $employee;
+            }
+        }
+
+        foreach ($employeeErrorCountData as $employeeCount) {
+            $responsibleEmployeeName = null;
+
+            if (isset($employeeCount->responsibleEmployeeId) && isset($employees[$employeeCount->responsibleEmployeeId])) {
+                $responsibleEmployeeName = $employees[$employeeCount->responsibleEmployeeId]->name;
+            }
+
+            // Creating the EmployeeErrorData object with employee name
+            $data[] = new EmployeeErrorData(
+                responsibleEmployeeId: $employeeCount->responsibleEmployeeId,
+                responsibleEmployeeName: $responsibleEmployeeName,
+                total: $employeeCount->total,
+                orderCheckIn: $employeeCount->orderCheckIn,
+                printingCheckIn: $employeeCount->printingCheckIn,
+                glowCheckIn: $employeeCount->glowCheckIn,
+                cuttingCheckIn: $employeeCount->cuttingCheckIn
             );
         }
 

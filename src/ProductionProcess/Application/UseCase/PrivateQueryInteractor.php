@@ -24,12 +24,14 @@ use App\ProductionProcess\Application\UseCase\Query\FindRollHistory\FindRollHist
 use App\ProductionProcess\Application\UseCase\Query\FindRollHistory\FindRollHistoryResult;
 use App\ProductionProcess\Application\UseCase\Query\FindRolls\FindRollsQuery;
 use App\ProductionProcess\Application\UseCase\Query\FindRolls\FindRollsResult;
-// use App\ProductionProcess\Application\UseCase\Query\GetOptions\GetOptionsQuery;
-// use App\ProductionProcess\Application\UseCase\Query\GetOptions\GetOptionsQueryResult;
 use App\ProductionProcess\Application\UseCase\Query\GetPrintedProductsProcessDetail\GetPrintedProductsProcessDetailQuery;
 use App\ProductionProcess\Application\UseCase\Query\GetPrintedProductsProcessDetail\GetPrintedProductsProcessDetailResult;
-use App\ProductionProcess\Domain\Repository\FetchRollHistoryStatisticsFilter;
+use App\ProductionProcess\Domain\Repository\Statistics\RollHistory\FetchRollHistoryStatisticsFilter;
 use App\Shared\Application\Query\QueryBusInterface;
+use App\Shared\Domain\Repository\DateRangeFilter;
+
+// use App\ProductionProcess\Application\UseCase\Query\GetOptions\GetOptionsQuery;
+// use App\ProductionProcess\Application\UseCase\Query\GetOptions\GetOptionsQueryResult;
 
 /**
  * Class PrivateCommandInteractor.
@@ -130,12 +132,14 @@ readonly class PrivateQueryInteractor
     /**
      * Finds errors by executing the given FindErrorsQuery.
      *
-     * @param FindEmployerErrorsQuery $query the query object containing the search criteria
+     * @param DateRangeFilter $filter the query object containing the date range filter
      *
      * @return FindEmployerErrorsResult the result of executing the query
      */
-    public function findEmployerErrors(FindEmployerErrorsQuery $query): FindEmployerErrorsResult
+    public function findEmployerErrors(DateRangeFilter $filter): FindEmployerErrorsResult
     {
+        $query = new FindEmployerErrorsQuery($filter);
+
         return $this->queryBus->execute($query);
     }
 
@@ -176,11 +180,11 @@ readonly class PrivateQueryInteractor
     }
 
     /**
-     * @param FetchRollHistoryStatisticsFilter $filter
+     * @param DateRangeFilter $filter
      *
      * @return FetchEmployerRollCountStatisticsResult
      */
-    public function fetchEmployerRollCountStatistics(FetchRollHistoryStatisticsFilter $filter): FetchEmployerRollCountStatisticsResult
+    public function fetchEmployerRollCountStatistics(DateRangeFilter $filter): FetchEmployerRollCountStatisticsResult
     {
         $query = new FetchEmployerRollCountStatisticsQuery(filter: $filter);
 

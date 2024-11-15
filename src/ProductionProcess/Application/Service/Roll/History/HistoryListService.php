@@ -7,7 +7,7 @@ namespace App\ProductionProcess\Application\Service\Roll\History;
 use App\ProductionProcess\Application\DTO\EmployeeData;
 use App\ProductionProcess\Application\DTO\HistoryData;
 use App\ProductionProcess\Application\Service\Employee\EmployeeFetcher;
-use App\ProductionProcess\Domain\Repository\HistoryRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\Statistics\RollHistory\HistoryRepositoryInterface;
 
 /**
  * Class HistoryListService.
@@ -31,7 +31,7 @@ final readonly class HistoryListService
     public function __invoke(int $rollId): array
     {
         $histories = $this->historyRepository->findFullHistory($rollId);
-		$historyIds = array_unique(array_filter(array_map(fn ($history) => $history->getEmployeeId(), $histories)));
+        $historyIds = array_unique(array_filter(array_map(fn ($history) => $history->getEmployeeId(), $histories)));
         $employees = $this->employeeFetcher->getByIds($historyIds);
 
         $historyData = [];

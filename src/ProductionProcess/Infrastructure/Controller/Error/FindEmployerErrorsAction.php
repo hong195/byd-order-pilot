@@ -12,6 +12,7 @@ namespace App\ProductionProcess\Infrastructure\Controller\Error;
 
 use App\ProductionProcess\Application\UseCase\PrivateQueryInteractor;
 use App\ProductionProcess\Application\UseCase\Query\FindEmployerErrors\FindEmployerErrorsQuery;
+use App\Shared\Domain\Repository\DateRangeFilter;
 use App\Shared\Infrastructure\Controller\BaseController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -53,12 +54,13 @@ final class FindEmployerErrorsAction extends BaseController
         $from = $request->query->get('from') ? new \DateTimeImmutable($request->query->get('from')) : null;
         $to = $request->query->get('to') ? new \DateTimeImmutable($request->query->get('to')) : null;
 
-        $query = new FindEmployerErrorsQuery(
+        $filter = new DateRangeFilter(
             from: $from,
             to: $to
         );
 
-        $result = $this->privateQueryInteractor->findEmployerErrors($query);
+
+        $result = $this->privateQueryInteractor->findEmployerErrors($filter);
 
         $result = $this->normalizer->normalize($result);
 

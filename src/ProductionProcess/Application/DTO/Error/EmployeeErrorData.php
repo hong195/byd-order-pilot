@@ -12,7 +12,7 @@ namespace App\ProductionProcess\Application\DTO\Error;
  * EmployerErrorData is a Data Transfer Object (DTO) that encapsulates error information specific to various stages of a production process,
  * highlighting the responsibilities assigned to an employee.
  */
-final readonly class EmployerErrorData
+final readonly class EmployeeErrorData
 {
     /**
      * @param int|null    $responsibleEmployeeId

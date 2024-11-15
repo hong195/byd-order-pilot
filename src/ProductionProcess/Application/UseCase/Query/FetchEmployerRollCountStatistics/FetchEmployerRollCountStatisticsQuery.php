@@ -7,8 +7,8 @@
 
 namespace App\ProductionProcess\Application\UseCase\Query\FetchEmployerRollCountStatistics;
 
-use App\ProductionProcess\Domain\Repository\DateRangeFilter;
 use App\Shared\Application\Query\Query;
+use App\Shared\Domain\Repository\DateRangeFilter;
 
 /**
  *
@@ -25,7 +25,7 @@ final readonly class FetchEmployerRollCountStatisticsQuery extends Query
     /**
      * @return DateRangeFilter
      */
-    public function getCriteria(): DateRangeFilter
+    public function getDateRangeFilter(): DateRangeFilter
     {
         return $this->filter;
     }

@@ -10,7 +10,6 @@ namespace App\ProductionProcess\Application\Service\Roll\History;
 
 use App\ProductionProcess\Application\DTO\EmployerRollCountData;
 use App\ProductionProcess\Application\Service\Employee\EmployeeFetcher;
-use App\ProductionProcess\Domain\ValueObject\Process;
 
 /**
  * Class EmployerRollCountListService.
@@ -25,6 +24,8 @@ final readonly class EmployerRollCountListService
     }
 
     /**
+     * Added employee name into EmployerRollCountData.
+     *
      * @param EmployerRollCountData[] $employerRollCountData
      *
      * @return EmployerRollCountData[]
@@ -33,17 +34,39 @@ final readonly class EmployerRollCountListService
     {
         $data = [];
 
-        foreach ($employerRollCountData as $employerCount) {
-            $employerName = isset($employerCount['employeeId']) ? $this->employeeFetcher->getById($employerCount['employeeId'])->name : '';
+        $employeeIds = [];
+        $employees = [];
+
+        foreach ($employerRollCountData as $employeeCount) {
+            if (isset($employeeCount->employeeId)) {
+                $employeeIds[] = $employeeCount->employeeId;
+            }
+        }
+
+        if (count($employeeIds)) {
+            $employeeArray = $this->employeeFetcher->getByIds(array_unique($employeeIds));
+
+            foreach ($employeeArray as $employee) {
+                $employees[$employee->id] = $employee;
+            }
+        }
+
+
+        foreach ($employerRollCountData as $employeeCount) {
+            $employeeName = null;
+
+            if (isset($employeeCount->employeeId) && isset($employees[$employeeCount->employeeId])) {
+                $employeeName = $employees[$employeeCount->employeeId]->name;
+            }
 
             $data[] = new EmployerRollCountData(
-                employeeId: $employerCount['employeeId'],
-                employerName: $employerName,
-                total: $employerCount['total'],
-                orderCheckIn: $employerCount[Process::ORDER_CHECK_IN->value],
-                printingCheckIn: $employerCount[Process::PRINTING_CHECK_IN->value],
-                glowCheckIn: $employerCount[Process::GLOW_CHECK_IN->value],
-                cuttingCheckIn: $employerCount[Process::CUTTING_CHECK_IN->value]
+                employeeId: $employeeCount->employeeId,
+                employeeName: $employeeName,
+                total: $employeeCount->total,
+                orderCheckIn: $employeeCount->orderCheckIn,
+                printingCheckIn: $employeeCount->printingCheckIn,
+                glowCheckIn: $employeeCount->glowCheckIn,
+                cuttingCheckIn: $employeeCount->cuttingCheckIn
             );
         }
 

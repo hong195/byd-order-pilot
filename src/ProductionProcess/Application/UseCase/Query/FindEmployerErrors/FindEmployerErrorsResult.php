@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Application\UseCase\Query\FindEmployerErrors;
 
-use App\ProductionProcess\Application\DTO\Error\EmployerErrorData;
+use App\ProductionProcess\Application\DTO\Error\EmployeeErrorData;
 
 /**
  * Represents the result of finding a roll.
@@ -18,7 +18,7 @@ final readonly class FindEmployerErrorsResult
     /**
      * Class constructor.
      *
-     * @param EmployerErrorData[] $items the roll data
+     * @param EmployeeErrorData[] $items the roll data
      */
     public function __construct(public array $items)
     {

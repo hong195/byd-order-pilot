@@ -39,7 +39,7 @@ final readonly class FindEmployerErrorsHandler implements QueryHandlerInterface
     {
         AssertService::true($this->accessControlService->isGranted(), 'No access to handle the query');
 
-        $result = $this->repository->findEmployerErrorsByFilter($query->getErrorFilter());
+        $result = $this->repository->findEmployerErrorsByDateRangeFilter($query->getErrorFilter());
 
         $result = ($this->employerErrorCountListService)($result);
 

@@ -1,9 +1,10 @@
 <?php
 
-namespace App\ProductionProcess\Domain\Repository;
+namespace App\ProductionProcess\Domain\Repository\Statistics\Errors;
 
-use App\ProductionProcess\Application\DTO\Error\EmployerErrorData;
+use App\ProductionProcess\Application\DTO\Error\EmployeeErrorData;
 use App\ProductionProcess\Domain\Aggregate\Error;
+use App\Shared\Domain\Repository\DateRangeFilter;
 
 /**
  * Interface ErrorRepositoryInterface.
@@ -38,7 +39,7 @@ interface ErrorRepositoryInterface
      *
      * @param DateRangeFilter $filter The filter object to apply when searching for entities
      *
-     * @return EmployerErrorData[] An array of entities that match the provided error filter
+     * @return EmployeeErrorData[] An array of entities that match the provided error filter
      */
-    public function findEmployerErrorsByFilter(DateRangeFilter $filter): array;
+    public function findEmployerErrorsByDateRangeFilter(DateRangeFilter $filter): array;
 }

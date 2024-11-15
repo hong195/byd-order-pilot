@@ -4,7 +4,7 @@
  * Represents a filter for date ranges with optional start and end dates.
  */
 
-namespace App\ProductionProcess\Domain\Repository;
+namespace App\Shared\Domain\Repository;
 
 /**
  *
@@ -12,12 +12,11 @@ namespace App\ProductionProcess\Domain\Repository;
 class DateRangeFilter
 {
     /**
-     *
+     * @param \DateTimeImmutable|null $from
+     * @param \DateTimeImmutable|null $to
      */
-    public function __construct(
-        public ?\DateTimeImmutable $from = null,
-        public ?\DateTimeImmutable $to = null,
-    ) {
+    public function __construct(public ?\DateTimeImmutable $from = null, public ?\DateTimeImmutable $to = null)
+    {
     }
 
     /**

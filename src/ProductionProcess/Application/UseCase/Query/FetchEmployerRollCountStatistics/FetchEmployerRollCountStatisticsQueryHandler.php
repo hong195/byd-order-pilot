@@ -9,7 +9,7 @@
 namespace App\ProductionProcess\Application\UseCase\Query\FetchEmployerRollCountStatistics;
 
 use App\ProductionProcess\Application\Service\Roll\History\EmployerRollCountListService;
-use App\ProductionProcess\Domain\Repository\HistoryRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\Statistics\RollHistory\HistoryRepositoryInterface;
 use App\Shared\Application\Query\QueryHandlerInterface;
 
 /**
@@ -32,7 +32,7 @@ final readonly class FetchEmployerRollCountStatisticsQueryHandler implements Que
      */
     public function __invoke(FetchEmployerRollCountStatisticsQuery $query): FetchEmployerRollCountStatisticsResult
     {
-        $result = $this->repository->findByCriteriaForEmployers($query->getCriteria());
+        $result = $this->repository->findByDateRangeForEmployers($query->getDateRangeFilter());
 
         $employerService = $this->employerRollCountListService;
 

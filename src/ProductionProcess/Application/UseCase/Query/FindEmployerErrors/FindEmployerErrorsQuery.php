@@ -10,8 +10,8 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Application\UseCase\Query\FindEmployerErrors;
 
-use App\ProductionProcess\Domain\Repository\DateRangeFilter;
 use App\Shared\Application\Query\Query;
+use App\Shared\Domain\Repository\DateRangeFilter;
 
 /**
  * Class GetPrintedProductsProcessDetailQuery.
@@ -21,12 +21,9 @@ use App\Shared\Application\Query\Query;
 final readonly class FindEmployerErrorsQuery extends Query
 {
     /**
-     * Constructor for ErrorFilter class.
-     *
-     * @param \DateTimeImmutable|null $from The start date and time
-     * @param \DateTimeImmutable|null $to   The end date and time
+     * @param DateRangeFilter $filter
      */
-    public function __construct(public ?\DateTimeImmutable $from = null, public ?\DateTimeImmutable $to = null)
+    public function __construct(public DateRangeFilter $filter)
     {
     }
 
@@ -37,9 +34,6 @@ final readonly class FindEmployerErrorsQuery extends Query
      */
     public function getErrorFilter(): DateRangeFilter
     {
-        return new DateRangeFilter(
-            from: $this->from,
-            to: $this->to
-        );
+        return $this->filter;
     }
 }

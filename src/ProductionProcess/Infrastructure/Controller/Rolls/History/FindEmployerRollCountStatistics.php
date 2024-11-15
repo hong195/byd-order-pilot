@@ -3,7 +3,7 @@
 namespace App\ProductionProcess\Infrastructure\Controller\Rolls\History;
 
 use App\ProductionProcess\Application\UseCase\PrivateQueryInteractor;
-use App\ProductionProcess\Domain\Repository\FetchRollHistoryStatisticsFilter;
+use App\Shared\Domain\Repository\DateRangeFilter;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Attribute\AsController;
@@ -44,7 +44,7 @@ readonly class FindEmployerRollCountStatistics
         $from = $request->query->get('from') ? new \DateTimeImmutable($request->query->get('from')) : null;
         $to = $request->query->get('to') ? new \DateTimeImmutable($request->query->get('to')) : null;
 
-        $filter = new FetchRollHistoryStatisticsFilter(
+        $filter = new DateRangeFilter(
             from: $from,
             to: $to
         );
