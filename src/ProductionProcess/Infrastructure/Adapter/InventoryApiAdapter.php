@@ -42,7 +42,7 @@ final readonly class InventoryApiAdapter implements AvailableFilmServiceInterfac
     {
         $films = $this->inventoryApi->getAvailableFilms();
 
-		$films = array_filter($films, function (FilmData $film) use ($filmType, $minSize) {
+		$films = array_filter($films, function (\App\Inventory\Application\UseCases\Query\DTO\FilmData $film) use ($filmType, $minSize) {
 			return $film->type === $filmType && $film->length >= $minSize;
 		});
 

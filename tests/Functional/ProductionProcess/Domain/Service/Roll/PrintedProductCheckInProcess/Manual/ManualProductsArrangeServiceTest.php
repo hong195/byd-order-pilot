@@ -134,16 +134,17 @@ class ManualProductsArrangeServiceTest extends AbstractTestCase
      *
      * @throws DomainException
      */
-    public function test_it_throws_exception_when_existing_roll_ready_for_print_check_in_takes_(): void
+    public function test_it_throws_exception_when_existing_roll_ready_for_print_check_in_takes_to_much_length(): void
     {
-        $firstAvailableFilm = $this->getAvailableFilm();
-        $availableFilmLength = $firstAvailableFilm->length;
-        $hugeLengthAmount = $availableFilmLength * 2;
+        $availableFilms = $this->getContainer()->get(AvailableFilmServiceInterface::class)->getAvailableFilms('chrome');
+        $firstAvailableFilm = $availableFilms->first();
 
-        $this->prepareRoll($firstAvailableFilm->filmType, $hugeLengthAmount, $firstAvailableFilm->id);
+        foreach ($availableFilms as $availableFilm) {
+            $this->prepareRoll($availableFilm->filmType, $availableFilm->length, $availableFilm->id);
+        }
 
-        $pp1 = $this->prepareProduct($firstAvailableFilm->filmType, $availableFilmLength / 3);
-        $pp2 = $this->prepareProduct($firstAvailableFilm->filmType, $availableFilmLength / 3);
+        $pp1 = $this->prepareProduct($firstAvailableFilm->filmType, $firstAvailableFilm->length / 3);
+        $pp2 = $this->prepareProduct($firstAvailableFilm->filmType, $firstAvailableFilm->length / 3);
 
         $this->expectException(InventoryFilmIsNotAvailableException::class);
 
