@@ -51,19 +51,19 @@ services:
         class: App\Orders\Infrastructure\Service\ProductProcessService
         public: true
 
-    App\ProductionProcess\Domain\Repository\RollRepositoryInterface:
+    App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface:
         class: App\ProductionProcess\Infrastructure\Repository\RollRepository
         public: true
 
-    App\ProductionProcess\Domain\Repository\HistoryRepositoryInterface:
+    App\ProductionProcess\Domain\Repository\History\HistoryRepositoryInterface:
         class: App\ProductionProcess\Infrastructure\Repository\HistoryRepository
         public: true
 
-    App\ProductionProcess\Domain\Repository\PrintedProductRepositoryInterface:
+    App\ProductionProcess\Domain\Repository\PrintedProduct\PrintedProductRepositoryInterface:
         class: App\ProductionProcess\Infrastructure\Repository\PrintedProductRepository
         public: true
 
-    App\ProductionProcess\Domain\Repository\ErrorRepositoryInterface:
+    App\ProductionProcess\Domain\Repository\Error\ErrorRepositoryInterface:
         class: App\ProductionProcess\Infrastructure\Repository\ErrorRepository
         public: true
 

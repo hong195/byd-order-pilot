@@ -7,7 +7,7 @@ namespace App\ProductionProcess\Application\Service\Roll\History;
 use App\ProductionProcess\Application\DTO\EmployeeData;
 use App\ProductionProcess\Application\DTO\HistoryData;
 use App\ProductionProcess\Application\Service\Employee\EmployeeFetcher;
-use App\ProductionProcess\Domain\Repository\RollHistory\HistoryRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\Roll\RollHistory\HistoryRepositoryInterface;
 
 /**
  * Class HistoryListService.

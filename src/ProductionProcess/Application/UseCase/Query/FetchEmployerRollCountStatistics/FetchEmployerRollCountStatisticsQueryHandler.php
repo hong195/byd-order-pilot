@@ -9,7 +9,7 @@
 namespace App\ProductionProcess\Application\UseCase\Query\FetchEmployerRollCountStatistics;
 
 use App\ProductionProcess\Application\Service\Roll\History\EmployeeRollCountListService;
-use App\ProductionProcess\Domain\Repository\RollHistory\HistoryRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\Roll\RollHistory\HistoryRepositoryInterface;
 use App\Shared\Application\Query\QueryHandlerInterface;
 
 /**

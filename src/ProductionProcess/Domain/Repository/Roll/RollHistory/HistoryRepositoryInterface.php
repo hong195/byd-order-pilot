@@ -4,7 +4,7 @@
  * Interface HistoryRepositoryInterface.
  */
 
-namespace App\ProductionProcess\Domain\Repository\RollHistory;
+namespace App\ProductionProcess\Domain\Repository\Roll\RollHistory;
 
 use App\ProductionProcess\Application\DTO\EmployeeRollCountData;
 use App\ProductionProcess\Domain\Aggregate\Roll\History\History;

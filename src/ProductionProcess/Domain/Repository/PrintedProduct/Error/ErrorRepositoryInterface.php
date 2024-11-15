@@ -1,6 +1,6 @@
 <?php
 
-namespace App\ProductionProcess\Domain\Repository\Errors;
+namespace App\ProductionProcess\Domain\Repository\PrintedProduct\Error;
 
 use App\ProductionProcess\Application\DTO\Error\EmployeeErrorData;
 use App\ProductionProcess\Domain\Aggregate\Error;
