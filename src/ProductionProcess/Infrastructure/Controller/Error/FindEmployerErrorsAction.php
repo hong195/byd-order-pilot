@@ -26,7 +26,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
  * @Route("/api/rolls/{id}", requirements={"id"="\d+"}, methods={"GET"})
  */
 #[AsController]
-#[Route('/api/employer-errors', name: 'find_employer_errors_list', methods: ['GET'])]
+#[Route('/api/employee-errors', name: 'find_employee_errors_list', methods: ['GET'])]
 final class FindEmployerErrorsAction extends BaseController
 {
     /**
@@ -58,7 +58,7 @@ final class FindEmployerErrorsAction extends BaseController
             to: $to
         );
 
-        $result = $this->privateQueryInteractor->findEmployerErrors($dateRangeFilter);
+        $result = $this->privateQueryInteractor->findEmployeeErrors($dateRangeFilter);
 
         $result = $this->normalizer->normalize($result);
 

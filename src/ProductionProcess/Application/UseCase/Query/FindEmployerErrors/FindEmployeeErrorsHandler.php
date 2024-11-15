@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Application\UseCase\Query\FindEmployerErrors;
 
-use App\ProductionProcess\Application\Service\Roll\Error\EmployerErrorCountListService;
+use App\ProductionProcess\Application\Service\Roll\Error\EmployeeErrorCountListService;
 use App\ProductionProcess\Infrastructure\Repository\ErrorRepository;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Query\QueryHandlerInterface;
@@ -24,9 +24,9 @@ final readonly class FindEmployeeErrorsHandler implements QueryHandlerInterface
      *
      * @param AccessControlService          $accessControlService          the access control service dependency
      * @param ErrorRepository               $repository
-     * @param EmployerErrorCountListService $employerErrorCountListService
+     * @param EmployeeErrorCountListService $employeeErrorCountListService
      */
-    public function __construct(private AccessControlService $accessControlService, private ErrorRepository $repository, private EmployerErrorCountListService $employerErrorCountListService)
+    public function __construct(private AccessControlService $accessControlService, private ErrorRepository $repository, private EmployeeErrorCountListService $employeeErrorCountListService)
     {
     }
 
@@ -43,7 +43,7 @@ final readonly class FindEmployeeErrorsHandler implements QueryHandlerInterface
 
         $result = $this->repository->findEmployerErrorsByDateRangeFilter($query->dateRangeFilter);
 
-        $result = ($this->employerErrorCountListService)($result);
+        $result = ($this->employeeErrorCountListService)($result);
 
         return new FindEmployeeErrorsResult($result);
     }

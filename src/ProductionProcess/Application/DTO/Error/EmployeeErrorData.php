@@ -3,13 +3,13 @@
 declare(strict_types=1);
 
 /**
- * EmployerErrorData is a Data Transfer Object (DTO) that encapsulates error data related to an employer's responsibilities in a production process.
+ * EmployeeErrorData is a Data Transfer Object (DTO) that encapsulates error data related to an employee's responsibilities in a production process.
  */
 
 namespace App\ProductionProcess\Application\DTO\Error;
 
 /**
- * EmployerErrorData is a Data Transfer Object (DTO) that encapsulates error information specific to various stages of a production process,
+ * EmployeeErrorData is a Data Transfer Object (DTO) that encapsulates error information specific to various stages of a production process,
  * highlighting the responsibilities assigned to an employee.
  */
 final readonly class EmployeeErrorData

@@ -81,15 +81,15 @@ readonly class PrivateQueryInteractor
         return $this->queryBus->execute(new FindPrintersQuery());
     }
 
-//    /**
-//     * Retrieves the options by executing the GetOptionsQuery.
-//     *
-//     * @return GetOptionsQueryResult the result of executing the GetOptionsQuery
-//     */
-//    public function getOptions(): GetOptionsQueryResult
-//    {
-//        return $this->queryBus->execute(new GetOptionsQuery());
-//    }
+    //    /**
+    //     * Retrieves the options by executing the GetOptionsQuery.
+    //     *
+    //     * @return GetOptionsQueryResult the result of executing the GetOptionsQuery
+    //     */
+    //    public function getOptions(): GetOptionsQueryResult
+    //    {
+    //        return $this->queryBus->execute(new GetOptionsQuery());
+    //    }
 
     /**
      * Retrieves the roll history by executing the FindRollHistoryQuery.
@@ -136,7 +136,7 @@ readonly class PrivateQueryInteractor
      *
      * @return FindEmployeeErrorsResult the result of executing the query
      */
-    public function findEmployerErrors(DateRangeFilter $dateRangeFilter): FindEmployeeErrorsResult
+    public function findEmployeeErrors(DateRangeFilter $dateRangeFilter): FindEmployeeErrorsResult
     {
         $query = new FindEmployeeErrorsQuery(dateRangeFilter: $dateRangeFilter);
 
@@ -167,11 +167,6 @@ readonly class PrivateQueryInteractor
         return $this->queryBus->execute(new FindPrintedProductQuery($printedProductId));
     }
 
-    /**
-     * @param FetchRollHistoryStatisticsFilter $filter
-     *
-     * @return FetchRollHistoryStatisticsResult
-     */
     public function fetchRollHistoryStatistics(FetchRollHistoryStatisticsFilter $filter): FetchRollHistoryStatisticsResult
     {
         $query = new FetchRollHistoryStatisticsQuery($filter);
@@ -179,11 +174,6 @@ readonly class PrivateQueryInteractor
         return $this->queryBus->execute($query);
     }
 
-    /**
-     * @param DateRangeFilter $dateRangeFilter
-     *
-     * @return FetchEmployeeRollCountStatisticsResult
-     */
     public function fetchEmployerRollCountStatistics(DateRangeFilter $dateRangeFilter): FetchEmployeeRollCountStatisticsResult
     {
         $query = new FetchEmployeeRollCountStatisticsQuery(dateRangeFilter: $dateRangeFilter);

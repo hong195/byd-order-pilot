@@ -17,7 +17,7 @@ use App\ProductionProcess\Application\Service\Employee\EmployeeFetcher;
  *
  * The purpose of this service is to add responsible employee name to EmployeeErrorData
  */
-final readonly class EmployerErrorCountListService
+final readonly class EmployeeErrorCountListService
 {
     /**
      * @param EmployeeFetcher              $employeeFetcher
