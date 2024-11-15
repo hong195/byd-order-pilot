@@ -7,6 +7,7 @@ namespace App\Tests\Functional\ProductionProcess\Domain\Service\Roll;
 use App\ProductionProcess\Domain\Exceptions\LockingRollException;
 use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
 use App\ProductionProcess\Domain\Service\Roll\UnLockRollService;
+use App\Shared\Domain\Exception\DomainException;
 use App\Tests\Functional\AbstractTestCase;
 use App\Tests\Tools\FakerTools;
 use App\Tests\Tools\FixtureTools;
@@ -60,12 +61,12 @@ final class UnLockRollServiceTest extends AbstractTestCase
 
     /**
      * @throws LockingRollException
-     */
+	 */
     public function test_it_throws_exception_when_no_employee_assigned(): void
     {
         $roll = $this->loadRoll();
 
-        $this->expectException(LockingRollException::class);
+		$this->expectException(LockingRollException::class);
 
         $this->unlockRollService->unlock($roll->getId());
     }

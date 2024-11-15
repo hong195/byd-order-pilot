@@ -52,19 +52,19 @@ final class Condition
      *
      * @return bool true if the instance is satisfied by the given film type and lamination type, false otherwise
      */
-    public function isSatisfiedBy(string $filmType, bool $laminationRequired = false, ?string $laminationType = null): bool
+    public function isSatisfiedBy(string $filmType, ?string $laminationType = null): bool
     {
         if ($this->filmType !== $filmType) {
             return false;
         }
 
-		if ($this->laminationRequired !== $laminationRequired) {
-			return false;
-		}
+        if (!$this->laminationRequired && !$laminationType) {
+            return false;
+        }
 
         if ($laminationType && $this->laminationType !== $laminationType) {
-			return false;
-		}
+            return false;
+        }
 
         return true;
     }

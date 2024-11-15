@@ -49,16 +49,17 @@ final readonly class PrintedProductListService
     {
         $printedProducts = $this->productRepository->findByFilter($filter);
 
-        if (empty($printedProducts)) {
+        if ($printedProducts->isEmpty()) {
             return [];
         }
 
         $result = [];
 
-        $mediaFiles = $this->mediaFileRepository->findByOwnerIds(array_map(fn (PrintedProduct $product) => $product->relatedProductId, $printedProducts));
+		$relatedProductsIds = $printedProducts->map(fn (PrintedProduct $product) => $product->relatedProductId)->toArray();
+        $mediaFiles = $this->mediaFileRepository->findByOwnerIds($relatedProductsIds);
 
-        $groups = $this->groupService->handle(new ArrayCollection($printedProducts));
-        $relatedProducts = new ArrayCollection($this->relatedProducts->findProductsByIds(array_map(fn (PrintedProduct $product) => $product->relatedProductId, $printedProducts)));
+        $groups = $this->groupService->handle($printedProducts);
+        $relatedProducts = new ArrayCollection($this->relatedProducts->findProductsByIds($relatedProductsIds));
 
         foreach ($groups as $group => $items) {
             /** @var PrintedProduct $item */

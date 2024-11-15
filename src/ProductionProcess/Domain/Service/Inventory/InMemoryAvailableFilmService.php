@@ -18,14 +18,11 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
  */
 final readonly class InMemoryAvailableFilmService implements AvailableFilmServiceInterface
 {
-    /**
-     * Retrieves the available films for a given roll type.
-     *
-     * @return Collection An array collection of FilmData objects representing the available films
-     */
-    public function getAvailableFilms(): Collection
+    private Collection $films;
+
+    public function __construct()
     {
-        return new ArrayCollection([
+        $this->films = new ArrayCollection([
             new FilmData(3, 'Test Roll Film3', 20, 'chrome'),
             new FilmData(4, 'Test Roll Film4', 20, 'chrome'),
             new FilmData(1, 'Test Roll Film', 15, 'neon'),
@@ -34,17 +31,27 @@ final readonly class InMemoryAvailableFilmService implements AvailableFilmServic
     }
 
     /**
+     * Retrieves the available films for a given roll type.
+     *
+     * @return Collection<FilmData> An array collection of FilmData objects representing the available films
+     */
+    public function getAvailableFilms(string $filmType, float $minSize = 0): Collection
+    {
+        return $this->films->filter(function (FilmData $film) use ($filmType, $minSize) {
+            return $film->filmType === $filmType && $film->length >= $minSize;
+        });
+    }
+
+    /**
      * Retrieves a film by its ID.
      *
      * @param int $filmId The ID of the film to retrieve
      *
-     * @return FilmData The film data
+     * @return ?FilmData The film data
      */
-    public function getByFilmId(int $filmId): FilmData
+    public function getByFilmId(int $filmId): ?FilmData
     {
-        $films = $this->getAvailableFilms();
-
-        foreach ($films as $film) {
+        foreach ($this->films as $film) {
             if ($film->filmId === $filmId) {
                 return $film;
             }

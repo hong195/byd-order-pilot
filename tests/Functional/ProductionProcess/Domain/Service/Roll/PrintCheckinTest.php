@@ -22,7 +22,6 @@ use App\ProductionProcess\Domain\ValueObject\Process;
 use App\Tests\Functional\AbstractTestCase;
 use App\Tests\Tools\FakerTools;
 use App\Tests\Tools\FixtureTools;
-use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -40,11 +39,12 @@ final class PrintCheckinTest extends AbstractTestCase
         $this->rollRepository = self::getContainer()->get(RollRepositoryInterface::class);
     }
 
-    /**
-     * @throws NotEnoughFilmLengthToPrintTheRollException
-     * @throws PrinterIsNotAvailableException
-     * @throws RollCantBeSentToPrintException
-     */
+	/**
+	 * @throws NotEnoughFilmLengthToPrintTheRollException
+	 * @throws PrinterIsNotAvailableException
+	 * @throws RollCantBeSentToPrintException
+	 * @throws InventoryFilmIsNotAvailableException
+	 */
     public function test_can_successfully_send_to_print_check_in(): void
     {
         $roll = $this->loadPreparedRoll();
@@ -102,11 +102,12 @@ final class PrintCheckinTest extends AbstractTestCase
         $checkInService->handle($roll->getId());
     }
 
-    /**
-     * @throws PrinterIsNotAvailableException
-     * @throws RollCantBeSentToPrintException
-     * @throws NotEnoughFilmLengthToPrintTheRollException
-     */
+	/**
+	 * @throws PrinterIsNotAvailableException
+	 * @throws RollCantBeSentToPrintException
+	 * @throws NotEnoughFilmLengthToPrintTheRollException
+	 * @throws InventoryFilmIsNotAvailableException
+	 */
     public function test_it_dispatches_event_after_sending_to_cutting_check_in(): void
     {
         $roll = $this->loadPreparedRoll();
@@ -197,17 +198,15 @@ final class PrintCheckinTest extends AbstractTestCase
     private function getAvailableServiceMock(Roll $roll, float|int $length = 0): AvailableFilmServiceInterface
     {
         $availableFilmService = self::createMock(AvailableFilmServiceInterface::class);
-        $availableFilmService->method('getAvailableFilms')
-            ->willReturn(new ArrayCollection(
-                [
-                    new FilmData(
-                        id: $roll->getFilmId(),
-                        name: $this->getFaker()->name(),
-                        length: $length,
-                        filmType: $roll->getFilmTypes()[0]
-                    ),
-                ]
-            ));
+        $availableFilmService->method('getByFilmId')
+            ->willReturn(
+                new FilmData(
+                    id: $roll->getFilmId(),
+                    name: $this->getFaker()->name(),
+                    length: $length,
+                    filmType: $roll->getFilmTypes()[0]
+                )
+            );
 
         return $availableFilmService;
     }

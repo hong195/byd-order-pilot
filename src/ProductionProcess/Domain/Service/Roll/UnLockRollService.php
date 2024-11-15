@@ -6,6 +6,7 @@ namespace App\ProductionProcess\Domain\Service\Roll;
 
 use App\ProductionProcess\Domain\Exceptions\LockingRollException;
 use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
+use App\Shared\Domain\Exception\DomainException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 final readonly class UnLockRollService
@@ -14,9 +15,10 @@ final readonly class UnLockRollService
     {
     }
 
-    /**
-     * @throws LockingRollException
-     */
+	/**
+	 * @throws LockingRollException
+	 * @throws DomainException
+	 */
     public function unlock(int $rollId): void
     {
         $roll = $this->rollRepository->findById($rollId);

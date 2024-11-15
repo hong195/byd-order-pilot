@@ -74,11 +74,11 @@ final readonly class InitPrintersService
                 'name' => 'Roland Normal Printer',
                 'default' => true,
                 'conditions' => [
-					[
-						'film_type' => 'white',      // Тип плёнки
-						'lamination_type' => null, // Тип ламинации
-						'lamination_required' => false, // Ламинация обязательна
-					],
+                    [
+                        'film_type' => 'white',      // Тип плёнки
+                        'lamination_type' => null, // Тип ламинации
+                        'lamination_required' => false, // Ламинация обязательна
+                    ],
                 ],
             ],
         ];
@@ -90,19 +90,19 @@ final readonly class InitPrintersService
             );
 
             $this->entityManager->persist($printer);
+            $this->entityManager->flush();
 
             foreach ($printerData['conditions'] as $conditionData) {
                 $condition = new Condition(
                     printer: $printer,
                     filmType: $conditionData['film_type'],
                     laminationType: $conditionData['lamination_type'],
-					laminationRequired: $conditionData['lamination_required']
+                    laminationRequired: $conditionData['lamination_required']
                 );
 
                 $this->entityManager->persist($condition);
+                $this->entityManager->flush();
             }
-
-            $this->entityManager->flush();
         }
     }
 }

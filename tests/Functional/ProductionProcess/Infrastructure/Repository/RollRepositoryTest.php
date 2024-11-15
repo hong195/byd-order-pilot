@@ -76,7 +76,7 @@ class RollRepositoryTest extends AbstractTestCase
         $result = $this->rollRepository->findByFilter(new RollFilter(process: Process::GLOW_CHECK_IN, filmIds: [$fakeFilmId]));
 
         $this->assertCount(1, $result);
-        $this->assertContains($roll1->getId(), array_map(fn ($roll) => $roll->getId(), $result));
-        $this->assertNotContains($roll2->getId(), array_map(fn ($roll) => $roll->getId(), $result));
+        $this->assertContains($roll1->getId(), array_map(fn ($roll) => $roll->getId(), $result->toArray()));
+        $this->assertNotContains($roll2->getId(), array_map(fn ($roll) => $roll->getId(), $result->toArray()));
     }
 }
