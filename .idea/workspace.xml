@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added manual arrangement api.">
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/CuttingCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/CuttingCheckInService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/CuttingCheckinTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/CuttingCheckinTest.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated manual arrangement test.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/LockRollService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/LockRollService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/LockRollServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/LockRollServiceTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -308,29 +309,29 @@
       <recent name="$PROJECT_DIR$/src/Shared/Domain" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.ManualProductsArrangeServiceTest.test_it_successfully_manually_arrange_printed_products_on_locked_roll">
+  <component name="RunManager" selected="PHPUnit.LockRollServiceTest">
     <configuration name="CuttingCheckinTest.test_it_throws_exception_when_send_roll_to_cutting_checkin_process_from_incorrect_processes" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\CuttingCheckinTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/CuttingCheckinTest.php" method="test_it_throws_exception_when_send_roll_to_cutting_checkin_process_from_incorrect_processes" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="LockRollServiceTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\LockRollServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/LockRollServiceTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
+    <configuration name="LockRollServiceTest.test_it_locks_roll" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\LockRollServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/LockRollServiceTest.php" method="test_it_locks_roll" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="LockRollServiceTest.test_it_throws_exception_when_try_to_lock_already_locked_roll" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\LockRollServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/LockRollServiceTest.php" method="test_it_throws_exception_when_try_to_lock_already_locked_roll" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
       <method v="2" />
     </configuration>
-    <configuration name="ManualProductsArrangeServiceTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Manual\ManualProductsArrangeServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/ManualProductsArrangeServiceTest.php" scope="Class" />
-      <method v="2" />
-    </configuration>
     <configuration name="ManualProductsArrangeServiceTest.test_it_successfully_manually_arrange_printed_products_on_locked_roll" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Manual\ManualProductsArrangeServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/ManualProductsArrangeServiceTest.php" method="test_it_successfully_manually_arrange_printed_products_on_locked_roll" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="ManualProductsArrangeServiceTest.test_it_throws_exception_when_existing_roll_ready_for_print_check_in_takes_" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Manual\ManualProductsArrangeServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/ManualProductsArrangeServiceTest.php" method="test_it_throws_exception_when_existing_roll_ready_for_print_check_in_takes_" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="ManualProductsArrangeServiceTest.test_service_take_into_consideration_the_existing_rolls_ready_for_printing" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Manual\ManualProductsArrangeServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/ManualProductsArrangeServiceTest.php" method="test_service_take_into_consideration_the_existing_rolls_ready_for_printing" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="PrintedProductCheckinTest.test_can_allocate_group_of_printed_products_on_one_roll" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -339,11 +340,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.LockRollServiceTest" />
+        <item itemvalue="PHPUnit.LockRollServiceTest.test_it_throws_exception_when_try_to_lock_already_locked_roll" />
+        <item itemvalue="PHPUnit.LockRollServiceTest.test_it_locks_roll" />
         <item itemvalue="PHPUnit.ManualProductsArrangeServiceTest.test_it_successfully_manually_arrange_printed_products_on_locked_roll" />
         <item itemvalue="PHPUnit.CuttingCheckinTest.test_it_throws_exception_when_send_roll_to_cutting_checkin_process_from_incorrect_processes" />
-        <item itemvalue="PHPUnit.ManualProductsArrangeServiceTest" />
-        <item itemvalue="PHPUnit.ManualProductsArrangeServiceTest.test_it_throws_exception_when_existing_roll_ready_for_print_check_in_takes_" />
-        <item itemvalue="PHPUnit.ManualProductsArrangeServiceTest.test_service_take_into_consideration_the_existing_rolls_ready_for_printing" />
       </list>
     </recent_temporary>
   </component>
@@ -428,30 +429,6 @@
       <workItem from="1731484448115" duration="40526000" />
       <workItem from="1731602716038" duration="121000" />
       <workItem from="1731668598593" duration="6246000" />
-    </task>
-    <task id="LOCAL-00400" summary="Updated order repository test &amp; added orders queries (packed, partially packed, only with extras)">
-      <option name="closed" value="true" />
-      <created>1729266704130</created>
-      <option name="number" value="00400" />
-      <option name="presentableId" value="LOCAL-00400" />
-      <option name="project" value="LOCAL" />
-      <updated>1729266704130</updated>
-    </task>
-    <task id="LOCAL-00401" summary="Updated order data structure (removed is packed)">
-      <option name="closed" value="true" />
-      <created>1729266773618</created>
-      <option name="number" value="00401" />
-      <option name="presentableId" value="LOCAL-00401" />
-      <option name="project" value="LOCAL" />
-      <updated>1729266773618</updated>
-    </task>
-    <task id="LOCAL-00402" summary="Simplify order repository findPartiallyPacked method.">
-      <option name="closed" value="true" />
-      <created>1729267615763</created>
-      <option name="number" value="00402" />
-      <option name="presentableId" value="LOCAL-00402" />
-      <option name="project" value="LOCAL" />
-      <updated>1729267615763</updated>
     </task>
     <task id="LOCAL-00403" summary="Remove debug code.">
       <option name="closed" value="true" />
@@ -821,7 +798,31 @@
       <option name="project" value="LOCAL" />
       <updated>1731596736019</updated>
     </task>
-    <option name="localTasksCounter" value="449" />
+    <task id="LOCAL-00449" summary="Updated cutting in tests.">
+      <option name="closed" value="true" />
+      <created>1731683082952</created>
+      <option name="number" value="00449" />
+      <option name="presentableId" value="LOCAL-00449" />
+      <option name="project" value="LOCAL" />
+      <updated>1731683082952</updated>
+    </task>
+    <task id="LOCAL-00450" summary="Updated manual arrangement test.">
+      <option name="closed" value="true" />
+      <created>1731683168063</created>
+      <option name="number" value="00450" />
+      <option name="presentableId" value="LOCAL-00450" />
+      <option name="project" value="LOCAL" />
+      <updated>1731683168063</updated>
+    </task>
+    <task id="LOCAL-00451" summary="Updated manual arrangement test.">
+      <option name="closed" value="true" />
+      <created>1731683235094</created>
+      <option name="number" value="00451" />
+      <option name="presentableId" value="LOCAL-00451" />
+      <option name="project" value="LOCAL" />
+      <updated>1731683235094</updated>
+    </task>
+    <option name="localTasksCounter" value="452" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -856,8 +857,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated reset command." />
-    <MESSAGE value="Renamed default to is_default for printers." />
     <MESSAGE value="Updated reset system command added printer creation." />
     <MESSAGE value="Updated exception listener message." />
     <MESSAGE value="Update all domain exceptions inherit from DomainException." />
@@ -881,7 +880,9 @@
     <MESSAGE value="Updated manual arrange service code &amp; tests." />
     <MESSAGE value="Updated ManualProductsArrangeService exception related to film." />
     <MESSAGE value="Added manual arrangement api." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added manual arrangement api." />
+    <MESSAGE value="Updated cutting in tests." />
+    <MESSAGE value="Updated manual arrangement test." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated manual arrangement test." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -6,6 +6,8 @@ namespace App\ProductionProcess\Domain\Service\Roll;
 
 use App\ProductionProcess\Domain\Exceptions\LockingRollException;
 use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
+use App\ProductionProcess\Domain\ValueObject\Process;
+use App\Shared\Domain\Exception\DomainException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 final readonly class LockRollService
@@ -16,7 +18,8 @@ final readonly class LockRollService
 
     /**
      * @throws LockingRollException
-     */
+	 * @throws DomainException
+	 */
     public function lock(int $rollId): void
     {
         $roll = $this->rollRepository->findById($rollId);
@@ -24,6 +27,10 @@ final readonly class LockRollService
         if (!$roll) {
             throw new NotFoundHttpException('Roll not found');
         }
+
+		if (!$roll->getProcess()->equals(Process::ORDER_CHECK_IN)) {
+			LockingRollException::because("Roll has incorrect process");
+		}
 
 		if (!$roll->getEmployeeId()) {
 			LockingRollException::because('Roll is not assigned to any employee');
