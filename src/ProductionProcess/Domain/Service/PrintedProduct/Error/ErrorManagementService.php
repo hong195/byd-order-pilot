@@ -7,9 +7,9 @@ namespace App\ProductionProcess\Domain\Service\PrintedProduct\Error;
 use App\ProductionProcess\Domain\Aggregate\Roll\History\History;
 use App\ProductionProcess\Domain\Exceptions\RollErrorManagementException;
 use App\ProductionProcess\Domain\Factory\ErrorFactory;
-use App\ProductionProcess\Domain\Repository\ErrorRepositoryInterface;
-use App\ProductionProcess\Domain\Repository\HistoryRepositoryInterface;
 use App\ProductionProcess\Domain\Repository\PrintedProductRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\Statistics\Errors\ErrorRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\Statistics\RollHistory\HistoryRepositoryInterface;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 

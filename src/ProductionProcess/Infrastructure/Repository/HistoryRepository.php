@@ -8,10 +8,13 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Infrastructure\Repository;
 
+use App\ProductionProcess\Application\DTO\EmployerRollCountData;
 use App\ProductionProcess\Domain\Aggregate\Roll\History\History;
 use App\ProductionProcess\Domain\Aggregate\Roll\History\Type;
-use App\ProductionProcess\Domain\Repository\FetchRollHistoryStatisticsFilter;
-use App\ProductionProcess\Domain\Repository\HistoryRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\Statistics\RollHistory\FetchRollHistoryStatisticsFilter;
+use App\ProductionProcess\Domain\Repository\Statistics\RollHistory\HistoryRepositoryInterface;
+use App\ProductionProcess\Domain\ValueObject\Process;
+use App\Shared\Domain\Repository\DateRangeFilter;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -20,8 +23,6 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class HistoryRepository extends ServiceEntityRepository implements HistoryRepositoryInterface
 {
-    private array $history = [];
-
     /**
      * Constructs a new OrderRepository instance.
      *
@@ -74,37 +75,91 @@ class HistoryRepository extends ServiceEntityRepository implements HistoryReposi
     }
 
     /**
-     * @param FetchRollHistoryStatisticsFilter $filter
-     *
      * @return History[]
      */
-    public function findByCriteria(FetchRollHistoryStatisticsFilter $filter): array
+    public function findByFilter(FetchRollHistoryStatisticsFilter $filter): array
     {
         $qb = $this->createQueryBuilder('h')
             ->select('h')
             ->where('h.type = :type')
             ->setParameter('type', Type::PROCESS_CHANGED->value);
 
-        if ($filter->getEmployeeId()) {
+        if ($filter->employeeId) {
             $qb->andWhere('h.employeeId = :employeeId')
-                ->setParameter('employeeId', $filter->getEmployeeId());
+                ->setParameter('employeeId', $filter->employeeId);
         }
 
-        if ($filter->getProcess()) {
+        if ($filter->process) {
             $qb->andWhere('h.process = :process')
-                ->setParameter('process', $filter->getProcess());
+                ->setParameter('process', $filter->process);
         }
 
-        if ($filter->getFrom()) {
+        if ($filter->dateRangeFilter->from) {
             $qb->andWhere('h.happenedAt >= :from')
-                ->setParameter('from', $filter->getFrom());
+                ->setParameter('from', $filter->dateRangeFilter->from);
         }
 
-        if ($filter->getTo()) {
+        if ($filter->dateRangeFilter->to) {
             $qb->andWhere('h.happenedAt <= :to')
-                ->setParameter('to', $filter->getTo());
+                ->setParameter('to', $filter->dateRangeFilter->to);
         }
 
         return $qb->getQuery()->getResult();
+    }
+
+    /**
+     * This method retrieves the roll count data for employers based on the given date range filter.
+     *
+     * @param DateRangeFilter $filter
+     *
+     * @return EmployerRollCountData[]
+     */
+    public function findByDateRangeForEmployers(DateRangeFilter $filter): array
+    {
+        $qb = $this->createQueryBuilder('h')
+            ->select(
+                'h.employeeId',
+                'COUNT(h) AS total',
+                'SUM(CASE WHEN h.process = :orderCheckIn THEN 1 ELSE 0 END) AS order_check_in',
+                'SUM(CASE WHEN h.process = :printingCheckIn THEN 1 ELSE 0 END) AS printing_check_in',
+                'SUM(CASE WHEN h.process = :glowCheckIn THEN 1 ELSE 0 END) AS glow_check_in',
+                'SUM(CASE WHEN h.process = :cuttingCheckIn THEN 1 ELSE 0 END) AS cutting_check_in'
+            )
+            ->where('h.type = :type')
+            ->setParameter('type', Type::PROCESS_CHANGED)
+            ->groupBy('h.employeeId');
+
+        // Set parameters for the specific processes
+        $qb->setParameter('orderCheckIn', Process::ORDER_CHECK_IN)
+            ->setParameter('printingCheckIn', Process::PRINTING_CHECK_IN)
+            ->setParameter('glowCheckIn', Process::GLOW_CHECK_IN)
+            ->setParameter('cuttingCheckIn', Process::CUTTING_CHECK_IN);
+
+        // Apply date filters if present
+        if ($filter->from) {
+            $qb->andWhere('h.happenedAt >= :from')
+                ->setParameter('from', $filter->to);
+        }
+
+        if ($filter->to) {
+            $qb->andWhere('h.happenedAt <= :to')
+                ->setParameter('to', $filter->to);
+        }
+
+        $result = $qb->getQuery()->getResult();
+
+        $dtoArray = [];
+        foreach ($result as $row) {
+            $dtoArray[] = new EmployerRollCountData(
+                employeeId: $row['employeeId'],
+                total: $row['total'],
+                orderCheckIn: $row['order_check_in'],
+                printingCheckIn: $row['printing_check_in'],
+                glowCheckIn: $row['glow_check_in'],
+                cuttingCheckIn: $row['cutting_check_in']
+            );
+        }
+
+        return $dtoArray;
     }
 }

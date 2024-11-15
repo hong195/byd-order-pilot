@@ -35,7 +35,7 @@ interface HistoryRepositoryInterface
     /**
      * Finds records by filter.
      *
-     * @param HistoryFilter $filter The filter criteria
+     * @param HistoryFilter $filter
      *
      * @return PaginationResult
      */

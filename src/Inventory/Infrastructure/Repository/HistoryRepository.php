@@ -57,7 +57,7 @@ final class HistoryRepository extends ServiceEntityRepository implements History
     /**
      * Finds entities by filter.
      *
-     * @param HistoryFilter $filter the filter criteria
+     * @param HistoryFilter $filter
      *
      * @return PaginationResult the found entities
      *

@@ -8,10 +8,12 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Infrastructure\Repository;
 
+use App\ProductionProcess\Application\DTO\Error\EmployeeErrorData;
 use App\ProductionProcess\Domain\Aggregate\Error;
-use App\ProductionProcess\Domain\Repository\ErrorFilter;
-use App\ProductionProcess\Domain\Repository\ErrorRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\Statistics\Errors\ErrorFilter;
+use App\ProductionProcess\Domain\Repository\Statistics\Errors\ErrorRepositoryInterface;
 use App\ProductionProcess\Domain\ValueObject\Process;
+use App\Shared\Domain\Repository\DateRangeFilter;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -103,6 +105,45 @@ class ErrorRepository extends ServiceEntityRepository implements ErrorRepository
                 ->setParameter('responsibleEmployeeId', $filter->responsibleEmployeeId);
         }
 
+        if ($filter->dateRangeFilter->from) {
+            $qb->andWhere('e.createdAt >= :from')
+                ->setParameter('from', $filter->dateRangeFilter->from);
+        }
+
+        if ($filter->dateRangeFilter->to) {
+            $qb->andWhere('e.createdAt <= :to')
+                ->setParameter('to', $filter->dateRangeFilter->to);
+        }
+
+        return $qb->getQuery()->getResult();
+    }
+
+    /**
+     * Find entities by the provided error filter.
+     *
+     * @param DateRangeFilter $filter The filter object to apply when searching for entities
+     *
+     * @return EmployeeErrorData[] An array of entities that match the provided error filter
+     */
+    public function findEmployerErrorsByDateRangeFilter(DateRangeFilter $filter): array
+    {
+        $qb = $this->createQueryBuilder('e')
+            ->select(
+                'e.responsibleEmployeeId',
+                'COUNT(e) AS total',
+                'SUM(CASE WHEN e.process = :orderCheckIn THEN 1 ELSE 0 END) AS order_check_in',
+                'SUM(CASE WHEN e.process = :printingCheckIn THEN 1 ELSE 0 END) AS printing_check_in',
+                'SUM(CASE WHEN e.process = :glowCheckIn THEN 1 ELSE 0 END) AS glow_check_in',
+                'SUM(CASE WHEN e.process = :cuttingCheckIn THEN 1 ELSE 0 END) AS cutting_check_in'
+            )
+            ->groupBy('e.responsibleEmployeeId');
+
+        // Setting the process type parameters using enum values
+        $qb->setParameter('orderCheckIn', Process::ORDER_CHECK_IN)
+            ->setParameter('printingCheckIn', Process::PRINTING_CHECK_IN)
+            ->setParameter('glowCheckIn', Process::GLOW_CHECK_IN)
+            ->setParameter('cuttingCheckIn', Process::CUTTING_CHECK_IN);
+
         if ($filter->from) {
             $qb->andWhere('e.createdAt >= :from')
                 ->setParameter('from', $filter->from);
@@ -113,6 +154,20 @@ class ErrorRepository extends ServiceEntityRepository implements ErrorRepository
                 ->setParameter('to', $filter->to);
         }
 
-        return $qb->getQuery()->getResult();
+        $result = $qb->getQuery()->getResult();
+
+        $dtoArray = [];
+        foreach ($result as $row) {
+            $dtoArray[] = new EmployeeErrorData(
+                responsibleEmployeeId: $row['responsibleEmployeeId'],
+                total: $row['total'],
+                orderCheckIn: $row['order_check_in'],
+                printingCheckIn: $row['printing_check_in'],
+                glowCheckIn: $row['glow_check_in'],
+                cuttingCheckIn: $row['cutting_check_in']
+            );
+        }
+
+        return $dtoArray;
     }
 }

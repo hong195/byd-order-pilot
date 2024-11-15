@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Application\UseCase\Query\FindErrors;
 
-use App\ProductionProcess\Domain\Repository\ErrorFilter;
+use App\ProductionProcess\Domain\Repository\Statistics\Errors\ErrorFilter;
 use App\Shared\Application\Query\Query;
 
 /**

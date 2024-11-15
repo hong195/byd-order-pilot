@@ -4,7 +4,7 @@ namespace App\Tests\Functional\ProductionProcess\Infrastructure\Repository;
 
 use App\ProductionProcess\Domain\Aggregate\Roll\History\Type;
 use App\ProductionProcess\Domain\Factory\HistoryFactory;
-use App\ProductionProcess\Domain\Repository\HistoryRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\Statistics\RollHistory\HistoryRepositoryInterface;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use App\Tests\Functional\AbstractTestCase;
 
