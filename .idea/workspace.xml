@@ -4,39 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated roll can be locked only on order check in process.">
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/Service/PrintedProduct/PrintedProductListService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/Service/PrintedProduct/PrintedProductListService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/Service/PrintedProduct/PrintedProductMaker.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/Service/PrintedProduct/PrintedProductMaker.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/Service/Roll/RollListService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/Service/Roll/RollListService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ChangePrintedProductPriority/ChangePrintedProductPriorityCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ChangePrintedProductPriority/ChangePrintedProductPriorityCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ChangePrinterAvailability/ChangePrinterAvailabilityCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ChangePrinterAvailability/ChangePrinterAvailabilityCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrintedProduct/FindPrintedProductQueryHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrintedProduct/FindPrintedProductQueryHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrintedProducts/FindPrintedProductsQueryHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrintedProducts/FindPrintedProductsQueryHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrinters/FindPrintersHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrinters/FindPrintersHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/GetPrintedProductsProcessDetail/GetPrintedProductsProcessDetailHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/GetPrintedProductsProcessDetail/GetPrintedProductsProcessDetailHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/ConditionRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/Printer/ConditionRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/PrintedProductFilter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/PrintedProduct/PrintedProductFilter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/PrintedProductRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/PrintedProduct/PrintedProductRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/PrinterRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/Printer/PrinterRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/ChangeSortOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/ChangeSortOrder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/Error/ErrorManagementService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/Error/ErrorManagementService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/ReprintPrintedProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/ReprintPrintedProduct.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/UnAssignPrintedProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/UnAssignPrintedProduct.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Printer/ProductPrinterMatcher.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Printer/ProductPrinterMatcher.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/CheckRemainingProductsService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/CheckRemainingProductsService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/AutoArrangePrintedProductsService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/AutoArrangePrintedProductsService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/GroupPrinterService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/GroupPrinterService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/ManualProductsArrangeService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/ManualProductsArrangeService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/ReprintRollService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/ReprintRollService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/ConditionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/ConditionRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/PrintedProductRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/PrintedProductRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/PrinterRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/PrinterRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Printer/InitPrintersServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Printer/InitPrintersServiceTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/CheckRemainingProductsServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/CheckRemainingProductsServiceTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/GlowCheckinTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/GlowCheckinTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintCheckinTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintCheckinTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/ManualProductsArrangeServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/ManualProductsArrangeServiceTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Repository/PrintedProductRepositoryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Repository/PrintedProductRepositoryTest.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated repository folder structure.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/Roll/RollData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/Roll/RollData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/Roll/RollDataTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/Roll/RollDataTransformer.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -331,11 +302,11 @@
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrintedProduct" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/Roll" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/PrintedProduct" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/Printer" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual" />
-      <recent name="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command" />
     </key>
   </component>
   <component name="RunManager" selected="PHPUnit.Main">
@@ -458,22 +429,6 @@
       <workItem from="1731484448115" duration="40526000" />
       <workItem from="1731602716038" duration="121000" />
       <workItem from="1731668598593" duration="6246000" />
-    </task>
-    <task id="LOCAL-00404" summary="Updated exception return in json format.">
-      <option name="closed" value="true" />
-      <created>1729269394892</created>
-      <option name="number" value="00404" />
-      <option name="presentableId" value="LOCAL-00404" />
-      <option name="project" value="LOCAL" />
-      <updated>1729269394892</updated>
-    </task>
-    <task id="LOCAL-00405" summary="Added product search by filter.">
-      <option name="closed" value="true" />
-      <created>1729595617771</created>
-      <option name="number" value="00405" />
-      <option name="presentableId" value="LOCAL-00405" />
-      <option name="project" value="LOCAL" />
-      <updated>1729595617771</updated>
     </task>
     <task id="LOCAL-00406" summary="Removed printed product status reference.">
       <option name="closed" value="true" />
@@ -851,7 +806,23 @@
       <option name="project" value="LOCAL" />
       <updated>1731683648517</updated>
     </task>
-    <option name="localTasksCounter" value="453" />
+    <task id="LOCAL-00453" summary="Updated repository folder structure.">
+      <option name="closed" value="true" />
+      <created>1731685058235</created>
+      <option name="number" value="00453" />
+      <option name="presentableId" value="LOCAL-00453" />
+      <option name="project" value="LOCAL" />
+      <updated>1731685058235</updated>
+    </task>
+    <task id="LOCAL-00454" summary="Updated repository folder structure.">
+      <option name="closed" value="true" />
+      <created>1731685439388</created>
+      <option name="number" value="00454" />
+      <option name="presentableId" value="LOCAL-00454" />
+      <option name="project" value="LOCAL" />
+      <updated>1731685439388</updated>
+    </task>
+    <option name="localTasksCounter" value="455" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -886,8 +857,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated exception listener message." />
-    <MESSAGE value="Update all domain exceptions inherit from DomainException." />
     <MESSAGE value="Fixed ExceptionMiddleware return error." />
     <MESSAGE value="Fixed printer assigment." />
     <MESSAGE value="Fixed printer name property." />
@@ -911,7 +880,9 @@
     <MESSAGE value="Updated cutting in tests." />
     <MESSAGE value="Updated manual arrangement test." />
     <MESSAGE value="Updated roll can be locked only on order check in process." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated roll can be locked only on order check in process." />
+    <MESSAGE value="Mo" />
+    <MESSAGE value="Updated repository folder structure." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated repository folder structure." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

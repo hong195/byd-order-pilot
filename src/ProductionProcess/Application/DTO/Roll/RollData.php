@@ -41,6 +41,7 @@ final class RollData
         public readonly int $priorityCount = 0,
         public readonly array $laminations = [],
         public readonly ?int $filmId = null,
+		public readonly bool $locked = false,
         public readonly ?\DateTimeInterface $dateAdded = null,
     ) {
     }
