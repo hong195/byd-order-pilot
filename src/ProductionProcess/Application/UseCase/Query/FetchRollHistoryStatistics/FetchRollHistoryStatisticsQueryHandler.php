@@ -9,7 +9,7 @@
 namespace App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics;
 
 use App\ProductionProcess\Application\Service\Roll\History\HistoryStatisticsListService;
-use App\ProductionProcess\Domain\Repository\Statistics\RollHistory\HistoryRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\RollHistory\HistoryRepositoryInterface;
 use App\Shared\Application\Query\QueryHandlerInterface;
 
 /**
@@ -31,7 +31,7 @@ final readonly class FetchRollHistoryStatisticsQueryHandler implements QueryHand
      */
     public function __invoke(FetchRollHistoryStatisticsQuery $query): FetchRollHistoryStatisticsResult
     {
-        $result = $this->repository->findByFilter($query->getFilter());
+        $result = $this->repository->findByFilter($query->filter);
 
         $historyStatisticsListService = new HistoryStatisticsListService($result);
 

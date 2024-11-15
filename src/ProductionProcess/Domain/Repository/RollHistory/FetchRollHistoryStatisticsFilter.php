@@ -7,7 +7,7 @@
  * @param \DateTimeImmutable|null $to         the ending date of the filter range
  */
 
-namespace App\ProductionProcess\Domain\Repository\Statistics\RollHistory;
+namespace App\ProductionProcess\Domain\Repository\RollHistory;
 
 use App\ProductionProcess\Domain\ValueObject\Process;
 use App\Shared\Domain\Repository\DateRangeFilter;

@@ -8,13 +8,13 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Application\Service\Roll\History;
 
-use App\ProductionProcess\Application\DTO\EmployerRollCountData;
+use App\ProductionProcess\Application\DTO\EmployeeRollCountData;
 use App\ProductionProcess\Application\Service\Employee\EmployeeFetcher;
 
 /**
  * Class EmployerRollCountListService.
  */
-final readonly class EmployerRollCountListService
+final readonly class EmployeeRollCountListService
 {
     /**
      * @param EmployeeFetcher $employeeFetcher
@@ -24,20 +24,20 @@ final readonly class EmployerRollCountListService
     }
 
     /**
-     * Added employee name into EmployerRollCountData.
+     * Added employee name into EmployeeRollCountData.
      *
-     * @param EmployerRollCountData[] $employerRollCountData
+     * @param EmployeeRollCountData[] $employeeRollCountData
      *
-     * @return EmployerRollCountData[]
+     * @return EmployeeRollCountData[]
      */
-    public function __invoke(array $employerRollCountData): array
+    public function __invoke(array $employeeRollCountData): array
     {
         $data = [];
 
         $employeeIds = [];
         $employees = [];
 
-        foreach ($employerRollCountData as $employeeCount) {
+        foreach ($employeeRollCountData as $employeeCount) {
             if (isset($employeeCount->employeeId)) {
                 $employeeIds[] = $employeeCount->employeeId;
             }
@@ -52,14 +52,14 @@ final readonly class EmployerRollCountListService
         }
 
 
-        foreach ($employerRollCountData as $employeeCount) {
+        foreach ($employeeRollCountData as $employeeCount) {
             $employeeName = null;
 
             if (isset($employeeCount->employeeId) && isset($employees[$employeeCount->employeeId])) {
                 $employeeName = $employees[$employeeCount->employeeId]->name;
             }
 
-            $data[] = new EmployerRollCountData(
+            $data[] = new EmployeeRollCountData(
                 employeeId: $employeeCount->employeeId,
                 employeeName: $employeeName,
                 total: $employeeCount->total,

@@ -4,9 +4,9 @@
  * Interface HistoryRepositoryInterface.
  */
 
-namespace App\ProductionProcess\Domain\Repository\Statistics\RollHistory;
+namespace App\ProductionProcess\Domain\Repository\RollHistory;
 
-use App\ProductionProcess\Application\DTO\EmployerRollCountData;
+use App\ProductionProcess\Application\DTO\EmployeeRollCountData;
 use App\ProductionProcess\Domain\Aggregate\Roll\History\History;
 use App\Shared\Domain\Repository\DateRangeFilter;
 
@@ -17,6 +17,8 @@ interface HistoryRepositoryInterface
 {
     /**
      * Saves a history record.
+     *
+     * @param History $history
      */
     public function add(History $history): void;
 
@@ -30,14 +32,16 @@ interface HistoryRepositoryInterface
     public function findFullHistory(int $rollId): array;
 
     /**
+     * @param FetchRollHistoryStatisticsFilter $filter
+     *
      * @return History[]
      */
     public function findByFilter(FetchRollHistoryStatisticsFilter $filter): array;
 
     /**
-     * @param DateRangeFilter $filter
+     * @param DateRangeFilter $dateRangeFilter
      *
-     * @return EmployerRollCountData[]
+     * @return EmployeeRollCountData[]
      */
-    public function findByDateRangeForEmployers(DateRangeFilter $filter): array;
+    public function findEmployeeProcessCounts(DateRangeFilter $dateRangeFilter): array;
 }

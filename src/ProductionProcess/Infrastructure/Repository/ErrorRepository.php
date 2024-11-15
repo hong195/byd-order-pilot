@@ -10,8 +10,8 @@ namespace App\ProductionProcess\Infrastructure\Repository;
 
 use App\ProductionProcess\Application\DTO\Error\EmployeeErrorData;
 use App\ProductionProcess\Domain\Aggregate\Error;
-use App\ProductionProcess\Domain\Repository\Statistics\Errors\ErrorFilter;
-use App\ProductionProcess\Domain\Repository\Statistics\Errors\ErrorRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\Errors\ErrorFilter;
+use App\ProductionProcess\Domain\Repository\Errors\ErrorRepositoryInterface;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use App\Shared\Domain\Repository\DateRangeFilter;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -121,11 +121,11 @@ class ErrorRepository extends ServiceEntityRepository implements ErrorRepository
     /**
      * Find entities by the provided error filter.
      *
-     * @param DateRangeFilter $filter The filter object to apply when searching for entities
+     * @param DateRangeFilter $dateRangeFilter The filter object to apply when searching for entities
      *
      * @return EmployeeErrorData[] An array of entities that match the provided error filter
      */
-    public function findEmployerErrorsByDateRangeFilter(DateRangeFilter $filter): array
+    public function findEmployerErrorsByDateRangeFilter(DateRangeFilter $dateRangeFilter): array
     {
         $qb = $this->createQueryBuilder('e')
             ->select(
@@ -144,14 +144,14 @@ class ErrorRepository extends ServiceEntityRepository implements ErrorRepository
             ->setParameter('glowCheckIn', Process::GLOW_CHECK_IN)
             ->setParameter('cuttingCheckIn', Process::CUTTING_CHECK_IN);
 
-        if ($filter->from) {
+        if ($dateRangeFilter->from) {
             $qb->andWhere('e.createdAt >= :from')
-                ->setParameter('from', $filter->from);
+                ->setParameter('from', $dateRangeFilter->from);
         }
 
-        if ($filter->to) {
+        if ($dateRangeFilter->to) {
             $qb->andWhere('e.createdAt <= :to')
-                ->setParameter('to', $filter->to);
+                ->setParameter('to', $dateRangeFilter->to);
         }
 
         $result = $qb->getQuery()->getResult();

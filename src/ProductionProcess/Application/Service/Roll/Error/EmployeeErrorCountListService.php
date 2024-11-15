@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Application\Service\Roll\Error;
 
 use App\ProductionProcess\Application\DTO\Error\EmployeeErrorData;
-use App\ProductionProcess\Application\DTO\Error\EmployerErrorDataTransformer;
+use App\ProductionProcess\Application\DTO\Error\EmployeeErrorDataTransformer;
 use App\ProductionProcess\Application\Service\Employee\EmployeeFetcher;
 
 /**
@@ -17,13 +17,13 @@ use App\ProductionProcess\Application\Service\Employee\EmployeeFetcher;
  *
  * The purpose of this service is to add responsible employee name to EmployeeErrorData
  */
-final readonly class EmployerErrorCountListService
+final readonly class EmployeeErrorCountListService
 {
     /**
      * @param EmployeeFetcher              $employeeFetcher
-     * @param EmployerErrorDataTransformer $dataTransformer
+     * @param EmployeeErrorDataTransformer $dataTransformer
      */
-    public function __construct(private EmployeeFetcher $employeeFetcher, private EmployerErrorDataTransformer $dataTransformer)
+    public function __construct(private EmployeeFetcher $employeeFetcher, private EmployeeErrorDataTransformer $dataTransformer)
     {
     }
 

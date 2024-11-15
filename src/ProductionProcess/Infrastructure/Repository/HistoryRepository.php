@@ -8,11 +8,11 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Infrastructure\Repository;
 
-use App\ProductionProcess\Application\DTO\EmployerRollCountData;
+use App\ProductionProcess\Application\DTO\EmployeeRollCountData;
 use App\ProductionProcess\Domain\Aggregate\Roll\History\History;
 use App\ProductionProcess\Domain\Aggregate\Roll\History\Type;
-use App\ProductionProcess\Domain\Repository\Statistics\RollHistory\FetchRollHistoryStatisticsFilter;
-use App\ProductionProcess\Domain\Repository\Statistics\RollHistory\HistoryRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\RollHistory\FetchRollHistoryStatisticsFilter;
+use App\ProductionProcess\Domain\Repository\RollHistory\HistoryRepositoryInterface;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use App\Shared\Domain\Repository\DateRangeFilter;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -108,13 +108,13 @@ class HistoryRepository extends ServiceEntityRepository implements HistoryReposi
     }
 
     /**
-     * This method retrieves the roll count data for employers based on the given date range filter.
+     * This method retrieves the roll count data for employees based on the given date range filter.
      *
-     * @param DateRangeFilter $filter
+     * @param DateRangeFilter $dateRangeFilter
      *
-     * @return EmployerRollCountData[]
+     * @return EmployeeRollCountData[]
      */
-    public function findByDateRangeForEmployers(DateRangeFilter $filter): array
+    public function findEmployeeProcessCounts(DateRangeFilter $dateRangeFilter): array
     {
         $qb = $this->createQueryBuilder('h')
             ->select(
@@ -135,22 +135,21 @@ class HistoryRepository extends ServiceEntityRepository implements HistoryReposi
             ->setParameter('glowCheckIn', Process::GLOW_CHECK_IN)
             ->setParameter('cuttingCheckIn', Process::CUTTING_CHECK_IN);
 
-        // Apply date filters if present
-        if ($filter->from) {
+        if ($dateRangeFilter->from) {
             $qb->andWhere('h.happenedAt >= :from')
-                ->setParameter('from', $filter->to);
+                ->setParameter('from', $dateRangeFilter->to);
         }
 
-        if ($filter->to) {
+        if ($dateRangeFilter->to) {
             $qb->andWhere('h.happenedAt <= :to')
-                ->setParameter('to', $filter->to);
+                ->setParameter('to', $dateRangeFilter->to);
         }
 
         $result = $qb->getQuery()->getResult();
 
         $dtoArray = [];
         foreach ($result as $row) {
-            $dtoArray[] = new EmployerRollCountData(
+            $dtoArray[] = new EmployeeRollCountData(
                 employeeId: $row['employeeId'],
                 total: $row['total'],
                 orderCheckIn: $row['order_check_in'],

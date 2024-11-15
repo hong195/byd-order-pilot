@@ -20,7 +20,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
  * @throws \DateMalformedStringException if the provided date strings are malformed
  */
 #[AsController]
-#[Route('/api/rolls/employer-roll-count', name: 'fetch_employer_roll_count', methods: ['GET'])]
+#[Route('/api/rolls/employee-roll-count', name: 'fetch_employee_roll_count', methods: ['GET'])]
 readonly class FindEmployerRollCountStatistics
 {
     /**
@@ -44,12 +44,12 @@ readonly class FindEmployerRollCountStatistics
         $from = $request->query->get('from') ? new \DateTimeImmutable($request->query->get('from')) : null;
         $to = $request->query->get('to') ? new \DateTimeImmutable($request->query->get('to')) : null;
 
-        $filter = new DateRangeFilter(
+        $dateRangeFilter = new DateRangeFilter(
             from: $from,
             to: $to
         );
 
-        $result = $this->privateQueryInteractor->fetchEmployerRollCountStatistics(filter: $filter);
+        $result = $this->privateQueryInteractor->fetchEmployeeRollCountStatistics($dateRangeFilter);
 
         $normalizedResult = $this->normalizer->normalize($result);
 

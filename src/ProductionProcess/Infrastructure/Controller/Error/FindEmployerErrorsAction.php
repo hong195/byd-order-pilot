@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Infrastructure\Controller\Error;
 
 use App\ProductionProcess\Application\UseCase\PrivateQueryInteractor;
-use App\ProductionProcess\Application\UseCase\Query\FindEmployerErrors\FindEmployerErrorsQuery;
 use App\Shared\Domain\Repository\DateRangeFilter;
 use App\Shared\Infrastructure\Controller\BaseController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -27,7 +26,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
  * @Route("/api/rolls/{id}", requirements={"id"="\d+"}, methods={"GET"})
  */
 #[AsController]
-#[Route('/api/employer-errors', name: 'find_employer_errors_list', methods: ['GET'])]
+#[Route('/api/employee-errors', name: 'find_employee_errors_list', methods: ['GET'])]
 final class FindEmployerErrorsAction extends BaseController
 {
     /**
@@ -54,13 +53,12 @@ final class FindEmployerErrorsAction extends BaseController
         $from = $request->query->get('from') ? new \DateTimeImmutable($request->query->get('from')) : null;
         $to = $request->query->get('to') ? new \DateTimeImmutable($request->query->get('to')) : null;
 
-        $filter = new DateRangeFilter(
+        $dateRangeFilter = new DateRangeFilter(
             from: $from,
             to: $to
         );
 
-
-        $result = $this->privateQueryInteractor->findEmployerErrors($filter);
+        $result = $this->privateQueryInteractor->findEmployeeErrors($dateRangeFilter);
 
         $result = $this->normalizer->normalize($result);
 

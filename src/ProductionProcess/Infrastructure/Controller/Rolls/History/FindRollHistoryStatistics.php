@@ -12,7 +12,7 @@
 namespace App\ProductionProcess\Infrastructure\Controller\Rolls\History;
 
 use App\ProductionProcess\Application\UseCase\PrivateQueryInteractor;
-use App\ProductionProcess\Domain\Repository\Statistics\RollHistory\FetchRollHistoryStatisticsFilter;
+use App\ProductionProcess\Domain\Repository\RollHistory\FetchRollHistoryStatisticsFilter;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;

@@ -7,7 +7,7 @@
 
 namespace App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics;
 
-use App\ProductionProcess\Domain\Repository\Statistics\RollHistory\FetchRollHistoryStatisticsFilter;
+use App\ProductionProcess\Domain\Repository\RollHistory\FetchRollHistoryStatisticsFilter;
 use App\Shared\Application\Query\Query;
 
 /**
@@ -20,13 +20,5 @@ final readonly class FetchRollHistoryStatisticsQuery extends Query
      */
     public function __construct(public FetchRollHistoryStatisticsFilter $filter)
     {
-    }
-
-    /**
-     * @return FetchRollHistoryStatisticsFilter
-     */
-    public function getFilter(): FetchRollHistoryStatisticsFilter
-    {
-        return $this->filter;
     }
 }
