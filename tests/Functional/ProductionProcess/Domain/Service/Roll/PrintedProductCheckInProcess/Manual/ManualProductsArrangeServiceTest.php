@@ -45,8 +45,8 @@ class ManualProductsArrangeServiceTest extends AbstractTestCase
      */
     public function test_it_throws_exception_when_printed_products_have_different_film_type(): void
     {
-        $pp1 = $this->prepareProduct($this->getFaker()->word());
-        $pp2 = $this->prepareProduct($this->getFaker()->word());
+        $pp1 = $this->createPreparedProduct($this->getFaker()->word());
+        $pp2 = $this->createPreparedProduct($this->getFaker()->word());
 
         $this->expectException(ManualArrangeException::class);
 
@@ -59,8 +59,8 @@ class ManualProductsArrangeServiceTest extends AbstractTestCase
     public function test_it_throws_exception_when_printed_products_handled_by_different_printers(): void
     {
         // see prod_process_printer_condition for available options
-        $pp1 = $this->prepareProduct('chrome', 0.5);
-        $pp2 = $this->prepareProduct('white', 0.5, 'holo_flakes');
+        $pp1 = $this->createPreparedProduct('chrome', 0.5);
+        $pp2 = $this->createPreparedProduct('white', 0.5, 'holo_flakes');
 
         $this->expectException(ManualArrangeException::class);
 
@@ -74,8 +74,8 @@ class ManualProductsArrangeServiceTest extends AbstractTestCase
     {
         $firstAvailableFilm = $this->getAvailableFilm();
 
-        $pp1 = $this->prepareProduct($firstAvailableFilm->filmType, $firstAvailableFilm->length * 2);
-        $pp2 = $this->prepareProduct($firstAvailableFilm->filmType, $firstAvailableFilm->length * 2);
+        $pp1 = $this->createPreparedProduct($firstAvailableFilm->filmType, $firstAvailableFilm->length * 2);
+        $pp2 = $this->createPreparedProduct($firstAvailableFilm->filmType, $firstAvailableFilm->length * 2);
 
         $this->expectException(InventoryFilmIsNotAvailableException::class);
 
@@ -90,16 +90,16 @@ class ManualProductsArrangeServiceTest extends AbstractTestCase
     {
         $firstAvailableFilm = $this->getAvailableFilm();
 
-        $pp1 = $this->prepareProduct($firstAvailableFilm->filmType, $firstAvailableFilm->length / 2);
-        $pp2 = $this->prepareProduct($firstAvailableFilm->filmType, $firstAvailableFilm->length / 2);
+        $pp1 = $this->createPreparedProduct($firstAvailableFilm->filmType, $firstAvailableFilm->length / 2);
+        $pp2 = $this->createPreparedProduct($firstAvailableFilm->filmType, $firstAvailableFilm->length / 2);
 
         $this->manualProductsArrangeService->arrange([$pp1->getId(), $pp2->getId()]);
 
         $manuallyArrangedProduct1 = $this->printedProductRepository->findById($pp1->getId());
         $manuallyArrangedProduct2 = $this->printedProductRepository->findById($pp1->getId());
 
-        $this->assertNotEmpty($manuallyArrangedProduct2->getRoll()->getId());
-        $this->assertNotEmpty($manuallyArrangedProduct1->getRoll()->getId());
+        $this->assertNotEmpty($manuallyArrangedProduct2->getRoll());
+        $this->assertNotEmpty($manuallyArrangedProduct1->getRoll());
         $this->assertTrue($manuallyArrangedProduct1->getRoll()->getId() === $manuallyArrangedProduct2->getRoll()->getId());
     }
 
@@ -116,10 +116,10 @@ class ManualProductsArrangeServiceTest extends AbstractTestCase
         // the length will be divided into 3 parts, to make sure service will arrange the products
         $availableFilmLength = $firstAvailableFilm->length;
 
-        $this->prepareRoll($firstAvailableFilm->filmType, $availableFilmLength / 3, $firstAvailableFilm->id);
+        $this->createPreparedRoll($firstAvailableFilm->filmType, $availableFilmLength / 3, $firstAvailableFilm->id);
 
-        $pp1 = $this->prepareProduct($firstAvailableFilm->filmType, $availableFilmLength / 3);
-        $pp2 = $this->prepareProduct($firstAvailableFilm->filmType, $availableFilmLength / 3);
+        $pp1 = $this->createPreparedProduct($firstAvailableFilm->filmType, $availableFilmLength / 3);
+        $pp2 = $this->createPreparedProduct($firstAvailableFilm->filmType, $availableFilmLength / 3);
 
         $this->manualProductsArrangeService->arrange([$pp1->getId(), $pp2->getId()]);
 
@@ -140,11 +140,11 @@ class ManualProductsArrangeServiceTest extends AbstractTestCase
         $firstAvailableFilm = $availableFilms->first();
 
         foreach ($availableFilms as $availableFilm) {
-            $this->prepareRoll($availableFilm->filmType, $availableFilm->length, $availableFilm->id);
+            $this->createPreparedRoll($availableFilm->filmType, $availableFilm->length, $availableFilm->id);
         }
 
-        $pp1 = $this->prepareProduct($firstAvailableFilm->filmType, $firstAvailableFilm->length / 3);
-        $pp2 = $this->prepareProduct($firstAvailableFilm->filmType, $firstAvailableFilm->length / 3);
+        $pp1 = $this->createPreparedProduct($firstAvailableFilm->filmType, $firstAvailableFilm->length / 3);
+        $pp2 = $this->createPreparedProduct($firstAvailableFilm->filmType, $firstAvailableFilm->length / 3);
 
         $this->expectException(InventoryFilmIsNotAvailableException::class);
 
@@ -157,10 +157,10 @@ class ManualProductsArrangeServiceTest extends AbstractTestCase
         $this->assertNull($notArrangedProduct2->getRoll());
     }
 
-    private function prepareRoll(string $filmType, float $length, int $filmId): Roll
+    private function createPreparedRoll(string $filmType, float $length, int $filmId): Roll
     {
         $rollReadyForPrinting = $this->loadRoll();
-        $rollReadyForPrinting->addPrintedProduct($this->prepareProduct($filmType, $length));
+        $rollReadyForPrinting->addPrintedProduct($this->createPreparedProduct($filmType, $length));
         $rollReadyForPrinting->updateProcess(Process::ORDER_CHECK_IN);
         $rollReadyForPrinting->setFilmId($filmId);
 
@@ -180,7 +180,7 @@ class ManualProductsArrangeServiceTest extends AbstractTestCase
         return $availableFilms->first();
     }
 
-    private function prepareProduct(?string $filmType, float $length = 0, ?string $lamination = null): PrintedProduct
+    private function createPreparedProduct(?string $filmType, float $length = 0, ?string $lamination = null): PrintedProduct
     {
         $printedProduct = new PrintedProduct(
             relatedProductId: $this->getFaker()->randomDigit(),
