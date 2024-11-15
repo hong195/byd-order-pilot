@@ -17,7 +17,7 @@ namespace App\ProductionProcess\Domain\Repository\Statistics\Errors;
 use App\Shared\Domain\Repository\DateRangeFilter;
 
 /**
- * Filter class for getting Employee errors
+ * Filter class for getting Employee errors.
  */
 final class ErrorFilter
 {
