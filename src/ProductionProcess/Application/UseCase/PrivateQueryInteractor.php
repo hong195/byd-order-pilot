@@ -169,6 +169,7 @@ readonly class PrivateQueryInteractor
 
     /**
      * @param FetchRollHistoryStatisticsFilter $filter
+     *
      * @return FetchRollHistoryStatisticsResult
      */
     public function fetchRollHistoryStatistics(FetchRollHistoryStatisticsFilter $filter): FetchRollHistoryStatisticsResult
@@ -180,6 +181,7 @@ readonly class PrivateQueryInteractor
 
     /**
      * @param DateRangeFilter $dateRangeFilter
+     *
      * @return FetchEmployeeRollCountStatisticsResult
      */
     public function fetchEmployeeRollCountStatistics(DateRangeFilter $dateRangeFilter): FetchEmployeeRollCountStatisticsResult
