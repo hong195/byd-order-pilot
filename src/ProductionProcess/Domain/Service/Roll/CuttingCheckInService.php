@@ -8,6 +8,7 @@ use App\ProductionProcess\Domain\Events\RollWasSentToCutCheckInEvent;
 use App\ProductionProcess\Domain\Exceptions\RollCantBeSentToCuttingException;
 use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
 use App\ProductionProcess\Domain\ValueObject\Process;
+use App\Shared\Domain\Exception\DomainException;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 
 /**
@@ -27,13 +28,14 @@ final readonly class CuttingCheckInService
     {
     }
 
-    /**
-     * Handle the roll.
-     *
-     * @param int $rollId the ID of the roll
-     *
-     * @throws RollCantBeSentToCuttingException
-     */
+	/**
+	 * Handle the roll.
+	 *
+	 * @param int $rollId the ID of the roll
+	 *
+	 * @throws RollCantBeSentToCuttingException
+	 * @throws DomainException
+	 */
     public function handle(int $rollId): void
     {
         $roll = $this->rollRepository->findById($rollId);

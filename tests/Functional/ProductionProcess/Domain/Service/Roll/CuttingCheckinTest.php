@@ -11,6 +11,7 @@ use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
 use App\ProductionProcess\Domain\Service\Roll\CuttingCheckInService;
 use App\ProductionProcess\Domain\Service\Roll\GeneralProcessValidation;
 use App\ProductionProcess\Domain\ValueObject\Process;
+use App\Shared\Domain\Exception\DomainException;
 use App\Tests\Functional\AbstractTestCase;
 use App\Tests\Tools\FakerTools;
 use App\Tests\Tools\FixtureTools;
@@ -53,18 +54,26 @@ final class CuttingCheckinTest extends AbstractTestCase
         }
     }
 
+    /**
+     * @throws DomainException
+     */
     public function test_it_throws_exception_when_send_roll_to_cutting_checkin_process_from_incorrect_processes(): void
     {
-        $roll = $this->loadPreparedRoll();
-        $incorrectProcess = [Process::ORDER_CHECK_IN, Process::PRINTING_CHECK_IN, Process::CUTTING_CHECK_IN];
+        $roll1 = $this->loadPreparedRoll();
+        $roll1->updateProcess(Process::ORDER_CHECK_IN);
+        $roll2 = $this->loadPreparedRoll();
+        $roll2->updateProcess(Process::CUTTING_CHECK_IN);
 
-        foreach ($incorrectProcess as $process) {
-            $roll->updateProcess($process);
-            $this->rollRepository->save($roll);
+        $this->entityManager->persist($roll1);
+        $this->entityManager->persist($roll2);
 
-            $this->expectException(RollCantBeSentToCuttingException::class);
-            $this->checkInService->handle($roll->getId());
-        }
+        $this->entityManager->flush();
+
+		$this->expectException(RollCantBeSentToCuttingException::class);
+		$this->checkInService->handle($roll1->getId());
+
+		$this->expectException(RollCantBeSentToCuttingException::class);
+		$this->checkInService->handle($roll2->getId());
     }
 
     /**
