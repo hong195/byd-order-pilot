@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Application\UseCase\Query\FindPrintedProducts;
 
 use App\ProductionProcess\Application\Service\PrintedProduct\PrintedProductListService;
-use App\ProductionProcess\Domain\Repository\PrintedProductFilter;
+use App\ProductionProcess\Domain\Repository\PrintedProduct\PrintedProductFilter;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Query\QueryHandlerInterface;
 use App\Shared\Domain\Service\AssertService;

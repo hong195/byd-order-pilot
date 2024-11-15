@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\ProductionProcess\Domain\Repository;
+namespace App\ProductionProcess\Domain\Repository\PrintedProduct;
 
 /**
  * Class PrintedProductsFilter.

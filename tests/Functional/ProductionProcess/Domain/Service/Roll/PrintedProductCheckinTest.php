@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Tests\Functional\ProductionProcess\Domain\Service\Roll;
 
-use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
+use  App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
 use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\AutoArrangePrintedProductsService;
 use App\Tests\Functional\AbstractTestCase;
 use App\Tests\Tools\FakerTools;

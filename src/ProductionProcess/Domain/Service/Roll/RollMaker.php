@@ -6,7 +6,7 @@ namespace App\ProductionProcess\Domain\Service\Roll;
 
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
 use App\ProductionProcess\Domain\Factory\RollFactory;
-use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
+use  App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
 use App\ProductionProcess\Domain\ValueObject\Process;
 
 /**

@@ -6,7 +6,7 @@ namespace App\Tests\Functional\ProductionProcess\Domain\Service\Roll;
 
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
 use App\ProductionProcess\Domain\Exceptions\LockingRollException;
-use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
+use  App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
 use App\ProductionProcess\Domain\Service\Roll\LockRollService;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use App\Shared\Domain\Exception\DomainException;

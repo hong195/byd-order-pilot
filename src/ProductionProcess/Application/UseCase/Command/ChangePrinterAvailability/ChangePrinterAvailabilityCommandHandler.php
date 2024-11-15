@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Application\UseCase\Command\ChangePrinterAvailability;
 
-use App\ProductionProcess\Domain\Repository\PrinterRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\Printer\PrinterRepositoryInterface;
 use App\Shared\Application\Command\CommandHandlerInterface;
 
 /**

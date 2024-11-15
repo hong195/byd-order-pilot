@@ -10,7 +10,7 @@ use App\ProductionProcess\Domain\Exceptions\InventoryFilmIsNotAvailableException
 use App\ProductionProcess\Domain\Exceptions\NotEnoughFilmLengthToPrintTheRollException;
 use App\ProductionProcess\Domain\Exceptions\PrinterIsNotAvailableException;
 use App\ProductionProcess\Domain\Exceptions\RollCantBeSentToPrintException;
-use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
+use  App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
 use App\ProductionProcess\Domain\Service\Inventory\AvailableFilmServiceInterface;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;

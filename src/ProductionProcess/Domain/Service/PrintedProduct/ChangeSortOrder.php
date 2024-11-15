@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Domain\Service\PrintedProduct;
 
 use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
-use App\ProductionProcess\Domain\Repository\PrintedProductRepositoryInterface;
-use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\PrintedProduct\PrintedProductRepositoryInterface;
+use  App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**

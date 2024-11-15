@@ -13,8 +13,8 @@ use App\ProductionProcess\Domain\Exceptions\NotEnoughFilmLengthToPrintTheRollExc
 use App\ProductionProcess\Domain\Exceptions\PrinterIsNotAvailableException;
 use App\ProductionProcess\Domain\Exceptions\RollCantBeSentToPrintException;
 use App\ProductionProcess\Domain\Factory\PrintedProductFactory;
-use App\ProductionProcess\Domain\Repository\PrinterRepositoryInterface;
-use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\Printer\PrinterRepositoryInterface;
+use  App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
 use App\ProductionProcess\Domain\Service\Inventory\AvailableFilmServiceInterface;
 use App\ProductionProcess\Domain\Service\Roll\GeneralProcessValidation;
 use App\ProductionProcess\Domain\Service\Roll\PrintCheckInService;

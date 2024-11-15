@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Tests\Functional\ProductionProcess\Domain\Service\Printer;
 
 use App\ProductionProcess\Domain\Aggregate\Printer\Printer;
-use App\ProductionProcess\Domain\Repository\ConditionRepositoryInterface;
-use App\ProductionProcess\Domain\Repository\PrinterRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\Printer\ConditionRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\Printer\PrinterRepositoryInterface;
 use App\ProductionProcess\Domain\Service\Printer\InitPrintersService;
 use App\Tests\Functional\AbstractTestCase;
 use App\Tests\Tools\FakerTools;

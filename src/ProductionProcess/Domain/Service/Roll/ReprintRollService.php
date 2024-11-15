@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Domain\Service\Roll;
 
 use App\ProductionProcess\Domain\Exceptions\RollErrorManagementException;
-use App\ProductionProcess\Domain\Repository\PrintedProductRepositoryInterface;
-use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\PrintedProduct\PrintedProductRepositoryInterface;
+use  App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
 use App\ProductionProcess\Domain\Service\PrintedProduct\Error\ErrorManagementService;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use App\Shared\Infrastructure\Security\UserFetcher;

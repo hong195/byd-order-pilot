@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Domain\Service\PrintedProduct;
 
-use App\ProductionProcess\Domain\Repository\PrintedProductRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\PrintedProduct\PrintedProductRepositoryInterface;
 use App\ProductionProcess\Domain\Service\Roll\CheckRemainingProductsService;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 

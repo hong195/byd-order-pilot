@@ -1,6 +1,6 @@
 <?php
 
-namespace App\ProductionProcess\Domain\Repository;
+namespace App\ProductionProcess\Domain\Repository\PrintedProduct;
 
 use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use Doctrine\Common\Collections\Collection;

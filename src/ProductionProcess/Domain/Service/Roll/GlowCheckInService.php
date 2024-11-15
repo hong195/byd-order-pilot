@@ -8,7 +8,7 @@ use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
 use App\ProductionProcess\Domain\Events\RollsWereSentToGlowCheckInEvent;
 use App\ProductionProcess\Domain\Exceptions\RollCantBeSentToGlowException;
-use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
+use  App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
 use App\ProductionProcess\Domain\Service\PrintedProduct\GroupService;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use Doctrine\Common\Collections\ArrayCollection;

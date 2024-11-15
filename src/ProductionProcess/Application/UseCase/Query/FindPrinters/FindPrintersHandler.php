@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Application\UseCase\Query\FindPrinters;
 
 use App\ProductionProcess\Application\DTO\Printer\PrinterDataTransformer;
-use App\ProductionProcess\Domain\Repository\PrinterRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\Printer\PrinterRepositoryInterface;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Query\QueryHandlerInterface;
 use App\Shared\Domain\Service\AssertService;

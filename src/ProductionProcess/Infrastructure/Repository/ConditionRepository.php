@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Infrastructure\Repository;
 
 use App\ProductionProcess\Domain\Aggregate\Printer\Condition;
-use App\ProductionProcess\Domain\Repository\ConditionRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\Printer\ConditionRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;

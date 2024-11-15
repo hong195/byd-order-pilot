@@ -10,9 +10,9 @@ use App\ProductionProcess\Application\DTO\Roll\RollData;
 use App\ProductionProcess\Application\DTO\Roll\RollDataTransformer;
 use App\ProductionProcess\Application\Service\Employee\EmployeeFetcher;
 use App\ProductionProcess\Domain\Aggregate\Printer\Printer;
-use App\ProductionProcess\Domain\Repository\PrinterRepositoryInterface;
-use App\ProductionProcess\Domain\Repository\RollFilter;
-use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\Printer\PrinterRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\Roll\RollFilter;
+use  App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 

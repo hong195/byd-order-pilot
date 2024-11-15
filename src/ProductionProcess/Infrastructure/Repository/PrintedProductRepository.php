@@ -3,8 +3,8 @@
 namespace App\ProductionProcess\Infrastructure\Repository;
 
 use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
-use App\ProductionProcess\Domain\Repository\PrintedProductFilter;
-use App\ProductionProcess\Domain\Repository\PrintedProductRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\PrintedProduct\PrintedProductFilter;
+use App\ProductionProcess\Domain\Repository\PrintedProduct\PrintedProductRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;

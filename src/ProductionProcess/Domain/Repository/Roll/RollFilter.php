@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\ProductionProcess\Domain\Repository;
+namespace App\ProductionProcess\Domain\Repository\Roll;
 
 use App\ProductionProcess\Domain\ValueObject\Process;
 

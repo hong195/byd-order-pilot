@@ -6,7 +6,7 @@ namespace App\ProductionProcess\Application\Service\PrintedProduct;
 
 use App\ProductionProcess\Application\DTO\PrintedProduct\CreatedPrintedProductData;
 use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
-use App\ProductionProcess\Domain\Repository\PrintedProductRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\PrintedProduct\PrintedProductRepositoryInterface;
 
 /**
  * Class RollMaker.

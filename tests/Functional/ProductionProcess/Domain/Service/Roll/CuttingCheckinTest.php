@@ -7,7 +7,7 @@ namespace App\Tests\Functional\ProductionProcess\Domain\Service\Roll;
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
 use App\ProductionProcess\Domain\Events\RollWasSentToCutCheckInEvent;
 use App\ProductionProcess\Domain\Exceptions\RollCantBeSentToCuttingException;
-use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
+use  App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
 use App\ProductionProcess\Domain\Service\Roll\CuttingCheckInService;
 use App\ProductionProcess\Domain\Service\Roll\GeneralProcessValidation;
 use App\ProductionProcess\Domain\ValueObject\Process;

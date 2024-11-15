@@ -1,6 +1,6 @@
 <?php
 
-namespace App\ProductionProcess\Domain\Repository;
+namespace App\ProductionProcess\Domain\Repository\Roll;
 
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
 use Doctrine\Common\Collections\Collection;

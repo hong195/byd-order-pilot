@@ -6,7 +6,7 @@ namespace App\ProductionProcess\Domain\Service\Roll;
 
 use App\ProductionProcess\Domain\Events\RollWasSentToCutCheckInEvent;
 use App\ProductionProcess\Domain\Exceptions\RollCantBeSentToCuttingException;
-use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
+use  App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use App\Shared\Domain\Exception\DomainException;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;

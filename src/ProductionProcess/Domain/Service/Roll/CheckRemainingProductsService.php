@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Domain\Service\Roll;
 
-use App\ProductionProcess\Domain\Repository\PrinterRepositoryInterface;
-use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\Printer\PrinterRepositoryInterface;
+use  App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 final readonly class CheckRemainingProductsService

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Application\UseCase\Query\FindPrintedProduct;
 
 use App\ProductionProcess\Application\DTO\PrintedProduct\PrintedProductDataTransformer;
-use App\ProductionProcess\Domain\Repository\PrintedProductRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\PrintedProduct\PrintedProductRepositoryInterface;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Query\QueryHandlerInterface;
 use App\Shared\Domain\Service\AssertService;

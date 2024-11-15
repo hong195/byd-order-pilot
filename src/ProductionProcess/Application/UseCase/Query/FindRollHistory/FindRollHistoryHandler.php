@@ -6,7 +6,7 @@ namespace App\ProductionProcess\Application\UseCase\Query\FindRollHistory;
 
 use App\ProductionProcess\Application\DTO\RollDataTransformer;
 use App\ProductionProcess\Application\Service\Roll\History\HistoryListService;
-use App\ProductionProcess\Domain\Repository\RollRepositoryInterface;
+use  App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Query\QueryHandlerInterface;
 use App\Shared\Domain\Service\AssertService;

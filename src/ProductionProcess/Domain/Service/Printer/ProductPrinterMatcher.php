@@ -7,7 +7,7 @@ namespace App\ProductionProcess\Domain\Service\Printer;
 use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use App\ProductionProcess\Domain\Aggregate\Printer\Printer;
 use App\ProductionProcess\Domain\Exceptions\PrinterMatchException;
-use App\ProductionProcess\Domain\Repository\ConditionRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\Printer\ConditionRepositoryInterface;
 
 final readonly class ProductPrinterMatcher
 {
