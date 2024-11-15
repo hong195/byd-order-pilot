@@ -6,16 +6,16 @@
  * and return the result.
  */
 
-namespace App\ProductionProcess\Application\UseCase\Query\FetchEmployerRollCountStatistics;
+namespace App\ProductionProcess\Application\UseCase\Query\FetchEmployeeRollCountStatistics;
 
 use App\ProductionProcess\Application\Service\Roll\History\EmployeeRollCountListService;
 use App\ProductionProcess\Domain\Repository\Roll\RollHistory\HistoryRepositoryInterface;
 use App\Shared\Application\Query\QueryHandlerInterface;
 
 /**
- * Class FetchRollHistoryStatisticsQueryHandler.
+ * Class FetchEmployeeRollCountStatisticsQueryHandler.
  */
-final readonly class FetchEmployerRollCountStatisticsQueryHandler implements QueryHandlerInterface
+final readonly class FetchEmployeeRollCountStatisticsQueryHandler implements QueryHandlerInterface
 {
     /**
      * @param HistoryRepositoryInterface   $repository

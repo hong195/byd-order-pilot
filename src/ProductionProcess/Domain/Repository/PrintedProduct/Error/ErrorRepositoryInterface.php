@@ -41,5 +41,5 @@ interface ErrorRepositoryInterface
      *
      * @return EmployeeErrorData[] An array of entities that match the provided error filter
      */
-    public function findEmployerErrorsByDateRangeFilter(DateRangeFilter $dateRangeFilter): array;
+    public function findEmployeeErrorsByDateRangeFilter(DateRangeFilter $dateRangeFilter): array;
 }

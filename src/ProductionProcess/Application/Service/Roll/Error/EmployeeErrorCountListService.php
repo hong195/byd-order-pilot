@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Class EmployerRollCountListService.
+ * Class EmployeeRollCountListService.
  */
 
 namespace App\ProductionProcess\Application\Service\Roll\Error;
@@ -13,7 +13,7 @@ use App\ProductionProcess\Application\DTO\Error\EmployeeErrorDataTransformer;
 use App\ProductionProcess\Application\Service\Employee\EmployeeFetcher;
 
 /**
- * Class EmployerRollCountListService.
+ * Class EmployeeRollCountListService.
  *
  * The purpose of this service is to add responsible employee name to EmployeeErrorData
  */

@@ -5,7 +5,7 @@
  * required to fetch the roll history statistics within the production process context.
  */
 
-namespace App\ProductionProcess\Application\UseCase\Query\FetchEmployerRollCountStatistics;
+namespace App\ProductionProcess\Application\UseCase\Query\FetchEmployeeRollCountStatistics;
 
 use App\Shared\Application\Query\Query;
 use App\Shared\Domain\Repository\DateRangeFilter;

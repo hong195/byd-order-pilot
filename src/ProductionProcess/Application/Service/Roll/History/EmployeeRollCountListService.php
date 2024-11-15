@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Class EmployerRollCountListService.
+ * Class EmployeeRollCountListService.
  */
 
 namespace App\ProductionProcess\Application\Service\Roll\History;
@@ -12,7 +12,7 @@ use App\ProductionProcess\Application\DTO\EmployeeRollCountData;
 use App\ProductionProcess\Application\Service\Employee\EmployeeFetcher;
 
 /**
- * Class EmployerRollCountListService.
+ * Class EmployeeRollCountListService.
  */
 final readonly class EmployeeRollCountListService
 {

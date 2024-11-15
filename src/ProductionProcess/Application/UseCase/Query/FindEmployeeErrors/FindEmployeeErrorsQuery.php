@@ -8,7 +8,7 @@ declare(strict_types=1);
  * This class represents a query to find employee errors within a specified date range.
  */
 
-namespace App\ProductionProcess\Application\UseCase\Query\FindEmployerErrors;
+namespace App\ProductionProcess\Application\UseCase\Query\FindEmployeeErrors;
 
 use App\Shared\Application\Query\Query;
 use App\Shared\Domain\Repository\DateRangeFilter;

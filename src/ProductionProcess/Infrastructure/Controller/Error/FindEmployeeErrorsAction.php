@@ -27,7 +27,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
  */
 #[AsController]
 #[Route('/api/employee-errors', name: 'find_employee_errors_list', methods: ['GET'])]
-final class FindEmployerErrorsAction extends BaseController
+final class FindEmployeeErrorsAction extends BaseController
 {
     /**
      * Class constructor.

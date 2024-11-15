@@ -6,7 +6,7 @@ declare(strict_types=1);
  * Represents the result of fetching roll history statistics.
  */
 
-namespace App\ProductionProcess\Application\UseCase\Query\FetchEmployerRollCountStatistics;
+namespace App\ProductionProcess\Application\UseCase\Query\FetchEmployeeRollCountStatistics;
 
 use App\ProductionProcess\Application\DTO\EmployeeRollCountData;
 

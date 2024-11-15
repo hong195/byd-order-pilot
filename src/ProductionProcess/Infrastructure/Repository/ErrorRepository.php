@@ -125,7 +125,7 @@ class ErrorRepository extends ServiceEntityRepository implements ErrorRepository
      *
      * @return EmployeeErrorData[] An array of entities that match the provided error filter
      */
-    public function findEmployerErrorsByDateRangeFilter(DateRangeFilter $dateRangeFilter): array
+    public function findEmployeeErrorsByDateRangeFilter(DateRangeFilter $dateRangeFilter): array
     {
         $qb = $this->createQueryBuilder('e')
             ->select(

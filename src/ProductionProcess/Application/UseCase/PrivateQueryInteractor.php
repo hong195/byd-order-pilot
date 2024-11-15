@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Application\UseCase;
 
-use App\ProductionProcess\Application\UseCase\Query\FetchEmployerRollCountStatistics\FetchEmployeeRollCountStatisticsQuery;
-use App\ProductionProcess\Application\UseCase\Query\FetchEmployerRollCountStatistics\FetchEmployeeRollCountStatisticsResult;
+use App\ProductionProcess\Application\UseCase\Query\FetchEmployeeRollCountStatistics\FetchEmployeeRollCountStatisticsQuery;
+use App\ProductionProcess\Application\UseCase\Query\FetchEmployeeRollCountStatistics\FetchEmployeeRollCountStatisticsResult;
 use App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics\FetchRollHistoryStatisticsQuery;
 use App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics\FetchRollHistoryStatisticsResult;
 use App\ProductionProcess\Application\UseCase\Query\FindARoll\FindARollQuery;
 use App\ProductionProcess\Application\UseCase\Query\FindARoll\FindARollResult;
-use App\ProductionProcess\Application\UseCase\Query\FindEmployerErrors\FindEmployeeErrorsQuery;
-use App\ProductionProcess\Application\UseCase\Query\FindEmployerErrors\FindEmployeeErrorsResult;
+use App\ProductionProcess\Application\UseCase\Query\FindEmployeeErrors\FindEmployeeErrorsQuery;
+use App\ProductionProcess\Application\UseCase\Query\FindEmployeeErrors\FindEmployeeErrorsResult;
 use App\ProductionProcess\Application\UseCase\Query\FindErrors\FindErrorsQuery;
 use App\ProductionProcess\Application\UseCase\Query\FindErrors\FindErrorsResult;
 use App\ProductionProcess\Application\UseCase\Query\FindPrintedProduct\FindPrintedProductQuery;

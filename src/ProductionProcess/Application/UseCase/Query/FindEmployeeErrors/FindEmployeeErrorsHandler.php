@@ -6,7 +6,7 @@ declare(strict_types=1);
  * Handler for finding errors based on a query.
  */
 
-namespace App\ProductionProcess\Application\UseCase\Query\FindEmployerErrors;
+namespace App\ProductionProcess\Application\UseCase\Query\FindEmployeeErrors;
 
 use App\ProductionProcess\Application\Service\Roll\Error\EmployeeErrorCountListService;
 use App\ProductionProcess\Infrastructure\Repository\ErrorRepository;
@@ -41,7 +41,7 @@ final readonly class FindEmployeeErrorsHandler implements QueryHandlerInterface
     {
         AssertService::true($this->accessControlService->isGranted(), 'No access to handle the query');
 
-        $result = $this->repository->findEmployerErrorsByDateRangeFilter($query->dateRangeFilter);
+        $result = $this->repository->findEmployeeErrorsByDateRangeFilter($query->dateRangeFilter);
 
         $result = ($this->employeeErrorCountListService)($result);
 

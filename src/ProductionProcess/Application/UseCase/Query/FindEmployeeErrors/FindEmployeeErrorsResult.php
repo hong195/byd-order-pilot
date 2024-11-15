@@ -6,7 +6,7 @@ declare(strict_types=1);
  * Represents the result of finding errors in the production process.
  */
 
-namespace App\ProductionProcess\Application\UseCase\Query\FindEmployerErrors;
+namespace App\ProductionProcess\Application\UseCase\Query\FindEmployeeErrors;
 
 use App\ProductionProcess\Application\DTO\Error\EmployeeErrorData;
 
