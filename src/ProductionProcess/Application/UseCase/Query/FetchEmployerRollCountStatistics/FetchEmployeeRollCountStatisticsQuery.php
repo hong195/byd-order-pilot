@@ -13,7 +13,7 @@ use App\Shared\Domain\Repository\DateRangeFilter;
 /**
  *
  */
-final readonly class FetchEmployerRollCountStatisticsQuery extends Query
+final readonly class FetchEmployeeRollCountStatisticsQuery extends Query
 {
     /**
      * @param DateRangeFilter $dateRangeFilter

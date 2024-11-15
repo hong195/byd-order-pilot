@@ -17,12 +17,14 @@ use App\Shared\Domain\Service\AssertService;
 /**
  * Handler for finding errors based on a query.
  */
-final readonly class FindEmployerErrorsHandler implements QueryHandlerInterface
+final readonly class FindEmployeeErrorsHandler implements QueryHandlerInterface
 {
     /**
      * Constructor for the class.
      *
-     * @param AccessControlService $accessControlService the access control service dependency
+     * @param AccessControlService          $accessControlService          the access control service dependency
+     * @param ErrorRepository               $repository
+     * @param EmployerErrorCountListService $employerErrorCountListService
      */
     public function __construct(private AccessControlService $accessControlService, private ErrorRepository $repository, private EmployerErrorCountListService $employerErrorCountListService)
     {
@@ -31,11 +33,11 @@ final readonly class FindEmployerErrorsHandler implements QueryHandlerInterface
     /**
      * Invokes the handler to find errors based on the provided query.
      *
-     * @param FindEmployerErrorsQuery $query the query containing filter criteria
+     * @param FindEmployeeErrorsQuery $query the query containing filter criteria
      *
-     * @return FindEmployerErrorsResult the result of finding errors
+     * @return FindEmployeeErrorsResult the result of finding errors
      */
-    public function __invoke(FindEmployerErrorsQuery $query): FindEmployerErrorsResult
+    public function __invoke(FindEmployeeErrorsQuery $query): FindEmployeeErrorsResult
     {
         AssertService::true($this->accessControlService->isGranted(), 'No access to handle the query');
 
@@ -43,6 +45,6 @@ final readonly class FindEmployerErrorsHandler implements QueryHandlerInterface
 
         $result = ($this->employerErrorCountListService)($result);
 
-        return new FindEmployerErrorsResult($result);
+        return new FindEmployeeErrorsResult($result);
     }
 }

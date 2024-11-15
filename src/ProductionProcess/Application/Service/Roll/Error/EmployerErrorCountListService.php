@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Application\Service\Roll\Error;
 
 use App\ProductionProcess\Application\DTO\Error\EmployeeErrorData;
-use App\ProductionProcess\Application\DTO\Error\EmployerErrorDataTransformer;
+use App\ProductionProcess\Application\DTO\Error\EmployeeErrorDataTransformer;
 use App\ProductionProcess\Application\Service\Employee\EmployeeFetcher;
 
 /**
@@ -21,9 +21,9 @@ final readonly class EmployerErrorCountListService
 {
     /**
      * @param EmployeeFetcher              $employeeFetcher
-     * @param EmployerErrorDataTransformer $dataTransformer
+     * @param EmployeeErrorDataTransformer $dataTransformer
      */
-    public function __construct(private EmployeeFetcher $employeeFetcher, private EmployerErrorDataTransformer $dataTransformer)
+    public function __construct(private EmployeeFetcher $employeeFetcher, private EmployeeErrorDataTransformer $dataTransformer)
     {
     }
 

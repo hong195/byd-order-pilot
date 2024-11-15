@@ -11,7 +11,7 @@ namespace App\ProductionProcess\Application\DTO;
 /**
  * Represents the roll count data for an employee.
  */
-final class EmployerRollCountData
+final class EmployeeRollCountData
 {
     /**
      * Constructor to initialize the class with employee and check-in details.

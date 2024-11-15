@@ -4,8 +4,8 @@ namespace App\Tests\Functional\ProductionProcess\Infrastructure\Repository;
 
 use App\ProductionProcess\Domain\Aggregate\Error;
 use App\ProductionProcess\Domain\Factory\ErrorFactory;
-use App\ProductionProcess\Domain\Repository\Statistics\Errors\ErrorFilter;
-use App\ProductionProcess\Domain\Repository\Statistics\Errors\ErrorRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\Errors\ErrorFilter;
+use App\ProductionProcess\Domain\Repository\Errors\ErrorRepositoryInterface;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use App\Tests\Functional\AbstractTestCase;
 

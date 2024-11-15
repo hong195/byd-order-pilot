@@ -4,9 +4,9 @@
  * Interface HistoryRepositoryInterface.
  */
 
-namespace App\ProductionProcess\Domain\Repository\Statistics\RollHistory;
+namespace App\ProductionProcess\Domain\Repository\RollHistory;
 
-use App\ProductionProcess\Application\DTO\EmployerRollCountData;
+use App\ProductionProcess\Application\DTO\EmployeeRollCountData;
 use App\ProductionProcess\Domain\Aggregate\Roll\History\History;
 use App\Shared\Domain\Repository\DateRangeFilter;
 
@@ -41,7 +41,7 @@ interface HistoryRepositoryInterface
     /**
      * @param DateRangeFilter $dateRangeFilter
      *
-     * @return EmployerRollCountData[]
+     * @return EmployeeRollCountData[]
      */
-    public function findByDateRangeForEmployers(DateRangeFilter $dateRangeFilter): array;
+    public function findEmployeeProcessCounts(DateRangeFilter $dateRangeFilter): array;
 }

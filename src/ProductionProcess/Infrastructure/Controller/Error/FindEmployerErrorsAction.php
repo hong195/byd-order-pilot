@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Infrastructure\Controller\Error;
 
 use App\ProductionProcess\Application\UseCase\PrivateQueryInteractor;
-use App\ProductionProcess\Application\UseCase\Query\FindEmployerErrors\FindEmployerErrorsQuery;
 use App\Shared\Domain\Repository\DateRangeFilter;
 use App\Shared\Infrastructure\Controller\BaseController;
 use Symfony\Component\HttpFoundation\JsonResponse;

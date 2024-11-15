@@ -9,7 +9,7 @@
 namespace App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics;
 
 use App\ProductionProcess\Application\Service\Roll\History\HistoryStatisticsListService;
-use App\ProductionProcess\Domain\Repository\Statistics\RollHistory\HistoryRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\RollHistory\HistoryRepositoryInterface;
 use App\Shared\Application\Query\QueryHandlerInterface;
 
 /**

@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Application\UseCase;
 
-use App\ProductionProcess\Application\UseCase\Query\FetchEmployerRollCountStatistics\FetchEmployerRollCountStatisticsQuery;
-use App\ProductionProcess\Application\UseCase\Query\FetchEmployerRollCountStatistics\FetchEmployerRollCountStatisticsResult;
+use App\ProductionProcess\Application\UseCase\Query\FetchEmployerRollCountStatistics\FetchEmployeeRollCountStatisticsQuery;
+use App\ProductionProcess\Application\UseCase\Query\FetchEmployerRollCountStatistics\FetchEmployeeRollCountStatisticsResult;
 use App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics\FetchRollHistoryStatisticsQuery;
 use App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics\FetchRollHistoryStatisticsResult;
 use App\ProductionProcess\Application\UseCase\Query\FindARoll\FindARollQuery;
 use App\ProductionProcess\Application\UseCase\Query\FindARoll\FindARollResult;
-use App\ProductionProcess\Application\UseCase\Query\FindEmployerErrors\FindEmployerErrorsQuery;
-use App\ProductionProcess\Application\UseCase\Query\FindEmployerErrors\FindEmployerErrorsResult;
+use App\ProductionProcess\Application\UseCase\Query\FindEmployerErrors\FindEmployeeErrorsQuery;
+use App\ProductionProcess\Application\UseCase\Query\FindEmployerErrors\FindEmployeeErrorsResult;
 use App\ProductionProcess\Application\UseCase\Query\FindErrors\FindErrorsQuery;
 use App\ProductionProcess\Application\UseCase\Query\FindErrors\FindErrorsResult;
 use App\ProductionProcess\Application\UseCase\Query\FindPrintedProduct\FindPrintedProductQuery;
@@ -26,7 +26,7 @@ use App\ProductionProcess\Application\UseCase\Query\FindRolls\FindRollsQuery;
 use App\ProductionProcess\Application\UseCase\Query\FindRolls\FindRollsResult;
 use App\ProductionProcess\Application\UseCase\Query\GetPrintedProductsProcessDetail\GetPrintedProductsProcessDetailQuery;
 use App\ProductionProcess\Application\UseCase\Query\GetPrintedProductsProcessDetail\GetPrintedProductsProcessDetailResult;
-use App\ProductionProcess\Domain\Repository\Statistics\RollHistory\FetchRollHistoryStatisticsFilter;
+use App\ProductionProcess\Domain\Repository\RollHistory\FetchRollHistoryStatisticsFilter;
 use App\Shared\Application\Query\QueryBusInterface;
 use App\Shared\Domain\Repository\DateRangeFilter;
 
@@ -134,11 +134,11 @@ readonly class PrivateQueryInteractor
      *
      * @param DateRangeFilter $dateRangeFilter the query object containing the date range filter
      *
-     * @return FindEmployerErrorsResult the result of executing the query
+     * @return FindEmployeeErrorsResult the result of executing the query
      */
-    public function findEmployerErrors(DateRangeFilter $dateRangeFilter): FindEmployerErrorsResult
+    public function findEmployerErrors(DateRangeFilter $dateRangeFilter): FindEmployeeErrorsResult
     {
-        $query = new FindEmployerErrorsQuery(dateRangeFilter: $dateRangeFilter);
+        $query = new FindEmployeeErrorsQuery(dateRangeFilter: $dateRangeFilter);
 
         return $this->queryBus->execute($query);
     }
@@ -182,11 +182,11 @@ readonly class PrivateQueryInteractor
     /**
      * @param DateRangeFilter $dateRangeFilter
      *
-     * @return FetchEmployerRollCountStatisticsResult
+     * @return FetchEmployeeRollCountStatisticsResult
      */
-    public function fetchEmployerRollCountStatistics(DateRangeFilter $dateRangeFilter): FetchEmployerRollCountStatisticsResult
+    public function fetchEmployerRollCountStatistics(DateRangeFilter $dateRangeFilter): FetchEmployeeRollCountStatisticsResult
     {
-        $query = new FetchEmployerRollCountStatisticsQuery(dateRangeFilter: $dateRangeFilter);
+        $query = new FetchEmployeeRollCountStatisticsQuery(dateRangeFilter: $dateRangeFilter);
 
         return $this->queryBus->execute($query);
     }

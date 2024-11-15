@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Class FindEmployerErrorsQuery.
+ * Class FindEmployeeErrorsQuery.
  *
  * This class represents a query to find employer errors within a specified date range.
  */
@@ -18,7 +18,7 @@ use App\Shared\Domain\Repository\DateRangeFilter;
  *
  * This class represents a query to find rolls.
  */
-final readonly class FindEmployerErrorsQuery extends Query
+final readonly class FindEmployeeErrorsQuery extends Query
 {
     /**
      * @param DateRangeFilter $dateRangeFilter

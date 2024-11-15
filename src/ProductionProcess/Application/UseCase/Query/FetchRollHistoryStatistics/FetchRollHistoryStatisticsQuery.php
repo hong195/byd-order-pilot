@@ -7,7 +7,7 @@
 
 namespace App\ProductionProcess\Application\UseCase\Query\FetchRollHistoryStatistics;
 
-use App\ProductionProcess\Domain\Repository\Statistics\RollHistory\FetchRollHistoryStatisticsFilter;
+use App\ProductionProcess\Domain\Repository\RollHistory\FetchRollHistoryStatisticsFilter;
 use App\Shared\Application\Query\Query;
 
 /**

@@ -12,7 +12,7 @@ declare(strict_types=1);
  * @param \DateTimeImmutable|null $to                    the end date and time
  */
 
-namespace App\ProductionProcess\Domain\Repository\Statistics\Errors;
+namespace App\ProductionProcess\Domain\Repository\Errors;
 
 use App\Shared\Domain\Repository\DateRangeFilter;
 

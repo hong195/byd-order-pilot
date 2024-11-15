@@ -9,12 +9,14 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Application\DTO\Error;
 
 /**
- *
+ * A transformer for handling employee errors.
  */
-final readonly class EmployerErrorDataTransformer
+final readonly class EmployeeErrorDataTransformer
 {
     /**
-     * Converts from array to object array
+     * Converts from array to object array.
+     * @param iterable $errors
+     * @return array
      */
     public function fromErrorsList(iterable $errors): array
     {

@@ -10,8 +10,8 @@ namespace App\ProductionProcess\Infrastructure\Repository;
 
 use App\ProductionProcess\Application\DTO\Error\EmployeeErrorData;
 use App\ProductionProcess\Domain\Aggregate\Error;
-use App\ProductionProcess\Domain\Repository\Statistics\Errors\ErrorFilter;
-use App\ProductionProcess\Domain\Repository\Statistics\Errors\ErrorRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\Errors\ErrorFilter;
+use App\ProductionProcess\Domain\Repository\Errors\ErrorRepositoryInterface;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use App\Shared\Domain\Repository\DateRangeFilter;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;

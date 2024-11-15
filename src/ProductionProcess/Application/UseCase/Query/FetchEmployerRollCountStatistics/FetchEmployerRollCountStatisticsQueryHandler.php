@@ -8,8 +8,8 @@
 
 namespace App\ProductionProcess\Application\UseCase\Query\FetchEmployerRollCountStatistics;
 
-use App\ProductionProcess\Application\Service\Roll\History\EmployerRollCountListService;
-use App\ProductionProcess\Domain\Repository\Statistics\RollHistory\HistoryRepositoryInterface;
+use App\ProductionProcess\Application\Service\Roll\History\EmployeeRollCountListService;
+use App\ProductionProcess\Domain\Repository\RollHistory\HistoryRepositoryInterface;
 use App\Shared\Application\Query\QueryHandlerInterface;
 
 /**
@@ -19,25 +19,25 @@ final readonly class FetchEmployerRollCountStatisticsQueryHandler implements Que
 {
     /**
      * @param HistoryRepositoryInterface   $repository
-     * @param EmployerRollCountListService $employerRollCountListService
+     * @param EmployeeRollCountListService $employeeRollCountListService
      */
-    public function __construct(private HistoryRepositoryInterface $repository, private EmployerRollCountListService $employerRollCountListService)
+    public function __construct(private HistoryRepositoryInterface $repository, private EmployeeRollCountListService $employeeRollCountListService)
     {
     }
 
     /**
-     * @param FetchEmployerRollCountStatisticsQuery $query
+     * @param FetchEmployeeRollCountStatisticsQuery $query
      *
-     * @return FetchEmployerRollCountStatisticsResult
+     * @return FetchEmployeeRollCountStatisticsResult
      */
-    public function __invoke(FetchEmployerRollCountStatisticsQuery $query): FetchEmployerRollCountStatisticsResult
+    public function __invoke(FetchEmployeeRollCountStatisticsQuery $query): FetchEmployeeRollCountStatisticsResult
     {
-        $result = $this->repository->findByDateRangeForEmployers($query->dateRangeFilter);
+        $result = $this->repository->findEmployeeProcessCounts($query->dateRangeFilter);
 
-        $employerService = $this->employerRollCountListService;
+        $employeeService = $this->employeeRollCountListService;
 
-        $data = $employerService($result);
+        $data = $employeeService($result);
 
-        return new FetchEmployerRollCountStatisticsResult($data);
+        return new FetchEmployeeRollCountStatisticsResult($data);
     }
 }

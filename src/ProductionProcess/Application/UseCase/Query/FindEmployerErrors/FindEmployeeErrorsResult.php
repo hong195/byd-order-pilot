@@ -13,7 +13,7 @@ use App\ProductionProcess\Application\DTO\Error\EmployeeErrorData;
 /**
  * Represents the result of finding a roll.
  */
-final readonly class FindEmployerErrorsResult
+final readonly class FindEmployeeErrorsResult
 {
     /**
      * Class constructor.
