@@ -6,6 +6,7 @@ namespace App\ProductionProcess\Application\UseCase\Query\FindErrors;
 
 use App\ProductionProcess\Domain\Repository\PrintedProduct\Error\ErrorFilter;
 use App\Shared\Application\Query\Query;
+use App\Shared\Domain\Repository\DateRangeFilter;
 
 /**
  * Class GetPrintedProductsProcessDetailQuery.
@@ -38,8 +39,10 @@ final readonly class FindErrorsQuery extends Query
             responsibleEmployeeId: $this->responsibleEmployeeId,
             noticerId: $this->noticerId,
             process: $this->process,
-            from: $this->from,
-            to: $this->to
+            dateRangeFilter: new DateRangeFilter(
+                from: $this->from,
+                to: $this->to
+            ),
         );
     }
 }

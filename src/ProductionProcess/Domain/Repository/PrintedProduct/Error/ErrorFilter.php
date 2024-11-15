@@ -21,16 +21,15 @@ use App\Shared\Domain\Repository\DateRangeFilter;
  */
 final class ErrorFilter
 {
-    /**
-     * @param int|null                $responsibleEmployeeId
-     * @param int|null                $noticerId
-     * @param string|null             $process
-     * @param \DateTimeImmutable|null $from
-     * @param \DateTimeImmutable|null $to
-     * @param DateRangeFilter|null    $dateRangeFilter
-     */
-    public function __construct(public ?int $responsibleEmployeeId = null, public ?int $noticerId = null, public ?string $process = null, ?\DateTimeImmutable $from = null, ?\DateTimeImmutable $to = null, public ?DateRangeFilter $dateRangeFilter = null)
+	/**
+	 * Constructor for the Symfony application.
+	 *
+	 * @param int|null $responsibleEmployeeId The ID of the responsible employee.
+	 * @param int|null $noticerId The ID of the noticer.
+	 * @param string|null $process The process related to the application.
+	 * @param DateRangeFilter|null $dateRangeFilter An optional filter for date ranges.
+	 */
+	public function __construct(public ?int $responsibleEmployeeId = null, public ?int $noticerId = null, public ?string $process = null, public ?DateRangeFilter $dateRangeFilter = null)
     {
-        $this->dateRangeFilter = new DateRangeFilter($from, $to);
     }
 }
