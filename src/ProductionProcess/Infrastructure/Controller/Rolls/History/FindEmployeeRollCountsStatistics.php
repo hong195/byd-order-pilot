@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * Handles the request to fetch history statistics based on provided filter criteria.
+ *
+ * @param Request $request the HTTP request instance containing query parameters
+ *
+ * @return JsonResponse the JSON response with the fetched history statistics
+ *
+ * @throws \DateMalformedStringException if the provided date strings are malformed
+ */
+
 namespace App\ProductionProcess\Infrastructure\Controller\Rolls\History;
 
 use App\ProductionProcess\Application\UseCase\PrivateQueryInteractor;
@@ -20,8 +30,8 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
  * @throws \DateMalformedStringException if the provided date strings are malformed
  */
 #[AsController]
-#[Route('/api/rolls/employee-roll-count', name: 'fetch_employee_roll_count', methods: ['GET'])]
-readonly class FindEmployerRollCountStatistics
+#[Route('/api/rolls/employee-roll-counts', name: 'fetch_employee_roll_counts', methods: ['GET'])]
+readonly class FindEmployeeRollCountsStatistics
 {
     /**
      * @param PrivateQueryInteractor $privateQueryInteractor
