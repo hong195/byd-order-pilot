@@ -111,6 +111,7 @@ class HistoryRepository extends ServiceEntityRepository implements HistoryReposi
      * This method retrieves the roll count data for employers based on the given date range filter.
      *
      * @param DateRangeFilter $filter
+     *
      * @return EmployerRollCountData[]
      */
     public function findByDateRangeForEmployers(DateRangeFilter $filter): array
