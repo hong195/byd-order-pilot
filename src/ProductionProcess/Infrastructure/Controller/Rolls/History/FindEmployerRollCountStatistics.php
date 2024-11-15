@@ -49,7 +49,7 @@ readonly class FindEmployerRollCountStatistics
             to: $to
         );
 
-        $result = $this->privateQueryInteractor->fetchEmployerRollCountStatistics($dateRangeFilter);
+        $result = $this->privateQueryInteractor->fetchEmployeeRollCountStatistics($dateRangeFilter);
 
         $normalizedResult = $this->normalizer->normalize($result);
 

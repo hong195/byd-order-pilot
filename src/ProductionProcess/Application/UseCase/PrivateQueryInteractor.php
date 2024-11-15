@@ -167,6 +167,10 @@ readonly class PrivateQueryInteractor
         return $this->queryBus->execute(new FindPrintedProductQuery($printedProductId));
     }
 
+    /**
+     * @param FetchRollHistoryStatisticsFilter $filter
+     * @return FetchRollHistoryStatisticsResult
+     */
     public function fetchRollHistoryStatistics(FetchRollHistoryStatisticsFilter $filter): FetchRollHistoryStatisticsResult
     {
         $query = new FetchRollHistoryStatisticsQuery($filter);
@@ -174,7 +178,11 @@ readonly class PrivateQueryInteractor
         return $this->queryBus->execute($query);
     }
 
-    public function fetchEmployerRollCountStatistics(DateRangeFilter $dateRangeFilter): FetchEmployeeRollCountStatisticsResult
+    /**
+     * @param DateRangeFilter $dateRangeFilter
+     * @return FetchEmployeeRollCountStatisticsResult
+     */
+    public function fetchEmployeeRollCountStatistics(DateRangeFilter $dateRangeFilter): FetchEmployeeRollCountStatisticsResult
     {
         $query = new FetchEmployeeRollCountStatisticsQuery(dateRangeFilter: $dateRangeFilter);
 

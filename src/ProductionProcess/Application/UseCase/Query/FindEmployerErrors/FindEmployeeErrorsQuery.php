@@ -5,7 +5,7 @@ declare(strict_types=1);
 /**
  * Class FindEmployeeErrorsQuery.
  *
- * This class represents a query to find employer errors within a specified date range.
+ * This class represents a query to find employee errors within a specified date range.
  */
 
 namespace App\ProductionProcess\Application\UseCase\Query\FindEmployerErrors;

@@ -16,7 +16,7 @@ use App\ProductionProcess\Application\DTO\EmployeeRollCountData;
 final readonly class FetchEmployeeRollCountStatisticsResult
 {
     /**
-     * @param EmployeeRollCountData[] $employeeRollCount the list of employers roll count data object
+     * @param EmployeeRollCountData[] $employeeRollCount the list of employees roll count data object
      */
     public function __construct(public array $employeeRollCount)
     {
