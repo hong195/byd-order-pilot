@@ -4,15 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated ManualProductsArrangeService exception related to film.">
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ManualProductsArrangement/ManualProductsArrangementQuery.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ManualProductsArrangement/ManualProductsArrangementQueryHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/Rolls/ManualArrangementAction.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added manual arrangement api.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/Service/PrintedProduct/PrintedProductListService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/Service/PrintedProduct/PrintedProductListService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateCommandInteractor.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Printer/Condition.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Printer/Condition.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Printer/Printer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Printer/Printer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Printer/ProductPrinterMatcher.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Printer/ProductPrinterMatcher.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/AutoArrangePrintedProductsService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/AutoArrangePrintedProductsService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/FilmAssignmentService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/FilmAssignmentService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/GroupByFilmTypeService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/GroupByFilmTypeService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/GroupByOrderNumberService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/GroupByOrderNumberService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/GroupPrinterService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/GroupPrinterService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/ManualProductsArrangeService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/ManualProductsArrangeService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Adapter/InventoryApiAdapter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Adapter/InventoryApiAdapter.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,116 +190,116 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Makefile Target.restart.executor": "Run",
-    "PHPUnit.CheckRemainingProductsServiceTest.executor": "Run",
-    "PHPUnit.CheckRemainingProductsServiceTest.test_it_remove_roll_if_there_are_no_printed_product_left.executor": "Run",
-    "PHPUnit.CheckRemainingProductsServiceTest.test_it_removes_roll_if_there_are_no_printed_product_left.executor": "Run",
-    "PHPUnit.CheckRemainingProductsServiceTest.test_it_throws_exception_if_roll_does_not_exists.executor": "Run",
-    "PHPUnit.CheckRemainingProductsServiceTest.test_printer_become_available_if_last_element_was_removed.executor": "Run",
-    "PHPUnit.ErrorManagementServiceTest.executor": "Run",
-    "PHPUnit.ErrorManagementServiceTest.test_can_be_created.executor": "Run",
-    "PHPUnit.ErrorManagementServiceTest.test_can_be_recorded.executor": "Run",
-    "PHPUnit.ErrorManagementServiceTest.test_can_be_recorded_successfully.executor": "Run",
-    "PHPUnit.ErrorManagementServiceTest.test_error_can_be_record_on_current_or_previous_process.executor": "Run",
-    "PHPUnit.ErrorManagementServiceTest.test_error_can_be_record_on_existing_process.executor": "Run",
-    "PHPUnit.ErrorManagementServiceTest.test_product_must_be_in_progress.executor": "Run",
-    "PHPUnit.ErrorManagementServiceTest.test_roll_must_exists.executor": "Run",
-    "PHPUnit.ErrorManagementServiceTest.test_roll_must_have_history_in_order_to_record_error.executor": "Run",
-    "PHPUnit.ErrorRepositoryTest.test_add.executor": "Run",
-    "PHPUnit.ErrorRepositoryTest.test_error_can_be_found_by_responsible_employee_id.executor": "Run",
-    "PHPUnit.ErrorRepositoryTest.test_errors_can_be_found_by_filter.executor": "Run",
-    "PHPUnit.ErrorRepositoryTest.test_find_by_process.executor": "Run",
-    "PHPUnit.ExtraMakerTest.test_can_successfully_make_extra.executor": "Run",
-    "PHPUnit.ExtraRepositoryTest.test_can_successfully_save.executor": "Run",
-    "PHPUnit.GlowCheckinTest.executor": "Run",
-    "PHPUnit.HistoryRepositoryTest.executor": "Run",
-    "PHPUnit.HistoryRepositoryTest.test_add.executor": "Run",
-    "PHPUnit.HistoryRepositoryTest.test_true.executor": "Run",
-    "PHPUnit.InitPrintersServiceTest.test_it_creates_printers.executor": "Run",
-    "PHPUnit.InitPrintersServiceTest.test_it_creates_printers_with_conditions.executor": "Run",
-    "PHPUnit.LockRollServiceTest.executor": "Run",
-    "PHPUnit.LockRollServiceTest.test_cant_lock_not_existing_roll.executor": "Run",
-    "PHPUnit.LockRollServiceTest.test_it_locks_roll.executor": "Run",
-    "PHPUnit.LockRollServiceTest.test_it_throws_exception_when_try_to_lock_already_locked_roll.executor": "Run",
-    "PHPUnit.Main.executor": "Run",
-    "PHPUnit.ManualProductsArrangeServiceTest.executor": "Run",
-    "PHPUnit.ManualProductsArrangeServiceTest.test_it_successfully_manually_arrange_printed_products_on_locked_roll.executor": "Run",
-    "PHPUnit.ManualProductsArrangeServiceTest.test_it_throws_exception_when_existing_roll_ready_for_print_check_in_takes_.executor": "Run",
-    "PHPUnit.ManualProductsArrangeServiceTest.test_it_throws_exception_when_printed_products_handled_by_different_printers.executor": "Run",
-    "PHPUnit.ManualProductsArrangeServiceTest.test_it_throws_exception_when_printed_products_have_different_film_type.executor": "Run",
-    "PHPUnit.ManualProductsArrangeServiceTest.test_service_take_into_consideration_the_existing_rolls_ready_for_printing.executor": "Run",
-    "PHPUnit.OrderRepositoryTest.executor": "Run",
-    "PHPUnit.OrderRepositoryTest.test_can_find_only_with_extras.executor": "Run",
-    "PHPUnit.OrderRepositoryTest.test_can_find_packed.executor": "Run",
-    "PHPUnit.OrderRepositoryTest.test_can_find_partially_packed.executor": "Run",
-    "PHPUnit.OrderRepositoryTest.test_can_find_ready_for_packing.executor": "Run",
-    "PHPUnit.OrderRepositoryTest.test_can_successfully_add.executor": "Run",
-    "PHPUnit.OrderRepositoryTest.test_can_successfully_save.executor": "Run",
-    "PHPUnit.PackProductTest.executor": "Run",
-    "PHPUnit.PackProductTest.test_can_successfully_pack_product.executor": "Run",
-    "PHPUnit.PackProductTest.test_cant_pack_product_if_its_already_packed.executor": "Run",
-    "PHPUnit.PackProductTest.test_cant_pack_product_if_its_not_ready_for_packing.executor": "Run",
-    "PHPUnit.PackProductTest.test_cant_pack_product_if_order_product_do_not_exist.executor": "Run",
-    "PHPUnit.PackProductTest.test_if_product_packed_product_pack_event_dispatched.executor": "Run",
-    "PHPUnit.PrintCheckinTest.executor": "Run",
-    "PHPUnit.PrintCheckinTest.test_can_successfully_send_to_print_check_in.executor": "Run",
-    "PHPUnit.PrintCheckinTest.test_it_dispatches_event_after_sending_to_cutting_check_in.executor": "Run",
-    "PHPUnit.PrintCheckinTest.test_it_throws_exception_when_film_is_already_in_use.executor": "Run",
-    "PHPUnit.PrintedProductCheckinTest.test_can_allocate_group_of_printed_products_on_one_roll.executor": "Run",
-    "PHPUnit.PrintedProductRepositoryTest.test_add.executor": "Run",
-    "PHPUnit.PrintedProductRepositoryTest.test_can_find_by_filter.executor": "Run",
-    "PHPUnit.PrintedProductRepositoryTest.test_can_find_by_multiple_related_product_ids.executor": "Run",
-    "PHPUnit.ProductRepositoryTest.test_can_find_by_filter.executor": "Run",
-    "PHPUnit.ProductRepositoryTest.test_can_successfully_save.executor": "Run",
-    "PHPUnit.ReprintRollTest.test_cannot_reprint_not_existing_roll.executor": "Run",
-    "PHPUnit.RollMakerTest.executor": "Run",
-    "PHPUnit.RollMakerTest.test_it_can_make_roll.executor": "Run",
-    "PHPUnit.RollRepositoryTest.test_can_find_by_filter.executor": "Run",
-    "PHPUnit.RollRepositoryTest.test_can_remove.executor": "Run",
-    "PHPUnit.RollRepositoryTest.test_can_save_successfully.executor": "Run",
-    "PHPUnit.RollRepositoryTest.test_it_can_find_by_film_id.executor": "Run",
-    "PHPUnit.SetExtraPackStatusServiceTest.test_can_successfully_pack_extra_status.executor": "Run",
-    "PHPUnit.UnLockRollServiceTest.executor": "Run",
-    "PHPUnit.UnLockRollServiceTest.test_it_throws_exception_when_no_employee_assigned.executor": "Run",
-    "PHPUnit.UnLockRollServiceTest.test_it_throws_exception_when_try_to_unlock_already_unlocked_roll.executor": "Run",
-    "PHPUnit.UnLockRollServiceTest.test_it_unlocks_roll.executor": "Run",
-    "PHPUnit.UnPackProductTest.executor": "Run",
-    "PHPUnit.UnPackProductTest.test_can_successfully_unpack_product.executor": "Run",
-    "PHPUnit.UnPackProductTest.test_cannot_unpack_product_if_its_already_unpacked.executor": "Run",
-    "PHPUnit.UnPackProductTest.test_cant_unpack_not_existing_product.executor": "Run",
-    "PHPUnit.UnPackProductTest.test_if_product_packed_product_pack_event_dispatched.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
-    "WebServerToolWindowPanel.toolwindow.show.date": "false",
-    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
-    "WebServerToolWindowPanel.toolwindow.show.size": "false",
-    "com.jetbrains.php.phpunit.codeGeneration.PhpNewTestDialog.defaultLibrary": "PHPUnit",
-    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm": "Docker",
-    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm": "Docker",
-    "git-widget-placeholder": "!2 on Merging roll-history",
-    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/tests/Functional/ProductionProcess/Domain/Service/Roll",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "php.add.doc.comment.for.fields.panel.add.php.doc.for.all.properties": "true",
-    "php.override.implement.member.chooser.php.doc": "NONE",
-    "settings.editor.selected.configurable": "project.propVCSSupport.Confirmation",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Makefile Target.restart.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.CheckRemainingProductsServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.CheckRemainingProductsServiceTest.test_it_remove_roll_if_there_are_no_printed_product_left.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.CheckRemainingProductsServiceTest.test_it_removes_roll_if_there_are_no_printed_product_left.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.CheckRemainingProductsServiceTest.test_it_throws_exception_if_roll_does_not_exists.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.CheckRemainingProductsServiceTest.test_printer_become_available_if_last_element_was_removed.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ErrorManagementServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ErrorManagementServiceTest.test_can_be_created.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ErrorManagementServiceTest.test_can_be_recorded.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ErrorManagementServiceTest.test_can_be_recorded_successfully.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ErrorManagementServiceTest.test_error_can_be_record_on_current_or_previous_process.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ErrorManagementServiceTest.test_error_can_be_record_on_existing_process.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ErrorManagementServiceTest.test_product_must_be_in_progress.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ErrorManagementServiceTest.test_roll_must_exists.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ErrorManagementServiceTest.test_roll_must_have_history_in_order_to_record_error.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ErrorRepositoryTest.test_add.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ErrorRepositoryTest.test_error_can_be_found_by_responsible_employee_id.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ErrorRepositoryTest.test_errors_can_be_found_by_filter.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ErrorRepositoryTest.test_find_by_process.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ExtraMakerTest.test_can_successfully_make_extra.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ExtraRepositoryTest.test_can_successfully_save.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.GlowCheckinTest.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.HistoryRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.HistoryRepositoryTest.test_add.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.HistoryRepositoryTest.test_true.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.InitPrintersServiceTest.test_it_creates_printers.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.InitPrintersServiceTest.test_it_creates_printers_with_conditions.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.LockRollServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.LockRollServiceTest.test_cant_lock_not_existing_roll.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.LockRollServiceTest.test_it_locks_roll.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.LockRollServiceTest.test_it_throws_exception_when_try_to_lock_already_locked_roll.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.Main.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ManualProductsArrangeServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ManualProductsArrangeServiceTest.test_it_successfully_manually_arrange_printed_products_on_locked_roll.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ManualProductsArrangeServiceTest.test_it_throws_exception_when_existing_roll_ready_for_print_check_in_takes_.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ManualProductsArrangeServiceTest.test_it_throws_exception_when_printed_products_handled_by_different_printers.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ManualProductsArrangeServiceTest.test_it_throws_exception_when_printed_products_have_different_film_type.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ManualProductsArrangeServiceTest.test_service_take_into_consideration_the_existing_rolls_ready_for_printing.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.OrderRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.OrderRepositoryTest.test_can_find_only_with_extras.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.OrderRepositoryTest.test_can_find_packed.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.OrderRepositoryTest.test_can_find_partially_packed.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.OrderRepositoryTest.test_can_find_ready_for_packing.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.OrderRepositoryTest.test_can_successfully_add.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.OrderRepositoryTest.test_can_successfully_save.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.PackProductTest.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.PackProductTest.test_can_successfully_pack_product.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.PackProductTest.test_cant_pack_product_if_its_already_packed.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.PackProductTest.test_cant_pack_product_if_its_not_ready_for_packing.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.PackProductTest.test_cant_pack_product_if_order_product_do_not_exist.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.PackProductTest.test_if_product_packed_product_pack_event_dispatched.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.PrintCheckinTest.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.PrintCheckinTest.test_can_successfully_send_to_print_check_in.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.PrintCheckinTest.test_it_dispatches_event_after_sending_to_cutting_check_in.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.PrintCheckinTest.test_it_throws_exception_when_film_is_already_in_use.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.PrintedProductCheckinTest.test_can_allocate_group_of_printed_products_on_one_roll.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.PrintedProductRepositoryTest.test_add.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.PrintedProductRepositoryTest.test_can_find_by_filter.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.PrintedProductRepositoryTest.test_can_find_by_multiple_related_product_ids.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ProductRepositoryTest.test_can_find_by_filter.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ProductRepositoryTest.test_can_successfully_save.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.ReprintRollTest.test_cannot_reprint_not_existing_roll.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.RollMakerTest.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.RollMakerTest.test_it_can_make_roll.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.RollRepositoryTest.test_can_find_by_filter.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.RollRepositoryTest.test_can_remove.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.RollRepositoryTest.test_can_save_successfully.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.RollRepositoryTest.test_it_can_find_by_film_id.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.SetExtraPackStatusServiceTest.test_can_successfully_pack_extra_status.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.UnLockRollServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.UnLockRollServiceTest.test_it_throws_exception_when_no_employee_assigned.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.UnLockRollServiceTest.test_it_throws_exception_when_try_to_unlock_already_unlocked_roll.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.UnLockRollServiceTest.test_it_unlocks_roll.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.UnPackProductTest.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.UnPackProductTest.test_can_successfully_unpack_product.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.UnPackProductTest.test_cannot_unpack_product_if_its_already_unpacked.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.UnPackProductTest.test_cant_unpack_not_existing_product.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.UnPackProductTest.test_if_product_packed_product_pack_event_dispatched.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
+    &quot;com.jetbrains.php.phpunit.codeGeneration.PhpNewTestDialog.defaultLibrary&quot;: &quot;PHPUnit&quot;,
+    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm&quot;: &quot;Docker&quot;,
+    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm&quot;: &quot;Docker&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;!2 on Merging roll-history&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/aleksejem/Sites/order-pilot/tests/Functional/ProductionProcess/Domain/Service/Roll&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;php.add.doc.comment.for.fields.panel.add.php.doc.for.all.properties&quot;: &quot;true&quot;,
+    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Confirmation&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "ChangesTree.GroupingKeys": [
-      "directory"
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;
     ],
-    "DatabaseDriversLRU": [
-      "postgresql"
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll" />
@@ -313,7 +316,7 @@
       <recent name="$PROJECT_DIR$/src/Shared/Domain" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.ManualProductsArrangeServiceTest">
+  <component name="RunManager" selected="PHPUnit.Main">
     <configuration name="InitPrintersServiceTest.test_it_creates_printers" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Printer\InitPrintersServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Printer/InitPrintersServiceTest.php" method="test_it_creates_printers" scope="Method" />
       <method v="2" />
@@ -430,15 +433,9 @@
       <workItem from="1730987686115" duration="21161000" />
       <workItem from="1731308149509" duration="15979000" />
       <workItem from="1731402921880" duration="15402000" />
-      <workItem from="1731484448115" duration="37142000" />
-    </task>
-    <task id="LOCAL-00399" summary="Added product test.">
-      <option name="closed" value="true" />
-      <created>1729169097224</created>
-      <option name="number" value="00399" />
-      <option name="presentableId" value="LOCAL-00399" />
-      <option name="project" value="LOCAL" />
-      <updated>1729169097224</updated>
+      <workItem from="1731484448115" duration="40526000" />
+      <workItem from="1731602716038" duration="121000" />
+      <workItem from="1731668598593" duration="6246000" />
     </task>
     <task id="LOCAL-00400" summary="Updated order repository test &amp; added orders queries (packed, partially packed, only with extras)">
       <option name="closed" value="true" />
@@ -824,7 +821,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731595258355</updated>
     </task>
-    <option name="localTasksCounter" value="448" />
+    <task id="LOCAL-00448" summary="Added manual arrangement api.">
+      <option name="closed" value="true" />
+      <created>1731596736019</created>
+      <option name="number" value="00448" />
+      <option name="presentableId" value="LOCAL-00448" />
+      <option name="project" value="LOCAL" />
+      <updated>1731596736019</updated>
+    </task>
+    <option name="localTasksCounter" value="449" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -859,7 +864,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added system reset command." />
     <MESSAGE value="Updated reset command." />
     <MESSAGE value="Renamed default to is_default for printers." />
     <MESSAGE value="Updated reset system command added printer creation." />
@@ -884,7 +888,8 @@
     <MESSAGE value="Updated manual arrangement service." />
     <MESSAGE value="Updated manual arrange service code &amp; tests." />
     <MESSAGE value="Updated ManualProductsArrangeService exception related to film." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated ManualProductsArrangeService exception related to film." />
+    <MESSAGE value="Added manual arrangement api." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added manual arrangement api." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -9,11 +9,6 @@ use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Group
 
 final class GroupByOrderNumberService
 {
-    /**
-     * @var ProductGroup[]
-     */
-    private array $groups = [];
-
     public function __construct(private readonly GroupByFilmTypeService $groupByFilmTypeService, private readonly ProductGroup $group)
     {
     }
@@ -27,6 +22,8 @@ final class GroupByOrderNumberService
      */
     public function group(iterable $printerGroups): array
     {
+		$groups = [];
+
         foreach ($printerGroups as $group) {
             $printedProducts = $group->getProducts();
 
@@ -47,15 +44,16 @@ final class GroupByOrderNumberService
                 foreach ($group[$filmType] as $orderNumber => $printedProducts2) {
                     $group = $this->group->make($filmType, $orderNumber, $printedProducts2);
                     $group->assignPrinter($printer);
-                    $this->groups[] = $group;
+
+					$groups[] = $group;
                 }
 
-                usort($this->groups, function (ProductGroup $a, ProductGroup $b) {
+                usort($groups, function (ProductGroup $a, ProductGroup $b) {
                     return $b->getLength() <=> $a->getLength();
                 });
             }
         }
 
-        return $this->groups;
+        return $groups;
     }
 }

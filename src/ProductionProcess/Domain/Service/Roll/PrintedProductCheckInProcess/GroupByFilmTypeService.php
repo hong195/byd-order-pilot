@@ -9,11 +9,6 @@ use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 final class GroupByFilmTypeService
 {
     /**
-     * @var array<string, PrintedProduct[]>
-     */
-    private array $groups = [];
-
-    /**
      * Groups by order number the given printed products.
      *
      * @param PrintedProduct[] $printedProducts The printed products to be grouped
@@ -22,10 +17,11 @@ final class GroupByFilmTypeService
      */
     public function group(iterable $printedProducts): array
     {
+        $groups = [];
         foreach ($printedProducts as $printedProduct) {
-            $this->groups[$printedProduct->filmType][] = $printedProduct;
+            $groups[$printedProduct->filmType][] = $printedProduct;
         }
 
-        return $this->groups;
+        return $groups;
     }
 }
