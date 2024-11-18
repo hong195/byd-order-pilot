@@ -15,8 +15,8 @@ use Symfony\Component\Routing\Attribute\Route;
  * This class handles the change-sort-order API endpoint.
  */
 #[AsController]
-#[Route('/api/manual-arrangement', name: 'manual_arrangement', methods: ['POST'])]
-final readonly class ManualArrangementAction
+#[Route('/api/rolls/manual-products-check-in', name: 'manual_arrangement', methods: ['POST'])]
+final readonly class ManualProductsCheckInAction
 {
     /**
      * Class constructor.

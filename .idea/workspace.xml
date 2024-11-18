@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated controller name.">
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindErrors/FindErrorsQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindErrors/FindErrorsQuery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/PrintedProduct/Error/ErrorFilter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/PrintedProduct/Error/ErrorFilter.php" afterDir="false" />
-    </list>
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated correct usage promoted properties FindErrorsQuery." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -429,14 +426,6 @@
       <workItem from="1731602716038" duration="121000" />
       <workItem from="1731668598593" duration="6246000" />
     </task>
-    <task id="LOCAL-00407" summary="Fixed sync order product with printed products.">
-      <option name="closed" value="true" />
-      <created>1729684316358</created>
-      <option name="number" value="00407" />
-      <option name="presentableId" value="LOCAL-00407" />
-      <option name="project" value="LOCAL" />
-      <updated>1729684316358</updated>
-    </task>
     <task id="LOCAL-00408" summary="Added roll repository test.">
       <option name="closed" value="true" />
       <created>1729695205065</created>
@@ -821,7 +810,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731688886503</updated>
     </task>
-    <option name="localTasksCounter" value="456" />
+    <task id="LOCAL-00456" summary="Updated correct usage promoted properties FindErrorsQuery.">
+      <option name="closed" value="true" />
+      <created>1731689195694</created>
+      <option name="number" value="00456" />
+      <option name="presentableId" value="LOCAL-00456" />
+      <option name="project" value="LOCAL" />
+      <updated>1731689195694</updated>
+    </task>
+    <option name="localTasksCounter" value="457" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -856,7 +853,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed printer assigment." />
     <MESSAGE value="Fixed printer name property." />
     <MESSAGE value="Fixed printer name property #2." />
     <MESSAGE value="Fixed PrintedProductsCheckInService@findOrMakeRoll method creates or makes a roll with ORDER_CHECK_IN only process." />
@@ -881,7 +877,8 @@
     <MESSAGE value="Mo" />
     <MESSAGE value="Updated repository folder structure." />
     <MESSAGE value="Updated controller name." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated controller name." />
+    <MESSAGE value="Updated correct usage promoted properties FindErrorsQuery." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated correct usage promoted properties FindErrorsQuery." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
