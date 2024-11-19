@@ -75,7 +75,7 @@ final readonly class ManualProductsArrangeService
         $printedProductsLength = array_sum($printedProducts->map(fn (PrintedProduct $pp) => $pp->getLength())->toArray());
         $filmType = $printedProducts->first()->getFilmType();
 
-        $availableFilms = $this->availableFilmService->getAvailableFilms(filmType: $filmType, minSize: $printedProductsLength);
+        $availableFilms = $this->availableFilmService->getAvailableFilmsByType(filmType: $filmType, minSize: $printedProductsLength);
 
         if ($availableFilms->isEmpty()) {
             InventoryFilmIsNotAvailableException::because('Not found film');

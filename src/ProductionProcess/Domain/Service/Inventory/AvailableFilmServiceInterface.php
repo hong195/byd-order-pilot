@@ -15,7 +15,14 @@ interface AvailableFilmServiceInterface
      *
      * @return Collection<FilmData> The available films
      */
-    public function getAvailableFilms(string $filmType, float $minSize = 0): Collection;
+    public function getAvailableFilmsByType(string $filmType, float $minSize = 0): Collection;
+
+    /**
+     * This method retrieves the available items of a given roll type.
+     *
+     * @return Collection<FilmData> The available films
+     */
+    public function getAvailableFilms(): Collection;
 
     /**
      * This method retrieves a film by its ID.

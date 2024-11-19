@@ -14,6 +14,7 @@ use App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
 use App\ProductionProcess\Domain\Service\Inventory\AvailableFilmServiceInterface;
 use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Manual\ManualArrangementValidator;
 use App\ProductionProcess\Domain\Service\Roll\RollMaker;
+use App\ProductionProcess\Domain\ValueObject\Process;
 use App\Shared\Domain\Exception\DomainException;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -53,12 +54,6 @@ final readonly class MergeService
 
         $availableFilm = $this->getFilm($rollsToMerge, $productsLength);
 
-        dd($availableFilm);
-
-        if (!$availableFilm) {
-            InventoryFilmIsNotAvailableException::because('Film is not available');
-        }
-
         $mergedRoll = $this->makeMergedAndLockedRoll(filmId: $availableFilm->id, printedProducts: $products);
 
         $this->removeRollsToMerge($rollsToMerge);
@@ -71,25 +66,35 @@ final readonly class MergeService
      *
      * @param Collection<Roll> $rollsToExclude A collection of Roll objects to exclude
      *
-     * @return ?FilmData The available FilmData object based on the rolls to exclude
+     * @return FilmData The available FilmData object based on the rolls to exclude
+     *
+     * @throws InventoryFilmIsNotAvailableException
      */
-    public function getFilm(Collection $rollsToExclude, float $minLength): ?FilmData
+    public function getFilm(Collection $rollsToExclude, float $minLength): FilmData
     {
-        $usedFilmIds = $rollsToExclude->map(fn (Roll $roll) => $roll->getFilmId())->toArray();
+        $rollsToExcludeIds = $rollsToExclude->map(fn (Roll $roll) => $roll->getId())->toArray();
 
-        $availableFilms = $this->availableFilmService->getAvailableFilms(
-            $rollsToExclude->first()->getPrintedProducts()->first()->getFilmType()
-        )
-            ->filter(fn (FilmData $filmData) => $filmData->length >= $minLength)
-            ->filter(
-                fn (FilmData $filmData) => !in_array($filmData->id, $usedFilmIds, true)
-            );
+        $availableFilms = $this->availableFilmService->getAvailableFilmsByType(
+            filmType: $rollsToExclude->first()->getPrintedProducts()->first()->getFilmType(),
+            minSize: $minLength
+        );
+
+        if ($availableFilms->isEmpty()) {
+            InventoryFilmIsNotAvailableException::because('No film is available');
+        }
 
         foreach ($availableFilms as $film) {
-            $rolls = $this->rollRepository->findByFilmId($film->id);
+            $rolls = $this->rollRepository->findByFilter(new RollFilter(process: Process::ORDER_CHECK_IN, filmIds: [$film->id]))
+                        ->filter(fn (Roll $roll) => !in_array($roll->getId(), $rollsToExcludeIds));
 
-			dd($rolls);
+            $productsLength = array_sum($this->getProducts($rolls)->map(fn (PrintedProduct $product) => $product->getLength())->toArray());
+
+            if ($productsLength + $minLength <= $film->length) {
+                return $film;
+            }
         }
+
+        throw new InventoryFilmIsNotAvailableException('Film is not available');
     }
 
     /**

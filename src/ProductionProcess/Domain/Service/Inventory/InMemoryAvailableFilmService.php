@@ -35,11 +35,21 @@ final readonly class InMemoryAvailableFilmService implements AvailableFilmServic
      *
      * @return Collection<FilmData> An array collection of FilmData objects representing the available films
      */
-    public function getAvailableFilms(string $filmType, float $minSize = 0): Collection
+    public function getAvailableFilmsByType(string $filmType, float $minSize = 0): Collection
     {
         return $this->films->filter(function (FilmData $film) use ($filmType, $minSize) {
             return $film->filmType === $filmType && $film->length >= $minSize;
         });
+    }
+
+    /**
+     * Retrieves the available films.
+     *
+     * @return Collection<FilmData> An array collection of FilmData objects representing the available films
+     */
+    public function getAvailableFilms(): Collection
+    {
+        return $this->films;
     }
 
     /**
