@@ -4,7 +4,7 @@ namespace App\ProductionProcess\Infrastructure\Repository;
 
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
 use App\ProductionProcess\Domain\Repository\Roll\RollFilter;
-use  App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -93,6 +93,11 @@ class RollRepository extends ServiceEntityRepository implements RollRepositoryIn
         if ($rollFilter->process) {
             $qb->andWhere('r.process = :process');
             $qb->setParameter('process', $rollFilter->process->value);
+        }
+
+        if (!empty($rollFilter->rollIds)) {
+            $qb->andWhere('r.id IN (:rollIds)');
+            $qb->setParameter('rollIds', $rollFilter->rollIds);
         }
 
         $query = $qb->getQuery();
