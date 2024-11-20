@@ -13,7 +13,7 @@ namespace App\ProductionProcess\Domain\Service\PrintedProduct;
 
 use App\ProductionProcess\Domain\Repository\PrintedProduct\PrintedProductRepositoryInterface;
 use App\Shared\Application\Service\AssetUrlServiceInterface;
-use App\Shared\Infrastructure\Repository\MediaFileRepository;
+use App\Shared\Domain\Repository\MediaFileRepositoryInterface;
 
 /**
  * Class RollMaker.
@@ -26,10 +26,10 @@ final readonly class TakeAPhotoService
      * Class constructor.
      *
      * @param PrintedProductRepositoryInterface $printedProductRepository the job repository instance
-     * @param MediaFileRepository               $mediaFileRepository
+     * @param MediaFileRepositoryInterface      $mediaFileRepository
      * @param AssetUrlServiceInterface          $assetUrlService
      */
-    public function __construct(private PrintedProductRepositoryInterface $printedProductRepository, private MediaFileRepository $mediaFileRepository, public AssetUrlServiceInterface $assetUrlService)
+    public function __construct(private PrintedProductRepositoryInterface $printedProductRepository, private MediaFileRepositoryInterface $mediaFileRepository, public AssetUrlServiceInterface $assetUrlService)
     {
     }
 
