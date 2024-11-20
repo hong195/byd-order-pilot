@@ -63,8 +63,8 @@ final readonly class TakePhotoAction
             photoId: $photoId
         );
 
-        $this->privateCommandInteractor->takePhoto(command: $command);
+        $photoUrl = $this->privateCommandInteractor->takePhoto(command: $command);
 
-        return new JsonResponse(['id' => $photoId], Response::HTTP_CREATED);
+        return new JsonResponse(['url' => $photoUrl], Response::HTTP_CREATED);
     }
 }
