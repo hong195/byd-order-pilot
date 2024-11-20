@@ -15,12 +15,12 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/api/rolls/merge', name: 'merge_rolls', methods: ['POST'])]
 final readonly class MergeRollsAction
 {
-	/**
-	 * Class constructor.
-	 *
-	 * @param PrivateCommandInteractor $privateCommandInteractor The private command interactor to be injected.
-	 */
-	public function __construct(private PrivateCommandInteractor $privateCommandInteractor)
+    /**
+     * Class constructor.
+     *
+     * @param PrivateCommandInteractor $privateCommandInteractor the private command interactor to be injected
+     */
+    public function __construct(private PrivateCommandInteractor $privateCommandInteractor)
     {
     }
 

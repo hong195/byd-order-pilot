@@ -10,7 +10,6 @@ use App\ProductionProcess\Domain\DTO\FilmData;
 use App\ProductionProcess\Domain\Exceptions\InventoryFilmIsNotAvailableException;
 use App\ProductionProcess\Domain\Exceptions\ManualArrangeException;
 use App\ProductionProcess\Domain\Exceptions\RollMergeException;
-use App\ProductionProcess\Domain\Repository\PrintedProduct\PrintedProductRepositoryInterface;
 use App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
 use App\ProductionProcess\Domain\Service\Inventory\AvailableFilmServiceInterface;
 use App\ProductionProcess\Domain\Service\Roll\Merge\MergeService;
@@ -25,14 +24,12 @@ final class MergeServiceTest extends AbstractTestCase
     use FakerTools;
     use FixtureTools;
     private RollRepositoryInterface $rollRepository;
-    private PrintedProductRepositoryInterface $printedProductRepository;
     private MergeService $mergeService;
 
     protected function setUp(): void
     {
         parent::setUp();
         $this->rollRepository = self::getContainer()->get(RollRepositoryInterface::class);
-        $this->printedProductRepository = self::getContainer()->get(PrintedProductRepositoryInterface::class);
         $this->mergeService = self::getContainer()->get(MergeService::class);
     }
 

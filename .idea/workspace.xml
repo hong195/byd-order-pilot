@@ -324,7 +324,7 @@
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.MergeServiceTest">
+  <component name="RunManager" selected="PHPUnit.Main">
     <configuration name="ErrorRepositoryTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="App\Tests\Functional\ProductionProcess\Infrastructure\Repository\ErrorRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Repository/ErrorRepositoryTest.php" scope="Class" />
       <method v="2" />
