@@ -23,6 +23,7 @@ use App\ProductionProcess\Application\UseCase\Command\PrintCheckIn\PrintCheckInt
 use App\ProductionProcess\Application\UseCase\Command\RecordRollHistory\RecordRollHistoryCommand;
 use App\ProductionProcess\Application\UseCase\Command\ReprintPrintedProduct\ReprintPrintedProductCommand;
 use App\ProductionProcess\Application\UseCase\Command\ReprintRoll\ReprintRollCommand;
+use App\ProductionProcess\Application\UseCase\Command\TakePhoto\TakePhotoCommand;
 use App\ProductionProcess\Application\UseCase\Command\UnAssignEmployeeFromRoll\UnAssignEmployeeFromRollCommand;
 use App\ProductionProcess\Application\UseCase\Command\UnassignPrintedProduct\UnassignPrintedProductCommand;
 use App\ProductionProcess\Application\UseCase\Command\UnLockRoll\UnLockRollCommand;
@@ -255,5 +256,17 @@ readonly class PrivateCommandInteractor
     public function manualArrangement(array $printedProductsIds): void
     {
         $this->commandBus->execute(new ManualProductsArrangementQuery($printedProductsIds));
+    }
+
+    /**
+     * Executes the take photo command.
+     *
+     * @param TakePhotoCommand $command The command to take a photo
+     *
+     * @return string The result of the command execution
+     */
+    public function takePhoto(TakePhotoCommand $command): string
+    {
+        return $this->commandBus->execute($command);
     }
 }
