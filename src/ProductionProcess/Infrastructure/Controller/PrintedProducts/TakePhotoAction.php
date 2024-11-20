@@ -60,11 +60,6 @@ final readonly class TakePhotoAction
             return new JsonResponse(['error' => 'No valid photo provided'], Response::HTTP_BAD_REQUEST);
         }
 
-        // Check image format. Allowed format is image/*
-        if (!str_starts_with($photo->getMimeType(), 'image/')) {
-            return new JsonResponse(['error' => 'Invalid photo format. Only image/* types are allowed.'], Response::HTTP_BAD_REQUEST);
-        }
-
         $photoId = $this->uploadFileService->upload($photo);
 
         $command = new TakePhotoCommand(
