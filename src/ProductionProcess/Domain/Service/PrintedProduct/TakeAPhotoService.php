@@ -3,15 +3,14 @@
 declare(strict_types=1);
 
 /**
- * Class PrintedProductPhotoUpdater.
+ * Class TakeAPhotoService.
  *
  * Description: This class is responsible for updating the photo of a PrintedProduct and saving changes
  * to the PrintedProductRepository.
  */
 
-namespace App\ProductionProcess\Application\Service\PrintedProduct;
+namespace App\ProductionProcess\Domain\Service\PrintedProduct;
 
-use App\ProductionProcess\Application\DTO\TakePhotoDTO;
 use App\ProductionProcess\Domain\Repository\PrintedProduct\PrintedProductRepositoryInterface;
 use App\Shared\Application\Service\AssetUrlServiceInterface;
 use App\Shared\Infrastructure\Repository\MediaFileRepository;
@@ -21,7 +20,7 @@ use App\Shared\Infrastructure\Repository\MediaFileRepository;
  *
  * Description: This class is responsible for creating rolls using the RollFactory, assigning a printer to the roll, and saving it to the RollRepository.
  */
-final readonly class PrintedProductPhotoUpdater
+final readonly class TakeAPhotoService
 {
     /**
      * Class constructor.
@@ -35,15 +34,16 @@ final readonly class PrintedProductPhotoUpdater
     }
 
     /**
-     * @param TakePhotoDTO $dto
+     * @param int      $productId
+     * @param int|null $photoId
      *
      * @return string
      */
-    public function upload(TakePhotoDTO $dto): string
+    public function upload(int $productId, ?int $photoId): string
     {
-        $printedProduct = $this->printedProductRepository->findById($dto->productId);
+        $printedProduct = $this->printedProductRepository->findById($productId);
 
-        $newPhoto = $dto->photoId ? $this->mediaFileRepository->findById($dto->photoId) : null;
+        $newPhoto = $photoId ? $this->mediaFileRepository->findById($photoId) : null;
 
         if ($printedProduct->getPhoto()) {
             $this->mediaFileRepository->remove($printedProduct->getPhoto());
