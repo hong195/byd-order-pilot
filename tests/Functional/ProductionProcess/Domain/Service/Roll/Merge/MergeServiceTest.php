@@ -62,9 +62,11 @@ final class MergeServiceTest extends AbstractTestCase
     public function test_it_throws_error_when_roll_products_have_different_film_types(): void
     {
         $rollToMerge1 = $this->loadRoll();
+        $rollToMerge1->updateProcess(Process::ORDER_CHECK_IN);
         $rollToMerge1->addPrintedProduct($this->createPreparedProduct($this->getFaker()->word()));
         $rollToMerge2 = $this->loadRoll();
         $rollToMerge2->addPrintedProduct($this->createPreparedProduct($this->getFaker()->word()));
+        $rollToMerge2->updateProcess(Process::ORDER_CHECK_IN);
         $this->entityManager->persist($rollToMerge1);
         $this->entityManager->persist($rollToMerge2);
         $this->entityManager->flush();
@@ -77,11 +79,13 @@ final class MergeServiceTest extends AbstractTestCase
     public function test_it_throws_exception_when_rolls_printed_products_handled_by_different_printers(): void
     {
         $rollToMerge1 = $this->loadRoll();
+        $rollToMerge1->updateProcess(Process::ORDER_CHECK_IN);
         $product1 = $this->createPreparedProduct('white');
         $product1->setLaminationType('gloss');
         $rollToMerge1->addPrintedProduct($product1);
         $rollToMerge2 = $this->loadRoll();
         $rollToMerge2->addPrintedProduct($this->createPreparedProduct('white'));
+        $rollToMerge2->updateProcess(Process::ORDER_CHECK_IN);
 
         $this->entityManager->persist($rollToMerge1);
         $this->entityManager->persist($rollToMerge2);
@@ -145,6 +149,21 @@ final class MergeServiceTest extends AbstractTestCase
         $this->assertCount($rollToMerge1ProductCount + $rollToMerge2ProductCount, $mergedRoll->getPrintedProducts());
         $this->assertNull($removedRoll1);
         $this->assertNull($removedRoll2);
+    }
+
+    public function test_it_throws_exception_when_one_of_rolls_are_not_in_correct_process(): void
+    {
+        $availableFilm = $this->getAvailableFilm();
+
+        $rollToMerge1 = $this->createPreparedRoll(filmType: $availableFilm->filmType, length: $availableFilm->length / 2, filmId: $availableFilm->id, productCount: 3);
+        $rollToMerge1->updateProcess(Process::CUTTING_CHECK_IN);
+        $this->rollRepository->save($rollToMerge1);
+
+        $rollToMerge2 = $this->createPreparedRoll(filmType: $availableFilm->filmType, length: $availableFilm->length / 2, filmId: $availableFilm->id, productCount: 3);
+
+        $this->expectException(RollMergeException::class);
+
+        $this->mergeService->merge([$rollToMerge1->getId(), $rollToMerge2->getId()]);
     }
 
     private function getAvailableFilm(): FilmData

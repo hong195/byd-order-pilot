@@ -43,6 +43,10 @@ final readonly class MergeService
             RollMergeException::because('You need at least two rolls to merge');
         }
 
+        if (!$rollsToMerge->forAll(fn (int $index, Roll $roll) => $roll->getProcess()->equals(Process::ORDER_CHECK_IN))) {
+            RollMergeException::because('Some of the rolls are in the wrong process');
+        }
+
         $products = $this->getProducts($rollsToMerge);
         $productsLength = array_sum($products->map(fn (PrintedProduct $product) => $product->getLength())->toArray());
 
