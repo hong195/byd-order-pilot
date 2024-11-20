@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Domain\Service\PrintedProduct;
 
 use App\ProductionProcess\Domain\Repository\PrintedProduct\PrintedProductRepositoryInterface;
-use App\Shared\Application\Service\AssetUrlServiceInterface;
 use App\Shared\Domain\Repository\MediaFileRepositoryInterface;
 
 /**
@@ -27,9 +26,8 @@ final readonly class TakeAPhotoService
      *
      * @param PrintedProductRepositoryInterface $printedProductRepository the job repository instance
      * @param MediaFileRepositoryInterface      $mediaFileRepository
-     * @param AssetUrlServiceInterface          $assetUrlService
      */
-    public function __construct(private PrintedProductRepositoryInterface $printedProductRepository, private MediaFileRepositoryInterface $mediaFileRepository, public AssetUrlServiceInterface $assetUrlService)
+    public function __construct(private PrintedProductRepositoryInterface $printedProductRepository, private MediaFileRepositoryInterface $mediaFileRepository)
     {
     }
 
