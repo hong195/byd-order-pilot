@@ -12,6 +12,6 @@
         <field name="path" type="string" length="255"/>
         <field name="type" type="string" length="50" nullable="true"/>
         <field name="ownerId" type="integer" nullable="true"/>
-        <field name="ownerType" type="string" length="50" nullable="true"/>
+        <field name="ownerType" type="string" length="100" nullable="true"/>
     </entity>
 </doctrine-mapping>

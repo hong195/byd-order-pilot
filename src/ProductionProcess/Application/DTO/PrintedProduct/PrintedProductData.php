@@ -24,6 +24,7 @@ final readonly class PrintedProductData
      * @param \DateTimeInterface|null $addedAt          the date when added, nullable
      * @param string|null             $cutFile          the cut file name, nullable
      * @param string|null             $printFile        the print file name, nullable
+     * @param string|null             $photo            the product photo, nullable
      */
     public function __construct(
         public int $id,
@@ -38,6 +39,7 @@ final readonly class PrintedProductData
         public ?\DateTimeInterface $addedAt = null,
         public ?string $cutFile = null,
         public ?string $printFile = null,
+        public ?string $photo = null,
 		public bool $isPacked = false,
     ) {
     }

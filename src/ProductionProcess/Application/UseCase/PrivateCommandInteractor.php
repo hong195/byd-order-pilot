@@ -6,7 +6,6 @@ namespace App\ProductionProcess\Application\UseCase;
 
 use App\Orders\Application\DTO\Order\SortData;
 use App\ProductionProcess\Application\UseCase\Command\AssignEmployeeToRoll\AssignEmployeeToRollCommand;
-use App\ProductionProcess\Application\UseCase\Command\AssignPrintedProduct\AssignPrintedProductCommand;
 use App\ProductionProcess\Application\UseCase\Command\ChangePrintedProductPriority\ChangePrintedProductPriorityCommand;
 use App\ProductionProcess\Application\UseCase\Command\ChangePrintedProductSort\ChangePrintedProductSortCommand;
 use App\ProductionProcess\Application\UseCase\Command\ChangePrinterAvailability\ChangePrinterAvailabilityCommand;
@@ -24,6 +23,7 @@ use App\ProductionProcess\Application\UseCase\Command\PrintCheckIn\PrintCheckInt
 use App\ProductionProcess\Application\UseCase\Command\RecordRollHistory\RecordRollHistoryCommand;
 use App\ProductionProcess\Application\UseCase\Command\ReprintPrintedProduct\ReprintPrintedProductCommand;
 use App\ProductionProcess\Application\UseCase\Command\ReprintRoll\ReprintRollCommand;
+use App\ProductionProcess\Application\UseCase\Command\TakePhoto\TakePhotoCommand;
 use App\ProductionProcess\Application\UseCase\Command\UnAssignEmployeeFromRoll\UnAssignEmployeeFromRollCommand;
 use App\ProductionProcess\Application\UseCase\Command\UnassignPrintedProduct\UnassignPrintedProductCommand;
 use App\ProductionProcess\Application\UseCase\Command\UnLockRoll\UnLockRollCommand;
@@ -188,18 +188,6 @@ readonly class PrivateCommandInteractor
     }
 
     /**
-     * Assigns an order. Triggers the check-in process.
-     *
-     * @param int $id The id of the order to assign
-     *
-     * @throws UnassignedPrintedProductsException
-     */
-    public function assignPrintedProduct(int $id): void
-    {
-        $this->commandBus->execute(new AssignPrintedProductCommand($id));
-    }
-
-    /**
      * Reprints a printed product.
      */
     public function reprintPrintedProduct(ReprintPrintedProductCommand $command): void
@@ -256,6 +244,18 @@ readonly class PrivateCommandInteractor
     public function manualArrangement(array $printedProductsIds): void
     {
         $this->commandBus->execute(new ManualProductsArrangementQuery($printedProductsIds));
+    }
+
+    /**
+     * Executes the take photo command.
+     *
+     * @param TakePhotoCommand $command The command to take a photo
+     *
+     * @return string|null The url of stored product photo
+     */
+    public function takePhoto(TakePhotoCommand $command): ?string
+    {
+        return $this->commandBus->execute($command);
     }
 
     /**

@@ -68,6 +68,8 @@ final readonly class PrintedProductListService
                 $cutFile = (new ArrayCollection($mediaFiles))->filter(fn (MediaFile $mediaFile) => $mediaFile->getOwnerId() === $item->relatedProductId && 'cut_file' === $mediaFile->getType())->first();
                 /** @var MediaFile|null $printFile */
                 $printFile = (new ArrayCollection($mediaFiles))->filter(fn (MediaFile $mediaFile) => $mediaFile->getOwnerId() === $item->relatedProductId && 'print_file' === $mediaFile->getType())->first();
+                /** @var MediaFile|null $productPhoto */
+                $productPhoto = (new ArrayCollection($mediaFiles))->filter(fn (MediaFile $mediaFile) => $mediaFile->getOwnerId() === $item->relatedProductId && 'product_photo' === $mediaFile->getType())->first();
 
                 $isPacked = $relatedProducts->findFirst(fn (int $index, $relatedProduct) => $relatedProduct->id === $item->relatedProductId)->isPacked;
 
@@ -75,6 +77,7 @@ final readonly class PrintedProductListService
                     product: $item,
                     cutFileUrl: $cutFile ? $this->assetUrlService->getLink($cutFile?->getPath()) : null,
                     printFileUrl: $printFile ? $this->assetUrlService->getLink($printFile?->getPath()) : null,
+                    photoUrl: $productPhoto ? $this->assetUrlService->getLink($productPhoto?->getPath()) : null,
                     isPacked: $isPacked,
                 );
             }

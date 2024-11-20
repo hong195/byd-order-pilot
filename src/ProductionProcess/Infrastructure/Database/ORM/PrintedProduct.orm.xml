@@ -47,6 +47,13 @@
             </options>
         </field>
 
+        <one-to-one field="photo" target-entity="App\Shared\Domain\Entity\MediaFile">
+            <cascade>
+                <cascade-all/>
+            </cascade>
+            <join-column name="photo_id" nullable="true" />
+        </one-to-one>
+
         <field name="dateAdded" type="datetime_immutable" column="date_added"/>
     </entity>
 </doctrine-mapping>

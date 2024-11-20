@@ -7,12 +7,15 @@ namespace App\ProductionProcess\Domain\Aggregate;
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
 use App\ProductionProcess\Domain\Events\PrintedProductReprintedEvent;
 use App\Shared\Domain\Aggregate\Aggregate;
+use App\Shared\Domain\Entity\MediaFile;
 
 /**
  * Class Job.
  */
 class PrintedProduct extends Aggregate
 {
+    public const PRODUCT_PHOTO = 'product_photo';
+
     /**
      * @phpstan-ignore-next-line
      */
@@ -23,7 +26,7 @@ class PrintedProduct extends Aggregate
     private bool $hasPriority = false;
     private bool $isReprint = false;
     private readonly \DateTimeInterface $dateAdded;
-
+    private ?MediaFile $photo = null;
     /**
      * Constructs a new instance of the class.
      *
@@ -188,5 +191,27 @@ class PrintedProduct extends Aggregate
         $this->sortOrder = null;
 
         $this->raise(new PrintedProductReprintedEvent(printedProductId: $this->id));
+    }
+
+    /**
+     * @return MediaFile|null
+     */
+    public function getPhoto(): ?MediaFile
+    {
+        return $this->photo;
+    }
+
+    /**
+     * Uploads the product photo.
+     *
+     * @param MediaFile $photo The product photo to be uploaded
+     */
+    public function setPhoto(MediaFile $photo): void
+    {
+        $photo->setOwnerId($this->getId());
+        $photo->setType(self::PRODUCT_PHOTO);
+        $photo->setOwnerType(self::class);
+
+        $this->photo = $photo;
     }
 }
