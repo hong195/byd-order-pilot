@@ -19,6 +19,7 @@ use App\ProductionProcess\Application\UseCase\Command\CuttingCheckIn\CuttingChec
 use App\ProductionProcess\Application\UseCase\Command\GlowCheckIn\GlowCheckInCommand;
 use App\ProductionProcess\Application\UseCase\Command\LockRoll\LockRollCommand;
 use App\ProductionProcess\Application\UseCase\Command\ManualProductsArrangement\ManualProductsArrangementQuery;
+use App\ProductionProcess\Application\UseCase\Command\MergeRolls\MergeRollsCommand;
 use App\ProductionProcess\Application\UseCase\Command\PrintCheckIn\PrintCheckIntCommand;
 use App\ProductionProcess\Application\UseCase\Command\RecordRollHistory\RecordRollHistoryCommand;
 use App\ProductionProcess\Application\UseCase\Command\ReprintPrintedProduct\ReprintPrintedProductCommand;
@@ -268,5 +269,14 @@ readonly class PrivateCommandInteractor
     public function takePhoto(TakePhotoCommand $command): string
     {
         return $this->commandBus->execute($command);
+    }
+
+     * Merges the specified rolls by executing a MergeRollsCommand through the command bus.
+     *
+     * @param int[] $rollsIds The array of roll IDs to be merged
+     */
+    public function mergeRolls(array $rollsIds): void
+    {
+        $this->commandBus->execute(new MergeRollsCommand($rollsIds));
     }
 }

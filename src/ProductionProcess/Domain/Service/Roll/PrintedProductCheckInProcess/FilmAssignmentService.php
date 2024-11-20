@@ -36,7 +36,7 @@ final class FilmAssignmentService
     public function assignFilmToProductGroups(array $groups): array
     {
         foreach ($groups as $group) {
-            $availableFilms = $this->availableFilmService->getAvailableFilms(filmType: $group->filmType, minSize: $group->getLength());
+            $availableFilms = $this->availableFilmService->getAvailableFilmsByType(filmType: $group->filmType, minSize: $group->getLength());
 
             if ($availableFilms->isEmpty()) {
                 $this->handleNoAvailableFilms($group);

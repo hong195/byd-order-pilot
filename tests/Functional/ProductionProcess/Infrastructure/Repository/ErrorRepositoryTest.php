@@ -7,6 +7,7 @@ use App\ProductionProcess\Domain\Factory\ErrorFactory;
 use App\ProductionProcess\Domain\Repository\PrintedProduct\Error\ErrorFilter;
 use App\ProductionProcess\Domain\Repository\PrintedProduct\Error\ErrorRepositoryInterface;
 use App\ProductionProcess\Domain\ValueObject\Process;
+use App\Shared\Domain\Repository\DateRangeFilter;
 use App\Tests\Functional\AbstractTestCase;
 
 class ErrorRepositoryTest extends AbstractTestCase
@@ -74,7 +75,11 @@ class ErrorRepositoryTest extends AbstractTestCase
 
         $queryResult = $this->repository->findByFilter(
             new ErrorFilter(
-                process: $this->error1->process->value
+                process: $this->error1->process->value,
+				dateRangeFilter: new DateRangeFilter(
+					from: $this->error1->getCreatedAt(),
+					to: $this->error1->getCreatedAt()
+				)
             )
         );
 
@@ -91,8 +96,12 @@ class ErrorRepositoryTest extends AbstractTestCase
         $queryResult3 = $this->repository->findByFilter(
             new ErrorFilter(
                 noticerId: $this->error1->noticerId,
-                process: $this->error1->process->value
-            )
+                process: $this->error1->process->value,
+				dateRangeFilter: new DateRangeFilter(
+					from: $this->error1->getCreatedAt(),
+					to: $this->error1->getCreatedAt()
+				)
+			)
         );
 
         $this->assertSame($this->error1, $queryResult3[0]);

@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated manual checkin route name">
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Exceptions/RollMergeException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/Merge/MergeService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/Merge/MergeServiceTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5916b34a-be41-48d5-ab32-895d9f6eb3ec/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5916b34a-be41-48d5-ab32-895d9f6eb3ec/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated merge tests.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/Roll/RollFilter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/Roll/RollFilter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/ReprintPrintedProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/ReprintPrintedProduct.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/RollRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/RollRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/MergeRolls/MergeRollsCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/MergeRolls/MergeRollsCommandHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/Merge/MergeService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/Merge/MergeService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,6 +200,7 @@
     "PHPUnit.ErrorManagementServiceTest.test_product_must_be_in_progress.executor": "Run",
     "PHPUnit.ErrorManagementServiceTest.test_roll_must_exists.executor": "Run",
     "PHPUnit.ErrorManagementServiceTest.test_roll_must_have_history_in_order_to_record_error.executor": "Run",
+    "PHPUnit.ErrorRepositoryTest.executor": "Run",
     "PHPUnit.ErrorRepositoryTest.test_add.executor": "Run",
     "PHPUnit.ErrorRepositoryTest.test_error_can_be_found_by_responsible_employee_id.executor": "Run",
     "PHPUnit.ErrorRepositoryTest.test_errors_can_be_found_by_filter.executor": "Run",
@@ -229,12 +224,16 @@
     "PHPUnit.ManualProductsArrangeServiceTest.test_it_throws_exception_when_printed_products_handled_by_different_printers.executor": "Run",
     "PHPUnit.ManualProductsArrangeServiceTest.test_it_throws_exception_when_printed_products_have_different_film_type.executor": "Run",
     "PHPUnit.ManualProductsArrangeServiceTest.test_service_take_into_consideration_the_existing_rolls_ready_for_printing.executor": "Run",
+    "PHPUnit.MergeServiceTest.executor": "Run",
     "PHPUnit.MergeServiceTest.test_it_can_merge_several_rolls_into_one_locked_one.executor": "Run",
     "PHPUnit.MergeServiceTest.test_it_throws_error_when_at_least_one_roll_does_not_have_printed_products.executor": "Run",
     "PHPUnit.MergeServiceTest.test_it_throws_error_when_roll_products_have_different_film_types.executor": "Run",
+    "PHPUnit.MergeServiceTest.test_it_throws_exception_when_one_of_rolls_are_not_in_correct_process.executor": "Run",
     "PHPUnit.MergeServiceTest.test_it_throws_exception_when_rolls_printed_products_handled_by_different_printers.executor": "Run",
     "PHPUnit.MergeServiceTest.test_it_throws_exception_when_there_are_less_than_two_rolls.executor": "Run",
     "PHPUnit.MergeServiceTest.test_it_throws_exception_when_there_are_less_than_two_rolls_to_merge.executor": "Run",
+    "PHPUnit.MergeServiceTest.test_it_throws_exception_when_there_is_not_enough_film_length.executor": "Run",
+    "PHPUnit.MergeServiceTest.test_service_take_into_consideration_the_existing_rolls_ready_for_print_check_in.executor": "Run",
     "PHPUnit.OrderRepositoryTest.executor": "Run",
     "PHPUnit.OrderRepositoryTest.test_can_find_only_with_extras.executor": "Run",
     "PHPUnit.OrderRepositoryTest.test_can_find_packed.executor": "Run",
@@ -321,29 +320,29 @@
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.MergeServiceTest.test_it_can_merge_several_rolls_into_one_locked_one">
+  <component name="RunManager" selected="PHPUnit.Main">
+    <configuration name="ErrorRepositoryTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Infrastructure\Repository\ErrorRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Repository/ErrorRepositoryTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ErrorRepositoryTest.test_errors_can_be_found_by_filter" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Infrastructure\Repository\ErrorRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Repository/ErrorRepositoryTest.php" method="test_errors_can_be_found_by_filter" scope="Method" />
+      <method v="2" />
+    </configuration>
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
+      <method v="2" />
+    </configuration>
+    <configuration name="MergeServiceTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\Merge\MergeServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/Merge/MergeServiceTest.php" scope="Class" />
       <method v="2" />
     </configuration>
     <configuration name="MergeServiceTest.test_it_can_merge_several_rolls_into_one_locked_one" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\Merge\MergeServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/Merge/MergeServiceTest.php" method="test_it_can_merge_several_rolls_into_one_locked_one" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="MergeServiceTest.test_it_throws_error_when_at_least_one_roll_does_not_have_printed_products" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\Merge\MergeServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/Merge/MergeServiceTest.php" method="test_it_throws_error_when_at_least_one_roll_does_not_have_printed_products" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="MergeServiceTest.test_it_throws_error_when_roll_products_have_different_film_types" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\Merge\MergeServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/Merge/MergeServiceTest.php" method="test_it_throws_error_when_roll_products_have_different_film_types" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="MergeServiceTest.test_it_throws_exception_when_rolls_printed_products_handled_by_different_printers" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\Merge\MergeServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/Merge/MergeServiceTest.php" method="test_it_throws_exception_when_rolls_printed_products_handled_by_different_printers" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="MergeServiceTest.test_it_throws_exception_when_there_are_less_than_two_rolls_to_merge" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\Merge\MergeServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/Merge/MergeServiceTest.php" method="test_it_throws_exception_when_there_are_less_than_two_rolls_to_merge" scope="Method" />
+    <configuration name="MergeServiceTest.test_it_throws_exception_when_one_of_rolls_are_not_in_correct_process" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\Merge\MergeServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/Merge/MergeServiceTest.php" method="test_it_throws_exception_when_one_of_rolls_are_not_in_correct_process" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="PrintedProductCheckinTest.test_can_allocate_group_of_printed_products_on_one_roll" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -352,11 +351,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.MergeServiceTest" />
+        <item itemvalue="PHPUnit.MergeServiceTest.test_it_throws_exception_when_one_of_rolls_are_not_in_correct_process" />
+        <item itemvalue="PHPUnit.ErrorRepositoryTest" />
+        <item itemvalue="PHPUnit.ErrorRepositoryTest.test_errors_can_be_found_by_filter" />
         <item itemvalue="PHPUnit.MergeServiceTest.test_it_can_merge_several_rolls_into_one_locked_one" />
-        <item itemvalue="PHPUnit.MergeServiceTest.test_it_throws_error_when_roll_products_have_different_film_types" />
-        <item itemvalue="PHPUnit.MergeServiceTest.test_it_throws_exception_when_rolls_printed_products_handled_by_different_printers" />
-        <item itemvalue="PHPUnit.MergeServiceTest.test_it_throws_error_when_at_least_one_roll_does_not_have_printed_products" />
-        <item itemvalue="PHPUnit.MergeServiceTest.test_it_throws_exception_when_there_are_less_than_two_rolls_to_merge" />
       </list>
     </recent_temporary>
   </component>
@@ -442,79 +441,7 @@
       <workItem from="1731602716038" duration="121000" />
       <workItem from="1731668598593" duration="6246000" />
       <workItem from="1731925842906" duration="3013000" />
-      <workItem from="1731935877396" duration="14724000" />
-    </task>
-    <task id="LOCAL-00409" summary="Moved printers creation into domain layer.">
-      <option name="closed" value="true" />
-      <created>1729771619117</created>
-      <option name="number" value="00409" />
-      <option name="presentableId" value="LOCAL-00409" />
-      <option name="project" value="LOCAL" />
-      <updated>1729771619117</updated>
-    </task>
-    <task id="LOCAL-00410" summary="Moved printers creation into domain layer.">
-      <option name="closed" value="true" />
-      <created>1729771658317</created>
-      <option name="number" value="00410" />
-      <option name="presentableId" value="LOCAL-00410" />
-      <option name="project" value="LOCAL" />
-      <updated>1729771658317</updated>
-    </task>
-    <task id="LOCAL-00411" summary="Moved printers creation into domain layer.">
-      <option name="closed" value="true" />
-      <created>1729772121567</created>
-      <option name="number" value="00411" />
-      <option name="presentableId" value="LOCAL-00411" />
-      <option name="project" value="LOCAL" />
-      <updated>1729772121567</updated>
-    </task>
-    <task id="LOCAL-00412" summary="Added printed product assigment.">
-      <option name="closed" value="true" />
-      <created>1730185610441</created>
-      <option name="number" value="00412" />
-      <option name="presentableId" value="LOCAL-00412" />
-      <option name="project" value="LOCAL" />
-      <updated>1730185610442</updated>
-    </task>
-    <task id="LOCAL-00413" summary="Updated assign action runs with printed product id.">
-      <option name="closed" value="true" />
-      <created>1730193236636</created>
-      <option name="number" value="00413" />
-      <option name="presentableId" value="LOCAL-00413" />
-      <option name="project" value="LOCAL" />
-      <updated>1730193236636</updated>
-    </task>
-    <task id="LOCAL-00414" summary="Updated if after reprint roll is empty its deleted.">
-      <option name="closed" value="true" />
-      <created>1730197350482</created>
-      <option name="number" value="00414" />
-      <option name="presentableId" value="LOCAL-00414" />
-      <option name="project" value="LOCAL" />
-      <updated>1730197350482</updated>
-    </task>
-    <task id="LOCAL-00415" summary="Updated if after reprint roll is empty its deleted.">
-      <option name="closed" value="true" />
-      <created>1730209755393</created>
-      <option name="number" value="00415" />
-      <option name="presentableId" value="LOCAL-00415" />
-      <option name="project" value="LOCAL" />
-      <updated>1730209755393</updated>
-    </task>
-    <task id="LOCAL-00416" summary="Updated after reprint order product isPack set to false.">
-      <option name="closed" value="true" />
-      <created>1730211995167</created>
-      <option name="number" value="00416" />
-      <option name="presentableId" value="LOCAL-00416" />
-      <option name="project" value="LOCAL" />
-      <updated>1730211995168</updated>
-    </task>
-    <task id="LOCAL-00417" summary="Update process changed records current roll process.">
-      <option name="closed" value="true" />
-      <created>1730213032414</created>
-      <option name="number" value="00417" />
-      <option name="presentableId" value="LOCAL-00417" />
-      <option name="project" value="LOCAL" />
-      <updated>1730213032415</updated>
+      <workItem from="1731935877396" duration="35384000" />
     </task>
     <task id="LOCAL-00418" summary="Fixed after reprint if product unpacked it wont be unpack again.">
       <option name="closed" value="true" />
@@ -836,7 +763,79 @@
       <option name="project" value="LOCAL" />
       <updated>1731925970183</updated>
     </task>
-    <option name="localTasksCounter" value="458" />
+    <task id="LOCAL-00458" summary="Fixed reprint bug.">
+      <option name="closed" value="true" />
+      <created>1732015788841</created>
+      <option name="number" value="00458" />
+      <option name="presentableId" value="LOCAL-00458" />
+      <option name="project" value="LOCAL" />
+      <updated>1732015788841</updated>
+    </task>
+    <task id="LOCAL-00459" summary="Updated merge tests.">
+      <option name="closed" value="true" />
+      <created>1732019020846</created>
+      <option name="number" value="00459" />
+      <option name="presentableId" value="LOCAL-00459" />
+      <option name="project" value="LOCAL" />
+      <updated>1732019020846</updated>
+    </task>
+    <task id="LOCAL-00460" summary="Updated merge tests.">
+      <option name="closed" value="true" />
+      <created>1732019026119</created>
+      <option name="number" value="00460" />
+      <option name="presentableId" value="LOCAL-00460" />
+      <option name="project" value="LOCAL" />
+      <updated>1732019026119</updated>
+    </task>
+    <task id="LOCAL-00461" summary="Updated tests">
+      <option name="closed" value="true" />
+      <created>1732097358046</created>
+      <option name="number" value="00461" />
+      <option name="presentableId" value="LOCAL-00461" />
+      <option name="project" value="LOCAL" />
+      <updated>1732097358046</updated>
+    </task>
+    <task id="LOCAL-00462" summary="Updated tests">
+      <option name="closed" value="true" />
+      <created>1732097737256</created>
+      <option name="number" value="00462" />
+      <option name="presentableId" value="LOCAL-00462" />
+      <option name="project" value="LOCAL" />
+      <updated>1732097737256</updated>
+    </task>
+    <task id="LOCAL-00463" summary="Added case in order to merge rolls they must be in order check in process.">
+      <option name="closed" value="true" />
+      <created>1732103589382</created>
+      <option name="number" value="00463" />
+      <option name="presentableId" value="LOCAL-00463" />
+      <option name="project" value="LOCAL" />
+      <updated>1732103589382</updated>
+    </task>
+    <task id="LOCAL-00464" summary="Updated merge tests.">
+      <option name="closed" value="true" />
+      <created>1732103686619</created>
+      <option name="number" value="00464" />
+      <option name="presentableId" value="LOCAL-00464" />
+      <option name="project" value="LOCAL" />
+      <updated>1732103686619</updated>
+    </task>
+    <task id="LOCAL-00465" summary="Updated merge tests.">
+      <option name="closed" value="true" />
+      <created>1732103707900</created>
+      <option name="number" value="00465" />
+      <option name="presentableId" value="LOCAL-00465" />
+      <option name="project" value="LOCAL" />
+      <updated>1732103707900</updated>
+    </task>
+    <task id="LOCAL-00466" summary="Updated merge tests.">
+      <option name="closed" value="true" />
+      <created>1732103734142</created>
+      <option name="number" value="00466" />
+      <option name="presentableId" value="LOCAL-00466" />
+      <option name="project" value="LOCAL" />
+      <updated>1732103734142</updated>
+    </task>
+    <option name="localTasksCounter" value="467" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -871,10 +870,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed printer name property #2." />
-    <MESSAGE value="Fixed PrintedProductsCheckInService@findOrMakeRoll method creates or makes a roll with ORDER_CHECK_IN only process." />
-    <MESSAGE value="Updated print check in service throws exception if film is not available." />
-    <MESSAGE value="Fixed saving rolls if some product failed to arrange." />
     <MESSAGE value="Fixed saving rolls if some product failed to arrange. #2" />
     <MESSAGE value="Added roll isLocked field." />
     <MESSAGE value="Added lock/unlock tests." />
@@ -896,7 +891,11 @@
     <MESSAGE value="Updated controller name." />
     <MESSAGE value="Updated correct usage promoted properties FindErrorsQuery." />
     <MESSAGE value="Updated manual checkin route name" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated manual checkin route name" />
+    <MESSAGE value="Fixed reprint bug." />
+    <MESSAGE value="Updated tests" />
+    <MESSAGE value="Added case in order to merge rolls they must be in order check in process." />
+    <MESSAGE value="Updated merge tests." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated merge tests." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -105,12 +105,12 @@ class ErrorRepository extends ServiceEntityRepository implements ErrorRepository
                 ->setParameter('responsibleEmployeeId', $filter->responsibleEmployeeId);
         }
 
-        if ($filter->dateRangeFilter->from) {
+        if ($filter->dateRangeFilter?->from) {
             $qb->andWhere('e.createdAt >= :from')
                 ->setParameter('from', $filter->dateRangeFilter->from);
         }
 
-        if ($filter->dateRangeFilter->to) {
+        if ($filter->dateRangeFilter?->to) {
             $qb->andWhere('e.createdAt <= :to')
                 ->setParameter('to', $filter->dateRangeFilter->to);
         }

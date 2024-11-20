@@ -38,13 +38,23 @@ final readonly class InventoryApiAdapter implements AvailableFilmServiceInterfac
      *
      * @throws ExceptionInterface
      */
-    public function getAvailableFilms(string $filmType, float $minSize = 0): Collection
+    public function getAvailableFilmsByType(string $filmType, float $minSize = 0): Collection
+    {
+        $films = $this->getAvailableFilms();
+
+        return $films->filter(fn (FilmData $film) => $film->filmType === $filmType && $film->length >= $minSize);
+    }
+
+    /**
+     * Retrieves the available films from the inventory API, normalizes the data, and transforms it into a collection of films.
+     *
+     * @return Collection<FilmData> A collection of available films
+     *
+     * @throws ExceptionInterface
+     */
+    public function getAvailableFilms(): Collection
     {
         $films = $this->inventoryApi->getAvailableFilms();
-
-		$films = array_filter($films, function (\App\Inventory\Application\UseCases\Query\DTO\FilmData $film) use ($filmType, $minSize) {
-			return $film->type === $filmType && $film->length >= $minSize;
-		});
 
         $films = $this->normalizer->normalize($films);
 
