@@ -48,7 +48,6 @@ final readonly class MergeService
         }
 
         $products = $this->getProducts($rollsToMerge);
-        $productsLength = array_sum($products->map(fn (PrintedProduct $product) => $product->getLength())->toArray());
 
         if ($products->isEmpty()) {
             RollMergeException::because('One of the rolls does not have printed products');
@@ -56,7 +55,7 @@ final readonly class MergeService
 
         $this->arrangementValidator->validate($products);
 
-        $availableFilm = $this->getFilm($rollsToMerge, $productsLength);
+        $availableFilm = $this->getFilm(rollsToExclude: $rollsToMerge, products: $products);
 
         $mergedRoll = $this->makeMergedAndLockedRoll(filmId: $availableFilm->id, printedProducts: $products);
 
@@ -65,21 +64,26 @@ final readonly class MergeService
         return $mergedRoll->getId();
     }
 
-    /**
-     * Retrieves available film based on a collection of rolls to exclude.
-     *
-     * @param Collection<Roll> $rollsToExclude A collection of Roll objects to exclude
-     *
-     * @return FilmData The available FilmData object based on the rolls to exclude
-     *
-     * @throws InventoryFilmIsNotAvailableException
-     */
-    public function getFilm(Collection $rollsToExclude, float $minLength): FilmData
+	/**
+	 * Retrieves available film based on a collection of rolls to exclude.
+	 *
+	 * @param Collection<Roll> $rollsToExclude A collection of Roll objects to exclude
+	 * @param Collection<PrintedProduct> $products A collection of Roll objects to exclude
+	 *
+	 * @return FilmData The available FilmData object based on the rolls to exclude
+	 *
+	 * @throws InventoryFilmIsNotAvailableException
+	 * @throws DomainException
+	 */
+    public function getFilm(Collection $rollsToExclude, Collection $products): FilmData
     {
         $rollsToExcludeIds = $rollsToExclude->map(fn (Roll $roll) => $roll->getId())->toArray();
 
+        $filmType = $products->first()?->getFilmType() ?? '';
+		$minLength = array_sum($products->map(fn (PrintedProduct $product) => $product->getLength())->toArray());
+
         $availableFilms = $this->availableFilmService->getAvailableFilmsByType(
-            filmType: $rollsToExclude->first()->getPrintedProducts()->first()->getFilmType(),
+            filmType: $filmType,
             minSize: $minLength
         );
 
