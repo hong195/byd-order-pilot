@@ -143,9 +143,13 @@ final class MergeServiceTest extends AbstractTestCase
 
         $this->assertNotNull($mergedRoll);
         $this->assertTrue($mergedRoll->isLocked());
-        $this->assertCount($rollToMerge1ProductCount + $rollToMerge2ProductCount, $mergedRoll->getPrintedProducts());
         $this->assertNull($removedRoll1);
         $this->assertNull($removedRoll2);
+		$this->assertCount($rollToMerge1ProductCount + $rollToMerge2ProductCount, $mergedRoll->getPrintedProducts());
+
+		foreach ($mergedRoll->getPrintedProducts() as $printedProduct) {
+			$this->assertEquals($mergedRoll->getId(), $printedProduct->getRoll()?->getId());
+		}
     }
 
     public function test_it_throws_exception_when_one_of_rolls_are_not_in_correct_process(): void

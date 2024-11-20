@@ -64,23 +64,23 @@ final readonly class MergeService
         return $mergedRoll->getId();
     }
 
-	/**
-	 * Retrieves available film based on a collection of rolls to exclude.
-	 *
-	 * @param Collection<Roll> $rollsToExclude A collection of Roll objects to exclude
-	 * @param Collection<PrintedProduct> $products A collection of Roll objects to exclude
-	 *
-	 * @return FilmData The available FilmData object based on the rolls to exclude
-	 *
-	 * @throws InventoryFilmIsNotAvailableException
-	 * @throws DomainException
-	 */
+    /**
+     * Retrieves available film based on a collection of rolls to exclude.
+     *
+     * @param Collection<Roll>           $rollsToExclude A collection of Roll objects to exclude
+     * @param Collection<PrintedProduct> $products       A collection of Roll objects to exclude
+     *
+     * @return FilmData The available FilmData object based on the rolls to exclude
+     *
+     * @throws InventoryFilmIsNotAvailableException
+     * @throws DomainException
+     */
     public function getFilm(Collection $rollsToExclude, Collection $products): FilmData
     {
         $rollsToExcludeIds = $rollsToExclude->map(fn (Roll $roll) => $roll->getId())->toArray();
 
         $filmType = $products->first()?->getFilmType() ?? '';
-		$minLength = array_sum($products->map(fn (PrintedProduct $product) => $product->getLength())->toArray());
+        $minLength = array_sum($products->map(fn (PrintedProduct $product) => $product->getLength())->toArray());
 
         $availableFilms = $this->availableFilmService->getAvailableFilmsByType(
             filmType: $filmType,
@@ -140,6 +140,7 @@ final readonly class MergeService
             foreach ($roll->getPrintedProducts() as $printedProduct) {
                 $products->add($printedProduct);
             }
+            $roll->removePrintedProducts();
         }
 
         return $products;
