@@ -33,14 +33,14 @@ final readonly class TakePhotoCommandHandler implements CommandHandlerInterface
      *
      * @param TakePhotoCommand $command The command information for uploading photo
      *
-     * @return string The url of photo
+     * @return void
      *
      * @throws \InvalidArgumentException If access control is not granted
      */
-    public function __invoke(TakePhotoCommand $command): string
+    public function __invoke(TakePhotoCommand $command): void
     {
         AssertService::true($this->accessControlService->isGranted(), 'Not allowed to handle resource.');
 
-        return $this->photoUpdater->upload(productId: $command->productId, photoId: $command->photoId);
+        $this->photoUpdater->upload(productId: $command->productId, photoId: $command->photoId);
     }
 }

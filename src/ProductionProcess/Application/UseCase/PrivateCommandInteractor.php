@@ -6,7 +6,6 @@ namespace App\ProductionProcess\Application\UseCase;
 
 use App\Orders\Application\DTO\Order\SortData;
 use App\ProductionProcess\Application\UseCase\Command\AssignEmployeeToRoll\AssignEmployeeToRollCommand;
-use App\ProductionProcess\Application\UseCase\Command\AssignPrintedProduct\AssignPrintedProductCommand;
 use App\ProductionProcess\Application\UseCase\Command\ChangePrintedProductPriority\ChangePrintedProductPriorityCommand;
 use App\ProductionProcess\Application\UseCase\Command\ChangePrintedProductSort\ChangePrintedProductSortCommand;
 use App\ProductionProcess\Application\UseCase\Command\ChangePrinterAvailability\ChangePrinterAvailabilityCommand;
@@ -189,18 +188,6 @@ readonly class PrivateCommandInteractor
     }
 
     /**
-     * Assigns an order. Triggers the check-in process.
-     *
-     * @param int $id The id of the order to assign
-     *
-     * @throws UnassignedPrintedProductsException
-     */
-    public function assignPrintedProduct(int $id): void
-    {
-        $this->commandBus->execute(new AssignPrintedProductCommand($id));
-    }
-
-    /**
      * Reprints a printed product.
      */
     public function reprintPrintedProduct(ReprintPrintedProductCommand $command): void
@@ -264,13 +251,14 @@ readonly class PrivateCommandInteractor
      *
      * @param TakePhotoCommand $command The command to take a photo
      *
-     * @return string The result of the command execution
+     * @return void
      */
-    public function takePhoto(TakePhotoCommand $command): string
+    public function takePhoto(TakePhotoCommand $command): void
     {
-        return $this->commandBus->execute($command);
+        $this->commandBus->execute($command);
     }
 
+    /**
      * Merges the specified rolls by executing a MergeRollsCommand through the command bus.
      *
      * @param int[] $rollsIds The array of roll IDs to be merged

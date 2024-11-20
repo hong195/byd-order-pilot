@@ -37,9 +37,9 @@ final readonly class TakeAPhotoService
      * @param int      $productId
      * @param int|null $photoId
      *
-     * @return string
+     * @return void
      */
-    public function upload(int $productId, ?int $photoId): string
+    public function upload(int $productId, ?int $photoId): void
     {
         $printedProduct = $this->printedProductRepository->findById($productId);
 
@@ -52,7 +52,5 @@ final readonly class TakeAPhotoService
         $printedProduct->setPhoto($newPhoto);
 
         $this->printedProductRepository->save($printedProduct);
-
-        return $this->assetUrlService->getLink($newPhoto->getPath());
     }
 }
