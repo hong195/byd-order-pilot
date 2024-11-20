@@ -251,9 +251,9 @@ readonly class PrivateCommandInteractor
      *
      * @param TakePhotoCommand $command The command to take a photo
      *
-     * @return string The url of stored product photo
+     * @return string|null The url of stored product photo
      */
-    public function takePhoto(TakePhotoCommand $command): string
+    public function takePhoto(TakePhotoCommand $command): ?string
     {
         return $this->commandBus->execute($command);
     }
