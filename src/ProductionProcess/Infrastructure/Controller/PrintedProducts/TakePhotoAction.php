@@ -52,11 +52,20 @@ final readonly class TakePhotoAction
      */
     public function __invoke(int $productId, Request $request): JsonResponse
     {
-        $photoId = null;
+        // Retrieve the uploaded photo file
+        $photo = $request->files->get('photo');
 
-        if ($photo = $request->files->get('photo')) {
-            $photoId = $this->uploadFileService->upload($photo);
+        // Validate that a photo file was provided and is valid
+        if (!$photo || !$photo->isValid()) {
+            return new JsonResponse(['error' => 'No valid photo provided'], Response::HTTP_BAD_REQUEST);
         }
+
+        // Check image format. Allowed format is image/*
+        if (!str_starts_with($photo->getMimeType(), 'image/')) {
+            return new JsonResponse(['error' => 'Invalid photo format. Only image/* types are allowed.'], Response::HTTP_BAD_REQUEST);
+        }
+
+        $photoId = $this->uploadFileService->upload($photo);
 
         $command = new TakePhotoCommand(
             productId: $productId,

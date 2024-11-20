@@ -32,16 +32,16 @@ final readonly class TakeAPhotoService
     }
 
     /**
-     * @param int      $productId
-     * @param int|null $photoId
+     * @param int $productId
+     * @param int $photoId
      *
      * @return void
      */
-    public function upload(int $productId, ?int $photoId): void
+    public function upload(int $productId, int $photoId): void
     {
         $printedProduct = $this->printedProductRepository->findById($productId);
 
-        $newPhoto = $photoId ? $this->mediaFileRepository->findById($photoId) : null;
+        $newPhoto = $this->mediaFileRepository->findById($photoId);
 
         if ($printedProduct->getPhoto()) {
             $this->mediaFileRepository->remove($printedProduct->getPhoto());
