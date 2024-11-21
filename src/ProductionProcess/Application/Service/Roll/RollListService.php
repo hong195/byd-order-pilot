@@ -82,9 +82,9 @@ final readonly class RollListService
 
         $data = $this->rollDataTransformer->fromEntity($roll);
 
-        $printer = $this->printerRepository->findById($roll->getPrinter()?->getId());
+        if ($roll->getPrinter()?->getId()) {
+			$printer = $this->printerRepository->findById($roll->getPrinter()?->getId());
 
-        if ($printer) {
             $data->withPrinter(new PrinterData(
                 id: $printer->getId(),
                 name: $printer->name,

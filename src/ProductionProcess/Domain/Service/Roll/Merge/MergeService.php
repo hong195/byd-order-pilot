@@ -8,10 +8,12 @@ use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
 use App\ProductionProcess\Domain\DTO\FilmData;
 use App\ProductionProcess\Domain\Exceptions\InventoryFilmIsNotAvailableException;
+use App\ProductionProcess\Domain\Exceptions\PrinterMatchException;
 use App\ProductionProcess\Domain\Exceptions\RollMergeException;
 use App\ProductionProcess\Domain\Repository\Roll\RollFilter;
 use App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
 use App\ProductionProcess\Domain\Service\Inventory\AvailableFilmServiceInterface;
+use App\ProductionProcess\Domain\Service\Printer\ProductPrinterMatcher;
 use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Manual\ManualArrangementValidator;
 use App\ProductionProcess\Domain\Service\Roll\RollMaker;
 use App\ProductionProcess\Domain\ValueObject\Process;
@@ -21,7 +23,7 @@ use Doctrine\Common\Collections\Collection;
 
 final readonly class MergeService
 {
-    public function __construct(private RollRepositoryInterface $rollRepository, private RollMaker $rollMaker, private ManualArrangementValidator $arrangementValidator, private AvailableFilmServiceInterface $availableFilmService)
+    public function __construct(private RollRepositoryInterface $rollRepository, private RollMaker $rollMaker, private ManualArrangementValidator $arrangementValidator, private AvailableFilmServiceInterface $availableFilmService, private ProductPrinterMatcher $printerMatcher)
     {
     }
 
@@ -111,6 +113,8 @@ final readonly class MergeService
      * @param Collection<PrintedProduct> $printedProducts A collection of PrintedProduct objects
      *
      * @return Roll The merged and locked Roll object
+     *
+     * @throws PrinterMatchException
      */
     private function makeMergedAndLockedRoll(int $filmId, Collection $printedProducts): Roll
     {
@@ -118,6 +122,8 @@ final readonly class MergeService
 
         $mergedRoll->setFilmId($filmId);
         $mergedRoll->addPrintedProducts($printedProducts);
+        $printer = $this->printerMatcher->match($printedProducts->first());
+        $mergedRoll->assignPrinter($printer);
         $mergedRoll->lock();
 
         $this->rollRepository->save($mergedRoll);

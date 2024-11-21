@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Fixed merge unattached products">
-      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20241121142223.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added cors settings for downloading files.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/nelmio_cors.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/nelmio_cors.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/Service/Roll/RollListService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/Service/Roll/RollListService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/Merge/MergeService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/Merge/MergeService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/Merge/MergeServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/Merge/MergeServiceTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -441,15 +442,7 @@
       <workItem from="1731602716038" duration="121000" />
       <workItem from="1731668598593" duration="6246000" />
       <workItem from="1731925842906" duration="3013000" />
-      <workItem from="1731935877396" duration="48338000" />
-    </task>
-    <task id="LOCAL-00420" summary="Fixed long float for orders and production entities.">
-      <option name="closed" value="true" />
-      <created>1730985176663</created>
-      <option name="number" value="00420" />
-      <option name="presentableId" value="LOCAL-00420" />
-      <option name="project" value="LOCAL" />
-      <updated>1730985176663</updated>
+      <workItem from="1731935877396" duration="51359000" />
     </task>
     <task id="LOCAL-00421" summary="Added system reset command.">
       <option name="closed" value="true" />
@@ -835,7 +828,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732119269677</updated>
     </task>
-    <option name="localTasksCounter" value="469" />
+    <task id="LOCAL-00469" summary="Added cors settings for downloading files.">
+      <option name="closed" value="true" />
+      <created>1732199078098</created>
+      <option name="number" value="00469" />
+      <option name="presentableId" value="LOCAL-00469" />
+      <option name="project" value="LOCAL" />
+      <updated>1732199078098</updated>
+    </task>
+    <option name="localTasksCounter" value="470" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -870,7 +871,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added lock/unlock tests." />
     <MESSAGE value="Added roll lock/unlock api." />
     <MESSAGE value="Updated roll lock/unlock tests." />
     <MESSAGE value="Updated tests." />
@@ -895,7 +895,8 @@
     <MESSAGE value="Updated merge tests." />
     <MESSAGE value="Fixed getting film type." />
     <MESSAGE value="Fixed merge unattached products" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed merge unattached products" />
+    <MESSAGE value="Added cors settings for downloading files." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added cors settings for downloading files." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
