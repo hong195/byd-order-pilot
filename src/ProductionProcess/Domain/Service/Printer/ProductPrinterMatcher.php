@@ -8,6 +8,7 @@ use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use App\ProductionProcess\Domain\Aggregate\Printer\Printer;
 use App\ProductionProcess\Domain\Exceptions\PrinterMatchException;
 use App\ProductionProcess\Domain\Repository\Printer\ConditionRepositoryInterface;
+use App\Shared\Domain\Exception\DomainException;
 
 final readonly class ProductPrinterMatcher
 {
@@ -20,6 +21,7 @@ final readonly class ProductPrinterMatcher
 
     /**
      * @throws PrinterMatchException
+     * @throws DomainException
      */
     public function match(PrintedProduct $printedProduct): Printer
     {
@@ -36,6 +38,7 @@ final readonly class ProductPrinterMatcher
             }
         }
 
+        /* @phpstan-ignore-next-line */
         PrinterMatchException::because('No printer found for the given product');
     }
 }

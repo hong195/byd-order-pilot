@@ -77,12 +77,14 @@ final class MergeServiceTest extends AbstractTestCase
     {
         $rollToMerge1 = $this->loadRoll();
         $rollToMerge1->updateProcess(Process::ORDER_CHECK_IN);
+
         $product1 = $this->createPreparedProduct('white');
-        $product1->setLaminationType('gloss');
+        $product1->setLaminationType('glossy');
         $rollToMerge1->addPrintedProduct($product1);
+
         $rollToMerge2 = $this->loadRoll();
-        $rollToMerge2->addPrintedProduct($this->createPreparedProduct('white'));
         $rollToMerge2->updateProcess(Process::ORDER_CHECK_IN);
+        $rollToMerge2->addPrintedProduct($this->createPreparedProduct('white'));
 
         $this->entityManager->persist($rollToMerge1);
         $this->entityManager->persist($rollToMerge2);

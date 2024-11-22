@@ -4,9 +4,13 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess;
 
+use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
+use App\ProductionProcess\Domain\Repository\Roll\RollFilter;
+use App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
 use App\ProductionProcess\Domain\Service\Inventory\AvailableFilmServiceInterface;
 use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Groups\FilmGroup;
 use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Groups\ProductGroup;
+use App\ProductionProcess\Domain\ValueObject\Process;
 use Doctrine\Common\Collections\ArrayCollection;
 
 final class FilmAssignmentService
@@ -22,7 +26,7 @@ final class FilmAssignmentService
      * @param AvailableFilmServiceInterface $availableFilmService An object of AvailableFilmServiceInterface
      * @param FilmGroup                     $filmGroup            An object of FilmGroup
      */
-    public function __construct(private AvailableFilmServiceInterface $availableFilmService, private FilmGroup $filmGroup)
+    public function __construct(private AvailableFilmServiceInterface $availableFilmService, private FilmGroup $filmGroup, private RollRepositoryInterface $rollRepository)
     {
     }
 
@@ -44,7 +48,14 @@ final class FilmAssignmentService
             }
 
             foreach ($availableFilms as $film) {
+                // take into account the length of manually created rolls with the same film
+                $rollsLength = $this->getManuallyCreatedRollsLengthByFilmId($film->id);
+
                 if (!isset($this->filmGroups[$film->id])) {
+                    if ($group->getLength() + $rollsLength > $film->length) {
+                        continue;
+                    }
+
                     $this->filmGroups[$film->id] = $this->filmGroup->make(
                         filmId: $film->id,
                         filmType: $film->filmType,
@@ -55,16 +66,32 @@ final class FilmAssignmentService
                 }
 
                 $filmGroup = $this->filmGroups[$film->id];
-                if ($filmGroup->getTotalLength() + $group->getLength() <= $film->length) {
+
+                if ($filmGroup->getTotalLength() + $group->getLength() + $rollsLength <= $film->length) {
                     $filmGroup->addProductGroup($group);
                     break;
                 }
-
-                $this->handleNoAvailableFilms($group);
             }
         }
 
         return $this->optimizeGroups($this->filmGroups);
+    }
+
+    /**
+     * Method to get the total length of manually created rolls by film ID.
+     *
+     * @param int $filmId The ID of the film
+     *
+     * @return float The total length of manually created rolls
+     */
+    private function getManuallyCreatedRollsLengthByFilmId(int $filmId): float
+    {
+        $rolls = $this->rollRepository->findByFilter(new RollFilter(process: Process::ORDER_CHECK_IN, filmIds: [$filmId]));
+        $rollsLength = $rolls->filter(fn (Roll $roll) => $roll->isLocked())
+                            ->map(fn (Roll $roll) => $roll->getPrintedProductsLength())
+                            ->toArray();
+
+        return array_sum($rollsLength);
     }
 
     /**

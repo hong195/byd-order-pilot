@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Domain\Aggregate\Printer;
 
-use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
@@ -79,25 +78,5 @@ class Printer
     public function changeAvailability(bool $isAvailable): void
     {
         $this->isAvailable = $isAvailable;
-    }
-
-    /**
-     * Check if the printer can print the given PrintedProduct based on its conditions.
-     *
-     * @param PrintedProduct $printedProduct The PrintedProduct to check if it can be printed
-     *
-     * @return bool True if the printer can print the PrintedProduct, false otherwise
-     */
-    public function canPrintProduct(PrintedProduct $printedProduct): bool
-    {
-        foreach ($this->conditions as $condition) {
-            if ($condition->isSatisfiedBy(
-                filmType: $printedProduct->filmType,
-                laminationType: $printedProduct->getLaminationType())) {
-                return true;
-            }
-        }
-
-        return false;
     }
 }
