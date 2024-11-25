@@ -4,20 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Moved auto check in to its folder">
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Moved printed product check in to its folders">
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Exceptions/DifferentFilmTypeException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Exceptions/DifferentPrinterTypeException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/FilmTypeValidatorTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/PrinterValidatorTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ManualProductsArrangement/ManualProductsArrangementQueryHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ManualProductsArrangement/ManualProductsArrangementQueryHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Auto/FilmAssignmentService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Auto/FilmAssignmentService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/GroupByOrderNumberService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/GroupByOrderNumberService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/GroupPrinterService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/GroupPrinterService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Groups/FilmGroup.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Auto/Groups/FilmGroup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Groups/PrinterGroup.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Auto/Groups/PrinterGroup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Groups/ProductGroup.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Auto/Groups/ProductGroup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/ManualProductsArrangeService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/ManualProductsCheckInService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/Merge/MergeServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Merge/MergeServiceTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/ManualProductsArrangeServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/ManualProductsCheckInServiceTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/FilmTypeValidator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/FilmTypeValidator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/PrinterValidator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/PrinterValidator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Functional/AbstractTestCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/AbstractTestCase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/ManualProductsCheckInServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Manual/ManualProductsCheckInServiceTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Merge/MergeServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Merge/MergeServiceTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckinTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckinTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Tools/FixtureTools.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Tools/FixtureTools.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,6 +216,8 @@
     "PHPUnit.ErrorRepositoryTest.test_find_by_process.executor": "Run",
     "PHPUnit.ExtraMakerTest.test_can_successfully_make_extra.executor": "Run",
     "PHPUnit.ExtraRepositoryTest.test_can_successfully_save.executor": "Run",
+    "PHPUnit.FilmTypeValidatorTest.test_it_can_successfully_check_printed_products_film_type.executor": "Run",
+    "PHPUnit.FilmTypeValidatorTest.test_throws_exception_when_film_types_are_different.executor": "Run",
     "PHPUnit.GlowCheckinTest.executor": "Run",
     "PHPUnit.HistoryRepositoryTest.executor": "Run",
     "PHPUnit.HistoryRepositoryTest.test_add.executor": "Run",
@@ -265,6 +266,8 @@
     "PHPUnit.PrintedProductRepositoryTest.test_add.executor": "Run",
     "PHPUnit.PrintedProductRepositoryTest.test_can_find_by_filter.executor": "Run",
     "PHPUnit.PrintedProductRepositoryTest.test_can_find_by_multiple_related_product_ids.executor": "Run",
+    "PHPUnit.PrinterValidatorTest.test_it_can_successfully_check_printed_products_printer.executor": "Run",
+    "PHPUnit.PrinterValidatorTest.test_it_throws_exception_when_its_different_printers.executor": "Run",
     "PHPUnit.ProductRepositoryTest.test_can_find_by_filter.executor": "Run",
     "PHPUnit.ProductRepositoryTest.test_can_successfully_save.executor": "Run",
     "PHPUnit.ReprintRollTest.test_cannot_reprint_not_existing_roll.executor": "Run",
@@ -294,7 +297,7 @@
     "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm": "Docker",
     "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm": "Docker",
     "git-widget-placeholder": "!2 on Merging roll-history",
-    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/tests/Functional/ProductionProcess/Domain/Service/Roll",
+    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -316,39 +319,31 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess" />
       <recent name="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/UnLockRoll" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/LockRoll" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command" />
-      <recent name="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrintedProduct" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess" />
       <recent name="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Auto" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/Roll" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/PrintedProduct" />
-      <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/Printer" />
     </key>
   </component>
   <component name="RunManager" selected="PHPUnit.Main">
-    <configuration name="ErrorRepositoryTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Infrastructure\Repository\ErrorRepositoryTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Infrastructure/Repository/ErrorRepositoryTest.php" scope="Class" />
+    <configuration name="FilmTypeValidatorTest.test_it_can_successfully_check_printed_products_film_type" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\FilmTypeValidatorTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/FilmTypeValidatorTest.php" method="test_it_can_successfully_check_printed_products_film_type" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="FilmTypeValidatorTest.test_throws_exception_when_film_types_are_different" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\FilmTypeValidatorTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/FilmTypeValidatorTest.php" method="test_throws_exception_when_film_types_are_different" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
-      <method v="2" />
-    </configuration>
-    <configuration name="MergeServiceTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\Merge\MergeServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Merge/MergeServiceTest.php" scope="Class" />
-      <method v="2" />
-    </configuration>
-    <configuration name="MergeServiceTest.test_it_can_merge_several_rolls_into_one_locked_one" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\Merge\MergeServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Merge/MergeServiceTest.php" method="test_it_can_merge_several_rolls_into_one_locked_one" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="MergeServiceTest.test_it_throws_exception_when_one_of_rolls_are_not_in_correct_process" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\Merge\MergeServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Merge/MergeServiceTest.php" method="test_it_throws_exception_when_one_of_rolls_are_not_in_correct_process" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="MergeServiceTest.test_it_throws_exception_when_rolls_printed_products_handled_by_different_printers" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -359,13 +354,21 @@
       <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintedProductCheckinTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckinTest.php" method="test_can_allocate_group_of_printed_products_on_one_roll" scope="Method" />
       <method v="2" />
     </configuration>
+    <configuration name="PrinterValidatorTest.test_it_can_successfully_check_printed_products_printer" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\PrinterValidatorTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/PrinterValidatorTest.php" method="test_it_can_successfully_check_printed_products_printer" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="PrinterValidatorTest.test_it_throws_exception_when_its_different_printers" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\PrinterValidatorTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/PrinterValidatorTest.php" method="test_it_throws_exception_when_its_different_printers" scope="Method" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.FilmTypeValidatorTest.test_throws_exception_when_film_types_are_different" />
+        <item itemvalue="PHPUnit.PrinterValidatorTest.test_it_throws_exception_when_its_different_printers" />
+        <item itemvalue="PHPUnit.PrinterValidatorTest.test_it_can_successfully_check_printed_products_printer" />
+        <item itemvalue="PHPUnit.FilmTypeValidatorTest.test_it_can_successfully_check_printed_products_film_type" />
         <item itemvalue="PHPUnit.MergeServiceTest.test_it_throws_exception_when_rolls_printed_products_handled_by_different_printers" />
-        <item itemvalue="PHPUnit.MergeServiceTest.test_it_can_merge_several_rolls_into_one_locked_one" />
-        <item itemvalue="PHPUnit.MergeServiceTest" />
-        <item itemvalue="PHPUnit.MergeServiceTest.test_it_throws_exception_when_one_of_rolls_are_not_in_correct_process" />
-        <item itemvalue="PHPUnit.ErrorRepositoryTest" />
       </list>
     </recent_temporary>
   </component>
@@ -454,31 +457,8 @@
       <workItem from="1731935877396" duration="52488000" />
       <workItem from="1732204343640" duration="18839000" />
       <workItem from="1732299570194" duration="4952000" />
-      <workItem from="1732523185868" duration="11824000" />
-    </task>
-    <task id="LOCAL-00426" summary="Update all domain exceptions inherit from DomainException.">
-      <option name="closed" value="true" />
-      <created>1731057087322</created>
-      <option name="number" value="00426" />
-      <option name="presentableId" value="LOCAL-00426" />
-      <option name="project" value="LOCAL" />
-      <updated>1731057087322</updated>
-    </task>
-    <task id="LOCAL-00427" summary="Fixed ExceptionMiddleware return error.">
-      <option name="closed" value="true" />
-      <created>1731057874150</created>
-      <option name="number" value="00427" />
-      <option name="presentableId" value="LOCAL-00427" />
-      <option name="project" value="LOCAL" />
-      <updated>1731057874150</updated>
-    </task>
-    <task id="LOCAL-00428" summary="Fixed printer assigment.">
-      <option name="closed" value="true" />
-      <created>1731059707534</created>
-      <option name="number" value="00428" />
-      <option name="presentableId" value="LOCAL-00428" />
-      <option name="project" value="LOCAL" />
-      <updated>1731059707534</updated>
+      <workItem from="1732523185868" duration="13114000" />
+      <workItem from="1732541349074" duration="1440000" />
     </task>
     <task id="LOCAL-00429" summary="Fixed printer name property.">
       <option name="closed" value="true" />
@@ -848,7 +828,31 @@
       <option name="project" value="LOCAL" />
       <updated>1732536461571</updated>
     </task>
-    <option name="localTasksCounter" value="475" />
+    <task id="LOCAL-00475" summary="Moved printed product check in to its folders">
+      <option name="closed" value="true" />
+      <created>1732540020349</created>
+      <option name="number" value="00475" />
+      <option name="presentableId" value="LOCAL-00475" />
+      <option name="project" value="LOCAL" />
+      <updated>1732540020349</updated>
+    </task>
+    <task id="LOCAL-00476" summary="Moved printed product check in to its folders">
+      <option name="closed" value="true" />
+      <created>1732540278662</created>
+      <option name="number" value="00476" />
+      <option name="presentableId" value="LOCAL-00476" />
+      <option name="project" value="LOCAL" />
+      <updated>1732540278662</updated>
+    </task>
+    <task id="LOCAL-00477" summary="Moved printed product check in to its folders">
+      <option name="closed" value="true" />
+      <created>1732541029831</created>
+      <option name="number" value="00477" />
+      <option name="presentableId" value="LOCAL-00477" />
+      <option name="project" value="LOCAL" />
+      <updated>1732541029831</updated>
+    </task>
+    <option name="localTasksCounter" value="478" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -883,7 +887,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added raw version of manual printed products arrangement." />
     <MESSAGE value="Fixed empty roll not created after auto arrangement." />
     <MESSAGE value="Updated some tests &amp; fixed exception throwing." />
     <MESSAGE value="Updated manual arrangement service." />
@@ -908,7 +911,8 @@
     <MESSAGE value="Updated after merging rolls printer is also assigned." />
     <MESSAGE value="Fixed printer condition match." />
     <MESSAGE value="Moved auto check in to its folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="Moved auto check in to its folder" />
+    <MESSAGE value="Moved printed product check in to its folders" />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved printed product check in to its folders" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess;
 
-use App\ProductionProcess\Domain\Exceptions\ManualArrangeException;
+use App\ProductionProcess\Domain\Exceptions\DifferentPrinterTypeException;
 use App\ProductionProcess\Domain\Service\Printer\ProductPrinterMatcher;
 use App\Shared\Domain\Exception\DomainException;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -37,7 +37,7 @@ final readonly class PrinterValidator
         }
 
         if (count($printers) > 1) {
-            ManualArrangeException::because('Given printed products have different printers');
+            DifferentPrinterTypeException::because('Given printed products have different printers');
         }
     }
 }

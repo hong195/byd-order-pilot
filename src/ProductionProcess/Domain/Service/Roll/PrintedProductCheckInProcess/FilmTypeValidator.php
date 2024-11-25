@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess;
 
 use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
+use App\ProductionProcess\Domain\Exceptions\DifferentFilmTypeException;
 use App\ProductionProcess\Domain\Exceptions\ManualArrangeException;
 use Doctrine\Common\Collections\Collection;
 
@@ -25,7 +26,7 @@ final readonly class FilmTypeValidator
         // all products must have the same film type
         $printedProducts->map(function (PrintedProduct $printedProduct) use ($printedProducts) {
             if ($printedProduct->getFilmType() !== $printedProducts->first()->getFilmType()) {
-                ManualArrangeException::because('Given printed products have different film types');
+				DifferentFilmTypeException::because('Given printed products have different film types');
             }
         });
     }

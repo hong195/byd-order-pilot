@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Tests\Functional;
 
 use App\ProductionProcess\Domain\Service\Printer\InitPrintersService;
+use App\Tests\Tools\FakerTools;
+use App\Tests\Tools\FixtureTools;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Tools\SchemaTool;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;

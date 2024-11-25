@@ -4,11 +4,7 @@ declare(strict_types=1);
 
 namespace App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Merge;
 
-use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
-use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
-use App\ProductionProcess\Domain\DTO\FilmData;
 use App\ProductionProcess\Domain\Exceptions\InventoryFilmIsNotAvailableException;
-use App\ProductionProcess\Domain\Exceptions\ManualArrangeException;
 use App\ProductionProcess\Domain\Exceptions\RollMergeException;
 use App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
 use App\ProductionProcess\Domain\Service\Inventory\AvailableFilmServiceInterface;
@@ -52,45 +48,6 @@ final class MergeServiceTest extends AbstractTestCase
         $rollToMerge2 = $this->loadRoll();
 
         $this->expectException(RollMergeException::class);
-
-        $this->mergeService->merge([$rollToMerge1->getId(), $rollToMerge2->getId()]);
-    }
-
-    public function test_it_throws_error_when_roll_products_have_different_film_types(): void
-    {
-        $rollToMerge1 = $this->loadRoll();
-        $rollToMerge1->updateProcess(Process::ORDER_CHECK_IN);
-        $rollToMerge1->addPrintedProduct($this->createPreparedProduct($this->getFaker()->word()));
-        $rollToMerge2 = $this->loadRoll();
-        $rollToMerge2->addPrintedProduct($this->createPreparedProduct($this->getFaker()->word()));
-        $rollToMerge2->updateProcess(Process::ORDER_CHECK_IN);
-        $this->entityManager->persist($rollToMerge1);
-        $this->entityManager->persist($rollToMerge2);
-        $this->entityManager->flush();
-
-        $this->expectException(ManualArrangeException::class);
-
-        $this->mergeService->merge([$rollToMerge1->getId(), $rollToMerge2->getId()]);
-    }
-
-    public function test_it_throws_exception_when_rolls_printed_products_handled_by_different_printers(): void
-    {
-        $rollToMerge1 = $this->loadRoll();
-        $rollToMerge1->updateProcess(Process::ORDER_CHECK_IN);
-
-        $product1 = $this->createPreparedProduct('white');
-        $product1->setLaminationType('glossy');
-        $rollToMerge1->addPrintedProduct($product1);
-
-        $rollToMerge2 = $this->loadRoll();
-        $rollToMerge2->updateProcess(Process::ORDER_CHECK_IN);
-        $rollToMerge2->addPrintedProduct($this->createPreparedProduct('white'));
-
-        $this->entityManager->persist($rollToMerge1);
-        $this->entityManager->persist($rollToMerge2);
-        $this->entityManager->flush();
-
-        $this->expectException(ManualArrangeException::class);
 
         $this->mergeService->merge([$rollToMerge1->getId(), $rollToMerge2->getId()]);
     }
@@ -168,52 +125,5 @@ final class MergeServiceTest extends AbstractTestCase
         $this->expectException(RollMergeException::class);
 
         $this->mergeService->merge([$rollToMerge1->getId(), $rollToMerge2->getId()]);
-    }
-
-    private function getAvailableFilm(): FilmData
-    {
-        /** @var AvailableFilmServiceInterface $availableFilmsService */
-        $availableFilmsService = $this->getContainer()->get(AvailableFilmServiceInterface::class);
-
-        return $availableFilmsService->getAvailableFilms()->first();
-    }
-
-    private function createPreparedRoll(string $filmType, float $length = 0, ?int $filmId = null, ?string $lamination = null, ?int $productCount = 1): Roll
-    {
-        $roll = $this->loadRoll();
-        $roll->updateProcess(Process::ORDER_CHECK_IN);
-
-        for ($i = 1; $i <= $productCount; ++$i) {
-            $product = $this->createPreparedProduct($filmType, $length / $productCount, $lamination);
-            $roll->addPrintedProduct($product);
-        }
-
-        if ($filmId) {
-            $roll->setFilmId($filmId);
-        }
-
-        $this->entityManager->persist($roll);
-        $this->entityManager->flush();
-
-        return $roll;
-    }
-
-    private function createPreparedProduct(?string $filmType, float $length = 0, ?string $lamination = null): PrintedProduct
-    {
-        $printedProduct = new PrintedProduct(
-            relatedProductId: $this->getFaker()->randomDigit(),
-            orderNumber: $this->getFaker()->word(),
-            filmType: $filmType,
-            length: $length
-        );
-
-        if ($lamination) {
-            $printedProduct->setLaminationType($lamination);
-        }
-
-        $this->entityManager->persist($printedProduct);
-        $this->entityManager->flush();
-
-        return $printedProduct;
     }
 }

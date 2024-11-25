@@ -4,28 +4,21 @@ declare(strict_types=1);
 
 namespace App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Manual;
 
-use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
-use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
-use App\ProductionProcess\Domain\DTO\FilmData;
 use App\ProductionProcess\Domain\Exceptions\InventoryFilmIsNotAvailableException;
 use App\ProductionProcess\Domain\Exceptions\ManualArrangeException;
 use App\ProductionProcess\Domain\Repository\PrintedProduct\PrintedProductRepositoryInterface;
-use  App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
 use App\ProductionProcess\Domain\Service\Inventory\AvailableFilmServiceInterface;
 use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Manual\ManualProductsCheckInService;
-use App\ProductionProcess\Domain\ValueObject\Process;
 use App\Shared\Domain\Exception\DomainException;
 use App\Tests\Functional\AbstractTestCase;
 use App\Tests\Tools\FakerTools;
 use App\Tests\Tools\FixtureTools;
-use Doctrine\Common\Collections\Collection;
 
 class ManualProductsCheckInServiceTest extends AbstractTestCase
 {
     use FakerTools;
     use FixtureTools;
 
-    private RollRepositoryInterface $rollRepository;
     private PrintedProductRepositoryInterface $printedProductRepository;
 
     private ManualProductsCheckInService $manualProductsCheckInService;
@@ -34,37 +27,8 @@ class ManualProductsCheckInServiceTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $this->rollRepository = $this->getContainer()->get(RollRepositoryInterface::class);
         $this->printedProductRepository = $this->getContainer()->get(PrintedProductRepositoryInterface::class);
         $this->manualProductsCheckInService = $this->getContainer()->get(ManualProductsCheckInService::class);
-    }
-
-    /**
-     * @throws ManualArrangeException
-     * @throws DomainException
-     */
-    public function test_it_throws_exception_when_printed_products_have_different_film_type(): void
-    {
-        $pp1 = $this->createPreparedProduct($this->getFaker()->word());
-        $pp2 = $this->createPreparedProduct($this->getFaker()->word());
-
-        $this->expectException(ManualArrangeException::class);
-
-        $this->manualProductsCheckInService->arrange([$pp1->getId(), $pp2->getId()]);
-    }
-
-    /**
-     * @throws DomainException
-     */
-    public function test_it_throws_exception_when_printed_products_handled_by_different_printers(): void
-    {
-        // see prod_process_printer_condition for available options
-        $pp1 = $this->createPreparedProduct('chrome', 0.5);
-        $pp2 = $this->createPreparedProduct('white', 0.5, 'holo_flakes');
-
-        $this->expectException(ManualArrangeException::class);
-
-        $this->manualProductsCheckInService->arrange([$pp1->getId(), $pp2->getId()]);
     }
 
     /**
@@ -155,47 +119,5 @@ class ManualProductsCheckInServiceTest extends AbstractTestCase
 
         $this->assertNull($notArrangedProduct1->getRoll());
         $this->assertNull($notArrangedProduct2->getRoll());
-    }
-
-    private function createPreparedRoll(string $filmType, float $length, int $filmId): Roll
-    {
-        $rollReadyForPrinting = $this->loadRoll();
-        $rollReadyForPrinting->addPrintedProduct($this->createPreparedProduct($filmType, $length));
-        $rollReadyForPrinting->updateProcess(Process::ORDER_CHECK_IN);
-        $rollReadyForPrinting->setFilmId($filmId);
-
-        $this->rollRepository->save($rollReadyForPrinting);
-
-        return $rollReadyForPrinting;
-    }
-
-    private function getAvailableFilm(): FilmData
-    {
-        /** @var AvailableFilmServiceInterface $availableFilms */
-        $availableFilmsService = $this->getContainer()->get(AvailableFilmServiceInterface::class);
-        /** @var Collection<FilmData> $availableFilms */
-        $availableFilms = $availableFilmsService->getAvailableFilms('chrome');
-
-        /* @var FilmData $firstAvailable */
-        return $availableFilms->first();
-    }
-
-    private function createPreparedProduct(?string $filmType, float $length = 0, ?string $lamination = null): PrintedProduct
-    {
-        $printedProduct = new PrintedProduct(
-            relatedProductId: $this->getFaker()->randomDigit(),
-            orderNumber: $this->getFaker()->word(),
-            filmType: $filmType,
-            length: $length
-        );
-
-        if ($lamination) {
-            $printedProduct->setLaminationType($lamination);
-        }
-
-        $this->entityManager->persist($printedProduct);
-        $this->entityManager->flush();
-
-        return $printedProduct;
     }
 }
