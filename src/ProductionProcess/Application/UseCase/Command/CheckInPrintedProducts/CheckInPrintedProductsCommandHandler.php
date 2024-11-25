@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Application\UseCase\Command\CheckInPrintedProducts;
 
-use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\AutoArrangePrintedProductsService;
+use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Auto\AutoArrangePrintedProductsService;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Command\CommandHandlerInterface;
 use App\Shared\Domain\Service\AssertService;

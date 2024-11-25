@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess;
+namespace App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Auto;
 
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
 use App\ProductionProcess\Domain\Repository\Roll\RollFilter;
