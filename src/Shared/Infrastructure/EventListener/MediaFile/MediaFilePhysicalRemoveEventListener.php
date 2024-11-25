@@ -15,14 +15,16 @@ readonly class MediaFilePhysicalRemoveEventListener {
     {
     }
 
-    public function __invoke(string $mediaFilePath): void
+    public function __invoke(MediaFilePhysicalRemoveEvent $event): void
     {
+        $path = $event->mediaFilePath;
+
         try {
-            if ($this->filesystem->exists($mediaFilePath)) {
-                $this->filesystem->remove($mediaFilePath);
+            if ($this->filesystem->exists($path)) {
+                $this->filesystem->remove($path);
             }
         } catch (IOException $e) {
-            throw new \RuntimeException(sprintf('Could not delete file: %s', $mediaFilePath));
+            throw new \RuntimeException(sprintf('Could not delete file: %s', $path));
         }
     }
 }
