@@ -13,6 +13,7 @@ namespace App\ProductionProcess\Domain\Service\PrintedProduct;
 
 use App\ProductionProcess\Domain\Repository\PrintedProduct\PrintedProductRepositoryInterface;
 use App\Shared\Domain\Repository\MediaFileRepositoryInterface;
+use App\Shared\Domain\Service\RemoveMediaFileService;
 
 /**
  * Class RollMaker.
@@ -26,8 +27,9 @@ final readonly class TakeAPhotoService
      *
      * @param PrintedProductRepositoryInterface $printedProductRepository the job repository instance
      * @param MediaFileRepositoryInterface      $mediaFileRepository
+     * @param RemoveMediaFileService            $removeMediaFileService
      */
-    public function __construct(private PrintedProductRepositoryInterface $printedProductRepository, private MediaFileRepositoryInterface $mediaFileRepository)
+    public function __construct(private PrintedProductRepositoryInterface $printedProductRepository, private MediaFileRepositoryInterface $mediaFileRepository, private RemoveMediaFileService $removeMediaFileService)
     {
     }
 
@@ -41,11 +43,13 @@ final readonly class TakeAPhotoService
     {
         $printedProduct = $this->printedProductRepository->findById($productId);
 
-        $newPhoto = $this->mediaFileRepository->findById($photoId);
+        $oldPhoto = $printedProduct->getPhoto();
 
-        if ($printedProduct->getPhoto()) {
-            $this->mediaFileRepository->remove($printedProduct->getPhoto());
+        if ($oldPhoto) {
+            $this->removeMediaFileService->removePhoto(mediaFileId: $oldPhoto->getId());
         }
+
+        $newPhoto = $this->mediaFileRepository->findById($photoId);
 
         $printedProduct->setPhoto($newPhoto);
 
