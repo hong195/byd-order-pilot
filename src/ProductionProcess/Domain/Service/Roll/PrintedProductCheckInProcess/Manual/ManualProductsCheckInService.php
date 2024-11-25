@@ -11,20 +11,20 @@ use App\ProductionProcess\Domain\Exceptions\ManualArrangeException;
 use App\ProductionProcess\Domain\Repository\PrintedProduct\PrintedProductFilter;
 use App\ProductionProcess\Domain\Repository\PrintedProduct\PrintedProductRepositoryInterface;
 use App\ProductionProcess\Domain\Repository\Roll\RollFilter;
-use  App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
 use App\ProductionProcess\Domain\Service\Inventory\AvailableFilmServiceInterface;
 use App\ProductionProcess\Domain\Service\Printer\ProductPrinterMatcher;
-use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Groups\FilmGroup;
-use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Groups\ProductGroup;
+use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Auto\Groups\FilmGroup;
+use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Auto\Groups\ProductGroup;
 use App\ProductionProcess\Domain\Service\Roll\RollMaker;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use App\Shared\Domain\Exception\DomainException;
 use Doctrine\Common\Collections\Collection;
 
-final readonly class ManualProductsArrangeService
+final readonly class ManualProductsCheckInService
 {
     /**
-     * Constructor method for the ManualProductsArrangeService class.
+     * Constructor method for the ManualProductsCheckInService class.
      *
      * @param RollRepositoryInterface           $rollRepository           The Roll Repository Interface being injected
      * @param PrintedProductRepositoryInterface $printedProductRepository The Printed Product Repository Interface being injected

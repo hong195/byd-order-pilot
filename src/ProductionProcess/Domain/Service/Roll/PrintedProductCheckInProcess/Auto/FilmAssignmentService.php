@@ -8,8 +8,8 @@ use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
 use App\ProductionProcess\Domain\Repository\Roll\RollFilter;
 use App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
 use App\ProductionProcess\Domain\Service\Inventory\AvailableFilmServiceInterface;
-use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Groups\FilmGroup;
-use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Groups\ProductGroup;
+use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Auto\Groups\FilmGroup;
+use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Auto\Groups\ProductGroup;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use Doctrine\Common\Collections\ArrayCollection;
 

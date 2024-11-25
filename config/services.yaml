@@ -82,10 +82,10 @@ services:
     App\ProductionProcess\Domain\Service\Printer\InitPrintersService:
         public: true
 
-    App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Manual\ManualProductsArrangeService:
+    App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Manual\ManualProductsCheckInService:
         public: true
 
-    App\ProductionProcess\Domain\Service\Roll\Merge\MergeService:
+    App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Merge\MergeService:
         public: true
 
     Symfony\Component\Serializer\Normalizer\ObjectNormalizer: ~

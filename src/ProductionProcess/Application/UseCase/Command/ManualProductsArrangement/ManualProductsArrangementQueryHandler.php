@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Application\UseCase\Command\ManualProductsArrangement;
 
 use App\ProductionProcess\Domain\Exceptions\ManualArrangeException;
-use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Manual\ManualProductsArrangeService;
+use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Manual\ManualProductsCheckInService;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Command\CommandHandlerInterface;
 use App\Shared\Domain\Exception\DomainException;
@@ -18,7 +18,7 @@ final readonly class ManualProductsArrangementQueryHandler implements CommandHan
      *
      * @param AccessControlService $accessControlService the access control service
      */
-    public function __construct(private ManualProductsArrangeService $manualProductsArrangeService, private AccessControlService $accessControlService)
+    public function __construct(private ManualProductsCheckInService $productsCheckInService, private AccessControlService $accessControlService)
     {
     }
 
@@ -29,6 +29,6 @@ final readonly class ManualProductsArrangementQueryHandler implements CommandHan
     public function __invoke(ManualProductsArrangementQuery $query): void
     {
         AssertService::true($this->accessControlService->isGranted(), 'No access to handle the command');
-        $this->manualProductsArrangeService->arrange($query->printedProductIds);
+        $this->productsCheckInService->arrange($query->printedProductIds);
     }
 }

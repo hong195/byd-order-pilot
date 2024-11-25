@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Manual;
 
 use App\ProductionProcess\Domain\Exceptions\ManualArrangeException;
+use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\FilmTypeValidator;
+use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\PrinterValidator;
 use App\Shared\Domain\Exception\DomainException;
 use Doctrine\Common\Collections\Collection;
 use Proxies\__CG__\App\ProductionProcess\Domain\Aggregate\PrintedProduct;

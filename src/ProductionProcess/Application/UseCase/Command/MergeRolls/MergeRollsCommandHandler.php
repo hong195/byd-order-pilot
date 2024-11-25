@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Application\UseCase\Command\MergeRolls;
 
 use App\ProductionProcess\Domain\Exceptions\RollMergeException;
-use App\ProductionProcess\Domain\Service\Roll\Merge\MergeService;
+use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Merge\MergeService;
 use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Command\CommandHandlerInterface;
 use App\Shared\Domain\Exception\DomainException;

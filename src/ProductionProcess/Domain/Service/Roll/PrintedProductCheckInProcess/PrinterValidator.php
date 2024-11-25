@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Manual;
+namespace App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess;
 
 use App\ProductionProcess\Domain\Exceptions\ManualArrangeException;
 use App\ProductionProcess\Domain\Service\Printer\ProductPrinterMatcher;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Groups;
+namespace App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Auto\Groups;
 
 use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 

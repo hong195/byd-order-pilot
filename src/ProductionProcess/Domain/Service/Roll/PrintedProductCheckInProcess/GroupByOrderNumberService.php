@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess;
 
-use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Groups\PrinterGroup;
-use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Groups\ProductGroup;
+use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Auto\Groups\PrinterGroup;
+use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Auto\Groups\ProductGroup;
 
 final class GroupByOrderNumberService
 {

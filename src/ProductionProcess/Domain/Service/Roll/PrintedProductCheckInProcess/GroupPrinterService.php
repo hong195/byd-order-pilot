@@ -9,7 +9,7 @@ use App\ProductionProcess\Domain\Aggregate\Printer\Printer;
 use App\ProductionProcess\Domain\Exceptions\PrinterMatchException;
 use App\ProductionProcess\Domain\Repository\Printer\PrinterRepositoryInterface;
 use App\ProductionProcess\Domain\Service\Printer\ProductPrinterMatcher;
-use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Groups\PrinterGroup;
+use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Auto\Groups\PrinterGroup;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 

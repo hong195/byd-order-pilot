@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Tests\Functional\ProductionProcess\Domain\Service\Roll\Merge;
+namespace App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Merge;
 
 use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
@@ -12,7 +12,7 @@ use App\ProductionProcess\Domain\Exceptions\ManualArrangeException;
 use App\ProductionProcess\Domain\Exceptions\RollMergeException;
 use App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
 use App\ProductionProcess\Domain\Service\Inventory\AvailableFilmServiceInterface;
-use App\ProductionProcess\Domain\Service\Roll\Merge\MergeService;
+use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Merge\MergeService;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use App\Shared\Domain\Exception\DomainException;
 use App\Tests\Functional\AbstractTestCase;

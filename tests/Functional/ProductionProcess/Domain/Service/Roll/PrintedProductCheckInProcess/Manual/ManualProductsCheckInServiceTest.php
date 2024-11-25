@@ -12,7 +12,7 @@ use App\ProductionProcess\Domain\Exceptions\ManualArrangeException;
 use App\ProductionProcess\Domain\Repository\PrintedProduct\PrintedProductRepositoryInterface;
 use  App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
 use App\ProductionProcess\Domain\Service\Inventory\AvailableFilmServiceInterface;
-use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Manual\ManualProductsArrangeService;
+use App\ProductionProcess\Domain\Service\Roll\PrintedProductCheckInProcess\Manual\ManualProductsCheckInService;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use App\Shared\Domain\Exception\DomainException;
 use App\Tests\Functional\AbstractTestCase;
@@ -20,7 +20,7 @@ use App\Tests\Tools\FakerTools;
 use App\Tests\Tools\FixtureTools;
 use Doctrine\Common\Collections\Collection;
 
-class ManualProductsArrangeServiceTest extends AbstractTestCase
+class ManualProductsCheckInServiceTest extends AbstractTestCase
 {
     use FakerTools;
     use FixtureTools;
@@ -28,7 +28,7 @@ class ManualProductsArrangeServiceTest extends AbstractTestCase
     private RollRepositoryInterface $rollRepository;
     private PrintedProductRepositoryInterface $printedProductRepository;
 
-    private ManualProductsArrangeService $manualProductsArrangeService;
+    private ManualProductsCheckInService $manualProductsCheckInService;
 
     protected function setUp(): void
     {
@@ -36,7 +36,7 @@ class ManualProductsArrangeServiceTest extends AbstractTestCase
 
         $this->rollRepository = $this->getContainer()->get(RollRepositoryInterface::class);
         $this->printedProductRepository = $this->getContainer()->get(PrintedProductRepositoryInterface::class);
-        $this->manualProductsArrangeService = $this->getContainer()->get(ManualProductsArrangeService::class);
+        $this->manualProductsCheckInService = $this->getContainer()->get(ManualProductsCheckInService::class);
     }
 
     /**
@@ -50,7 +50,7 @@ class ManualProductsArrangeServiceTest extends AbstractTestCase
 
         $this->expectException(ManualArrangeException::class);
 
-        $this->manualProductsArrangeService->arrange([$pp1->getId(), $pp2->getId()]);
+        $this->manualProductsCheckInService->arrange([$pp1->getId(), $pp2->getId()]);
     }
 
     /**
@@ -64,7 +64,7 @@ class ManualProductsArrangeServiceTest extends AbstractTestCase
 
         $this->expectException(ManualArrangeException::class);
 
-        $this->manualProductsArrangeService->arrange([$pp1->getId(), $pp2->getId()]);
+        $this->manualProductsCheckInService->arrange([$pp1->getId(), $pp2->getId()]);
     }
 
     /**
@@ -79,7 +79,7 @@ class ManualProductsArrangeServiceTest extends AbstractTestCase
 
         $this->expectException(InventoryFilmIsNotAvailableException::class);
 
-        $this->manualProductsArrangeService->arrange([$pp1->getId(), $pp2->getId()]);
+        $this->manualProductsCheckInService->arrange([$pp1->getId(), $pp2->getId()]);
     }
 
     /**
@@ -93,7 +93,7 @@ class ManualProductsArrangeServiceTest extends AbstractTestCase
         $pp1 = $this->createPreparedProduct($firstAvailableFilm->filmType, $firstAvailableFilm->length / 2);
         $pp2 = $this->createPreparedProduct($firstAvailableFilm->filmType, $firstAvailableFilm->length / 2);
 
-        $this->manualProductsArrangeService->arrange([$pp1->getId(), $pp2->getId()]);
+        $this->manualProductsCheckInService->arrange([$pp1->getId(), $pp2->getId()]);
 
         $manuallyArrangedProduct1 = $this->printedProductRepository->findById($pp1->getId());
         $manuallyArrangedProduct2 = $this->printedProductRepository->findById($pp1->getId());
@@ -121,7 +121,7 @@ class ManualProductsArrangeServiceTest extends AbstractTestCase
         $pp1 = $this->createPreparedProduct($firstAvailableFilm->filmType, $availableFilmLength / 3);
         $pp2 = $this->createPreparedProduct($firstAvailableFilm->filmType, $availableFilmLength / 3);
 
-        $this->manualProductsArrangeService->arrange([$pp1->getId(), $pp2->getId()]);
+        $this->manualProductsCheckInService->arrange([$pp1->getId(), $pp2->getId()]);
 
         $manuallyArrangedProduct1 = $this->printedProductRepository->findById($pp1->getId());
         $manuallyArrangedProduct2 = $this->printedProductRepository->findById($pp1->getId());
@@ -148,7 +148,7 @@ class ManualProductsArrangeServiceTest extends AbstractTestCase
 
         $this->expectException(InventoryFilmIsNotAvailableException::class);
 
-        $this->manualProductsArrangeService->arrange([$pp1->getId(), $pp2->getId()]);
+        $this->manualProductsCheckInService->arrange([$pp1->getId(), $pp2->getId()]);
 
         $notArrangedProduct1 = $this->printedProductRepository->findById($pp1->getId());
         $notArrangedProduct2 = $this->printedProductRepository->findById($pp2->getId());
