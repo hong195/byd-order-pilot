@@ -16,7 +16,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 /**
  * ErrorManagementService class handles error recording.
  */
-final readonly class ErrorManagementService
+final readonly class ErrorManagementService implements ErrorManagementServiceInterface
 {
     /**
      * Class constructor.

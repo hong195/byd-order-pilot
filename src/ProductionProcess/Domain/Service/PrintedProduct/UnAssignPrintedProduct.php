@@ -51,8 +51,6 @@ final readonly class UnAssignPrintedProduct
 
         $this->rollRepository->save($roll);
 
-        if ($roll->getPrintedProducts()->isEmpty()) {
-            $this->checkRemainingProductsService->check($roll->getId());
-        }
+		$this->checkRemainingProductsService->check($roll->getId());
     }
 }
