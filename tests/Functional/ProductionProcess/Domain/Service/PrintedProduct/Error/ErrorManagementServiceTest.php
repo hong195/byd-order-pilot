@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Unit\ProductionProcess\Domain\Service\Roll\Error;
+namespace App\Tests\Functional\ProductionProcess\Domain\Service\PrintedProduct\Error;
 
 use App\ProductionProcess\Domain\Aggregate\Error;
 use App\ProductionProcess\Domain\Aggregate\PrintedProduct;

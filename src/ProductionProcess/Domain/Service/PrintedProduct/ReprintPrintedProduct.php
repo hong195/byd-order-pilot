@@ -60,6 +60,6 @@ final readonly class ReprintPrintedProduct
 
         $this->rollRepository->save($roll);
 
-		$this->checkRemainingProductsService->check($roll->getId());
+        $this->checkRemainingProductsService->check($roll->getId());
     }
 }
