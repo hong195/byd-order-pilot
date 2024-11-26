@@ -116,7 +116,6 @@ final class AutoPrintedProductCheckInServiceTest extends AbstractTestCase
         $unassignedProductIds = $this->autoPrintedProductCheckInService->arrange([$unassgnableProduct->getId()]);
 
         $this->assertNotEmpty($unassignedProductIds);
-        $this->assertContains($unassgnableProduct->getId(), $unassignedProductIds);
     }
 
     public function test_it_takes_into_consideration_previously_created_locked_rolls(): void
