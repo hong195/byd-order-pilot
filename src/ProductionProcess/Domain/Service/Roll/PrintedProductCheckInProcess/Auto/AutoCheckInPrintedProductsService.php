@@ -15,7 +15,7 @@ use App\ProductionProcess\Domain\Service\Roll\RollMaker;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
-final class AutoArrangePrintedProductsService
+final class AutoCheckInPrintedProductsService
 {
     private Collection $printedProducts;
 

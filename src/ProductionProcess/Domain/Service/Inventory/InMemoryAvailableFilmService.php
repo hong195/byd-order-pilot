@@ -23,10 +23,11 @@ final readonly class InMemoryAvailableFilmService implements AvailableFilmServic
     public function __construct()
     {
         $this->films = new ArrayCollection([
-            new FilmData(3, 'Test Roll Film3', 20, 'chrome'),
-            new FilmData(4, 'Test Roll Film4', 20, 'chrome'),
             new FilmData(1, 'Test Roll Film', 15, 'neon'),
-            new FilmData(5, 'Test Roll Film5', 20, 'clear'),
+            new FilmData(2, 'Test Roll Film3', 20, 'chrome'),
+            new FilmData(3, 'Test Roll Film4', 20, 'chrome'),
+            new FilmData(4, 'Test Roll Film5', 20, 'clear'),
+            new FilmData(5, 'Test Roll Film5', 20, 'white'),
         ]);
     }
 

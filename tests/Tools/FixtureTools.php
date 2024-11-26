@@ -95,11 +95,11 @@ trait FixtureTools
             ->getReference(FilmFixture::REFERENCE, RollFilm::class);
     }
 
-    public function createPreparedProduct(?string $filmType, float $length = 0, ?string $lamination = null): PrintedProduct
+    public function createPreparedProduct(?string $filmType, float $length = 0, ?string $lamination = null, ?string $orderNumber = null): PrintedProduct
     {
         $printedProduct = new PrintedProduct(
             relatedProductId: $this->getFaker()->randomDigit(),
-            orderNumber: $this->getFaker()->word(),
+            orderNumber: !$orderNumber ? $this->getFaker()->word() : $orderNumber,
             filmType: $filmType,
             length: $length
         );

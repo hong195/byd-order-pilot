@@ -40,6 +40,8 @@ final class FilmAssignmentService
     public function assignFilmToProductGroups(array $groups): array
     {
         foreach ($groups as $group) {
+            $isPlaced = false;
+
             $availableFilms = $this->availableFilmService->getAvailableFilmsByType(filmType: $group->filmType, minSize: $group->getLength());
 
             if ($availableFilms->isEmpty()) {
@@ -56,6 +58,7 @@ final class FilmAssignmentService
                         continue;
                     }
 
+                    $isPlaced = true;
                     $this->filmGroups[$film->id] = $this->filmGroup->make(
                         filmId: $film->id,
                         filmType: $film->filmType,
@@ -69,8 +72,13 @@ final class FilmAssignmentService
 
                 if ($filmGroup->getTotalLength() + $group->getLength() + $rollsLength <= $film->length) {
                     $filmGroup->addProductGroup($group);
+                    $isPlaced = true;
                     break;
                 }
+            }
+
+            if (!$isPlaced) {
+                $this->handleNoAvailableFilms($group);
             }
         }
 
@@ -87,7 +95,7 @@ final class FilmAssignmentService
     private function getManuallyCreatedRollsLengthByFilmId(int $filmId): float
     {
         $rolls = $this->rollRepository->findByFilter(new RollFilter(process: Process::ORDER_CHECK_IN, filmIds: [$filmId]));
-        $rollsLength = $rolls->filter(fn (Roll $roll) => $roll->isLocked())
+        $rollsLength = $rolls
                             ->map(fn (Roll $roll) => $roll->getPrintedProductsLength())
                             ->toArray();
 
