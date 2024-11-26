@@ -12,7 +12,9 @@ use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
 use App\ProductionProcess\Domain\DTO\FilmData;
 use App\ProductionProcess\Domain\Service\Inventory\AvailableFilmServiceInterface;
 use App\ProductionProcess\Domain\ValueObject\Process;
+use App\Shared\Domain\Entity\MediaFile;
 use App\Tests\Resource\Fixture\Inventory\FilmFixture;
+use App\Tests\Resource\Fixture\MediaFileFixture;
 use App\Tests\Resource\Fixture\Orders\OrderFixture;
 use App\Tests\Resource\Fixture\Orders\ProductFixture;
 use App\Tests\Resource\Fixture\PrintedProductFixture;
@@ -87,6 +89,15 @@ trait FixtureTools
 
         return $order;
     }
+
+	public function loadMediaFile(): MediaFile
+	{
+		$executor = $this->getDatabaseTools()->loadFixtures([MediaFileFixture::class], true);
+		/** @var MediaFile $mediaFile */
+		$mediaFile = $executor->getReferenceRepository()->getReference(MediaFileFixture::REFERENCE, MediaFile::class);
+
+		return $mediaFile;
+	}
 
     public function loadInventoryFilm(): RollFilm
     {

@@ -19,7 +19,7 @@ class SortServiceTest extends TestCase
     /**
      * Test if getSorted method returns sorted PrintedProducts based on provided properties criteria.
      */
-    public function test_get_sorted()
+    public function test_get_sorted(): void
     {
         $filmType = 'film1';
         $product1 = new PrintedProduct(1, 'order1', $filmType, 5);

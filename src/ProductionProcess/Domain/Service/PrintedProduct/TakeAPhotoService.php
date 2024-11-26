@@ -14,6 +14,7 @@ namespace App\ProductionProcess\Domain\Service\PrintedProduct;
 use App\ProductionProcess\Domain\Repository\PrintedProduct\PrintedProductRepositoryInterface;
 use App\Shared\Domain\Repository\MediaFileRepositoryInterface;
 use App\Shared\Domain\Service\RemoveMediaFileService;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class RollMaker.
@@ -42,6 +43,10 @@ final readonly class TakeAPhotoService
     public function upload(int $productId, int $photoId): void
     {
         $printedProduct = $this->printedProductRepository->findById($productId);
+
+		if (!$printedProduct) {
+			throw new NotFoundHttpException('Printed product not found');
+		}
 
         $oldPhoto = $printedProduct->getPhoto();
 
