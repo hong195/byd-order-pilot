@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace App\Shared\Domain\Service;
 
-use App\Shared\Domain\Event\MediaFilePhysicalRemoveEvent;
+use App\Shared\Domain\Event\MediaFileRemovedEvent;
 use App\Shared\Domain\Repository\MediaFileRepositoryInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
@@ -26,14 +26,18 @@ final readonly class RemoveMediaFileService
     }
 
     /**
-     * Removes the specified media file and dispatches a MediaFilePhysicalRemoveEvent.
+     * Removes the specified media file and dispatches a MediaFileRemovedEvent.
+     *
+     * @param int $mediaFileId
      */
     public function removePhoto(int $mediaFileId): void
     {
         $mediaFile = $this->mediaFileRepository->findById($mediaFileId);
 
-        $this->eventDispatcher->dispatch(new MediaFilePhysicalRemoveEvent($mediaFile->getPath()));
+        $path = $mediaFile->getPath();
 
         $this->mediaFileRepository->remove($mediaFile);
+
+        $this->eventDispatcher->dispatch(new MediaFileRemovedEvent($path));
     }
 }

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * MediaFilePhysicalRemoveEvent represents an event that is triggered when a media file is removed.
+ * MediaFileRemovedEvent represents an event that is triggered when a media file is removed.
  *
  * Implements the EventInterface to ensure compatibility with the event handling system.
  *
@@ -15,7 +15,7 @@ namespace App\Shared\Domain\Event;
 /**
  * Event to trigger media file remove.
  */
-final readonly class MediaFilePhysicalRemoveEvent implements EventInterface
+final readonly class MediaFileRemovedEvent implements EventInterface
 {
     /**
      * @param string $mediaFilePath
