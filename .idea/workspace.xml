@@ -4,17 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added unassign product service.">
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/Error/ErrorManagementServiceInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/PrintedProduct/ReprintPrintedProductTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Tools/Mocks/MockEventDispatcher.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added change sort order tests">
+      <change afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/PrintedProduct/LaminationGroupServiceTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/PrintedProduct/SortServiceTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Roll/Roll.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Roll/Roll.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/Error/ErrorManagementService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/Error/ErrorManagementService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/ReprintPrintedProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/ReprintPrintedProduct.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/UnAssignPrintedProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/UnAssignPrintedProduct.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/EventHandler/PrintedProductReprintedEventHandler.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,6 +193,8 @@
     "PHPUnit.AutoPrintedProductCheckInServiceTest.test_it_returns_unassigned_ids_if_it_there_is_not_enough_film.executor": "Run",
     "PHPUnit.AutoPrintedProductCheckInServiceTest.test_it_takes_into_consideration_previously_created_locked_rolls.executor": "Run",
     "PHPUnit.AutoPrintedProductCheckInServiceTest.test_it_takes_into_consideration_previously_created_rolls.executor": "Run",
+    "PHPUnit.ChangeOrderTest.test_can_change_product_sort_order.executor": "Run",
+    "PHPUnit.ChangeOrderTest.test_it_throws_exception_if_group_not_found.executor": "Run",
     "PHPUnit.CheckRemainingProductsServiceTest.executor": "Run",
     "PHPUnit.CheckRemainingProductsServiceTest.test_it_remove_roll_if_there_are_no_printed_product_left.executor": "Run",
     "PHPUnit.CheckRemainingProductsServiceTest.test_it_removes_roll_if_there_are_no_printed_product_left.executor": "Run",
@@ -231,6 +226,8 @@
     "PHPUnit.HistoryRepositoryTest.test_true.executor": "Run",
     "PHPUnit.InitPrintersServiceTest.test_it_creates_printers.executor": "Run",
     "PHPUnit.InitPrintersServiceTest.test_it_creates_printers_with_conditions.executor": "Run",
+    "PHPUnit.LaminationGroupServiceTest.test_it_can_group_products (1).executor": "Run",
+    "PHPUnit.LaminationGroupServiceTest.test_it_can_group_products.executor": "Debug",
     "PHPUnit.LockRollServiceTest.executor": "Run",
     "PHPUnit.LockRollServiceTest.test_cant_lock_not_existing_roll.executor": "Run",
     "PHPUnit.LockRollServiceTest.test_it_locks_roll.executor": "Run",
@@ -278,7 +275,7 @@
     "PHPUnit.ProductRepositoryTest.test_can_find_by_filter.executor": "Run",
     "PHPUnit.ProductRepositoryTest.test_can_successfully_save.executor": "Run",
     "PHPUnit.ReprintPrintedProductTest.test_it_can_reprint_printed_product.executor": "Run",
-    "PHPUnit.ReprintPrintedProductTest.test_it_removes_roll_if_last_product_was_sent_to_reprint.executor": "Run",
+    "PHPUnit.ReprintPrintedProductTest.test_it_removes_roll_if_last_product_was_sent_to_reprint.executor": "Debug",
     "PHPUnit.ReprintPrintedProductTest.test_it_throws_exception_if_no_employee_assigned.executor": "Run",
     "PHPUnit.ReprintPrintedProductTest.test_it_throws_exception_if_no_product_found.executor": "Run",
     "PHPUnit.ReprintPrintedProductTest.test_it_throws_exception_if_product_is_not_assigned_to_a_roll.executor": "Run",
@@ -290,6 +287,7 @@
     "PHPUnit.RollRepositoryTest.test_can_save_successfully.executor": "Run",
     "PHPUnit.RollRepositoryTest.test_it_can_find_by_film_id.executor": "Run",
     "PHPUnit.SetExtraPackStatusServiceTest.test_can_successfully_pack_extra_status.executor": "Run",
+    "PHPUnit.SortServiceTest.test_get_sorted.executor": "Run",
     "PHPUnit.UnAssignPrintedProductTest.executor": "Run",
     "PHPUnit.UnAssignPrintedProductTest.test_it_can_unassign_product.executor": "Run",
     "PHPUnit.UnAssignPrintedProductTest.test_it_removes_roll_if_no_printed_products_left.executor": "Run",
@@ -343,14 +341,30 @@
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/PrintedProduct" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess" />
       <recent name="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Auto" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/Roll" />
-      <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/PrintedProduct" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.Main">
+  <component name="RunManager" selected="PHPUnit.SortServiceTest.test_get_sorted">
+    <configuration name="ChangeOrderTest.test_it_throws_exception_if_group_not_found" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\PrintedProduct\ChangeOrderTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/PrintedProduct/ChangeOrderTest.php" method="test_it_throws_exception_if_group_not_found" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="LaminationGroupServiceTest.test_it_can_group_products (1)" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\PrintedProduct\LaminationGroupServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/PrintedProduct/LaminationGroupServiceTest.php" method="test_it_can_group_products" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="LaminationGroupServiceTest.test_it_can_group_products" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\PrintedProduct\LaminationGroupServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/PrintedProduct/LaminationGroupServiceTest.php" method="test_it_can_group_products" scope="Pattern">
+        <test_patterns>
+          <composite_test_pattern class_fqn="App\Tests\Functional\ProductionProcess\Domain\Service\PrintedProduct\LaminationGroupServiceTest" file_path="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/PrintedProduct/LaminationGroupServiceTest.php" method_name="test_it_can_group_products" />
+        </test_patterns>
+      </TestRunner>
+      <method v="2" />
+    </configuration>
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
       <method v="2" />
@@ -359,33 +373,21 @@
       <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintedProductCheckinTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckinTest.php" method="test_can_allocate_group_of_printed_products_on_one_roll" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="ReprintPrintedProductTest.test_it_can_reprint_printed_product" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\PrintedProduct\ReprintPrintedProductTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/PrintedProduct/ReprintPrintedProductTest.php" method="test_it_can_reprint_printed_product" scope="Method" />
-      <method v="2" />
-    </configuration>
     <configuration name="ReprintPrintedProductTest.test_it_removes_roll_if_last_product_was_sent_to_reprint" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\PrintedProduct\ReprintPrintedProductTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/PrintedProduct/ReprintPrintedProductTest.php" method="test_it_removes_roll_if_last_product_was_sent_to_reprint" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="ReprintPrintedProductTest.test_it_throws_exception_if_no_employee_assigned" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\PrintedProduct\ReprintPrintedProductTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/PrintedProduct/ReprintPrintedProductTest.php" method="test_it_throws_exception_if_no_employee_assigned" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="ReprintPrintedProductTest.test_it_throws_exception_if_no_product_found" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\PrintedProduct\ReprintPrintedProductTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/PrintedProduct/ReprintPrintedProductTest.php" method="test_it_throws_exception_if_no_product_found" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="ReprintPrintedProductTest.test_it_throws_exception_if_product_is_not_assigned_to_a_roll" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\PrintedProduct\ReprintPrintedProductTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/PrintedProduct/ReprintPrintedProductTest.php" method="test_it_throws_exception_if_product_is_not_assigned_to_a_roll" scope="Method" />
+    <configuration name="SortServiceTest.test_get_sorted" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\PrintedProduct\SortServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/PrintedProduct/SortServiceTest.php" method="test_get_sorted" scope="Method" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.SortServiceTest.test_get_sorted" />
+        <item itemvalue="PHPUnit.LaminationGroupServiceTest.test_it_can_group_products (1)" />
+        <item itemvalue="PHPUnit.LaminationGroupServiceTest.test_it_can_group_products" />
         <item itemvalue="PHPUnit.ReprintPrintedProductTest.test_it_removes_roll_if_last_product_was_sent_to_reprint" />
-        <item itemvalue="PHPUnit.ReprintPrintedProductTest.test_it_throws_exception_if_no_employee_assigned" />
-        <item itemvalue="PHPUnit.ReprintPrintedProductTest.test_it_throws_exception_if_product_is_not_assigned_to_a_roll" />
-        <item itemvalue="PHPUnit.ReprintPrintedProductTest.test_it_throws_exception_if_no_product_found" />
-        <item itemvalue="PHPUnit.ReprintPrintedProductTest.test_it_can_reprint_printed_product" />
+        <item itemvalue="PHPUnit.ChangeOrderTest.test_it_throws_exception_if_group_not_found" />
       </list>
     </recent_temporary>
   </component>
@@ -475,23 +477,7 @@
       <workItem from="1732204343640" duration="18839000" />
       <workItem from="1732299570194" duration="4952000" />
       <workItem from="1732523185868" duration="13114000" />
-      <workItem from="1732541349074" duration="25335000" />
-    </task>
-    <task id="LOCAL-00436" summary="Added roll isLocked field.">
-      <option name="closed" value="true" />
-      <created>1731317220388</created>
-      <option name="number" value="00436" />
-      <option name="presentableId" value="LOCAL-00436" />
-      <option name="project" value="LOCAL" />
-      <updated>1731317220388</updated>
-    </task>
-    <task id="LOCAL-00437" summary="Added lock/unlock tests.">
-      <option name="closed" value="true" />
-      <created>1731322127628</created>
-      <option name="number" value="00437" />
-      <option name="presentableId" value="LOCAL-00437" />
-      <option name="project" value="LOCAL" />
-      <updated>1731322127628</updated>
+      <workItem from="1732541349074" duration="26970000" />
     </task>
     <task id="LOCAL-00438" summary="Added roll lock/unlock api.">
       <option name="closed" value="true" />
@@ -869,7 +855,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732625092834</updated>
     </task>
-    <option name="localTasksCounter" value="485" />
+    <task id="LOCAL-00485" summary="Added tests for reprint">
+      <option name="closed" value="true" />
+      <created>1732630705526</created>
+      <option name="number" value="00485" />
+      <option name="presentableId" value="LOCAL-00485" />
+      <option name="project" value="LOCAL" />
+      <updated>1732630705526</updated>
+    </task>
+    <task id="LOCAL-00486" summary="Added change sort order tests">
+      <option name="closed" value="true" />
+      <created>1732631475162</created>
+      <option name="number" value="00486" />
+      <option name="presentableId" value="LOCAL-00486" />
+      <option name="project" value="LOCAL" />
+      <updated>1732631475162</updated>
+    </task>
+    <option name="localTasksCounter" value="487" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -904,8 +906,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated cutting in tests." />
-    <MESSAGE value="Updated manual arrangement test." />
     <MESSAGE value="Updated roll can be locked only on order check in process." />
     <MESSAGE value="Mo" />
     <MESSAGE value="Updated repository folder structure." />
@@ -929,7 +929,9 @@
     <MESSAGE value="Updated auto check in tests." />
     <MESSAGE value="Added unassign product service test." />
     <MESSAGE value="Added unassign product service." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added unassign product service." />
+    <MESSAGE value="Added tests for reprint" />
+    <MESSAGE value="Added change sort order tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added change sort order tests" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
