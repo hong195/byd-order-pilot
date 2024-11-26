@@ -304,6 +304,20 @@ class Roll extends Aggregate
         $this->printedProducts->clear();
     }
 
+    public function removePrintedProduct(PrintedProduct $product): void
+    {
+        foreach ($this->printedProducts as $printedProduct) {
+            if ($printedProduct->getId() === $product->getId()) {
+                $printedProduct->unassign();
+                $this->printedProducts->removeElement($printedProduct);
+
+                return;
+            }
+        }
+
+        throw new \InvalidArgumentException('Product not found');
+    }
+
     /**
      * Gets the number of printed products with priority.
      *

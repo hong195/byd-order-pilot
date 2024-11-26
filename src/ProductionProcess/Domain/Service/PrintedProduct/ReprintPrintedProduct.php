@@ -37,7 +37,7 @@ final readonly class ReprintPrintedProduct
             throw new NotFoundHttpException('Printed product not found');
         }
 
-        if (!$printedProduct?->getRoll()->getEmployeeId()) {
+        if (!$printedProduct->getRoll()?->getEmployeeId()) {
             throw new NotFoundHttpException('No employee assigned to the roll');
         }
 
