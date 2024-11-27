@@ -7,8 +7,8 @@ nelmio_cors:
         expose_headers: ['Content-Disposition', 'Link']
         max_age: 3600
     paths:
-        '^/uploads':
-            allow_origin: [ '*' ]
-            allow_methods: [ 'GET', 'OPTIONS' ]
-            allow_headers: [ 'Content-Type', 'Authorization' ]
-            expose_headers: [ 'Content-Disposition' ]
+        '^/uploads/':
+            allow_origin: ['%env(CORS_ALLOW_ORIGIN)%']
+            allow_headers: ['Content-Type']
+            expose_headers: ['Content-Disposition']
+            allow_methods: ['GET', 'OPTIONS']
