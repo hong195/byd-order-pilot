@@ -49,14 +49,14 @@ final readonly class ReprintPrintedProduct
             throw new NotFoundHttpException('No employee assigned to the roll');
         }
 
-        $roll->reprintProduct($printedProduct);
-
         $this->errorManagementService->recordError(
             printedProductId: $printedProduct->getId(),
             process: $process,
             noticerId: $this->userFetcher->requiredUserId(),
             reason: $reason
         );
+
+        $roll->reprintProduct($printedProduct);
 
         $this->rollRepository->save($roll);
 

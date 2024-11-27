@@ -304,11 +304,11 @@ class Roll extends Aggregate
         $this->printedProducts->clear();
     }
 
-	public function reprintProduct(PrintedProduct $product): void
-	{
-		$this->removePrintedProduct($product);
-		$product->reprint();
-	}
+    public function reprintProduct(PrintedProduct $product): void
+    {
+        $this->removePrintedProduct($product);
+        $product->reprint();
+    }
 
     public function removePrintedProduct(PrintedProduct $product): void
     {
