@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated cors settings">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_11_24,_21_36_[Changes]/shelved.patch" beforeDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added monolog.">
+      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Controller/DownloadFileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/order-pilot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/order-pilot.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/phpspec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpspec.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/nelmio_cors.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/nelmio_cors.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,6 +171,11 @@
       <path value="$PROJECT_DIR$/vendor/symfony/process" />
       <path value="$PROJECT_DIR$/vendor/symfony/console" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/monolog-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />
+      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/vendor/symfony/mime" />
     </include_path>
   </component>
   <component name="ProblemsViewState">
@@ -475,23 +486,7 @@
       <workItem from="1732204343640" duration="18839000" />
       <workItem from="1732299570194" duration="4952000" />
       <workItem from="1732523185868" duration="13114000" />
-      <workItem from="1732541349074" duration="42239000" />
-    </task>
-    <task id="LOCAL-00442" summary="Fixed empty roll not created after auto arrangement.">
-      <option name="closed" value="true" />
-      <created>1731497734720</created>
-      <option name="number" value="00442" />
-      <option name="presentableId" value="LOCAL-00442" />
-      <option name="project" value="LOCAL" />
-      <updated>1731497734721</updated>
-    </task>
-    <task id="LOCAL-00443" summary="Fixed empty roll not created after auto arrangement.">
-      <option name="closed" value="true" />
-      <created>1731498353716</created>
-      <option name="number" value="00443" />
-      <option name="presentableId" value="LOCAL-00443" />
-      <option name="project" value="LOCAL" />
-      <updated>1731498353716</updated>
+      <workItem from="1732541349074" duration="48497000" />
     </task>
     <task id="LOCAL-00444" summary="Updated some tests &amp; fixed exception throwing.">
       <option name="closed" value="true" />
@@ -869,7 +864,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732723037346</updated>
     </task>
-    <option name="localTasksCounter" value="491" />
+    <task id="LOCAL-00491" summary="Added monolog.">
+      <option name="closed" value="true" />
+      <created>1732792955595</created>
+      <option name="number" value="00491" />
+      <option name="presentableId" value="LOCAL-00491" />
+      <option name="project" value="LOCAL" />
+      <updated>1732792955595</updated>
+    </task>
+    <task id="LOCAL-00492" summary="Added monolog.">
+      <option name="closed" value="true" />
+      <created>1732792963231</created>
+      <option name="number" value="00492" />
+      <option name="presentableId" value="LOCAL-00492" />
+      <option name="project" value="LOCAL" />
+      <updated>1732792963231</updated>
+    </task>
+    <option name="localTasksCounter" value="493" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -904,7 +915,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated controller name." />
     <MESSAGE value="Updated correct usage promoted properties FindErrorsQuery." />
     <MESSAGE value="Updated manual checkin route name" />
     <MESSAGE value="Updated tests" />
@@ -929,7 +939,8 @@
     <MESSAGE value="Added take a photo tests" />
     <MESSAGE value="Fixed reprint bug." />
     <MESSAGE value="Updated cors settings" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated cors settings" />
+    <MESSAGE value="Added monolog." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added monolog." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
