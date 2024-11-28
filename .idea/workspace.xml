@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added change sort order tests">
-      <change afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/PrintedProduct/LaminationGroupServiceTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/PrintedProduct/SortServiceTest.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated cors settings">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_11_24,_21_36_[Changes]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -288,6 +287,9 @@
     "PHPUnit.RollRepositoryTest.test_it_can_find_by_film_id.executor": "Run",
     "PHPUnit.SetExtraPackStatusServiceTest.test_can_successfully_pack_extra_status.executor": "Run",
     "PHPUnit.SortServiceTest.test_get_sorted.executor": "Run",
+    "PHPUnit.TakeAPhotoServiceTest.test_can_upload_photo.executor": "Run",
+    "PHPUnit.TakeAPhotoServiceTest.test_it_remove_old_photo_if_product_has.executor": "Run",
+    "PHPUnit.TakeAPhotoServiceTest.test_it_throws_exception.executor": "Run",
     "PHPUnit.UnAssignPrintedProductTest.executor": "Run",
     "PHPUnit.UnAssignPrintedProductTest.test_it_can_unassign_product.executor": "Run",
     "PHPUnit.UnAssignPrintedProductTest.test_it_removes_roll_if_no_printed_products_left.executor": "Run",
@@ -348,21 +350,9 @@
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/Roll" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.SortServiceTest.test_get_sorted">
-    <configuration name="ChangeOrderTest.test_it_throws_exception_if_group_not_found" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\PrintedProduct\ChangeOrderTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/PrintedProduct/ChangeOrderTest.php" method="test_it_throws_exception_if_group_not_found" scope="Method" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="PHPUnit.Main">
     <configuration name="LaminationGroupServiceTest.test_it_can_group_products (1)" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\PrintedProduct\LaminationGroupServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/PrintedProduct/LaminationGroupServiceTest.php" method="test_it_can_group_products" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="LaminationGroupServiceTest.test_it_can_group_products" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\PrintedProduct\LaminationGroupServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/PrintedProduct/LaminationGroupServiceTest.php" method="test_it_can_group_products" scope="Pattern">
-        <test_patterns>
-          <composite_test_pattern class_fqn="App\Tests\Functional\ProductionProcess\Domain\Service\PrintedProduct\LaminationGroupServiceTest" file_path="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/PrintedProduct/LaminationGroupServiceTest.php" method_name="test_it_can_group_products" />
-        </test_patterns>
-      </TestRunner>
       <method v="2" />
     </configuration>
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -373,21 +363,29 @@
       <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\Roll\PrintedProductCheckinTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckinTest.php" method="test_can_allocate_group_of_printed_products_on_one_roll" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="ReprintPrintedProductTest.test_it_removes_roll_if_last_product_was_sent_to_reprint" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\PrintedProduct\ReprintPrintedProductTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/PrintedProduct/ReprintPrintedProductTest.php" method="test_it_removes_roll_if_last_product_was_sent_to_reprint" scope="Method" />
-      <method v="2" />
-    </configuration>
     <configuration name="SortServiceTest.test_get_sorted" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\PrintedProduct\SortServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/PrintedProduct/SortServiceTest.php" method="test_get_sorted" scope="Method" />
       <method v="2" />
     </configuration>
+    <configuration name="TakeAPhotoServiceTest.test_can_upload_photo" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\PrintedProduct\TakeAPhotoServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/PrintedProduct/TakeAPhotoServiceTest.php" method="test_can_upload_photo" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TakeAPhotoServiceTest.test_it_remove_old_photo_if_product_has" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\PrintedProduct\TakeAPhotoServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/PrintedProduct/TakeAPhotoServiceTest.php" method="test_it_remove_old_photo_if_product_has" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TakeAPhotoServiceTest.test_it_throws_exception" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Functional\ProductionProcess\Domain\Service\PrintedProduct\TakeAPhotoServiceTest" configuration_file="/opt/project/phpunit.xml" file="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/PrintedProduct/TakeAPhotoServiceTest.php" method="test_it_throws_exception" scope="Method" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.TakeAPhotoServiceTest.test_it_throws_exception" />
+        <item itemvalue="PHPUnit.TakeAPhotoServiceTest.test_it_remove_old_photo_if_product_has" />
+        <item itemvalue="PHPUnit.TakeAPhotoServiceTest.test_can_upload_photo" />
         <item itemvalue="PHPUnit.SortServiceTest.test_get_sorted" />
         <item itemvalue="PHPUnit.LaminationGroupServiceTest.test_it_can_group_products (1)" />
-        <item itemvalue="PHPUnit.LaminationGroupServiceTest.test_it_can_group_products" />
-        <item itemvalue="PHPUnit.ReprintPrintedProductTest.test_it_removes_roll_if_last_product_was_sent_to_reprint" />
-        <item itemvalue="PHPUnit.ChangeOrderTest.test_it_throws_exception_if_group_not_found" />
       </list>
     </recent_temporary>
   </component>
@@ -477,39 +475,7 @@
       <workItem from="1732204343640" duration="18839000" />
       <workItem from="1732299570194" duration="4952000" />
       <workItem from="1732523185868" duration="13114000" />
-      <workItem from="1732541349074" duration="26970000" />
-    </task>
-    <task id="LOCAL-00438" summary="Added roll lock/unlock api.">
-      <option name="closed" value="true" />
-      <created>1731327872613</created>
-      <option name="number" value="00438" />
-      <option name="presentableId" value="LOCAL-00438" />
-      <option name="project" value="LOCAL" />
-      <updated>1731327872613</updated>
-    </task>
-    <task id="LOCAL-00439" summary="Updated roll lock/unlock tests.">
-      <option name="closed" value="true" />
-      <created>1731328456008</created>
-      <option name="number" value="00439" />
-      <option name="presentableId" value="LOCAL-00439" />
-      <option name="project" value="LOCAL" />
-      <updated>1731328456008</updated>
-    </task>
-    <task id="LOCAL-00440" summary="Updated tests.">
-      <option name="closed" value="true" />
-      <created>1731407372370</created>
-      <option name="number" value="00440" />
-      <option name="presentableId" value="LOCAL-00440" />
-      <option name="project" value="LOCAL" />
-      <updated>1731407372370</updated>
-    </task>
-    <task id="LOCAL-00441" summary="Added raw version of manual printed products arrangement.">
-      <option name="closed" value="true" />
-      <created>1731424133264</created>
-      <option name="number" value="00441" />
-      <option name="presentableId" value="LOCAL-00441" />
-      <option name="project" value="LOCAL" />
-      <updated>1731424133264</updated>
+      <workItem from="1732541349074" duration="42239000" />
     </task>
     <task id="LOCAL-00442" summary="Fixed empty roll not created after auto arrangement.">
       <option name="closed" value="true" />
@@ -871,7 +837,39 @@
       <option name="project" value="LOCAL" />
       <updated>1732631475162</updated>
     </task>
-    <option name="localTasksCounter" value="487" />
+    <task id="LOCAL-00487" summary="Added lamination/sort service group testing">
+      <option name="closed" value="true" />
+      <created>1732632349878</created>
+      <option name="number" value="00487" />
+      <option name="presentableId" value="LOCAL-00487" />
+      <option name="project" value="LOCAL" />
+      <updated>1732632349878</updated>
+    </task>
+    <task id="LOCAL-00488" summary="Added take a photo tests">
+      <option name="closed" value="true" />
+      <created>1732634177809</created>
+      <option name="number" value="00488" />
+      <option name="presentableId" value="LOCAL-00488" />
+      <option name="project" value="LOCAL" />
+      <updated>1732634177809</updated>
+    </task>
+    <task id="LOCAL-00489" summary="Fixed reprint bug.">
+      <option name="closed" value="true" />
+      <created>1732716803954</created>
+      <option name="number" value="00489" />
+      <option name="presentableId" value="LOCAL-00489" />
+      <option name="project" value="LOCAL" />
+      <updated>1732716803955</updated>
+    </task>
+    <task id="LOCAL-00490" summary="Updated cors settings">
+      <option name="closed" value="true" />
+      <created>1732723037346</created>
+      <option name="number" value="00490" />
+      <option name="presentableId" value="LOCAL-00490" />
+      <option name="project" value="LOCAL" />
+      <updated>1732723037346</updated>
+    </task>
+    <option name="localTasksCounter" value="491" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -906,13 +904,9 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated roll can be locked only on order check in process." />
-    <MESSAGE value="Mo" />
-    <MESSAGE value="Updated repository folder structure." />
     <MESSAGE value="Updated controller name." />
     <MESSAGE value="Updated correct usage promoted properties FindErrorsQuery." />
     <MESSAGE value="Updated manual checkin route name" />
-    <MESSAGE value="Fixed reprint bug." />
     <MESSAGE value="Updated tests" />
     <MESSAGE value="Added case in order to merge rolls they must be in order check in process." />
     <MESSAGE value="Updated merge tests." />
@@ -931,7 +925,11 @@
     <MESSAGE value="Added unassign product service." />
     <MESSAGE value="Added tests for reprint" />
     <MESSAGE value="Added change sort order tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added change sort order tests" />
+    <MESSAGE value="Added lamination/sort service group testing" />
+    <MESSAGE value="Added take a photo tests" />
+    <MESSAGE value="Fixed reprint bug." />
+    <MESSAGE value="Updated cors settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated cors settings" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
