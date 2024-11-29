@@ -11,7 +11,7 @@ use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[AsController]
-#[Route('/file/download/{filename}', name: 'file_download', requirements: ['filename' => '^(\w+).(pdf|jpg|jpeg|png|gif)$'], methods: ['GET'])]
+#[Route('/file/download/{filename}', name: 'file_download', requirements: ['filename' => '^([\w-]+).(pdf|jpg|jpeg|png|gif)$'], methods: ['GET'])]
 final class DownloadFileController extends AbstractController
 {
     public function __invoke(string $filename): BinaryFileResponse

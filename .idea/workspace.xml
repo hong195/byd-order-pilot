@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added monolog.">
-      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Controller/DownloadFileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/order-pilot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/order-pilot.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/phpspec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpspec.xml" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added file download controller">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/nelmio_cors.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/nelmio_cors.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Controller/DownloadFileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Controller/DownloadFileController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -486,15 +480,7 @@
       <workItem from="1732204343640" duration="18839000" />
       <workItem from="1732299570194" duration="4952000" />
       <workItem from="1732523185868" duration="13114000" />
-      <workItem from="1732541349074" duration="48497000" />
-    </task>
-    <task id="LOCAL-00444" summary="Updated some tests &amp; fixed exception throwing.">
-      <option name="closed" value="true" />
-      <created>1731502650343</created>
-      <option name="number" value="00444" />
-      <option name="presentableId" value="LOCAL-00444" />
-      <option name="project" value="LOCAL" />
-      <updated>1731502650343</updated>
+      <workItem from="1732541349074" duration="52034000" />
     </task>
     <task id="LOCAL-00445" summary="Updated manual arrangement service.">
       <option name="closed" value="true" />
@@ -880,7 +866,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732792963231</updated>
     </task>
-    <option name="localTasksCounter" value="493" />
+    <task id="LOCAL-00493" summary="Added file download controller">
+      <option name="closed" value="true" />
+      <created>1732804376508</created>
+      <option name="number" value="00493" />
+      <option name="presentableId" value="LOCAL-00493" />
+      <option name="project" value="LOCAL" />
+      <updated>1732804376508</updated>
+    </task>
+    <option name="localTasksCounter" value="494" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -915,7 +909,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated correct usage promoted properties FindErrorsQuery." />
     <MESSAGE value="Updated manual checkin route name" />
     <MESSAGE value="Updated tests" />
     <MESSAGE value="Added case in order to merge rolls they must be in order check in process." />
@@ -940,7 +933,8 @@
     <MESSAGE value="Fixed reprint bug." />
     <MESSAGE value="Updated cors settings" />
     <MESSAGE value="Added monolog." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added monolog." />
+    <MESSAGE value="Added file download controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added file download controller" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
