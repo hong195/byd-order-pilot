@@ -24,7 +24,9 @@ final readonly class ProductListService
     /**
      * Class constructor.
      *
+     * @param ProductRepositoryInterface     $productRepository
      * @param ProductProcessServiceInterface $productProcessService Instance of product process service
+     * @param AssetUrlServiceInterface       $assetUrlService
      */
     public function __construct(private ProductRepositoryInterface $productRepository, private ProductProcessServiceInterface $productProcessService, private AssetUrlServiceInterface $assetUrlService)
     {
@@ -33,7 +35,7 @@ final readonly class ProductListService
     /**
      * Get the list of products for a given order ID and product IDs.
      *
-     * @param ?int   $orderId    The ID of the order
+     * @param ?int  $orderId    The ID of the order
      * @param int[] $productIds Array of product IDs
      *
      * @return array Array of ProductData objects representing the products
@@ -60,6 +62,7 @@ final readonly class ProductListService
                 rollId: $process->rollId,
                 isReprint: $process->isReprint,
                 isReadyForPacking: $process->isReadyForPacking,
+                photo: $process->photo,
             ) : null;
 
             $result[] = new ProductData(

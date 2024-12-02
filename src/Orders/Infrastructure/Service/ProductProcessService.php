@@ -45,10 +45,11 @@ final readonly class ProductProcessService implements ProductProcessServiceInter
 
         return new ProcessDTO(
             productId: $result->relatedProductId,
-            rollId: $result->rollId,
             process: $result->process,
+            rollId: $result->rollId,
             isReprint: $result->isReprint,
             isReadyForPacking: $result->isFinished,
+            photo: $result->photo ?? null
         );
     }
 
@@ -66,10 +67,11 @@ final readonly class ProductProcessService implements ProductProcessServiceInter
         return $result->map(
             fn (PrintedProductProcessData $item) => new ProcessDTO(
                 productId: $item->relatedProductId,
-				process: $item->process,
-				rollId: $item->rollId,
-				isReprint: $item->isReprint,
-				isReadyForPacking: $item->isFinished,
+                process: $item->process,
+                rollId: $item->rollId,
+                isReprint: $item->isReprint,
+                isReadyForPacking: $item->isFinished,
+                photo: $item->photo ?? null,
             )
         );
     }

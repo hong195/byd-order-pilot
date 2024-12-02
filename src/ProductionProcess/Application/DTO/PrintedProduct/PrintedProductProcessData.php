@@ -12,11 +12,12 @@ final readonly class PrintedProductProcessData
     /**
      * Constructor for creating a new instance of the class.
      *
-     * @param int    $relatedProductId the related product ID
-     * @param int    $rollId           the roll ID
-     * @param string $process          the process
-     * @param bool   $isFinished       flag indicating if the process is finished (default is false)
-     * @param bool   $isReprint        flag indicating if the process is a reprint (default is false)
+     * @param int         $relatedProductId the related product ID
+     * @param int         $rollId           the roll ID
+     * @param string      $process          the process
+     * @param bool        $isFinished       flag indicating if the process is finished (default is false)
+     * @param bool        $isReprint        flag indicating if the process is a reprint (default is false)
+     * @param string|null $photo            the photo of the process printed product
      */
     public function __construct(
         public int $relatedProductId,
@@ -24,6 +25,7 @@ final readonly class PrintedProductProcessData
         public ?string $process,
         public bool $isFinished = false,
         public bool $isReprint = false,
+        public ?string $photo = null,
     ) {
     }
 }

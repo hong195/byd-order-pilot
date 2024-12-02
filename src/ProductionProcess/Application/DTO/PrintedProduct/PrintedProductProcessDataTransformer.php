@@ -6,12 +6,20 @@ namespace App\ProductionProcess\Application\DTO\PrintedProduct;
 
 use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use App\ProductionProcess\Domain\ValueObject\Process;
+use App\Shared\Application\Service\AssetUrlServiceInterface;
 
 /**
  * OrderData class represents order data.
  */
 final readonly class PrintedProductProcessDataTransformer
 {
+    /**
+     * @param AssetUrlServiceInterface $assetUrlService
+     */
+    public function __construct(private AssetUrlServiceInterface $assetUrlService)
+    {
+    }
+
     /**
      * Converts a PrintedProduct entity to PrintedProductProcessData object.
      *
@@ -27,6 +35,7 @@ final readonly class PrintedProductProcessDataTransformer
             process: $printedProduct->getRoll()?->getProcess()->value ?? Process::ORDER_CHECK_IN->value,
             isFinished: (bool) $printedProduct->getRoll()?->isFinished(),
             isReprint: $printedProduct->isReprint(),
+            photo: $printedProduct->getPhoto() ? $this->assetUrlService->getLink($printedProduct->getPhoto()->getPath()) : null
         );
     }
 
