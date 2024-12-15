@@ -4,10 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added file download controller">
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added rabbit mq service.">
+      <change afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/EventHandler/EventEnvelopeHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Shared/Domain/Event/EventType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Event/DomainEventProducer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Event/EventEnvelope.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Event/EventEnvelopeSerializer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/packages/messenger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/messenger.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/php-fpm/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/php-fpm/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Events/FilmWasCreatedEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Domain/Events/FilmWasCreatedEvent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Events/FilmWasDeletedEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Domain/Events/FilmWasDeletedEvent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Events/FilmWasUpdatedEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Domain/Events/FilmWasUpdatedEvent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Events/FilmWasUsedEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Domain/Events/FilmWasUsedEvent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Event/ProductCreatedEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Event/ProductCreatedEvent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Events/PrintedProductReprintedEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Events/PrintedProductReprintedEvent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Events/RollProcessWasUpdatedEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Events/RollProcessWasUpdatedEvent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Events/RollWasSentToCutCheckInEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Events/RollWasSentToCutCheckInEvent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Events/RollWasSentToPrintCheckInEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Events/RollWasSentToPrintCheckInEvent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Events/RollsWereSentToGlowCheckInEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Events/RollsWereSentToGlowCheckInEvent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Domain/Event/EventInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Domain/Event/EventInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,134 +61,137 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="order-pilot-php-fpm:latest">
     <include_path>
-      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/vendor/psr/clock" />
+      <path value="$PROJECT_DIR$/vendor/clue/ndjson-react" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/react/stream" />
+      <path value="$PROJECT_DIR$/vendor/react/promise" />
+      <path value="$PROJECT_DIR$/vendor/react/event-loop" />
+      <path value="$PROJECT_DIR$/vendor/react/cache" />
+      <path value="$PROJECT_DIR$/vendor/lexik/jwt-authentication-bundle" />
+      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/vendor/liip/test-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/vendor/fidry/cpu-core-counter" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/vendor/react/child-process" />
+      <path value="$PROJECT_DIR$/vendor/nelmio/cors-bundle" />
+      <path value="$PROJECT_DIR$/vendor/react/dns" />
+      <path value="$PROJECT_DIR$/vendor/react/socket" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-invoker" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/vendor/phpstan/phpstan" />
+      <path value="$PROJECT_DIR$/vendor/phpstan/phpstan-symfony" />
+      <path value="$PROJECT_DIR$/vendor/symfony/browser-kit" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/monolog-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/cache" />
+      <path value="$PROJECT_DIR$/vendor/symfony/serializer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/dotenv" />
+      <path value="$PROJECT_DIR$/vendor/symfony/framework-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/phpunit-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/symfony/runtime" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-http" />
+      <path value="$PROJECT_DIR$/vendor/symfony/uid" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/vendor/symfony/maker-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-uuid" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-csrf" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/vendor/symfony/stopwatch" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php83" />
+      <path value="$PROJECT_DIR$/vendor/symfony/dom-crawler" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/messenger" />
+      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-info" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-core" />
+      <path value="$PROJECT_DIR$/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/vendor/symfony/cache-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/vendor/symfony/flex" />
+      <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/vendor/symfony/doctrine-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/var-exporter" />
+      <path value="$PROJECT_DIR$/vendor/symfony/type-info" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/vendor/symfony/clock" />
+      <path value="$PROJECT_DIR$/vendor/symfony/password-hasher" />
       <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-migrations-bundle" />
       <path value="$PROJECT_DIR$/vendor/doctrine/migrations" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/collections" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/sql-formatter" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />
       <path value="$PROJECT_DIR$/vendor/doctrine/persistence" />
       <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/orm" />
-      <path value="$PROJECT_DIR$/vendor/lcobucci/clock" />
-      <path value="$PROJECT_DIR$/vendor/evenement/evenement" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
       <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" />
       <path value="$PROJECT_DIR$/vendor/fakerphp/faker" />
-      <path value="$PROJECT_DIR$/vendor/gesdinet/jwt-refresh-token-bundle" />
-      <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/lines-of-code" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/sql-formatter" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/orm" />
       <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
       <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/complexity" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
-      <path value="$PROJECT_DIR$/vendor/squizlabs/php_codesniffer" />
-      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/vendor/lcobucci/clock" />
+      <path value="$PROJECT_DIR$/vendor/evenement/evenement" />
+      <path value="$PROJECT_DIR$/vendor/gesdinet/jwt-refresh-token-bundle" />
+      <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
       <path value="$PROJECT_DIR$/vendor/sebastian/version" />
       <path value="$PROJECT_DIR$/vendor/sebastian/cli-parser" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/lines-of-code" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/complexity" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
       <path value="$PROJECT_DIR$/vendor/masterminds/html5" />
       <path value="$PROJECT_DIR$/vendor/friendsofphp/php-cs-fixer" />
+      <path value="$PROJECT_DIR$/vendor/squizlabs/php_codesniffer" />
+      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
       <path value="$PROJECT_DIR$/vendor/escapestudios/symfony2-coding-standard" />
       <path value="$PROJECT_DIR$/vendor/martin-georgiev/postgresql-for-doctrine" />
       <path value="$PROJECT_DIR$/vendor/composer" />
-      <path value="$PROJECT_DIR$/vendor/psr/clock" />
-      <path value="$PROJECT_DIR$/vendor/clue/ndjson-react" />
-      <path value="$PROJECT_DIR$/vendor/liip/test-fixtures-bundle" />
-      <path value="$PROJECT_DIR$/vendor/fidry/cpu-core-counter" />
-      <path value="$PROJECT_DIR$/vendor/psr/cache" />
-      <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
-      <path value="$PROJECT_DIR$/vendor/psr/container" />
-      <path value="$PROJECT_DIR$/vendor/psr/log" />
-      <path value="$PROJECT_DIR$/vendor/react/stream" />
-      <path value="$PROJECT_DIR$/vendor/react/promise" />
-      <path value="$PROJECT_DIR$/vendor/react/dns" />
-      <path value="$PROJECT_DIR$/vendor/react/socket" />
-      <path value="$PROJECT_DIR$/vendor/lexik/jwt-authentication-bundle" />
-      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
-      <path value="$PROJECT_DIR$/vendor/react/event-loop" />
-      <path value="$PROJECT_DIR$/vendor/react/cache" />
-      <path value="$PROJECT_DIR$/vendor/phar-io/version" />
-      <path value="$PROJECT_DIR$/vendor/phpstan/phpstan" />
-      <path value="$PROJECT_DIR$/vendor/phpstan/phpstan-symfony" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
-      <path value="$PROJECT_DIR$/vendor/react/child-process" />
-      <path value="$PROJECT_DIR$/vendor/nelmio/cors-bundle" />
-      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
-      <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
-      <path value="$PROJECT_DIR$/vendor/symfony/framework-bundle" />
-      <path value="$PROJECT_DIR$/vendor/symfony/serializer" />
-      <path value="$PROJECT_DIR$/vendor/symfony/dotenv" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-invoker" />
-      <path value="$PROJECT_DIR$/vendor/symfony/config" />
-      <path value="$PROJECT_DIR$/vendor/symfony/security-http" />
-      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
-      <path value="$PROJECT_DIR$/vendor/symfony/runtime" />
-      <path value="$PROJECT_DIR$/vendor/symfony/cache" />
-      <path value="$PROJECT_DIR$/vendor/symfony/browser-kit" />
-      <path value="$PROJECT_DIR$/vendor/symfony/security-bundle" />
-      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
-      <path value="$PROJECT_DIR$/vendor/symfony/security-csrf" />
-      <path value="$PROJECT_DIR$/vendor/symfony/maker-bundle" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
-      <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
-      <path value="$PROJECT_DIR$/vendor/symfony/phpunit-bridge" />
-      <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
-      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
-      <path value="$PROJECT_DIR$/vendor/symfony/options-resolver" />
-      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php83" />
-      <path value="$PROJECT_DIR$/vendor/symfony/stopwatch" />
-      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
-      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
-      <path value="$PROJECT_DIR$/vendor/symfony/messenger" />
-      <path value="$PROJECT_DIR$/vendor/symfony/dom-crawler" />
-      <path value="$PROJECT_DIR$/vendor/symfony/property-access" />
-      <path value="$PROJECT_DIR$/vendor/symfony/routing" />
-      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
-      <path value="$PROJECT_DIR$/vendor/symfony/property-info" />
-      <path value="$PROJECT_DIR$/vendor/symfony/type-info" />
-      <path value="$PROJECT_DIR$/vendor/symfony/yaml" />
-      <path value="$PROJECT_DIR$/vendor/symfony/string" />
-      <path value="$PROJECT_DIR$/vendor/symfony/security-core" />
-      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
-      <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
-      <path value="$PROJECT_DIR$/vendor/symfony/cache-contracts" />
-      <path value="$PROJECT_DIR$/vendor/symfony/dependency-injection" />
-      <path value="$PROJECT_DIR$/vendor/symfony/clock" />
-      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
-      <path value="$PROJECT_DIR$/vendor/symfony/doctrine-bridge" />
-      <path value="$PROJECT_DIR$/vendor/symfony/var-exporter" />
-      <path value="$PROJECT_DIR$/vendor/symfony/flex" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
-      <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
-      <path value="$PROJECT_DIR$/vendor/symfony/password-hasher" />
-      <path value="$PROJECT_DIR$/vendor/symfony/process" />
-      <path value="$PROJECT_DIR$/vendor/symfony/console" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
-      <path value="$PROJECT_DIR$/vendor/symfony/monolog-bridge" />
-      <path value="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />
-      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
-      <path value="$PROJECT_DIR$/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/vendor/symfony/amqp-messenger" />
     </include_path>
   </component>
   <component name="ProblemsViewState">
@@ -187,173 +208,173 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Makefile Target.restart.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.AutoPrintedProductCheckInServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.AutoPrintedProductCheckInServiceTest.test_it_can_auto_check_in_printed_products.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.AutoPrintedProductCheckInServiceTest.test_it_can_not_place_products_with_the_same_order_number_if_there_is_no_suitable_length.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.AutoPrintedProductCheckInServiceTest.test_it_does_not_modify_or_remove_locked_roll.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.AutoPrintedProductCheckInServiceTest.test_it_removes_old_rolls_and_creates_new_ones.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.AutoPrintedProductCheckInServiceTest.test_it_returns_unassigned_ids_if_it_there_is_not_enough_film.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.AutoPrintedProductCheckInServiceTest.test_it_takes_into_consideration_previously_created_locked_rolls.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.AutoPrintedProductCheckInServiceTest.test_it_takes_into_consideration_previously_created_rolls.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ChangeOrderTest.test_can_change_product_sort_order.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ChangeOrderTest.test_it_throws_exception_if_group_not_found.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.CheckRemainingProductsServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.CheckRemainingProductsServiceTest.test_it_remove_roll_if_there_are_no_printed_product_left.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.CheckRemainingProductsServiceTest.test_it_removes_roll_if_there_are_no_printed_product_left.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.CheckRemainingProductsServiceTest.test_it_throws_exception_if_roll_does_not_exists.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.CheckRemainingProductsServiceTest.test_printer_become_available_if_last_element_was_removed.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.CuttingCheckinTest.test_it_throws_exception_when_send_roll_to_cutting_checkin_process_from_incorrect_processes.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ErrorManagementServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ErrorManagementServiceTest.test_can_be_created.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ErrorManagementServiceTest.test_can_be_recorded.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ErrorManagementServiceTest.test_can_be_recorded_successfully.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ErrorManagementServiceTest.test_error_can_be_record_on_current_or_previous_process.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ErrorManagementServiceTest.test_error_can_be_record_on_existing_process.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ErrorManagementServiceTest.test_product_must_be_in_progress.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ErrorManagementServiceTest.test_roll_must_exists.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ErrorManagementServiceTest.test_roll_must_have_history_in_order_to_record_error.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ErrorRepositoryTest.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ErrorRepositoryTest.test_add.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ErrorRepositoryTest.test_error_can_be_found_by_responsible_employee_id.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ErrorRepositoryTest.test_errors_can_be_found_by_filter.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ErrorRepositoryTest.test_find_by_process.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ExtraMakerTest.test_can_successfully_make_extra.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ExtraRepositoryTest.test_can_successfully_save.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.FilmTypeValidatorTest.test_it_can_successfully_check_printed_products_film_type.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.FilmTypeValidatorTest.test_throws_exception_when_film_types_are_different.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.GlowCheckinTest.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.GlowCheckinTest.test_roll_can_be_send_directly_to_cutting_check_in_if_there_is_no_glow.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.HistoryRepositoryTest.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.HistoryRepositoryTest.test_add.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.HistoryRepositoryTest.test_true.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.InitPrintersServiceTest.test_it_creates_printers.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.InitPrintersServiceTest.test_it_creates_printers_with_conditions.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.LaminationGroupServiceTest.test_it_can_group_products (1).executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.LaminationGroupServiceTest.test_it_can_group_products.executor&quot;: &quot;Debug&quot;,
-    &quot;PHPUnit.LockRollServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.LockRollServiceTest.test_cant_lock_not_existing_roll.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.LockRollServiceTest.test_it_locks_roll.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.LockRollServiceTest.test_it_throws_exception_when_try_to_lock_already_locked_roll.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.Main.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ManualProductsArrangeServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ManualProductsArrangeServiceTest.test_it_successfully_manually_arrange_printed_products_on_locked_roll.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ManualProductsArrangeServiceTest.test_it_throws_exception_when_existing_roll_ready_for_print_check_in_takes_.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ManualProductsArrangeServiceTest.test_it_throws_exception_when_printed_products_handled_by_different_printers.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ManualProductsArrangeServiceTest.test_it_throws_exception_when_printed_products_have_different_film_type.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ManualProductsArrangeServiceTest.test_service_take_into_consideration_the_existing_rolls_ready_for_printing.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.MergeServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.MergeServiceTest.test_it_can_merge_several_rolls_into_one_locked_one.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.MergeServiceTest.test_it_throws_error_when_at_least_one_roll_does_not_have_printed_products.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.MergeServiceTest.test_it_throws_error_when_roll_products_have_different_film_types.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.MergeServiceTest.test_it_throws_exception_when_one_of_rolls_are_not_in_correct_process.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.MergeServiceTest.test_it_throws_exception_when_rolls_printed_products_handled_by_different_printers.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.MergeServiceTest.test_it_throws_exception_when_there_are_less_than_two_rolls.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.MergeServiceTest.test_it_throws_exception_when_there_are_less_than_two_rolls_to_merge.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.MergeServiceTest.test_it_throws_exception_when_there_is_not_enough_film_length.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.MergeServiceTest.test_service_take_into_consideration_the_existing_rolls_ready_for_print_check_in.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.OrderRepositoryTest.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.OrderRepositoryTest.test_can_find_only_with_extras.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.OrderRepositoryTest.test_can_find_packed.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.OrderRepositoryTest.test_can_find_partially_packed.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.OrderRepositoryTest.test_can_find_ready_for_packing.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.OrderRepositoryTest.test_can_successfully_add.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.OrderRepositoryTest.test_can_successfully_save.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.PackProductTest.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.PackProductTest.test_can_successfully_pack_product.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.PackProductTest.test_cant_pack_product_if_its_already_packed.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.PackProductTest.test_cant_pack_product_if_its_not_ready_for_packing.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.PackProductTest.test_cant_pack_product_if_order_product_do_not_exist.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.PackProductTest.test_if_product_packed_product_pack_event_dispatched.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.PrintCheckinTest.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.PrintCheckinTest.test_can_successfully_send_to_print_check_in.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.PrintCheckinTest.test_it_dispatches_event_after_sending_to_cutting_check_in.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.PrintCheckinTest.test_it_throws_exception_when_film_is_already_in_use.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.PrintedProductCheckinTest.test_can_allocate_group_of_printed_products_on_one_roll.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.PrintedProductRepositoryTest.test_add.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.PrintedProductRepositoryTest.test_can_find_by_filter.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.PrintedProductRepositoryTest.test_can_find_by_multiple_related_product_ids.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.PrinterValidatorTest.test_it_can_successfully_check_printed_products_printer.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.PrinterValidatorTest.test_it_throws_exception_when_its_different_printers.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ProductRepositoryTest.test_can_find_by_filter.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ProductRepositoryTest.test_can_successfully_save.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ReprintPrintedProductTest.test_it_can_reprint_printed_product.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ReprintPrintedProductTest.test_it_removes_roll_if_last_product_was_sent_to_reprint.executor&quot;: &quot;Debug&quot;,
-    &quot;PHPUnit.ReprintPrintedProductTest.test_it_throws_exception_if_no_employee_assigned.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ReprintPrintedProductTest.test_it_throws_exception_if_no_product_found.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ReprintPrintedProductTest.test_it_throws_exception_if_product_is_not_assigned_to_a_roll.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.ReprintRollTest.test_cannot_reprint_not_existing_roll.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.RollMakerTest.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.RollMakerTest.test_it_can_make_roll.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.RollRepositoryTest.test_can_find_by_filter.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.RollRepositoryTest.test_can_remove.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.RollRepositoryTest.test_can_save_successfully.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.RollRepositoryTest.test_it_can_find_by_film_id.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.SetExtraPackStatusServiceTest.test_can_successfully_pack_extra_status.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.SortServiceTest.test_get_sorted.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.TakeAPhotoServiceTest.test_can_upload_photo.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.TakeAPhotoServiceTest.test_it_remove_old_photo_if_product_has.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.TakeAPhotoServiceTest.test_it_throws_exception.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.UnAssignPrintedProductTest.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.UnAssignPrintedProductTest.test_it_can_unassign_product.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.UnAssignPrintedProductTest.test_it_removes_roll_if_no_printed_products_left.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.UnAssignPrintedProductTest.test_it_throws_exception_if_product_not_found.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.UnAssignPrintedProductTest.test_it_throws_exception_if_roll_no_found.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.UnLockRollServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.UnLockRollServiceTest.test_it_throws_exception_when_no_employee_assigned.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.UnLockRollServiceTest.test_it_throws_exception_when_try_to_unlock_already_unlocked_roll.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.UnLockRollServiceTest.test_it_unlocks_roll.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.UnPackProductTest.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.UnPackProductTest.test_can_successfully_unpack_product.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.UnPackProductTest.test_cannot_unpack_product_if_its_already_unpacked.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.UnPackProductTest.test_cant_unpack_not_existing_product.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.UnPackProductTest.test_if_product_packed_product_pack_event_dispatched.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
-    &quot;com.jetbrains.php.phpunit.codeGeneration.PhpNewTestDialog.defaultLibrary&quot;: &quot;PHPUnit&quot;,
-    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm&quot;: &quot;Docker&quot;,
-    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm&quot;: &quot;Docker&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;!2 on Merging roll-history&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/aleksejem/Sites/order-pilot/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;php.add.doc.comment.for.fields.panel.add.php.doc.for.all.properties&quot;: &quot;true&quot;,
-    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Makefile Target.restart.executor": "Run",
+    "PHPUnit.AutoPrintedProductCheckInServiceTest.executor": "Run",
+    "PHPUnit.AutoPrintedProductCheckInServiceTest.test_it_can_auto_check_in_printed_products.executor": "Run",
+    "PHPUnit.AutoPrintedProductCheckInServiceTest.test_it_can_not_place_products_with_the_same_order_number_if_there_is_no_suitable_length.executor": "Run",
+    "PHPUnit.AutoPrintedProductCheckInServiceTest.test_it_does_not_modify_or_remove_locked_roll.executor": "Run",
+    "PHPUnit.AutoPrintedProductCheckInServiceTest.test_it_removes_old_rolls_and_creates_new_ones.executor": "Run",
+    "PHPUnit.AutoPrintedProductCheckInServiceTest.test_it_returns_unassigned_ids_if_it_there_is_not_enough_film.executor": "Run",
+    "PHPUnit.AutoPrintedProductCheckInServiceTest.test_it_takes_into_consideration_previously_created_locked_rolls.executor": "Run",
+    "PHPUnit.AutoPrintedProductCheckInServiceTest.test_it_takes_into_consideration_previously_created_rolls.executor": "Run",
+    "PHPUnit.ChangeOrderTest.test_can_change_product_sort_order.executor": "Run",
+    "PHPUnit.ChangeOrderTest.test_it_throws_exception_if_group_not_found.executor": "Run",
+    "PHPUnit.CheckRemainingProductsServiceTest.executor": "Run",
+    "PHPUnit.CheckRemainingProductsServiceTest.test_it_remove_roll_if_there_are_no_printed_product_left.executor": "Run",
+    "PHPUnit.CheckRemainingProductsServiceTest.test_it_removes_roll_if_there_are_no_printed_product_left.executor": "Run",
+    "PHPUnit.CheckRemainingProductsServiceTest.test_it_throws_exception_if_roll_does_not_exists.executor": "Run",
+    "PHPUnit.CheckRemainingProductsServiceTest.test_printer_become_available_if_last_element_was_removed.executor": "Run",
+    "PHPUnit.CuttingCheckinTest.test_it_throws_exception_when_send_roll_to_cutting_checkin_process_from_incorrect_processes.executor": "Run",
+    "PHPUnit.ErrorManagementServiceTest.executor": "Run",
+    "PHPUnit.ErrorManagementServiceTest.test_can_be_created.executor": "Run",
+    "PHPUnit.ErrorManagementServiceTest.test_can_be_recorded.executor": "Run",
+    "PHPUnit.ErrorManagementServiceTest.test_can_be_recorded_successfully.executor": "Run",
+    "PHPUnit.ErrorManagementServiceTest.test_error_can_be_record_on_current_or_previous_process.executor": "Run",
+    "PHPUnit.ErrorManagementServiceTest.test_error_can_be_record_on_existing_process.executor": "Run",
+    "PHPUnit.ErrorManagementServiceTest.test_product_must_be_in_progress.executor": "Run",
+    "PHPUnit.ErrorManagementServiceTest.test_roll_must_exists.executor": "Run",
+    "PHPUnit.ErrorManagementServiceTest.test_roll_must_have_history_in_order_to_record_error.executor": "Run",
+    "PHPUnit.ErrorRepositoryTest.executor": "Run",
+    "PHPUnit.ErrorRepositoryTest.test_add.executor": "Run",
+    "PHPUnit.ErrorRepositoryTest.test_error_can_be_found_by_responsible_employee_id.executor": "Run",
+    "PHPUnit.ErrorRepositoryTest.test_errors_can_be_found_by_filter.executor": "Run",
+    "PHPUnit.ErrorRepositoryTest.test_find_by_process.executor": "Run",
+    "PHPUnit.ExtraMakerTest.test_can_successfully_make_extra.executor": "Run",
+    "PHPUnit.ExtraRepositoryTest.test_can_successfully_save.executor": "Run",
+    "PHPUnit.FilmTypeValidatorTest.test_it_can_successfully_check_printed_products_film_type.executor": "Run",
+    "PHPUnit.FilmTypeValidatorTest.test_throws_exception_when_film_types_are_different.executor": "Run",
+    "PHPUnit.GlowCheckinTest.executor": "Run",
+    "PHPUnit.GlowCheckinTest.test_roll_can_be_send_directly_to_cutting_check_in_if_there_is_no_glow.executor": "Run",
+    "PHPUnit.HistoryRepositoryTest.executor": "Run",
+    "PHPUnit.HistoryRepositoryTest.test_add.executor": "Run",
+    "PHPUnit.HistoryRepositoryTest.test_true.executor": "Run",
+    "PHPUnit.InitPrintersServiceTest.test_it_creates_printers.executor": "Run",
+    "PHPUnit.InitPrintersServiceTest.test_it_creates_printers_with_conditions.executor": "Run",
+    "PHPUnit.LaminationGroupServiceTest.test_it_can_group_products (1).executor": "Run",
+    "PHPUnit.LaminationGroupServiceTest.test_it_can_group_products.executor": "Debug",
+    "PHPUnit.LockRollServiceTest.executor": "Run",
+    "PHPUnit.LockRollServiceTest.test_cant_lock_not_existing_roll.executor": "Run",
+    "PHPUnit.LockRollServiceTest.test_it_locks_roll.executor": "Run",
+    "PHPUnit.LockRollServiceTest.test_it_throws_exception_when_try_to_lock_already_locked_roll.executor": "Run",
+    "PHPUnit.Main.executor": "Run",
+    "PHPUnit.ManualProductsArrangeServiceTest.executor": "Run",
+    "PHPUnit.ManualProductsArrangeServiceTest.test_it_successfully_manually_arrange_printed_products_on_locked_roll.executor": "Run",
+    "PHPUnit.ManualProductsArrangeServiceTest.test_it_throws_exception_when_existing_roll_ready_for_print_check_in_takes_.executor": "Run",
+    "PHPUnit.ManualProductsArrangeServiceTest.test_it_throws_exception_when_printed_products_handled_by_different_printers.executor": "Run",
+    "PHPUnit.ManualProductsArrangeServiceTest.test_it_throws_exception_when_printed_products_have_different_film_type.executor": "Run",
+    "PHPUnit.ManualProductsArrangeServiceTest.test_service_take_into_consideration_the_existing_rolls_ready_for_printing.executor": "Run",
+    "PHPUnit.MergeServiceTest.executor": "Run",
+    "PHPUnit.MergeServiceTest.test_it_can_merge_several_rolls_into_one_locked_one.executor": "Run",
+    "PHPUnit.MergeServiceTest.test_it_throws_error_when_at_least_one_roll_does_not_have_printed_products.executor": "Run",
+    "PHPUnit.MergeServiceTest.test_it_throws_error_when_roll_products_have_different_film_types.executor": "Run",
+    "PHPUnit.MergeServiceTest.test_it_throws_exception_when_one_of_rolls_are_not_in_correct_process.executor": "Run",
+    "PHPUnit.MergeServiceTest.test_it_throws_exception_when_rolls_printed_products_handled_by_different_printers.executor": "Run",
+    "PHPUnit.MergeServiceTest.test_it_throws_exception_when_there_are_less_than_two_rolls.executor": "Run",
+    "PHPUnit.MergeServiceTest.test_it_throws_exception_when_there_are_less_than_two_rolls_to_merge.executor": "Run",
+    "PHPUnit.MergeServiceTest.test_it_throws_exception_when_there_is_not_enough_film_length.executor": "Run",
+    "PHPUnit.MergeServiceTest.test_service_take_into_consideration_the_existing_rolls_ready_for_print_check_in.executor": "Run",
+    "PHPUnit.OrderRepositoryTest.executor": "Run",
+    "PHPUnit.OrderRepositoryTest.test_can_find_only_with_extras.executor": "Run",
+    "PHPUnit.OrderRepositoryTest.test_can_find_packed.executor": "Run",
+    "PHPUnit.OrderRepositoryTest.test_can_find_partially_packed.executor": "Run",
+    "PHPUnit.OrderRepositoryTest.test_can_find_ready_for_packing.executor": "Run",
+    "PHPUnit.OrderRepositoryTest.test_can_successfully_add.executor": "Run",
+    "PHPUnit.OrderRepositoryTest.test_can_successfully_save.executor": "Run",
+    "PHPUnit.PackProductTest.executor": "Run",
+    "PHPUnit.PackProductTest.test_can_successfully_pack_product.executor": "Run",
+    "PHPUnit.PackProductTest.test_cant_pack_product_if_its_already_packed.executor": "Run",
+    "PHPUnit.PackProductTest.test_cant_pack_product_if_its_not_ready_for_packing.executor": "Run",
+    "PHPUnit.PackProductTest.test_cant_pack_product_if_order_product_do_not_exist.executor": "Run",
+    "PHPUnit.PackProductTest.test_if_product_packed_product_pack_event_dispatched.executor": "Run",
+    "PHPUnit.PrintCheckinTest.executor": "Run",
+    "PHPUnit.PrintCheckinTest.test_can_successfully_send_to_print_check_in.executor": "Run",
+    "PHPUnit.PrintCheckinTest.test_it_dispatches_event_after_sending_to_cutting_check_in.executor": "Run",
+    "PHPUnit.PrintCheckinTest.test_it_throws_exception_when_film_is_already_in_use.executor": "Run",
+    "PHPUnit.PrintedProductCheckinTest.test_can_allocate_group_of_printed_products_on_one_roll.executor": "Run",
+    "PHPUnit.PrintedProductRepositoryTest.test_add.executor": "Run",
+    "PHPUnit.PrintedProductRepositoryTest.test_can_find_by_filter.executor": "Run",
+    "PHPUnit.PrintedProductRepositoryTest.test_can_find_by_multiple_related_product_ids.executor": "Run",
+    "PHPUnit.PrinterValidatorTest.test_it_can_successfully_check_printed_products_printer.executor": "Run",
+    "PHPUnit.PrinterValidatorTest.test_it_throws_exception_when_its_different_printers.executor": "Run",
+    "PHPUnit.ProductRepositoryTest.test_can_find_by_filter.executor": "Run",
+    "PHPUnit.ProductRepositoryTest.test_can_successfully_save.executor": "Run",
+    "PHPUnit.ReprintPrintedProductTest.test_it_can_reprint_printed_product.executor": "Run",
+    "PHPUnit.ReprintPrintedProductTest.test_it_removes_roll_if_last_product_was_sent_to_reprint.executor": "Debug",
+    "PHPUnit.ReprintPrintedProductTest.test_it_throws_exception_if_no_employee_assigned.executor": "Run",
+    "PHPUnit.ReprintPrintedProductTest.test_it_throws_exception_if_no_product_found.executor": "Run",
+    "PHPUnit.ReprintPrintedProductTest.test_it_throws_exception_if_product_is_not_assigned_to_a_roll.executor": "Run",
+    "PHPUnit.ReprintRollTest.test_cannot_reprint_not_existing_roll.executor": "Run",
+    "PHPUnit.RollMakerTest.executor": "Run",
+    "PHPUnit.RollMakerTest.test_it_can_make_roll.executor": "Run",
+    "PHPUnit.RollRepositoryTest.test_can_find_by_filter.executor": "Run",
+    "PHPUnit.RollRepositoryTest.test_can_remove.executor": "Run",
+    "PHPUnit.RollRepositoryTest.test_can_save_successfully.executor": "Run",
+    "PHPUnit.RollRepositoryTest.test_it_can_find_by_film_id.executor": "Run",
+    "PHPUnit.SetExtraPackStatusServiceTest.test_can_successfully_pack_extra_status.executor": "Run",
+    "PHPUnit.SortServiceTest.test_get_sorted.executor": "Run",
+    "PHPUnit.TakeAPhotoServiceTest.test_can_upload_photo.executor": "Run",
+    "PHPUnit.TakeAPhotoServiceTest.test_it_remove_old_photo_if_product_has.executor": "Run",
+    "PHPUnit.TakeAPhotoServiceTest.test_it_throws_exception.executor": "Run",
+    "PHPUnit.UnAssignPrintedProductTest.executor": "Run",
+    "PHPUnit.UnAssignPrintedProductTest.test_it_can_unassign_product.executor": "Run",
+    "PHPUnit.UnAssignPrintedProductTest.test_it_removes_roll_if_no_printed_products_left.executor": "Run",
+    "PHPUnit.UnAssignPrintedProductTest.test_it_throws_exception_if_product_not_found.executor": "Run",
+    "PHPUnit.UnAssignPrintedProductTest.test_it_throws_exception_if_roll_no_found.executor": "Run",
+    "PHPUnit.UnLockRollServiceTest.executor": "Run",
+    "PHPUnit.UnLockRollServiceTest.test_it_throws_exception_when_no_employee_assigned.executor": "Run",
+    "PHPUnit.UnLockRollServiceTest.test_it_throws_exception_when_try_to_unlock_already_unlocked_roll.executor": "Run",
+    "PHPUnit.UnLockRollServiceTest.test_it_unlocks_roll.executor": "Run",
+    "PHPUnit.UnPackProductTest.executor": "Run",
+    "PHPUnit.UnPackProductTest.test_can_successfully_unpack_product.executor": "Run",
+    "PHPUnit.UnPackProductTest.test_cannot_unpack_product_if_its_already_unpacked.executor": "Run",
+    "PHPUnit.UnPackProductTest.test_cant_unpack_not_existing_product.executor": "Run",
+    "PHPUnit.UnPackProductTest.test_if_product_packed_product_pack_event_dispatched.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
+    "WebServerToolWindowPanel.toolwindow.show.date": "false",
+    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
+    "WebServerToolWindowPanel.toolwindow.show.size": "false",
+    "com.jetbrains.php.phpunit.codeGeneration.PhpNewTestDialog.defaultLibrary": "PHPUnit",
+    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm": "Docker",
+    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm": "Docker",
+    "git-widget-placeholder": "!2 on Merging roll-history",
+    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/src/Shared/Domain/Event",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "php.add.doc.comment.for.fields.panel.add.php.doc.for.all.properties": "true",
+    "php.override.implement.member.chooser.php.doc": "NONE",
+    "settings.editor.selected.configurable": "configurable.group.build",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;ChangesTree.GroupingKeys&quot;: [
-      &quot;directory&quot;
+  "keyToStringList": {
+    "ChangesTree.GroupingKeys": [
+      "directory"
     ],
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Shared/Domain/Event" />
+      <recent name="$PROJECT_DIR$/src/Inventory/Infrastructure/EventHandler" />
+      <recent name="$PROJECT_DIR$/src/Shared/Infrastructure" />
       <recent name="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess" />
       <recent name="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll" />
-      <recent name="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/UnLockRoll" />
-      <recent name="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/LockRoll" />
-      <recent name="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Shared/Domain/Event" />
       <recent name="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/PrintedProduct" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess" />
       <recent name="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Auto" />
-      <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/Roll" />
     </key>
   </component>
   <component name="RunManager" selected="PHPUnit.Main">
@@ -482,15 +503,7 @@
       <workItem from="1732299570194" duration="4952000" />
       <workItem from="1732523185868" duration="13114000" />
       <workItem from="1732541349074" duration="52034000" />
-      <workItem from="1734268238636" duration="4120000" />
-    </task>
-    <task id="LOCAL-00445" summary="Updated manual arrangement service.">
-      <option name="closed" value="true" />
-      <created>1731571658491</created>
-      <option name="number" value="00445" />
-      <option name="presentableId" value="LOCAL-00445" />
-      <option name="project" value="LOCAL" />
-      <updated>1731571658491</updated>
+      <workItem from="1734268238636" duration="9299000" />
     </task>
     <task id="LOCAL-00446" summary="Updated manual arrange service code &amp; tests.">
       <option name="closed" value="true" />
@@ -876,7 +889,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732804376508</updated>
     </task>
-    <option name="localTasksCounter" value="494" />
+    <task id="LOCAL-00494" summary="Added rabbit mq service.">
+      <option name="closed" value="true" />
+      <created>1734273885659</created>
+      <option name="number" value="00494" />
+      <option name="presentableId" value="LOCAL-00494" />
+      <option name="project" value="LOCAL" />
+      <updated>1734273885659</updated>
+    </task>
+    <option name="localTasksCounter" value="495" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -911,7 +932,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated manual checkin route name" />
     <MESSAGE value="Updated tests" />
     <MESSAGE value="Added case in order to merge rolls they must be in order check in process." />
     <MESSAGE value="Updated merge tests." />
@@ -936,7 +956,8 @@
     <MESSAGE value="Updated cors settings" />
     <MESSAGE value="Added monolog." />
     <MESSAGE value="Added file download controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added file download controller" />
+    <MESSAGE value="Added rabbit mq service." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added rabbit mq service." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

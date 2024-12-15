@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Inventory\Domain\Events;
 
 use App\Shared\Domain\Event\EventInterface;
+use App\Shared\Domain\Event\EventType;
 
 final readonly class FilmWasUpdatedEvent implements EventInterface, EventHasNameInterface
 {
@@ -28,4 +29,9 @@ final readonly class FilmWasUpdatedEvent implements EventInterface, EventHasName
     {
         return 'film_length_was_updated';
     }
+
+	public function getEventType(): string
+	{
+		return EventType::FILM_WAS_UPDATED;
+	}
 }

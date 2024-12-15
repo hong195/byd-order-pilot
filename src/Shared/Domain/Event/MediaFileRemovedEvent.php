@@ -17,10 +17,15 @@ namespace App\Shared\Domain\Event;
  */
 final readonly class MediaFileRemovedEvent implements EventInterface
 {
-    /**
-     * @param string $mediaFilePath
-     */
     public function __construct(public string $mediaFilePath)
     {
+    }
+
+    /**
+     * Returns the path of the media file being removed.
+     */
+    public function getEventType(): string
+    {
+        return EventType::FILE_WAS_REMOVED;
     }
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Inventory\Domain\Events;
 
 use App\Shared\Domain\Event\EventInterface;
+use App\Shared\Domain\Event\EventType;
 
 final class FilmWasDeletedEvent implements EventInterface, EventHasNameInterface
 {
@@ -18,4 +19,9 @@ final class FilmWasDeletedEvent implements EventInterface, EventHasNameInterface
     {
         return 'film_was_removed';
     }
+
+	public function getEventType(): string
+	{
+		return EventType::FILM_WAS_DELETED;
+	}
 }

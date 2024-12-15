@@ -6,4 +6,8 @@ namespace App\Shared\Domain\Event;
 
 interface EventInterface
 {
+    /**
+     * Get the event type.
+     */
+    public function getEventType(): string;
 }

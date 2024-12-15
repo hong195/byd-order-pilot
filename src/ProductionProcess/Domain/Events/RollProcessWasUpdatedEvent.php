@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Domain\Events;
 
 use App\Shared\Domain\Event\EventInterface;
+use App\Shared\Domain\Event\EventType;
 
 /**
  * RollProcessWasUpdatedEvent.
@@ -21,4 +22,9 @@ final readonly class RollProcessWasUpdatedEvent implements EventInterface
     public function __construct(public int $rollId, public string $process)
     {
     }
+
+	public function getEventType(): string
+	{
+		return EventType::ROLL_PROCESS_WAS_UPDATED;
+	}
 }
