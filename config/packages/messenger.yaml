@@ -18,7 +18,33 @@ framework:
         # async: '%env(MESSENGER_TRANSPORT_DSN)%'
         # failed: 'doctrine://default?queue_name=failed'
         # sync: 'sync://'
+            # failed: 'doctrine://default?queue_name=failed'
+            # sync: 'sync://'
+            orders:
+                dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+                serializer: 'App\Orders\Infrastructure\Event\EventEnvelopeSerializer'
+                options:
+                    exchange:
+                        name: 'orders'
+                        type: 'topic'
+                    queues:
+                        orders:
+                            binding_keys:
+                                - 'orders.#'
+                                - 'payments.#'
+            payments:
+                dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+                serializer: 'App\Payments\Infrastructure\Event\EventEnvelopeSerializer'
+                options:
+                    exchange:
+                        name: 'payments'
+                        type: 'topic'
+                    queues:
+                        payments:
+                            binding_keys:
+                                - 'payments.#'
+                                - 'orders.#'
 
         routing:
-        # Route your messages to the transports
-        # 'App\Message\YourMessage': async
+            'App\Orders\Infrastructure\Event\EventEnvelope': [orders, payments]
+            'App\Payments\Infrastructure\Event\EventEnvelope': [orders, payments]

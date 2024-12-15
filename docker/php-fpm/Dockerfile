@@ -22,6 +22,11 @@ RUN apk add --update sudo
 RUN apk add --update --no-cache nginx
 COPY ./docker/php-fpm/nginx.conf /etc/nginx/
 
+# AMQP
+RUN apk add --no-cache rabbitmq-c-dev \
+  && pecl install amqp  \
+  && docker-php-ext-enable amqp
+
 # Supervisor
 RUN apk add --no-cache supervisor
 COPY ./docker/php-fpm/supervisord.conf /etc/supervisord.conf
