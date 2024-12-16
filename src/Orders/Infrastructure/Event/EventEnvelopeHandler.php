@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orders\Infrastructure\Event;
 
-use App\Orders\Domain\Event\ProductCreatedEvent;
+use App\Orders\Domain\Event\ProductAddedEvent;
 use App\ProductionProcess\Domain\Events\RollWasSentToPrintCheckInEvent;
 use App\Shared\Domain\Event\EventType;
 use App\Shared\Infrastructure\Event\EventEnvelope;
@@ -17,7 +17,7 @@ use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 final class EventEnvelopeHandler
 {
     private const EVENT_MAP = [
-        EventType::PRODUCT_CREATED => ProductCreatedEvent::class
+        EventType::PRODUCT_CREATED => ProductAddedEvent::class
     ];
 
     public function __construct(private DenormalizerInterface $denormalizer, private MessageBusInterface $eventBus)

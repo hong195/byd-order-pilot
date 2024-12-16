@@ -24,7 +24,7 @@ class Error
      * @param int     $printedProductId      The ID of the printed product
      * @param Process $process               The process associated with the instance
      */
-    public function __construct(public readonly int $noticerId, public readonly int $responsibleEmployeeId, public readonly int $printedProductId, public readonly Process $process)
+    public function __construct(public readonly int $noticerId, public readonly int $responsibleEmployeeId, public readonly string $printedProductId, public readonly Process $process)
     {
 		$this->id = UlidService::generate();
         $this->createdAt = new \DateTimeImmutable();

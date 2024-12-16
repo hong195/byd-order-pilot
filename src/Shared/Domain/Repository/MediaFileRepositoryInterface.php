@@ -28,11 +28,11 @@ interface MediaFileRepositoryInterface
     /**
      * Finds a media file by its ID.
      *
-     * @param int $id the ID of the media file
+     * @param string $id the ID of the media file
      *
      * @return MediaFile|null the media file object if found, or null if not found
      */
-    public function findById(int $id): ?MediaFile;
+    public function findById(string $id): ?MediaFile;
 
     /**
      * Finds media files by their owner IDs.

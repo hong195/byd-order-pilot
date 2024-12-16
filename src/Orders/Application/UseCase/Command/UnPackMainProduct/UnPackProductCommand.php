@@ -14,9 +14,9 @@ readonly class UnPackProductCommand implements CommandInterface
     /**
      * Constructor for the class.
      *
-     * @param int $productId the product ID
+     * @param string $productId the product ID
      */
-    public function __construct(public int $productId)
+    public function __construct(public string $productId)
     {
     }
 }

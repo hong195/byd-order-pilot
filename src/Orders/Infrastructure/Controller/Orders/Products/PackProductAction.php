@@ -30,7 +30,7 @@ final readonly class PackProductAction
      *
      * @return JsonResponse the JSON response
      */
-    public function __invoke(int $productId, Request $request): JsonResponse
+    public function __invoke(string $productId, Request $request): JsonResponse
     {
         $this->privateCommandInteractor->packProduct(productId: $productId);
 

@@ -24,11 +24,11 @@ interface UserRepositoryInterface
     /**
      * Find a user by ID.
      *
-     * @param int $id the ID of the user
+     * @param string $id the ID of the user
      *
      * @return User|null the User entity object if found, null otherwise
      */
-    public function findById(int $id): ?User;
+    public function findById(string $id): ?User;
 
     /**
      * Save a user to the database.

@@ -27,10 +27,10 @@ final readonly class UnassignPrintedProductAction
 	/**
 	 * Invokes the command to unassign an order from a printed product.
 	 *
-	 * @param int $printedProductId The ID of the printed product to unassign the order from.
+	 * @param string $printedProductId The ID of the printed product to unassign the order from.
 	 * @return JsonResponse The JSON response indicating the success of the unassignment.
 	 */
-    public function __invoke(int $printedProductId): JsonResponse
+    public function __invoke(string $printedProductId): JsonResponse
     {
         $this->privateCommandInteractor->unassignPrintedProduct($printedProductId);
 

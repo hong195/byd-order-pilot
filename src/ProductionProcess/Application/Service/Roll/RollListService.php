@@ -68,11 +68,11 @@ final readonly class RollListService
     /**
      * Retrieves a single roll data along with employee and printer information by its ID.
      *
-     * @param int $id the ID of the roll
+     * @param string $id the ID of the roll
      *
      * @return RollData the roll data along with employee and printer information
      */
-    public function getSingle(int $id): RollData
+    public function getSingle(string $id): RollData
     {
         $roll = $this->rollRepository->findById($id);
 

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orders\Domain\Aggregate;
 
+use App\Orders\Domain\Event\ProductAddedEvent;
 use App\Orders\Domain\ValueObject\OrderType;
 use App\Shared\Domain\Aggregate\Aggregate;
 use App\Shared\Domain\Service\UlidService;
@@ -158,6 +159,8 @@ class Order extends Aggregate
     {
         $product->setOrder($this);
         $this->products->add($product);
+
+		$this->raise(new ProductAddedEvent(productId: $product->getId()));
     }
 
 	/**

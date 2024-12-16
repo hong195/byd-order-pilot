@@ -22,11 +22,11 @@ interface ProductRepositoryInterface
     /**
      * Finds a product by its ID.
      *
-     * @param int $productId The product ID
+     * @param string $productId The product ID
      *
      * @return ?Product The product matching the ID
      */
-    public function findById(int $productId): ?Product;
+    public function findById(string $productId): ?Product;
 
     /**
      * Finds products based on a filter.

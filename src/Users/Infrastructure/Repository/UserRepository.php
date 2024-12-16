@@ -41,11 +41,11 @@ class UserRepository extends ServiceEntityRepository implements UserRepositoryIn
     /**
      * Finds a user by their ID.
      *
-     * @param int $id The ID of the user
+     * @param string $id The ID of the user
      *
      * @return User|null The found user object or null if not found
      */
-    public function findById(int $id): ?User
+    public function findById(string $id): ?User
     {
         return $this->find($id);
     }

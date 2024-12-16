@@ -21,7 +21,7 @@ final readonly class CreatedPrintedProductData
      * @param string|null $laminationType the type of lamination (optional, default: null)
      */
     public function __construct(
-        public int $productId,
+        public string $productId,
         public float $length,
         public string $filmType,
         public string $orderNumber,

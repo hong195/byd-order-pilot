@@ -26,7 +26,7 @@ final readonly class ProductData
      * @param ProcessDTO|null    $process        the process associated with the object, if any
      */
     public function __construct(
-        public int $id,
+        public string $id,
         public float $length,
         public string $filmType,
         public ?string $orderNumber,

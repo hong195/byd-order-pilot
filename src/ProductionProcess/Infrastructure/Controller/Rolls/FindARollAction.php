@@ -34,11 +34,11 @@ final class FindARollAction extends BaseController
     /**
      * Calls the findARoll method of the privateQueryInteractor to retrieve RollData by id.
      *
-     * @param int $id the id of the RollData to find
+     * @param string $id the id of the RollData to find
      *
      * @throws ExceptionInterface
      */
-    public function __invoke(int $id): JsonResponse
+    public function __invoke(string $id): JsonResponse
     {
         $result = $this->privateQueryInteractor->findARoll($id);
 

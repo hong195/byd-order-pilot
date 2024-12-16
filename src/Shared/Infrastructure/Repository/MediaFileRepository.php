@@ -45,11 +45,11 @@ class MediaFileRepository extends ServiceEntityRepository implements MediaFileRe
     /**
      * Find a media file by its ID.
      *
-     * @param int $id the ID of the media file to find
+     * @param string $id the ID of the media file to find
      *
      * @return ?MediaFile the media file with the given ID, or null if not found
      */
-    public function findById(int $id): ?MediaFile
+    public function findById(string $id): ?MediaFile
     {
         return $this->find($id);
     }

@@ -30,11 +30,11 @@ final readonly class ProductProcessService implements ProductProcessServiceInter
     /**
      * Retrieves process information based on the product ID.
      *
-     * @param int $id The product ID to lookup process information for
+     * @param string $id The product ID to lookup process information for
      *
      * @return ProcessDTO|null The DTO containing the process information
      */
-    public function processByProductId(int $id): ?ProcessDTO
+    public function processByProductId(string $id): ?ProcessDTO
     {
         /** @var bool|PrintedProductProcessData $result */
         $result = $this->printedProductProcessAdapter->getProductsProcessByIds([$id])->first();
@@ -79,11 +79,11 @@ final readonly class ProductProcessService implements ProductProcessServiceInter
     /**
      * Checks if a product can be packed based on its product ID.
      *
-     * @param int $productId The product ID to check packing eligibility for
+     * @param string $productId The product ID to check packing eligibility for
      *
      * @return bool Returns true if the product is ready for packing, false otherwise
      */
-    public function canPack(int $productId): bool
+    public function canPack(string $productId): bool
     {
         $process = $this->processByProductId($productId);
 

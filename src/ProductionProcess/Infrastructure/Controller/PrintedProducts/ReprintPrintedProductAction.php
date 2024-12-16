@@ -29,11 +29,11 @@ final readonly class ReprintPrintedProductAction
     /**
      * Invokes the command to reprint a printed product.
      *
-     * @param int $printedProductId the ID of the printed product
+     * @param string $printedProductId the ID of the printed product
      *
      * @return JsonResponse a JSON response indicating the success of the operation
      */
-    public function __invoke(int $printedProductId, Request $request): JsonResponse
+    public function __invoke(string $printedProductId, Request $request): JsonResponse
     {
         $command = new ReprintPrintedProductCommand(
             printedProductId: $printedProductId,

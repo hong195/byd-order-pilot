@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Infrastructure\EventHandler;
 
 use App\Orders\Application\DTO\Product\ProductData;
-use App\Orders\Domain\Event\ProductCreatedEvent;
+use App\Orders\Domain\Event\ProductAddedEvent;
 use App\ProductionProcess\Application\UseCase\Command\CreatePrintedProduct\CreatePrintedProductCommand;
 use App\ProductionProcess\Application\UseCase\PrivateCommandInteractor;
 use App\ProductionProcess\Infrastructure\Adapter\Order\OrderApiInterface;
@@ -17,7 +17,7 @@ use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
  *
  * @readonly
  */
-#[AsEventListener(event: ProductCreatedEvent::class, method: '__invoke')]
+#[AsEventListener(event: ProductAddedEvent::class, method: '__invoke')]
 final readonly class ProductAddedEventHandler implements EventHandlerInterface
 {
     /**
@@ -32,9 +32,9 @@ final readonly class ProductAddedEventHandler implements EventHandlerInterface
 	/**
 	 * Handle the product added event
 	 *
-	 * @param ProductCreatedEvent $event The event object
+	 * @param ProductAddedEvent $event The event object
 	 */
-    public function __invoke(ProductCreatedEvent $event): void
+    public function __invoke(ProductAddedEvent $event): void
     {
 		/** @var ProductData $product */
 

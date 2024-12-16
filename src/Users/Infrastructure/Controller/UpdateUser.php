@@ -21,7 +21,7 @@ class UpdateUser implements CommandInterface
     {
     }
 
-    public function __invoke(int $id, Request $request): JsonResponse
+    public function __invoke(string $id, Request $request): JsonResponse
     {
         $updateCommand = new UpdateUserCommand(
             userId: $id,

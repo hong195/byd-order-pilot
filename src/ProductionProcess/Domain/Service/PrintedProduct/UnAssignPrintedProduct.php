@@ -24,12 +24,12 @@ final readonly class UnAssignPrintedProduct
     /**
      * Handles the printing of a product.
      *
-     * @param int $printedProductId the ID of the printed product
+     * @param string $printedProductId the ID of the printed product
      *
      * @throws NotFoundHttpException if the printed product is not found
      * @throws DomainException
      */
-    public function handle(int $printedProductId): void
+    public function handle(string $printedProductId): void
     {
         $printedProduct = $this->printedProductRepository->findById($printedProductId);
 

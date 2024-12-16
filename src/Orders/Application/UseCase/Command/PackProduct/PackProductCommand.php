@@ -14,9 +14,9 @@ readonly class PackProductCommand implements CommandInterface
 	/**
 	 * Class constructor
 	 *
-	 * @param int $productId The product ID
+	 * @param string $productId The product ID
 	 */
-    public function __construct(public int $productId)
+    public function __construct(public string $productId)
     {
     }
 }

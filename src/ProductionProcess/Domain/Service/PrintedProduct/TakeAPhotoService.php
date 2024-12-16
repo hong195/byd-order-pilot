@@ -35,12 +35,12 @@ final readonly class TakeAPhotoService
     }
 
     /**
-     * @param int $productId
+     * @param string $productId
      * @param int $photoId
      *
      * @return void
      */
-    public function upload(int $productId, int $photoId): void
+    public function upload(string $productId, int $photoId): void
     {
         $printedProduct = $this->printedProductRepository->findById($productId);
 

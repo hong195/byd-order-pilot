@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Shared\Domain\Entity;
 
+use App\Shared\Domain\Service\UlidService;
+
 /**
  * Represents a media file.
  */
@@ -12,14 +14,14 @@ class MediaFile
     /**
      * @phpstan-ignore-next-line
      */
-    private ?int $id;
+    private string $id;
 
     /**
      * @param string      $filename  The filename
      * @param string      $source    The source
      * @param string      $path      The path
      * @param string|null $type      The type (optional)
-     * @param int|null    $ownerId   The owner ID (optional)
+     * @param string|null $ownerId   The owner ID (optional)
      * @param string|null $ownerType The owner type (optional)
      */
     public function __construct(
@@ -27,9 +29,10 @@ class MediaFile
         private string $source,
         private string $path,
         private ?string $type = null,
-        private ?int $ownerId = null,
+        private ?string $ownerId = null,
         private ?string $ownerType = null,
     ) {
+		$this->id = UlidService::generate();
     }
 
     /**
@@ -135,9 +138,9 @@ class MediaFile
     /**
      * Sets the owner ID.
      *
-     * @param int $ownerId the owner ID to set
+     * @param string $ownerId the owner ID to set
      */
-    public function setOwnerId(int $ownerId): void
+    public function setOwnerId(string $ownerId): void
     {
         $this->ownerId = $ownerId;
     }

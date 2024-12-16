@@ -40,11 +40,11 @@ final class OrderRepository extends ServiceEntityRepository implements OrderRepo
     /**
      * Finds an Orders entity by its ID.
      *
-     * @param int $id the ID of the Orders entity
+     * @param string $id the ID of the Orders entity
      *
      * @return Order|null the Orders entity matching the given ID, or null if no match found
      */
-    public function findById(int $id): ?Order
+    public function findById(string $id): ?Order
     {
         return $this->find($id);
     }

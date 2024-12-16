@@ -17,11 +17,11 @@ interface OrderRepositoryInterface
     /**
      * Finds an order by its ID.
      *
-     * @param int $id the ID of the order to find
+     * @param string $id the ID of the order to find
      *
      * @return Order|null the found order if exists, otherwise null
      */
-    public function findById(int $id): ?Order;
+    public function findById(string $id): ?Order;
 
     /**
      * Finds all orders that are ready for packing.

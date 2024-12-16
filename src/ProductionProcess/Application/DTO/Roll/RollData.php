@@ -32,7 +32,7 @@ final class RollData
      * @param \DateTimeInterface|null $dateAdded     the date added of the object (optional)
      */
     public function __construct(
-        public readonly int $id,
+        public readonly string $id,
         public readonly string $name,
         public readonly int|float $length,
         public readonly int $count,

@@ -13,11 +13,11 @@ interface RollRepositoryInterface
     /**
      * Finds a record by id.
      *
-     * @param int $id the id of the record to find
+     * @param string $id the id of the record to find
      *
      * @return Roll|null the found record or null if not found
      */
-    public function findById(int $id): ?Roll;
+    public function findById(string $id): ?Roll;
 
     /**
      * Finds a record by film id.

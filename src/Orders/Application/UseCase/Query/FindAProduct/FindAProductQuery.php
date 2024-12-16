@@ -13,7 +13,7 @@ use App\Shared\Application\Query\Query;
  */
 final readonly class FindAProductQuery extends Query
 {
-    public function __construct(public int $productId)
+    public function __construct(public string $productId)
     {
     }
 }

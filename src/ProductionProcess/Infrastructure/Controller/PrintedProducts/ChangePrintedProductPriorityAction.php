@@ -28,12 +28,12 @@ final readonly class ChangePrintedProductPriorityAction
 	/**
 	 * Invokes the command to change the order priority for a printed product.
 	 *
-	 * @param int $printedProductId The ID of the printed product.
+	 * @param string $printedProductId The ID of the printed product.
 	 * @param Request $request The HTTP request object.
 	 *
 	 * @return JsonResponse The JSON response object.
 	 */
-    public function __invoke(int $printedProductId, Request $request): JsonResponse
+    public function __invoke(string $printedProductId, Request $request): JsonResponse
     {
         $this->privateCommandInteractor->changePrintedProductPriority($printedProductId, filter_var($request->get('priority'), FILTER_VALIDATE_BOOLEAN));
 

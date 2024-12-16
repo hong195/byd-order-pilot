@@ -18,10 +18,10 @@ readonly class TakePhotoCommand implements CommandInterface
     /**
      * Initializes a new instance of the class.
      *
-     * @param int $productId the ID of the product
+     * @param string $productId the ID of the product
      * @param int $photoId   stored photo ID
      */
-    public function __construct(public int $productId, public int $photoId)
+    public function __construct(public string $productId, public int $photoId)
     {
     }
 }

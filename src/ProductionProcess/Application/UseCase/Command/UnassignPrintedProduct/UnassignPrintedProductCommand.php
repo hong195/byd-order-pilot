@@ -14,9 +14,9 @@ readonly class UnassignPrintedProductCommand implements CommandInterface
     /**
      * Constructor.
      *
-     * @param int $id the ID of the object
+     * @param string $id the ID of the object
      */
-    public function __construct(public int $id)
+    public function __construct(public string $id)
     {
     }
 }

@@ -16,7 +16,7 @@ readonly class UserDTO
      *
      * Represents a person with the specified properties.
      */
-    public function __construct(public int $id, public string $name, public string $email)
+    public function __construct(public string $id, public string $name, public string $email)
     {
     }
 

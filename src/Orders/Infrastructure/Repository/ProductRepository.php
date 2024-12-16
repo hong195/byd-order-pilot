@@ -43,11 +43,11 @@ final class ProductRepository extends ServiceEntityRepository implements Product
     /**
      * Returns a single entity by the given productId.
      *
-     * @param int $productId the productId to filter the entity
+     * @param string $productId the productId to filter the entity
      *
      * @return ?Product the entity filtered by the productId
      */
-    public function findById(int $productId): ?Product
+    public function findById(string $productId): ?Product
     {
         return $this->find(['id' => $productId]);
     }

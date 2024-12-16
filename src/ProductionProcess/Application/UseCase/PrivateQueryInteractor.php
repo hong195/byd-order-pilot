@@ -60,11 +60,11 @@ readonly class PrivateQueryInteractor
     /**
      * Find a roll by ID.
      *
-     * @param int $id the roll ID to find
+     * @param string $id the roll ID to find
      *
      * @return FindARollResult the result of the query
      */
-    public function findARoll(int $id): FindARollResult
+    public function findARoll(string $id): FindARollResult
     {
         $query = new FindARollQuery($id);
 
@@ -158,11 +158,11 @@ readonly class PrivateQueryInteractor
     /**
      * Finds a printed product by executing the FindPrintedProductQuery with the provided printed product ID.
      *
-     * @param int $printedProductId The ID of the printed product to find
+     * @param string $printedProductId The ID of the printed product to find
      *
      * @return FindPrintedProductQueryResult The result of executing the FindPrintedProductQuery
      */
-    public function findPrintedProduct(int $printedProductId): FindPrintedProductQueryResult
+    public function findPrintedProduct(string $printedProductId): FindPrintedProductQueryResult
     {
         return $this->queryBus->execute(new FindPrintedProductQuery($printedProductId));
     }

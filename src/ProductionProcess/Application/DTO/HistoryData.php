@@ -24,7 +24,7 @@ final class HistoryData
      * @param string|null             $process    The process name, or null if not specified
      * @param \DateTimeInterface|null $happenedAt The date and time when the event happened, or null if not available
      */
-    public function __construct(public readonly ?int $id = null, public readonly ?int $rollId = null, public ?string $type = null, public ?string $process = null, public readonly ?\DateTimeInterface $happenedAt = null)
+    public function __construct(public readonly ?string $id = null, public readonly ?int $rollId = null, public ?string $type = null, public ?string $process = null, public readonly ?\DateTimeInterface $happenedAt = null)
     {
     }
 

@@ -9,7 +9,7 @@ final readonly class ErrorData
     /**
      * Class constructor.
      */
-    public function __construct(public int $id, public string $process, public ?string $reason, public int $responsibleEmployee, public int $noticer, public \DateTimeInterface $createdAt)
+    public function __construct(public string $id, public string $process, public ?string $reason, public int $responsibleEmployee, public int $noticer, public \DateTimeInterface $createdAt)
     {
     }
 }

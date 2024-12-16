@@ -12,9 +12,9 @@ final readonly class PrintedProductReprintedEvent implements EventInterface
     /**
      * Constructor for the class.
      *
-     * @param int $printedProductId the ID of the printed product
+     * @param string $printedProductId the ID of the printed product
      */
-    public function __construct(public int $printedProductId)
+    public function __construct(public string $printedProductId)
     {
     }
 

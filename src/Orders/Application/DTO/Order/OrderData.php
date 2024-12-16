@@ -22,7 +22,7 @@ final readonly class OrderData
      * @param string|null        $packagingInstructions Instructions for packaging the application, if available
      */
     public function __construct(
-        public int $id,
+        public string $id,
         public string $customerName,
         public string $type,
         public string $shippingAddress,

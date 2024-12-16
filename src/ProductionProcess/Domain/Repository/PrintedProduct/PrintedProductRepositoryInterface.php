@@ -13,11 +13,11 @@ interface PrintedProductRepositoryInterface
     /**
      * Finds a Job by its ID.
      *
-     * @param int $id the ID of the Job to find
+     * @param string $id the ID of the Job to find
      *
      * @return PrintedProduct|null the found Job object if it exists, null otherwise
      */
-    public function findById(int $id): ?PrintedProduct;
+    public function findById(string $id): ?PrintedProduct;
 
     /**
      * Saves a Job object to the database.

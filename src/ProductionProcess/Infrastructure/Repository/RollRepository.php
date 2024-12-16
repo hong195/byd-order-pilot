@@ -30,11 +30,11 @@ class RollRepository extends ServiceEntityRepository implements RollRepositoryIn
     /**
      * Finds a roll by its ID.
      *
-     * @param int $id the ID of the roll to find
+     * @param string $id the ID of the roll to find
      *
      * @return Roll|null the found roll, or null if no roll was found
      */
-    public function findById(int $id): ?Roll
+    public function findById(string $id): ?Roll
     {
         return $this->find($id);
     }

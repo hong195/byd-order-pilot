@@ -20,7 +20,7 @@ readonly class CreatePrintedProductCommand implements CommandInterface
      * @param string|null $laminationType The type of lamination used for the product. Defaults to null.
      */
     public function __construct(
-        public int $productId,
+        public string $productId,
         public string $orderNumber,
         public int|float $length,
         public ?string $filmType,

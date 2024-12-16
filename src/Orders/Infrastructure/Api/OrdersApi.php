@@ -25,11 +25,11 @@ final readonly class OrdersApi implements OrderApiInterface
     /**
      * Finds a product by its ID.
      *
-     * @param int $productId the ID of the product
+     * @param string $productId the ID of the product
      *
      * @return \App\Orders\Application\DTO\Product\ProductData the product data
      */
-    public function findProductById(int $productId): \App\Orders\Application\DTO\Product\ProductData
+    public function findProductById(string $productId): \App\Orders\Application\DTO\Product\ProductData
     {
         $product = $this->privateQueryInteractor->findAProduct($productId);
 

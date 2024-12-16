@@ -35,7 +35,7 @@ readonly class FinAUserAction
      *
      * @throws ExceptionInterface
      */
-    public function __invoke(int $id): JsonResponse
+    public function __invoke(string $id): JsonResponse
     {
         $user = $this->useCaseInteractor->findAUser($id);
 

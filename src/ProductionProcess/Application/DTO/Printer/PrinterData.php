@@ -19,7 +19,7 @@ final readonly class PrinterData
      * @param int    $id   the ID of the object
      * @param string $name the name of the object
      */
-    public function __construct(public int $id, public string $name)
+    public function __construct(public string $id, public string $name)
     {
     }
 }

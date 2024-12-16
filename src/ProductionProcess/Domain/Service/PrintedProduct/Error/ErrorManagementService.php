@@ -41,7 +41,7 @@ final readonly class ErrorManagementService implements ErrorManagementServiceInt
      * @throws NotFoundHttpException        If the roll for the printed product does not exist
      * @throws RollErrorManagementException
      */
-    public function recordError(int $printedProductId, Process $process, int $noticerId, ?string $reason = null): void
+    public function recordError(string $printedProductId, Process $process, int $noticerId, ?string $reason = null): void
     {
         $employeeId = $this->getResponsibleEmployeeId($printedProductId, $process);
 
@@ -72,7 +72,7 @@ final readonly class ErrorManagementService implements ErrorManagementServiceInt
      * @throws NotFoundHttpException        If the roll for the printed product does not exist
      * @throws RollErrorManagementException
      */
-    private function getResponsibleEmployeeId(int $printedProductId, Process $process): ?int
+    private function getResponsibleEmployeeId(string $printedProductId, Process $process): ?int
     {
         $printedProduct = $this->productRepository->findById($printedProductId);
 

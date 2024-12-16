@@ -172,7 +172,7 @@ readonly class PrivateCommandInteractor
      *
      * @param bool $status The new status of the order
      */
-    public function changePrintedProductPriority(int $id, bool $status): void
+    public function changePrintedProductPriority(string $id, bool $status): void
     {
         $this->commandBus->execute(new ChangePrintedProductPriorityCommand($id, $status));
     }
@@ -180,9 +180,9 @@ readonly class PrivateCommandInteractor
     /**
      * Unassigns an order.
      *
-     * @param int $id The id of the order to unassign
+     * @param string $id The id of the order to unassign
      */
-    public function unassignPrintedProduct(int $id): void
+    public function unassignPrintedProduct(string $id): void
     {
         $this->commandBus->execute(new UnassignPrintedProductCommand($id));
     }

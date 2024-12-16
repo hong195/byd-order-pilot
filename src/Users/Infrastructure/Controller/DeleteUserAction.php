@@ -26,7 +26,7 @@ readonly class DeleteUserAction
     {
     }
 
-    public function __invoke(int $id, Request $request): JsonResponse
+    public function __invoke(string $id, Request $request): JsonResponse
     {
         $deleteCommand = new DeleteUserCommand((int) $request->get('id'));
 

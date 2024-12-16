@@ -12,9 +12,9 @@ interface CheckProductProcessInterface
     /**
      * Determine if the given product can be packed.
      *
-     * @param int $productId The ID of the product to check
+     * @param string $productId The ID of the product to check
      *
      * @return bool True if the product can be packed, false otherwise
      */
-    public function canPack(int $productId): bool;
+    public function canPack(string $productId): bool;
 }

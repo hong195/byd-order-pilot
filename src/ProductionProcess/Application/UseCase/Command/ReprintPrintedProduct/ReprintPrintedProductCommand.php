@@ -14,9 +14,9 @@ readonly class ReprintPrintedProductCommand implements CommandInterface
     /**
      * Class constructor.
      *
-     * @param int $printedProductId the order ID
+     * @param string $printedProductId the order ID
      */
-    public function __construct(public int $printedProductId, public string $process, public ?string $reason = null)
+    public function __construct(public string $printedProductId, public string $process, public ?string $reason = null)
     {
     }
 }

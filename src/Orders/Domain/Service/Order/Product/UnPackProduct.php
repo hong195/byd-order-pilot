@@ -21,12 +21,12 @@ final readonly class UnPackProduct
     /**
      * Handle the un-packing process for a product in an order.
      *
-     * @param int $productId The ID of the product to be un-packed
+     * @param string $productId The ID of the product to be un-packed
      *
      * @throws NotFoundHttpException  If the order or product is not found
      * @throws ProductUnPackException
      */
-    public function handle(int $productId): void
+    public function handle(string $productId): void
     {
         $product = $this->productRepository->findById($productId);
 

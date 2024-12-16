@@ -40,7 +40,7 @@ readonly class PrivateQueryInteractor
      *
      * @property QueryBusInterface $queryBus An instance of QueryBusInterface.
      */
-    public function findAnOrder(int $id): FindAnOrderResult
+    public function findAnOrder(string $id): FindAnOrderResult
     {
         $query = new FindAnOrderQuery($id);
 
@@ -74,11 +74,11 @@ readonly class PrivateQueryInteractor
     /**
      * Finds a specific product by its ID.
      *
-     * @param int $productId the ID of the product to find
+     * @param string $productId the ID of the product to find
      *
      * @return FindAProductResult the result of the find product operation
      */
-    public function findAProduct(int $productId): FindAProductResult
+    public function findAProduct(string $productId): FindAProductResult
     {
         return $this->queryBus->execute(new FindAProductQuery($productId));
     }

@@ -16,9 +16,9 @@ final readonly class FindPrintedProductQuery extends Query
     /**
      * Constructor for the class.
      *
-     * @param int $printedProductId The printed product ID
+     * @param string $printedProductId The printed product ID
      */
-    public function __construct(public int $printedProductId)
+    public function __construct(public string $printedProductId)
     {
     }
 }

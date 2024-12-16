@@ -37,9 +37,9 @@ readonly class PrivateCommandInteractor
     /**
      * Packs a product into an order.
      *
-     * @param int $productId The ID of the product to pack into the order
+     * @param string $productId The ID of the product to pack into the order
      */
-    public function packProduct(int $productId): void
+    public function packProduct(string $productId): void
     {
         $this->commandBus->execute(new PackProductCommand(productId: $productId));
     }
@@ -47,9 +47,9 @@ readonly class PrivateCommandInteractor
     /**
      * Unpacks the main product for a given order and product.
      *
-     * @param int $productId The ID of the product to unpack
+     * @param string $productId The ID of the product to unpack
      */
-    public function unpackProduct(int $productId): void
+    public function unpackProduct(string $productId): void
     {
         $this->commandBus->execute(new UnPackProductCommand(productId: $productId));
     }

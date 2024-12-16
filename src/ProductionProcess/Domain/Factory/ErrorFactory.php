@@ -26,7 +26,7 @@ final class ErrorFactory
      *
      * @return self Returns the instance of the class for method chaining
      */
-    public function make(int $printedProductId, Process $process, int $responsibleEmployeeId, int $noticerId): self
+    public function make(string $printedProductId, Process $process, int $responsibleEmployeeId, int $noticerId): self
     {
         $this->error = new Error(
             noticerId: $noticerId,

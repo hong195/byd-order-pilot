@@ -17,7 +17,7 @@ final readonly class FilmData
      * @param float    $length   the length of the entry
      * @param string $filmType the roll type of the entry
      */
-    public function __construct(public int $id, public string $name, public float $length, public string $filmType)
+    public function __construct(public string $id, public string $name, public float $length, public string $filmType)
     {
     }
 }

@@ -12,11 +12,11 @@ interface OrderApiInterface
     /**
      * Find an employee by their ID.
      *
-     * @param int $productId the ID of the employee to find
+     * @param string $productId the ID of the employee to find
      *
      * @return mixed the employee data if found, or null if not found
      */
-    public function findProductById(int $productId): mixed;
+    public function findProductById(string $productId): mixed;
 
     /**
      * Find an employee by their ID.

@@ -40,7 +40,7 @@ final readonly class PrintedProductApi implements PrintedProductProcessAdapterIn
         return new ArrayCollection($result->items);
     }
 
-	public function findByPrintedProductId(int $productId): ?PrintedProductData
+	public function findByPrintedProductId(string $productId): ?PrintedProductData
 	{
 		$printedProductData = $this->privateQueryInteractor->findPrintedProduct($productId)->printedProduct;
 

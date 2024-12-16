@@ -40,11 +40,11 @@ class PrintedProductRepository extends ServiceEntityRepository implements Printe
     /**
      * Finds a PrintedProduct by its ID.
      *
-     * @param int $id the ID of the PrintedProduct
+     * @param string $id the ID of the PrintedProduct
      *
      * @return PrintedProduct|null the found PrintedProduct object, or null if no PrintedProduct was found
      */
-    public function findById(int $id): ?PrintedProduct
+    public function findById(string $id): ?PrintedProduct
     {
         return $this->find($id);
     }

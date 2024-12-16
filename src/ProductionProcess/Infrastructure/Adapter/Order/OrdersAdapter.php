@@ -15,11 +15,11 @@ final readonly class OrdersAdapter implements RelatedProductsInterface
     /**
      * Finds a product by its ID.
      *
-     * @param int $productId the ID of the product to find
+     * @param string $productId the ID of the product to find
      *
      * @return mixed the found product or null if not found
      */
-    public function findProductById(int $productId): mixed
+    public function findProductById(string $productId): mixed
     {
         return $this->adapter->findProductById($productId);
     }

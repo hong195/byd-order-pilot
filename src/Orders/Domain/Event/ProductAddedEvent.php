@@ -7,9 +7,9 @@ namespace App\Orders\Domain\Event;
 use App\Shared\Domain\Event\EventInterface;
 use App\Shared\Domain\Event\EventType;
 
-final readonly class ProductCreatedEvent implements EventInterface
+final readonly class ProductAddedEvent implements EventInterface
 {
-    public function __construct(public int $productId)
+    public function __construct(public string $productId)
     {
     }
 

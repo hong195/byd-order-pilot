@@ -29,12 +29,12 @@ final readonly class PackProduct
     /**
      * Handle logic for packing a product in an order.
      *
-     * @param int $productId The ID of the product to pack
+     * @param string $productId The ID of the product to pack
      *
      * @throws NotFoundHttpException When the order or product is not found
      * @throws ProductPackException  When the product is already packed
      */
-    public function handle(int $productId): void
+    public function handle(string $productId): void
     {
         $product = $this->productRepository->find($productId);
 

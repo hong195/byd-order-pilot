@@ -6,5 +6,5 @@ use App\ProductionProcess\Domain\ValueObject\Process;
 
 interface ErrorManagementServiceInterface
 {
-    public function recordError(int $printedProductId, Process $process, int $noticerId, ?string $reason = null): void;
+    public function recordError(string $printedProductId, Process $process, int $noticerId, ?string $reason = null): void;
 }

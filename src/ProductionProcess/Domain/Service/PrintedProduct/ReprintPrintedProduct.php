@@ -26,12 +26,12 @@ final readonly class ReprintPrintedProduct
     /**
      * Handle the printing of a specific printed product.
      *
-     * @param int $printedProductId The ID of the printed product to handle
+     * @param string $printedProductId The ID of the printed product to handle
      *
      * @throws NotFoundHttpException If the printed product is not found
      * @throws \Exception
      */
-    public function handle(int $printedProductId, Process $process, ?string $reason = null): void
+    public function handle(string $printedProductId, Process $process, ?string $reason = null): void
     {
         $printedProduct = $this->printedProductRepository->findById($printedProductId);
 

@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20241216083604 extends AbstractMigration
+final class Version20241216164224 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,18 +20,17 @@ final class Version20241216083604 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE SEQUENCE media_files_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
         $this->addSql('CREATE SEQUENCE refresh_token_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
         $this->addSql('CREATE TABLE inventory_film (id VARCHAR(26) NOT NULL, name VARCHAR(255) NOT NULL, length DOUBLE PRECISION NOT NULL, type VARCHAR(255) NOT NULL, date_added TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, dtype VARCHAR(255) NOT NULL, PRIMARY KEY(id))');
         $this->addSql('COMMENT ON COLUMN inventory_film.date_added IS \'(DC2Type:datetime_immutable)\'');
-        $this->addSql('CREATE TABLE inventory_history (id VARCHAR(26) NOT NULL, film_id INT NOT NULL, inventory_type VARCHAR(255) NOT NULL, film_type VARCHAR(255) NOT NULL, event_type VARCHAR(255) NOT NULL, new_size NUMERIC(15, 2) NOT NULL, old_size NUMERIC(15, 2) NOT NULL, created_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE TABLE inventory_history (id VARCHAR(26) NOT NULL, film_id VARCHAR(255) NOT NULL, inventory_type VARCHAR(255) NOT NULL, film_type VARCHAR(255) NOT NULL, event_type VARCHAR(255) NOT NULL, new_size NUMERIC(15, 2) NOT NULL, old_size NUMERIC(15, 2) NOT NULL, created_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, PRIMARY KEY(id))');
         $this->addSql('COMMENT ON COLUMN inventory_history.created_at IS \'(DC2Type:datetime_immutable)\'');
-        $this->addSql('CREATE TABLE media_files (id INT NOT NULL, filename VARCHAR(255) NOT NULL, source VARCHAR(255) NOT NULL, path VARCHAR(255) NOT NULL, type VARCHAR(50) DEFAULT NULL, owner_id INT DEFAULT NULL, owner_type VARCHAR(100) DEFAULT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE TABLE media_files (id VARCHAR(26) NOT NULL, filename VARCHAR(255) NOT NULL, source VARCHAR(255) NOT NULL, path VARCHAR(255) NOT NULL, type VARCHAR(50) DEFAULT NULL, owner_id VARCHAR(255) DEFAULT NULL, owner_type VARCHAR(100) DEFAULT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE TABLE orders_extra (id VARCHAR(26) NOT NULL, order_id VARCHAR(26) DEFAULT NULL, name VARCHAR(255) NOT NULL, order_number VARCHAR(255) NOT NULL, count INT DEFAULT 0 NOT NULL, is_packed BOOLEAN DEFAULT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE INDEX IDX_C95A2C48D9F6D38 ON orders_extra (order_id)');
         $this->addSql('CREATE TABLE orders_order (id VARCHAR(26) NOT NULL, order_number VARCHAR(255) DEFAULT NULL, shipping_address TEXT DEFAULT NULL, packaging_instructions TEXT DEFAULT NULL, date_added TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, customer_name VARCHAR(255) NOT NULL, customer_notes TEXT DEFAULT NULL, PRIMARY KEY(id))');
         $this->addSql('COMMENT ON COLUMN orders_order.date_added IS \'(DC2Type:datetime_immutable)\'');
-        $this->addSql('CREATE TABLE orders_product (id VARCHAR(26) NOT NULL, cut_file_id INT DEFAULT NULL, print_file_id INT DEFAULT NULL, order_id VARCHAR(26) DEFAULT NULL, lamination_type VARCHAR(255) DEFAULT NULL, length NUMERIC(15, 2) NOT NULL, film_type VARCHAR(255) DEFAULT NULL, is_packed BOOLEAN DEFAULT false NOT NULL, date_added TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE TABLE orders_product (id VARCHAR(26) NOT NULL, cut_file_id VARCHAR(26) DEFAULT NULL, print_file_id VARCHAR(26) DEFAULT NULL, order_id VARCHAR(26) DEFAULT NULL, lamination_type VARCHAR(255) DEFAULT NULL, length NUMERIC(15, 2) NOT NULL, film_type VARCHAR(255) DEFAULT NULL, is_packed BOOLEAN DEFAULT false NOT NULL, date_added TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE UNIQUE INDEX UNIQ_223F76D69D3FDAA8 ON orders_product (cut_file_id)');
         $this->addSql('CREATE UNIQUE INDEX UNIQ_223F76D6B6A86CB2 ON orders_product (print_file_id)');
         $this->addSql('CREATE INDEX IDX_223F76D68D9F6D38 ON orders_product (order_id)');
@@ -42,7 +41,7 @@ final class Version20241216083604 extends AbstractMigration
         $this->addSql('CREATE INDEX noticer_id_index ON prod_process_error (noticer_id)');
         $this->addSql('CREATE INDEX createdAt_index ON prod_process_error (created_at)');
         $this->addSql('COMMENT ON COLUMN prod_process_error.created_at IS \'(DC2Type:datetime_immutable)\'');
-        $this->addSql('CREATE TABLE prod_process_printed_product (id VARCHAR(26) NOT NULL, photo_id INT DEFAULT NULL, roll_id VARCHAR(26) DEFAULT NULL, related_product_id INT DEFAULT NULL, length NUMERIC(15, 2) DEFAULT NULL, order_number VARCHAR(255) DEFAULT NULL, lamination_type VARCHAR(255) DEFAULT NULL, film_type VARCHAR(255) DEFAULT NULL, has_priority BOOLEAN DEFAULT NULL, sort_order INT DEFAULT 0, is_reprint BOOLEAN DEFAULT false NOT NULL, date_added TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE TABLE prod_process_printed_product (id VARCHAR(26) NOT NULL, photo_id VARCHAR(26) DEFAULT NULL, roll_id VARCHAR(26) DEFAULT NULL, related_product_id INT DEFAULT NULL, length NUMERIC(15, 2) DEFAULT NULL, order_number VARCHAR(255) DEFAULT NULL, lamination_type VARCHAR(255) DEFAULT NULL, film_type VARCHAR(255) DEFAULT NULL, has_priority BOOLEAN DEFAULT NULL, sort_order INT DEFAULT 0, is_reprint BOOLEAN DEFAULT false NOT NULL, date_added TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE UNIQUE INDEX UNIQ_453DEB627E9E4C8C ON prod_process_printed_product (photo_id)');
         $this->addSql('CREATE INDEX IDX_453DEB62AB0B6D26 ON prod_process_printed_product (roll_id)');
         $this->addSql('COMMENT ON COLUMN prod_process_printed_product.date_added IS \'(DC2Type:datetime_immutable)\'');
@@ -76,7 +75,6 @@ final class Version20241216083604 extends AbstractMigration
     {
         // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('CREATE SCHEMA public');
-        $this->addSql('DROP SEQUENCE media_files_id_seq CASCADE');
         $this->addSql('DROP SEQUENCE refresh_token_id_seq CASCADE');
         $this->addSql('ALTER TABLE orders_extra DROP CONSTRAINT FK_C95A2C48D9F6D38');
         $this->addSql('ALTER TABLE orders_product DROP CONSTRAINT FK_223F76D69D3FDAA8');

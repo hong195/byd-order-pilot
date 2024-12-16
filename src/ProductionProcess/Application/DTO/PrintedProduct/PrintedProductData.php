@@ -27,7 +27,7 @@ final readonly class PrintedProductData
      * @param string|null             $photo            the product photo, nullable
      */
     public function __construct(
-        public int $id,
+        public string $id,
         public int $relatedProductId,
         public bool $hasPriority,
         public float $length,

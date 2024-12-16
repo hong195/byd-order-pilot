@@ -6,7 +6,7 @@ namespace App\Orders\Application\Service\Product;
 
 use App\Orders\Application\DTO\Product\ProductCreateDTO;
 use App\Orders\Domain\Aggregate\Product;
-use App\Orders\Domain\Event\ProductCreatedEvent;
+use App\Orders\Domain\Event\ProductAddedEvent;
 use App\Orders\Domain\Factory\ProductFactory;
 use App\Orders\Domain\Repository\ProductRepositoryInterface;
 use App\Orders\Infrastructure\Repository\OrderRepository;
@@ -56,8 +56,6 @@ final readonly class ProductService
         $order->addProduct($product);
 
         $this->orderRepository->save($order);
-
-        $this->eventDispatcher->dispatch(new ProductCreatedEvent(productId: $product->getId()));
 
         return $product;
     }

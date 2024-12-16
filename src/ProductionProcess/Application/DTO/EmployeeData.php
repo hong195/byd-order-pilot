@@ -17,7 +17,7 @@ final readonly class EmployeeData
      * @param int|null    $id   the id
      * @param string|null $name the name
      */
-    public function __construct(public ?int $id = null, public ?string $name = null)
+    public function __construct(public ?string $id = null, public ?string $name = null)
     {
     }
 }

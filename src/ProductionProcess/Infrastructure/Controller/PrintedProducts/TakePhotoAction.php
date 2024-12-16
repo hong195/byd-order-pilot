@@ -50,7 +50,7 @@ final readonly class TakePhotoAction
      *
      * @return JsonResponse the JSON response with the product ID and HTTP status
      */
-    public function __invoke(int $productId, Request $request): JsonResponse
+    public function __invoke(string $productId, Request $request): JsonResponse
     {
         // Retrieve the uploaded photo file
         $photo = $request->files->get('photo');
