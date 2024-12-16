@@ -16,9 +16,9 @@ final readonly class FindAFilmQuery extends Query
     /**
      * Class constructor.
      *
-     * @param int $filmId the Film ID
+     * @param string $filmId the Film ID
      */
-    public function __construct(public int $filmId)
+    public function __construct(public string $filmId)
     {
     }
 }

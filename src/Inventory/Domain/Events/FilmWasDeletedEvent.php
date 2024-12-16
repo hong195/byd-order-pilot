@@ -11,7 +11,7 @@ final class FilmWasDeletedEvent implements EventInterface, EventHasNameInterface
 {
     public float $newSize = 0;
 
-    public function __construct(public readonly int $filmId, public readonly float $oldSize)
+    public function __construct(public readonly string $filmId, public readonly float $oldSize)
     {
     }
 

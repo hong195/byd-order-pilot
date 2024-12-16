@@ -49,11 +49,11 @@ final class FilmRepository extends ServiceEntityRepository implements FilmReposi
     /**
      * Find a film by its ID.
      *
-     * @param int $id the ID of the film to find
+     * @param string $id the ID of the film to find
      *
      * @return AbstractFilm|null the found film entity, or null if not found
      */
-    public function findById(int $id): ?AbstractFilm
+    public function findById(string $id): ?AbstractFilm
     {
         return $this->find($id);
     }

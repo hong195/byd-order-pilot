@@ -31,7 +31,7 @@ final readonly class LaminationUpdater
      *
      * @throws NotFoundHttpException if the film with the given id is not found
      */
-    public function update(int $id, string $name, float $length, ?string $type = null): void
+    public function update(string $id, string $name, float $length, ?string $type = null): void
     {
         $film = $this->filmRepository->findById($id);
 

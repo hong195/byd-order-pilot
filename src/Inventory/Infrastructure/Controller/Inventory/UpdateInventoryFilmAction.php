@@ -12,7 +12,7 @@ use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[AsController]
-#[Route('/api/inventory/films/{id}', name: 'update_inventory_film', requirements: ['id' => '^\d+$'], methods: ['PUT'])]
+#[Route('/api/inventory/films/{id}', name: 'update_inventory_film', requirements: ['id' => '^\w+$'], methods: ['PUT'])]
 final readonly class UpdateInventoryFilmAction
 {
     /**

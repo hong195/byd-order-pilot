@@ -24,13 +24,13 @@ final readonly class FilmUpdater
     /**
      * Updates the film with the given id, changing its name and length if necessary.
      *
-     * @param int    $id     the id of the film to update
+     * @param string    $id     the id of the film to update
      * @param string $name   the new name for the film
      * @param float  $length the new length for the film
      *
      * @throws NotFoundHttpException if the film with the given id is not found
      */
-    public function update(int $id, string $name, float $length, ?string $type = null): void
+    public function update(string $id, string $name, float $length, ?string $type = null): void
     {
         $film = $this->filmRepository->findById($id);
 

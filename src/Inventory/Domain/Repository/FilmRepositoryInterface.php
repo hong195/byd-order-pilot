@@ -37,11 +37,11 @@ interface FilmRepositoryInterface
     /**
      * Finds a film by its id.
      *
-     * @param int $id the id of the film to find
+     * @param string $id the id of the film to find
      *
      * @return AbstractFilm|null the found film or null if not found
      */
-    public function findById(int $id): ?AbstractFilm;
+    public function findById(string $id): ?AbstractFilm;
 
     /**
      * Finds all films in the database.

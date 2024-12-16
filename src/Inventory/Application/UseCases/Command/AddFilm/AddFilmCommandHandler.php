@@ -18,9 +18,9 @@ readonly class AddFilmCommandHandler implements CommandHandlerInterface
      *
      * @param AddFilmCommand $addFilmCommand the command object containing the Film details
      *
-     * @return int the ID of the added Film
+     * @return string the ID of the added Film
      */
-    public function __invoke(AddFilmCommand $addFilmCommand): int
+    public function __invoke(AddFilmCommand $addFilmCommand): string
     {
         $film = $this->filmMaker->make($addFilmCommand->name, $addFilmCommand->length, $addFilmCommand->filmType, $addFilmCommand->type);
 

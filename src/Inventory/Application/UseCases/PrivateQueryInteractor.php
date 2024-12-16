@@ -30,11 +30,11 @@ readonly class PrivateQueryInteractor
     /**
      * Finds a film by its ID.
      *
-     * @param int $id the ID of the film
+     * @param string $id the ID of the film
      *
      * @return FindAFilmResult the film data
      */
-    public function findAFilm(int $id): FindAFilmResult
+    public function findAFilm(string $id): FindAFilmResult
     {
         $command = new FindAFilmQuery($id);
 

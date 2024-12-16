@@ -13,7 +13,7 @@ final readonly class FilmHistoryData
      * Class representing an instance of an inventory.
      */
     public function __construct(
-        public int $id,
+        public string $id,
         public int $filmId,
         public string $inventoryType,
         public string $filmType,

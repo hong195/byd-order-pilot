@@ -35,7 +35,7 @@ final readonly class InventoryApi implements InventoryApiInterface
         return $this->privateQueryInteractor->findFilms(FilmType::Film->value)->items;
     }
 
-    public function getById(int $filmId): FilmData
+    public function getById(string $filmId): FilmData
     {
         return $this->privateQueryInteractor->findAFilm($filmId)->FilmData;
     }

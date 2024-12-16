@@ -11,7 +11,7 @@ use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[AsController]
-#[Route('/api/inventory/{id}', name: 'delete_inventory', requirements: ['id' => '^\d+$'], methods: ['DELETE'])]
+#[Route('/api/inventory/{id}', name: 'delete_inventory', requirements: ['id' => '^\w+$'], methods: ['DELETE'])]
 final readonly class DeleteInventoryAction
 {
     /**
@@ -26,11 +26,11 @@ final readonly class DeleteInventoryAction
     /**
      * Deletes a film from the database.
      *
-     * @param int $id the ID of the film to delete
+     * @param string $id the ID of the film to delete
      *
      * @return JsonResponse a JSON response indicating success or failure
      */
-    public function __invoke(int $id): JsonResponse
+    public function __invoke(string $id): JsonResponse
     {
         $this->commandInteractor->deleteFilm(id: $id);
 

@@ -12,11 +12,11 @@ final readonly class FilmWasUpdatedEvent implements EventInterface, EventHasName
     /**
      * Constructor for FilmLengthUpdateEvent.
      *
-     * @param int   $filmId  the ID of the film
+     * @param string   $filmId  the ID of the film
      * @param float $newSize the new size of the film
      * @param float $oldSize the old size of the film
      */
-    public function __construct(public int $filmId, public float $newSize, public float $oldSize)
+    public function __construct(public string $filmId, public float $newSize, public float $oldSize)
     {
     }
 

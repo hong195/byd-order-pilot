@@ -9,7 +9,7 @@ use App\Shared\Domain\Event\EventType;
 
 final readonly class FilmWasUsedEvent implements EventInterface, EventHasNameInterface
 {
-    public function __construct(public int $filmId, public float $newSize, public float $oldSize)
+    public function __construct(public string $filmId, public float $newSize, public float $oldSize)
     {
     }
 

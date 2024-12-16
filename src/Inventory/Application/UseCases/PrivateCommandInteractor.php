@@ -34,9 +34,9 @@ readonly class PrivateCommandInteractor
      * @param int    $length the length of the film
      * @param string $type   the type of the film
      *
-     * @return int the result of the command execution
+     * @return string the result of the command execution
      */
-    public function addFilm(string $name, int $length, string $type): int
+    public function addFilm(string $name, int $length, string $type): string
     {
         $command = new AddFilmCommand($name, $length, FilmType::Film->value, $type);
 
@@ -50,9 +50,9 @@ readonly class PrivateCommandInteractor
      * @param int    $length the length of the lamination
      * @param string $type   the type of the lamination
      *
-     * @return int the result of the command execution
+     * @return string the result of the command execution
      */
-    public function addALamination(string $name, int $length, string $type): int
+    public function addALamination(string $name, int $length, string $type): string
     {
         $command = new AddFilmCommand($name, $length, FilmType::LAMINATION->value, $type);
 
@@ -67,7 +67,7 @@ readonly class PrivateCommandInteractor
      * @param float       $length the new length of the film
      * @param string|null $type   the new type of the film (optional)
      */
-    public function updateFilm(int $id, string $name, float $length, ?string $type = null): void
+    public function updateFilm(string $id, string $name, float $length, ?string $type = null): void
     {
         $command = new UpdateFilmCommand(id: $id, filmType: FilmType::Film->value, name: $name, length: $length, type: $type);
         $this->commandBus->execute($command);
@@ -76,12 +76,12 @@ readonly class PrivateCommandInteractor
     /**
      * Update the lamination of a film.
      *
-     * @param int         $id     the ID of the film
+     * @param string         $id     the ID of the film
      * @param string      $name   the name of the film
      * @param int         $length the length of the film
      * @param string|null $type   The type of the film. Optional.
      */
-    public function updateLamination(int $id, string $name, int $length, ?string $type = null): void
+    public function updateLamination(string $id, string $name, int $length, ?string $type = null): void
     {
         $command = new UpdateFilmCommand(id: $id, filmType: FilmType::LAMINATION->value, name: $name, length: $length, type: $type);
         $this->commandBus->execute($command);
@@ -90,9 +90,9 @@ readonly class PrivateCommandInteractor
     /**
      * Delete a film by ID.
      *
-     * @param int $id the ID of the film to be deleted
+     * @param string $id the ID of the film to be deleted
      */
-    public function deleteFilm(int $id): void
+    public function deleteFilm(string $id): void
     {
         $command = new DeleteFilmCommand($id);
 
@@ -123,10 +123,10 @@ readonly class PrivateCommandInteractor
     /**
      * Uses a film in the application.
      *
-     * @param int   $filmId the ID of the film
+     * @param string   $filmId the ID of the film
      * @param float $lengthToUse the length of film to use
      */
-    public function useFilm(int $filmId, float $lengthToUse): void
+    public function useFilm(string $filmId, float $lengthToUse): void
     {
         $this->commandBus->execute(new UseFilmCommand(filmId: $filmId, length: $lengthToUse));
     }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Inventory\Domain\Aggregate;
 
+use App\Inventory\Domain\Events\FilmWasCreatedEvent;
 use App\Inventory\Domain\Events\FilmWasUpdatedEvent;
 use App\Inventory\Domain\Events\FilmWasUsedEvent;
 use App\Inventory\Domain\Exceptions\NotEnoughFilmException;
@@ -33,6 +34,8 @@ abstract class AbstractFilm extends Aggregate
     {
 		$this->id = UlidService::generate();
         $this->dateAdded = new \DateTimeImmutable();
+
+		$this->raise(new FilmWasCreatedEvent($this->getId()));
     }
 
     /**

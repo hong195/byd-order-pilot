@@ -16,5 +16,5 @@ interface InventoryApiInterface
      */
     public function getAvailableFilms(): array;
 
-    public function getById(int $filmId): FilmData;
+    public function getById(string $filmId): FilmData;
 }

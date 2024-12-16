@@ -9,7 +9,7 @@ use App\Shared\Domain\Event\EventType;
 
 final readonly class FilmWasCreatedEvent implements EventInterface, EventHasNameInterface
 {
-    public function __construct(public int $filmId)
+    public function __construct(public string $filmId)
     {
     }
 

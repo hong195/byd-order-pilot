@@ -55,8 +55,6 @@ final readonly class FilmMaker
             }
         }
 
-		$this->eventBus->dispatch(new FilmWasCreatedEvent($film->getId()));
-
         $this->filmRepository->save($film);
 
         return $film;
