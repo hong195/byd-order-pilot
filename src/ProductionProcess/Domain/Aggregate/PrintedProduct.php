@@ -8,6 +8,7 @@ use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
 use App\ProductionProcess\Domain\Events\PrintedProductReprintedEvent;
 use App\Shared\Domain\Aggregate\Aggregate;
 use App\Shared\Domain\Entity\MediaFile;
+use App\Shared\Domain\Service\UlidService;
 
 /**
  * Class Job.
@@ -16,10 +17,7 @@ class PrintedProduct extends Aggregate
 {
     public const PRODUCT_PHOTO = 'product_photo';
 
-    /**
-     * @phpstan-ignore-next-line
-     */
-    private ?int $id;
+    private string $id;
     private ?string $laminationType = null;
     private ?Roll $roll = null;
     private ?int $sortOrder = null;
@@ -27,6 +25,7 @@ class PrintedProduct extends Aggregate
     private bool $isReprint = false;
     private readonly \DateTimeInterface $dateAdded;
     private ?MediaFile $photo = null;
+
     /**
      * Constructs a new instance of the class.
      *
@@ -37,15 +36,16 @@ class PrintedProduct extends Aggregate
      */
     public function __construct(public readonly int $relatedProductId, public readonly string $orderNumber, public readonly string $filmType, public readonly int|float $length)
     {
+        $this->id = UlidService::generate();
         $this->dateAdded = new \DateTimeImmutable();
     }
 
     /**
      * Returns the ID of the object.
      *
-     * @return int the ID of the object
+     * @return string the ID of the object
      */
-    public function getId(): int
+    public function getId(): string
     {
         return $this->id;
     }
@@ -193,9 +193,6 @@ class PrintedProduct extends Aggregate
         $this->raise(new PrintedProductReprintedEvent(printedProductId: $this->id));
     }
 
-    /**
-     * @return MediaFile|null
-     */
     public function getPhoto(): ?MediaFile
     {
         return $this->photo;

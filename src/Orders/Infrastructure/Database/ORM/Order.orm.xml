@@ -6,8 +6,8 @@
 >
 
     <entity name="App\Orders\Domain\Aggregate\Order" table="orders_order">
-        <id name="id" type="integer">
-            <generator/>
+        <id name="id" type="string" length="26">
+            <generator strategy="NONE"/>
         </id>
 
         <embedded name="customer" class="App\Orders\Domain\Aggregate\Customer" column-prefix="customer_"/>

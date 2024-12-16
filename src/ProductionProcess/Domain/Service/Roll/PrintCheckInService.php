@@ -13,7 +13,10 @@ use App\ProductionProcess\Domain\Exceptions\RollCantBeSentToPrintException;
 use  App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
 use App\ProductionProcess\Domain\Service\Inventory\AvailableFilmServiceInterface;
 use App\ProductionProcess\Domain\ValueObject\Process;
+use App\Shared\Domain\Exception\DomainException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\Messenger\Exception\ExceptionInterface;
+use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 
 /**
@@ -28,7 +31,7 @@ final readonly class PrintCheckInService
      * @param AvailableFilmServiceInterface $availableFilmService the available film service
      * @param EventDispatcherInterface      $eventDispatcher      the event dispatcher
      */
-    public function __construct(private RollRepositoryInterface $rollRepository, private AvailableFilmServiceInterface $availableFilmService, private EventDispatcherInterface $eventDispatcher, private GeneralProcessValidation $generalProcessValidatior)
+    public function __construct(private RollRepositoryInterface $rollRepository, private AvailableFilmServiceInterface $availableFilmService, private MessageBusInterface $eventDispatcher, private GeneralProcessValidation $generalProcessValidatior)
     {
     }
 
@@ -42,6 +45,8 @@ final readonly class PrintCheckInService
 	 * @throws RollCantBeSentToPrintException             If the roll is not in the correct process
 	 * @throws NotEnoughFilmLengthToPrintTheRollException
 	 * @throws InventoryFilmIsNotAvailableException
+	 * @throws ExceptionInterface
+	 * @throws DomainException
 	 */
     public function handle(int $rollId): void
     {
@@ -69,11 +74,10 @@ final readonly class PrintCheckInService
             InventoryFilmIsNotAvailableException::because('Current film is already in use');
         }
 
-        $roll->updateProcess(Process::PRINTING_CHECK_IN);
-        $this->rollRepository->save($roll);
+		$roll->printCheckIn();
 
-        $this->eventDispatcher->dispatch(new RollWasSentToPrintCheckInEvent($roll->getId()));
-    }
+        $this->rollRepository->save($roll);
+	}
 
     private function isFilmInUsage(int $filmId, int $rollId): bool
     {

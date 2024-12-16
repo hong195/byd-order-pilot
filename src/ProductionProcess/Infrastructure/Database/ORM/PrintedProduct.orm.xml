@@ -6,8 +6,8 @@
 >
 
     <entity name="App\ProductionProcess\Domain\Aggregate\PrintedProduct" table="prod_process_printed_product">
-        <id name="id" type="integer">
-            <generator/>
+        <id name="id" type="string" length="26">
+            <generator strategy="NONE"/>
         </id>
 
         <many-to-one field="roll" target-entity="App\ProductionProcess\Domain\Aggregate\Roll\Roll" inversed-by="roll"

@@ -5,13 +5,14 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Domain\Aggregate;
 
 use App\ProductionProcess\Domain\ValueObject\Process;
+use App\Shared\Domain\Service\UlidService;
 
 class Error
 {
     /**
      * @phpstan-ignore-next-line
      */
-    private ?int $id;
+    private string $id;
     private ?string $reason = null;
     private \DateTimeInterface $createdAt;
 
@@ -25,15 +26,16 @@ class Error
      */
     public function __construct(public readonly int $noticerId, public readonly int $responsibleEmployeeId, public readonly int $printedProductId, public readonly Process $process)
     {
+		$this->id = UlidService::generate();
         $this->createdAt = new \DateTimeImmutable();
     }
 
     /**
      * Get the ID property.
      *
-     * @return int The ID of the entity
+     * @return string The ID of the entity
      */
-    public function getId(): int
+    public function getId(): string
     {
         return $this->id;
     }

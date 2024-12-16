@@ -9,6 +9,8 @@ use App\Inventory\Domain\Aggregate\FilmType;
 use App\Inventory\Domain\Events\FilmWasCreatedEvent;
 use App\Inventory\Domain\Factory\FilmFactory;
 use App\Inventory\Infrastructure\Repository\FilmRepository;
+use Symfony\Component\Messenger\Exception\ExceptionInterface;
+use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 
 final readonly class FilmMaker
@@ -20,22 +22,23 @@ final readonly class FilmMaker
      * @param FilmFactory              $filmFactory     the film factory object
      * @param EventDispatcherInterface $eventDispatcher the event dispatcher interface object
      */
-    public function __construct(private FilmRepository $filmRepository, private FilmFactory $filmFactory, private EventDispatcherInterface $eventDispatcher)
+    public function __construct(private FilmRepository $filmRepository, private FilmFactory $filmFactory, private MessageBusInterface $eventBus)
     {
     }
 
-    /**
-     * Creates a new film.
-     *
-     * @param string $name     the name of the film
-     * @param int    $length   the length of the film
-     * @param string $filmType the type of the film
-     * @param string $type     the specific type of the film
-     *
-     * @return AbstractFilm the newly created film
-     *
-     * @throws \InvalidArgumentException when an invalid film type is provided
-     */
+	/**
+	 * Creates a new film.
+	 *
+	 * @param string $name the name of the film
+	 * @param int $length the length of the film
+	 * @param string $filmType the type of the film
+	 * @param string $type the specific type of the film
+	 *
+	 * @return AbstractFilm the newly created film
+	 *
+	 * @throws \InvalidArgumentException when an invalid film type is provided
+	 * @throws ExceptionInterface
+	 */
     public function make(string $name, int $length, string $filmType, string $type): AbstractFilm
     {
         $film = $this->filmFactory->make($name, $length, FilmType::from($filmType), $type);
@@ -51,9 +54,10 @@ final readonly class FilmMaker
                 throw new \InvalidArgumentException('Invalid film type');
             }
         }
-        $this->filmRepository->save($film);
 
-        $this->eventDispatcher->dispatch(new FilmWasCreatedEvent($film->getId()));
+		$this->eventBus->dispatch(new FilmWasCreatedEvent($film->getId()));
+
+        $this->filmRepository->save($film);
 
         return $film;
     }

@@ -6,6 +6,7 @@ namespace App\Orders\Infrastructure\Event;
 
 use App\Shared\Domain\Event\EventInterface;
 use Symfony\Component\Messenger\Bridge\Amqp\Transport\AmqpStamp;
+use Symfony\Component\Messenger\Exception\ExceptionInterface;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
@@ -15,6 +16,10 @@ class DomainEventProducer
     {
     }
 
+	/**
+	 * @throws ExceptionInterface
+	 * @throws \Symfony\Component\Serializer\Exception\ExceptionInterface
+	 */
     public function produce(EventInterface ...$events): void
     {
         foreach ($events as $event) {
@@ -25,10 +30,13 @@ class DomainEventProducer
         }
     }
 
+    /**
+     * @throws \Symfony\Component\Serializer\Exception\ExceptionInterface
+     */
     private function wrapDomainEvent(EventInterface $event): EventEnvelope
     {
         return new EventEnvelope(
-            $event->getType(),
+            $event->getEventType(),
             $this->normalizer->normalize($event)
         );
     }

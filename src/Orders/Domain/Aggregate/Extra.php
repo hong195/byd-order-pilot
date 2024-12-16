@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace App\Orders\Domain\Aggregate;
 
+use App\Shared\Domain\Service\UlidService;
+
 class Extra
 {
-    private ?int $id = null;
+    private string $id;
 
     private bool $isPacked = false;
 
@@ -21,14 +23,15 @@ class Extra
      */
     public function __construct(public readonly string $name, public readonly string $orderNumber, private int $count = 0)
     {
+		$this->id = UlidService::generate();
     }
 
     /**
      * Returns the id of the entity.
      *
-     * @return int|null returns the id if it exists, otherwise null
+     * @return string returns the id if it exists, otherwise null
      */
-    public function getId(): ?int
+    public function getId(): string
     {
         return $this->id;
     }

@@ -8,9 +8,35 @@ framework:
                     - App\Shared\Infrastructure\Middleware\ExceptionMiddleware
             query.bus:
             event.bus:
-                default_middleware: allow_no_handlers
+                default_middleware:
+                    allow_no_handlers: true
+                    enabled: true
 
         transports:
+            production_process:
+                dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+                serializer: 'App\Shared\Infrastructure\Event\EventEnvelopeSerializer'
+                options:
+                    exchange:
+                        name: 'production_process'
+                        type: 'topic'
+                    queues:
+                        production_process:
+                            binding_keys:
+                                - 'production_process.#'
+                                - 'shared.#'
+                                - 'inventory.#'
+            inventory:
+                dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+                serializer: 'App\Shared\Infrastructure\Event\EventEnvelopeSerializer'
+                options:
+                    exchange:
+                        name: 'inventory'
+                        type: 'topic'
+                    queues:
+                        inventory:
+                            binding_keys:
+                                - 'inventory.#'
             orders:
                 dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
                 serializer: 'App\Shared\Infrastructure\Event\EventEnvelopeSerializer'
@@ -21,8 +47,9 @@ framework:
                     queues:
                         orders:
                             binding_keys:
+                                - 'production_process.#'
                                 - 'orders.#'
-                                - 'payments.#'
-
         routing:
-            'App\Orders\Infrastructure\Event\EventEnvelope': [orders]
+            'App\ProductionProcess\Infrastructure\Event\EventEnvelope': [production_process, orders, inventory]
+            'App\Orders\Infrastructure\Event\EventEnvelope': [production_process, orders]
+            'App\Inventory\Infrastructure\Event\EventEnvelope': [inventory]

@@ -2,18 +2,19 @@
 
 declare(strict_types=1);
 
-namespace App\Shared\Infrastructure\EventListener\Doctrine;
+namespace App\Orders\Infrastructure\Database;
 
-use App\Shared\Application\Event\EventBusInterface;
+use App\Orders\Infrastructure\Event\DomainEventProducer;
 use App\Shared\Domain\Aggregate\Aggregate;
 use Doctrine\Bundle\DoctrineBundle\Attribute\AsDoctrineListener;
 use Doctrine\ORM\Event\OnFlushEventArgs;
 use Doctrine\ORM\Events;
+use Symfony\Component\Serializer\Exception\ExceptionInterface;
 
 #[AsDoctrineListener(event: Events::onFlush)]
-final readonly class PublishDomainEventsOnFlushListener
+final readonly class PublishAggregateEventsOnFlushListener
 {
-    public function __construct(private EventBusInterface $eventBus)
+    public function __construct(private DomainEventProducer $eventProducer)
     {
     }
 
@@ -46,10 +47,14 @@ final readonly class PublishDomainEventsOnFlushListener
         }
     }
 
+    /**
+     * @throws ExceptionInterface
+     * @throws \Symfony\Component\Messenger\Exception\ExceptionInterface
+     */
     private function publishDomainEvent(object $entity): void
     {
         if ($entity instanceof Aggregate && !$entity->eventsEmpty()) {
-            $this->eventBus->execute(...$entity->pullEvents());
+            $this->eventProducer->produce(...$entity->pullEvents());
         }
     }
 }

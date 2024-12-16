@@ -7,8 +7,8 @@
 
     <entity name="App\Inventory\Domain\Aggregate\AbstractFilm" table="inventory_film"
             inheritance-type="SINGLE_TABLE" discriminator-column="filmType">
-        <id name="id" type="integer">
-            <generator/>
+        <id name="id" type="string" length="26">
+            <generator strategy="NONE"/>
         </id>
 
         <field name="name" column="name" length="255"/>

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Domain\Aggregate\Printer;
 
+use App\Shared\Domain\Service\UlidService;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
@@ -17,7 +18,7 @@ class Printer
     /**
      * @phpstan-ignore-next-line
      */
-    private int $id;
+    private string $id;
 
     private \DateTimeImmutable $dateAdded;
 
@@ -36,6 +37,7 @@ class Printer
      */
     public function __construct(public readonly string $name, public readonly bool $isDefault = false)
     {
+		$this->id = UlidService::generate();
         $this->conditions = new ArrayCollection([]);
         $this->dateAdded = new \DateTimeImmutable();
     }
@@ -43,9 +45,9 @@ class Printer
     /**
      * Get the id property.
      *
-     * @return int the id property
+     * @return string the id property
      */
-    public function getId(): int
+    public function getId(): string
     {
         return $this->id;
     }

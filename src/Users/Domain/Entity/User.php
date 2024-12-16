@@ -6,15 +6,13 @@ namespace App\Users\Domain\Entity;
 
 use App\Shared\Domain\Security\AuthUserInterface;
 use App\Shared\Domain\Security\Role;
+use App\Shared\Domain\Service\UlidService;
 use App\Users\Domain\Service\UserPasswordHasherInterface;
 use Webmozart\Assert\Assert;
 
 class User implements AuthUserInterface
 {
-    /**
-     * @phpstan-ignore-next-line
-     */
-    private ?int $id;
+    private string $id;
 
     private string $name;
     private string $email;
@@ -27,6 +25,7 @@ class User implements AuthUserInterface
 
     public function __construct(string $name, string $email, string $role)
     {
+		$this->id = UlidService::generate();
         $this->email = $email;
         $this->name = $name;
         $this->addRole($role);
@@ -36,7 +35,7 @@ class User implements AuthUserInterface
         }
     }
 
-    public function getId(): int
+    public function getId(): string
     {
         return $this->id;
     }

@@ -6,8 +6,8 @@
 
 
     <entity name="App\Inventory\Domain\Aggregate\History" table="inventory_history">
-        <id name="id" type="integer" column="id">
-            <generator strategy="AUTO"/>
+        <id name="id" type="string" length="26">
+            <generator strategy="NONE"/>
         </id>
 
         <field name="filmId" type="integer" column="film_id"/>

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Orders\Domain\Aggregate;
 
 use App\Shared\Domain\Entity\MediaFile;
+use App\Shared\Domain\Service\UlidService;
 
 /**
  * Class Orders.
@@ -16,7 +17,7 @@ class Product
     /**
      * @phpstan-ignore-next-line
      */
-    private ?int $id;
+    private string $id;
     private ?string $laminationType = null;
     private ?MediaFile $cutFile = null;
     private ?MediaFile $printFile = null;
@@ -32,15 +33,16 @@ class Product
      */
     public function __construct(public readonly string $filmType, public readonly float $length)
     {
+		$this->id = UlidService::generate();
         $this->dateAdded = new \DateTimeImmutable();
     }
 
     /**
      * Returns the ID of the object.
      *
-     * @return int the ID of the object
+     * @return string the ID of the object
      */
-    public function getId(): int
+    public function getId(): string
     {
         return $this->id;
     }

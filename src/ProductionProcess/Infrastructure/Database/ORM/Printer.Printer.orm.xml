@@ -6,8 +6,8 @@
 >
 
     <entity name="App\ProductionProcess\Domain\Aggregate\Printer\Printer" table="prod_process_printer">
-        <id name="id" type="integer">
-            <generator />
+        <id name="id" type="string" length="26">
+            <generator strategy="NONE"/>
         </id>
 
         <field name="name" column="name" length="255"/>

@@ -2,15 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Inventory\Infrastructure\EventHandler;
+namespace App\Orders\Infrastructure\Event;
 
-use App\Inventory\Domain\Events\FilmWasCreatedEvent;
-use App\Inventory\Domain\Events\FilmWasDeletedEvent;
-use App\Inventory\Domain\Events\FilmWasUpdatedEvent;
+use App\Orders\Domain\Event\ProductCreatedEvent;
 use App\ProductionProcess\Domain\Events\RollWasSentToPrintCheckInEvent;
 use App\Shared\Domain\Event\EventType;
 use App\Shared\Infrastructure\Event\EventEnvelope;
-use Psr\Log\LoggerInterface;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Serializer\Exception\ExceptionInterface;
@@ -20,10 +17,7 @@ use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 final class EventEnvelopeHandler
 {
     private const EVENT_MAP = [
-        EventType::ROLL_WAS_SENT_TO_PRINT_CHECK_IN => RollWasSentToPrintCheckInEvent::class,
-		EventType::FILM_WAS_CREATED => FilmWasCreatedEvent::class,
-		EventType::FILM_WAS_DELETED => FilmWasDeletedEvent::class,
-		EventType::FILM_WAS_UPDATED => FilmWasUpdatedEvent::class,
+        EventType::PRODUCT_CREATED => ProductCreatedEvent::class
     ];
 
     public function __construct(private DenormalizerInterface $denormalizer, private MessageBusInterface $eventBus)

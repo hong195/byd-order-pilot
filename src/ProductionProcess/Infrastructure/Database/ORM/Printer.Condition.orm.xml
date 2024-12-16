@@ -6,8 +6,8 @@
 >
 
     <entity name="App\ProductionProcess\Domain\Aggregate\Printer\Condition" table="prod_process_printer_condition">
-        <id name="id" type="integer">
-            <generator/>
+        <id name="id" type="string" length="26">
+            <generator strategy="NONE"/>
         </id>
 
         <many-to-one field="printer" target-entity="App\ProductionProcess\Domain\Aggregate\Printer\Printer"

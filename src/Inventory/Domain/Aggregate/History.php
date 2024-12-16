@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace App\Inventory\Domain\Aggregate;
 
+use App\Shared\Domain\Service\UlidService;
+
 final class History
 {
     /*
      * @php-stan-ignore-next-line
      */
-    public ?int $id;
+    public string $id;
     private \DateTimeImmutable $createdAt;
     /**
      * Class constructor.
@@ -29,15 +31,16 @@ final class History
         public readonly float $newSize,
         public readonly float $oldSize,
     ) {
+		$this->id = UlidService::generate();
         $this->createdAt = new \DateTimeImmutable();
     }
 
     /**
      * Get the ID of the object.
      *
-     * @return int|null The ID of the object or null if not set
+     * @return string The ID of the object or null if not set
      */
-    public function getId(): ?int
+    public function getId(): string
     {
         return $this->id;
     }

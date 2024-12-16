@@ -6,6 +6,7 @@ namespace App\Orders\Domain\Aggregate;
 
 use App\Orders\Domain\ValueObject\OrderType;
 use App\Shared\Domain\Aggregate\Aggregate;
+use App\Shared\Domain\Service\UlidService;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
@@ -17,7 +18,7 @@ class Order extends Aggregate
     /**
      * @phpstan-ignore-next-line
      */
-    private ?int $id;
+    private string $id;
     private ?string $orderNumber = null;
     private ?string $packagingInstructions = null;
     /**
@@ -30,8 +31,6 @@ class Order extends Aggregate
     private Collection $products;
     private readonly \DateTimeInterface $dateAdded;
 
-    private Status $status;
-
     /**
      * Initializes a new instance of the class.
      *
@@ -39,6 +38,7 @@ class Order extends Aggregate
      */
     public function __construct(public readonly Customer $customer, public readonly string $shippingAddress)
     {
+		$this->id = UlidService::generate();
         $this->dateAdded = new \DateTimeImmutable();
         $this->extras = new ArrayCollection([]);
         $this->products = new ArrayCollection([]);
@@ -47,9 +47,9 @@ class Order extends Aggregate
     /**
      * Returns the ID of the object.
      *
-     * @return int the ID of the object
+     * @return string the ID of the object
      */
-    public function getId(): int
+    public function getId(): string
     {
         return $this->id;
     }

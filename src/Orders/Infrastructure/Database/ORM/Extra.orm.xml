@@ -6,8 +6,8 @@
 >
 
     <entity name="App\Orders\Domain\Aggregate\Extra" table="orders_extra">
-        <id name="id" type="integer">
-            <generator/>
+        <id name="id" type="string" length="26">
+            <generator strategy="NONE"/>
         </id>
 
         <field name="name" column="name" length="255"/>

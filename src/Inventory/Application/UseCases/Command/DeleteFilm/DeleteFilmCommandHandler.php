@@ -36,7 +36,6 @@ readonly class DeleteFilmCommandHandler implements CommandHandlerInterface
      */
     public function __invoke(DeleteFilmCommand $deleteFilmCommand): void
     {
-        AssertService::true($this->accessControlService->isGranted(), 'Not allowed to remove film');
         $film = $this->filmRepository->findById($deleteFilmCommand->id);
 
         if (is_null($film)) {

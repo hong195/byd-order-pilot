@@ -6,8 +6,8 @@
 >
 
     <entity name="App\ProductionProcess\Domain\Aggregate\Error" table="prod_process_error">
-        <id name="id" type="integer">
-            <generator />
+        <id name="id" type="string" length="26">
+            <generator strategy="NONE"/>
         </id>
 
         <field name="printedProductId" column="printed_product_id" type="integer"/>

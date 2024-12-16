@@ -23,7 +23,7 @@ readonly class UpdateFilmCommandHandler implements CommandHandlerInterface
      *
      * @param AccessControlService $accessControlService an instance of the AccessControlService class used for controlling access to the application
      */
-    public function __construct(private AccessControlService $accessControlService, private FilmUpdater $filmUpdater, private LaminationUpdater $laminationUpdater, private EventDispatcherInterface $eventDispatcher)
+    public function __construct(private FilmUpdater $filmUpdater, private LaminationUpdater $laminationUpdater, private EventDispatcherInterface $eventDispatcher)
     {
     }
 
@@ -36,8 +36,6 @@ readonly class UpdateFilmCommandHandler implements CommandHandlerInterface
      */
     public function __invoke(UpdateFilmCommand $updateFilmCommand): void
     {
-        AssertService::true($this->accessControlService->isGranted(), 'Not allowed to add lamination.');
-
         match ($updateFilmCommand->filmType) {
             FilmType::LAMINATION->value => $this->laminationUpdater->update(id: $updateFilmCommand->id, name: $updateFilmCommand->name, length: $updateFilmCommand->length, type: $updateFilmCommand->type),
             FilmType::Film->value => $this->filmUpdater->update(id: $updateFilmCommand->id, name: $updateFilmCommand->name, length: $updateFilmCommand->length, type: $updateFilmCommand->type),

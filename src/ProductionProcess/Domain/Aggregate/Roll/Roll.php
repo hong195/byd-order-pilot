@@ -7,8 +7,10 @@ namespace App\ProductionProcess\Domain\Aggregate\Roll;
 use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use App\ProductionProcess\Domain\Aggregate\Printer\Printer;
 use App\ProductionProcess\Domain\Events\RollProcessWasUpdatedEvent;
+use App\ProductionProcess\Domain\Events\RollWasSentToPrintCheckInEvent;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use App\Shared\Domain\Aggregate\Aggregate;
+use App\Shared\Domain\Service\UlidService;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Webmozart\Assert\Assert;
@@ -20,7 +22,7 @@ use Webmozart\Assert\Assert;
  */
 class Roll extends Aggregate
 {
-    private ?int $id = null;
+    private string $id;
     private ?int $filmId = null;
     private ?int $glowId = null;
     private \DateTimeImmutable $dateAdded;
@@ -45,6 +47,7 @@ class Roll extends Aggregate
      */
     public function __construct(private string $name, ?int $filmId = null, private ?Process $process = Process::ORDER_CHECK_IN)
     {
+		$this->id = UlidService::generate();
         $this->filmId = $filmId;
         $this->printedProducts = new ArrayCollection([]);
         $this->dateAdded = new \DateTimeImmutable();
@@ -73,9 +76,9 @@ class Roll extends Aggregate
     /**
      * Returns the id of the entity.
      *
-     * @return int the id of the entity
+     * @return string the id of the entity
      */
-    public function getId(): int
+    public function getId(): string
     {
         return $this->id;
     }
@@ -364,4 +367,11 @@ class Roll extends Aggregate
     {
         return $this->isLocked;
     }
+
+	public function printCheckIn(): void
+	{
+		$this->updateProcess(Process::PRINTING_CHECK_IN);
+
+		$this->raise(new RollWasSentToPrintCheckInEvent($this->id));
+	}
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Domain\Aggregate\Roll\History;
 
 use App\ProductionProcess\Domain\ValueObject\Process;
+use App\Shared\Domain\Service\UlidService;
 
 /**
  * Class History.
@@ -14,7 +15,7 @@ use App\ProductionProcess\Domain\ValueObject\Process;
 final class History
 {
     /**@phpstan-ignore-next-line */
-    private ?int $id;
+    private string $id;
     private ?int $employeeId = null;
     private ?int $parentRollId = null;
 
@@ -26,14 +27,15 @@ final class History
      */
     public function __construct(public readonly int $rollId, public readonly Process $process, public readonly Type $type, public readonly \DateTimeImmutable $happenedAt)
     {
+        $this->id = UlidService::generate();
     }
 
     /**
      * Retrieves the id of the object.
      *
-     * @return int the id of the object
+     * @return string the id of the object
      */
-    public function getId(): int
+    public function getId(): string
     {
         return $this->id;
     }

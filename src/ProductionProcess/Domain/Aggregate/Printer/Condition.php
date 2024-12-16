@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Domain\Aggregate\Printer;
 
+use App\Shared\Domain\Service\UlidService;
+
 final class Condition
 {
     /**
      * @phpstan-ignore-next-line
      */
-    private int $id;
+    private string $id;
 
     private \DateTimeImmutable $dateAdded;
 
@@ -23,6 +25,7 @@ final class Condition
      */
     public function __construct(public readonly Printer $printer, public string $filmType, public readonly ?string $laminationType = null, public $laminationRequired = false, public readonly ?string $color = null)
     {
+		$this->id = UlidService::generate();
         $this->dateAdded = new \DateTimeImmutable();
     }
 
@@ -37,9 +40,9 @@ final class Condition
     /**
      * Get the ID of the current entity.
      *
-     * @return int the ID of the entity
+     * @return string the ID of the entity
      */
-    public function getId(): int
+    public function getId(): string
     {
         return $this->id;
     }

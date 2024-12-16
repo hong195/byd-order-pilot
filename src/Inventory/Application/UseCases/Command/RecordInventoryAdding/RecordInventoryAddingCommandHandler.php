@@ -12,13 +12,12 @@ use App\Shared\Domain\Service\AssertService;
 
 final readonly class RecordInventoryAddingCommandHandler implements CommandHandlerInterface
 {
-	public function __construct(private AccessControlService $accessControlService, private HistoryService $historyService)
+	public function __construct(private HistoryService $historyService)
 	{
 	}
 
 	public function __invoke(RecordInventoryAddingCommand $command): void
 	{
-		AssertService::true($this->accessControlService->isGranted(), 'Access denied');
 		$this->historyService->recordAdding($command->filmId, $command->event);
 	}
 }
