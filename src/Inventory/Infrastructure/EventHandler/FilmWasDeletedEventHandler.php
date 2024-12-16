@@ -6,7 +6,6 @@ namespace App\Inventory\Infrastructure\EventHandler;
 
 use App\Inventory\Application\UseCases\Command\RecordInventoryUpdating\RecordInventoryUpdatingCommand;
 use App\Inventory\Application\UseCases\PrivateCommandInteractor;
-use App\Inventory\Domain\Events\FilmWasCreatedEvent;
 use App\Inventory\Domain\Events\FilmWasDeletedEvent;
 use App\Shared\Application\Event\EventHandlerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
@@ -35,9 +34,10 @@ final readonly class FilmWasDeletedEventHandler implements EventHandlerInterface
     {
 		$command = new RecordInventoryUpdatingCommand(
 			filmId: $event->filmId,
-			event: (string) $event,
+			event: $event->getEventType(),
 			newSize: $event->newSize,
-			oldSize: $event->oldSize
+			oldSize: $event->oldSize,
+			filmType: $event->filmType
 		);
 
         $this->privateCommandInteractor->recordInventoryUpdating($command);

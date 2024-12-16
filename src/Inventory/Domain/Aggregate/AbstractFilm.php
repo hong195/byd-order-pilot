@@ -86,7 +86,7 @@ abstract class AbstractFilm extends Aggregate
     public function updateLength(float $newLength): void
     {
         if ($this->length !== $newLength) {
-            $this->raise(new FilmWasUpdatedEvent(filmId: $this->id, newSize: $newLength, oldSize: $this->length));
+            $this->raise(new FilmWasUpdatedEvent(filmId: $this->id, newSize: $newLength, oldSize: $this->length, filmType: $this->type));
         }
 
         $this->length = $newLength;
@@ -101,13 +101,9 @@ abstract class AbstractFilm extends Aggregate
             throw new NotEnoughFilmException('Not Enough Film');
         }
 
-        $this->raise(new FilmWasUsedEvent(filmId: $this->id, newSize: $lengthToUse, oldSize: $this->length));
+        $this->raise(new FilmWasUsedEvent(filmId: $this->id, newSize: $lengthToUse, oldSize: $this->length, filmType: $this->type));
 
         $this->length -= $lengthToUse;
-
-        if (0 == $this->length) {
-            // $this->status = 'used';
-        }
     }
 
     /**

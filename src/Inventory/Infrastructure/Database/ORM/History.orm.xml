@@ -10,7 +10,7 @@
             <generator strategy="NONE"/>
         </id>
 
-        <field name="filmId" type="integer" column="film_id"/>
+        <field name="filmId" type="string" column="film_id"/>
 
         <field name="inventoryType" column="inventory_type"/>
 

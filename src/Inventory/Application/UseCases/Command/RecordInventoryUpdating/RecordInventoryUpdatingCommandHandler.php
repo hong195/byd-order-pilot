@@ -22,7 +22,8 @@ final readonly class RecordInventoryUpdatingCommandHandler implements CommandHan
             filmId: $command->filmId,
             event: $command->event,
             oldSize: round($command->oldSize, 2),
-            newSize: round($command->newSize, 2)
+            newSize: round($command->newSize, 2),
+			filmType: $command->filmType
         );
 
         $this->historyService->recordUpdating($recordHistoryUpdatingDto);

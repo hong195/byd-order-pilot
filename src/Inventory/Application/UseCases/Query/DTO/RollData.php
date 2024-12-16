@@ -16,9 +16,9 @@ final readonly class RollData
      *
      * @param string $id     The ID of the object
      * @param float  $length The length of the object
-     * @param int    $filmId The film ID associated with the object
+     * @param string    $filmId The film ID associated with the object
      */
-    public function __construct(public string $id, public float $length, public int $filmId)
+    public function __construct(public string $id, public float $length, public string $filmId)
     {
     }
 }

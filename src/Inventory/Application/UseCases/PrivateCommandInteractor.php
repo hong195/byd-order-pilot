@@ -102,10 +102,10 @@ readonly class PrivateCommandInteractor
     /**
      * Records the addition of inventory to the application.
      *
-     * @param int    $filmId the ID of the film for which inventory is being added
+     * @param string    $filmId the ID of the film for which inventory is being added
      * @param string $event  the event description for the inventory addition
      */
-    public function recordInventoryAdding(int $filmId, string $event): void
+    public function recordInventoryAdding(string $filmId, string $event): void
     {
         $this->commandBus->execute(new RecordInventoryAddingCommand($filmId, $event));
     }

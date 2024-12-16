@@ -32,12 +32,12 @@ final readonly class FilmWasUsedEventHandler implements EventHandlerInterface
      */
     public function __invoke(FilmWasUsedEvent $event): void
     {
-		$command = new RecordInventoryUpdatingCommand(
-			filmId: $event->filmId,
-			event: (string) $event,
-			newSize: $event->newSize,
-			oldSize: $event->oldSize
-		);
+        $command = new RecordInventoryUpdatingCommand(
+            filmId: $event->filmId,
+            event: $event->getEventType(),
+            newSize: $event->newSize,
+            oldSize: $event->oldSize
+        );
 
         $this->privateCommandInteractor->recordInventoryUpdating($command);
     }

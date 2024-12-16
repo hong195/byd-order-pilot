@@ -14,7 +14,7 @@ final readonly class FilmHistoryData
      */
     public function __construct(
         public string $id,
-        public int $filmId,
+        public string $filmId,
         public string $inventoryType,
         public string $filmType,
         public string $event,

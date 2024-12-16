@@ -32,12 +32,12 @@ final readonly class UpdateInventoryFilmAction
      *
      * @return JsonResponse The JSON response indicating a successful film update
      */
-    public function __invoke(int $id, Request $request): JsonResponse
+    public function __invoke(string $id, Request $request): JsonResponse
     {
         $this->commandInteractor->updateFilm(
             id: $id,
             name: $request->request->get('name'),
-            length: (int) $request->request->get('length'),
+            length: (float) $request->request->get('length'),
             type: $request->request->get('type'),
         );
 

@@ -7,21 +7,16 @@ namespace App\Inventory\Domain\Events;
 use App\Shared\Domain\Event\EventInterface;
 use App\Shared\Domain\Event\EventType;
 
-final class FilmWasDeletedEvent implements EventInterface, EventHasNameInterface
+final class FilmWasDeletedEvent implements EventInterface
 {
     public float $newSize = 0;
 
-    public function __construct(public readonly string $filmId, public readonly float $oldSize)
+    public function __construct(public readonly string $filmId, public readonly float $oldSize, public readonly string $filmType)
     {
     }
 
-    public function __toString(): string
+    public function getEventType(): string
     {
-        return 'film_was_removed';
+        return EventType::FILM_WAS_DELETED;
     }
-
-	public function getEventType(): string
-	{
-		return EventType::FILM_WAS_DELETED;
-	}
 }

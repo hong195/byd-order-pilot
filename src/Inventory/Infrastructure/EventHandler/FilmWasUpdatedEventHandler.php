@@ -36,9 +36,10 @@ final readonly class FilmWasUpdatedEventHandler implements EventHandlerInterface
     {
         $command = new RecordInventoryUpdatingCommand(
             filmId: $event->filmId,
-            event: (string) $event,
+            event: $event->getEventType(),
             newSize: $event->newSize,
-            oldSize: $event->oldSize
+            oldSize: $event->oldSize,
+			filmType: $event->filmType
         );
         $this->privateCommandInteractor->recordInventoryUpdating($command);
     }

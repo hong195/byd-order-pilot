@@ -7,19 +7,14 @@ namespace App\Inventory\Domain\Events;
 use App\Shared\Domain\Event\EventInterface;
 use App\Shared\Domain\Event\EventType;
 
-final readonly class FilmWasCreatedEvent implements EventInterface, EventHasNameInterface
+final readonly class FilmWasCreatedEvent implements EventInterface
 {
     public function __construct(public string $filmId)
     {
     }
 
-    public function __toString(): string
+    public function getEventType(): string
     {
-        return 'film_was_created';
+        return EventType::FILM_WAS_CREATED;
     }
-
-	public function getEventType(): string
-	{
-		return EventType::FILM_WAS_CREATED;
-	}
 }

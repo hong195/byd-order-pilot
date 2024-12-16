@@ -22,10 +22,10 @@ final readonly class HistoryService
     /**
      * Records the adding of history.
      *
-     * @param int    $filmId the ID of the film
+     * @param string    $filmId the ID of the film
      * @param string $event  the event to record
      */
-    public function recordAdding(int $filmId, string $event): void
+    public function recordAdding(string $filmId, string $event): void
     {
         $film = $this->filmRepository->findById($filmId);
 
@@ -48,12 +48,10 @@ final readonly class HistoryService
      */
     public function recordUpdating(RecordHistoryUpdatingData $historyUpdatingData): void
     {
-        $film = $this->filmRepository->findById($historyUpdatingData->filmId);
-
         $history = new History(
             filmId: $historyUpdatingData->filmId,
-            inventoryType: $this->defineInventoryType($film->getType()),
-            filmType: $film->getType(),
+            inventoryType: $this->defineInventoryType($historyUpdatingData->filmType),
+            filmType: $historyUpdatingData->filmType,
             eventType: $historyUpdatingData->event,
             newSize: $historyUpdatingData->newSize,
             oldSize: $historyUpdatingData->oldSize

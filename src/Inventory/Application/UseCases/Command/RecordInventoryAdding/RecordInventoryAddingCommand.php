@@ -8,7 +8,7 @@ use App\Shared\Application\Command\CommandInterface;
 
 final readonly class RecordInventoryAddingCommand implements CommandInterface
 {
-	public function __construct(public int $filmId, public string $event)
-	{
-	}
+    public function __construct(public string $filmId, public string $event)
+    {
+    }
 }

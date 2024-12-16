@@ -8,7 +8,7 @@ use App\Shared\Application\Command\CommandInterface;
 
 final readonly class RecordInventoryUpdatingCommand implements CommandInterface
 {
-	public function __construct(public int $filmId, public string $event, public float $newSize, public float $oldSize)
+	public function __construct(public string $filmId, public string $event, public float $newSize, public float $oldSize, public string $filmType)
 	{
 	}
 }

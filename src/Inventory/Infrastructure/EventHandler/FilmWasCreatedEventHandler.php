@@ -31,6 +31,6 @@ final readonly class FilmWasCreatedEventHandler implements EventHandlerInterface
      */
     public function __invoke(FilmWasCreatedEvent $event): void
     {
-        $this->privateCommandInteractor->recordInventoryAdding(filmId: $event->filmId, event: (string) $event);
+        $this->privateCommandInteractor->recordInventoryAdding(filmId: $event->filmId, event: $event->getEventType());
     }
 }

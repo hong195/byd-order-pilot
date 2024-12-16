@@ -24,7 +24,7 @@ final class History
      * @param float  $oldSize       The old size
      */
     public function __construct(
-        public readonly int $filmId,
+        public readonly string $filmId,
         public string $inventoryType,
         public readonly string $filmType,
         public readonly string $eventType,
