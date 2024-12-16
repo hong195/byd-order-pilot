@@ -20,7 +20,7 @@ final class RollData
     /**
      * Constructor for the class.
      *
-     * @param int                     $id            the ID of the object
+     * @param string                     $id            the ID of the object
      * @param string                  $name          the name of the object
      * @param int|float               $length        the length of the object
      * @param int                     $count         the count of the object
@@ -40,7 +40,7 @@ final class RollData
         public readonly ?string $process = null,
         public readonly int $priorityCount = 0,
         public readonly array $laminations = [],
-        public readonly ?int $filmId = null,
+        public readonly ?string $filmId = null,
 		public readonly bool $locked = false,
         public readonly ?\DateTimeInterface $dateAdded = null,
     ) {

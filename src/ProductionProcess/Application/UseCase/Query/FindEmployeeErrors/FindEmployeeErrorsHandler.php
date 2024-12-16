@@ -10,9 +10,7 @@ namespace App\ProductionProcess\Application\UseCase\Query\FindEmployeeErrors;
 
 use App\ProductionProcess\Application\Service\Roll\Error\EmployeeErrorCountListService;
 use App\ProductionProcess\Infrastructure\Repository\ErrorRepository;
-use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Query\QueryHandlerInterface;
-use App\Shared\Domain\Service\AssertService;
 
 /**
  * Handler for finding errors based on a query.
@@ -21,12 +19,8 @@ final readonly class FindEmployeeErrorsHandler implements QueryHandlerInterface
 {
     /**
      * Constructor for the class.
-     *
-     * @param AccessControlService          $accessControlService          the access control service dependency
-     * @param ErrorRepository               $repository
-     * @param EmployeeErrorCountListService $employeeErrorCountListService
      */
-    public function __construct(private AccessControlService $accessControlService, private ErrorRepository $repository, private EmployeeErrorCountListService $employeeErrorCountListService)
+    public function __construct(private ErrorRepository $repository, private EmployeeErrorCountListService $employeeErrorCountListService)
     {
     }
 
@@ -39,8 +33,6 @@ final readonly class FindEmployeeErrorsHandler implements QueryHandlerInterface
      */
     public function __invoke(FindEmployeeErrorsQuery $query): FindEmployeeErrorsResult
     {
-        AssertService::true($this->accessControlService->isGranted(), 'No access to handle the query');
-
         $result = $this->repository->findEmployeeErrorsByDateRangeFilter($query->dateRangeFilter);
 
         $result = ($this->employeeErrorCountListService)($result);

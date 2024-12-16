@@ -20,11 +20,11 @@ interface PrinterRepositoryInterface
     /**
      * Find a printer by its id.
      *
-     * @param int $printerId The id of the printer
+     * @param string $printerId The id of the printer
      *
      * @return Printer|null The found printer or null if not found
      */
-    public function findById(int $printerId): ?Printer;
+    public function findById(string $printerId): ?Printer;
 
     /**
      * Find all printers.

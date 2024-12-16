@@ -28,11 +28,11 @@ final readonly class RollApi implements RollsApiInterface
     /**
      * Retrieves a RollData object based on the provided rollId.
      *
-     * @param int $rollId The ID of the roll
+     * @param string $rollId The ID of the roll
      *
      * @return RollData Returns a RollData object
      */
-    public function getRollById(int $rollId): RollData
+    public function getRollById(string $rollId): RollData
     {
         $roll = $this->privateQueryInteractor->findARoll($rollId)->rollData;
 

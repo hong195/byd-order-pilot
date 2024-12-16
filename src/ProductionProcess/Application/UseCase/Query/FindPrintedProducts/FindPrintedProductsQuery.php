@@ -19,7 +19,7 @@ final readonly class FindPrintedProductsQuery extends Query
      * @param bool|null $unassigned [optional] Whether or not the value is unassigned. Defaults to null.
      * @param int|null  $rollId     [optional] The roll ID. Defaults to null.
      */
-    public function __construct(public ?bool $unassigned = null, public ?int $rollId = null)
+    public function __construct(public ?bool $unassigned = null, public ?string $rollId = null)
     {
     }
 }

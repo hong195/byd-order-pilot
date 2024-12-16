@@ -14,9 +14,9 @@ interface RollsApiInterface
     /**
      * Gets a RollData object by its ID.
      *
-     * @param int $rollId the ID of the roll
+     * @param string $rollId the ID of the roll
      *
      * @return RollData the RollData object with the given ID
      */
-    public function getRollById(int $rollId): RollData;
+    public function getRollById(string $rollId): RollData;
 }

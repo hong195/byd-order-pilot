@@ -14,7 +14,7 @@ readonly class ChangePrintedProductPriorityCommand implements CommandInterface
     /**
      * Constructor.
      *
-     * @param int  $id       the ID of the object
+     * @param string  $id       the ID of the object
      * @param bool $priority the priority status of the object
      */
     public function __construct(public string $id, public bool $priority)

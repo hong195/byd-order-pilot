@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Attribute\Route;
  * This class handles the find_order API endpoint.
  */
 #[AsController]
-#[Route('/api/printed-products/{printedProductId}/reprint', name: 'reprint-printed-products', requirements: ['printedProductId' => '^\d+$'], methods: ['POST'])]
+#[Route('/api/printed-products/{printedProductId}/reprint', name: 'reprint-printed-products', requirements: ['printedProductId' => '^\w+$'], methods: ['POST'])]
 final readonly class ReprintPrintedProductAction
 {
     /**

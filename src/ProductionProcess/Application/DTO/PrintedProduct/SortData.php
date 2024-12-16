@@ -18,7 +18,7 @@ final readonly class SortData
      * @param int   $group      the group
      * @param int[] $sortOrders the sort orders
      */
-    public function __construct(public int $rollId, public int $group, public array $sortOrders)
+    public function __construct(public string $rollId, public int $group, public array $sortOrders)
     {
     }
 }

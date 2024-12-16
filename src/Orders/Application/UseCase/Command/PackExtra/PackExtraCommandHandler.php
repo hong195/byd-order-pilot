@@ -36,7 +36,6 @@ final class PackExtraCommandHandler implements CommandHandlerInterface
      */
     public function __invoke(PackExtraCommand $command): void
     {
-        AssertService::true($this->accessControlService->isGranted(), 'No access to handle the command');
         $this->setPackExtra->handle(orderId: $command->orderId, extraId: $command->extraId, isPacked: $command->isPacked);
     }
 }

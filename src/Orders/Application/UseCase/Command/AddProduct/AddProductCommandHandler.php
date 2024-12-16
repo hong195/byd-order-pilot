@@ -29,14 +29,12 @@ final readonly class AddProductCommandHandler implements CommandHandlerInterface
      *
      * @param AddProductCommand $command The command containing the product information
      *
-     * @return int The ID of the created product
+     * @return string The ID of the created product
      *
      * @throws \InvalidArgumentException If access control is not granted
      */
-    public function __invoke(AddProductCommand $command): int
+    public function __invoke(AddProductCommand $command): string
     {
-        AssertService::true($this->accessControlService->isGranted(), 'Not allowed to handle resource.');
-
         $dto = new ProductCreateDTO(
             orderId: $command->orderId,
             length: $command->length,

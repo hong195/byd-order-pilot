@@ -25,7 +25,7 @@ final readonly class HistoryFilter
     public function __construct(
         public ?Pager $pager = null,
         public ?string $inventoryType = null,
-        public ?int $filmId = null,
+        public ?string $filmId = null,
         public ?string $event = null,
         public ?string $type = null,
         public ?array $interval = [],

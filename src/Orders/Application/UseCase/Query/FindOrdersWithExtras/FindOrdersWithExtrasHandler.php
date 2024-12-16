@@ -6,9 +6,7 @@ namespace App\Orders\Application\UseCase\Query\FindOrdersWithExtras;
 
 use App\Orders\Application\DTO\Order\OrderDataTransformer;
 use App\Orders\Infrastructure\Repository\OrderRepository;
-use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Query\QueryHandlerInterface;
-use App\Shared\Domain\Service\AssertService;
 
 /**
  * Class FindPackedOrdersHandler.
@@ -18,12 +16,10 @@ final readonly class FindOrdersWithExtrasHandler implements QueryHandlerInterfac
     /**
      * Constructs a new instance of the class.
      *
-     * @param OrderRepository      $orderRepository      the order repository instance
-     * @param AccessControlService $accessControlService the access control service instance
+     * @param OrderRepository $orderRepository the order repository instance
      */
     public function __construct(
         private OrderRepository $orderRepository,
-        private AccessControlService $accessControlService,
         private OrderDataTransformer $orderDataTransformer,
     ) {
     }
@@ -37,8 +33,6 @@ final readonly class FindOrdersWithExtrasHandler implements QueryHandlerInterfac
      */
     public function __invoke(FindOrdersWithExtrasQuery $query): FindOrdersWithExtrasResult
     {
-        AssertService::true($this->accessControlService->isGranted(), 'Access denied');
-
         $result = $this->orderRepository->findOnlyWithExtras();
 
         $orderData = $this->orderDataTransformer->fromOrdersEntityList($result);

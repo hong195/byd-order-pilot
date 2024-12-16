@@ -31,12 +31,12 @@ final readonly class CuttingCheckInService
 	/**
 	 * Handle the roll.
 	 *
-	 * @param int $rollId the ID of the roll
+	 * @param string $rollId the ID of the roll
 	 *
 	 * @throws RollCantBeSentToCuttingException
 	 * @throws DomainException
 	 */
-    public function handle(int $rollId): void
+    public function handle(string $rollId): void
     {
         $roll = $this->rollRepository->findById($rollId);
 

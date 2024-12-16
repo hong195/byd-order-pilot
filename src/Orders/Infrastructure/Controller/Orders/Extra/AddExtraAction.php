@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Attribute\Route;
  * This class handles the add_product API endpoint.
  */
 #[AsController]
-#[Route('/api/orders/{orderId}/extras', name: 'add_extra', requirements: ['orderId' => '^\d+$'], methods: ['POST'])]
+#[Route('/api/orders/{orderId}/extras', name: 'add_extra', requirements: ['orderId' => '^\w+$'], methods: ['POST'])]
 final readonly class AddExtraAction
 {
     /**
@@ -34,7 +34,7 @@ final readonly class AddExtraAction
      *
      * @return JsonResponse a JSON response indicating the success status of the action
      */
-    public function __invoke(int $orderId, Request $request): JsonResponse
+    public function __invoke(string $orderId, Request $request): JsonResponse
     {
         $this->privateCommandInteractor->createExtra(new CreateExtraCommand(
             orderId: $orderId,

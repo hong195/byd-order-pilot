@@ -16,10 +16,10 @@ final readonly class FindProductsQuery extends Query
     /**
      * Constructor for the Symfony application.
      *
-     * @param int|null $orderId    Order ID representing the id of the order
-     * @param int[]    $productIds An array of product IDs
+     * @param string|null $orderId    Order ID representing the id of the order
+     * @param string[]    $productIds An array of product IDs
      */
-    public function __construct(public ?int $orderId = null, public array $productIds = [])
+    public function __construct(public ?string $orderId = null, public array $productIds = [])
     {
     }
 }

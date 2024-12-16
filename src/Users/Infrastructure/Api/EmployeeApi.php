@@ -13,7 +13,7 @@ final readonly class EmployeeApi implements EmployeeAdapterInterface
     {
     }
 
-    public function fetchById(int $employeeId): \App\Users\Application\DTO\UserDTO
+    public function fetchById(string $employeeId): \App\Users\Application\DTO\UserDTO
     {
         return $this->privateUseCaseInteractor->findAUser($employeeId)->user;
     }

@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Attribute\Route;
  * This class handles the change-sort-order API endpoint.
  */
 #[AsController]
-#[Route('/api/rolls/{rollId}/printed-products/change-sort', name: 'change-printed-product-order', requirements: ['rollId' => '^\d+$'], methods: ['POST'])]
+#[Route('/api/rolls/{rollId}/printed-products/change-sort', name: 'change-printed-product-order', requirements: ['rollId' => '^\w+$'], methods: ['POST'])]
 final readonly class ChangeSortPrintedProductAction
 {
     /**
@@ -31,7 +31,7 @@ final readonly class ChangeSortPrintedProductAction
      *
      * @return JsonResponse the JSON response
      */
-    public function __invoke(int $rollId, Request $request): JsonResponse
+    public function __invoke(string $rollId, Request $request): JsonResponse
     {
         $sortOrderData = new SortData(rollId: $rollId, group: (int) $request->get('group'), sortOrders: array_map('intval', $request->get('sortOrders')));
         $this->privateCommandInteractor->changeSortOrder($sortOrderData);

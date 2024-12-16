@@ -18,7 +18,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
  * @Route('/api/users', methods: ['GET'])
  */
 #[AsController]
-#[Route('/api/users/{id}', requirements: ['id' => '^\d+$'], methods: ['GET'])]
+#[Route('/api/users/{id}', requirements: ['id' => '^\w+$'], methods: ['GET'])]
 readonly class FinAUserAction
 {
     /**

@@ -88,11 +88,11 @@ final class FilmAssignmentService
     /**
      * Method to get the total length of manually created rolls by film ID.
      *
-     * @param int $filmId The ID of the film
+     * @param string $filmId The ID of the film
      *
      * @return float The total length of manually created rolls
      */
-    private function getManuallyCreatedRollsLengthByFilmId(int $filmId): float
+    private function getManuallyCreatedRollsLengthByFilmId(string $filmId): float
     {
         $rolls = $this->rollRepository->findByFilter(new RollFilter(process: Process::ORDER_CHECK_IN, filmIds: [$filmId]));
         $rollsLength = $rolls

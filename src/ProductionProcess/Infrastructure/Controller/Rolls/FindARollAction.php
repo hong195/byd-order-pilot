@@ -19,7 +19,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
  * @Route("/api/rolls/{id}", requirements={"id"="\d+"}, methods={"GET"})
  */
 #[AsController]
-#[Route('/api/rolls/{id}', name: 'find_a_single_roll', requirements: ['id' => '^\d+$'], methods: ['GET'])]
+#[Route('/api/rolls/{id}', name: 'find_a_single_roll', requirements: ['id' => '^\w+$'], methods: ['GET'])]
 final class FindARollAction extends BaseController
 {
     /**

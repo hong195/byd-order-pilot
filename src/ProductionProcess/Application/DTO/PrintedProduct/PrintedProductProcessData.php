@@ -20,8 +20,8 @@ final readonly class PrintedProductProcessData
      * @param string|null $photo            the photo of the process printed product
      */
     public function __construct(
-        public int $relatedProductId,
-        public ?int $rollId,
+        public string $relatedProductId,
+        public ?string $rollId,
         public ?string $process,
         public bool $isFinished = false,
         public bool $isReprint = false,

@@ -20,7 +20,7 @@ readonly class ChangePrinterAvailabilityCommand implements CommandInterface
      * @param int  $printerId   the ID of the printer
      * @param bool $isAvailable indicates whether the printer is available or not
      */
-    public function __construct(public int $printerId, public bool $isAvailable)
+    public function __construct(public string $printerId, public bool $isAvailable)
     {
     }
 }

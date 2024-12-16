@@ -33,12 +33,12 @@ final readonly class GlowCheckInService
     /**
      * Print a roll.
      *
-     * @param int $rollId The ID of the roll to be printed
+     * @param string $rollId The ID of the roll to be printed
      *
      * @throws NotFoundHttpException         If the roll is not found
      * @throws RollCantBeSentToGlowException
      */
-    public function handle(int $rollId): void
+    public function handle(string $rollId): void
     {
         $rollToGlow = $this->rollRepository->findById($rollId);
 

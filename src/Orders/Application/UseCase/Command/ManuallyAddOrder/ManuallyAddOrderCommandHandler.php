@@ -34,10 +34,8 @@ final readonly class ManuallyAddOrderCommandHandler implements CommandHandlerInt
      *
      * @throws \Exception
      */
-    public function __invoke(ManuallyAddOrderCommand $command): int
+    public function __invoke(ManuallyAddOrderCommand $command): string
     {
-        AssertService::true($this->accessControlService->isGranted(), 'Not allowed to handle resource.');
-
         $orderData = new ManualCreateOrderDTO(
             customerName: $command->customerName,
 			shippingAddress: $command->shippingAddress,

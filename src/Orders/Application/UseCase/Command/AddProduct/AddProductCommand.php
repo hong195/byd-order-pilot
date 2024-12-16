@@ -14,14 +14,14 @@ readonly class AddProductCommand implements CommandInterface
     /**
      * Class constructor.
      *
-     * @param int         $orderId        the order ID
+     * @param string      $orderId        the order ID
      * @param string|null $filmType       the film type
      * @param string|null $laminationType the lamination type
      * @param int|null    $cutFileId      the cut file ID
      * @param int|null    $printFileId    the print file ID
      */
     public function __construct(
-        public int $orderId,
+        public string $orderId,
         public float $length,
         public ?string $filmType,
         public ?string $laminationType = null,

@@ -25,7 +25,7 @@ final class PrintedProductFactory
      *
      * @return PrintedProduct A new PrintedProduct instance
      */
-    public function make(int $relatedProductId, string $orderNumber, string $filmType, float $length): PrintedProduct
+    public function make(string $relatedProductId, string $orderNumber, string $filmType, float $length): PrintedProduct
     {
         return new PrintedProduct(
             relatedProductId: $relatedProductId,

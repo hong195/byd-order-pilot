@@ -20,7 +20,7 @@ final readonly class ProductCreateDTO
      * @param int|null    $printFileId    The ID of the print file (optional)
      */
     public function __construct(
-        public int $orderId,
+        public string $orderId,
         public float $length,
         public string $filmType,
         public ?string $laminationType = null,

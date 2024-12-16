@@ -14,7 +14,7 @@ final class PrintedProductFilter
     /**
      * Class constructor.
      */
-    public function __construct(public ?bool $unassigned = null, public ?int $rollId = null, public array $ids = [])
+    public function __construct(public ?bool $unassigned = null, public ?string $rollId = null, public array $ids = [])
     {
     }
 }

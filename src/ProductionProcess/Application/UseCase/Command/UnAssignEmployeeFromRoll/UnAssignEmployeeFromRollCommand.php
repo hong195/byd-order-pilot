@@ -16,9 +16,9 @@ readonly class UnAssignEmployeeFromRollCommand implements CommandInterface
     /**
      * Class constructor.
      *
-     * @param int $rollId - The ID of the roll
+     * @param string $rollId - The ID of the roll
      */
-    public function __construct(public int $rollId)
+    public function __construct(public string $rollId)
     {
     }
 }

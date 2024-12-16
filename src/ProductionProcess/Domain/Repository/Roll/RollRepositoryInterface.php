@@ -22,11 +22,11 @@ interface RollRepositoryInterface
     /**
      * Finds a record by film id.
      *
-     * @param int $filmId the film id of the record to find
+     * @param string $filmId the film id of the record to find
      *
      * @return Collection<Roll> the found record or null if not found
      */
-    public function findByFilmId(int $filmId): Collection;
+    public function findByFilmId(string $filmId): Collection;
 
     /**
      * Saves a Roll object to the database.

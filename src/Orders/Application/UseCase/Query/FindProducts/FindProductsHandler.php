@@ -17,10 +17,7 @@ final readonly class FindProductsHandler implements QueryHandlerInterface
     /**
      * Class constructor.
      */
-    public function __construct(
-        private AccessControlService $accessControlService,
-        private ProductListService $productListService,
-    ) {
+    public function __construct(private ProductListService $productListService) {
     }
 
     /**
@@ -32,8 +29,6 @@ final readonly class FindProductsHandler implements QueryHandlerInterface
      */
     public function __invoke(FindProductsQuery $query): FindProductsResult
     {
-        AssertService::true($this->accessControlService->isGranted(), 'Access denied');
-
         $result = $this->productListService->getList(orderId: $query->orderId, productIds: $query->productIds);
 
         return new FindProductsResult($result);

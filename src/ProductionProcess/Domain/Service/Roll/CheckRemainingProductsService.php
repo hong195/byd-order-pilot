@@ -22,11 +22,11 @@ final readonly class CheckRemainingProductsService
     /**
      * Check roll if there are printed products left, if not roll will be removed.
      *
-     * @param int $rollId The ID of the roll to check
+     * @param string $rollId The ID of the roll to check
      *
      * @throws NotFoundHttpException If the roll is not found
      */
-    public function check(int $rollId): void
+    public function check(string $rollId): void
     {
         $roll = $this->rollRepository->findById($rollId);
 

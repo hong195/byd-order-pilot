@@ -6,9 +6,7 @@ namespace App\ProductionProcess\Application\UseCase\Command\GlowCheckIn;
 
 use App\ProductionProcess\Domain\Exceptions\RollCantBeSentToGlowException;
 use App\ProductionProcess\Domain\Service\Roll\GlowCheckInService;
-use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Command\CommandHandlerInterface;
-use App\Shared\Domain\Service\AssertService;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -21,10 +19,9 @@ readonly class GlowCheckInCommandHandler implements CommandHandlerInterface
     /**
      * Class constructor.
      *
-     * @param AccessControlService $accessControlService         the access control service
-     * @param GlowCheckInService   $sendRollToGlowCheckInService the send roll to Glow CheckIn service
+     * @param GlowCheckInService $sendRollToGlowCheckInService the send roll to Glow CheckIn service
      */
-    public function __construct(private AccessControlService $accessControlService, private GlowCheckInService $sendRollToGlowCheckInService)
+    public function __construct(private GlowCheckInService $sendRollToGlowCheckInService)
     {
     }
 
@@ -34,8 +31,6 @@ readonly class GlowCheckInCommandHandler implements CommandHandlerInterface
      */
     public function __invoke(GlowCheckInCommand $command): void
     {
-        AssertService::true($this->accessControlService->isGranted(), 'No access to handle the command');
-
         $this->sendRollToGlowCheckInService->handle($command->rollId);
     }
 }

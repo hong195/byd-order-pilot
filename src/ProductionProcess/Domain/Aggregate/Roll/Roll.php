@@ -23,7 +23,7 @@ use Webmozart\Assert\Assert;
 class Roll extends Aggregate
 {
     private string $id;
-    private ?int $filmId = null;
+    private ?string $filmId = null;
     private ?int $glowId = null;
     private \DateTimeImmutable $dateAdded;
     /**
@@ -32,7 +32,7 @@ class Roll extends Aggregate
     private Collection $printedProducts;
     private ?Printer $printer = null;
 
-    private ?int $employeeId = null;
+    private ?string $employeeId = null;
 
     private ?self $parentRoll = null;
 
@@ -45,7 +45,7 @@ class Roll extends Aggregate
      *
      * @return void
      */
-    public function __construct(private string $name, ?int $filmId = null, private ?Process $process = Process::ORDER_CHECK_IN)
+    public function __construct(private string $name, ?string $filmId = null, private ?Process $process = Process::ORDER_CHECK_IN)
     {
 		$this->id = UlidService::generate();
         $this->filmId = $filmId;
@@ -153,9 +153,9 @@ class Roll extends Aggregate
     /**
      * Assigns the given coil ID to this object.
      *
-     * @param int $filmId the ID of the coil to be assigned
+     * @param string $filmId the ID of the coil to be assigned
      */
-    public function setFilmId(int $filmId): void
+    public function setFilmId(string $filmId): void
     {
         $this->filmId = $filmId;
     }
@@ -193,9 +193,9 @@ class Roll extends Aggregate
     /**
      * Assigns the given employee ID to this object.
      *
-     * @param ?int $employeeId the ID of the employee to be assigned
+     * @param ?string $employeeId the ID of the employee to be assigned
      */
-    public function setEmployeeId(?int $employeeId): void
+    public function setEmployeeId(?string $employeeId): void
     {
         $this->employeeId = $employeeId;
     }

@@ -28,8 +28,6 @@ readonly class CreateExtraCommandHandler implements CommandHandlerInterface
      */
     public function __invoke(CreateExtraCommand $command): void
     {
-        AssertService::true($this->accessControlService->isGranted(), 'No access to handle the command');
-
         $order = $this->orderRepository->findById($command->orderId);
 
         if (!$order) {

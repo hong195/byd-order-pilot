@@ -16,7 +16,7 @@ readonly class GlowCheckInCommand implements CommandInterface
      *
      * @param $rollId $id the ID of the roll to send to print
      */
-    public function __construct(public int $rollId)
+    public function __construct(public string $rollId)
     {
     }
 }

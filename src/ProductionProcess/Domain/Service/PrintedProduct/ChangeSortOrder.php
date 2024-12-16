@@ -32,7 +32,7 @@ final readonly class ChangeSortOrder
      *
      * @throws NotFoundHttpException If the roll with the specified ID is not found
      */
-    public function handle(int $rollId, int $group, array $sortOrders): void
+    public function handle(string $rollId, int $group, array $sortOrders): void
     {
         $roll = $this->rollRepository->findById($rollId);
 

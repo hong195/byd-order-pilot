@@ -14,10 +14,10 @@ readonly class AssignEmployeeToRollCommand implements CommandInterface
     /**
      * Class constructor.
      *
-     * @param int $rollId     - The ID of the roll
-     * @param int $employeeId - The ID of the employee
+     * @param string $rollId     - The ID of the roll
+     * @param string $employeeId - The ID of the employee
      */
-    public function __construct(public int $rollId, public int $employeeId)
+    public function __construct(public string $rollId, public string $employeeId)
     {
     }
 }

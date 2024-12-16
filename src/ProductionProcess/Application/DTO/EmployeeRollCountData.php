@@ -24,7 +24,7 @@ final class EmployeeRollCountData
      * @param int|null    $glowCheckIn     the glow check-in value, or null if not available
      * @param int|null    $cuttingCheckIn  the cutting check-in value, or null if not available
      */
-    public function __construct(public readonly ?int $employeeId = null, public readonly ?string $employeeName = null, public readonly ?int $total = null, public ?int $orderCheckIn = null, public ?int $printingCheckIn = null, public ?int $glowCheckIn = null, public ?int $cuttingCheckIn = null)
+    public function __construct(public readonly ?string $employeeId = null, public readonly ?string $employeeName = null, public readonly ?int $total = null, public ?int $orderCheckIn = null, public ?int $printingCheckIn = null, public ?int $glowCheckIn = null, public ?int $cuttingCheckIn = null)
     {
     }
 }

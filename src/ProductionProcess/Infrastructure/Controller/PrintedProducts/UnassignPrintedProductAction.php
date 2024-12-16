@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Attribute\Route;
  * This class handles the find_order API endpoint.
  */
 #[AsController]
-#[Route('/api/printed-products/{printedProductId}/unassign', name: 'unassign-order', requirements: ['printedProductId' => '^\d+$'], methods: ['POST'])]
+#[Route('/api/printed-products/{printedProductId}/unassign', name: 'unassign-order', requirements: ['printedProductId' => '^\w+$'], methods: ['POST'])]
 final readonly class UnassignPrintedProductAction
 {
     /**

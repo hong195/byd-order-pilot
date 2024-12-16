@@ -25,7 +25,7 @@ readonly class PrintCheckInCommandHandler implements CommandHandlerInterface
      * @param AccessControlService $accessControlService      The access control service
      * @param PrintCheckInService  $sendToPrintCheckInService The send to print check in service
      */
-    public function __construct(private AccessControlService $accessControlService, private PrintCheckInService $sendToPrintCheckInService)
+    public function __construct(private PrintCheckInService $sendToPrintCheckInService)
     {
     }
 
@@ -36,8 +36,6 @@ readonly class PrintCheckInCommandHandler implements CommandHandlerInterface
      */
     public function __invoke(PrintCheckIntCommand $command): void
     {
-        AssertService::true($this->accessControlService->isGranted(), 'No access to handle the command');
-
         $this->sendToPrintCheckInService->handle($command->rollId);
     }
 }

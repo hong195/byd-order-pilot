@@ -106,7 +106,7 @@ class PrintedProductRepository extends ServiceEntityRepository implements Printe
     /**
      * Finds an array of PrintedProducts by their IDs.
      *
-     * @param iterable<int> $relatedProductsIds The array of IDs to find PrintedProducts for
+     * @param iterable<string> $relatedProductsIds The array of IDs to find PrintedProducts for
      *
      * @return PrintedProduct[] An array of PrintedProduct objects corresponding to the provided IDs
      */

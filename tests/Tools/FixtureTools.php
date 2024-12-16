@@ -125,7 +125,7 @@ trait FixtureTools
         return $printedProduct;
     }
 
-    public function createPreparedRoll(string $filmType, float $length = 0, ?int $filmId = null, ?string $lamination = null, ?int $productCount = 1): Roll
+    public function createPreparedRoll(string $filmType, float $length = 0, ?string $filmId = null, ?string $lamination = null, ?int $productCount = 1): Roll
     {
         $roll = $this->loadRoll();
         $roll->updateProcess(Process::ORDER_CHECK_IN);

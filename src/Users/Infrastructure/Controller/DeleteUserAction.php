@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Attribute\Route;
  * Deletes a user.
  */
 #[AsController]
-#[Route('/api/users/{id}', name: 'delete_user', requirements: ['id' => '^\d+$'], methods: ['DELETE'])]
+#[Route('/api/users/{id}', name: 'delete_user', requirements: ['id' => '^\w+$'], methods: ['DELETE'])]
 readonly class DeleteUserAction
 {
     /**

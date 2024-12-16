@@ -6,10 +6,8 @@ namespace App\ProductionProcess\Application\UseCase\Query\FindRollHistory;
 
 use App\ProductionProcess\Application\DTO\RollDataTransformer;
 use App\ProductionProcess\Application\Service\Roll\History\HistoryListService;
-use  App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
-use App\Shared\Application\AccessControll\AccessControlService;
+use App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
 use App\Shared\Application\Query\QueryHandlerInterface;
-use App\Shared\Domain\Service\AssertService;
 
 /**
  * FindRollHistoryHandler constructor.
@@ -21,10 +19,8 @@ final readonly class FindRollHistoryHandler implements QueryHandlerInterface
 {
     /**
      * Class constructor.
-     *
-     * @param AccessControlService $accessControlService the access control service instance
      */
-    public function __construct(private AccessControlService $accessControlService, private HistoryListService $historyListService)
+    public function __construct(private HistoryListService $historyListService)
     {
     }
 
@@ -37,8 +33,6 @@ final readonly class FindRollHistoryHandler implements QueryHandlerInterface
      */
     public function __invoke(FindRollHistoryQuery $rollQuery): FindRollHistoryResult
     {
-        AssertService::true($this->accessControlService->isGranted(), 'Access denied');
-
         return new FindRollHistoryResult(($this->historyListService)($rollQuery->rollId));
     }
 }

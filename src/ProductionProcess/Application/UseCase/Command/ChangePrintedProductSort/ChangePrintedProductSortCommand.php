@@ -14,11 +14,11 @@ readonly class ChangePrintedProductSortCommand implements CommandInterface
     /**
      * Constructor for the class.
      *
-     * @param int        $rollId     The ID of the roll
+     * @param string        $rollId     The ID of the roll
      * @param int        $group      The group number
      * @param array<int> $sortOrders The sort orders for the roll
      */
-    public function __construct(public int $rollId, public int $group, public array $sortOrders)
+    public function __construct(public string $rollId, public int $group, public array $sortOrders)
     {
     }
 }

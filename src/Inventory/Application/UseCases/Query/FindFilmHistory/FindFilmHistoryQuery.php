@@ -25,7 +25,7 @@ final class FindFilmHistoryQuery implements QueryInterface
      */
     public function __construct(
         public readonly ?string $inventoryType = null,
-        public readonly ?int $filmId = null,
+        public readonly ?string $filmId = null,
         public readonly ?string $event = null,
         public readonly ?string $type = null,
         public readonly ?int $page = null,

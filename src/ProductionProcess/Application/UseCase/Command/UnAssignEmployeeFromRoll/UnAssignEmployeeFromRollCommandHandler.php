@@ -33,7 +33,6 @@ readonly class UnAssignEmployeeFromRollCommandHandler implements CommandHandlerI
      */
     public function __invoke(UnAssignEmployeeFromRollCommand $command): void
     {
-        AssertService::true($this->accessControlService->isGranted(), 'No access to handle the command');
         $roll = $this->rollRepository->findById($command->rollId);
 
         if (!$roll) {

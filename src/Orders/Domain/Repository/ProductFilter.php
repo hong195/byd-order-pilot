@@ -9,10 +9,10 @@ final readonly class ProductFilter
     /**
      * Class constructor.
      *
-     * @param int|null $orderId    The order ID. Defaults to null.
-     * @param int[]    $productIds An array of product IDs. Defaults to an empty array.
+     * @param string|null $orderId    The order ID. Defaults to null.
+     * @param string[]    $productIds An array of product IDs. Defaults to an empty array.
      */
-    public function __construct(public ?int $orderId = null, public array $productIds = [])
+    public function __construct(public ?string $orderId = null, public array $productIds = [])
     {
     }
 }

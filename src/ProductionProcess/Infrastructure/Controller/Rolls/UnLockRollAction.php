@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Attribute\Route;
  * This class handles the find_order API endpoint.
  */
 #[AsController]
-#[Route('/api/rolls/{rollId}/unlock', name: 'unlock-roll', requirements: ['rollId' => '^\d+$'], methods: ['POST'])]
+#[Route('/api/rolls/{rollId}/unlock', name: 'unlock-roll', requirements: ['rollId' => '^\w+$'], methods: ['POST'])]
 final readonly class UnLockRollAction
 {
     /**
@@ -27,11 +27,11 @@ final readonly class UnLockRollAction
     /**
      * Invokes the requested action.
      *
-     * @param int $rollId the unique identifier of the roll to be locked
+     * @param string $rollId the unique identifier of the roll to be locked
      *
      * @return JsonResponse a JSON response indicating the success status after locking the specified roll
      */
-    public function __invoke(int $rollId): JsonResponse
+    public function __invoke(string $rollId): JsonResponse
     {
         $this->privateCommandInteractor->unLockRoll($rollId);
 

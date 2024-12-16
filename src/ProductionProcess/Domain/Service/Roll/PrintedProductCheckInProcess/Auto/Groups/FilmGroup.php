@@ -15,7 +15,7 @@ final class FilmGroup
      * @param string|null    $filmType The type of the film (optional)
      * @param ProductGroup[] $groups   An array of groups associated with the film
      */
-    public function __construct(public ?int $filmId = null, public ?string $filmType = null, private array $groups = [])
+    public function __construct(public ?string $filmId = null, public ?string $filmType = null, private array $groups = [])
     {
     }
 
@@ -28,7 +28,7 @@ final class FilmGroup
      *
      * @return self A new instance of the current class with the provided film details and groups
      */
-    public function make(?int $filmId, ?string $filmType, array $groups = []): self
+    public function make(?string $filmId, ?string $filmType, array $groups = []): self
     {
         return new self($filmId, $filmType, $groups);
     }

@@ -21,7 +21,7 @@ readonly class PackProductCommandHandler implements CommandHandlerInterface
      * @param PackProduct          $packMainProduct      the main pack product to be injected
      * @param AccessControlService $accessControlService the access control service to be injected
      */
-    public function __construct(private PackProduct $packMainProduct, private AccessControlService $accessControlService)
+    public function __construct(private PackProduct $packMainProduct)
     {
     }
 
@@ -35,7 +35,6 @@ readonly class PackProductCommandHandler implements CommandHandlerInterface
      */
     public function __invoke(PackProductCommand $command): void
     {
-        AssertService::true($this->accessControlService->isGranted(), 'No access to handle the command');
         $this->packMainProduct->handle(productId: $command->productId);
     }
 }

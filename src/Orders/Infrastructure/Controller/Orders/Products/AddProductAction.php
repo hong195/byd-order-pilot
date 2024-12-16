@@ -17,7 +17,7 @@ use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[AsController]
-#[Route('api/orders/{orderId}/products', 'add-product', requirements: ['orderId' => '^\d+$'], methods: ['POST'])]
+#[Route('api/orders/{orderId}/products', 'add-product', requirements: ['orderId' => '^\w+$'], methods: ['POST'])]
 final readonly class AddProductAction
 {
 	/**
@@ -37,7 +37,7 @@ final readonly class AddProductAction
 	 *
 	 * @return JsonResponse the HTTP response object
 	 */
-	public function __invoke(int $orderId, Request $request): JsonResponse
+	public function __invoke(string $orderId, Request $request): JsonResponse
 	{
 		$cutFileId = null;
 		$printFileId = null;

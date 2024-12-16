@@ -14,7 +14,7 @@ use App\Shared\Application\Query\Query;
 final readonly class GetPrintedProductsProcessDetailQuery extends Query
 {
     /**
-     * @param iterable<int> $relatedProductIds
+     * @param iterable<string> $relatedProductIds
      */
     public function __construct(public iterable $relatedProductIds)
     {

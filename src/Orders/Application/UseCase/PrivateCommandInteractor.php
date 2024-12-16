@@ -57,10 +57,10 @@ readonly class PrivateCommandInteractor
     /**
      * Packs or unpacks an extra for an order.
      *
-     * @param int $orderId The ID of the order
-     * @param int $extraId The ID of the extra
+     * @param string $orderId The ID of the order
+     * @param string $extraId The ID of the extra
      */
-    public function packExtra(int $orderId, int $extraId): void
+    public function packExtra(string $orderId, string $extraId): void
     {
         $this->commandBus->execute(new PackExtraCommand(orderId: $orderId, extraId: $extraId));
     }
@@ -68,10 +68,10 @@ readonly class PrivateCommandInteractor
     /**
      * Unpacks an extra for a given order.
      *
-     * @param int $orderId The ID of the order
-     * @param int $extraId The ID of the extra to unpack
+     * @param string $orderId The ID of the order
+     * @param string $extraId The ID of the extra to unpack
      */
-    public function unPackExtra(int $orderId, int $extraId): void
+    public function unPackExtra(string $orderId, string $extraId): void
     {
         $this->commandBus->execute(new UnPackExtraCommand(orderId: $orderId, extraId: $extraId));
     }
@@ -81,7 +81,7 @@ readonly class PrivateCommandInteractor
      *
      * @param AddProductCommand $command The command containing the product information
      */
-    public function addProduct(AddProductCommand $command): int
+    public function addProduct(AddProductCommand $command): string
     {
         return $this->commandBus->execute($command);
     }

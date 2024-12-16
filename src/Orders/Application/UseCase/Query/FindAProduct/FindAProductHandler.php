@@ -22,7 +22,6 @@ final readonly class FindAProductHandler implements QueryHandlerInterface
      */
     public function __construct(
         private ProductRepositoryInterface $productRepository,
-        private AccessControlService $accessControlService,
         private ProductDataTransformer $productDataTransformer,
     ) {
     }
@@ -36,8 +35,6 @@ final readonly class FindAProductHandler implements QueryHandlerInterface
      */
     public function __invoke(FindAProductQuery $query): FindAProductResult
     {
-        AssertService::true($this->accessControlService->isGranted(), 'Access denied');
-
         $result = $this->productRepository->findById($query->productId);
 
         $productsData = $this->productDataTransformer->fromEntity($result);

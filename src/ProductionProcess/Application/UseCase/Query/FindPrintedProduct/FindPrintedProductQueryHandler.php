@@ -6,9 +6,7 @@ namespace App\ProductionProcess\Application\UseCase\Query\FindPrintedProduct;
 
 use App\ProductionProcess\Application\DTO\PrintedProduct\PrintedProductDataTransformer;
 use App\ProductionProcess\Domain\Repository\PrintedProduct\PrintedProductRepositoryInterface;
-use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Query\QueryHandlerInterface;
-use App\Shared\Domain\Service\AssertService;
 
 /**
  * Handler class for finding printed products.
@@ -17,10 +15,8 @@ final readonly class FindPrintedProductQueryHandler implements QueryHandlerInter
 {
     /**
      * Class constructor.
-     *
-     * @param AccessControlService $accessControlService the access control service instance
      */
-    public function __construct(private AccessControlService $accessControlService, private PrintedProductRepositoryInterface $printedProductRepository, private PrintedProductDataTransformer $transformer)
+    public function __construct(private PrintedProductRepositoryInterface $printedProductRepository, private PrintedProductDataTransformer $transformer)
     {
     }
 
@@ -35,8 +31,6 @@ final readonly class FindPrintedProductQueryHandler implements QueryHandlerInter
      */
     public function __invoke(FindPrintedProductQuery $query): FindPrintedProductQueryResult
     {
-        AssertService::true($this->accessControlService->isGranted(), 'Access denied');
-
         $printedProduct = $this->printedProductRepository->findById($query->printedProductId);
 
         $printedProductData = $this->transformer->fromEntity($printedProduct);

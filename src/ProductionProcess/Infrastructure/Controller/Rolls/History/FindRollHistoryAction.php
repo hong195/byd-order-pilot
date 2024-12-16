@@ -14,10 +14,10 @@ use Symfony\Component\Serializer\Exception\ExceptionInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 /**
- * @Route('/api/roll/{rollId}/history', name='find_roll_history', requirements={'rollId': '^\d+$'}, methods={'GET'})
+ * @Route('/api/roll/{rollId}/history', name='find_roll_history', requirements={'rollId': '^\w+$'}, methods={'GET'})
  */
 #[AsController]
-#[Route('/api/rolls/{rollId}/history', name: 'find_roll_history', requirements: ['rollId' => '^\d+$'], methods: ['GET'])]
+#[Route('/api/rolls/{rollId}/history', name: 'find_roll_history', requirements: ['rollId' => '^\w+$'], methods: ['GET'])]
 final class FindRollHistoryAction extends BaseController
 {
     /**
@@ -35,7 +35,7 @@ final class FindRollHistoryAction extends BaseController
      *
      * @throws ExceptionInterface
      */
-    public function __invoke(int $rollId): JsonResponse
+    public function __invoke(string $rollId): JsonResponse
     {
         $result = $this->privateQueryInteractor->findRollHistory($rollId);
 

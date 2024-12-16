@@ -21,7 +21,7 @@ class RollFactory
      *
      * @return Roll the newly created Roll object
      */
-    public function create(string $name, ?int $filmId = null, ?Process $process = null): Roll
+    public function create(string $name, ?string $filmId = null, ?Process $process = null): Roll
     {
         return new Roll(name: $name, filmId: $filmId, process: $process);
     }

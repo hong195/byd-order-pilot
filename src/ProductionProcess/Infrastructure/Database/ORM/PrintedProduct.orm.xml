@@ -18,7 +18,7 @@
             <join-column name="roll_id" nullable="true"/>
         </many-to-one>
 
-        <field name="relatedProductId" type="integer" column="related_product_id" nullable="true"/>
+        <field name="relatedProductId" type="string" column="related_product_id" nullable="true"/>
 
         <field name="length" type="decimal" column="length" nullable="true" precision="15" scale="2"/>
 

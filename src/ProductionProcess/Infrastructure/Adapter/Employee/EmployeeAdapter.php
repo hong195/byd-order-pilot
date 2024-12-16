@@ -19,11 +19,11 @@ final readonly class EmployeeAdapter implements EmployeeFetcher
     /**
      * Fetches employee data by their ID.
      *
-     * @param int $employeeId The ID of the employee
+     * @param string $employeeId The ID of the employee
      *
      * @return EmployeeData The EmployeeData object
      */
-    public function getById(int $employeeId): EmployeeData
+    public function getById(string $employeeId): EmployeeData
     {
         $employee = $this->employeeApi->fetchById($employeeId);
 

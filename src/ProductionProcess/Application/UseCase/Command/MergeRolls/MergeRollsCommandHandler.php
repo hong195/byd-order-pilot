@@ -16,10 +16,9 @@ final readonly class MergeRollsCommandHandler implements CommandHandlerInterface
     /**
      * Constructor for the Symfony application.
      *
-     * @param AccessControlService $accessControlService the Access Control Service instance
      * @param MergeService         $mergeService         the Merge Service instance
      */
-    public function __construct(private AccessControlService $accessControlService, private MergeService $mergeService)
+    public function __construct(private MergeService $mergeService)
     {
     }
 
@@ -29,8 +28,6 @@ final readonly class MergeRollsCommandHandler implements CommandHandlerInterface
      */
     public function __invoke(MergeRollsCommand $command): void
     {
-        AssertService::true($this->accessControlService->isGranted(), 'No access to handle the command');
-
         $this->mergeService->merge($command->rollIds);
     }
 }

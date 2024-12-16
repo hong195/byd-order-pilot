@@ -11,7 +11,7 @@ final readonly class MergeRollsCommand implements CommandInterface
     /**
      * Constructor for the class with an array of rollIds.
      *
-     * @param int[] $rollIds Array of roll IDs
+     * @param string[] $rollIds Array of roll IDs
      */
     public function __construct(public array $rollIds)
     {

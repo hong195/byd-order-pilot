@@ -94,16 +94,16 @@ readonly class PrivateQueryInteractor
     /**
      * Retrieves the roll history by executing the FindRollHistoryQuery.
      *
-     * @param int $rollId the roll ID to find the history for
+     * @param string $rollId the roll ID to find the history for
      *
      * @return FindRollHistoryResult the result of executing the FindRollHistoryQuery
      */
-    public function findRollHistory(int $rollId): FindRollHistoryResult
+    public function findRollHistory(string $rollId): FindRollHistoryResult
     {
         return $this->queryBus->execute(new FindRollHistoryQuery($rollId));
     }
 
-    public function findPrintedProductByRollId(int $rollId): FindPrintedProductsQueryResult
+    public function findPrintedProductByRollId(string $rollId): FindPrintedProductsQueryResult
     {
         $query = new FindPrintedProductsQuery(rollId: $rollId);
 
@@ -167,11 +167,6 @@ readonly class PrivateQueryInteractor
         return $this->queryBus->execute(new FindPrintedProductQuery($printedProductId));
     }
 
-    /**
-     * @param FetchRollHistoryStatisticsFilter $filter
-     *
-     * @return FetchRollHistoryStatisticsResult
-     */
     public function fetchRollHistoryStatistics(FetchRollHistoryStatisticsFilter $filter): FetchRollHistoryStatisticsResult
     {
         $query = new FetchRollHistoryStatisticsQuery($filter);
@@ -179,11 +174,6 @@ readonly class PrivateQueryInteractor
         return $this->queryBus->execute($query);
     }
 
-    /**
-     * @param DateRangeFilter $dateRangeFilter
-     *
-     * @return FetchEmployeeRollCountStatisticsResult
-     */
     public function fetchEmployeeRollCountStatistics(DateRangeFilter $dateRangeFilter): FetchEmployeeRollCountStatisticsResult
     {
         $query = new FetchEmployeeRollCountStatisticsQuery(dateRangeFilter: $dateRangeFilter);

@@ -10,8 +10,6 @@ use App\Orders\Application\UseCase\Query\FindAProduct\FindAProductQuery;
 use App\Orders\Application\UseCase\Query\FindAProduct\FindAProductResult;
 use App\Orders\Application\UseCase\Query\FindExtras\FindExtrasQuery;
 use App\Orders\Application\UseCase\Query\FindExtras\FindExtrasResult;
-use App\Orders\Application\UseCase\Query\FindOrders\FindOrdersQuery;
-use App\Orders\Application\UseCase\Query\FindOrders\FindOrdersResult;
 use App\Orders\Application\UseCase\Query\FindOrdersWithExtras\FindOrdersWithExtrasQuery;
 use App\Orders\Application\UseCase\Query\FindOrdersWithExtras\FindOrdersWithExtrasResult;
 use App\Orders\Application\UseCase\Query\FindPackedOrders\FindPackedOrdersQuery;
@@ -20,7 +18,6 @@ use App\Orders\Application\UseCase\Query\FindPartiallyPackedOrders\FindPartially
 use App\Orders\Application\UseCase\Query\FindPartiallyPackedOrders\FindPartiallyPackedOrdersResult;
 use App\Orders\Application\UseCase\Query\FindProducts\FindProductsQuery;
 use App\Orders\Application\UseCase\Query\FindProducts\FindProductsResult;
-use App\Orders\Application\UseCase\Query\GetOptions\GetOptionsQuery;
 use App\Shared\Application\Query\QueryBusInterface;
 
 /**
@@ -50,11 +47,11 @@ readonly class PrivateQueryInteractor
     /**
      * Finds the extras by executing the FindExtrasQuery.
      *
-     * @param int $order the order ID
+     * @param string $order the order ID
      *
      * @return FindExtrasResult the result of executing the FindExtrasQuery
      */
-    public function findExtras(int $order): FindExtrasResult
+    public function findExtras(string $order): FindExtrasResult
     {
         return $this->queryBus->execute(new FindExtrasQuery($order));
     }

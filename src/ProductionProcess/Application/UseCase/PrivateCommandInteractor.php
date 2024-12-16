@@ -55,9 +55,9 @@ readonly class PrivateCommandInteractor
     /**
      * Makes a printer available.
      *
-     * @param int $printerId The ID of the printer
+     * @param string $printerId The ID of the printer
      */
-    public function makePrinterAvailable(int $printerId): void
+    public function makePrinterAvailable(string $printerId): void
     {
         $command = new ChangePrinterAvailabilityCommand(printerId: $printerId, isAvailable: true);
         $this->commandBus->execute($command);
@@ -66,9 +66,9 @@ readonly class PrivateCommandInteractor
     /**
      * Makes a printer available.
      *
-     * @param int $printerId The ID of the printer
+     * @param string $printerId The ID of the printer
      */
-    public function makePrinterUnAvailable(int $printerId): void
+    public function makePrinterUnAvailable(string $printerId): void
     {
         $command = new ChangePrinterAvailabilityCommand(printerId: $printerId, isAvailable: false);
         $this->commandBus->execute($command);
@@ -77,9 +77,9 @@ readonly class PrivateCommandInteractor
     /**
      * Sends a roll to print check-in.
      *
-     * @param int $rollId The ID of the roll to send to print check-in
+     * @param string $rollId The ID of the roll to send to print check-in
      */
-    public function printingCheckIn(int $rollId): void
+    public function printingCheckIn(string $rollId): void
     {
         $this->commandBus->execute(new PrintCheckIntCommand($rollId));
     }
@@ -87,9 +87,9 @@ readonly class PrivateCommandInteractor
     /**
      * Sends a roll to the glow check-in process.
      *
-     * @param int $rollId the ID of the roll to be sent
+     * @param string $rollId the ID of the roll to be sent
      */
-    public function glowCheckIn(int $rollId): void
+    public function glowCheckIn(string $rollId): void
     {
         $this->commandBus->execute(new GlowCheckInCommand($rollId));
     }
@@ -97,30 +97,20 @@ readonly class PrivateCommandInteractor
     /**
      * Sends a roll to be checked in for cutting.
      *
-     * @param int $rollId The ID of the roll to be checked in
+     * @param string $rollId The ID of the roll to be checked in
      */
-    public function cuttingCheckIn(int $rollId): void
+    public function cuttingCheckIn(string $rollId): void
     {
         $this->commandBus->execute(new CuttingCheckIntCommand($rollId));
     }
 
     /**
-     * Reprints a roll with the given reprint command.
-     *
-     * @param ReprintRollCommand $command The command for reprinting the roll
-     */
-    public function reprintRoll(ReprintRollCommand $command): void
-    {
-        $this->commandBus->execute($command);
-    }
-
-    /**
      * Assigns an employee to a role.
      *
-     * @param int $rollId     The ID of the role
-     * @param int $employeeId The ID of the employee
+     * @param string $rollId     The ID of the role
+     * @param string $employeeId The ID of the employee
      */
-    public function assignEmployeeToARoll(int $rollId, int $employeeId): void
+    public function assignEmployeeToARoll(string $rollId, string $employeeId): void
     {
         $this->commandBus->execute(new AssignEmployeeToRollCommand(rollId: $rollId, employeeId: $employeeId));
     }
@@ -140,9 +130,9 @@ readonly class PrivateCommandInteractor
     /**
      * Unassigns an employee from a roll.
      *
-     * @param int $rollId The ID of the roll
+     * @param string $rollId The ID of the roll
      */
-    public function unassignEmployeeFromRoll(int $rollId): void
+    public function unassignEmployeeFromRoll(string $rollId): void
     {
         $this->commandBus->execute(new UnAssignEmployeeFromRollCommand(rollId: $rollId));
     }
@@ -150,9 +140,9 @@ readonly class PrivateCommandInteractor
     /**
      * Synchronizes the roll history.
      *
-     * @param int $rollId The ID of the roll
+     * @param string $rollId The ID of the roll
      */
-    public function recoredRollProcessUpdate(int $rollId, string $process): void
+    public function recoredRollProcessUpdate(string $rollId, string $process): void
     {
         $this->commandBus->execute(new RecordRollHistoryCommand(rollId: $rollId, process: Process::from($process)));
     }
@@ -209,9 +199,9 @@ readonly class PrivateCommandInteractor
     /**
      * Checks the remaining products for a given roll.
      *
-     * @param int $rollId The ID of the roll to check remaining products for
+     * @param string $rollId The ID of the roll to check remaining products for
      */
-    public function checkRemainingProducts(int $rollId): void
+    public function checkRemainingProducts(string $rollId): void
     {
         $this->commandBus->execute(new CheckRemainingProductsCommand($rollId));
     }
@@ -219,9 +209,9 @@ readonly class PrivateCommandInteractor
     /**
      * Locks a roll in the system.
      *
-     * @param int $rollId The ID of the roll to be locked
+     * @param string $rollId The ID of the roll to be locked
      */
-    public function lockRoll(int $rollId): void
+    public function lockRoll(string $rollId): void
     {
         $this->commandBus->execute(new LockRollCommand($rollId));
     }
@@ -229,9 +219,9 @@ readonly class PrivateCommandInteractor
     /**
      * Unlocks a roll.
      *
-     * @param int $rollId The ID of the roll to unlock
+     * @param string $rollId The ID of the roll to unlock
      */
-    public function unLockRoll(int $rollId): void
+    public function unLockRoll(string $rollId): void
     {
         $this->commandBus->execute(new UnLockRollCommand($rollId));
     }

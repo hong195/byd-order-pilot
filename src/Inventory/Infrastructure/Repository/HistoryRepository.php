@@ -33,11 +33,11 @@ final class HistoryRepository extends ServiceEntityRepository implements History
     /**
      * Returns an array of records based on the given film id.
      *
-     * @param int $filmId the film id to search for
+     * @param string $filmId the film id to search for
      *
      * @return array an array of records
      */
-    public function findByFilmId(int $filmId): array
+    public function findByFilmId(string $filmId): array
     {
         return $this->findBy(['filmId' => $filmId]);
     }

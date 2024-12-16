@@ -14,7 +14,7 @@ use Symfony\Component\Serializer\Exception\ExceptionInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 #[AsController]
-#[Route('/api/orders/{orderId}/products', name: 'find_products', requirements: ['orderId' => '^\d+$'], methods: ['GET'])]
+#[Route('/api/orders/{orderId}/products', name: 'find_products', requirements: ['orderId' => '^\w+$'], methods: ['GET'])]
 final readonly class FindProducts
 {
     public function __construct(private PrivateQueryInteractor $privateQueryInteractor, private NormalizerInterface $normalizer)
@@ -28,7 +28,7 @@ final readonly class FindProducts
      *
      * @throws ExceptionInterface
      */
-    public function __invoke(int $orderId): JsonResponse
+    public function __invoke(string $orderId): JsonResponse
     {
         $products = $this->privateQueryInteractor->findProducts(new FindProductsQuery(orderId: $orderId));
 

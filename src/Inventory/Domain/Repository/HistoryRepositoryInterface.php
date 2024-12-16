@@ -17,11 +17,11 @@ interface HistoryRepositoryInterface
     /**
      * Finds records by film id.
      *
-     * @param int $filmId The id of the film
+     * @param string $filmId The id of the film
      *
      * @return History[]
      */
-    public function findByFilmId(int $filmId): array;
+    public function findByFilmId(string $filmId): array;
 
     /**
      * Finds records by film type.

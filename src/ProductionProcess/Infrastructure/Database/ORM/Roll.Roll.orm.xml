@@ -17,7 +17,7 @@
 
         <field name="employeeId" type="integer" column="employee_id"  nullable="true"/>
 
-        <field name="filmId" type="integer" column="film_id" nullable="true"/>
+        <field name="filmId" type="string" column="film_id" nullable="true"/>
 
         <field name="process" enum-type="App\ProductionProcess\Domain\ValueObject\Process" column="process" length="255" nullable="true"/>
 

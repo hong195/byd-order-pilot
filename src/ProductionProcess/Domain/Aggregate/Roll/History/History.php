@@ -16,7 +16,7 @@ final class History
 {
     /**@phpstan-ignore-next-line */
     private string $id;
-    private ?int $employeeId = null;
+    private ?string $employeeId = null;
     private ?int $parentRollId = null;
 
     /**
@@ -25,7 +25,7 @@ final class History
      * @param int     $rollId  the roll ID
      * @param Process $process the process
      */
-    public function __construct(public readonly int $rollId, public readonly Process $process, public readonly Type $type, public readonly \DateTimeImmutable $happenedAt)
+    public function __construct(public readonly string $rollId, public readonly Process $process, public readonly Type $type, public readonly \DateTimeImmutable $happenedAt)
     {
         $this->id = UlidService::generate();
     }
@@ -55,7 +55,7 @@ final class History
      *
      * @param int|null $employeeId the employee ID
      */
-    public function setEmployeeId(?int $employeeId): void
+    public function setEmployeeId(?string $employeeId): void
     {
         $this->employeeId = $employeeId;
     }

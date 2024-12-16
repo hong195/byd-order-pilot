@@ -6,7 +6,7 @@ namespace App\ProductionProcess\Infrastructure\Adapter\Employee;
 
 interface EmployeeAdapterInterface
 {
-    public function fetchById(int $employeeId): mixed;
+    public function fetchById(string $employeeId): mixed;
 
     public function fetchByIds(array $employeeIds): array;
 }

@@ -23,7 +23,7 @@ final readonly class EmployeeErrorData
      * @param int|null    $glowCheckIn
      * @param int|null    $cuttingCheckIn
      */
-    public function __construct(public ?int $responsibleEmployeeId = null, public ?string $responsibleEmployeeName = null, public ?int $total = null, public ?int $orderCheckIn = null, public ?int $printingCheckIn = null, public ?int $glowCheckIn = null, public ?int $cuttingCheckIn = null)
+    public function __construct(public ?string $responsibleEmployeeId = null, public ?string $responsibleEmployeeName = null, public ?int $total = null, public ?int $orderCheckIn = null, public ?int $printingCheckIn = null, public ?int $glowCheckIn = null, public ?int $cuttingCheckIn = null)
     {
     }
 }

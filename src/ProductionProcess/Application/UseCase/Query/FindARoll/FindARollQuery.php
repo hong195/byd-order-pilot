@@ -16,9 +16,9 @@ final readonly class FindARollQuery extends Query
     /**
      * Class constructor.
      *
-     * @param int $rollId the roll ID
+     * @param string $rollId the roll ID
      */
-    public function __construct(public int $rollId)
+    public function __construct(public string $rollId)
     {
     }
 }

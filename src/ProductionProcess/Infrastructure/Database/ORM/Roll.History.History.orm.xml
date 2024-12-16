@@ -9,11 +9,11 @@
             <generator strategy="NONE"/>
         </id>
 
-        <field name="rollId" type="integer" column="roll_id" nullable="true"/>
+        <field name="rollId" type="string" column="roll_id" nullable="true"/>
 
-        <field name="parentRollId" type="integer" column="parent_roll_id" nullable="true"/>
+        <field name="parentRollId" type="string" column="parent_roll_id" nullable="true"/>
 
-        <field name="employeeId" type="integer" column="employee_id" nullable="true"/>
+        <field name="employeeId" type="string" column="employee_id" nullable="true"/>
 
         <field name="type" enum-type="App\ProductionProcess\Domain\Aggregate\Roll\History\Type" column="type" nullable="true"/>
 

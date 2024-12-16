@@ -42,11 +42,11 @@ class RollRepository extends ServiceEntityRepository implements RollRepositoryIn
     /**
      * Finds a roll by its film ID.
      *
-     * @param int $filmId the film ID of the roll to find
+     * @param string $filmId the film ID of the roll to find
      *
      * @return Collection<Roll> the found roll, or null if no roll was found
      */
-    public function findByFilmId(int $filmId): Collection
+    public function findByFilmId(string $filmId): Collection
     {
         return new ArrayCollection($this->findBy(['filmId' => $filmId]));
     }

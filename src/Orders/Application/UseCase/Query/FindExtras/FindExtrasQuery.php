@@ -16,9 +16,9 @@ final readonly class FindExtrasQuery extends Query
     /**
      * Class constructor.
      *
-     * @param int $orderId the roll ID
+     * @param string $orderId the roll ID
      */
-    public function __construct(public int $orderId)
+    public function __construct(public string $orderId)
     {
     }
 }

@@ -20,10 +20,9 @@ readonly class AssignEmployeeToRollCommandHandler implements CommandHandlerInter
     /**
      * Class constructor.
      *
-     * @param AccessControlService    $accessControlService the access control service
      * @param RollRepositoryInterface $rollRepository       the roll repository
      */
-    public function __construct(private AccessControlService $accessControlService, private RollRepositoryInterface $rollRepository, private HistorySyncService $historySyncService)
+    public function __construct(private RollRepositoryInterface $rollRepository, private HistorySyncService $historySyncService)
     {
     }
 
@@ -36,8 +35,6 @@ readonly class AssignEmployeeToRollCommandHandler implements CommandHandlerInter
      */
     public function __invoke(AssignEmployeeToRollCommand $command): void
     {
-        AssertService::true($this->accessControlService->isGranted(), 'No access to handle the command');
-
         $roll = $this->rollRepository->findById($command->rollId);
 
         if (!$roll) {

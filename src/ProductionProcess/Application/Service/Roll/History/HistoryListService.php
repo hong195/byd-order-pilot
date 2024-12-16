@@ -24,11 +24,11 @@ final readonly class HistoryListService
     /**
      * Retrieves the history data for a given roll ID.
      *
-     * @param int $rollId the ID of the roll to retrieve history for
+     * @param string $rollId the ID of the roll to retrieve history for
      *
      * @return HistoryData[] an array of HistoryData objects
      */
-    public function __invoke(int $rollId): array
+    public function __invoke(string $rollId): array
     {
         $histories = $this->historyRepository->findFullHistory($rollId);
         $historyIds = array_unique(array_filter(array_map(fn ($history) => $history->getEmployeeId(), $histories)));

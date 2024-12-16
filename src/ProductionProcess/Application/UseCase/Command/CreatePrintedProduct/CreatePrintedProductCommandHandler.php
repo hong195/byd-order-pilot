@@ -6,9 +6,7 @@ namespace App\ProductionProcess\Application\UseCase\Command\CreatePrintedProduct
 
 use App\ProductionProcess\Application\DTO\PrintedProduct\CreatedPrintedProductData;
 use App\ProductionProcess\Application\Service\PrintedProduct\PrintedProductMaker;
-use App\Shared\Application\AccessControll\AccessControlService;
 use App\Shared\Application\Command\CommandHandlerInterface;
-use App\Shared\Domain\Service\AssertService;
 
 /**
  * Class ManuallyAddOrderCommandHandler.
@@ -17,10 +15,8 @@ final readonly class CreatePrintedProductCommandHandler implements CommandHandle
 {
     /**
      * Constructs a new instance of the class.
-     *
-     * @param AccessControlService $accessControlService the access control service
      */
-    public function __construct(private AccessControlService $accessControlService, private PrintedProductMaker $jobMaker)
+    public function __construct(private PrintedProductMaker $jobMaker)
     {
     }
 
@@ -33,10 +29,8 @@ final readonly class CreatePrintedProductCommandHandler implements CommandHandle
      *
      * @throws \InvalidArgumentException If access control is not granted
      */
-    public function __invoke(CreatePrintedProductCommand $command): int
+    public function __invoke(CreatePrintedProductCommand $command): string
     {
-        AssertService::true($this->accessControlService->isGranted(), 'Not allowed to handle resource.');
-
         $printedProduct = $this->jobMaker->make(CreatedPrintedProductData::fromCommand($command));
 
         return $printedProduct->getId();

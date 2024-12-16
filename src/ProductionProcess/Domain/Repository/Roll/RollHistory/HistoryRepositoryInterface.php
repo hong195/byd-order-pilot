@@ -25,11 +25,11 @@ interface HistoryRepositoryInterface
     /**
      * Finds a history record by its roll ID.
      *
-     * @param int $rollId the roll ID of the history record to be found
+     * @param string $rollId the roll ID of the history record to be found
      *
      * @return History[] the found history record or null if no record is found
      */
-    public function findFullHistory(int $rollId): array;
+    public function findFullHistory(string $rollId): array;
 
     /**
      * @param FetchRollHistoryStatisticsFilter $filter

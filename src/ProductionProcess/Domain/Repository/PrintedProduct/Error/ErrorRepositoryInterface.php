@@ -23,7 +23,7 @@ interface ErrorRepositoryInterface
      *
      * @return array<Error> An array of entities that match the responsible employee ID
      */
-    public function findByResponsibleEmployeeId(int $responsibleEmployeeId): array;
+    public function findByResponsibleEmployeeId(string $responsibleEmployeeId): array;
 
     /**
      * Find entities by the provided error filter.

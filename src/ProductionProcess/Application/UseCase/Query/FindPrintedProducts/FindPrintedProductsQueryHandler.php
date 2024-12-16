@@ -18,9 +18,8 @@ final readonly class FindPrintedProductsQueryHandler implements QueryHandlerInte
     /**
      * Class constructor.
      *
-     * @param AccessControlService $accessControlService the access control service instance
      */
-    public function __construct(private AccessControlService $accessControlService, private PrintedProductListService $printedProductListService)
+    public function __construct(private PrintedProductListService $printedProductListService)
     {
     }
 
@@ -35,8 +34,6 @@ final readonly class FindPrintedProductsQueryHandler implements QueryHandlerInte
      */
     public function __invoke(FindPrintedProductsQuery $query): FindPrintedProductsQueryResult
     {
-        AssertService::true($this->accessControlService->isGranted(), 'Access denied');
-
         $filter = new PrintedProductFilter($query->unassigned, $query->rollId);
 
         $listData = $this->printedProductListService->getList($filter);

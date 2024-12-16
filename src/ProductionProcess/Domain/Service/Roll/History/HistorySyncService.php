@@ -34,9 +34,9 @@ final readonly class HistorySyncService
      * If there is no unfinished history found for the given roll ID, a new history will be started.
      * Otherwise, the existing history will be finished and saved.
      *
-     * @param int $rollId the ID of the roll to sync the history for
+     * @param string $rollId the ID of the roll to sync the history for
      */
-    public function record(int $rollId, Process $process, Type $type): void
+    public function record(string $rollId, Process $process, Type $type): void
     {
         $roll = $this->rollRepository->findById($rollId);
 

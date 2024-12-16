@@ -38,7 +38,7 @@ final readonly class PrintCheckInService
 	/**
 	 * Print a roll.
 	 *
-	 * @param int $rollId The ID of the roll to be printed
+	 * @param string $rollId The ID of the roll to be printed
 	 *
 	 * @throws NotFoundHttpException                      If the roll is not found
 	 * @throws PrinterIsNotAvailableException             If the printer is not available
@@ -48,7 +48,7 @@ final readonly class PrintCheckInService
 	 * @throws ExceptionInterface
 	 * @throws DomainException
 	 */
-    public function handle(int $rollId): void
+    public function handle(string $rollId): void
     {
         $roll = $this->rollRepository->findById($rollId);
 
@@ -79,7 +79,7 @@ final readonly class PrintCheckInService
         $this->rollRepository->save($roll);
 	}
 
-    private function isFilmInUsage(int $filmId, int $rollId): bool
+    private function isFilmInUsage(string $filmId, string $rollId): bool
     {
         $rollsWithFilm = $this->rollRepository->findByFilmId($filmId)
             ->filter(function (Roll $roll) use ($rollId) {

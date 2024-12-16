@@ -19,9 +19,8 @@ readonly class ChangePrintedProductPriorityCommandHandler implements CommandHand
 	 * Class constructor.
 	 *
 	 * @param PrintedProductRepositoryInterface $printedProductRepository The printed product repository.
-	 * @param AccessControlService $accessControlService The access control service.
 	 */
-    public function __construct(private PrintedProductRepositoryInterface $printedProductRepository, private AccessControlService $accessControlService)
+    public function __construct(private PrintedProductRepositoryInterface $printedProductRepository)
     {
     }
 
@@ -34,7 +33,6 @@ readonly class ChangePrintedProductPriorityCommandHandler implements CommandHand
      */
     public function __invoke(ChangePrintedProductPriorityCommand $command): void
     {
-        AssertService::true($this->accessControlService->isGranted(), 'Not change priority.');
         $printedProduct = $this->printedProductRepository->findById($command->id);
 
         if (!$printedProduct) {

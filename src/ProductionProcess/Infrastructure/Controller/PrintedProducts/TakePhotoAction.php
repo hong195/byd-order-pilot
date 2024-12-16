@@ -29,7 +29,7 @@ use Symfony\Component\Routing\Attribute\Route;
  * @param UploadFileService        $uploadFileService        the upload file service instance
  */
 #[AsController]
-#[Route('api/products/{productId}/take-photo', 'take-product-photo', requirements: ['productId' => '^\d+$'], methods: ['POST'])]
+#[Route('api/products/{productId}/take-photo', 'take-product-photo', requirements: ['productId' => '^\w+$'], methods: ['POST'])]
 final readonly class TakePhotoAction
 {
     /**

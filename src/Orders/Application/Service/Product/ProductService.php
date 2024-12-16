@@ -6,7 +6,6 @@ namespace App\Orders\Application\Service\Product;
 
 use App\Orders\Application\DTO\Product\ProductCreateDTO;
 use App\Orders\Domain\Aggregate\Product;
-use App\Orders\Domain\Event\ProductAddedEvent;
 use App\Orders\Domain\Factory\ProductFactory;
 use App\Orders\Domain\Repository\ProductRepositoryInterface;
 use App\Orders\Infrastructure\Repository\OrderRepository;
@@ -42,8 +41,6 @@ final readonly class ProductService
 
         $cutFile = $dto->cutFileId ? $this->mediaFileRepository->findById($dto->cutFileId) : null;
         $printFile = $dto->printFileId ? $this->mediaFileRepository->findById($dto->printFileId) : null;
-
-        $this->productRepository->save($product);
 
 		if ($cutFile) {
             $product->setCutFile($cutFile);

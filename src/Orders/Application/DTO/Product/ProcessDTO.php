@@ -19,7 +19,7 @@ final readonly class ProcessDTO
      * @param bool        $isReadyForPacking flag indicating if the item is ready for packing (default is false)
      * @param string|null $photo             the photo of process printed product
      */
-    public function __construct(public string $productId, public string $process, public ?int $rollId = null, public bool $isReprint = false, public bool $isReadyForPacking = false, public ?string $photo = null)
+    public function __construct(public string $productId, public string $process, public ?string $rollId = null, public bool $isReprint = false, public bool $isReadyForPacking = false, public ?string $photo = null)
     {
     }
 }

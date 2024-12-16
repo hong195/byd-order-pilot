@@ -34,7 +34,7 @@ final readonly class ProductData
         public ?string $printFile,
         public bool $isPacked,
         public \DateTimeInterface $addedAt,
-        public ?int $orderId = null,
+        public ?string $orderId = null,
         public ?string $laminationType = null,
         public ?ProcessDTO $process = null,
     ) {

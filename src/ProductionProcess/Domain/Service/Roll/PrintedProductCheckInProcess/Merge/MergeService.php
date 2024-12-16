@@ -116,7 +116,7 @@ final readonly class MergeService
      *
      * @throws PrinterMatchException
      */
-    private function makeMergedAndLockedRoll(int $filmId, Collection $printedProducts): Roll
+    private function makeMergedAndLockedRoll(string $filmId, Collection $printedProducts): Roll
     {
         $mergedRoll = $this->rollMaker->make(name: 'Merged Roll');
 

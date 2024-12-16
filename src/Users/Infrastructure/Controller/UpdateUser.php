@@ -14,7 +14,7 @@ use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[AsController]
-#[Route('/api/users/{id}', name: 'update_user', requirements: ['id' => '^\d+$'], methods: ['PUT'])]
+#[Route('/api/users/{id}', name: 'update_user', requirements: ['id' => '^\w+$'], methods: ['PUT'])]
 class UpdateUser implements CommandInterface
 {
     public function __construct(private CommandBusInterface $commandBus)

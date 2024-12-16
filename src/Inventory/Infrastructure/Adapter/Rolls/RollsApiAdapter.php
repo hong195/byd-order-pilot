@@ -21,11 +21,11 @@ final readonly class RollsApiAdapter
     /**
      * Retrieves a RollData object by its ID.
      *
-     * @param int $rollId The ID of the roll to retrieve
+     * @param string $rollId The ID of the roll to retrieve
      *
      * @return RollData The RollData object representing the retrieved roll
      */
-    public function getRollById(int $rollId): RollData
+    public function getRollById(string $rollId): RollData
     {
         return $this->api->getRollById($rollId);
     }

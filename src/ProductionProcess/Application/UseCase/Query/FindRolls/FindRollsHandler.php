@@ -18,7 +18,7 @@ final readonly class FindRollsHandler implements QueryHandlerInterface
      * @param AccessControlService $accessControlService the access control service dependency
      * @param RollListService      $rollListService      the roll list service dependency
      */
-    public function __construct(private AccessControlService $accessControlService, private RollListService $rollListService)
+    public function __construct(private RollListService $rollListService)
     {
     }
 
@@ -31,8 +31,6 @@ final readonly class FindRollsHandler implements QueryHandlerInterface
      */
     public function __invoke(FindRollsQuery $query): FindRollsResult
     {
-        AssertService::true($this->accessControlService->isGranted(), 'Access denied');
-
         $rollDataList = $this->rollListService->getList(Process::from($query->process));
 
         return new FindRollsResult($rollDataList);

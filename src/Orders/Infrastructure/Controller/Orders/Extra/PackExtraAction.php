@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Attribute\Route;
  * This class handles the add_product API endpoint.
  */
 #[AsController]
-#[Route('/api/orders/{orderId}/pack/extras/{extraId}', name: 'pack_extra', requirements: ['orderId' => '^\d+$', 'extraId' => '^\d+$'], methods: ['POST'])]
+#[Route('/api/orders/{orderId}/pack/extras/{extraId}', name: 'pack_extra', requirements: ['orderId' => '^\w+$', 'extraId' => '^\w+$'], methods: ['POST'])]
 final readonly class PackExtraAction
 {
     /**
@@ -27,12 +27,12 @@ final readonly class PackExtraAction
     /**
      * Handles packing extra for an order.
      *
-     * @param int $orderId the ID of the order
-     * @param int $extraId the ID of the extra
+     * @param string $orderId the ID of the order
+     * @param string $extraId the ID of the extra
      *
      * @return JsonResponse the JSON response
      */
-    public function __invoke(int $orderId, int $extraId): JsonResponse
+    public function __invoke(string $orderId, string $extraId): JsonResponse
     {
         $this->privateCommandInteractor->packExtra(orderId: $orderId, extraId: $extraId);
 

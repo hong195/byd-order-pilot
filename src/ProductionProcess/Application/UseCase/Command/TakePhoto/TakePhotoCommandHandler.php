@@ -23,12 +23,11 @@ final readonly class TakePhotoCommandHandler implements CommandHandlerInterface
     /**
      * Constructs a new instance of the class.
      *
-     * @param AccessControlService         $accessControlService the access control service
      * @param TakeAPhotoService            $photoUpdater
      * @param MediaFileRepositoryInterface $mediaFileRepository
      * @param AssetUrlServiceInterface     $assetUrlService
      */
-    public function __construct(private AccessControlService $accessControlService, private TakeAPhotoService $photoUpdater, private MediaFileRepositoryInterface $mediaFileRepository, private AssetUrlServiceInterface $assetUrlService)
+    public function __construct(private TakeAPhotoService $photoUpdater, private MediaFileRepositoryInterface $mediaFileRepository, private AssetUrlServiceInterface $assetUrlService)
     {
     }
 
@@ -43,8 +42,6 @@ final readonly class TakePhotoCommandHandler implements CommandHandlerInterface
      */
     public function __invoke(TakePhotoCommand $command): string
     {
-        AssertService::true($this->accessControlService->isGranted(), 'Not allowed to handle resource.');
-
         $this->photoUpdater->upload(productId: $command->productId, photoId: $command->photoId);
 
         $photoMediaFile = $this->mediaFileRepository->findById($command->photoId);

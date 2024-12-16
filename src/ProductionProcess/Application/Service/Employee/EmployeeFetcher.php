@@ -12,11 +12,11 @@ interface EmployeeFetcher
     /**
      * Retrieves employee data by ID.
      *
-     * @param int $employeeId the ID of the employee to retrieve data for
+     * @param string $employeeId the ID of the employee to retrieve data for
      *
      * @return EmployeeData the data of the employee with the provided ID
      */
-    public function getById(int $employeeId): EmployeeData;
+    public function getById(string $employeeId): EmployeeData;
 
     /**
      * Retrieves employees by their ids.

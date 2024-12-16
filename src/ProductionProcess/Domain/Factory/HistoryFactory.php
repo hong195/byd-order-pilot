@@ -27,7 +27,7 @@ final class HistoryFactory
      *
      * @return History the created history record
      */
-    public function make(int $rollId, Process $process, \DateTimeImmutable $happenedAt, Type $type, ?int $parentRollId = null, ?int $employeeId = null): History
+    public function make(string $rollId, Process $process, \DateTimeImmutable $happenedAt, Type $type, ?int $parentRollId = null, ?string $employeeId = null): History
     {
         $history = new History(rollId: $rollId, process: $process, type: $type, happenedAt: $happenedAt);
 

@@ -17,9 +17,9 @@ final readonly class RollWasSentToCutCheckInEvent implements EventInterface
     /**
      * Class constructor.
      *
-     * @param int $rollId the ID of the roll
+     * @param string $rollId the ID of the roll
      */
-    public function __construct(public int $rollId)
+    public function __construct(public string $rollId)
     {
     }
 

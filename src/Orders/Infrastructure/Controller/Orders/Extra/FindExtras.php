@@ -13,7 +13,7 @@ use Symfony\Component\Serializer\Exception\ExceptionInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 #[AsController]
-#[Route('/api/orders/{orderId}/extras', name: 'find_order_extras', requirements: ['orderId' => '^\d+$'], methods: ['GET'])]
+#[Route('/api/orders/{orderId}/extras', name: 'find_order_extras', requirements: ['orderId' => '^\w+$'], methods: ['GET'])]
 final readonly class FindExtras
 {
     public function __construct(private PrivateQueryInteractor $privateQueryInteractor, private NormalizerInterface $normalizer)
@@ -27,7 +27,7 @@ final readonly class FindExtras
      *
      * @throws ExceptionInterface
      */
-    public function __invoke(int $orderId): JsonResponse
+    public function __invoke(string $orderId): JsonResponse
     {
         $extras = $this->privateQueryInteractor->findExtras($orderId);
 

@@ -28,13 +28,13 @@ final readonly class PrintedProductData
      */
     public function __construct(
         public string $id,
-        public int $relatedProductId,
+        public string $relatedProductId,
         public bool $hasPriority,
         public float $length,
         public string $filmType,
         public ?string $orderNumber,
         public bool $isReprint = false,
-        public ?int $rollId = null,
+        public ?string $rollId = null,
         public ?string $laminationType = null,
         public ?\DateTimeInterface $addedAt = null,
         public ?string $cutFile = null,

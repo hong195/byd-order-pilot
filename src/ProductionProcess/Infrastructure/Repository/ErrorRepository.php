@@ -50,7 +50,7 @@ class ErrorRepository extends ServiceEntityRepository implements ErrorRepository
      *
      * @return Error[] The array of entities found based on responsible employee ID
      */
-    public function findByResponsibleEmployeeId(int $responsibleEmployeeId): array
+    public function findByResponsibleEmployeeId(string $responsibleEmployeeId): array
     {
         $query = $this->createQueryBuilder('e');
 

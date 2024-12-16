@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Attribute\Route;
  * This class handles the find_order API endpoint.
  */
 #[AsController]
-#[Route('/api/rolls/{rollId}/reprint', name: 'reprint-roll', requirements: ['rollId' => '^\d+$'], methods: ['POST'])]
+#[Route('/api/rolls/{rollId}/reprint', name: 'reprint-roll', requirements: ['rollId' => '^\w+$'], methods: ['POST'])]
 final readonly class ReprintRollAction
 {
     /**
@@ -30,11 +30,11 @@ final readonly class ReprintRollAction
 	/**
 	 * Invokes the command to reprint a roll.
 	 *
-	 * @param int $rollId The ID of the roll to reprint.
+	 * @param string $rollId The ID of the roll to reprint.
 	 * @param Request $request The request object.
 	 * @return JsonResponse A JSON response indicating success.
 	 */
-    public function __invoke(int $rollId, Request $request): JsonResponse
+    public function __invoke(string $rollId, Request $request): JsonResponse
     {
 		$command = new ReprintRollCommand(
 			rollId: $rollId,

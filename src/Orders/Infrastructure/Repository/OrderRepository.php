@@ -6,6 +6,7 @@ namespace App\Orders\Infrastructure\Repository;
 
 use App\Orders\Domain\Aggregate\Order;
 use App\Orders\Domain\Repository\OrderRepositoryInterface;
+use App\Orders\Infrastructure\Event\DomainEventProducer;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -21,7 +22,7 @@ final class OrderRepository extends ServiceEntityRepository implements OrderRepo
      *
      * @param ManagerRegistry $registry the manager registry
      */
-    public function __construct(ManagerRegistry $registry)
+    public function __construct(ManagerRegistry $registry, private DomainEventProducer $domainEventProducer)
     {
         parent::__construct($registry, Order::class);
     }
@@ -35,6 +36,8 @@ final class OrderRepository extends ServiceEntityRepository implements OrderRepo
     {
         $this->getEntityManager()->persist($order);
         $this->getEntityManager()->flush();
+
+        $this->domainEventProducer->produce(...$order->pullEvents());
     }
 
     /**
@@ -73,8 +76,8 @@ final class OrderRepository extends ServiceEntityRepository implements OrderRepo
     {
         return $this->createQueryBuilder('o')
             ->innerJoin('o.products', 'p')
-			->where('p.id IS NOT NULL')
-			->andWhere('p.isPacked = false')
+            ->where('p.id IS NOT NULL')
+            ->andWhere('p.isPacked = false')
             ->groupBy('o.id')
             ->getQuery()
             ->getResult();

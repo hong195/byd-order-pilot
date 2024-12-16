@@ -19,11 +19,9 @@ final readonly class FindPackedOrdersHandler implements QueryHandlerInterface
      * Constructs a new instance of the class.
      *
      * @param OrderRepository      $orderRepository      the order repository instance
-     * @param AccessControlService $accessControlService the access control service instance
      */
     public function __construct(
         private OrderRepository $orderRepository,
-        private AccessControlService $accessControlService,
         private OrderDataTransformer $orderDataTransformer,
     ) {
     }
@@ -37,8 +35,6 @@ final readonly class FindPackedOrdersHandler implements QueryHandlerInterface
      */
     public function __invoke(FindPackedOrdersQuery $query): FindPackedOrdersResult
     {
-        AssertService::true($this->accessControlService->isGranted(), 'Access denied');
-
         $result = $this->orderRepository->findPacked();
 
         $orderData = $this->orderDataTransformer->fromOrdersEntityList($result);

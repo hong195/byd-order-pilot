@@ -27,7 +27,7 @@ final class FetchRollHistoryStatisticsFilter
      * @param \DateTimeImmutable|null $to
      * @param DateRangeFilter|null    $dateRangeFilter
      */
-    public function __construct(public ?int $employeeId = null, public ?Process $process = null, ?\DateTimeImmutable $from = null, ?\DateTimeImmutable $to = null, public ?DateRangeFilter $dateRangeFilter = null)
+    public function __construct(public ?string $employeeId = null, public ?Process $process = null, ?\DateTimeImmutable $from = null, ?\DateTimeImmutable $to = null, public ?DateRangeFilter $dateRangeFilter = null)
     {
         $this->dateRangeFilter = new DateRangeFilter($from, $to);
     }

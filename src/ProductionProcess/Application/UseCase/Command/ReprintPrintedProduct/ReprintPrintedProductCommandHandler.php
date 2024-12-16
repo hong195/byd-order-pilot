@@ -21,7 +21,7 @@ readonly class ReprintPrintedProductCommandHandler implements CommandHandlerInte
      *
      * @param AccessControlService $accessControlService the access control service
      */
-    public function __construct(private ReprintPrintedProduct $reprintPrintedProduct, private AccessControlService $accessControlService)
+    public function __construct(private ReprintPrintedProduct $reprintPrintedProduct)
     {
     }
 
@@ -35,7 +35,6 @@ readonly class ReprintPrintedProductCommandHandler implements CommandHandlerInte
      */
     public function __invoke(ReprintPrintedProductCommand $command): void
     {
-        AssertService::true($this->accessControlService->isGranted(), 'No access to handle the command');
         $this->reprintPrintedProduct->handle(
             printedProductId: $command->printedProductId,
             process: Process::from($command->process),

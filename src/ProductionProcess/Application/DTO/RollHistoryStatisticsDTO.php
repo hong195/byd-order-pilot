@@ -24,7 +24,7 @@ use App\ProductionProcess\Domain\ValueObject\Process;
 final readonly class RollHistoryStatisticsDTO
 {
     public function __construct(
-        public int $rollId,
+        public string $rollId,
         public Process $process,
         public string $type,
         public \DateTimeImmutable $happenedAt,

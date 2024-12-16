@@ -64,13 +64,13 @@ final readonly class InventoryApiAdapter implements AvailableFilmServiceInterfac
     /**
      * Retrieves a film by its ID.
      *
-     * @param int $filmId The ID of the film to retrieve
+     * @param string $filmId The ID of the film to retrieve
      *
      * @return FilmData The film data
      *
      * @throws ExceptionInterface
      */
-    public function getByFilmId(int $filmId): FilmData
+    public function getByFilmId(string $filmId): FilmData
     {
         $film = $this->inventoryApi->getById($filmId);
 

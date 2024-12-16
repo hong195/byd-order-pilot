@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Attribute\Route;
  * This class handles the change-sort-order API endpoint.
  */
 #[AsController]
-#[Route('/api/rolls/{rollId}/assign-employee', name: 'assign_employee_to_roll', requirements: ['rollId' => '^\d+$'], methods: ['POST'])]
+#[Route('/api/rolls/{rollId}/assign-employee', name: 'assign_employee_to_roll', requirements: ['rollId' => '^\w+$'], methods: ['POST'])]
 final readonly class AssignEmployeeToRollAction
 {
     /**
@@ -30,7 +30,7 @@ final readonly class AssignEmployeeToRollAction
      *
      * @return JsonResponse the JSON response
      */
-    public function __invoke(int $rollId, Request $request): JsonResponse
+    public function __invoke(string $rollId, Request $request): JsonResponse
     {
         $this->privateCommandInteractor->assignEmployeeToARoll($rollId, (int) $request->get('employeeId'));
 

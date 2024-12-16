@@ -33,7 +33,7 @@ class Product
      */
     public function __construct(public readonly string $filmType, public readonly float $length)
     {
-		$this->id = UlidService::generate();
+        $this->id = UlidService::generate();
         $this->dateAdded = new \DateTimeImmutable();
     }
 

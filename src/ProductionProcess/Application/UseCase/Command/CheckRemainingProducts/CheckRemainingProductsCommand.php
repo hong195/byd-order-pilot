@@ -14,7 +14,7 @@ readonly class CheckRemainingProductsCommand implements CommandInterface
     /**
      * Constructor.
      */
-    public function __construct(public int $rollId)
+    public function __construct(public string $rollId)
     {
     }
 }

@@ -47,15 +47,15 @@ class HistoryRepository extends ServiceEntityRepository implements HistoryReposi
     /**
      * Finds the full history for a given roll ID recursively.
      *
-     * @param int $rollId the roll ID to search for
+     * @param string $rollId the roll ID to search for
      *
      * @return array the full history matching the roll ID
      */
-    public function findFullHistory(int $rollId): array
+    public function findFullHistory(string $rollId): array
     {
         $history = [];
 
-        $fetchHistory = function (int $rollId) use (&$fetchHistory, &$history) {
+        $fetchHistory = function (string $rollId) use (&$fetchHistory, &$history) {
             $currentHistory = $this->findBy(['rollId' => $rollId]);
 
             $history = array_merge($history, $currentHistory);

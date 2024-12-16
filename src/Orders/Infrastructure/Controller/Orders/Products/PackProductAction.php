@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Attribute\Route;
  * This class handles the change-sort-order API endpoint.
  */
 #[AsController]
-#[Route('/api/products/{productId}/pack', name: 'pack-product', requirements: ['productId' => '^\d+$'], methods: ['POST'])]
+#[Route('/api/products/{productId}/pack', name: 'pack-product', requirements: ['productId' => '^\w+$'], methods: ['POST'])]
 final readonly class PackProductAction
 {
     /**

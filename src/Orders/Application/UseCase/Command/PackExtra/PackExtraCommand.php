@@ -19,10 +19,10 @@ class PackExtraCommand implements CommandInterface
     /**
      * Constructs a new instance of the class.
      *
-     * @param int $orderId the order ID
-     * @param int $extraId the extra ID
+     * @param string $orderId the order ID
+     * @param string $extraId the extra ID
      */
-    public function __construct(public readonly int $orderId, public readonly int $extraId)
+    public function __construct(public readonly string $orderId, public readonly string $extraId)
     {
     }
 }

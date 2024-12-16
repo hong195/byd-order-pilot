@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Attribute\Route;
  * @Route("/api/rolls/{id}", requirements={"id"="\d+"}, methods={"GET"})
  */
 #[AsController]
-#[Route('/api/rolls/cutting-check-in/{rollId}', name: 'cutting_check_in', requirements: ['rollId' => '^\d+$'], methods: ['POST'])]
+#[Route('/api/rolls/cutting-check-in/{rollId}', name: 'cutting_check_in', requirements: ['rollId' => '^\w+$'], methods: ['POST'])]
 final class CuttingCheckInAction extends BaseController
 {
     /**
@@ -32,11 +32,11 @@ final class CuttingCheckInAction extends BaseController
     /**
      * Class description: this class represents an invokable method that sends a roll to print check-in and returns a JSON response.
      *
-     * @param int $rollId the ID of the roll to be sent to print check-in
+     * @param string $rollId the ID of the roll to be sent to print check-in
      *
      * @return JsonResponse the JSON response containing a success message
      */
-    public function __invoke(int $rollId): JsonResponse
+    public function __invoke(string $rollId): JsonResponse
     {
         $this->privateCommandInteractor->cuttingCheckIn($rollId);
 

@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Attribute\Route;
  * This class handles the find_order API endpoint.
  */
 #[AsController]
-#[Route('/api/printed-products/{printedProductId}/change-priority', name: 'change-printed-product-priority', requirements: ['printedProductId' => '^\d+$'], methods: ['POST'])]
+#[Route('/api/printed-products/{printedProductId}/change-priority', name: 'change-printed-product-priority', requirements: ['printedProductId' => '^\w+$'], methods: ['POST'])]
 final readonly class ChangePrintedProductPriorityAction
 {
     /**

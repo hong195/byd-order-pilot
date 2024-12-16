@@ -34,7 +34,7 @@ final readonly class RollMaker
      *
      * @return Roll The created Roll object
      */
-    public function make(string $name, ?int $filmId = null): Roll
+    public function make(string $name, ?string $filmId = null): Roll
     {
         $roll = $this->rollFactory->create($name, $filmId, Process::ORDER_CHECK_IN);
 

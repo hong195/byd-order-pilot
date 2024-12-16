@@ -19,7 +19,7 @@ final readonly class UnLockRollService
 	 * @throws LockingRollException
 	 * @throws DomainException
 	 */
-    public function unlock(int $rollId): void
+    public function unlock(string $rollId): void
     {
         $roll = $this->rollRepository->findById($rollId);
 

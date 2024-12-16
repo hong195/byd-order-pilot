@@ -16,7 +16,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
  * This class handles the find_order API endpoint.
  */
 #[AsController]
-#[Route('/api/orders/{id}', name: 'find_order', requirements: ['id' => '^\d+$'], methods: ['GET'])]
+#[Route('/api/orders/{id}', name: 'find_order', requirements: ['id' => '^\w+$'], methods: ['GET'])]
 final readonly class FindAnOrder
 {
     /**
