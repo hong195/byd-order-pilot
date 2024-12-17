@@ -15,7 +15,7 @@ framework:
         transports:
             production_process:
                 dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
-                serializer: 'App\Shared\Infrastructure\Event\EventEnvelopeSerializer'
+                serializer: 'App\ProductionProcess\Infrastructure\Event\EventEnvelopeSerializer'
                 options:
                     exchange:
                         name: 'production_process'
@@ -24,11 +24,10 @@ framework:
                         production_process:
                             binding_keys:
                                 - 'production_process.#'
-                                - 'shared.#'
                                 - 'inventory.#'
             inventory:
                 dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
-                serializer: 'App\Shared\Infrastructure\Event\EventEnvelopeSerializer'
+                serializer: 'App\Inventory\Infrastructure\Event\EventEnvelopeSerializer'
                 options:
                     exchange:
                         name: 'inventory'
@@ -39,7 +38,7 @@ framework:
                                 - 'inventory.#'
             orders:
                 dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
-                serializer: 'App\Shared\Infrastructure\Event\EventEnvelopeSerializer'
+                serializer: 'App\Orders\Infrastructure\Event\EventEnvelopeSerializer'
                 options:
                     exchange:
                         name: 'orders'
@@ -50,6 +49,6 @@ framework:
                                 - 'production_process.#'
                                 - 'orders.#'
         routing:
-            'App\ProductionProcess\Infrastructure\Event\EventEnvelope': [production_process, orders, inventory]
+            'App\ProductionProcess\Infrastructure\Event\EventEnvelope': [production_process, inventory]
             'App\Orders\Infrastructure\Event\EventEnvelope': [production_process, orders]
             'App\Inventory\Infrastructure\Event\EventEnvelope': [inventory]

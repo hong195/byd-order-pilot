@@ -6,11 +6,11 @@ namespace App\ProductionProcess\Infrastructure\EventHandler;
 
 use App\ProductionProcess\Application\UseCase\PrivateCommandInteractor;
 use App\ProductionProcess\Application\UseCase\PrivateQueryInteractor;
-use App\ProductionProcess\Domain\Events\RollsWereSentToGlowCheckInEvent;
+use App\ProductionProcess\Domain\Events\RollWasSentToGlowCheckInEvent;
 use App\Shared\Application\Event\EventHandlerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 
-#[AsEventListener(event: RollsWereSentToGlowCheckInEvent::class, method: '__invoke')]
+#[AsEventListener(event: RollWasSentToGlowCheckInEvent::class, method: '__invoke')]
 /**
  * RollWasSentToPrintCheckInEventHandler handles the RollWasSentToPrintCheckInEvent.
  */
@@ -29,19 +29,16 @@ final readonly class RollWasSentToGlowCheckInEventHandler implements EventHandle
     /**
      * Invokes the RollWasSentToPrintCheckInEvent event.
      *
-     * @param RollsWereSentToGlowCheckInEvent $event the event object
+     * @param RollWasSentToGlowCheckInEvent $event the event object
      */
-    public function __invoke(RollsWereSentToGlowCheckInEvent $event): void
+    public function __invoke(RollWasSentToGlowCheckInEvent $event): void
     {
-        $rollsIds = $event->rollIds;
+        $roll = $this->privateQueryInteractor->findARoll($event->rollId);
 
-        foreach ($rollsIds as $rollId) {
-            $this->privateCommandInteractor->unassignEmployeeFromRoll($rollId);
+        $printer = $roll->rollData->getPrinter();
+
+        if (!$printer->isAvailable) {
+            $this->privateCommandInteractor->makePrinterAvailable($printer->id);
         }
-
-        $roll = $this->privateQueryInteractor->findARoll($rollsIds[0]);
-
-        // rolls sent to glow check in are using the same printer
-        $this->privateCommandInteractor->makePrinterAvailable($roll->rollData->getPrinter()->id);
     }
 }

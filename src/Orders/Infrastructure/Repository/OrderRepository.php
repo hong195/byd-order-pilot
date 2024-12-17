@@ -22,7 +22,7 @@ final class OrderRepository extends ServiceEntityRepository implements OrderRepo
      *
      * @param ManagerRegistry $registry the manager registry
      */
-    public function __construct(ManagerRegistry $registry, private DomainEventProducer $domainEventProducer)
+    public function __construct(ManagerRegistry $registry, private readonly DomainEventProducer $domainEventProducer)
     {
         parent::__construct($registry, Order::class);
     }
@@ -55,7 +55,7 @@ final class OrderRepository extends ServiceEntityRepository implements OrderRepo
     /**
      * Finds Orders ready for packing.
      *
-     * @return array An array of Orders entities that are ready for packing
+     * @return Order[] An array of Orders entities that are ready for packing
      */
     public function findPacked(): array
     {
@@ -70,7 +70,7 @@ final class OrderRepository extends ServiceEntityRepository implements OrderRepo
     /**
      * Finds Orders that are partially or not packed.
      *
-     * @return array An array of Orders entities that are partially or not packed
+     * @return Order[] An array of Orders entities that are partially or not packed
      */
     public function findPartiallyPacked(): array
     {
@@ -86,7 +86,7 @@ final class OrderRepository extends ServiceEntityRepository implements OrderRepo
     /**
      * Finds entities only with extras.
      *
-     * @return array An array of entities that have extras
+     * @return Order[] An array of entities that have extras
      */
     public function findOnlyWithExtras(): array
     {

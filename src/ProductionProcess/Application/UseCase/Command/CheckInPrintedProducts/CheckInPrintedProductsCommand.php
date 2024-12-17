@@ -14,7 +14,7 @@ readonly class CheckInPrintedProductsCommand implements CommandInterface
     /**
      * Constructor for the class.
      *
-     * @param int[] $printedProductIds an array of printed product IDs
+     * @param string[] $printedProductIds an array of printed product IDs
      */
     public function __construct(public array $printedProductIds = [])
     {

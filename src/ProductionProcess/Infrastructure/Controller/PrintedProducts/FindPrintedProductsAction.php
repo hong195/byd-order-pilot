@@ -20,7 +20,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
  * @Route("/api/rolls/{id}", requirements={"id"="\d+"}, methods={"GET"})
  */
 #[AsController]
-#[Route('/api/rolls/{rollId}/printed-products', name: 'find_printed_products_by_roll_id', requirements: ['rollId' => '^\w+$'],methods: ['GET'])]
+#[Route('/api/rolls/{rollId}/printed-products', name: 'find_printed_products_by_roll_id', requirements: ['rollId' => '^\w+$'], methods: ['GET'])]
 final class FindPrintedProductsAction extends BaseController
 {
     /**
@@ -32,18 +32,19 @@ final class FindPrintedProductsAction extends BaseController
     {
     }
 
-	/**
-	 * Invokes the action to find printed products.
-	 *
-	 * @param Request $request The request object
-	 *
-	 * @return JsonResponse The JSON response
-	 * @throws ExceptionInterface
-	 */
+    /**
+     * Invokes the action to find printed products.
+     *
+     * @param Request $request The request object
+     *
+     * @return JsonResponse The JSON response
+     *
+     * @throws ExceptionInterface
+     */
     public function __invoke(Request $request): JsonResponse
     {
         $result = $this->privateQueryInteractor->findPrintedProductByRollId(
-            rollId: (int) $request->get('rollId')
+            rollId: (string) $request->get('rollId')
         );
 
         $result = $this->normalizer->normalize($result);

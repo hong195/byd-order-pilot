@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Inventory\Infrastructure\EventHandler;
+namespace App\ProductionProcess\Infrastructure\Event;
 
-use App\Inventory\Domain\Events\FilmWasCreatedEvent;
-use App\Inventory\Domain\Events\FilmWasDeletedEvent;
-use App\Inventory\Domain\Events\FilmWasUpdatedEvent;
-use App\Inventory\Infrastructure\Event\EventEnvelope;
+use App\ProductionProcess\Domain\Events\PrintedProductReprintedEvent;
+use App\ProductionProcess\Domain\Events\RollProcessWasUpdatedEvent;
+use App\ProductionProcess\Domain\Events\RollWasSentToCutCheckInEvent;
+use App\ProductionProcess\Domain\Events\RollWasSentToGlowCheckInEvent;
 use App\ProductionProcess\Domain\Events\RollWasSentToPrintCheckInEvent;
 use App\Shared\Domain\Event\EventType;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
@@ -20,9 +20,10 @@ final class EventEnvelopeHandler
 {
     private const EVENT_MAP = [
         EventType::ROLL_WAS_SENT_TO_PRINT_CHECK_IN => RollWasSentToPrintCheckInEvent::class,
-        EventType::FILM_WAS_CREATED => FilmWasCreatedEvent::class,
-        EventType::FILM_WAS_DELETED => FilmWasDeletedEvent::class,
-        EventType::FILM_WAS_UPDATED => FilmWasUpdatedEvent::class,
+        EventType::ROLL_PROCESS_WAS_UPDATED => RollProcessWasUpdatedEvent::class,
+        EventType::ROLL_WAS_SENT_TO_CUT_CHECK_IN => RollWasSentToCutCheckInEvent::class,
+        EventType::ROLL_WAS_SENT_TO_GLOW_CHECK_IN => RollWasSentToGlowCheckInEvent::class,
+        EventType::PRINTED_PRODUCT_REPRINTED => PrintedProductReprintedEvent::class,
     ];
 
     public function __construct(private DenormalizerInterface $denormalizer, private MessageBusInterface $eventBus)

@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Domain\Service\Roll;
 
-use App\ProductionProcess\Domain\Events\RollWasSentToCutCheckInEvent;
 use App\ProductionProcess\Domain\Exceptions\RollCantBeSentToCuttingException;
-use  App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use App\Shared\Domain\Exception\DomainException;
-use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 
 /**
  * Class CutCheckInService.
@@ -24,18 +22,18 @@ final readonly class CuttingCheckInService
      * @param RollRepositoryInterface  $rollRepository          the roll repository
      * @param GeneralProcessValidation $generalProcessValidator the general process validator
      */
-    public function __construct(private RollRepositoryInterface $rollRepository, private GeneralProcessValidation $generalProcessValidator, private EventDispatcherInterface $eventDispatcher)
+    public function __construct(private RollRepositoryInterface $rollRepository, private GeneralProcessValidation $generalProcessValidator)
     {
     }
 
-	/**
-	 * Handle the roll.
-	 *
-	 * @param string $rollId the ID of the roll
-	 *
-	 * @throws RollCantBeSentToCuttingException
-	 * @throws DomainException
-	 */
+    /**
+     * Handle the roll.
+     *
+     * @param string $rollId the ID of the roll
+     *
+     * @throws RollCantBeSentToCuttingException
+     * @throws DomainException
+     */
     public function handle(string $rollId): void
     {
         $roll = $this->rollRepository->findById($rollId);
@@ -46,10 +44,8 @@ final readonly class CuttingCheckInService
             RollCantBeSentToCuttingException::because('Roll can not be sent to cutting');
         }
 
-        $roll->updateProcess(Process::CUTTING_CHECK_IN);
+        $roll->sendToCutCheckIn();
 
         $this->rollRepository->save($roll);
-
-        $this->eventDispatcher->dispatch(new RollWasSentToCutCheckInEvent($rollId));
     }
 }

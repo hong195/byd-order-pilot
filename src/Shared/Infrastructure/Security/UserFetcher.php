@@ -16,7 +16,7 @@ readonly class UserFetcher implements UserFetcherInterface
     {
     }
 
-    public function requiredUserId(): int
+    public function requiredUserId(): string
     {
         return $this->requiredUser()->getId();
     }
@@ -35,7 +35,7 @@ readonly class UserFetcher implements UserFetcherInterface
         return $user;
     }
 
-    public function nullableUserId(): ?int
+    public function nullableUserId(): ?string
     {
         return $this->nullableUser()?->getId();
     }

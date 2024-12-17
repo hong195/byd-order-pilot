@@ -32,7 +32,7 @@ final readonly class CheckInPrintedProductsAction
      */
     public function __invoke(Request $request): JsonResponse
     {
-        $ids = array_map('intval', $request->get('printedProductsIds'));
+        $ids = array_map('strval', $request->get('printedProductsIds'));
         $unassignedPrintedProductIds = $this->privateCommandInteractor->checkInPrintedProducts(printedProducts: $ids)->unassignedPrintedProductIds;
 
         if (empty($unassignedPrintedProductIds)) {

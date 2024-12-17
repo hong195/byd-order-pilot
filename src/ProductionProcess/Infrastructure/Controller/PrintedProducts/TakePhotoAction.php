@@ -35,8 +35,7 @@ final readonly class TakePhotoAction
     /**
      * Class constructor.
      *
-     * @param PrivateCommandInteractor $privateCommandInteractor
-     * @param UploadFileService        $uploadFileService        the upload file service instance
+     * @param UploadFileService $uploadFileService the upload file service instance
      */
     public function __construct(private PrivateCommandInteractor $privateCommandInteractor, private UploadFileService $uploadFileService)
     {
@@ -45,7 +44,7 @@ final readonly class TakePhotoAction
     /**
      * Handles the request to upload a photo for a given product and returns a JSON response with the product ID.
      *
-     * @param int     $productId the ID of the product
+     * @param string  $productId the ID of the product
      * @param Request $request   the HTTP request instance containing the photo file
      *
      * @return JsonResponse the JSON response with the product ID and HTTP status

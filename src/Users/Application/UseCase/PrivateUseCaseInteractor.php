@@ -38,11 +38,11 @@ readonly class PrivateUseCaseInteractor
     /**
      * Find a user by user ID.
      *
-     * @param int $userId the ID of the user to find
+     * @param string $userId the ID of the user to find
      *
      * @return FindUsersQueryResult the result of the query to find the user
      */
-    public function findAUser(int $userId): FindUserQueryResult
+    public function findAUser(string $userId): FindUserQueryResult
     {
         $command = new FindUserQuery($userId);
 

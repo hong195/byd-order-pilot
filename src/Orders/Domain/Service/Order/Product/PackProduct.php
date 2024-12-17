@@ -36,7 +36,7 @@ final readonly class PackProduct
      */
     public function handle(string $productId): void
     {
-        $product = $this->productRepository->find($productId);
+        $product = $this->productRepository->findById($productId);
 
         if (!$product) {
             throw new NotFoundHttpException('Product not found');

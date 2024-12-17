@@ -6,21 +6,22 @@ namespace App\ProductionProcess\Domain\Aggregate\Roll;
 
 use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use App\ProductionProcess\Domain\Aggregate\Printer\Printer;
+use App\ProductionProcess\Domain\Aggregate\AggregateRoot;
 use App\ProductionProcess\Domain\Events\RollProcessWasUpdatedEvent;
+use App\ProductionProcess\Domain\Events\RollWasSentToCutCheckInEvent;
+use App\ProductionProcess\Domain\Events\RollWasSentToGlowCheckInEvent;
 use App\ProductionProcess\Domain\Events\RollWasSentToPrintCheckInEvent;
 use App\ProductionProcess\Domain\ValueObject\Process;
-use App\Shared\Domain\Aggregate\Aggregate;
 use App\Shared\Domain\Service\UlidService;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Webmozart\Assert\Assert;
 
 /**
  * Class Roll.
  *
  * Represents a roll in the application.
  */
-class Roll extends Aggregate
+class Roll extends AggregateRoot
 {
     private string $id;
     private ?string $filmId = null;
@@ -47,7 +48,7 @@ class Roll extends Aggregate
      */
     public function __construct(private string $name, ?string $filmId = null, private ?Process $process = Process::ORDER_CHECK_IN)
     {
-		$this->id = UlidService::generate();
+        $this->id = UlidService::generate();
         $this->filmId = $filmId;
         $this->printedProducts = new ArrayCollection([]);
         $this->dateAdded = new \DateTimeImmutable();
@@ -94,19 +95,6 @@ class Roll extends Aggregate
     }
 
     /**
-     * Changes the name of the entity.
-     *
-     * @param string $name the new name for the entity
-     *
-     * @throws \InvalidArgumentException if name is empty
-     */
-    public function changeName(string $name): void
-    {
-        Assert::notEmpty($name, 'Name cannot be empty');
-        $this->name = $name;
-    }
-
-    /**
      * Returns the date when the entity was added.
      *
      * @return \DateTimeImmutable the date when the entity was added
@@ -143,9 +131,9 @@ class Roll extends Aggregate
     /**
      * Retrieves the coil ID associated with this object.
      *
-     * @return ?int the coil ID associated with this object
+     * @return ?string the coil ID associated with this object
      */
-    public function getFilmId(): ?int
+    public function getFilmId(): ?string
     {
         return $this->filmId;
     }
@@ -183,9 +171,9 @@ class Roll extends Aggregate
     /**
      * Retrieves the employee ID associated with this object.
      *
-     * @return ?int the employee ID associated with this object
+     * @return ?string the employee ID associated with this object
      */
-    public function getEmployeeId(): ?int
+    public function getEmployeeId(): ?string
     {
         return $this->employeeId;
     }
@@ -226,7 +214,7 @@ class Roll extends Aggregate
     public function __clone(): void
     {
         if ($this->id) {
-            $this->id = null;
+            $this->id = UlidService::generate();
             $this->printer = null;
             $this->parentRoll = null;
             $this->dateAdded = new \DateTimeImmutable();
@@ -368,10 +356,37 @@ class Roll extends Aggregate
         return $this->isLocked;
     }
 
-	public function printCheckIn(): void
-	{
-		$this->updateProcess(Process::PRINTING_CHECK_IN);
+    /**
+     * Sends print check-in command to the system.
+     */
+    public function sendPrintCheckIn(): void
+    {
+        $this->updateProcess(Process::PRINTING_CHECK_IN);
 
-		$this->raise(new RollWasSentToPrintCheckInEvent($this->id));
-	}
+        $this->raise(new RollWasSentToPrintCheckInEvent($this->id));
+    }
+
+    /**
+     * Sends the roll to the cutting check-in process.
+     *
+     * Updates the current process to "Printing Check-In" and raises an event indicating
+     * that the roll was sent to cutting check-in.
+     */
+    public function sendToCutCheckIn(): void
+    {
+        $this->updateProcess(Process::CUTTING_CHECK_IN);
+
+        $this->raise(new RollWasSentToCutCheckInEvent($this->id));
+    }
+
+    /**
+     * Sends the item to Glow Check-In process.
+     * Updates the process status to GLOW_CHECK_IN and raises an event.
+     */
+    public function sendToGlowCheckIn(): void
+    {
+        $this->updateProcess(Process::GLOW_CHECK_IN);
+
+        $this->raise(new RollWasSentToGlowCheckInEvent($this->id));
+    }
 }

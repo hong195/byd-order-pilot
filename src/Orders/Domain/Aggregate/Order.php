@@ -6,7 +6,6 @@ namespace App\Orders\Domain\Aggregate;
 
 use App\Orders\Domain\Event\ProductAddedEvent;
 use App\Orders\Domain\ValueObject\OrderType;
-use App\Shared\Domain\Aggregate\Aggregate;
 use App\Shared\Domain\Service\UlidService;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -14,7 +13,7 @@ use Doctrine\Common\Collections\Collection;
 /**
  * Class Order.
  */
-class Order extends Aggregate
+class Order extends AggregateRoot
 {
     /**
      * @phpstan-ignore-next-line
@@ -39,7 +38,7 @@ class Order extends Aggregate
      */
     public function __construct(public readonly Customer $customer, public readonly string $shippingAddress)
     {
-		$this->id = UlidService::generate();
+        $this->id = UlidService::generate();
         $this->dateAdded = new \DateTimeImmutable();
         $this->extras = new ArrayCollection([]);
         $this->products = new ArrayCollection([]);
@@ -160,16 +159,16 @@ class Order extends Aggregate
         $product->setOrder($this);
         $this->products->add($product);
 
-		$this->raise(new ProductAddedEvent(productId: $product->getId()));
+        $this->raise(new ProductAddedEvent(productId: $product->getId()));
     }
 
-	/**
-	 * Checks if all products are packed.
-	 *
-	 * @return bool true if all products are packed, false otherwise
-	 */
-	public function isPacked(): bool
-	{
-		return $this->products->forAll(fn(int $index, Product $product) => $product->isPacked());
-	}
+    /**
+     * Checks if all products are packed.
+     *
+     * @return bool true if all products are packed, false otherwise
+     */
+    public function isPacked(): bool
+    {
+        return $this->products->forAll(fn (int $index, Product $product) => $product->isPacked());
+    }
 }

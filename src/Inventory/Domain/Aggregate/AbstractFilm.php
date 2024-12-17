@@ -8,7 +8,6 @@ use App\Inventory\Domain\Events\FilmWasCreatedEvent;
 use App\Inventory\Domain\Events\FilmWasUpdatedEvent;
 use App\Inventory\Domain\Events\FilmWasUsedEvent;
 use App\Inventory\Domain\Exceptions\NotEnoughFilmException;
-use App\Shared\Domain\Aggregate\Aggregate;
 use App\Shared\Domain\Service\UlidService;
 
 /**
@@ -16,9 +15,9 @@ use App\Shared\Domain\Service\UlidService;
  *
  * This class represents a roll.
  */
-abstract class AbstractFilm extends Aggregate
+abstract class AbstractFilm extends AggregateRoot
 {
-	private string $id;
+    private string $id;
 
     private \DateTimeImmutable $dateAdded;
 
@@ -32,10 +31,10 @@ abstract class AbstractFilm extends Aggregate
      */
     public function __construct(protected string $name, protected float $length, protected string $type)
     {
-		$this->id = UlidService::generate();
+        $this->id = UlidService::generate();
         $this->dateAdded = new \DateTimeImmutable();
 
-		$this->raise(new FilmWasCreatedEvent($this->getId()));
+        $this->raise(new FilmWasCreatedEvent($this->getId()));
     }
 
     /**

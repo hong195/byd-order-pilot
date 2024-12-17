@@ -15,7 +15,7 @@ interface PrintedProductProcessAdapterInterface
     /**
      * Retrieves products details by their IDs.
      *
-     * @param int[] $productsIds the IDs of the products to retrieve details for
+     * @param string[] $productsIds the IDs of the products to retrieve details for
      *
      * @return Collection<PrintedProductProcessData> the details of the products identified by the provided IDs
      */

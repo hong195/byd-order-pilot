@@ -7,8 +7,8 @@ namespace App\ProductionProcess\Domain\Service\PrintedProduct\Error;
 use App\ProductionProcess\Domain\Aggregate\Roll\History\History;
 use App\ProductionProcess\Domain\Exceptions\RollErrorManagementException;
 use App\ProductionProcess\Domain\Factory\ErrorFactory;
-use App\ProductionProcess\Domain\Repository\PrintedProduct\PrintedProductRepositoryInterface;
 use App\ProductionProcess\Domain\Repository\PrintedProduct\Error\ErrorRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\PrintedProduct\PrintedProductRepositoryInterface;
 use App\ProductionProcess\Domain\Repository\Roll\RollHistory\HistoryRepositoryInterface;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -35,13 +35,13 @@ final readonly class ErrorManagementService implements ErrorManagementServiceInt
      *
      * @param int         $printedProductId The ID of the printed product
      * @param Process     $process          The process related to the error
-     * @param int         $noticerId        The employee ID who noticed the error
+     * @param string      $noticerId        The employee ID who noticed the error
      * @param string|null $reason           The reason for the error (optional)
      *
      * @throws NotFoundHttpException        If the roll for the printed product does not exist
      * @throws RollErrorManagementException
      */
-    public function recordError(string $printedProductId, Process $process, int $noticerId, ?string $reason = null): void
+    public function recordError(string $printedProductId, Process $process, string $noticerId, ?string $reason = null): void
     {
         $employeeId = $this->getResponsibleEmployeeId($printedProductId, $process);
 
@@ -62,17 +62,17 @@ final readonly class ErrorManagementService implements ErrorManagementServiceInt
     }
 
     /**
-     * Retrieves the responsible employee ID for a specific printed product and process.
+     * Retrieve the responsible employee ID based on the printed product ID and process.
      *
-     * @param int     $printedProductId The ID of the printed product
-     * @param Process $process          The process to check for
+     * @param string  $printedProductId The ID of the printed product
+     * @param Process $process          The process for which the responsible employee is needed
      *
-     * @return int|null The ID of the responsible employee or null if not found
+     * @return string|null The ID of the responsible employee, or null if not found
      *
-     * @throws NotFoundHttpException        If the roll for the printed product does not exist
-     * @throws RollErrorManagementException
+     * @throws NotFoundHttpException        When the roll associated with the printed product does not exist
+     * @throws RollErrorManagementException When the roll history does not contain the specified process
      */
-    private function getResponsibleEmployeeId(string $printedProductId, Process $process): ?int
+    private function getResponsibleEmployeeId(string $printedProductId, Process $process): ?string
     {
         $printedProduct = $this->productRepository->findById($printedProductId);
 

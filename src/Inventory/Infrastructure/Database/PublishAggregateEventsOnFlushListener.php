@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Inventory\Infrastructure\Database;
 
+use App\Inventory\Domain\Aggregate\AggregateRoot;
 use App\Inventory\Infrastructure\Event\DomainEventProducer;
-use App\Shared\Domain\Aggregate\Aggregate;
 use Doctrine\Bundle\DoctrineBundle\Attribute\AsDoctrineListener;
 use Doctrine\ORM\Event\OnFlushEventArgs;
 use Doctrine\ORM\Events;
@@ -20,7 +20,7 @@ final readonly class PublishAggregateEventsOnFlushListener
 
     public function onFlush(OnFlushEventArgs $eventArgs): void
     {
-		$unitOfWork = $eventArgs->getObjectManager()->getUnitOfWork();
+        $unitOfWork = $eventArgs->getObjectManager()->getUnitOfWork();
 
         foreach ($unitOfWork->getScheduledEntityInsertions() as $entity) {
             $this->publishDomainEvent($entity);
@@ -47,14 +47,14 @@ final readonly class PublishAggregateEventsOnFlushListener
         }
     }
 
-	/**
-	 * @throws ExceptionInterface
-	 * @throws \Symfony\Component\Messenger\Exception\ExceptionInterface
-	 */
-	private function publishDomainEvent(object $entity): void
+    /**
+     * @throws ExceptionInterface
+     * @throws \Symfony\Component\Messenger\Exception\ExceptionInterface
+     */
+    private function publishDomainEvent(object $entity): void
     {
-        if ($entity instanceof Aggregate && !$entity->eventsEmpty()) {
-			$this->eventProducer->produce(...$entity->pullEvents());
+        if ($entity instanceof AggregateRoot && !$entity->eventsEmpty()) {
+            $this->eventProducer->produce(...$entity->pullEvents());
         }
     }
 }

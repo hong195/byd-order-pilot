@@ -15,7 +15,7 @@
             <join-column name="parent_roll_id" referenced-column-name="id" nullable="true"/>
         </many-to-one>
 
-        <field name="employeeId" type="integer" column="employee_id"  nullable="true"/>
+        <field name="employeeId" type="string" column="employee_id"  nullable="true"/>
 
         <field name="filmId" type="string" column="film_id" nullable="true"/>
 

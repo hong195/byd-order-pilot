@@ -6,7 +6,7 @@ namespace App\ProductionProcess\Domain\Service\Roll;
 
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
 use App\ProductionProcess\Domain\Factory\RollFactory;
-use  App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
 use App\ProductionProcess\Domain\ValueObject\Process;
 
 /**
@@ -29,8 +29,8 @@ final readonly class RollMaker
     /**
      * Creates a new Roll.
      *
-     * @param string   $name   The name of the roll
-     * @param int|null $filmId The ID of the film associated with the roll
+     * @param string      $name   The name of the roll
+     * @param string|null $filmId The ID of the film associated with the roll
      *
      * @return Roll The created Roll object
      */

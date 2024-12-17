@@ -22,12 +22,10 @@ use App\ProductionProcess\Application\UseCase\Command\MergeRolls\MergeRollsComma
 use App\ProductionProcess\Application\UseCase\Command\PrintCheckIn\PrintCheckIntCommand;
 use App\ProductionProcess\Application\UseCase\Command\RecordRollHistory\RecordRollHistoryCommand;
 use App\ProductionProcess\Application\UseCase\Command\ReprintPrintedProduct\ReprintPrintedProductCommand;
-use App\ProductionProcess\Application\UseCase\Command\ReprintRoll\ReprintRollCommand;
 use App\ProductionProcess\Application\UseCase\Command\TakePhoto\TakePhotoCommand;
 use App\ProductionProcess\Application\UseCase\Command\UnAssignEmployeeFromRoll\UnAssignEmployeeFromRollCommand;
 use App\ProductionProcess\Application\UseCase\Command\UnassignPrintedProduct\UnassignPrintedProductCommand;
 use App\ProductionProcess\Application\UseCase\Command\UnLockRoll\UnLockRollCommand;
-use App\ProductionProcess\Domain\Exceptions\UnassignedPrintedProductsException;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use App\Shared\Application\Command\CommandBusInterface;
 
@@ -118,7 +116,7 @@ readonly class PrivateCommandInteractor
     /**
      * Checks in printed products based on the provided printed product IDs.
      *
-     * @param array $printedProducts An array containing the IDs of printed products to check in
+     * @param string[] $printedProducts An array containing the IDs of printed products to check in
      *
      * @return CheckInPrintedProductsCommandResult The result of the check-in operation
      */
@@ -251,7 +249,7 @@ readonly class PrivateCommandInteractor
     /**
      * Merges the specified rolls by executing a MergeRollsCommand through the command bus.
      *
-     * @param int[] $rollsIds The array of roll IDs to be merged
+     * @param string[] $rollsIds The array of roll IDs to be merged
      */
     public function mergeRolls(array $rollsIds): void
     {

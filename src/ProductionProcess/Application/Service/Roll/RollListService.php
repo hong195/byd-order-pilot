@@ -12,7 +12,7 @@ use App\ProductionProcess\Application\Service\Employee\EmployeeFetcher;
 use App\ProductionProcess\Domain\Aggregate\Printer\Printer;
 use App\ProductionProcess\Domain\Repository\Printer\PrinterRepositoryInterface;
 use App\ProductionProcess\Domain\Repository\Roll\RollFilter;
-use  App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -51,6 +51,7 @@ final readonly class RollListService
                 $printer = new PrinterData(
                     id: $printer->getId(),
                     name: $printer->name,
+                    isAvailable: $printer->isAvailable(),
                 );
             }
 
@@ -83,11 +84,12 @@ final readonly class RollListService
         $data = $this->rollDataTransformer->fromEntity($roll);
 
         if ($roll->getPrinter()?->getId()) {
-			$printer = $this->printerRepository->findById($roll->getPrinter()?->getId());
+            $printer = $this->printerRepository->findById($roll->getPrinter()?->getId());
 
             $data->withPrinter(new PrinterData(
                 id: $printer->getId(),
                 name: $printer->name,
+                isAvailable: $printer->isAvailable(),
             ));
         }
 

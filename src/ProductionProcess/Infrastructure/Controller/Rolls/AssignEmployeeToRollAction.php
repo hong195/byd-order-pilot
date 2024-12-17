@@ -32,7 +32,7 @@ final readonly class AssignEmployeeToRollAction
      */
     public function __invoke(string $rollId, Request $request): JsonResponse
     {
-        $this->privateCommandInteractor->assignEmployeeToARoll($rollId, (int) $request->get('employeeId'));
+        $this->privateCommandInteractor->assignEmployeeToARoll($rollId, (string) $request->get('employeeId'));
 
         return new JsonResponse(['message' => 'Success'], Response::HTTP_OK);
     }

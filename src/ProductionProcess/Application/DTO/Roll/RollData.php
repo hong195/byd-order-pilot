@@ -18,18 +18,19 @@ final class RollData
     private ?PrinterData $printer = null;
 
     /**
-     * Constructor for the class.
+     * Constructor for the class with various properties.
      *
-     * @param string                     $id            the ID of the object
+     * @param string                  $id            the identifier of the object
      * @param string                  $name          the name of the object
      * @param int|float               $length        the length of the object
      * @param int                     $count         the count of the object
-     * @param string[]                $films         an array of films
-     * @param string|null             $process       the process of the object (optional)
-     * @param int                     $priorityCount the priority count of the object (default: 0)
-     * @param array                   $laminations   an array of laminations
-     * @param int|null                $filmId        the film ID of the object (optional)
-     * @param \DateTimeInterface|null $dateAdded     the date added of the object (optional)
+     * @param array                   $films         array of films associated with the object
+     * @param string|null             $process       the process associated with the object, default is null
+     * @param int                     $priorityCount the count of priority for the object, default is 0
+     * @param array                   $laminations   array of laminations associated with the object
+     * @param string|null             $filmId        the film identifier associated with the object, default is null
+     * @param bool                    $locked        flag to determine if the object is locked, default is false
+     * @param \DateTimeInterface|null $dateAdded     the date when the object was added, default is null
      */
     public function __construct(
         public readonly string $id,
@@ -41,7 +42,7 @@ final class RollData
         public readonly int $priorityCount = 0,
         public readonly array $laminations = [],
         public readonly ?string $filmId = null,
-		public readonly bool $locked = false,
+        public readonly bool $locked = false,
         public readonly ?\DateTimeInterface $dateAdded = null,
     ) {
     }
@@ -59,9 +60,9 @@ final class RollData
     /**
      * Setter method to set the printer object.
      *
-     * @param Printerdata|null $printer The printer object to be set or null to unset the printer
+     * @param PrinterData|null $printer The printer object to be set or null to unset the printer
      */
-    public function withPrinter(?Printerdata $printer): void
+    public function withPrinter(?PrinterData $printer): void
     {
         $this->printer = $printer;
     }

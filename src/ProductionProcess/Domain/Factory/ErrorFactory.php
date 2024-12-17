@@ -17,16 +17,16 @@ final class ErrorFactory
     private Error $error;
 
     /**
-     * Makes a new Error instance with provided details.
+     * Creates a new Error object and assigns it to the $error property of the current object.
      *
-     * @param int     $printedProductId      The ID of the printed product related to the Error
-     * @param Process $process               The process associated with the Error
-     * @param int     $responsibleEmployeeId The ID of the responsible employee for the Error
-     * @param int     $noticerId             The ID of the user who noticed the Error
+     * @param string  $printedProductId      The ID of the printed product associated with the error
+     * @param Process $process               The process related to the error
+     * @param string  $responsibleEmployeeId The ID of the employee responsible for the error
+     * @param string  $noticerId             The ID of the noticer who noticed the error
      *
-     * @return self Returns the instance of the class for method chaining
+     * @return self Returns the current object with the updated error property
      */
-    public function make(string $printedProductId, Process $process, int $responsibleEmployeeId, int $noticerId): self
+    public function make(string $printedProductId, Process $process, string $responsibleEmployeeId, string $noticerId): self
     {
         $this->error = new Error(
             noticerId: $noticerId,

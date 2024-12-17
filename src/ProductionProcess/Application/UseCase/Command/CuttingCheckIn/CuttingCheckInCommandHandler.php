@@ -7,6 +7,7 @@ namespace App\ProductionProcess\Application\UseCase\Command\CuttingCheckIn;
 use App\ProductionProcess\Domain\Exceptions\RollCantBeSentToCuttingException;
 use App\ProductionProcess\Domain\Service\Roll\CuttingCheckInService;
 use App\Shared\Application\Command\CommandHandlerInterface;
+use App\Shared\Domain\Exception\DomainException;
 
 /**
  * Class CuttingCheckInCommandHandler.
@@ -22,13 +23,14 @@ readonly class CuttingCheckInCommandHandler implements CommandHandlerInterface
     {
     }
 
-    /**
-     * Invokes the command handler.
-     *
-     * @param CuttingCheckIntCommand $command The cutting check in command
-     *
-     * @throws RollCantBeSentToCuttingException
-     */
+	/**
+	 * Invokes the command handler.
+	 *
+	 * @param CuttingCheckIntCommand $command The cutting check in command
+	 *
+	 * @throws RollCantBeSentToCuttingException
+	 * @throws DomainException
+	 */
     public function __invoke(CuttingCheckIntCommand $command): void
     {
         $this->cuttingCheckInService->handle($command->rollId);

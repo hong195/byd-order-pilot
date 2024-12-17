@@ -20,7 +20,7 @@ readonly class UnAssignEmployeeFromRollCommandHandler implements CommandHandlerI
     /**
      * Class MyClass.
      */
-    public function __construct(private AccessControlService $accessControlService, private RollRepositoryInterface $rollRepository, private HistorySyncService $historyListService)
+    public function __construct(private RollRepositoryInterface $rollRepository, private HistorySyncService $historyListService)
     {
     }
 

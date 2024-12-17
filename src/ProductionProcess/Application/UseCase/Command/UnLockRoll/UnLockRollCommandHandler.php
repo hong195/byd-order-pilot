@@ -7,6 +7,7 @@ namespace App\ProductionProcess\Application\UseCase\Command\UnLockRoll;
 use App\ProductionProcess\Domain\Exceptions\LockingRollException;
 use App\ProductionProcess\Domain\Service\Roll\UnLockRollService;
 use App\Shared\Application\Command\CommandHandlerInterface;
+use App\Shared\Domain\Exception\DomainException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -28,7 +29,8 @@ readonly class UnLockRollCommandHandler implements CommandHandlerInterface
     /**
      * @throws NotFoundHttpException
      * @throws LockingRollException
-     */
+	 * @throws DomainException
+	 */
     public function __invoke(UnLockRollCommand $command): void
     {
         $this->unLockRollService->unlock($command->rollId);

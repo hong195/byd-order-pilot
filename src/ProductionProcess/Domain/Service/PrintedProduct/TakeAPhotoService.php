@@ -27,26 +27,31 @@ final readonly class TakeAPhotoService
      * Class constructor.
      *
      * @param PrintedProductRepositoryInterface $printedProductRepository the job repository instance
-     * @param MediaFileRepositoryInterface      $mediaFileRepository
-     * @param RemoveMediaFileService            $removeMediaFileService
      */
     public function __construct(private PrintedProductRepositoryInterface $printedProductRepository, private MediaFileRepositoryInterface $mediaFileRepository, private RemoveMediaFileService $removeMediaFileService)
     {
     }
 
     /**
-     * @param string $productId
-     * @param int $photoId
+     * Uploads a new photo for a printed product.
      *
-     * @return void
+     * Retrieves the printed product by ID, throws NotFoundHttpException if not found.
+     * Gets the old photo of the printed product and removes it if it exists.
+     * Retrieves the new photo by ID and sets it as the photo of the printed product.
+     * Saves the printed product with the new photo.
+     *
+     * @param string $productId the ID of the printed product
+     * @param string $photoId   the ID of the new photo to upload
+     *
+     * @throws NotFoundHttpException if the printed product is not found
      */
-    public function upload(string $productId, int $photoId): void
+    public function upload(string $productId, string $photoId): void
     {
         $printedProduct = $this->printedProductRepository->findById($productId);
 
-		if (!$printedProduct) {
-			throw new NotFoundHttpException('Printed product not found');
-		}
+        if (!$printedProduct) {
+            throw new NotFoundHttpException('Printed product not found');
+        }
 
         $oldPhoto = $printedProduct->getPhoto();
 

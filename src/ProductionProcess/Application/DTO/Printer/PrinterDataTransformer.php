@@ -28,7 +28,8 @@ final readonly class PrinterDataTransformer
         foreach ($entities as $entity) {
             $data->add(new PrinterData(
                 id: $entity->getId(),
-                name: $entity->getName(),
+                name: $entity->name,
+                isAvailable: $entity->isAvailable(),
             ));
         }
 

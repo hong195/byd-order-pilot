@@ -10,10 +10,10 @@
             <generator strategy="NONE"/>
         </id>
 
-        <field name="printedProductId" column="printed_product_id" type="integer"/>
+        <field name="printedProductId" column="printed_product_id" type="string"/>
         <field name="process" column="process" length="255"/>
-        <field name="responsibleEmployeeId" column="responsible_employee_id" type="integer"/>
-        <field name="noticerId" column="noticer_id" type="integer"/>
+        <field name="responsibleEmployeeId" column="responsible_employee_id" type="string"/>
+        <field name="noticerId" column="noticer_id" type="string"/>
         <field name="reason" column="reason" type="text" nullable="true"/>
         <field name="createdAt" column="created_at" type="datetime_immutable"/>
 

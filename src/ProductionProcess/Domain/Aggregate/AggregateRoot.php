@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Shared\Domain\Aggregate;
+namespace App\ProductionProcess\Domain\Aggregate;
 
 use App\Shared\Domain\Event\EventInterface;
 
-abstract class Aggregate
+abstract class AggregateRoot
 {
     /**
      * @var EventInterface[]
@@ -23,10 +23,7 @@ abstract class Aggregate
         $events = $this->events;
         $this->events = [];
 
-		$backtrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
-
-		dump($backtrace);
-		return $events;
+        return $events;
     }
 
     public function eventsEmpty(): bool

@@ -6,14 +6,13 @@ namespace App\ProductionProcess\Domain\Aggregate;
 
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
 use App\ProductionProcess\Domain\Events\PrintedProductReprintedEvent;
-use App\Shared\Domain\Aggregate\Aggregate;
 use App\Shared\Domain\Entity\MediaFile;
 use App\Shared\Domain\Service\UlidService;
 
 /**
  * Class Job.
  */
-class PrintedProduct extends Aggregate
+class PrintedProduct extends AggregateRoot
 {
     public const PRODUCT_PHOTO = 'product_photo';
 

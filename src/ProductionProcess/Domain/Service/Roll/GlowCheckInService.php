@@ -5,10 +5,8 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Domain\Service\Roll;
 
 use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
-use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
-use App\ProductionProcess\Domain\Events\RollsWereSentToGlowCheckInEvent;
 use App\ProductionProcess\Domain\Exceptions\RollCantBeSentToGlowException;
-use  App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
+use App\ProductionProcess\Domain\Repository\Roll\RollRepositoryInterface;
 use App\ProductionProcess\Domain\Service\PrintedProduct\GroupService;
 use App\ProductionProcess\Domain\ValueObject\Process;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -58,14 +56,13 @@ final readonly class GlowCheckInService
 
             $rollToGlow->updateProcess($process);
 
+            $rollToGlow->sendToGlowCheckIn();
             $this->rollRepository->save($rollToGlow);
-            $this->eventDispatcher->dispatch(new RollsWereSentToGlowCheckInEvent([$rollToGlow->getId()]));
 
             return;
         }
 
         $rollToGlow->removePrintedProducts();
-        $sendToGlowingRolls = [];
 
         $rollToGlow->updateProcess(Process::CUT);
 
@@ -90,10 +87,8 @@ final readonly class GlowCheckInService
                 $roll->addPrintedProduct($printedProduct);
             }
 
+            $roll->sendToGlowCheckIn();
             $this->rollRepository->save($roll);
-            $sendToGlowingRolls[] = $roll;
         }
-
-        $this->eventDispatcher->dispatch(new RollsWereSentToGlowCheckInEvent(array_map(fn (Roll $roll) => $roll->getId(), $sendToGlowingRolls)));
     }
 }

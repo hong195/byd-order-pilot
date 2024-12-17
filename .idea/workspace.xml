@@ -4,178 +4,61 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Updated reference to id, now its string">
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="production process uses ulid id #2.">
+      <change afterPath="$PROJECT_DIR$/src/Inventory/Domain/Aggregate/AggregateRoot.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Event/EventEnvelopeSerializer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/AggregateRoot.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Event/EventEnvelopeSerializer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/AggregateRoot.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Event/EventEnvelopeHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Event/EventEnvelopeSerializer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20241217124418.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20241218125602.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20241218125753.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/5916b34a-be41-48d5-ab32-895d9f6eb3ec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5916b34a-be41-48d5-ab32-895d9f6eb3ec.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/5916b34a-be41-48d5-ab32-895d9f6eb3ec/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5916b34a-be41-48d5-ab32-895d9f6eb3ec/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_11_24,_17_07_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_11_24__17_07__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/order-pilot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/order-pilot.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/phpspec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpspec.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/FindFilmHistory/FindFilmHistoryQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/FindFilmHistory/FindFilmHistoryQuery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Repository/HistoryFilter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Domain/Repository/HistoryFilter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Repository/HistoryRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Domain/Repository/HistoryRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Adapter/Rolls/RollsApiAdapter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Adapter/Rolls/RollsApiAdapter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Adapter/Rolls/RollsApiInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Adapter/Rolls/RollsApiInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Repository/HistoryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Repository/HistoryRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/Product/ProcessDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/Product/ProcessDTO.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/Product/ProductCreateDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/Product/ProductCreateDTO.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/Product/ProductData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/Product/ProductData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/Service/Product/ProductListService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/Service/Product/ProductListService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/Service/Product/ProductService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/Service/Product/ProductService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AddProduct/AddProductCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AddProduct/AddProductCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AddProduct/AddProductCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AddProduct/AddProductCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/CreateExtra/CreateExtraCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/CreateExtra/CreateExtraCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/CreateExtra/CreateExtraCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/CreateExtra/CreateExtraCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ManuallyAddOrder/ManuallyAddOrderCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/ManuallyAddOrder/ManuallyAddOrderCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/PackExtra/PackExtraCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/PackExtra/PackExtraCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/PackExtra/PackExtraCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/PackExtra/PackExtraCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/PackProduct/PackProductCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/PackProduct/PackProductCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UnPackExtra/UnPackExtraCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UnPackExtra/UnPackExtraCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UnPackExtra/UnPackExtraCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UnPackExtra/UnPackExtraCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UnPackMainProduct/UnPackProductCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/UnPackMainProduct/UnPackProductCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateCommandInteractor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateQueryInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/PrivateQueryInteractor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindAProduct/FindAProductHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindAProduct/FindAProductHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindAnOrder/FindAnOrderHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindAnOrder/FindAnOrderHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindAnOrder/FindAnOrderQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindAnOrder/FindAnOrderQuery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindExtras/FindExtrasHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindExtras/FindExtrasHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindExtras/FindExtrasQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindExtras/FindExtrasQuery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindOrdersWithExtras/FindOrdersWithExtrasHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindOrdersWithExtras/FindOrdersWithExtrasHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindPackedOrders/FindPackedOrdersHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindPackedOrders/FindPackedOrdersHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindPartiallyPackedOrders/FindPartiallyPackedOrdersHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindPartiallyPackedOrders/FindPartiallyPackedOrdersHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindProducts/FindProductsHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindProducts/FindProductsHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindProducts/FindProductsQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Query/FindProducts/FindProductsQuery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Repository/ProductFilter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Repository/ProductFilter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Extra/SetExtraPackStatusService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Extra/SetExtraPackStatusService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/Extra/AddExtraAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/Extra/AddExtraAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/Extra/FindExtras.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/Extra/FindExtras.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/Extra/PackExtraAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/Extra/PackExtraAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/Extra/UnPackExtraAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/Extra/UnPackExtraAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/FindAnOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/FindAnOrder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/Products/AddProductAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/Products/AddProductAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/Products/FindProducts.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/Products/FindProducts.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/Products/PackProductAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/Products/PackProductAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/Products/UnPackProductAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Controller/Orders/Products/UnPackProductAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Database/PublishAggregateEventsOnFlushListener.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/OrderRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Repository/OrderRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/EmployeeRollCountData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/EmployeeRollCountData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/Error/EmployeeErrorData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/Error/EmployeeErrorData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/HistoryData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/HistoryData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/PrintedProduct/PrintedProductData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/PrintedProduct/PrintedProductData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/PrintedProduct/PrintedProductProcessData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/PrintedProduct/PrintedProductProcessData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/PrintedProduct/SortData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/PrintedProduct/SortData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/Roll/RollData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/Roll/RollData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/RollHistoryStatisticsDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/RollHistoryStatisticsDTO.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/Service/Employee/EmployeeFetcher.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/Service/Employee/EmployeeFetcher.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/Service/Roll/History/HistoryListService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/Service/Roll/History/HistoryListService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/AssignEmployeeToRoll/AssignEmployeeToRollCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/AssignEmployeeToRoll/AssignEmployeeToRollCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/AssignEmployeeToRoll/AssignEmployeeToRollCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/AssignEmployeeToRoll/AssignEmployeeToRollCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ChangePrintedProductPriority/ChangePrintedProductPriorityCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ChangePrintedProductPriority/ChangePrintedProductPriorityCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ChangePrintedProductPriority/ChangePrintedProductPriorityCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ChangePrintedProductPriority/ChangePrintedProductPriorityCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ChangePrintedProductSort/ChangePrintedProductSortCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ChangePrintedProductSort/ChangePrintedProductSortCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ChangePrintedProductSort/ChangePrintedProductSortCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ChangePrintedProductSort/ChangePrintedProductSortCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ChangePrinterAvailability/ChangePrinterAvailabilityCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ChangePrinterAvailability/ChangePrinterAvailabilityCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/CheckInPrintedProducts/CheckInPrintedProductsCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/CheckInPrintedProducts/CheckInPrintedProductsCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/CheckRemainingProducts/CheckRemainingProductsCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/CheckRemainingProducts/CheckRemainingProductsCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/CheckRemainingProducts/CheckRemainingProductsCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/CheckRemainingProducts/CheckRemainingProductsCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/CreatePrintedProduct/CreatePrintedProductCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/CreatePrintedProduct/CreatePrintedProductCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/CuttingCheckIn/CuttingCheckInCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/CuttingCheckIn/CuttingCheckInCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/CuttingCheckIn/CuttingCheckIntCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/CuttingCheckIn/CuttingCheckIntCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/GlowCheckIn/GlowCheckInCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/GlowCheckIn/GlowCheckInCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/GlowCheckIn/GlowCheckInCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/GlowCheckIn/GlowCheckInCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/LockRoll/LockRollCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/LockRoll/LockRollCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/LockRoll/LockRollCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/LockRoll/LockRollCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ManualProductsArrangement/ManualProductsArrangementQueryHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ManualProductsArrangement/ManualProductsArrangementQueryHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/MergeRolls/MergeRollsCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/MergeRolls/MergeRollsCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/MergeRolls/MergeRollsCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/MergeRolls/MergeRollsCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/PrintCheckIn/PrintCheckInCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/PrintCheckIn/PrintCheckInCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/PrintCheckIn/PrintCheckIntCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/PrintCheckIn/PrintCheckIntCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/RecordRollHistory/RecordRollHistoryCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/RecordRollHistory/RecordRollHistoryCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ReprintPrintedProduct/ReprintPrintedProductCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/ReprintPrintedProduct/ReprintPrintedProductCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/TakePhoto/TakePhotoCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/TakePhoto/TakePhotoCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/UnAssignEmployeeFromRoll/UnAssignEmployeeFromRollCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/UnAssignEmployeeFromRoll/UnAssignEmployeeFromRollCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/UnAssignEmployeeFromRoll/UnAssignEmployeeFromRollCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/UnAssignEmployeeFromRoll/UnAssignEmployeeFromRollCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/UnLockRoll/UnLockRollCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/UnLockRoll/UnLockRollCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/UnLockRoll/UnLockRollCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/UnLockRoll/UnLockRollCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/UnassignPrintedProduct/UnassignPrintedProductHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/UnassignPrintedProduct/UnassignPrintedProductHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateCommandInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateCommandInteractor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateQueryInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/PrivateQueryInteractor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindARoll/FindARollHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindARoll/FindARollHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindARoll/FindARollQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindARoll/FindARollQuery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindEmployeeErrors/FindEmployeeErrorsHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindEmployeeErrors/FindEmployeeErrorsHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindErrors/FindErrorsHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindErrors/FindErrorsHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrintedProduct/FindPrintedProductQueryHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrintedProduct/FindPrintedProductQueryHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrintedProducts/FindPrintedProductsQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrintedProducts/FindPrintedProductsQuery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrintedProducts/FindPrintedProductsQueryHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrintedProducts/FindPrintedProductsQueryHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrinters/FindPrintersHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindPrinters/FindPrintersHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindRollHistory/FindRollHistoryHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindRollHistory/FindRollHistoryHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindRollHistory/FindRollHistoryQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindRollHistory/FindRollHistoryQuery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindRolls/FindRollsHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/FindRolls/FindRollsHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/GetPrintedProductsProcessDetail/GetPrintedProductsProcessDetailHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/GetPrintedProductsProcessDetail/GetPrintedProductsProcessDetailHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/GetPrintedProductsProcessDetail/GetPrintedProductsProcessDetailQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Query/GetPrintedProductsProcessDetail/GetPrintedProductsProcessDetailQuery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/messenger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/messenger.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Aggregate/AbstractFilm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Domain/Aggregate/AbstractFilm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Database/PublishAggregateEventsOnFlushListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Database/PublishAggregateEventsOnFlushListener.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Event/EventEnvelope.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Event/EventEnvelope.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/EventHandler/EventEnvelopeHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/EventHandler/EventEnvelopeHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Product/PackProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Product/PackProduct.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Adapter/PrintedProductProcessAdapterInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Adapter/PrintedProductProcessAdapterInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Event/EventEnvelope.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Event/EventEnvelope.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Event/EventEnvelopeHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Event/EventEnvelopeHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/Printer/PrinterData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/Printer/PrinterData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/Printer/PrinterDataTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/Printer/PrinterDataTransformer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/Service/Roll/RollListService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/Service/Roll/RollListService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/CheckInPrintedProducts/CheckInPrintedProductsCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/CheckInPrintedProducts/CheckInPrintedProductsCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Error.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Error.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/PrintedProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/PrintedProduct.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Printer/Condition.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Printer/Condition.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Roll/History/History.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Roll/History/History.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Roll/Roll.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Roll/Roll.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Events/RollProcessWasUpdatedEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Events/RollProcessWasUpdatedEvent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Events/RollWasSentToCutCheckInEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Events/RollWasSentToCutCheckInEvent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Events/RollWasSentToPrintCheckInEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Events/RollWasSentToPrintCheckInEvent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Factory/HistoryFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Factory/HistoryFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Factory/PrintedProductFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Factory/PrintedProductFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Factory/RollFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Factory/RollFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/PrintedProduct/Error/ErrorRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/PrintedProduct/Error/ErrorRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/PrintedProduct/PrintedProductFilter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/PrintedProduct/PrintedProductFilter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/Printer/PrinterRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/Printer/PrinterRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/Roll/RollHistory/FetchRollHistoryStatisticsFilter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/Roll/RollHistory/FetchRollHistoryStatisticsFilter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/Roll/RollHistory/HistoryRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/Roll/RollHistory/HistoryRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/Roll/RollRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Repository/Roll/RollRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Inventory/AvailableFilmServiceInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Inventory/AvailableFilmServiceInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Inventory/InMemoryAvailableFilmService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Inventory/InMemoryAvailableFilmService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/ChangeSortOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/ChangeSortOrder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/CheckRemainingProductsService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/CheckRemainingProductsService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/CuttingCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/CuttingCheckInService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/GlowCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/GlowCheckInService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/History/HistorySyncService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/History/HistorySyncService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/LockRollService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/LockRollService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Events/RollWasSentToGlowCheckInEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Events/RollWasSentToGlowCheckInEvent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Factory/ErrorFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Factory/ErrorFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/Error/ErrorManagementService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/Error/ErrorManagementService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/Error/ErrorManagementServiceInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/Error/ErrorManagementServiceInterface.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintCheckInService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Auto/FilmAssignmentService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Auto/FilmAssignmentService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Auto/Groups/FilmGroup.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Auto/Groups/FilmGroup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Merge/MergeService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess/Merge/MergeService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/RollMaker.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/RollMaker.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/UnLockRollService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/UnLockRollService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Adapter/Employee/EmployeeAdapter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Adapter/Employee/EmployeeAdapter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Adapter/Employee/EmployeeAdapterInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Adapter/Employee/EmployeeAdapterInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Adapter/InventoryApiAdapter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Adapter/InventoryApiAdapter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Api/RollApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Api/RollApi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/PrintedProducts/ChangePrintedProductPriorityAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/PrintedProducts/ChangePrintedProductPriorityAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/PrintedProducts/ChangeSortPrintedProductAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/PrintedProducts/ChangeSortPrintedProductAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/PrintedProducts/FindPrintedProductsAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/PrintedProducts/FindPrintedProductsAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/PrintedProducts/ReprintPrintedProductAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/PrintedProducts/ReprintPrintedProductAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/PrintedProducts/TakePhotoAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/PrintedProducts/TakePhotoAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/PrintedProducts/UnassignPrintedProductAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/PrintedProducts/UnassignPrintedProductAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/Rolls/AssignEmployeeToRollAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/Rolls/AssignEmployeeToRollAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/Rolls/CuttingCheckInAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/Rolls/CuttingCheckInAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/Rolls/FindARollAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/Rolls/FindARollAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/Rolls/GlowCheckInAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/Rolls/GlowCheckInAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/Rolls/History/FindRollHistoryAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/Rolls/History/FindRollHistoryAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/Rolls/LockRollAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/Rolls/LockRollAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/Rolls/PrintingCheckInAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/Rolls/PrintingCheckInAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/Rolls/ReprintRollAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/Rolls/ReprintRollAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/Rolls/UnAssignEmployeeFromRollAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/Rolls/UnAssignEmployeeFromRollAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/Rolls/UnLockRollAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Controller/Rolls/UnLockRollAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/PrintedProduct.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/PrintedProduct.orm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/Roll.History.History.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/Roll.History.History.orm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Api/PrintedProductApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Api/PrintedProductApi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/Error.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/Error.orm.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/Roll.Roll.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/Roll.Roll.orm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/ErrorRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/ErrorRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/HistoryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/HistoryRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/PrintedProductRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/PrintedProductRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/PrinterRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/PrinterRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/RollRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Repository/RollRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20241216164224.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20241216183200.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/Infrastructure/Api/EmployeeApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Infrastructure/Api/EmployeeApi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/Infrastructure/Controller/DeleteUserAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Infrastructure/Controller/DeleteUserAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/Infrastructure/Controller/FinAUserAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Infrastructure/Controller/FinAUserAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/Infrastructure/Controller/UpdateUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Infrastructure/Controller/UpdateUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Tools/FixtureTools.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Tools/FixtureTools.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/PublishAggregateEventsOnFlushListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/PublishAggregateEventsOnFlushListener.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Event/EventEnvelope.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Event/EventEnvelope.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Domain/Aggregate/Aggregate.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Domain/Aggregate/Aggregate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Domain/Event/EventType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Domain/Event/EventType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Domain/Security/UserFetcherInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Domain/Security/UserFetcherInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Security/UserFetcher.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Security/UserFetcher.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/Application/UseCase/Command/UpdateUser/UpdateUserCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Application/UseCase/Command/UpdateUser/UpdateUserCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/Application/UseCase/PrivateUseCaseInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Application/UseCase/PrivateUseCaseInteractor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/Application/UseCase/Query/FindUser/FindUserQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Application/UseCase/Query/FindUser/FindUserQuery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/Application/UseCase/Query/FindUser/FindUserQueryHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Application/UseCase/Query/FindUser/FindUserQueryHandler.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,6 +81,9 @@
   <component name="GitRewordedCommitMessages">
     <option name="onto" value="2933ac87d5cd9b5a3c1791a268158dc2becef65e" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/Shared/Domain/Event/EventType.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="PHPCodeSnifferProjectConfiguration">
     <option name="selectedConfigurationId" value="2b84c86e-c887-410d-9d1e-1bcb0d9bafa7" />
   </component>
@@ -211,137 +97,137 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="order-pilot-php-fpm:latest">
     <include_path>
-      <path value="$PROJECT_DIR$/vendor/psr/clock" />
-      <path value="$PROJECT_DIR$/vendor/clue/ndjson-react" />
-      <path value="$PROJECT_DIR$/vendor/psr/container" />
-      <path value="$PROJECT_DIR$/vendor/psr/log" />
-      <path value="$PROJECT_DIR$/vendor/psr/cache" />
-      <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
-      <path value="$PROJECT_DIR$/vendor/react/stream" />
       <path value="$PROJECT_DIR$/vendor/react/promise" />
-      <path value="$PROJECT_DIR$/vendor/react/event-loop" />
+      <path value="$PROJECT_DIR$/vendor/react/stream" />
       <path value="$PROJECT_DIR$/vendor/react/cache" />
-      <path value="$PROJECT_DIR$/vendor/lexik/jwt-authentication-bundle" />
+      <path value="$PROJECT_DIR$/vendor/react/event-loop" />
       <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
-      <path value="$PROJECT_DIR$/vendor/liip/test-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/vendor/lexik/jwt-authentication-bundle" />
       <path value="$PROJECT_DIR$/vendor/fidry/cpu-core-counter" />
-      <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/vendor/liip/test-fixtures-bundle" />
       <path value="$PROJECT_DIR$/vendor/phar-io/version" />
-      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
       <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
-      <path value="$PROJECT_DIR$/vendor/react/child-process" />
+      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
       <path value="$PROJECT_DIR$/vendor/nelmio/cors-bundle" />
-      <path value="$PROJECT_DIR$/vendor/react/dns" />
+      <path value="$PROJECT_DIR$/vendor/react/child-process" />
       <path value="$PROJECT_DIR$/vendor/react/socket" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-invoker" />
+      <path value="$PROJECT_DIR$/vendor/react/dns" />
       <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-invoker" />
       <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
       <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
-      <path value="$PROJECT_DIR$/vendor/phpstan/phpstan" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
       <path value="$PROJECT_DIR$/vendor/phpstan/phpstan-symfony" />
+      <path value="$PROJECT_DIR$/vendor/phpstan/phpstan" />
       <path value="$PROJECT_DIR$/vendor/symfony/browser-kit" />
-      <path value="$PROJECT_DIR$/vendor/symfony/security-bundle" />
-      <path value="$PROJECT_DIR$/vendor/symfony/monolog-bridge" />
       <path value="$PROJECT_DIR$/vendor/symfony/cache" />
-      <path value="$PROJECT_DIR$/vendor/symfony/serializer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/monolog-bridge" />
       <path value="$PROJECT_DIR$/vendor/symfony/dotenv" />
-      <path value="$PROJECT_DIR$/vendor/symfony/framework-bundle" />
-      <path value="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />
-      <path value="$PROJECT_DIR$/vendor/symfony/phpunit-bridge" />
-      <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
-      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
-      <path value="$PROJECT_DIR$/vendor/symfony/runtime" />
-      <path value="$PROJECT_DIR$/vendor/symfony/security-http" />
-      <path value="$PROJECT_DIR$/vendor/symfony/uid" />
-      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
-      <path value="$PROJECT_DIR$/vendor/symfony/config" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
-      <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
-      <path value="$PROJECT_DIR$/vendor/symfony/maker-bundle" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-uuid" />
-      <path value="$PROJECT_DIR$/vendor/symfony/security-csrf" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
-      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
-      <path value="$PROJECT_DIR$/vendor/symfony/options-resolver" />
-      <path value="$PROJECT_DIR$/vendor/symfony/stopwatch" />
-      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
-      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php83" />
-      <path value="$PROJECT_DIR$/vendor/symfony/dom-crawler" />
-      <path value="$PROJECT_DIR$/vendor/symfony/property-access" />
-      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
-      <path value="$PROJECT_DIR$/vendor/symfony/messenger" />
-      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
-      <path value="$PROJECT_DIR$/vendor/symfony/property-info" />
-      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
-      <path value="$PROJECT_DIR$/vendor/symfony/routing" />
-      <path value="$PROJECT_DIR$/vendor/symfony/string" />
-      <path value="$PROJECT_DIR$/vendor/symfony/security-core" />
-      <path value="$PROJECT_DIR$/vendor/symfony/yaml" />
-      <path value="$PROJECT_DIR$/vendor/symfony/mime" />
-      <path value="$PROJECT_DIR$/vendor/symfony/cache-contracts" />
-      <path value="$PROJECT_DIR$/vendor/symfony/dependency-injection" />
-      <path value="$PROJECT_DIR$/vendor/symfony/flex" />
-      <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
-      <path value="$PROJECT_DIR$/vendor/symfony/doctrine-bridge" />
-      <path value="$PROJECT_DIR$/vendor/symfony/var-exporter" />
-      <path value="$PROJECT_DIR$/vendor/symfony/type-info" />
-      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
-      <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
-      <path value="$PROJECT_DIR$/vendor/symfony/process" />
-      <path value="$PROJECT_DIR$/vendor/symfony/console" />
-      <path value="$PROJECT_DIR$/vendor/symfony/clock" />
-      <path value="$PROJECT_DIR$/vendor/symfony/password-hasher" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-migrations-bundle" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/migrations" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/persistence" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/common" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" />
-      <path value="$PROJECT_DIR$/vendor/fakerphp/faker" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/sql-formatter" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/collections" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/orm" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
-      <path value="$PROJECT_DIR$/vendor/lcobucci/clock" />
-      <path value="$PROJECT_DIR$/vendor/evenement/evenement" />
-      <path value="$PROJECT_DIR$/vendor/gesdinet/jwt-refresh-token-bundle" />
-      <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/version" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/cli-parser" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/lines-of-code" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/type" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/complexity" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
-      <path value="$PROJECT_DIR$/vendor/masterminds/html5" />
-      <path value="$PROJECT_DIR$/vendor/friendsofphp/php-cs-fixer" />
-      <path value="$PROJECT_DIR$/vendor/squizlabs/php_codesniffer" />
-      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
-      <path value="$PROJECT_DIR$/vendor/escapestudios/symfony2-coding-standard" />
-      <path value="$PROJECT_DIR$/vendor/martin-georgiev/postgresql-for-doctrine" />
-      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/serializer" />
       <path value="$PROJECT_DIR$/vendor/symfony/amqp-messenger" />
+      <path value="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/framework-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/phpunit-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/runtime" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/symfony/uid" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-http" />
+      <path value="$PROJECT_DIR$/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-uuid" />
+      <path value="$PROJECT_DIR$/vendor/symfony/maker-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-csrf" />
+      <path value="$PROJECT_DIR$/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/vendor/symfony/stopwatch" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php83" />
+      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/vendor/symfony/dom-crawler" />
+      <path value="$PROJECT_DIR$/vendor/symfony/messenger" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-core" />
+      <path value="$PROJECT_DIR$/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/vendor/symfony/cache-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/vendor/symfony/flex" />
+      <path value="$PROJECT_DIR$/vendor/symfony/var-exporter" />
+      <path value="$PROJECT_DIR$/vendor/symfony/doctrine-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/type-info" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-info" />
+      <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/vendor/symfony/password-hasher" />
+      <path value="$PROJECT_DIR$/vendor/symfony/clock" />
+      <path value="$PROJECT_DIR$/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-migrations-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/persistence" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/migrations" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/sql-formatter" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/vendor/evenement/evenement" />
+      <path value="$PROJECT_DIR$/vendor/lcobucci/clock" />
+      <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/vendor/gesdinet/jwt-refresh-token-bundle" />
+      <path value="$PROJECT_DIR$/vendor/fakerphp/faker" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/lines-of-code" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/complexity" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/vendor/masterminds/html5" />
+      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/squizlabs/php_codesniffer" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/cli-parser" />
+      <path value="$PROJECT_DIR$/vendor/martin-georgiev/postgresql-for-doctrine" />
+      <path value="$PROJECT_DIR$/vendor/escapestudios/symfony2-coding-standard" />
+      <path value="$PROJECT_DIR$/vendor/friendsofphp/php-cs-fixer" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/clue/ndjson-react" />
+      <path value="$PROJECT_DIR$/vendor/psr/clock" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/psr/cache" />
     </include_path>
   </component>
   <component name="ProblemsViewState">
@@ -491,7 +377,7 @@
     "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm": "Docker",
     "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm": "Docker",
     "git-widget-placeholder": "!2 on Merging roll-history",
-    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/src/Inventory/Infrastructure/Event",
+    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/src/Orders/Domain/Aggregate",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -499,7 +385,7 @@
     "nodejs_package_manager_path": "npm",
     "php.add.doc.comment.for.fields.panel.add.php.doc.for.all.properties": "true",
     "php.override.implement.member.chooser.php.doc": "NONE",
-    "settings.editor.selected.configurable": "reference.webide.settings.project.settings.php",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -513,18 +399,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Orders/Domain/Aggregate" />
       <recent name="$PROJECT_DIR$/src/Inventory/Infrastructure/Event" />
       <recent name="$PROJECT_DIR$/src/Orders/Infrastructure/Event" />
       <recent name="$PROJECT_DIR$/src/Shared/Domain/Event" />
       <recent name="$PROJECT_DIR$/src/Inventory/Infrastructure/EventHandler" />
-      <recent name="$PROJECT_DIR$/src/Shared/Infrastructure" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate" />
       <recent name="$PROJECT_DIR$/src/Inventory/Infrastructure/Database" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Event" />
       <recent name="$PROJECT_DIR$/src/Shared/Domain/Event" />
       <recent name="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/PrintedProduct" />
-      <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintedProductCheckInProcess" />
     </key>
   </component>
   <component name="RunManager" selected="PHPUnit.Main">
@@ -653,23 +539,10 @@
       <workItem from="1732299570194" duration="4952000" />
       <workItem from="1732523185868" duration="13114000" />
       <workItem from="1732541349074" duration="52034000" />
-      <workItem from="1734268238636" duration="42176000" />
-    </task>
-    <task id="LOCAL-00456" summary="Updated correct usage promoted properties FindErrorsQuery.">
-      <option name="closed" value="true" />
-      <created>1731689195694</created>
-      <option name="number" value="00456" />
-      <option name="presentableId" value="LOCAL-00456" />
-      <option name="project" value="LOCAL" />
-      <updated>1731689195694</updated>
-    </task>
-    <task id="LOCAL-00457" summary="Updated manual checkin route name">
-      <option name="closed" value="true" />
-      <created>1731925970182</created>
-      <option name="number" value="00457" />
-      <option name="presentableId" value="LOCAL-00457" />
-      <option name="project" value="LOCAL" />
-      <updated>1731925970183</updated>
+      <workItem from="1734268238636" duration="42899000" />
+      <workItem from="1734383732720" duration="566000" />
+      <workItem from="1734435400588" duration="146000" />
+      <workItem from="1734435687810" duration="27433000" />
     </task>
     <task id="LOCAL-00458" summary="Fixed reprint bug.">
       <option name="closed" value="true" />
@@ -1047,7 +920,23 @@
       <option name="project" value="LOCAL" />
       <updated>1734367617097</updated>
     </task>
-    <option name="localTasksCounter" value="505" />
+    <task id="LOCAL-00505" summary="Orders &amp; production process uses ulid id.">
+      <option name="closed" value="true" />
+      <created>1734374159812</created>
+      <option name="number" value="00505" />
+      <option name="presentableId" value="LOCAL-00505" />
+      <option name="project" value="LOCAL" />
+      <updated>1734374159812</updated>
+    </task>
+    <task id="LOCAL-00506" summary="production process uses ulid id #2.">
+      <option name="closed" value="true" />
+      <created>1734438659538</created>
+      <option name="number" value="00506" />
+      <option name="presentableId" value="LOCAL-00506" />
+      <option name="project" value="LOCAL" />
+      <updated>1734438659539</updated>
+    </task>
+    <option name="localTasksCounter" value="507" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1082,8 +971,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added cors settings for downloading files." />
-    <MESSAGE value="Updated after merging rolls printer is also assigned." />
     <MESSAGE value="Fixed printer condition match." />
     <MESSAGE value="Moved auto check in to its folder" />
     <MESSAGE value="Moved printed product check in to its folders" />
@@ -1107,7 +994,24 @@
     <MESSAGE value="Replaced ulid reference in inventory." />
     <MESSAGE value="Updated inventory module uses async messages." />
     <MESSAGE value="Updated reference to id, now its string" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated reference to id, now its string" />
+    <MESSAGE value="Orders &amp; production process uses ulid id." />
+    <MESSAGE value="production process uses ulid id #2." />
+    <option name="LAST_COMMIT_MESSAGE" value="production process uses ulid id #2." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/src/Shared/Infrastructure/Security/UserFetcher.php</url>
+          <line>18</line>
+          <properties>
+            <option name="className" value="\App\Shared\Infrastructure\Security\UserFetcher" />
+            <option name="methodName" value="requiredUserId" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

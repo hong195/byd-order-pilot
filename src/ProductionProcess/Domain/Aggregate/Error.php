@@ -9,24 +9,16 @@ use App\Shared\Domain\Service\UlidService;
 
 class Error
 {
-    /**
-     * @phpstan-ignore-next-line
-     */
     private string $id;
     private ?string $reason = null;
     private \DateTimeInterface $createdAt;
 
     /**
-     * Constructor for creating a new instance of the specified class.
-     *
-     * @param int     $noticerId             The ID of the noticer
-     * @param int     $responsibleEmployeeId The ID of the responsible employee
-     * @param int     $printedProductId      The ID of the printed product
-     * @param Process $process               The process associated with the instance
+     * Class constructor.
      */
-    public function __construct(public readonly int $noticerId, public readonly int $responsibleEmployeeId, public readonly string $printedProductId, public readonly Process $process)
+    public function __construct(public readonly string $noticerId, public readonly string $responsibleEmployeeId, public readonly string $printedProductId, public readonly Process $process)
     {
-		$this->id = UlidService::generate();
+        $this->id = UlidService::generate();
         $this->createdAt = new \DateTimeImmutable();
     }
 

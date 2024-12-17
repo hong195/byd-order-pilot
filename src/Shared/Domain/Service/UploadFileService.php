@@ -35,9 +35,9 @@ final readonly class UploadFileService
      * @param string|null       $ownerType the type of the owner of the file (optional)
      * @param string|null       $type      the type of the file (optional)
      *
-     * @return int the ID of the uploaded file
+     * @return string the ID of the uploaded file
      */
-    public function upload(File|UploadedFile $file, ?int $ownerId = null, ?string $ownerType = null, ?string $type = null): int
+    public function upload(File|UploadedFile $file, ?int $ownerId = null, ?string $ownerType = null, ?string $type = null): string
     {
         /* @phpstan-ignore-next-line */
         $fileOriginalName = $file->getClientOriginalName();

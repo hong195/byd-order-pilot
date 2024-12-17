@@ -48,9 +48,9 @@ class MediaFile
     /**
      * Get the unique identifier for the object.
      *
-     * @return int the unique identifier for the object
+     * @return string the unique identifier for the object
      */
-    public function getId(): int
+    public function getId(): string
     {
         return $this->id;
     }

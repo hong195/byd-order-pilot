@@ -6,7 +6,7 @@ namespace App\Tests\Functional\ProductionProcess\Domain\Service\Roll;
 
 use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use App\ProductionProcess\Domain\Aggregate\Roll\Roll;
-use App\ProductionProcess\Domain\Events\RollsWereSentToGlowCheckInEvent;
+use App\ProductionProcess\Domain\Events\RollWasSentToGlowCheckInEvent;
 use App\ProductionProcess\Domain\Exceptions\RollCantBeSentToGlowException;
 use App\ProductionProcess\Domain\Factory\PrintedProductFactory;
 use App\ProductionProcess\Domain\Repository\Printer\PrinterRepositoryInterface;
@@ -106,7 +106,7 @@ final class GlowCheckinTest extends AbstractTestCase
 
         $eventDispatcher->expects($this->once())
             ->method('dispatch')
-            ->with($this->isInstanceOf(RollsWereSentToGlowCheckInEvent::class));
+            ->with($this->isInstanceOf(RollWasSentToGlowCheckInEvent::class));
 
         $checkInService->handle($roll->getId());
     }

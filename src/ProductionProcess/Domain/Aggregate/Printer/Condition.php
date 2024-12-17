@@ -8,24 +8,18 @@ use App\Shared\Domain\Service\UlidService;
 
 final class Condition
 {
-    /**
-     * @phpstan-ignore-next-line
-     */
     private string $id;
 
     private \DateTimeImmutable $dateAdded;
 
     /**
-     * Class constructor.
+     * Constructor.
      *
-     * @param Printer     $printer        the printer object
-     * @param string      $filmType       the type of film
-     * @param string|null $laminationType the type of lamination (optional)
-     * @param string|null $color          the color (optional)
+     * @param bool $laminationRequired
      */
     public function __construct(public readonly Printer $printer, public string $filmType, public readonly ?string $laminationType = null, public $laminationRequired = false, public readonly ?string $color = null)
     {
-		$this->id = UlidService::generate();
+        $this->id = UlidService::generate();
         $this->dateAdded = new \DateTimeImmutable();
     }
 

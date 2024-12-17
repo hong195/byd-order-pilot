@@ -22,7 +22,6 @@ readonly class PrintCheckInCommandHandler implements CommandHandlerInterface
     /**
      * Constructs a new instance of the class.
      *
-     * @param AccessControlService $accessControlService      The access control service
      * @param PrintCheckInService  $sendToPrintCheckInService The send to print check in service
      */
     public function __construct(private PrintCheckInService $sendToPrintCheckInService)

@@ -43,9 +43,9 @@ final class History
     /**
      * Get the employee ID.
      *
-     * @return int|null the employee ID
+     * @return string|null the employee ID
      */
-    public function getEmployeeId(): ?int
+    public function getEmployeeId(): ?string
     {
         return $this->employeeId;
     }
@@ -73,9 +73,9 @@ final class History
     /**
      * Get the parent roll ID.
      *
-     * @return int|null the parent roll ID
+     * @return string|null the parent roll ID
      */
-    public function getParentRollId(): ?int
+    public function getParentRollId(): ?string
     {
         return $this->parentRollId;
     }
@@ -83,9 +83,9 @@ final class History
     /**
      * Set the parent roll ID.
      *
-     * @param int|null $parentRollId the parent roll ID
+     * @param string|null $parentRollId the parent roll ID
      */
-    public function setParentRollId(?int $parentRollId): void
+    public function setParentRollId(?string $parentRollId): void
     {
         $this->parentRollId = $parentRollId;
     }

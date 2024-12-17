@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Application\DTO\Printer;
 
-use App\ProductionProcess\Domain\Aggregate\Printer\Printer;
-
 /**
  * Class RollData.
  *
@@ -14,12 +12,13 @@ use App\ProductionProcess\Domain\Aggregate\Printer\Printer;
 final readonly class PrinterData
 {
     /**
-     * Constructor for creating an instance of the class.
+     * Class constructor.
      *
-     * @param int    $id   the ID of the object
-     * @param string $name the name of the object
+     * @param string $id          the ID of the object
+     * @param string $name        the name of the object
+     * @param bool   $isAvailable the availability status of the object
      */
-    public function __construct(public string $id, public string $name)
+    public function __construct(public string $id, public string $name, public bool $isAvailable)
     {
     }
 }

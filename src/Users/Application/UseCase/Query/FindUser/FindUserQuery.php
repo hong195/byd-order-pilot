@@ -8,7 +8,7 @@ use App\Shared\Application\Query\Query;
 
 readonly class FindUserQuery extends Query
 {
-    public function __construct(public int $userId)
+    public function __construct(public string $userId)
     {
     }
 }
