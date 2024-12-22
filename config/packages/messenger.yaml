@@ -5,17 +5,25 @@ framework:
             command.bus:
                 middleware:
                     - doctrine_transaction
-                    - App\Shared\Infrastructure\Middleware\ExceptionMiddleware
+                    #- App\Shared\Infrastructure\Middleware\ExceptionMiddleware
             query.bus:
             event.bus:
                 default_middleware:
                     allow_no_handlers: true
                     enabled: true
 
+        failure_transport: failed
+
         transports:
             production_process:
                 dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
-                serializer: 'App\ProductionProcess\Infrastructure\Event\EventEnvelopeSerializer'
+                retry_strategy:
+                    max_retries: 3
+                    delay: 1000
+                    multiplier: 2
+                    max_delay: 0
+                    jitter: 0.1
+
                 options:
                     exchange:
                         name: 'production_process'
@@ -27,7 +35,11 @@ framework:
                                 - 'inventory.#'
             inventory:
                 dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
-                serializer: 'App\Inventory\Infrastructure\Event\EventEnvelopeSerializer'
+                retry_strategy:
+                    max_retries: 3
+                    delay: 1000
+                    multiplier: 2
+                    max_delay: 10000
                 options:
                     exchange:
                         name: 'inventory'
@@ -38,7 +50,11 @@ framework:
                                 - 'inventory.#'
             orders:
                 dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
-                serializer: 'App\Orders\Infrastructure\Event\EventEnvelopeSerializer'
+                retry_strategy:
+                    max_retries: 3
+                    delay: 1000
+                    multiplier: 2
+                    max_delay: 10000
                 options:
                     exchange:
                         name: 'orders'
@@ -48,7 +64,14 @@ framework:
                             binding_keys:
                                 - 'production_process.#'
                                 - 'orders.#'
+            failed:
+                dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+                options:
+                    exchange:
+                        name: 'dlx_exchange'
+                    queues:
+                        dlq_queue: ~
         routing:
             'App\ProductionProcess\Infrastructure\Event\EventEnvelope': [production_process, inventory]
             'App\Orders\Infrastructure\Event\EventEnvelope': [production_process, orders]
-            'App\Inventory\Infrastructure\Event\EventEnvelope': [inventory]
+            'App\Inventory\Infrastructure\Event\EventEnvelope': [inventory, production_process]

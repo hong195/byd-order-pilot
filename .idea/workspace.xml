@@ -4,61 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="production process uses ulid id #2.">
-      <change afterPath="$PROJECT_DIR$/src/Inventory/Domain/Aggregate/AggregateRoot.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Event/EventEnvelopeSerializer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/AggregateRoot.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Event/EventEnvelopeSerializer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/AggregateRoot.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Event/EventEnvelopeHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Event/EventEnvelopeSerializer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20241217124418.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20241218125602.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Database/Migrations/Version20241218125753.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5916b34a-be41-48d5-ab32-895d9f6eb3ec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5916b34a-be41-48d5-ab32-895d9f6eb3ec.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5916b34a-be41-48d5-ab32-895d9f6eb3ec/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5916b34a-be41-48d5-ab32-895d9f6eb3ec/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/order-pilot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/order-pilot.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/phpspec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpspec.xml" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="production process uses async message communication.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/packages/messenger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/messenger.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Aggregate/AbstractFilm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Domain/Aggregate/AbstractFilm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Database/PublishAggregateEventsOnFlushListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Database/PublishAggregateEventsOnFlushListener.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Event/EventEnvelope.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Event/EventEnvelope.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/EventHandler/EventEnvelopeHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/EventHandler/EventEnvelopeHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Aggregate/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Product/PackProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Domain/Service/Order/Product/PackProduct.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Adapter/PrintedProductProcessAdapterInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Adapter/PrintedProductProcessAdapterInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Event/EventEnvelope.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Event/EventEnvelope.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Event/EventEnvelopeHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Event/EventEnvelopeHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/Printer/PrinterData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/Printer/PrinterData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/Printer/PrinterDataTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/DTO/Printer/PrinterDataTransformer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/Service/Roll/RollListService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/Service/Roll/RollListService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/CheckInPrintedProducts/CheckInPrintedProductsCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/UseCase/Command/CheckInPrintedProducts/CheckInPrintedProductsCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Error.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Error.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/PrintedProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/PrintedProduct.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Printer/Condition.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Printer/Condition.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Roll/History/History.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Roll/History/History.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Roll/Roll.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Roll/Roll.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Events/RollWasSentToGlowCheckInEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Events/RollWasSentToGlowCheckInEvent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Factory/ErrorFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Factory/ErrorFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/Error/ErrorManagementService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/Error/ErrorManagementService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/Error/ErrorManagementServiceInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/PrintedProduct/Error/ErrorManagementServiceInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintCheckInService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Service/Roll/PrintCheckInService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Api/PrintedProductApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Api/PrintedProductApi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/Error.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/Error.orm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/Roll.Roll.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/ORM/Roll.Roll.orm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/PublishAggregateEventsOnFlushListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Database/PublishAggregateEventsOnFlushListener.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Event/EventEnvelope.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Event/EventEnvelope.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Domain/Aggregate/Aggregate.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Domain/Aggregate/Aggregate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Domain/Event/EventType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Domain/Event/EventType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Domain/Security/UserFetcherInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Domain/Security/UserFetcherInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Security/UserFetcher.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Security/UserFetcher.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/Application/UseCase/Command/UpdateUser/UpdateUserCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Application/UseCase/Command/UpdateUser/UpdateUserCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/Application/UseCase/PrivateUseCaseInteractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Application/UseCase/PrivateUseCaseInteractor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/Application/UseCase/Query/FindUser/FindUserQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Application/UseCase/Query/FindUser/FindUserQuery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/Application/UseCase/Query/FindUser/FindUserQueryHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Application/UseCase/Query/FindUser/FindUserQueryHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Event/EventEnvelopeSerializer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Event/DomainEventProducer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Event/DomainEventProducer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Event/EventEnvelopeHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Event/EventEnvelopeHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Event/EventEnvelopeSerializer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Event/EventEnvelopeSerializer.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -542,15 +495,7 @@
       <workItem from="1734268238636" duration="42899000" />
       <workItem from="1734383732720" duration="566000" />
       <workItem from="1734435400588" duration="146000" />
-      <workItem from="1734435687810" duration="27433000" />
-    </task>
-    <task id="LOCAL-00458" summary="Fixed reprint bug.">
-      <option name="closed" value="true" />
-      <created>1732015788841</created>
-      <option name="number" value="00458" />
-      <option name="presentableId" value="LOCAL-00458" />
-      <option name="project" value="LOCAL" />
-      <updated>1732015788841</updated>
+      <workItem from="1734435687810" duration="58889000" />
     </task>
     <task id="LOCAL-00459" summary="Updated merge tests.">
       <option name="closed" value="true" />
@@ -936,7 +881,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734438659539</updated>
     </task>
-    <option name="localTasksCounter" value="507" />
+    <task id="LOCAL-00507" summary="production process uses async message communication.">
+      <option name="closed" value="true" />
+      <created>1734605850073</created>
+      <option name="number" value="00507" />
+      <option name="presentableId" value="LOCAL-00507" />
+      <option name="project" value="LOCAL" />
+      <updated>1734605850073</updated>
+    </task>
+    <option name="localTasksCounter" value="508" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -971,8 +924,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed printer condition match." />
-    <MESSAGE value="Moved auto check in to its folder" />
     <MESSAGE value="Moved printed product check in to its folders" />
     <MESSAGE value="Updated printer/film validation have own test." />
     <MESSAGE value="Added auto check in rolls." />
@@ -995,8 +946,10 @@
     <MESSAGE value="Updated inventory module uses async messages." />
     <MESSAGE value="Updated reference to id, now its string" />
     <MESSAGE value="Orders &amp; production process uses ulid id." />
+    <MESSAGE value="Production process uses" />
     <MESSAGE value="production process uses ulid id #2." />
-    <option name="LAST_COMMIT_MESSAGE" value="production process uses ulid id #2." />
+    <MESSAGE value="production process uses async message communication." />
+    <option name="LAST_COMMIT_MESSAGE" value="production process uses async message communication." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
