@@ -7,15 +7,15 @@ namespace App\Inventory\Infrastructure\EventHandler;
 use App\Inventory\Application\UseCases\PrivateCommandInteractor;
 use App\Inventory\Application\UseCases\PrivateQueryInteractor;
 use App\Inventory\Infrastructure\Adapter\Rolls\RollsApiAdapter;
-use App\ProductionProcess\Domain\Events\RollWasSentToPrintCheckInEvent;
+use App\Inventory\Infrastructure\Event\ExternalEvent\RollWasSentToPrintCheckInExternalEvent;
 use App\Shared\Application\Event\EventHandlerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 
-#[AsEventListener(event: RollWasSentToPrintCheckInEvent::class, method: '__invoke')]
+#[AsEventListener(event: RollWasSentToPrintCheckInExternalEvent::class, method: '__invoke')]
 /**
  * RollWasSentToPrintCheckInEventHandler handles the RollWasSentToPrintCheckInEvent.
  */
-final readonly class RollWasSentToPrintingEventHandler implements EventHandlerInterface
+final readonly class RollWasSentToPrintingExternalEventHandler implements EventHandlerInterface
 {
     /**
      * Class constructor.
@@ -29,9 +29,9 @@ final readonly class RollWasSentToPrintingEventHandler implements EventHandlerIn
     /**
      * Invokes the RollWasSentToPrintCheckInEvent event.
      *
-     * @param RollWasSentToPrintCheckInEvent $event the event object
+     * @param RollWasSentToPrintCheckInExternalEvent $event the event object
      */
-    public function __invoke(RollWasSentToPrintCheckInEvent $event): void
+    public function __invoke(RollWasSentToPrintCheckInExternalEvent $event): void
     {
         $roll = $this->rollsApiAdapter->getRollById($event->rollId);
 

@@ -4,14 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="production process uses async message communication.">
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added outbox pattern.">
+      <change afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/Event/ExternalEvent/RollWasSentToPrintCheckInExternalEvent.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Application/ExternalEvents/PrintedProductReprintedExternalEvent.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Event/ExternalEvents/PrintedProductReprintedExternalHandlerEvent.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/ExternalEvent/ProductAddedEventHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductionProcess/Application/ExternalEvent/ProductAddedExternalEvent.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/packages/messenger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/messenger.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Event/EventEnvelopeSerializer.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Event/DomainEventProducer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Event/DomainEventProducer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Event/EventEnvelopeHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Event/EventEnvelopeHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Event/EventEnvelopeSerializer.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Event/EventEnvelopeSerializer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/EventHandler/EventEnvelopeHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/EventHandler/EventEnvelopeHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/EventHandler/RollWasSentToPrintingEventHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Infrastructure/EventHandler/RollWasSentToPrintingExternalEventHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Event/EventEnvelopeHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Infrastructure/Event/EventEnvelopeHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orders/Infrastructure/Event/EventEnvelopeSerializer.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,6 +185,7 @@
       <path value="$PROJECT_DIR$/vendor/psr/container" />
       <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
       <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/symfony/doctrine-messenger" />
     </include_path>
   </component>
   <component name="ProblemsViewState">
@@ -329,8 +334,8 @@
     "com.jetbrains.php.phpunit.codeGeneration.PhpNewTestDialog.defaultLibrary": "PHPUnit",
     "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm": "Docker",
     "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm": "Docker",
-    "git-widget-placeholder": "!2 on Merging roll-history",
-    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/src/Orders/Domain/Aggregate",
+    "git-widget-placeholder": "rabbit-mq",
+    "last_opened_file_path": "/Users/aleksejem/Sites/order-pilot/src/Orders/Infrastructure/Event",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -352,18 +357,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/Orders/Domain/Aggregate" />
-      <recent name="$PROJECT_DIR$/src/Inventory/Infrastructure/Event" />
       <recent name="$PROJECT_DIR$/src/Orders/Infrastructure/Event" />
+      <recent name="$PROJECT_DIR$/src/Inventory/Infrastructure/Event" />
+      <recent name="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Event" />
+      <recent name="$PROJECT_DIR$/src/Orders/Domain/Aggregate" />
       <recent name="$PROJECT_DIR$/src/Shared/Domain/Event" />
-      <recent name="$PROJECT_DIR$/src/Inventory/Infrastructure/EventHandler" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Orders/Infrastructure/Event/ExternalEvents" />
+      <recent name="$PROJECT_DIR$/src/Orders/Infrastructure/Event" />
+      <recent name="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/EventHandler" />
       <recent name="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate" />
       <recent name="$PROJECT_DIR$/src/Inventory/Infrastructure/Database" />
-      <recent name="$PROJECT_DIR$/src/ProductionProcess/Infrastructure/Event" />
-      <recent name="$PROJECT_DIR$/src/Shared/Domain/Event" />
-      <recent name="$PROJECT_DIR$/tests/Functional/ProductionProcess/Domain/Service/PrintedProduct" />
     </key>
   </component>
   <component name="RunManager" selected="PHPUnit.Main">
@@ -495,23 +500,8 @@
       <workItem from="1734268238636" duration="42899000" />
       <workItem from="1734383732720" duration="566000" />
       <workItem from="1734435400588" duration="146000" />
-      <workItem from="1734435687810" duration="58889000" />
-    </task>
-    <task id="LOCAL-00459" summary="Updated merge tests.">
-      <option name="closed" value="true" />
-      <created>1732019020846</created>
-      <option name="number" value="00459" />
-      <option name="presentableId" value="LOCAL-00459" />
-      <option name="project" value="LOCAL" />
-      <updated>1732019020846</updated>
-    </task>
-    <task id="LOCAL-00460" summary="Updated merge tests.">
-      <option name="closed" value="true" />
-      <created>1732019026119</created>
-      <option name="number" value="00460" />
-      <option name="presentableId" value="LOCAL-00460" />
-      <option name="project" value="LOCAL" />
-      <updated>1732019026119</updated>
+      <workItem from="1734435687810" duration="76155000" />
+      <workItem from="1734969675203" duration="17522000" />
     </task>
     <task id="LOCAL-00461" summary="Updated tests">
       <option name="closed" value="true" />
@@ -889,7 +879,23 @@
       <option name="project" value="LOCAL" />
       <updated>1734605850073</updated>
     </task>
-    <option name="localTasksCounter" value="508" />
+    <task id="LOCAL-00508" summary="Added dlq/dlx for handling dead messages.">
+      <option name="closed" value="true" />
+      <created>1734880063190</created>
+      <option name="number" value="00508" />
+      <option name="presentableId" value="LOCAL-00508" />
+      <option name="project" value="LOCAL" />
+      <updated>1734880063190</updated>
+    </task>
+    <task id="LOCAL-00509" summary="Added outbox pattern.">
+      <option name="closed" value="true" />
+      <created>1734972533065</created>
+      <option name="number" value="00509" />
+      <option name="presentableId" value="LOCAL-00509" />
+      <option name="project" value="LOCAL" />
+      <updated>1734972533065</updated>
+    </task>
+    <option name="localTasksCounter" value="510" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -924,8 +930,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Moved printed product check in to its folders" />
-    <MESSAGE value="Updated printer/film validation have own test." />
     <MESSAGE value="Added auto check in rolls." />
     <MESSAGE value="Clean up commit." />
     <MESSAGE value="Updated auto check in tests." />
@@ -949,7 +953,9 @@
     <MESSAGE value="Production process uses" />
     <MESSAGE value="production process uses ulid id #2." />
     <MESSAGE value="production process uses async message communication." />
-    <option name="LAST_COMMIT_MESSAGE" value="production process uses async message communication." />
+    <MESSAGE value="Added dlq/dlx for handling dead messages." />
+    <MESSAGE value="Added outbox pattern." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added outbox pattern." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

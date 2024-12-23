@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace App\Orders\Infrastructure\Event;
 
+use App\Orders\Application\ExternalEvents\PrintedProductReprintedExternalEvent;
 use App\Orders\Domain\Event\ProductAddedEvent;
-use App\ProductionProcess\Domain\Events\PrintedProductReprintedEvent;
 use App\Shared\Domain\Event\EventType;
-use App\Shared\Infrastructure\Event\EventEnvelope;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Serializer\Exception\ExceptionInterface;
@@ -17,8 +16,8 @@ use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 final class EventEnvelopeHandler
 {
     private const EVENT_MAP = [
+        EventType::PRINTED_PRODUCT_REPRINTED => PrintedProductReprintedExternalEvent::class,
         EventType::PRODUCT_CREATED => ProductAddedEvent::class,
-        EventType::PRINTED_PRODUCT_REPRINTED => PrintedProductReprintedEvent::class,
     ];
 
     public function __construct(private DenormalizerInterface $denormalizer, private MessageBusInterface $eventBus)

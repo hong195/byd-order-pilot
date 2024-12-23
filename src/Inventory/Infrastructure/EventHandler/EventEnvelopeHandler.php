@@ -8,7 +8,7 @@ use App\Inventory\Domain\Events\FilmWasCreatedEvent;
 use App\Inventory\Domain\Events\FilmWasDeletedEvent;
 use App\Inventory\Domain\Events\FilmWasUpdatedEvent;
 use App\Inventory\Infrastructure\Event\EventEnvelope;
-use App\ProductionProcess\Domain\Events\RollWasSentToPrintCheckInEvent;
+use App\Inventory\Infrastructure\Event\ExternalEvent\RollWasSentToPrintCheckInExternalEvent;
 use App\Shared\Domain\Event\EventType;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 use Symfony\Component\Messenger\MessageBusInterface;
@@ -19,7 +19,7 @@ use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 final class EventEnvelopeHandler
 {
     private const EVENT_MAP = [
-        EventType::ROLL_WAS_SENT_TO_PRINT_CHECK_IN => RollWasSentToPrintCheckInEvent::class,
+        EventType::ROLL_WAS_SENT_TO_PRINT_CHECK_IN => RollWasSentToPrintCheckInExternalEvent::class,
         EventType::FILM_WAS_CREATED => FilmWasCreatedEvent::class,
         EventType::FILM_WAS_DELETED => FilmWasDeletedEvent::class,
         EventType::FILM_WAS_UPDATED => FilmWasUpdatedEvent::class,

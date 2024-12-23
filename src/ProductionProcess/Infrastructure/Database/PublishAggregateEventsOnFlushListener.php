@@ -5,16 +5,15 @@ declare(strict_types=1);
 namespace App\ProductionProcess\Infrastructure\Database;
 
 use App\ProductionProcess\Domain\Aggregate\AggregateRoot;
-use App\ProductionProcess\Infrastructure\Event\DomainEventProducer;
+use App\ProductionProcess\Infrastructure\Event\Outbox\OutboxMessageProducer;
 use Doctrine\Bundle\DoctrineBundle\Attribute\AsDoctrineListener;
 use Doctrine\ORM\Event\OnFlushEventArgs;
 use Doctrine\ORM\Events;
-use Symfony\Component\Serializer\Exception\ExceptionInterface;
 
 #[AsDoctrineListener(event: Events::onFlush)]
 final readonly class PublishAggregateEventsOnFlushListener
 {
-    public function __construct(private DomainEventProducer $eventProducer)
+    public function __construct(private OutboxMessageProducer $outboxMessageProducer)
     {
     }
 
@@ -47,14 +46,10 @@ final readonly class PublishAggregateEventsOnFlushListener
         }
     }
 
-    /**
-     * @throws ExceptionInterface
-     * @throws \Symfony\Component\Messenger\Exception\ExceptionInterface
-     */
     private function publishDomainEvent(object $entity): void
     {
         if ($entity instanceof AggregateRoot && !$entity->eventsEmpty()) {
-            $this->eventProducer->produce(...$entity->pullEvents());
+            $this->outboxMessageProducer->produce(...$entity->pullEvents());
         }
     }
 }

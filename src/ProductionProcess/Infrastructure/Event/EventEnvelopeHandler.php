@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Infrastructure\Event;
 
+use App\Orders\Domain\Event\ProductAddedEvent;
 use App\ProductionProcess\Domain\Events\PrintedProductReprintedEvent;
 use App\ProductionProcess\Domain\Events\RollProcessWasUpdatedEvent;
 use App\ProductionProcess\Domain\Events\RollWasSentToCutCheckInEvent;
@@ -24,6 +25,7 @@ final class EventEnvelopeHandler
         EventType::ROLL_WAS_SENT_TO_CUT_CHECK_IN => RollWasSentToCutCheckInEvent::class,
         EventType::ROLL_WAS_SENT_TO_GLOW_CHECK_IN => RollWasSentToGlowCheckInEvent::class,
         EventType::PRINTED_PRODUCT_REPRINTED => PrintedProductReprintedEvent::class,
+        EventType::PRODUCT_CREATED => ProductAddedEvent::class,
     ];
 
     public function __construct(private DenormalizerInterface $denormalizer, private MessageBusInterface $eventBus)

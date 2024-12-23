@@ -34,5 +34,11 @@
 
         <field name="dateAdded" type="datetime_immutable" column="date_added"/>
 
+        <field name="updatedAt" type="datetime" column="updated_at">
+            <options>
+                <option name="nullable">true</option>
+                <option name="default">CURRENT_TIMESTAMP</option>
+            </options>
+        </field>
     </entity>
 </doctrine-mapping>

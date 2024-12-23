@@ -5,7 +5,7 @@ framework:
             command.bus:
                 middleware:
                     - doctrine_transaction
-                    #- App\Shared\Infrastructure\Middleware\ExceptionMiddleware
+                    - App\Shared\Infrastructure\Middleware\ExceptionMiddleware
             query.bus:
             event.bus:
                 default_middleware:
@@ -15,6 +15,14 @@ framework:
         failure_transport: failed
 
         transports:
+            production_process_outbox:
+                dsn: '%env(DOCTRINE_MESSENGER_TRANSPORT_DSN)%'
+                options:
+                    table_name: 'prod_process_outbox_message'
+                    #works only with pgsql, built in notify support for pgsql
+                    use_notify: true
+                    auto_setup: true
+
             production_process:
                 dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
                 retry_strategy:
@@ -33,6 +41,16 @@ framework:
                             binding_keys:
                                 - 'production_process.#'
                                 - 'inventory.#'
+                                - 'orders.#'
+
+            inventory_outbox:
+                dsn: '%env(DOCTRINE_MESSENGER_TRANSPORT_DSN)%'
+                options:
+                    table_name: 'inventory_outbox_message'
+                    #works only with pgsql, built in notify support for pgsql
+                    use_notify: true
+                    auto_setup: true
+
             inventory:
                 dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
                 retry_strategy:
@@ -48,6 +66,16 @@ framework:
                         inventory:
                             binding_keys:
                                 - 'inventory.#'
+                                - 'production_process.#'
+
+            orders_outbox:
+                dsn: '%env(DOCTRINE_MESSENGER_TRANSPORT_DSN)%'
+                options:
+                    table_name: 'order_outbox_message'
+                    #works only with pgsql, built in notify support for pgsql
+                    use_notify: true
+                    auto_setup: true
+
             orders:
                 dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
                 retry_strategy:
@@ -61,9 +89,7 @@ framework:
                         type: 'topic'
                     queues:
                         orders:
-                            binding_keys:
-                                - 'production_process.#'
-                                - 'orders.#'
+                            binding_keys: ['orders.#', 'production_process.#']
             failed:
                 dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
                 options:
@@ -72,6 +98,12 @@ framework:
                     queues:
                         dlq_queue: ~
         routing:
-            'App\ProductionProcess\Infrastructure\Event\EventEnvelope': [production_process, inventory]
-            'App\Orders\Infrastructure\Event\EventEnvelope': [production_process, orders]
+            #Doctrine Outbox messages
+            'App\ProductionProcess\Infrastructure\Event\Outbox\OutboxMessage': production_process_outbox
+            'App\Orders\Infrastructure\Event\Outbox\OutboxMessage': orders_outbox
+            'App\Inventory\Infrastructure\Event\Outbox\OutboxMessage': inventory_outbox
+
+            #Amqp messages
+            'App\ProductionProcess\Infrastructure\Event\EventEnvelope': [production_process, inventory, orders]
+            'App\Orders\Infrastructure\Event\EventEnvelope': [orders, production_process]
             'App\Inventory\Infrastructure\Event\EventEnvelope': [inventory, production_process]

@@ -6,7 +6,6 @@ namespace App\Orders\Infrastructure\Repository;
 
 use App\Orders\Domain\Aggregate\Order;
 use App\Orders\Domain\Repository\OrderRepositoryInterface;
-use App\Orders\Infrastructure\Event\DomainEventProducer;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -22,7 +21,7 @@ final class OrderRepository extends ServiceEntityRepository implements OrderRepo
      *
      * @param ManagerRegistry $registry the manager registry
      */
-    public function __construct(ManagerRegistry $registry, private readonly DomainEventProducer $domainEventProducer)
+    public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Order::class);
     }
@@ -36,8 +35,6 @@ final class OrderRepository extends ServiceEntityRepository implements OrderRepo
     {
         $this->getEntityManager()->persist($order);
         $this->getEntityManager()->flush();
-
-        $this->domainEventProducer->produce(...$order->pullEvents());
     }
 
     /**

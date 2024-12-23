@@ -20,7 +20,7 @@ final readonly class AddProductCommandHandler implements CommandHandlerInterface
      *
      * @param AccessControlService $accessControlService the access control service
      */
-    public function __construct(private AccessControlService $accessControlService, private ProductService $productService)
+    public function __construct(private ProductService $productService)
     {
     }
 

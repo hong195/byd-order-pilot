@@ -16,10 +16,10 @@ class DomainEventProducer
     {
     }
 
-	/**
-	 * @throws ExceptionInterface
-	 * @throws \Symfony\Component\Serializer\Exception\ExceptionInterface
-	 */
+    /**
+     * @throws ExceptionInterface
+     * @throws \Symfony\Component\Serializer\Exception\ExceptionInterface
+     */
     public function produce(EventInterface ...$events): void
     {
         foreach ($events as $event) {

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Inventory\Infrastructure\Database;
+namespace App\Orders\Infrastructure\Event;
 
-use App\Inventory\Domain\Aggregate\AggregateRoot;
-use App\Inventory\Infrastructure\Event\Outbox\OutboxMessageProducer;
+use App\Orders\Domain\Aggregate\AggregateRoot;
+use App\Orders\Infrastructure\Event\Outbox\OutboxMessageProducer;
 use Doctrine\Bundle\DoctrineBundle\Attribute\AsDoctrineListener;
 use Doctrine\ORM\Event\OnFlushEventArgs;
 use Doctrine\ORM\Events;

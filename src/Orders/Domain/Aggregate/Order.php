@@ -15,9 +15,6 @@ use Doctrine\Common\Collections\Collection;
  */
 class Order extends AggregateRoot
 {
-    /**
-     * @phpstan-ignore-next-line
-     */
     private string $id;
     private ?string $orderNumber = null;
     private ?string $packagingInstructions = null;
@@ -31,6 +28,7 @@ class Order extends AggregateRoot
     private Collection $products;
     private readonly \DateTimeInterface $dateAdded;
 
+	private \DateTimeInterface $updatedAt;
     /**
      * Initializes a new instance of the class.
      *
@@ -42,6 +40,8 @@ class Order extends AggregateRoot
         $this->dateAdded = new \DateTimeImmutable();
         $this->extras = new ArrayCollection([]);
         $this->products = new ArrayCollection([]);
+
+		$this->updatedAt = new \DateTime();
     }
 
     /**
@@ -159,6 +159,8 @@ class Order extends AggregateRoot
         $product->setOrder($this);
         $this->products->add($product);
 
+		$this->updatedAt = new \DateTime();
+
         $this->raise(new ProductAddedEvent(productId: $product->getId()));
     }
 
@@ -171,4 +173,9 @@ class Order extends AggregateRoot
     {
         return $this->products->forAll(fn (int $index, Product $product) => $product->isPacked());
     }
+
+	public function getUpdatedAt(): \DateTimeInterface
+	{
+		return $this->updatedAt;
+	}
 }
