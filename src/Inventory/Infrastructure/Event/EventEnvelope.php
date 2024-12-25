@@ -17,15 +17,18 @@ class EventEnvelope
      * @mixed $eventData
      */
     public array $eventData;
+    public array $headers;
 
     public function __construct(
         string $eventType,
         array $eventData,
+        array $headers = [],
     ) {
         $this->eventId = Ulid::generate();
         $this->eventTime = time();
         $this->eventType = $eventType;
         $this->eventData = $eventData;
+        $this->headers = $headers;
     }
 
     /**
@@ -61,5 +64,10 @@ class EventEnvelope
     public function getEventData(): array
     {
         return $this->eventData;
+    }
+
+    public function getHeaders(): array
+    {
+        return $this->headers;
     }
 }

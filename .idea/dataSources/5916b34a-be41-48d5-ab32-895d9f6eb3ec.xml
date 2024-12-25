@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.52">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>9086</IntrospectionStateNumber>
+      <IntrospectionStateNumber>9808</IntrospectionStateNumber>
       <ServerVersion>16.6</ServerVersion>
       <StartupTime>1734435324</StartupTime>
       <TimeZones>true ACDT
@@ -801,7 +801,7 @@ false posixrules
 13255||10|C|G
 13255||-9223372036854775808|U|G
 13255||10|U|G</Grants>
-      <IntrospectionStateNumber>9086</IntrospectionStateNumber>
+      <IntrospectionStateNumber>9808</IntrospectionStateNumber>
       <ObjectId>16384</ObjectId>
       <OwnerName>symfony</OwnerName>
     </database>
@@ -4225,8 +4225,8 @@ false posixrules
     <schema id="264" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>9086</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2024-12-22.17:08:45</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>9808</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2024-12-25.14:07:23</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>524</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -4237,7 +4237,7 @@ false posixrules
       <ResultsDefinition>trigger</ResultsDefinition>
       <Rows>0.0</Rows>
       <SourceTextLength>117</SourceTextLength>
-      <StateNumber>9052</StateNumber>
+      <StateNumber>9452</StateNumber>
       <LanguageName>plpgsql</LanguageName>
       <OwnerName>symfony</OwnerName>
     </routine>
@@ -4247,7 +4247,7 @@ false posixrules
       <ResultsDefinition>trigger</ResultsDefinition>
       <Rows>0.0</Rows>
       <SourceTextLength>113</SourceTextLength>
-      <StateNumber>9053</StateNumber>
+      <StateNumber>9453</StateNumber>
       <LanguageName>plpgsql</LanguageName>
       <OwnerName>symfony</OwnerName>
     </routine>
@@ -4257,7 +4257,7 @@ false posixrules
       <ResultsDefinition>trigger</ResultsDefinition>
       <Rows>0.0</Rows>
       <SourceTextLength>120</SourceTextLength>
-      <StateNumber>9051</StateNumber>
+      <StateNumber>9451</StateNumber>
       <LanguageName>plpgsql</LanguageName>
       <OwnerName>symfony</OwnerName>
     </routine>
@@ -4697,8 +4697,8 @@ false posixrules
     </key>
     <trigger id="330" parent="276" name="notify_trigger">
       <Events>IU</Events>
-      <ObjectId>40988</ObjectId>
-      <StateNumber>9052</StateNumber>
+      <ObjectId>41013</ObjectId>
+      <StateNumber>9452</StateNumber>
       <CallRoutineId>40919</CallRoutineId>
     </trigger>
     <column id="331" parent="277" name="id">
@@ -4794,8 +4794,8 @@ false posixrules
     </key>
     <trigger id="343" parent="277" name="notify_trigger">
       <Events>IU</Events>
-      <ObjectId>40989</ObjectId>
-      <StateNumber>9053</StateNumber>
+      <ObjectId>41014</ObjectId>
+      <StateNumber>9453</StateNumber>
       <CallRoutineId>40935</CallRoutineId>
     </trigger>
     <column id="344" parent="278" name="id">
@@ -5277,8 +5277,8 @@ false posixrules
     </key>
     <trigger id="406" parent="282" name="notify_trigger">
       <Events>IU</Events>
-      <ObjectId>40987</ObjectId>
-      <StateNumber>9051</StateNumber>
+      <ObjectId>41012</ObjectId>
+      <StateNumber>9451</StateNumber>
       <CallRoutineId>40903</CallRoutineId>
     </trigger>
     <column id="407" parent="283" name="id">

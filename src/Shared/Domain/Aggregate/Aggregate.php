@@ -22,10 +22,6 @@ abstract class Aggregate
     {
         $events = $this->events;
         $this->events = [];
-
-		$backtrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
-
-		dump($backtrace);
 		return $events;
     }
 

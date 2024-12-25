@@ -5,7 +5,7 @@ framework:
             command.bus:
                 middleware:
                     - doctrine_transaction
-                    - App\Shared\Infrastructure\Middleware\ExceptionMiddleware
+                    #- App\Shared\Infrastructure\Middleware\ExceptionMiddleware
             query.bus:
             event.bus:
                 default_middleware:
@@ -53,6 +53,7 @@ framework:
 
             inventory:
                 dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+                serializer: 'App\Inventory\Infrastructure\Event\EventEnvelopeSerializer'
                 retry_strategy:
                     max_retries: 3
                     delay: 1000
