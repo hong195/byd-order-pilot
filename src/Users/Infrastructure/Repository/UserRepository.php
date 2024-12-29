@@ -47,7 +47,12 @@ class UserRepository extends ServiceEntityRepository implements UserRepositoryIn
      */
     public function findById(string $id): ?User
     {
-        return $this->find($id);
+        $query = $this->createQueryBuilder('u');
+
+        $query->where('u.id = :id');
+        $query->setParameter('id', $id);
+
+        return $query->getQuery()->enableResultCache()->getOneOrNullResult();
     }
 
     /**
@@ -59,7 +64,12 @@ class UserRepository extends ServiceEntityRepository implements UserRepositoryIn
      */
     public function findByEmail(string $email): ?User
     {
-        return $this->findOneBy(['email' => $email]);
+        $query = $this->createQueryBuilder('u');
+
+        $query->where('u.email = :email');
+        $query->setParameter('email', $email);
+
+        return $query->getQuery()->enableResultCache()->getOneOrNullResult();
     }
 
     /**
@@ -114,7 +124,7 @@ class UserRepository extends ServiceEntityRepository implements UserRepositoryIn
             $qb->andWhere($qb->expr()->in('u.id', $userFilter->ids));
         }
 
-        $paginator = new Paginator($qb->getQuery());
+        $paginator = new Paginator($qb->getQuery()->enableResultCache(600));
 
         return new PaginationResult(
             iterator_to_array($paginator->getIterator()),

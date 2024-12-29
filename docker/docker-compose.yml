@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   php-fpm:
     container_name: php-fpm
@@ -42,7 +40,26 @@ services:
       - 5672:5672
     volumes:
       - rmq_data:/var/lib/rabbitmq
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "6379:6379" # Порт для подключения к Redis
+    volumes:
+      - redis_data:/data # Хранение данных Redis на локальном диске
+    command: ["redis-server", "--appendonly", "yes"] # Включение сохранения данных на диск
+    restart: always
+  redis-insight:
+    image: redislabs/redisinsight:latest
+    container_name: redis-insight
+    ports:
+      - "5540:5540"
+    volumes:
+      - redis-insight:/data
+    restart: always
 
 volumes:
   db_data:
   rmq_data:
+  redis_data:
+  redis-insight:

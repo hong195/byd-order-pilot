@@ -16,6 +16,7 @@
         "lexik/jwt-authentication-bundle": "^3.1",
         "martin-georgiev/postgresql-for-doctrine": "^2.5",
         "nelmio/cors-bundle": "^2.5",
+        "predis/predis": "*",
         "symfony/amqp-messenger": "7.1.*",
         "symfony/console": "7.1.*",
         "symfony/doctrine-messenger": "7.1.*",
