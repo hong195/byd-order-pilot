@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Installed redis.">
-      <change afterPath="$PROJECT_DIR$/src/Users/Infrastructure/Event/PublishAggregateEventsOnFlushListener.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/order-pilot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/order-pilot.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/cache.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/cache.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/doctrine.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Users/Infrastructure/Cache/CachedUserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/Infrastructure/Event/PublishAggregateEventsOnFlushListener.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Users/Infrastructure/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Infrastructure/Repository/UserRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -513,15 +510,7 @@
       <workItem from="1734435400588" duration="146000" />
       <workItem from="1734435687810" duration="76155000" />
       <workItem from="1734969675203" duration="37370000" />
-      <workItem from="1735386472912" duration="26860000" />
-    </task>
-    <task id="LOCAL-00464" summary="Updated merge tests.">
-      <option name="closed" value="true" />
-      <created>1732103686619</created>
-      <option name="number" value="00464" />
-      <option name="presentableId" value="LOCAL-00464" />
-      <option name="project" value="LOCAL" />
-      <updated>1732103686619</updated>
+      <workItem from="1735386472912" duration="34172000" />
     </task>
     <task id="LOCAL-00465" summary="Updated merge tests.">
       <option name="closed" value="true" />
@@ -907,7 +896,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735484837008</updated>
     </task>
-    <option name="localTasksCounter" value="513" />
+    <task id="LOCAL-00513" summary="Installed redis.">
+      <option name="closed" value="true" />
+      <created>1736178741568</created>
+      <option name="number" value="00513" />
+      <option name="presentableId" value="LOCAL-00513" />
+      <option name="project" value="LOCAL" />
+      <updated>1736178741568</updated>
+    </task>
+    <option name="localTasksCounter" value="514" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

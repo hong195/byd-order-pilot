@@ -41,6 +41,12 @@ services:
             tags:
                 - { name: messenger.message_handler, bus: event.bus }
 
+    App\Users\Domain\Repository\UserRepositoryInterface:
+        class: App\Users\Infrastructure\Cache\CachedUserRepository
+        arguments:
+            $userRepository: '@App\Users\Infrastructure\Repository\UserRepository'
+            $cache: '@cache.app'
+
     App\*\Domain\Factory\:
         namespace: App\
         public: true
