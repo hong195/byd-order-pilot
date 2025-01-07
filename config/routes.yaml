@@ -29,3 +29,6 @@ inventory:
 prod-process:
     resource: ../src/ProductionProcess/Infrastructure/Controller/
     type: attribute
+
+app_metrics:
+    resource: '@ArtprimaPrometheusMetricsBundle/Resources/config/routing.xml'

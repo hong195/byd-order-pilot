@@ -27,6 +27,10 @@ RUN apk add --no-cache rabbitmq-c-dev \
   && pecl install amqp  \
   && docker-php-ext-enable amqp
 
+#Redis
+RUN  pecl install redis \
+    && docker-php-ext-enable redis
+
 # Supervisor
 RUN apk add --no-cache supervisor
 COPY ./docker/php-fpm/supervisord.conf /etc/supervisord.conf

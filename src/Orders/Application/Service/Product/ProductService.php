@@ -42,7 +42,7 @@ final readonly class ProductService
         $cutFile = $dto->cutFileId ? $this->mediaFileRepository->findById($dto->cutFileId) : null;
         $printFile = $dto->printFileId ? $this->mediaFileRepository->findById($dto->printFileId) : null;
 
-		if ($cutFile) {
+        if ($cutFile) {
             $product->setCutFile($cutFile);
         }
 
