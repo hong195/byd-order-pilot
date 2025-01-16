@@ -41,6 +41,8 @@ services:
       - 5672:5672
     volumes:
       - rmq_data:/var/lib/rabbitmq
+    networks:
+      - shared_network
 
   redis:
     image: redis:latest
@@ -107,6 +109,9 @@ services:
       - "9187:9187"
     environment:
       DATA_SOURCE_NAME: "postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}"
+networks:
+  shared_network:
+    external: true
 
 volumes:
   db_data:
