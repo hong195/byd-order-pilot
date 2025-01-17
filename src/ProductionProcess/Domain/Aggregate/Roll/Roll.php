@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\ProductionProcess\Domain\Aggregate\Roll;
 
+use App\ProductionProcess\Domain\Aggregate\AggregateRoot;
 use App\ProductionProcess\Domain\Aggregate\PrintedProduct;
 use App\ProductionProcess\Domain\Aggregate\Printer\Printer;
-use App\ProductionProcess\Domain\Aggregate\AggregateRoot;
 use App\ProductionProcess\Domain\Events\RollProcessWasUpdatedEvent;
 use App\ProductionProcess\Domain\Events\RollWasSentToCutCheckInEvent;
 use App\ProductionProcess\Domain\Events\RollWasSentToGlowCheckInEvent;
@@ -363,7 +363,11 @@ class Roll extends AggregateRoot
     {
         $this->updateProcess(Process::PRINTING_CHECK_IN);
 
-        $this->raise(new RollWasSentToPrintCheckInEvent($this->id));
+        $this->raise(new RollWasSentToPrintCheckInEvent(
+            rollId: $this->id,
+            filmId: $this->filmId,
+            size: $this->getPrintedProductsLength()
+        ));
     }
 
     /**

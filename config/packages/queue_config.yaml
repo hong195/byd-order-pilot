@@ -1,16 +1,5 @@
 framework:
     messenger:
-        default_bus: command.bus
-        buses:
-            command.bus:
-                middleware:
-                    - doctrine_transaction
-                    #- App\Shared\Infrastructure\Middleware\ExceptionMiddleware
-            query.bus:
-            event.bus:
-                default_middleware:
-                    allow_no_handlers: true
-                    enabled: true
 
         failure_transport: failed
 
@@ -43,9 +32,16 @@ framework:
                                 - 'inventory.#'
                                 - 'orders.#'
 
+            inventory_outbox:
+                dsn: '%env(DOCTRINE_MESSENGER_TRANSPORT_DSN)%'
+                options:
+                    table_name: 'inventory_outbox_message'
+                    #works only with pgsql, built in notify support for pgsql
+                    use_notify: true
+                    auto_setup: true
+
             inventory:
                 dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
-                serializer: 'App\Inventory\Infrastructure\Event\EventEnvelopeSerializer'
                 retry_strategy:
                     max_retries: 3
                     delay: 1000
@@ -94,7 +90,9 @@ framework:
             #Doctrine Outbox messages
             'App\ProductionProcess\Infrastructure\Event\Outbox\OutboxMessage': production_process_outbox
             'App\Orders\Infrastructure\Event\Outbox\OutboxMessage': orders_outbox
+            'App\Inventory\Infrastructure\Event\Outbox\OutboxMessage': inventory_outbox
 
             #Amqp messages
             'App\ProductionProcess\Infrastructure\Event\EventEnvelope': [production_process, inventory, orders]
             'App\Orders\Infrastructure\Event\EventEnvelope': [orders, production_process]
+            'App\Inventory\Infrastructure\Event\EventEnvelope': [inventory, production_process]

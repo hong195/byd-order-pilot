@@ -24,8 +24,8 @@ final readonly class ProductCreateDTO
         public float $length,
         public string $filmType,
         public ?string $laminationType = null,
-        public ?int $cutFileId = null,
-        public ?int $printFileId = null,
+		public null|string|int $cutFileId = null,
+		public null|string|int $printFileId = null,
     ) {
     }
 }

@@ -8,13 +8,6 @@ doctrine:
         password: '%env(resolve:DB_PASSWORD)%'
         server_version: '%env(DB_SERVER_VERSION)%'
 
-        types:
-            jsonb: MartinGeorgiev\Doctrine\DBAL\Types\Jsonb
-            jsonb[]: MartinGeorgiev\Doctrine\DBAL\Types\JsonbArray
-
-        mapping_types:
-            jsonb: jsonb
-
     orm:
         auto_generate_proxy_classes: true
         enable_lazy_ghost_objects: true
@@ -62,12 +55,6 @@ when@test:
             driver: 'pdo_sqlite'
             url: 'sqlite:///:memory:'
             memory: true
-#        orm:
-#            auto_generate_proxy_classes: true
-#            metadata_cache_driver:
-#                type: array
-#            query_cache_driver: 'array'
-#            result_cache_driver: 'array'
 
 
 when@prod:

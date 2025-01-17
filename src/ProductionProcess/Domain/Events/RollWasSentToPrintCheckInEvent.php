@@ -19,7 +19,7 @@ final readonly class RollWasSentToPrintCheckInEvent implements EventInterface
      *
      * @param string $rollId the ID of the roll
      */
-    public function __construct(public string $rollId)
+    public function __construct(public string $rollId, public string $filmId, public float $size)
     {
     }
 
