@@ -4,17 +4,88 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Added shared network">
-      <change afterPath="$PROJECT_DIR$/config/packages/queue_config.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5916b34a-be41-48d5-ab32-895d9f6eb3ec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5916b34a-be41-48d5-ab32-895d9f6eb3ec.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5916b34a-be41-48d5-ab32-895d9f6eb3ec/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5916b34a-be41-48d5-ab32-895d9f6eb3ec/storage_v2/_src_/database/symfony.mw8XmA/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/messenger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/messenger.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/DTO/Product/ProductCreateDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/DTO/Product/ProductCreateDTO.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AddProduct/AddProductCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Orders/Application/UseCase/Command/AddProduct/AddProductCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Roll/Roll.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Aggregate/Roll/Roll.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductionProcess/Domain/Events/RollWasSentToPrintCheckInEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductionProcess/Domain/Events/RollWasSentToPrintCheckInEvent.php" afterDir="false" />
+    <list default="true" id="62139d87-6dfc-4ebf-8ff5-6f2e43609961" name="Changes" comment="Add shared network to Docker and configure Messenger queue">
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Command/AddFilm/AddFilmCommand.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Command/AddFilm/AddFilmCommandHandler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Command/DeleteFilm/DeleteFilmCommand.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Command/DeleteFilm/DeleteFilmCommandHandler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Command/RecordInventoryAdding/RecordInventoryAddingCommand.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Command/RecordInventoryAdding/RecordInventoryAddingCommandHandler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Command/RecordInventoryUpdating/RecordInventoryUpdatingCommand.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Command/RecordInventoryUpdating/RecordInventoryUpdatingCommandHandler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Command/UpdateFilm/UpdateFilmCommand.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Command/UpdateFilm/UpdateFilmCommandHandler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Command/UseFilm/UseFilmCommand.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Command/UseFilm/UseFilmCommandHandler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/PrivateCommandInteractor.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/PrivateQueryInteractor.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/DTO/FilmData.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/DTO/FilmDataTransformer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/DTO/FilmHistoryData.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/DTO/FilmHistoryDataTransformer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/DTO/RecordHistoryUpdatingData.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/DTO/RollData.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/FindAFilm/FindAFilmHandler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/FindAFilm/FindAFilmQuery.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/FindAFilm/FindAFilmResult.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/FindFilmHistory/FindFilmHistoryQuery.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/FindFilmHistory/FindFilmHistoryQueryHandler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/FindFilmHistory/FindFilmHistoryQueryResult.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/FindFilms/FindFilmsHandler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/FindFilms/FindFilmsQuery.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Query/FindFilms/FindFilmsResult.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Application/UseCases/Services/HistoryService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Aggregate/AbstractFilm.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Aggregate/AggregateRoot.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Aggregate/FilmType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Aggregate/History.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Aggregate/LaminationFilm.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Aggregate/RollFilm.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Events/FilmWasCreatedEvent.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Events/FilmWasDeletedEvent.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Events/FilmWasUpdatedEvent.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Events/FilmWasUsedEvent.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Exceptions/NotEnoughFilmException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Factory/FilmFactory.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Repository/FilmFilter.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Repository/FilmRepositoryInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Repository/HistoryFilter.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Repository/HistoryRepositoryInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Service/FilmMaker.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Service/FilmUpdater.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Domain/Service/LaminationUpdater.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Adapter/Rolls/RollsApiAdapter.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Adapter/Rolls/RollsApiInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Api/InventoryApi.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Inventory/AddInventoryFilmAction.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Inventory/AddInventoryLaminationAction.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Inventory/DeleteInventoryAction.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Inventory/FindAInventoryAction.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Inventory/FindInventoryAction.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Inventory/History/FindFilmHistoryAction.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Inventory/UpdateInventoryFilmAction.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Controller/Inventory/UpdateLaminationAction.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Database/FilmDeletedListener.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Database/ORM/AbstractFilm.orm.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Database/ORM/History.orm.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Database/ORM/LaminationFilm.orm.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Database/ORM/RollFilm.orm.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Database/PublishAggregateEventsOnFlushListener.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Event/DomainEventProducer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Event/EventEnvelope.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Event/EventEnvelopeSerializer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Event/ExternalEvent/RollWasSentToPrintCheckInExternalEvent.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Event/Outbox/OutboxMessage.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Event/Outbox/OutboxMessageProducer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Event/Outbox/OutboxMessageRelay.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/EventHandler/EventEnvelopeHandler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/EventHandler/FilmWasCreatedEventHandler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/EventHandler/FilmWasDeletedEventHandler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/EventHandler/FilmWasUpdatedEventHandler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/EventHandler/FilmWasUsedEventHandler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/EventHandler/RollWasSentToPrintingExternalEventHandler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Repository/FilmRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory/Infrastructure/Repository/HistoryRepository.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -523,23 +594,7 @@
       <workItem from="1735386472912" duration="69548000" />
       <workItem from="1737050170289" duration="2965000" />
       <workItem from="1737053183935" duration="1825000" />
-      <workItem from="1737107051545" duration="5691000" />
-    </task>
-    <task id="LOCAL-00469" summary="Added cors settings for downloading files.">
-      <option name="closed" value="true" />
-      <created>1732199078098</created>
-      <option name="number" value="00469" />
-      <option name="presentableId" value="LOCAL-00469" />
-      <option name="project" value="LOCAL" />
-      <updated>1732199078098</updated>
-    </task>
-    <task id="LOCAL-00470" summary="Updated after merging rolls printer is also assigned.">
-      <option name="closed" value="true" />
-      <created>1732203235474</created>
-      <option name="number" value="00470" />
-      <option name="presentableId" value="LOCAL-00470" />
-      <option name="project" value="LOCAL" />
-      <updated>1732203235475</updated>
+      <workItem from="1737107051545" duration="6464000" />
     </task>
     <task id="LOCAL-00471" summary="Updated after merging rolls printer is also assigned.">
       <option name="closed" value="true" />
@@ -917,7 +972,23 @@
       <option name="project" value="LOCAL" />
       <updated>1737043966611</updated>
     </task>
-    <option name="localTasksCounter" value="518" />
+    <task id="LOCAL-00518" summary="Add shared network to Docker and configure Messenger queue">
+      <option name="closed" value="true" />
+      <created>1737113844006</created>
+      <option name="number" value="00518" />
+      <option name="presentableId" value="LOCAL-00518" />
+      <option name="project" value="LOCAL" />
+      <updated>1737113844006</updated>
+    </task>
+    <task id="LOCAL-00519" summary="Add shared network to Docker and configure Messenger queue">
+      <option name="closed" value="true" />
+      <created>1737113912654</created>
+      <option name="number" value="00519" />
+      <option name="presentableId" value="LOCAL-00519" />
+      <option name="project" value="LOCAL" />
+      <updated>1737113912654</updated>
+    </task>
+    <option name="localTasksCounter" value="520" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -952,8 +1023,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added unassign product service." />
-    <MESSAGE value="Added tests for reprint" />
     <MESSAGE value="Added change sort order tests" />
     <MESSAGE value="Added lamination/sort service group testing" />
     <MESSAGE value="Added take a photo tests" />
@@ -977,7 +1046,9 @@
     <MESSAGE value="Installed redis." />
     <MESSAGE value="Added user repository cache decorator." />
     <MESSAGE value="Added shared network" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added shared network" />
+    <MESSAGE value="Up" />
+    <MESSAGE value="Add shared network to Docker and configure Messenger queue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add shared network to Docker and configure Messenger queue" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
