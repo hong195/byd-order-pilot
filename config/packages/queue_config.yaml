@@ -90,9 +90,9 @@ framework:
             #Doctrine Outbox messages
             'App\ProductionProcess\Infrastructure\Event\Outbox\OutboxMessage': production_process_outbox
             'App\Orders\Infrastructure\Event\Outbox\OutboxMessage': orders_outbox
-            'App\Inventory\Infrastructure\Event\Outbox\OutboxMessage': inventory_outbox
+            #'App\Inventory\Infrastructure\Event\Outbox\OutboxMessage': inventory_outbox
 
             #Amqp messages
             'App\ProductionProcess\Infrastructure\Event\EventEnvelope': [production_process, inventory, orders]
             'App\Orders\Infrastructure\Event\EventEnvelope': [orders, production_process]
-            'App\Inventory\Infrastructure\Event\EventEnvelope': [inventory, production_process]
+            #'App\Inventory\Infrastructure\Event\EventEnvelope': [inventory, production_process]

@@ -22,10 +22,6 @@ rolls:
     resource: ../src/Orders/Infrastructure/Controller/
     type: attribute
 
-inventory:
-    resource: ../src/Inventory/Infrastructure/Controller/
-    type: attribute
-
 prod-process:
     resource: ../src/ProductionProcess/Infrastructure/Controller/
     type: attribute

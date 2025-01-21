@@ -43,12 +43,12 @@ doctrine:
                 dir: '%kernel.project_dir%/src/Orders/Infrastructure/Database/ORM'
                 prefix: 'App\Orders\Domain\Aggregate'
                 alias: Orders
-            Inventory:
-                is_bundle: false
-                type: xml
-                dir: '%kernel.project_dir%/src/Inventory/Infrastructure/Database/ORM'
-                prefix: 'App\Inventory\Domain\Aggregate'
-                alias: Inventory
+#            Inventory:
+#                is_bundle: false
+#                type: xml
+#                dir: '%kernel.project_dir%/src/Inventory/Infrastructure/Database/ORM'
+#                prefix: 'App\Inventory\Domain\Aggregate'
+#                alias: Inventory
 when@test:
     doctrine:
         dbal:

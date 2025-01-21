@@ -54,7 +54,7 @@ services:
         exclude: '../src/Shared/*'
 
     App\ProductionProcess\Domain\Service\Inventory\AvailableFilmServiceInterface:
-        class: App\ProductionProcess\Infrastructure\Adapter\InventoryApiAdapter
+        class: App\ProductionProcess\Domain\Service\Inventory\InMemoryAvailableFilmService
         public: true
 
     App\Orders\Application\Service\Product\ProductProcessServiceInterface:

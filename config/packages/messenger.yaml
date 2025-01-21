@@ -45,7 +45,6 @@ framework:
 
             inventory:
                 dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
-                serializer: 'App\Inventory\Infrastructure\Event\EventEnvelopeSerializer'
                 retry_strategy:
                     max_retries: 3
                     delay: 1000
